@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<style id="tk-nav-css">
+html::after{content:"";position:fixed;inset:0;z-index:9999;background:#100E0C;pointer-events:none;opacity:0;transition:opacity .25s ease}
+html.tk-in::after,html.tk-out::after{opacity:1}
+html.tk-fast .ld{display:none!important}
+</style>
+<script>
+/* переходы между категориями: лоадер только при первом входе/обновлении, между категориями — затемнение 250 мс */
+(function(){var d=document.documentElement,nt='',via=false;
+try{nt=(performance.getEntriesByType('navigation')[0]||{}).type||''}catch(e){}
+try{via=sessionStorage.getItem('tk-nav')==='1';sessionStorage.removeItem('tk-nav')}catch(e){}
+if(location.hash==='#tk'){via=true;try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
+if(via){try{history.scrollRestoration='manual'}catch(e){}scrollTo(0,0);addEventListener('load',function(){scrollTo(0,0)});}
+window.__FAST=via||nt==='back_forward';
+if(window.__FAST){d.classList.add('tk-fast','tk-in');
+  addEventListener('DOMContentLoaded',function(){var f=document.getElementById('f1'),
+    go=function(){var done=function(){d.classList.remove('tk-in')};requestAnimationFrame(function(){requestAnimationFrame(done)});setTimeout(done,60)};
+    if(f&&f.decode&&f.getAttribute('src'))Promise.race([f.decode().catch(function(){}),new Promise(function(r){setTimeout(r,350)})]).then(go);else go();});}
+document.addEventListener('click',function(e){
+  if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+  var a=e.target.closest&&e.target.closest('a[href]');if(!a||a.target==='_blank')return;
+  var h=a.getAttribute('href');if(!/^(index|category-[a-z-]+)\.html$/.test(h))return;
+  e.preventDefault();try{sessionStorage.setItem('tk-nav','1')}catch(x){}
+  d.classList.add('tk-out');setTimeout(function(){location.href=h+'#tk'},250);},true);
+addEventListener('pageshow',function(e){if(e.persisted)d.classList.remove('tk-out','tk-in')});
+})();
+</script>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#100E0C">
+<title>Hote — Teka Moldova</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#D8232A;--ink:#100E0C;--cream:#E9E8E6;--mute:#7A736D;--line:rgba(16,14,12,.1);--W:430px}
+html,body{background:#0a0908!important;margin:0;min-height:100%}
+body{font-family:Montserrat,system-ui,sans-serif;color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;display:flex;justify-content:center}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+
+.app{width:100%;max-width:var(--W);margin:0 auto;position:relative;background:var(--ink)}
+
+/* ── loader ── */
+.ld{position:fixed;inset:0;z-index:50;background:var(--ink);display:grid;place-items:center;transition:opacity .7s;overflow:hidden}
+.ld.off{opacity:0;pointer-events:none}
+.ld .lg{position:relative;text-align:center}
+.ld b{display:block;font-weight:800;font-size:44px;letter-spacing:-1px;line-height:1}
+.ld b span{display:inline-block;opacity:0;will-change:transform,opacity}
+.ld i{display:block;width:0;height:3px;background:var(--red);margin:14px auto 0;transform-origin:left}
+.ld em{display:block;font-style:normal;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:14px;opacity:0}
+.ld .gl{position:absolute;top:-20%;bottom:-20%;left:-30%;width:30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-18deg);pointer-events:none}
+.ld .halo{position:absolute;left:50%;top:50%;width:260px;height:260px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(216,35,42,.28),transparent);filter:blur(20px);opacity:0}
+
+/* ── header ── */
+.hdr{position:fixed;top:0;left:50%;transform:translateX(-50%);width:min(100%,var(--W));z-index:20;
+  display:flex;align-items:center;gap:12px;padding:12px 16px;transition:background .4s,color .4s}
+.hdr::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,14,12,.6),rgba(16,14,12,0));pointer-events:none;transition:opacity .4s}
+.hdr.light{background:rgba(233,232,230,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--ink);border-bottom:1px solid var(--line)}
+.hdr.light::before{opacity:0}
+.hdr>*{position:relative}
+.logo{width:44px;height:36px;background:var(--red);display:grid;place-items:center;border-radius:2px;font-weight:700;font-size:13px;color:#fff}
+.sp{flex:1}
+.ic{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.ib{width:34px;height:34px;display:grid;place-items:center;position:relative}
+.lang{font-size:11px;font-weight:600;letter-spacing:.08em;padding:5px 8px;border:1px solid currentColor;border-radius:20px;opacity:.85}
+.cb{position:absolute;top:2px;right:0;min-width:15px;height:15px;border-radius:8px;background:var(--red);color:#fff;font-size:9px;font-weight:700;display:grid;place-items:center;padding:0 4px}
+
+/* ── hero ── */
+.hero{position:relative;height:100svh;overflow:hidden;background:var(--ink)}
+.frames{position:absolute;inset:0;transform-origin:50% 40%;will-change:transform}
+.frames{transform-origin:50% 51%}
+.frames img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;filter:brightness(1.22) saturate(1.05)}
+/* свет ламп вытяжки: очень медленное дыхание */
+.zg{position:absolute;border-radius:50%;pointer-events:none;mix-blend-mode:screen;opacity:0;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(255,198,132,.38) 0%,rgba(255,172,102,.17) 40%,rgba(255,150,82,.05) 64%,rgba(255,150,82,0) 78%);
+  filter:blur(7px);animation:lamp 5.4s ease-in-out infinite}
+.zg.z2{animation-duration:6.7s;animation-delay:-2.3s}
+@keyframes lamp{0%,100%{opacity:.28;transform:translate(-50%,-50%) scale(.98)}
+                50%{opacity:.60;transform:translate(-50%,-50%) scale(1.04)}}
+/* лампы разгораются после входа, затем дышат */
+.lamps{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:0}
+.hero.lit .lamps{animation:lampsOn 1.8s cubic-bezier(.2,.7,.2,1) .25s forwards}
+@keyframes lampsOn{0%{opacity:0}38%{opacity:1;filter:brightness(1.7)}100%{opacity:1;filter:brightness(1)}}
+.zg.zc{animation:none;opacity:.85;filter:blur(1px);
+  background:radial-gradient(circle,rgba(255,240,210,.95) 0%,rgba(255,206,146,.40) 34%,rgba(255,180,110,0) 72%)}
+/* пар над кастрюлей — canvas */
+#steam{position:absolute;left:0;top:0;pointer-events:none;opacity:0;transition:opacity 1.6s ease .6s}
+.hero.lit #steam{opacity:1}
+@media (prefers-reduced-motion:reduce){.zg{animation:none;opacity:.42}.hero.lit .lamps{animation:none;opacity:1}#steam{display:none}}
+.veil{position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(88% 52% at 50% 46%,rgba(16,14,12,0) 48%,rgba(16,14,12,.10) 78%,rgba(16,14,12,.30) 100%),
+  linear-gradient(0deg,rgba(16,14,12,.97) 0,rgba(16,14,12,.9) 15%,rgba(16,14,12,.66) 26%,rgba(16,14,12,.32) 38%,rgba(16,14,12,.08) 50%,rgba(16,14,12,0) 60%)}
+
+.intro{position:absolute;left:0;right:0;bottom:0;padding:0 20px 24px;will-change:transform,opacity}
+.crumbs{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.62);margin-bottom:9px}
+h1{font-size:42px;font-weight:800;letter-spacing:-1.4px;line-height:1}
+h1 .w{display:inline-block;white-space:nowrap}
+h1 .ch{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+h1 .ch>span{display:inline-block;will-change:transform}
+.rule{width:64px;height:3px;background:var(--red);margin:11px 0 12px}
+.sub{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:18px}.sub b{color:#fff;font-weight:600}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -20px;padding:0 20px 2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;height:36px;padding:0 16px;border-radius:20px;font-size:13px;font-weight:500;border:1px solid rgba(255,255,255,.32);
+  white-space:nowrap;backdrop-filter:blur(6px);background:rgba(255,255,255,.06)}
+.chip.on{background:var(--red);border-color:var(--red);font-weight:600}
+
+
+/* выезжающие блоки */
+.story{position:relative;background:var(--ink);padding:60px 20px 68px;display:grid;gap:58px}
+.blk{position:relative}
+.blk .k{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:12px}
+.blk .k svg{width:20px;height:20px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.blk h2{font-size:34px;font-weight:800;letter-spacing:-1px;line-height:1.05;margin-bottom:10px}
+.blk p{font-size:14px;line-height:1.5;color:rgba(255,255,255,.78);max-width:34ch}
+.blk.s{bottom:auto;top:12%;right:20px;max-width:none}
+.blk.s.tight p{display:none}
+.blk.s.tight h2{font-size:22px}
+.blk.s .k{margin-bottom:10px}
+.blk.s h2{font-size:26px;letter-spacing:-.8px;font-weight:800;line-height:1.05}
+.blk.s p{margin-top:8px;font-size:13px;color:rgba(255,255,255,.7)}
+.blk.s .ln2{position:relative;width:1px;height:0;background:rgba(255,255,255,.55);margin:6px 0 0 35%;--h:30px}
+.blk.s .ln2::after{content:"";position:absolute;left:-4px;bottom:-4px;width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.25);opacity:0}
+.blk.s.on .ln2{height:var(--h);transition:height .5s .15s cubic-bezier(.2,.7,.2,1)}
+.blk.s.on .ln2::after{opacity:1;transition:opacity .3s .6s}
+.blk.n h2{font-size:64px;letter-spacing:-3px;line-height:.95;margin-bottom:6px}
+.blk.n h2 small{font-size:18px;letter-spacing:0;font-weight:600;color:rgba(255,255,255,.7);margin-left:6px}
+.blk.n p{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.85);font-weight:600}
+.stage{position:absolute;inset:0;will-change:transform,opacity}
+
+/* ── sticky bar ── */
+.bar{position:sticky;top:60px;z-index:15;background:var(--cream);color:var(--ink);border-bottom:1px solid var(--line);padding:10px 0 10px 16px;display:flex;align-items:center;gap:10px}
+.bar .cw{position:relative;flex:1;min-width:0}
+.bar .chips{margin:0;padding:0 44px 0 0;flex:1;scroll-behavior:smooth}
+.bar .cw::after{content:"";position:absolute;top:0;bottom:0;right:0;width:64px;background:linear-gradient(90deg,rgba(233,232,230,0),var(--cream) 60%);pointer-events:none;transition:opacity .3s}
+.bar .cw.end::after{opacity:0}
+.bar .nx{z-index:2;position:absolute;right:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center;box-shadow:0 2px 8px rgba(16,14,12,.12);transition:opacity .3s,transform .3s}
+.bar .nx svg{width:14px;height:14px;stroke:var(--ink);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
+.bar .cw.end .nx{opacity:0;pointer-events:none;transform:translateY(-50%) scale(.6)}
+.bar .chip{border-color:var(--line);background:#fff;backdrop-filter:none;color:var(--ink);height:34px;font-size:12px}
+.bar .chip.on{color:#fff;background:var(--red);border-color:var(--red)}
+.bar .fb{position:relative;flex:none;height:34px;padding:0 14px 0 12px;border-radius:18px;border:1px solid var(--ink);font-size:12px;font-weight:600;display:flex;align-items:center;gap:6px;margin-right:16px}
+.bar .fb svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+.bar .fb b{min-width:16px;height:16px;border-radius:8px;background:var(--red);color:#fff;font-size:10px;display:grid;place-items:center;padding:0 4px}
+.bar .fb b[hidden]{display:none}
+.empty{grid-column:1/-1;text-align:center;padding:40px 20px;color:var(--mute);font-size:14px}
+.empty b{display:block;color:var(--ink);font-size:18px;margin-bottom:6px}
+.lang{cursor:pointer}
+
+/* шторка фильтров */
+.sh-bg{position:fixed;inset:0;z-index:40;background:rgba(16,14,12,.5);opacity:0;pointer-events:none;transition:opacity .3s}
+.sh-bg.on{opacity:1;pointer-events:auto}
+.sh{position:fixed;left:50%;bottom:0;transform:translate(-50%,105%);width:min(100%,var(--W));z-index:41;background:#fff;color:var(--ink);border-radius:22px 22px 0 0;padding:10px 20px 28px;max-height:86svh;overflow:auto}
+.sh::before{content:"";display:block;width:40px;height:4px;border-radius:2px;background:#ddd;margin:0 auto 18px}
+.sh h4{font-size:18px;font-weight:800;letter-spacing:-.4px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center}
+.sh h4 button{font-size:12px;font-weight:600;color:var(--red)}
+.sh .g{margin-bottom:20px}
+.sh .g label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:600;margin-bottom:10px}
+.sh .opts{display:flex;flex-wrap:wrap;gap:8px}
+.sh .opt{height:38px;padding:0 16px;border-radius:19px;border:1px solid var(--line);font-size:13px;font-weight:500;background:#fff;transition:background .2s,color .2s,border-color .2s}
+.sh .opt.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sh .opt .sw{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:7px;vertical-align:-1px;border:1px solid rgba(0,0,0,.15)}
+.sh .apply{width:100%;height:52px;border-radius:26px;background:var(--red);color:#fff;font-weight:700;font-size:15px;margin-top:6px}
+
+/* ── catalog ── */
+.cat{background:var(--cream);color:var(--ink);padding:18px 16px 90px}
+.cat-h{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px}
+.cat-h b{font-size:15px;font-weight:700}.cat-h span{font-size:12px;color:var(--mute)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 12px}
+.pc{display:flex;flex-direction:column;position:relative;opacity:0;transform:translateY(30px)}
+.pc .pi{transition:transform .5s,box-shadow .5s}
+.pc.lit .pi{transform:translateY(-4px);box-shadow:0 24px 40px -18px rgba(16,14,12,.35)}
+.pc .ln{height:2px;background:var(--red);width:0;margin-top:8px;transition:width .6s cubic-bezier(.2,.7,.2,1)}
+.pc.lit .ln{width:100%}
+.pi{position:relative;aspect-ratio:1/.84;border-radius:14px;background:#fff;box-shadow:0 1px 2px rgba(16,14,12,.06);overflow:hidden}
+.pi img{position:absolute;left:4%;right:4%;top:13%;bottom:7%;width:92%;height:80%;object-fit:contain}
+.pi img.tall{top:4%;bottom:3%;height:93%}
+.tag{position:absolute;top:10px;left:10px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:4px 8px;border-radius:999px;background:var(--ink);color:#fff}
+.tag.s{background:var(--red);overflow:hidden;transform-origin:left center}
+.tag.s::after{content:"";position:absolute;top:-50%;bottom:-50%;left:-40%;width:35%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:sh 3.2s 1s infinite}
+@keyframes sh{0%{left:-40%}25%,100%{left:130%}}
+.pr s{position:relative;text-decoration:none}
+.pr s::after{content:"";position:absolute;left:0;right:0;top:55%;height:1px;background:var(--mute);transform:scaleX(0);transform-origin:left}
+.pc.in .pr s::after{transition:transform .5s .5s cubic-bezier(.2,.7,.2,1);transform:scaleX(1)}
+.fav{transition:background .3s,transform .3s}
+.fav svg{transition:fill .25s,stroke .25s}
+.fav.on{background:#fff;box-shadow:0 4px 12px rgba(216,35,42,.35)}
+.fav.on svg{fill:var(--red);stroke:var(--red)}
+.fav .dot{position:absolute;left:50%;top:50%;width:4px;height:4px;border-radius:50%;background:var(--red);pointer-events:none;opacity:0}
+.pc.liked .pi{box-shadow:0 0 0 2px var(--red),0 24px 40px -18px rgba(216,35,42,.35)}
+.pc.liked .ln{width:100%}
+.fav{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center}
+.fav svg{width:15px;height:15px;stroke:var(--ink);fill:none;stroke-width:1.8}
+.pb{padding:10px 2px 0}
+.br{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);font-weight:800;display:flex;align-items:center;gap:6px}
+.br::before{content:"";width:14px;height:2px;background:var(--red)}
+.br.kb::before{background:var(--ink)}
+.nm{font-size:13px;font-weight:600;line-height:1.3;margin:5px 0 3px}
+.sku{font-size:10px;color:var(--mute)}
+.pr{display:flex;align-items:baseline;gap:7px;margin-top:9px}
+.pr b{font-size:15px;font-weight:700}.pr s{font-size:11px;color:var(--mute)}
+.st{font-size:10px;color:#2E7D46;margin-top:6px;display:flex;align-items:center;gap:5px}
+.st::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor}
+.more{margin-top:28px;height:50px;width:100%;border-radius:25px;background:var(--ink);color:#fff;font-weight:600;font-size:14px}
+
+/* баннер технологии */
+.tb{grid-column:1/-1;position:relative;border-radius:16px;overflow:hidden;padding:22px 20px 24px;min-height:230px;background:#141210;color:#fff;isolation:isolate}
+.tb::before{content:"";position:absolute;inset:0;border-radius:16px;padding:1px;background:conic-gradient(from var(--a,0deg),transparent 0 70%,rgba(255,170,80,.9) 82%,#fff 86%,transparent 92%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.tb .glow{position:absolute;left:-20%;bottom:-40%;width:80%;height:80%;background:radial-gradient(closest-side,rgba(255,120,30,.45),transparent);filter:blur(30px);z-index:-1}
+.tb .k{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:10px}
+.tb h3{font-size:24px;font-weight:800;letter-spacing:-.8px;line-height:1.05;margin-bottom:8px}
+.tb p{font-size:13px;line-height:1.5;color:rgba(255,255,255,.7);max-width:calc(100% - 150px)}
+.tb .t{position:absolute;right:14px;bottom:10px;font-size:56px;font-weight:800;letter-spacing:-3px;line-height:1;
+  background:linear-gradient(180deg,#FFE0B0 0%,#FF9A3C 55%,#D8232A 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  opacity:.15;filter:drop-shadow(0 0 0 rgba(255,140,50,0))}
+.tb.hot .t{animation:heat 3s ease-in-out infinite}
+@keyframes heat{0%,100%{filter:drop-shadow(0 0 6px rgba(255,140,50,.25))}50%{filter:drop-shadow(0 0 14px rgba(255,140,50,.5))}}
+.tb .t sup{font-size:.5em;vertical-align:top;margin-left:2px}
+
+/* ── контакты / футер ── */
+.ft{background:var(--ink);color:#fff;padding:36px 20px 28px;position:relative;overflow:hidden}
+.ft::before{content:"";position:absolute;left:-30%;top:-40%;width:90%;height:90%;background:radial-gradient(closest-side,rgba(216,35,42,.22),transparent);filter:blur(30px);pointer-events:none}
+.ft>*{position:relative}
+.ft .k{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:10px}
+.ft h3{font-size:26px;font-weight:800;letter-spacing:-.8px;line-height:1.05;margin-bottom:8px}
+.ft .lead{font-size:13px;color:rgba(255,255,255,.65);margin-bottom:22px;max-width:30ch}
+.wa{display:flex;align-items:center;gap:14px;height:64px;padding:0 18px;border-radius:18px;background:#1c1a18;color:#fff;font-weight:700;font-size:15px;position:relative;isolation:isolate}
+.wa::before{content:"";position:absolute;inset:0;border-radius:18px;padding:1.5px;background:conic-gradient(from var(--a,0deg),rgba(255,255,255,.1) 0 62%,rgba(255,255,255,.45) 80%,rgba(255,255,255,.85) 85%,rgba(255,255,255,.1) 92%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.wa::after{content:"";position:absolute;inset:0;border-radius:18px;background:radial-gradient(60% 120% at 0% 50%,rgba(255,255,255,.06),transparent);z-index:-1}
+.wa svg{width:26px;height:26px;fill:rgba(255,255,255,.88);flex:none}
+.wa small{display:block;font-size:11px;font-weight:500;color:rgba(255,255,255,.55);margin-top:2px}
+.wa .go{margin-left:auto;width:36px;height:36px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center}
+.wa .go svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.msg{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-top:10px}
+.msg a{position:relative;height:68px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:10px;font-weight:600;color:rgba(255,255,255,.85);background:#1c1a18;border:1px solid rgba(255,255,255,.08);isolation:isolate;overflow:hidden}
+.msg a::after{content:"";position:absolute;left:50%;bottom:-40%;width:90%;height:70%;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,var(--c),transparent);opacity:.07;filter:blur(10px);z-index:-1}
+.msg a{--c:rgba(255,255,255,.88)}
+.msg a svg{width:24px;height:24px;fill:none;stroke:var(--c);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.msg a:active{transform:scale(.96)}
+.map{display:block;position:relative;margin-top:14px;border-radius:16px;overflow:hidden;height:150px;background:#1c1a18;border:1px solid rgba(255,255,255,.08)}
+.map .g{position:absolute;inset:0;background:
+  linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/28px 28px,
+  linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/28px 28px}
+.map .rd{position:absolute;background:rgba(255,255,255,.1)}
+.map .rd.a{left:0;right:0;top:58%;height:14px;transform:rotate(-8deg)}
+.map .rd.b{top:0;bottom:0;left:46%;width:10px;transform:rotate(14deg)}
+.map .rd.c{left:0;right:0;top:26%;height:6px;transform:rotate(-8deg)}
+.map .pin{position:absolute;left:50%;top:50%;transform:translate(-50%,-100%)}
+.map .pin svg{width:34px;height:34px;fill:var(--red);filter:drop-shadow(0 6px 10px rgba(216,35,42,.5))}
+.map .pin::after{content:"";position:absolute;left:50%;top:100%;width:34px;height:34px;border-radius:50%;background:rgba(216,35,42,.35);transform:translate(-50%,-50%);animation:pp 2s infinite}
+@keyframes pp{0%{transform:translate(-50%,-50%) scale(.4);opacity:.9}100%{transform:translate(-50%,-50%) scale(1.8);opacity:0}}
+.map .lb{position:absolute;left:12px;right:12px;bottom:12px;display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(16,14,12,.85);backdrop-filter:blur(8px);font-size:12px}
+.map .lb b{display:block;font-weight:600}
+.map .lb small{display:block;font-size:10px;color:rgba(255,255,255,.55);margin-top:1px}
+.map .lb .nav{margin-left:auto;flex:none;height:32px;padding:0 12px;border-radius:16px;background:#fff;color:var(--ink);font-size:11px;font-weight:700;display:flex;align-items:center;gap:6px}
+.map .lb .nav svg{width:14px;height:14px;fill:var(--ink)}
+.cl{display:grid;gap:1px;margin-top:14px;border-radius:16px;overflow:hidden;background:rgba(255,255,255,.06)}
+.cl a,.cl div{display:flex;align-items:center;gap:14px;padding:15px 16px;background:rgba(255,255,255,.04);font-size:14px}
+.cl svg{width:20px;height:20px;stroke:rgba(255,255,255,.7);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.cl b{display:block;font-weight:600}
+.cl small{display:block;font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
+.cl .ar{margin-left:auto;width:16px;height:16px;stroke:rgba(255,255,255,.35)}
+.tr{display:grid;grid-template-columns:1fr 1fr;gap:12px 10px;margin-top:22px}
+.tr div:nth-child(3){grid-column:1/-1}
+.tr div{display:flex;gap:10px;align-items:flex-start;font-size:11px;line-height:1.35;color:rgba(255,255,255,.7)}
+.tr svg{width:18px;height:18px;stroke:var(--red);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.tr b{display:block;color:#fff;font-weight:600;font-size:12px}
+.soc{display:flex;gap:10px;margin-top:22px}
+.soc a{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.18);display:grid;place-items:center}
+.soc a{transition:border-color .25s,background .25s}
+.soc a:active{transform:scale(.94)}
+.soc svg{width:19px;height:19px;fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.cp{margin-top:22px;font-size:11px;color:rgba(255,255,255,.4);line-height:1.5}
+.cp b{color:rgba(255,255,255,.6);font-weight:600}
+.ft .rv{opacity:0;transform:translateY(24px)}
+
+/* ── карточка товара ── */
+.pv{position:fixed;top:0;bottom:0;left:0;right:0;margin:0 auto;max-width:var(--W);z-index:45;background:var(--cream);color:var(--ink);
+  overflow-y:auto;overscroll-behavior:contain;visibility:hidden}
+.pv.on{visibility:visible}
+.pvh{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(233,232,230,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.pvh button{width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center}
+.pvh svg{width:17px;height:17px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pvh .t{flex:1;min-width:0;font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pvb{padding:0 0 110px}
+.gal{position:relative;background:#fff}
+.gal .tr2{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.gal .tr2::-webkit-scrollbar{display:none}
+.gal .tr2 img{flex:none;width:100%;scroll-snap-align:center;aspect-ratio:1/1;object-fit:contain;padding:12% 8%}
+.gal .dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:6px}
+.gal .dots i{width:6px;height:6px;border-radius:50%;background:rgba(16,14,12,.2);transition:width .3s,background .3s}
+.gal .dots i.on{width:18px;background:var(--red)}
+.pvi{padding:20px 20px 0}
+.pvi .br{margin-bottom:8px}
+.pvi h2{font-size:26px;font-weight:800;letter-spacing:-.8px;line-height:1.1}
+.pvi .sb{font-size:13px;line-height:1.5;color:var(--mute);margin-top:8px}
+.pvi .sku2{font-size:11px;color:var(--mute);margin-top:10px}
+.prc{display:flex;align-items:baseline;gap:10px;margin-top:16px}
+.prc b{font-size:28px;font-weight:800;letter-spacing:-1px}
+.prc .st2{font-size:11px;color:#2E7D46;display:flex;align-items:center;gap:5px;margin-left:auto}
+.prc .st2::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.tags2{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tags2 span{font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.sec{margin-top:28px;padding:0 20px}
+.sec h3{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:12px}
+.sec p{font-size:14px;line-height:1.6;color:#3a3531;margin-bottom:12px}
+/* схема встраивания — выделенный блок */
+.dw{margin:28px 16px 0;border-radius:18px;background:var(--ink);color:#fff;padding:20px 18px 18px;position:relative;overflow:hidden}
+.dw::before{content:"";position:absolute;left:-25%;top:-45%;width:80%;height:80%;background:radial-gradient(closest-side,rgba(216,35,42,.25),transparent);filter:blur(28px)}
+.dw>*{position:relative}
+.dw .k2{display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:6px}
+.dw .k2 svg{width:16px;height:16px;stroke:var(--red);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dw h4{font-size:19px;font-weight:800;letter-spacing:-.5px;margin-bottom:14px}
+.dw .sh2{background:#fff;border-radius:12px;padding:10px;position:relative}
+.dw .sh2 img{width:100%;display:block}
+.dw .zoom{position:absolute;right:16px;bottom:16px;height:30px;padding:0 12px;border-radius:15px;background:rgba(16,14,12,.85);color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;gap:6px}
+.dw .zoom svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2}
+.dims{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.dims div{background:rgba(255,255,255,.07);border-radius:10px;padding:10px;text-align:center}
+.dims b{display:block;font-size:17px;font-weight:800;letter-spacing:-.5px}
+.dims small{display:block;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:3px}
+/* характеристики */
+.acc{margin-top:10px;border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;padding:15px 0;font-size:14px;font-weight:600;display:flex;align-items:center;gap:10px}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"";margin-left:auto;width:9px;height:9px;border-right:2px solid var(--mute);border-bottom:2px solid var(--mute);transform:rotate(45deg) translateY(-2px);transition:transform .25s}
+.acc details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.acc dl{padding:0 0 14px;margin:0}
+.acc .row2{display:flex;gap:12px;padding:7px 0;font-size:13px;border-top:1px dashed rgba(16,14,12,.08)}
+.acc .row2 dt{color:var(--mute);flex:1}
+.acc .row2 dd{margin:0;font-weight:600;text-align:right;max-width:45%}
+.docs{display:grid;gap:8px;margin-top:12px}
+.docs a{display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:12px;background:#fff;border:1px solid var(--line);font-size:13px;font-weight:600}
+.docs svg{width:19px;height:19px;stroke:var(--red);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.docs small{display:block;font-weight:500;color:var(--mute);font-size:11px;margin-top:2px}
+.elab{display:flex;align-items:center;gap:14px;margin-top:12px;padding:12px 14px;border-radius:12px;background:#fff;border:1px solid var(--line)}
+.elab img{width:56px;flex:none}
+.elab b{display:block;font-size:13px}
+.elab small{font-size:11px;color:var(--mute)}
+/* нижняя панель покупки */
+.buy{position:fixed;left:0;right:0;bottom:0;margin:0 auto;max-width:var(--W);z-index:46;visibility:hidden;
+  display:flex;gap:10px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(233,232,230,.95);backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+.buy .add{flex:1;height:52px;border-radius:26px;background:var(--red);color:#fff;font-weight:700;font-size:15px}
+.buy .w2{flex:none;width:52px;height:52px;border-radius:26px;background:var(--ink);display:grid;place-items:center}
+.buy .w2 svg{width:24px;height:24px;fill:#4fd27f}
+.pc .pi{cursor:pointer}
+.flip{position:fixed;z-index:47;pointer-events:none;object-fit:contain}
+
+/* ── меню каталога ── */
+.nvbg{position:fixed;inset:0;z-index:44;background:rgba(10,9,8,.6);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.nvbg.on{opacity:1;visibility:visible}
+.nv{position:fixed;top:0;right:50%;width:min(100%,var(--W));height:100dvh;z-index:45;
+  background:var(--ink);color:#fff;display:flex;flex-direction:column;
+  visibility:hidden;transform:translate(50%,0) translateX(102%);
+  transition:transform .42s cubic-bezier(.16,1,.3,1),visibility .42s;will-change:transform}
+.nv.on{visibility:visible;transform:translate(50%,0) translateX(0)}
+.nvh{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.1);flex:none}
+.nvh b{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:700}
+.nvh button{margin-left:auto;width:34px;height:34px;display:grid;place-items:center;background:none;border:0;color:#fff}
+.nvh svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+.nvl{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:8px 0 30px}
+.nvl a,.nvl span.d{display:flex;align-items:center;gap:12px;padding:15px 20px;text-decoration:none;color:#fff;border-bottom:1px solid rgba(255,255,255,.055)}
+.nvl span.d{color:rgba(255,255,255,.3)}
+.nvl i{font-style:normal;font-size:15px;font-weight:600}
+.nvl u{text-decoration:none;margin-left:auto;font-size:12px;color:rgba(255,255,255,.35);font-variant-numeric:tabular-nums}
+.nvl span.d u{color:rgba(255,255,255,.2)}
+.nvl a.cur{background:rgba(255,255,255,.05)}
+.nvl a.cur i{color:var(--red)}
+.nvl a.cur::before{content:"";position:absolute;left:0;width:3px;height:26px;background:var(--red)}
+.nvl a{position:relative}
+.nvl em{font-style:normal;margin-left:auto;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:3px 8px}
+.nvf{flex:none;padding:16px 20px calc(18px + env(safe-area-inset-bottom));border-top:1px solid rgba(255,255,255,.1);font-size:11px;color:rgba(255,255,255,.4)}
+/* меню каталога — сетка плиток */
+.nvl{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:14px 14px 30px;align-content:start}
+.nvl a,.nvl span.d{flex-direction:column;align-items:stretch;gap:0;padding:0 0 10px;border:0;border-radius:10px;background:#F4F3F1;color:var(--ink);overflow:hidden;transition:transform .2s}
+.nvl a:active{transform:scale(.97)}
+.nvl b{display:block;flex:none;height:82px;padding:10px 12px 4px}
+.nvl i,.nvl u,.nvl em{flex:none}
+.nvl a,.nvl span.d{height:auto;min-height:0}
+.nvl img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;display:block}
+.nvl i{font-size:11.5px;line-height:1.22;font-weight:700;text-align:center;padding:0 6px;text-wrap:balance}
+.nvl u{margin:3px 0 0;text-align:center;font-size:10px;color:rgba(16,14,12,.42)}
+.nvl a.cur{background:#F4F3F1;box-shadow:inset 0 0 0 2px var(--red)}
+.nvl a.cur i{color:var(--red)}
+.nvl a.cur::before{display:none}
+.nvl span.d{opacity:.45}
+.nvl em{margin:4px auto 0}
+.ph{position:absolute;inset:0;display:grid;place-items:center;
+  background:radial-gradient(120% 80% at 50% 30%,#221f1c,#0d0c0b 70%)}
+.ph span{display:grid;gap:8px;justify-items:center;padding:26px 34px;border:1px dashed rgba(255,255,255,.18);border-radius:14px;
+  font-size:12px;letter-spacing:.3em;color:rgba(255,255,255,.3);font-weight:700}
+.ph i{font-style:normal;font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,.2);font-weight:500}
+.sh .opt{position:relative}
+.sh .opt.off{opacity:.3;pointer-events:none}
+.sh .opt .cn{font-style:normal;margin-left:7px;font-size:10px;font-weight:700;color:#9b9490;vertical-align:1px}
+.sh .opt.on .cn{color:rgba(255,255,255,.55)}
+/* тёмный каталог — продолжает студийный фон hero */
+.cat{color:#fff;background:
+  radial-gradient(70% 640px at 8% 0,rgba(255,255,255,.16),rgba(255,255,255,0) 72%),
+  radial-gradient(60% 520px at 100% 40%,rgba(255,255,255,.04),rgba(255,255,255,0) 70%),
+  linear-gradient(180deg,#48484b 0,#3e3e41 700px,#343437 1600px,#2c2c2e 100%)}
+.cat-h span{color:rgba(255,255,255,.62)}
+.pi{box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.pc.lit .pi{box-shadow:0 26px 44px -20px rgba(0,0,0,.7)}
+.br{color:#fff}.br.kb::before{background:#fff}
+.sku,.pr s{color:rgba(255,255,255,.52)}
+.pr s::after{background:rgba(255,255,255,.52)}
+.st{color:#6FCF8E}
+.more{background:#fff;color:var(--ink)}
+.empty b{color:#fff}
+.bar{background:rgba(58,58,61,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#fff;border-bottom-color:rgba(255,255,255,.08)}
+.bar .cw::after{background:linear-gradient(90deg,rgba(58,58,61,0),#3a3a3d 60%)}
+.bar .chip{background:transparent;border-color:rgba(255,255,255,.3);color:#fff}
+.bar .chip.on{background:var(--red);border-color:var(--red)}
+.bar .nx{background:#4a4a4d;border-color:rgba(255,255,255,.14);box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.bar .nx svg{stroke:#fff}
+.bar .fb{border-color:rgba(255,255,255,.85)}
+.hdr.light{background:rgba(52,52,55,.92);color:#fff;border-bottom-color:rgba(255,255,255,.08)}
+
+/* низкий экран (телефон внутри приложения/браузера с панелями): фото выше, текст компактнее */
+@media (max-width:767px){
+  .hero{--lift:max(0px,calc((844px - 100svh) * .2))}
+  .frames{top:calc(-1 * var(--lift));bottom:var(--lift);height:auto}
+}
+@media (max-width:767px) and (max-height:740px){
+  h1{font-size:36px;letter-spacing:-1.1px}
+  .intro{padding-bottom:16px}
+  .crumbs{margin-bottom:6px}
+  .rule{margin:9px 0 10px}
+  .sub{margin-bottom:13px}
+}
+</style>
+</head>
+<body>
+<div class="ld" id="ld"><div class="halo"></div><div class="lg"><b><span>T</span><span>E</span><span>K</span><span>A</span></b><i></i><em>Hote · Moldova</em></div></div>
+
+<div class="app">
+
+<header class="hdr" id="hdr">
+  <div class="logo">TEKA</div><div class="sp"></div>
+  <button class="ib"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></button>
+  <button class="lang" id="lang" onclick="setLang(L==='ro'?'ru':'ro')">RU</button>
+  <button class="ib"><svg class="ic" viewBox="0 0 24 24"><path d="M2.5 3.5h3l2.2 11.2a1.5 1.5 0 0 0 1.5 1.3h8.4a1.5 1.5 0 0 0 1.5-1.2L20.5 7H6.4"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg><span class="cb">2</span></button>
+  <button class="ib" onclick="nav(true)" aria-label="Meniu"><svg class="ic" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+</header>
+
+<div class="nvbg" id="nvbg" onclick="nav(false)"></div>
+<nav class="nv" id="nv" aria-hidden="true">
+  <div class="nvh"><b data-t="nav_t">Catalog</b>
+    <button onclick="nav(false)" aria-label="X"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="nvl" id="nvl"></div>
+  <div class="nvf"><b>Teka Moldova</b> · +373 68 27 27 02</div>
+</nav>
+
+
+<section class="hero" id="hero">
+  <div class="stage" id="stage">
+  <div class="frames" id="frames">
+    <img id="f1" src="assets/hood-hero-m.webp" sizes="100vw" alt="Hotă Teka înclinată deasupra plitei cu inducție, cu o oală care fierbe">
+    <div class="lamps">
+      <i class="zg"    data-x=".447" data-y=".458" data-d=".30"></i>
+      <i class="zg z2" data-x=".762" data-y=".457" data-d=".30"></i>
+      <i class="zg zc" data-x=".447" data-y=".426" data-d=".05"></i>
+      <i class="zg zc" data-x=".762" data-y=".425" data-d=".05"></i>
+    </div>
+  </div>
+  </div>
+  <div class="veil"></div>
+
+  <div class="intro" id="intro">
+    <div class="crumbs" data-t="crumbs">Bucătărie › Hote</div>
+    <h1 data-t="h1">Hote</h1>
+<script>
+(function(){const h=document.querySelector('h1');
+function split(){if(h.querySelector('.ch'))return;const txt=h.textContent.trim();h.setAttribute('aria-label',txt);
+h.innerHTML=txt.split(/\s+/).map(w=>'<span class="w" aria-hidden="true">'+[...w].map(c=>'<span class="ch"><span>'+c+'</span></span>').join('')+'</span>').join(' ');}
+split();new MutationObserver(split).observe(h,{childList:true});})();
+</script>
+<script>
+(function(){const h=document.getElementById('hero');let w=0,hh=0;
+function fit(force){if(!force&&innerWidth===w&&Math.abs(innerHeight-hh)<150)return;w=innerWidth;hh=innerHeight;
+  if(innerHeight<320){h.style.height='';return;}   // рамка ещё не измерена — остаётся 100svh
+  h.style.height=innerHeight+'px';}
+fit();addEventListener('resize',()=>{const a=hh;fit();if(hh!==a&&window.ScrollTrigger)ScrollTrigger.refresh();});
+addEventListener('load',()=>{fit(true);if(window.ScrollTrigger)ScrollTrigger.refresh();[500,1500,3000].forEach(t=>setTimeout(()=>dispatchEvent(new Event('resize')),t));});
+addEventListener('pageshow',()=>fit(true));})();
+</script>
+    <div class="rule"></div>
+    <div class="sub" data-t="sub">De perete · Telescopice · Încorporabile — <b>49 modele</b></div>
+    <div class="chips">
+      <button class="chip on" data-c="all" data-t="c_all">Toate</button><button class="chip" data-c="perete" data-t="c_perete">De perete</button><button class="chip" data-c="telescopica" data-t="c_telesc">Telescopice</button><button class="chip" data-c="incorporabila" data-t="c_incorp">Încorporabile</button><button class="chip" data-c="insula" data-t="c_insula">De insulă</button><button class="chip" data-c="perete-inclinat" data-t="c_inclin">Înclinate</button><button class="chip" data-c="kb" data-t="c_kb">Küppersbusch</button>
+    </div>
+  </div>
+
+</section>
+
+<section class="story">
+  <div class="blk" id="b1">
+    <div class="k"><svg viewBox="0 0 24 24"><path d="M4 14h16M7 18h10M9 22h6"/><path d="M5 10V7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3"/></svg>FreshAir</div>
+    <h2 data-t="b1h">Aerul curat,<br>fără efort.</h2>
+    <p data-t="b1p">Motorul trage fumul și mirosurile direct de deasupra plitei, iar filtrele rețin grăsimea — bucătăria rămâne curată, fără zgomot inutil.</p>
+  </div>
+
+  <div class="blk n" id="b2">
+    <div class="k" data-t="b2k">Gama Teka</div>
+    <h2><span id="cnt">0</span><small data-t="b2s">modele</small></h2>
+    <p>De perete · Telescopice · Încorporabile · De insulă</p>
+  </div>
+
+</section>
+
+<div class="bar" id="bar">
+  <div class="cw" id="cw"><div class="chips" id="bchips">
+    <button class="chip on" data-c="all" data-t="c_all">Toate</button><button class="chip" data-c="perete" data-t="c_perete">De perete</button><button class="chip" data-c="telescopica" data-t="c_telesc">Telescopice</button><button class="chip" data-c="incorporabila" data-t="c_incorp">Încorporabile</button><button class="chip" data-c="insula" data-t="c_insula">De insulă</button><button class="chip" data-c="perete-inclinat" data-t="c_inclin">Înclinate</button><button class="chip" data-c="kb" data-t="c_kb">Küppersbusch</button>
+  </div><button class="nx" id="nx" aria-label="Mai multe"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button></div>
+  <button class="fb"><svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span data-t="filt">Filtre</span><b id="fbn" hidden></b></button>
+</div>
+
+<div class="pv" id="pv">
+  <div class="pvh"><button onclick="closeP()" aria-label="Înapoi"><svg viewBox="0 0 24 24"><path d="M15 6 9 12l6 6"/></svg></button><span class="t" id="pvt"></span><button onclick="waProduct()" aria-label="WhatsApp"><svg viewBox="0 0 24 24" style="stroke:none;fill:#25D366"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1l-.9 1.2c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-3.4-3c-.2-.4 0-.5.2-.7l.5-.6.3-.5v-.5l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.5.7.6 0 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4l-.5-.3M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg></button></div>
+  <div class="pvb" id="pvb"></div>
+</div>
+<div class="buy" id="buy"><button class="add" id="addb">Adaugă în coș</button>
+  <a class="w2" id="wab2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403A9.87 9.87 0 0 1 12 2.05c5.45 0 9.885 4.434 9.888 9.884 0 5.45-4.437 9.884-9.885 9.884Z"/></svg></a>
+</div>
+
+<div class="sh-bg" id="shbg" onclick="sheet(false)"></div>
+<div class="sh" id="sh">
+  <h4><span data-t="filt">Filtre</span><button onclick="resetF()" data-t="reset">Resetează</button></h4>
+  <div class="g"><label data-t="f_w">Lățime</label><div class="opts" id="wopts"></div></div>
+  <div class="g"><label data-t="f_c">Culoare</label><div class="opts">
+    <button class="opt" data-k="col" data-v="negru"><i class="sw" style="background:#1a1a1a"></i><span data-t="c_negru">Negru</span></button>
+    <button class="opt" data-k="col" data-v="inox"><i class="sw" style="background:#b8b8b8"></i><span data-t="c_inox">Inox</span></button>
+    <button class="opt" data-k="col" data-v="alb"><i class="sw" style="background:#f4f4f4"></i><span data-t="c_alb">Alb</span></button>
+    <button class="opt" data-k="col" data-v="gri"><i class="sw" style="background:#8a8a8a"></i><span data-t="c_gri">Gri</span></button>
+    <button class="opt" data-k="col" data-v="antracit"><i class="sw" style="background:#3a3a3a"></i><span data-t="c_antr">Antracit</span></button></div></div>
+  <button class="apply" onclick="sheet(false)"><span data-t="show">Arată</span> <span id="shn"></span></button>
+</div>
+
+<section class="cat" id="cat">
+  <div class="cat-h"><b id="cnt2">34 modele</b><span data-t="sort">Recomandate ▾</span></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<footer class="ft" id="ft">
+  <div class="k rv" data-t="ftk">Contacte</div>
+  <h3 class="rv" data-t="fth">Ai o întrebare?<br>Scrie-ne acum.</h3>
+  <p class="lead rv" data-t="ftp">Răspundem în WhatsApp în timpul programului, de obicei în câteva minute.</p>
+  <a class="wa rv" href="https://wa.me/37368272702?text=Bun%C4%83!%20M%C4%83%20intereseaz%C4%83%20plitele%20Teka." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <span><span data-t="wab">Scrie pe WhatsApp</span><small>+373 68 27 27 02</small></span>
+    <span class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+  <div class="msg rv">
+    <a class="vb" href="viber://chat?number=%2B37368272702"><svg viewBox="0 0 24 24"><path d="M12 2.6c5 0 8.1 2.9 8.1 7.7v3.3c0 4.8-3.1 7.7-8.1 7.7-.5 0-.9 0-1.3-.1l-2.9 2.4v-3.1c-2.5-1.3-3.9-3.6-3.9-6.9v-3.3c0-4.8 3.1-7.7 8.1-7.7z"/><path d="m9.4 8.2-.8.8c-.33.33-.38.85-.14 1.27a9.5 9.5 0 0 0 4.3 4.3c.42.24.94.19 1.27-.14l.8-.8"/><path d="M13.1 6.5a4.1 4.1 0 0 1 3.8 3.8M13.1 9a2 2 0 0 1 1.7 1.7"/></svg><span>Viber</span></a>
+    <a class="tg" href="https://t.me/+37368272702" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21.3 4.3 3.1 11.2c-.6.22-.58.72.02.9l4.5 1.4 1.75 5.4c.15.46.6.52.9.22l2.35-2.25 4.55 3.35c.5.36 1 .1 1.14-.5l3.05-14.3c.15-.6-.3-1-.96-.78z"/><path d="M7.6 13.5 18 6.9l-8.7 8.1-.25 3.5z"/></svg><span>Telegram</span></a>
+    <a class="tel" href="tel:+37368272702"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span data-t="call">Apel</span></a>
+    <a class="sms" href="sms:+37368272702"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg><span>SMS</span></a>
+  </div>
+  <div class="cl rv">
+    <a href="tel:+37368272702"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span><b>+373 68 27 27 02</b><small data-t="hrs">Luni – Sâmbătă, 10:00 – 18:00</small></span><svg class="ar" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></a>
+    <a href="mailto:tekamoldova@gmail.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span><b>tekamoldova@gmail.com</b><small data-t="mail">Răspuns în 24 de ore</small></span><svg class="ar" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></a>
+  </div>
+  <a class="map rv" href="https://www.google.com/maps/dir/?api=1&destination=Strada+31+August+1989+79%2F1%2C+Chi%C8%99in%C4%83u%2C+Moldova&travelmode=driving" target="_blank" rel="noopener">
+    <div class="g"></div><div class="rd a"></div><div class="rd b"></div><div class="rd c"></div>
+    <div class="pin"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5" fill="#fff"/></svg></div>
+    <div class="lb"><span><b data-t="addr">Chișinău, str. 31 August 1989, 79/1</b><small data-t="show">Showroom Teka · 10:00 – 18:00</small></span>
+      <span class="nav"><svg viewBox="0 0 24 24"><path d="M21 3 3 10.5l8 2.5 2.5 8z"/></svg><span data-t="route">Traseu</span></span></div>
+  </a>
+  <div class="tr rv">
+    <div><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span><b data-t="t1">Dealer oficial</b><span data-t="t1s">Garanție Teka 2 ani</span></span></div>
+    <div><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg><span><b data-t="t2">Livrare în toată Moldova</b><span data-t="t2s">Chișinău — gratuit</span></span></div>
+    <div><svg viewBox="0 0 24 24"><path d="M14 6 8 12l3 3-6 6M13 3l8 8-4 1-5-5z"/></svg><span><b data-t="t3">Instalare</b><span data-t="t3s">Montaj de specialiști</span></span></div>
+      </div>
+  <div class="soc rv">
+    <a href="https://www.facebook.com/tekamoldova/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5.4"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r=".9" fill="#fff" stroke="none"/></svg></a>
+  </div>
+  <p class="cp rv"><b>Teka Moldova</b> · <span data-t="cp">Distribuitor oficial Teka și Küppersbusch în Republica Moldova.</span><br>© 2026 teka.md</p>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script>
+const P=[{"sku": "40474250", "n": "TL 6310", "sub": "Hotă telescopică, motor cu turbină dublă, 60 cm", "p": 2600, "img": ["40474250-1.webp", "40474250-2.webp"], "draw": "40474250-draw.webp", "label": "", "desc": ["Hotă telescopică", "2 trepte putere", "Panou de control mecanic", "Sistem de iluminare automat", "2 becuri halogen", "2 filtre aluminiu"], "specs": [{"t": "Dimensiuni interioare", "r": [["Înălțimea interioară (mm)", "181"]]}, {"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "181"], ["Lățimea produsului (mm)", "600"], ["Adâncimea produsului (mm)", "304-437"], ["Greutatea produsului (Kgs)", "6,1"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "120"], ["Tipul de iluminare interioară", "Halogen"], ["Consumul pentru lumina interioară (W)", "6"], ["Conexiune", "Europlug"], ["Lungime cablu (cm)", "150"], ["Putere (V)", "230"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "146"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "130"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Nu"], ["Extensie", "no"], ["Filtrul de cărbune opţional", "CNL 1C"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Descrierea filtrului", "Aluminiu"], ["Panou de control", "Mecanic"], ["Iluminat automat", "Da"], ["Numărul de viteze", "2"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/carte-energetica-hote.pdf"], "b": "Teka", "col": "inox", "kind": "telescopica", "w": 60}, {"sku": "40446700", "n": "GFH 55", "sub": "Hotă încorporabilă, motor cu turbină dublă, 55 cm", "p": 3400, "img": ["40446700-1.webp"], "draw": "40446700-draw.webp", "label": "", "desc": ["Hotă încorporabilă 55 cm", "3 trepte putere", "Panou de control cu butoane", "Indicator luminos de funcţionare", "2 becuri halogen integrate", "2 fltre aluminiu"], "specs": [{"t": "Dimensiuni interioare", "r": [["Înălțimea interioară (mm)", "175"]]}, {"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "175"], ["Lățimea produsului (mm)", "550"], ["Adâncimea produsului (mm)", "310"], ["Greutatea produsului (Kgs)", "5"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE, CB, Rohs"], ["Ø Reducție (mm)", "120"], ["Tipul de iluminare interioară", "Halogen"], ["Consumul pentru lumina interioară (W)", "1,5"], ["Conexiune", "European plug"], ["Lungime cablu (cm)", "150"], ["Putere (V)", "230"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "134"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "130"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Nu"], ["Extensie", "no"], ["Filtrul de cărbune opţional", "CNL 1C"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Descrierea filtrului", "Aluminiu"], ["Panou de control", "Panou de control cu butoane"], ["Numărul de viteze", "3"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/carte-energetica-hote.pdf"], "b": "Teka", "col": "inox", "kind": "incorporabila", "w": 55}, {"sku": "40446753", "n": "GFG 2 Inox", "sub": "Hotă încorporabilă, motor cu turbină dublă, 55 cm", "p": 4000, "img": ["40446753-1.webp"], "draw": "40446753-draw.webp", "label": "", "desc": ["Hotă încorporabilă", "3 trepte putere", "Panou de control cu butoane", "Indicator luminos de funcţionare", "Bandă LED", "1 filtru inox"], "specs": [{"t": "Dimensiuni interioare", "r": [["Înălțimea interioară (mm)", "175"]]}, {"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "178"], ["Lățimea produsului (mm)", "550"], ["Adâncimea produsului (mm)", "290"], ["Greutatea produsului (Kgs)", "5,53"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "120"], ["Tipul de iluminare interioară", "LED bar"], ["Consumul pentru lumina interioară (W)", "7"], ["Conexiune", "European plug"], ["Putere (V)", "230"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "135"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "130"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Nu"], ["Extensie", "no"], ["Filtrul de cărbune opţional", "CNL 1C"]]}, {"t": "Modele", "r": [["Număr de filtre", "1"], ["Descrierea filtrului", "Inox aluminiu"], ["Panou de control", "Panou de control cu butoane"], ["Numărul de viteze", "3"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/carte-energetica-hote.pdf"], "b": "Teka", "col": "inox", "kind": "incorporabila", "w": 55}, {"sku": "40446752", "n": "GFG 2 Black", "sub": "Hotă încorporabilă, motor cu turbină dublă, 55 cm", "p": 4000, "img": ["40446752-1.webp"], "draw": "40446752-draw.webp", "label": "", "desc": ["Hotă încorporabilă", "3 trepte putere", "Panou de control cu butoane", "Indicator luminos de funcţionare", "Bandă LED", "1 filtru aluminiu"], "specs": [{"t": "Dimensiuni interioare", "r": [["Înălțimea interioară (mm)", "175"]]}, {"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "178"], ["Lățimea produsului (mm)", "550"], ["Adâncimea produsului (mm)", "310"], ["Greutatea produsului (Kgs)", "5,53"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "120"], ["Tipul de iluminare interioară", "LED bar"], ["Consumul pentru lumina interioară (W)", "5"], ["Conexiune", "European plug"], ["Putere (V)", "230"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "135"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "130"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Nu"], ["Extensie", "no"], ["Filtrul de cărbune opţional", "CNL 1C"]]}, {"t": "Modele", "r": [["Număr de filtre", "1"], ["Descrierea filtrului", "Inox aluminiu"], ["Panou de control", "Panou de control cu butoane"], ["Numărul de viteze", "3"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/carte-energetica-hote.pdf"], "b": "Teka", "col": "negru", "kind": "incorporabila", "w": 55}, {"sku": "40446751", "n": "GFG 2 White", "sub": "Hotă încorporabilă, motor cu turbină dublă, 55 cm", "p": 4000, "img": ["40446751-1.webp"], "draw": "40446751-draw.webp", "label": "", "desc": ["Hotă încorporabilă", "3 trepte putere", "Panou de control cu butoane", "Indicator luminos de funcţionare", "Bandă LED", "1 filtru aluminiu"], "specs": [{"t": "Dimensiuni interioare", "r": [["Înălțimea interioară (mm)", "175"]]}, {"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "178"], ["Lățimea produsului (mm)", "550"], ["Adâncimea produsului (mm)", "310"], ["Greutatea produsului (Kgs)", "5,53"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "120"], ["Tipul de iluminare interioară", "LED bar"], ["Consumul pentru lumina interioară (W)", "5"], ["Conexiune", "European plug"], ["Putere (V)", "230"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "135"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "130"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Nu"], ["Extensie", "no"], ["Filtrul de cărbune opţional", "CNL 1C"]]}, {"t": "Modele", "r": [["Număr de filtre", "1"], ["Descrierea filtrului", "Inox aluminiu"], ["Panou de control", "Panou de control cu butoane"], ["Numărul de viteze", "3"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/carte-energetica-hote.pdf"], "b": "Teka", "col": "alb", "kind": "incorporabila", "w": 55}, {"sku": "40474390", "n": "TL 9310", "sub": "Hotă telescopică, motor cu turbină dublă, 90 cm", "p": 4100, "img": ["40474390-1.webp"], "draw": "40474390-draw.webp", "label": "", "desc": ["Hotă telescopică", "2 trepte putere", "Panou de control mecanic", "Sistem de iluminare automat", "2 becuri halogen", "4 filtre aluminiu"], "specs": [{"t": "Dimensiuni interioare", "r": [["Înălțimea interioară (mm)", "181"]]}, {"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "181"], ["Lățimea produsului (mm)", "900"], ["Adâncimea produsului (mm)", "304-437"], ["Greutatea produsului (Kgs)", "9,1"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "120"], ["Tipul de iluminare interioară", "Halogen"], ["Consumul pentru lumina interioară (W)", "6"], ["Conexiune", "European plug"], ["Putere (V)", "230"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "146"], ["Numărul de motoare", "2"], ["Puterea motorului (W)", "130"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Nu"], ["Extensie", "no"], ["Filtrul de cărbune opţional", "CNL 1C"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Descrierea filtrului", "Aluminiu"], ["Panou de control", "Mecanic"], ["Iluminat automat", "Da"], ["Numărul de viteze", "2"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/carte-energetica-hote.pdf"], "b": "Teka", "col": "inox", "kind": "telescopica", "w": 90}, {"sku": "40436811", "n": "CNL 6415 WH", "sub": "Hotă telescopică, panou frontal de culoare albă, 2 trepte putere + 1 Turbo, Motor EcoPower", "p": 4800, "img": ["40436811-1.webp", "40436811-2.webp", "40436811-3.webp"], "draw": "40436811-draw.webp", "label": "", "desc": ["Hotă telescopică", "2 trepte putere + 1 Turbo", "Panou de control electronic", "Motor EcoPower", "Sistem de iluminare automat / 2 LED-uri", "2 filtre inox"], "specs": [{"t": "Dimensiuni interioare", "r": [["Înălțimea interioară (mm)", "184"]]}, {"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "184"], ["Lățimea produsului (mm)", "600"], ["Adâncimea produsului (mm)", "300/490"], ["Greutatea produsului (Kgs)", "7,1"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "120"], ["Consumul pentru lumina interioară (W)", "1,5"], ["Conexiune", "European plug"], ["Putere (V)", "230"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "113"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "110"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Nu"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "CNL 1C"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Oprire programabilă", "Da"], ["Iluminat automat", "Da"], ["Numărul de viteze", "2+1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/CNL-UserManual-EL-CS-SK-PL-HU-BG-RO-AR.pdf"], "b": "Teka", "col": "alb", "kind": "telescopica", "w": 60}, {"sku": "40436812", "n": "CNL 6415 BK Black", "sub": "Hotă telescopică, panou frontal de culoare neagră, 2 trepte putere + 1 Turbo, Motor EcoPower", "p": 4800, "img": ["40436812-1.webp", "40436812-2.webp", "40436812-3.webp"], "draw": "40436812-draw.webp", "label": "", "desc": ["Hotă telescopică", "2 trepte putere + 1 Turbo", "Panou de control electronic", "Motor EcoPower", "Sistem de iluminare automat / 2 LED-uri", "2 filtre inox"], "specs": [{"t": "Dimensiuni interioare", "r": [["Înălțimea interioară (mm)", "184"]]}, {"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "184"], ["Lățimea produsului (mm)", "600"], ["Adâncimea produsului (mm)", "300/490"], ["Greutatea produsului (Kgs)", "7,1"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "120"], ["Consumul pentru lumina interioară (W)", "1,5"], ["Conexiune", "European plug"], ["Putere (V)", "230"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "113"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "110"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Nu"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "CNL 1C"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Oprire programabilă", "Da"], ["Iluminat automat", "Da"], ["Numărul de viteze", "2+1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/CNL-UserManual-EL-CS-SK-PL-HU-BG-RO-AR.pdf"], "b": "Teka", "col": "negru", "kind": "telescopica", "w": 60}, {"sku": "40436810", "n": "CNL 6415", "sub": "Hotă telescopică, 2 trepte putere + 1 Turbo, motor EcoPower, 60cm", "p": 4800, "img": ["40436810-1.webp", "40436810-2.webp", "40436810-3.webp"], "draw": "40436810-draw.webp", "label": "", "desc": ["Hotă telescopică", "2 trepte putere + 1 Turbo", "Panou de control electronic", "Motor EcoPower", "Sistem de iluminare automat", "2 LED-uri"], "specs": [{"t": "Dimensiuni interioare", "r": [["Înălțimea interioară (mm)", "184"]]}, {"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "184"], ["Lățimea produsului (mm)", "600"], ["Adâncimea produsului (mm)", "300/490"], ["Greutatea produsului (Kgs)", "7,1"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "120"], ["Consumul pentru lumina interioară (W)", "1,5"], ["Conexiune", "European plug"], ["Putere (V)", "230"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "113"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "110"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Nu"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "CNL 1C"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Oprire programabilă", "Da"], ["Iluminat automat", "Da"], ["Numărul de viteze", "2+1"], ["Panoul frontal cu finisaj anti-pată", "Da"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/CNL-UserManual-EL-CS-SK-PL-HU-BG-RO-AR.pdf"], "b": "Teka", "col": "inox", "kind": "telescopica", "w": 60}, {"sku": "40436830", "n": "CNL 6610", "sub": "Hotă telescopică, 60 cm", "p": 5500, "img": ["40436830-1.webp"], "draw": "40436830-draw.webp", "label": "", "desc": ["Hotă telescopică", "2 trepte putere + 1 Turbo", "Panou de control electronic", "Sistem de iluminare automat", "3 LED-uri", "4 fltre aluminiu"], "specs": [{"t": "Dimensiuni interioare", "r": [["Înălțimea interioară (mm)", "275"]]}, {"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "274"], ["Lățimea produsului (mm)", "600"], ["Adâncimea produsului (mm)", "300/490"], ["Greutatea produsului (Kgs)", "8,33"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "150"], ["Tipul de iluminare interioară", "230V LED"], ["Consumul pentru lumina interioară (W)", "1,5"], ["Conexiune", "European plug"], ["Putere (V)", "230"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "233"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "230"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "D4C"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Descrierea filtrului", "Aluminiu"], ["Panou de control", "Electronic"], ["Oprire programabilă", "Da"], ["Iluminat automat", "Da"], ["Numărul de viteze", "2+1"], ["Panoul frontal cu finisaj anti-pată", "Da"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/carte-energetica-hote.pdf"], "b": "Teka", "col": "inox", "kind": "telescopica", "w": 60}, {"sku": "40436821", "n": "CNL 6415 PLUS WHITE", "sub": "Hotă telescopică, motor EcoPower, 60 cm", "p": 6100, "img": ["40436821-1.webp"], "draw": "40436821-draw.webp", "label": "", "desc": ["Hotă telescopică", "Motor EcoPower", "5 trepte putere + 1 Turbo", "Panou de control electronic", "Sistem de iluminare automat", "Bandă LED"], "specs": [{"t": "Dimensiuni interioare", "r": [["Înălțimea interioară (mm)", "184"]]}, {"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "184"], ["Lățimea produsului (mm)", "600"], ["Adâncimea produsului (mm)", "300/490"], ["Greutatea produsului (Kgs)", "7,26"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "120"], ["Tipul de iluminare interioară", "LED"], ["Consumul pentru lumina interioară (W)", "1 9"], ["Conexiune", "European plug"], ["Putere (V)", "230"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "119"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "110"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Nu"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "CNL 1C"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Descrierea filtrului", "Inox"], ["Panou de control", "Electronic"], ["Oprire programabilă", "Da"], ["Iluminat automat", "Da"], ["Numărul de viteze", "5+1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/carte-energetica-hote.pdf"], "b": "Teka", "col": "alb", "kind": "telescopica", "w": 60}, {"sku": "40436822", "n": "CNL 6415 PLUS BK", "sub": "Hotă telescopică, motor EcoPower, 60 cm", "p": 6100, "img": ["40436822-1.webp"], "draw": "40436822-draw.webp", "label": "", "desc": ["Hotă telescopică", "Motor EcoPower", "5 trepte putere + 1 Turbo", "Panou de control electronic", "Sistem de iluminare automat", "Bandă LED"], "specs": [{"t": "Dimensiuni interioare", "r": [["Înălțimea interioară (mm)", "184"]]}, {"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "184"], ["Lățimea produsului (mm)", "600"], ["Adâncimea produsului (mm)", "300/490"], ["Greutatea produsului (Kgs)", "7,26"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "120"], ["Tipul de iluminare interioară", "LED"], ["Consumul pentru lumina interioară (W)", "1 9"], ["Conexiune", "European plug"], ["Putere (V)", "230"], ["Frecvență (Hz)", "50-60"], ["Puterea totală a hotei (W)", "119"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "110"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Nu"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "CNL 1C"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Descrierea filtrului", "Inox"], ["Panou de control", "Electronic"], ["Oprire programabilă", "Da"], ["Iluminat automat", "Da"], ["Numărul de viteze", "5+1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/carte-energetica-hote.pdf"], "b": "Teka", "col": "negru", "kind": "telescopica", "w": 60}, {"sku": "112950005", "n": "DVN 64030 WHT", "sub": "Hotă şemineu, design vertical, cu Sistem de extracţie perimetrală, 60 cm", "p": 6200, "img": ["112950005-1.webp", "112950005-2.webp", "112950005-3.webp", "112950005-4.webp", "112950005-5.webp"], "draw": "112950005-draw.webp", "label": "", "desc": ["Hotă şemineu", "60 cm", "Design vertical", "Cristal alb", "Sistem de extracţie perimetrală", "Touch Control"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "690-1035"], ["Lățimea produsului (mm)", "598"], ["Adâncimea produsului (mm)", "325"], ["Greutatea produsului (Kgs)", "8,99"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; EMC"], ["Ø Reducție (mm)", "150"], ["Consumul pentru lumina interioară (W)", "1"], ["Conexiune", "schuko"], ["Lungime cablu (cm)", "160"], ["Putere (V)", "220240"], ["Frecvență (Hz)", "50/60"], ["Puterea totală a hotei (W)", "142"], ["Numărul de motoare", "2"], ["Puterea motorului (W)", "140"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Nu"], ["Extensie", "no"], ["Filtrul de cărbune opţional", "D9C"]]}, {"t": "Modele", "r": [["Număr de filtre", "1"], ["Sistem de deschidere", "Panel Uphold Hinge"], ["Oprire programabilă", "Da"], ["Numărul de viteze", "2+1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/DVN-UserManual-ES-PT-EN-DE-FR-EL-PL-HU-RU-UK-RO-BG-TR-CS-AR.pdf"], "b": "Teka", "col": "inox", "kind": "insula", "w": 60}, {"sku": "112950004", "n": "DVN 64030 BK", "sub": "Hotă şemineu, design vertical, cu Sistem de extracţie perimetrală, 60 cm", "p": 6200, "img": ["112950004-1.webp", "112950004-2.webp", "112950004-3.webp", "112950004-4.webp", "112950004-5.webp"], "draw": "112950004-draw.webp", "label": "", "desc": ["Hotă şemineu", "60 cm", "Design vertical", "Cristal negru", "Sistem de extracţie perimetrală", "Touch Control"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "690-1035"], ["Lățimea produsului (mm)", "598"], ["Adâncimea produsului (mm)", "325"], ["Greutatea produsului (Kgs)", "8,99"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; EMC"], ["Ø Reducție (mm)", "150"], ["Consumul pentru lumina interioară (W)", "1"], ["Conexiune", "schuko"], ["Lungime cablu (cm)", "160"], ["Putere (V)", "220240"], ["Frecvență (Hz)", "50/60"], ["Puterea totală a hotei (W)", "142"], ["Numărul de motoare", "2"], ["Puterea motorului (W)", "140"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Nu"], ["Extensie", "no"], ["Filtrul de cărbune opţional", "D9C"]]}, {"t": "Modele", "r": [["Număr de filtre", "1"], ["Sistem de deschidere", "Panel Uphold Hinge"], ["Oprire programabilă", "Da"], ["Numărul de viteze", "2+1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/DVN-UserManual-ES-PT-EN-DE-FR-EL-PL-HU-RU-UK-RO-BG-TR-CS-AR.pdf"], "b": "Teka", "col": "negru", "kind": "insula", "w": 60}, {"sku": "40436850", "n": "CNL 9610 inox", "sub": "Hotă telescopică, 90 cm", "p": 6800, "img": ["40436850-1.webp"], "draw": "40436850-draw.webp", "label": "", "desc": ["Hotă telescopică", "2 trepte putere + 1 Turbo", "Panou de control electronic", "Sistem de iluminare automat", "3 LED-uri", "4 fltre aluminiu"], "specs": [{"t": "Dimensiuni interioare", "r": [["Înălțimea interioară (mm)", "275"]]}, {"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "274"], ["Lățimea produsului (mm)", "900"], ["Adâncimea produsului (mm)", "300/490"], ["Greutatea produsului (Kgs)", "9,58"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "150"], ["Tipul de iluminare interioară", "230V LED"], ["Consumul pentru lumina interioară (W)", "1,5"], ["Conexiune", "European plug"], ["Putere (V)", "230"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "235"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "230"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "D4C"]]}, {"t": "Modele", "r": [["Număr de filtre", "4"], ["Descrierea filtrului", "Aluminiu"], ["Panou de control", "Electronic"], ["Oprire programabilă", "Da"], ["Iluminat automat", "Da"], ["Numărul de viteze", "2+1"], ["Panoul frontal cu finisaj anti-pată", "Da"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/carte-energetica-hote.pdf"], "b": "Teka", "col": "inox", "kind": "telescopica", "w": 90}, {"sku": "112950015", "n": "DVN 94030 WHITE", "sub": "Hotă şemineu, design vertical, cu Sistem de extracţie perimetrală, 90 cm", "p": 7600, "img": ["112950015-1.webp", "112950015-2.webp", "112950015-3.webp"], "draw": "", "label": "", "desc": ["Colecţia Urban Colors", "Hotă şemineu", "90 cm", "Design vertical", "Cristal negru", "Sistem de extracţie perimetrală"], "specs": [], "pdf": [], "b": "Teka", "col": "alb", "kind": "insula", "w": 90}, {"sku": "112950012", "n": "DVN 94030 BLACK", "sub": "Hotă şemineu, design vertical, cu Sistem de extracţie perimetrală, 90 cm", "p": 7600, "img": ["112950012-1.webp", "112950012-2.webp", "112950012-3.webp"], "draw": "", "label": "", "desc": ["Colecţia Urban Colors", "Hotă şemineu", "90 cm", "Design vertical", "Cristal negru", "Sistem de extracţie perimetrală"], "specs": [], "pdf": [], "b": "Teka", "col": "negru", "kind": "insula", "w": 90}, {"sku": "40487180", "n": "DLH 686 T", "sub": "Hotă decorativă cu display Touch Cntrol şi motor EcoPower, 60cm", "p": 8400, "img": ["40487180-1.webp"], "draw": "40487180-draw.webp", "label": "", "desc": ["Hotă decorativă, 60 cm", "Inox+ cristal negru", "Design ultraslim", "3 trepte putere + 1 Intensiv", "Panou de control electronic", "Motor EcoPower"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "670-1000"], ["Lățimea produsului (mm)", "600"], ["Adâncimea produsului (mm)", "480"], ["Greutatea produsului (Kgs)", "13,37"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "150"], ["Consumul pentru lumina interioară (W)", "6"], ["Conexiune", "Schuko plug"], ["Putere (V)", "220-240"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "271"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "265"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "C1RTK"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Oprire programabilă", "Da"], ["Indicator de saturație a filtrului", "Da"], ["Numărul de viteze", "3+1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/DLH-686-786-986-1186-UserManual-ES-DE-EN-FR-PT-TR-EL-RU-UK-CS-SK-PL-HU-BG-RO-AR.pdf"], "b": "Teka", "col": "inox", "kind": "perete", "w": 60}, {"sku": "40484202", "n": "DSH 986", "sub": "Hotă şemineu cu 4 viteze şi motor EcoPower, 90 cm", "p": 9500, "img": ["40484202-1.webp", "40484202-2.webp", "40484202-3.webp", "40484202-4.webp", "40484202-5.webp"], "draw": "40484202-draw.webp", "label": "", "desc": ["Lățime: 90 cm", "Panou de control electronic cu iluminare de fundal (“Backlit”) şi display alb", "Extracție convențională", "3 + 1 viteze", "LED BAR 6W", "Filtre decorative din oțel inoxidabil"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "670-1000"], ["Lățimea produsului (mm)", "900"], ["Adâncimea produsului (mm)", "480"], ["Greutatea produsului (Kgs)", "15,33"]]}, {"t": "Caracteristici particulare", "r": [["Ø Reducție (mm)", "150"], ["Consumul pentru lumina interioară (W)", "6"], ["Conexiune", "Schuko plug"], ["Putere (V)", "220-240"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "286"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "280"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "C1RTK"]]}, {"t": "Modele", "r": [["Număr de filtre", "3"], ["Oprire programabilă", "Da"], ["Indicator de saturație a filtrului", "Da"], ["Numărul de viteze", "3+1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/6/DSH_686-786-986_UserManual_DE_ES_EN_FR_PT_TR_EL_UK_RU_CS_SK_PL_HU_BG_RO_AR.pdf"], "b": "Teka", "col": "inox", "kind": "perete", "w": 90}, {"sku": "40487182", "n": "DLH 986 T", "sub": "Hotă decorativă cu display Touch Cntrol şi motor EcoPower, 90cm", "p": 9600, "img": ["40487182-1.webp"], "draw": "40487182-draw.webp", "label": "", "desc": ["Hotă decorativă", "90 cm", "Inox + cristal negru", "Design ultraslim", "3 trepte putere + 1 Intensiv", "Panou de control electronic"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "670-1000"], ["Lățimea produsului (mm)", "900"], ["Adâncimea produsului (mm)", "480"], ["Greutatea produsului (Kgs)", "15,33"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "150"], ["Consumul pentru lumina interioară (W)", "6"], ["Conexiune", "Schuko plug"], ["Putere (V)", "220-240"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "271"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "265"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "C1RTK"]]}, {"t": "Modele", "r": [["Număr de filtre", "3"], ["Oprire programabilă", "Da"], ["Indicator de saturație a filtrului", "Da"], ["Numărul de viteze", "3+1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/DLH-686-786-986-1186-UserManual-ES-DE-EN-FR-PT-TR-EL-RU-UK-CS-SK-PL-HU-BG-RO-AR.pdf"], "b": "Teka", "col": "inox", "kind": "perete", "w": 90}, {"sku": "40437000", "n": "Tikal DSS 785", "sub": "Hotă şemineu, formă piramidă, motor EcoPower, panou de control cu butoane iluminate, 70 cm", "p": 9900, "img": ["40437000-1.webp"], "draw": "40437000-draw.webp", "label": "", "desc": ["Hotă şemineu", "Formă piramidă", "Motor EcoPower", "3 trepte putere + 1 Turbo", "Panou de control cu butoane iluminate", "Bandă LED"], "specs": [{"t": "Dimensiuni interioare", "r": [["Înălțimea interioară (mm)", "950"]]}, {"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "700-1100"], ["Lățimea produsului (mm)", "700"], ["Adâncimea produsului (mm)", "480"], ["Greutatea produsului (Kgs)", "13,49"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "150"], ["Tipul de iluminare interioară", "LED"], ["Consumul pentru lumina interioară (W)", "9"], ["Conexiune", "Schuko plug"], ["Putere (V)", "230"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "289"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "280"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "C1RTK"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Descrierea filtrului", "Inox"], ["Panou de control", "Push buttons"], ["Oprire programabilă", "Da"], ["Numărul de viteze", "3+1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/carte-energetica-hote.pdf"], "b": "Teka", "col": "inox", "kind": "perete", "w": 70}, {"sku": "40437010", "n": "Tikal DSS 985", "sub": "Hotă şemineu, formă piramidă, motor EcoPower, panou de control cu butoane iluminate, 90 cm", "p": 11400, "img": ["40437010-1.webp"], "draw": "40437010-draw.webp", "label": "", "desc": ["Hotă şemineu", "Formă piramidă", "Motor EcoPower", "3 trepte putere + 1 Turbo", "Panou de control cu butoane iluminate", "Bandă LED"], "specs": [{"t": "Dimensiuni interioare", "r": [["Înălțimea interioară (mm)", "950"]]}, {"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "700-1100"], ["Lățimea produsului (mm)", "900"], ["Adâncimea produsului (mm)", "480"], ["Greutatea produsului (Kgs)", "14,37"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "150"], ["Tipul de iluminare interioară", "LED"], ["Consumul pentru lumina interioară (W)", "12"], ["Conexiune", "Schuko plug"], ["Putere (V)", "230"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "292"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "280"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "C1RTK"]]}, {"t": "Modele", "r": [["Număr de filtre", "3"], ["Descrierea filtrului", "Inox"], ["Panou de control", "Push buttons"], ["Oprire programabilă", "Da"], ["Numărul de viteze", "3+1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/carte-energetica-hote.pdf"], "b": "Teka", "col": "inox", "kind": "perete", "w": 90}, {"sku": "40487183", "n": "DLH 1186T", "sub": "Hotă decorativă cu display Touch Cntrol şi motor EcoPower, 110cm", "p": 11500, "img": ["40487183-1.webp"], "draw": "40487183-draw.webp", "label": "", "desc": ["Hotă decorativă, 110 cm", "Inox + cristal negru", "Design ultraslim", "3 trepte putere + 1 Intensiv", "Panou de control electronic", "Motor EcoPower"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "670-1000"], ["Lățimea produsului (mm)", "900"], ["Adâncimea produsului (mm)", "480"], ["Greutatea produsului (Kgs)", "16,64"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs"], ["Ø Reducție (mm)", "150"], ["Consumul pentru lumina interioară (W)", "6"], ["Conexiune", "Schuko plug"], ["Putere (V)", "220-240"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "271"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "265"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "C1RTK"]]}, {"t": "Modele", "r": [["Număr de filtre", "4"], ["Oprire programabilă", "Da"], ["Indicator de saturație a filtrului", "Da"], ["Numărul de viteze", "3+1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/DLH-686-786-986-1186-UserManual-ES-DE-EN-FR-PT-TR-EL-RU-UK-CS-SK-PL-HU-BG-RO-AR.pdf"], "b": "Teka", "col": "inox", "kind": "perete", "w": 90}, {"sku": "113110002", "n": "GFI 67350 EOS IX", "sub": "Hotă complet integrată, ușor de instalat și cu spațiu de depozitare, 60 cm", "p": 11700, "img": ["113110002-1.webp", "113110002-2.webp", "113110002-3.webp", "113110002-4.webp", "113110002-5.webp", "113110002-6.webp"], "draw": "113110002-draw.webp", "label": "", "desc": ["Hotă complet integrată, 60 cm", "Inox + cristal negru", "Instalare EasyFix cu ghidaje reglabile", "Touch Control", "3 trepte putere + 1 Turbo", "Motor ECO Power"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "255-305"], ["Lățimea produsului (mm)", "592"], ["Adâncimea produsului (mm)", "310-370"], ["Greutatea produsului (Kgs)", "7.31"]]}, {"t": "Caracteristici particulare", "r": [["Ø Reducție (mm)", "150"], ["Consumul pentru lumina interioară (W)", "5"], ["Conexiune", "European plug"], ["Lungime cablu (cm)", "150"], ["Putere (V)", "220-230"], ["Frecvență (Hz)", "50-60"], ["Puterea totală a hotei (W)", "271"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "265"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "no"], ["Filtrul de cărbune opţional", "D1C"]]}, {"t": "Modele", "r": [["Număr de filtre", "1"], ["Sistem de deschidere", "Nu"], ["Indicator de saturație a filtrului", "Da"], ["Numărul de viteze", "3+1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/6/GFI_67350-97350_EOS_UserManual_DE-ES-EN-FR-PT-TR-EL-RU-UK-CS-SK-PL-HU-BG-RO-AR.pdf"], "b": "Teka", "col": "inox", "kind": "incorporabila", "w": 60}, {"sku": "113100005", "n": "GFL 57651 EOS BK", "sub": "Hotă încorporabilă, cu sistem de extracţie perimetrală şi panou de control electronic, 50 cm", "p": 11800, "img": ["113100005-1.webp", "113100005-2.webp", "113100005-3.webp", "113100005-4.webp", "113100005-5.webp", "113100005-6.webp"], "draw": "113100005-draw.webp", "label": "", "desc": ["Hotă încorporabilă, 50 cm", "Inox + cristal negru", "3 trepte putere + 1 Turbo", "Sistem de extracţie perimetrală", "Panou de control electronic", "Indicator luminos de funcţionare"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "282"], ["Lățimea produsului (mm)", "532"], ["Adâncimea produsului (mm)", "284"], ["Greutatea produsului (Kgs)", "9.8"]]}, {"t": "Caracteristici particulare", "r": [["Ø Reducție (mm)", "150"], ["Consumul pentru lumina interioară (W)", "8 (2x4 W)"], ["Conexiune", "Shucko"], ["Lungime cablu (cm)", "100"], ["Putere (V)", "220-230"], ["Frecvență (Hz)", "50/60"], ["Puterea totală a hotei (W)", "278"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "270"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "D4C"]]}, {"t": "Modele", "r": [["Număr de filtre", "1"], ["Sistem de deschidere", "Manual"], ["Oprire programabilă", "Da"], ["Numărul de viteze", "3 + 1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/113100005_MANUAL_GFL.pdf"], "b": "Teka", "col": "negru", "kind": "incorporabila", "w": 55}, {"sku": "113100007", "n": "GFL 57760 EOS IX", "sub": "Hotă încorporabilă cu sistem de extracţie perimetrală, 53 cm", "p": 11800, "img": ["113100007-1.webp", "113100007-2.webp", "113100007-3.webp", "113100007-4.webp", "113100007-5.webp", "113100007-6.webp"], "draw": "113100007-draw.webp", "label": "", "desc": ["Hotă încorporabilă, 53 cm", "Inox / 2 x LED", "3 trepte putere + 1 Turbo", "Sistem de extracţie perimetrală", "Panou de control electronic", "Indicator luminos de funcţionare"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "282"], ["Lățimea produsului (mm)", "532"], ["Adâncimea produsului (mm)", "284"], ["Greutatea produsului (Kgs)", "9.00"]]}, {"t": "Caracteristici particulare", "r": [["Ø Reducție (mm)", "150"], ["Consumul pentru lumina interioară (W)", "8 (2x4 W)"], ["Conexiune", "Shucko"], ["Lungime cablu (cm)", "100"], ["Putere (V)", "220-230"], ["Frecvență (Hz)", "50/60"], ["Puterea totală a hotei (W)", "278"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "270"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "D4C"]]}, {"t": "Modele", "r": [["Număr de filtre", "1"], ["Sistem de deschidere", "Manual"], ["Oprire programabilă", "Da"], ["Numărul de viteze", "3 + 1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/113100007_MANUAL_GFL.pdf"], "b": "Teka", "col": "inox", "kind": "incorporabila", "w": 55}, {"sku": "112930039", "n": "DVT 68660 TBS BK", "sub": "Hotă şemineu cu design vertical, paravan din sticlă de culoare neagră, Funcţie Fresh AIR, 60 cm", "p": 12200, "img": ["112930039-1.webp", "112930039-2.webp", "112930039-3.webp", "112930039-4.webp", "112930039-5.webp", "112930039-6.webp"], "draw": "112930039-draw.webp", "label": "", "desc": ["Hotă şemineu, 60 cm, cu design vertical", "Sistemde extracţie DUAL (Încorporarea unui filtru suplimentar îmbunătățește capacitatea de extracţie și de eliminare a mirosurilor, combinând extracţia frontală și pe cea perimetrală într-un sistem dublu de extracție).", "Sistem de extracţie perimetrală “Contour”", "Paravan sticlă de culoare neagră cu sistem de deschidere tip Piston", "Touch Control", "Timer"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "380"], ["Lățimea produsului (mm)", "600"], ["Adâncimea produsului (mm)", "412"], ["Greutatea produsului (Kgs)", "14,5"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs; Gmark"], ["Ø Reducție (mm)", "150"], ["Colector detaşabil de ulei", "Da"], ["Sistem dublu de aspirație", "Da"], ["Consumul pentru lumina interioară (W)", "4,2"], ["Conexiune", "Schuko plug"], ["Lungime cablu (cm)", "100"], ["Putere (V)", "220-240"], ["Frecvență (Hz)", "50/60"], ["Puterea totală a hotei (W)", "286"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "280"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "C1RTK"], ["Introducere Cod panou frontal", "Nu"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Sistem de deschidere", "Piston"], ["Oprire programabilă", "Da"], ["Indicator de saturație a filtrului", "Da"], ["Ceas", "Da"], ["Numărul de viteze", "3 + 1"], ["Funcția pentru aer proaspăt", "Da"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/112930039_DVT_PRO_VR01.pdf"], "b": "Teka", "col": "negru", "kind": "insula", "w": 60}, {"sku": "113100002", "n": "GFL 57650 EOS IX", "sub": "Hotă încorporabilă, cu sistem de extracţie perimetrală, 50cm", "p": 12400, "img": ["113100002-1.webp", "113100002-2.webp", "113100002-3.webp", "113100002-4.webp"], "draw": "113100002-draw.webp", "label": "", "desc": ["Hotă încorporabilă, 50 cm", "Inox", "3 trepte putere + 1 Turbo", "Sistem de extracţie perimetrală", "Panou de control electronic", "Indicator luminos de funcţionare"], "specs": [], "pdf": [], "b": "Teka", "col": "inox", "kind": "incorporabila", "w": 50}, {"sku": "123060001", "n": "DEF6800.0E", "sub": "60 cm built-in cooker hood with 6 power levels", "p": 12900, "img": ["123060001-1.webp"], "draw": "", "label": "", "desc": [], "specs": [], "pdf": ["https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/DEF6800-9800-0-UserManual-ES-DE-EN-FR-PT-NL-IT-EL.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/EU_FICHE_DEF6800-0E-EN.pdf"], "b": "Küppersbusch", "col": "inox", "kind": "telescopica", "w": 60}, {"sku": "113100006", "n": "GFL 77651 EOS", "sub": "Hotă încorporabilă, cu sistem de extracţie perimetrală şi panou de control electronic, 70 cm", "p": 13000, "img": ["113100006-1.webp", "113100006-2.webp", "113100006-3.webp", "113100006-4.webp", "113100006-5.webp", "113100006-6.webp"], "draw": "113100006-draw.webp", "label": "", "desc": ["Hotă încorporabilă, cu sistem de extracţie perimetrală şi panou de control electronic, 70 cm", "Inox + cristal negru", "3 trepte putere + 1 Turbo", "Sistem de extracţie perimetrală", "Panou de control electronic", "Indicator luminos de funcţionare"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "282"], ["Lățimea produsului (mm)", "712"], ["Adâncimea produsului (mm)", "284"], ["Greutatea produsului (Kgs)", "11.7"]]}, {"t": "Caracteristici particulare", "r": [["Ø Reducție (mm)", "150"], ["Consumul pentru lumina interioară (W)", "8 (2x4 W)"], ["Conexiune", "Shucko"], ["Lungime cablu (cm)", "100"], ["Putere (V)", "220-230"], ["Frecvență (Hz)", "50/60"], ["Puterea totală a hotei (W)", "278"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "270"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "D4C"]]}, {"t": "Modele", "r": [["Număr de filtre", "1"], ["Sistem de deschidere", "Manual"], ["Oprire programabilă", "Da"], ["Numărul de viteze", "3 + 1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/113100006_MANUAL_GFL.pdf"], "b": "Teka", "col": "inox", "kind": "incorporabila", "w": 70}, {"sku": "113100008", "n": "GFL 77760 EOS IX", "sub": "Hotă încorporabilă cu sistem de extracţie perimetrală, 71 cm", "p": 13000, "img": ["113100008-1.webp", "113100008-2.webp", "113100008-3.webp", "113100008-4.webp", "113100008-5.webp", "113100008-6.webp"], "draw": "113100008-draw.webp", "label": "", "desc": ["Hotă încorporabilă, 71 cm", "Inox / 2 x LED", "3 trepte putere + 1 Turbo", "Sistem de extracţie perimetrală", "Panou de control electronic", "Indicator luminos de funcţionare"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "282"], ["Lățimea produsului (mm)", "712"], ["Adâncimea produsului (mm)", "284"], ["Greutatea produsului (Kgs)", "10.80"]]}, {"t": "Caracteristici particulare", "r": [["Ø Reducție (mm)", "150"], ["Consumul pentru lumina interioară (W)", "8 (2x4 W)"], ["Conexiune", "Shucko"], ["Lungime cablu (cm)", "100"], ["Putere (V)", "220-230"], ["Frecvență (Hz)", "50/60"], ["Puterea totală a hotei (W)", "278"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "270"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "D4C"]]}, {"t": "Modele", "r": [["Număr de filtre", "1"], ["Sistem de deschidere", "Manual"], ["Oprire programabilă", "Da"], ["Numărul de viteze", "3 + 1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/113100008_MANUAL_GFL.pdf"], "b": "Teka", "col": "inox", "kind": "incorporabila", "w": 70}, {"sku": "113100003", "n": "GFL 77650 EOS IX", "sub": "Hotă încorporabilă, cu sistem de extracţie perimetrală, 70cm", "p": 13333, "img": ["113100003-1.webp", "113100003-2.webp", "113100003-3.webp", "113100003-4.webp", "113100003-5.webp"], "draw": "113100003-draw.webp", "label": "", "desc": ["Hotă încorporabilă, 70 cm", "Inox", "3 trepte putere + 1 Turbo", "Sistem de extractie perimetrală", "Panou de control electronic", "Indicator luminos de funcţionare"], "specs": [], "pdf": [], "b": "Teka", "col": "inox", "kind": "incorporabila", "w": 70}, {"sku": "113100009", "n": "GFL 87760 EOS IX", "sub": "Hotă încorporabilă cu sistem de extracţie perimetrală, 84 cm", "p": 14200, "img": ["113100009-1.webp", "113100009-2.webp", "113100009-3.webp", "113100009-4.webp", "113100009-5.webp", "113100009-6.webp"], "draw": "113100009-draw.webp", "label": "", "desc": ["Hotă încorporabilă, 84 cm", "Inox / 2 x LED", "3 trepte putere + 1 Turbo", "Sistem de extractie perimetrală", "Panou de control electronic", "Indicator luminos de funcţionare"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "282"], ["Lățimea produsului (mm)", "836"], ["Adâncimea produsului (mm)", "284"], ["Greutatea produsului (Kgs)", "11.30"]]}, {"t": "Caracteristici particulare", "r": [["Ø Reducție (mm)", "150"], ["Consumul pentru lumina interioară (W)", "8 (2x4 W)"], ["Conexiune", "Shucko"], ["Lungime cablu (cm)", "100"], ["Putere (V)", "220-230"], ["Frecvență (Hz)", "50/60"], ["Puterea totală a hotei (W)", "278"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "270"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "D4C"]]}, {"t": "Modele", "r": [["Număr de filtre", "1"], ["Sistem de deschidere", "Manual"], ["Oprire programabilă", "Da"], ["Numărul de viteze", "3 + 1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/113100009_MANUAL_GFL.pdf"], "b": "Teka", "col": "inox", "kind": "incorporabila", "w": 80}, {"sku": "112930044", "n": "DVT Pro 98660 TBS WH", "sub": "Hotă şemineu cu design vertical, paravan din sticlă de culoare albă, Funcţie Fresh AIR, 90 cm", "p": 14600, "img": ["112930044-1.webp", "112930044-2.webp", "112930044-3.webp", "112930044-4.webp", "112930044-5.webp", "112930044-6.webp"], "draw": "112930044-draw.webp", "label": "", "desc": ["Hotă şemineu, 90 cm, cu design vertical", "Sistemde extracţie DUAL (Încorporarea unui filtru suplimentar îmbunătățește capacitatea de extracţie și de eliminare a mirosurilor, combinând extracţia frontală și pe cea perimetrală într-un sistem dublu de extracție).", "Sistem de extracţie perimetrală “Contour”", "Paravan sticlă de culoare albă cu sistem de deschidere tip Piston", "Touch Control", "Timer"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "800-1100"], ["Lățimea produsului (mm)", "900"], ["Adâncimea produsului (mm)", "412"], ["Greutatea produsului (Kgs)", "16,2"]]}, {"t": "Caracteristici particulare", "r": [["Ø Reducție (mm)", "150"], ["Colector detaşabil de ulei", "Da"], ["Sistem dublu de aspirație", "Da"], ["Consumul pentru lumina interioară (W)", "4,2"], ["Conexiune", "Schuko plug"], ["Lungime cablu (cm)", "100"], ["Putere (V)", "220-240"], ["Frecvență (Hz)", "50/60"], ["Puterea totală a hotei (W)", "286"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "280"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "C1RTK"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Sistem de deschidere", "Piston"], ["Oprire programabilă", "Da"], ["Indicator de saturație a filtrului", "Da"], ["Numărul de viteze", "3 + 1"], ["Funcția pentru aer proaspăt", "Da"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/112930044_DVT_PRO_VR01.pdf"], "b": "Teka", "col": "alb", "kind": "insula", "w": 90}, {"sku": "112930043", "n": "DVT Pro 98660 TBS Black", "sub": "Hotă şemineu cu design vertical, paravan din sticlă de culoare neagră, Funcţie Fresh AIR, 90 cm", "p": 14600, "img": ["112930043-1.webp", "112930043-2.webp", "112930043-3.webp", "112930043-4.webp", "112930043-5.webp", "112930043-6.webp"], "draw": "112930043-draw.webp", "label": "", "desc": ["Hotă şemineu, 90 cm, cu design vertical", "Sistemde extracţie DUAL (Încorporarea unui filtru suplimentar îmbunătățește capacitatea de extracţie și de eliminare a mirosurilor, combinând extracţia frontală și pe cea perimetrală într-un sistem dublu de extracție).", "Sistem de extracţie perimetrală “Contour”", "Paravan sticlă de culoare neagră cu sistem de deschidere tip Piston", "Touch Control", "Timer"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "800-1100"], ["Lățimea produsului (mm)", "900"], ["Adâncimea produsului (mm)", "412"], ["Greutatea produsului (Kgs)", "16,2"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB; Rohs; Gmark"], ["Ø Reducție (mm)", "150"], ["Colector detaşabil de ulei", "Da"], ["Sistem dublu de aspirație", "Da"], ["Consumul pentru lumina interioară (W)", "4,2"], ["Conexiune", "Schuko plug"], ["Lungime cablu (cm)", "100"], ["Putere (V)", "220-240"], ["Frecvență (Hz)", "50/60"], ["Puterea totală a hotei (W)", "286"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "280"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "C1RTK"], ["Introducere Cod panou frontal", "Nu"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Sistem de deschidere", "Piston"], ["Oprire programabilă", "Da"], ["Indicator de saturație a filtrului", "Da"], ["Numărul de viteze", "3 + 1"], ["Funcția pentru aer proaspăt", "Da"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/112930043_DVT_PRO_VR01.pdf"], "b": "Teka", "col": "negru", "kind": "insula", "w": 90}, {"sku": "112930032", "n": "DLV 98660 TOS SM", "sub": "Hotă şemineu, design vertical, motor EcoPower, sistem de extracţie perimetral, clasă de eficienţă energetică A+, 90 cm", "p": 18000, "img": ["112930032-1.webp", "112930032-2.webp", "112930032-3.webp", "112930032-4.webp", "112930032-5.webp", "112930032-6.webp"], "draw": "112930032-draw.webp", "label": "", "desc": ["Colecţia Urban Colors", "Hotă şemineu", "Design vertical", "Sistem de extracţie perimetrală", "Paravan sticlă cu sistem de deschidere tip Piston", "Touch Control cu afişaj de culoare albă"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "1001-1331"], ["Lățimea produsului (mm)", "900"], ["Adâncimea produsului (mm)", "450"], ["Greutatea produsului (Kgs)", "20,27"]]}, {"t": "Caracteristici particulare", "r": [["Ø Reducție (mm)", "150"], ["Colector detaşabil de ulei", "Da"], ["Consumul pentru lumina interioară (W)", "7,5"], ["Conexiune", "Schuko plug"], ["Lungime cablu (cm)", "100"], ["Putere (V)", "220-240"], ["Frecvență (Hz)", "50/60"], ["Puterea totală a hotei (W)", "272,5"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "265"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "C1RTK"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Sistem de deschidere", "Piston"], ["Oprire programabilă", "Da"], ["Indicator de saturație a filtrului", "Da"], ["Ceas", "Da"], ["Numărul de viteze", "3 + 1"], ["Funcția pentru aer proaspăt", "Da"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/DLV-98660-99670-TOS-UserManual-EL-CS-SK-PL-HU-BG-RO-AR.pdf"], "b": "Teka", "col": "gri", "kind": "perete-inclinat", "w": 90}, {"sku": "112930033", "n": "DLV 98660 TOS ST", "sub": "Hotă şemineu, design vertical, motor EcoPower, sistem de extracţie perimetral, clasă de eficienţă energetică A+, 90 cm", "p": 18000, "img": ["112930033-1.webp", "112930033-2.webp", "112930033-3.webp", "112930033-4.webp", "112930033-5.webp", "112930033-6.webp"], "draw": "112930033-draw.webp", "label": "", "desc": ["Colecţia Urban Colors", "Hotă şemineu", "Design vertical", "Sistem de extracţie perimetrală", "Paravan sticlă cu sistem de deschidere tip Piston", "Touch Control cu afişaj de culoare albă"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "1001-1331"], ["Lățimea produsului (mm)", "900"], ["Adâncimea produsului (mm)", "450"], ["Greutatea produsului (Kgs)", "20,27"]]}, {"t": "Caracteristici particulare", "r": [["Ø Reducție (mm)", "150"], ["Colector detaşabil de ulei", "Da"], ["Consumul pentru lumina interioară (W)", "7,5"], ["Conexiune", "Schuko plug"], ["Lungime cablu (cm)", "100"], ["Putere (V)", "220-240"], ["Frecvență (Hz)", "50/60"], ["Puterea totală a hotei (W)", "272,5"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "265"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "C1RTK"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Sistem de deschidere", "Piston"], ["Oprire programabilă", "Da"], ["Indicator de saturație a filtrului", "Da"], ["Ceas", "Da"], ["Numărul de viteze", "3 + 1"], ["Funcția pentru aer proaspăt", "Da"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/DLV-98660-99670-TOS-UserManual-EL-CS-SK-PL-HU-BG-RO-AR.pdf"], "b": "Teka", "col": "antracit", "kind": "perete-inclinat", "w": 90}, {"sku": "112930038", "n": "DLV 99670 BK TOS", "sub": "Hotă cu design vertical, sistem de extracţie perimetrală, 90 cm", "p": 19100, "img": ["112930038-1.webp", "112930038-2.webp", "112930038-3.webp", "112930038-4.webp", "112930038-5.webp", "112930038-6.webp"], "draw": "112930038-draw.webp", "label": "", "desc": ["Design vertical", "Sistem de extracţie perimetrală", "Paravan sticlă cu sistem de deschidere tip Piston", "Touch Control cu afişaj de culoare albă / Timer", "Bandă LED", "3 trepte putere + 1 Turbo"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "1001-1331"], ["Lățimea produsului (mm)", "900"], ["Adâncimea produsului (mm)", "450"], ["Greutatea produsului (Kgs)", "21"]]}, {"t": "Caracteristici particulare", "r": [["Ø Reducție (mm)", "150"], ["Colector detaşabil de ulei", "Da"], ["Consumul pentru lumina interioară (W)", "7,5"], ["Conexiune", "Schuko plug"], ["Lungime cablu (cm)", "100"], ["Putere (V)", "220-240"], ["Frecvență (Hz)", "50/60"], ["Puterea totală a hotei (W)", "228"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "220"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "C1RTK"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Sistem de deschidere", "Piston"], ["Oprire programabilă", "Da"], ["Indicator de saturație a filtrului", "Da"], ["Ceas", "Da"], ["Numărul de viteze", "3 + 1"], ["Funcția pentru aer proaspăt", "Da"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/DLV-98660-99670-TOS-UserManual-EL-CS-SK-PL-HU-BG-RO-AR.pdf"], "b": "Teka", "col": "negru", "kind": "perete-inclinat", "w": 90}, {"sku": "112930056", "n": "DVI 88-G1 EOS BM", "sub": "Hotă verticală Infinity G1. Ediție specială Italdesign Giugiaro", "p": 20300, "img": ["112930056-1.webp", "112930056-2.webp", "112930056-3.webp", "112930056-4.webp"], "draw": "112930056-draw.webp", "label": "", "desc": ["Ediție specială Infinity G1", "Proiectat în Italia de Italdesign Giugiaro", "Hotă 80 cm cu design vertical", "Finisaj exclusivist negru mat", "Detalii metalice cupru", "Sistem de extracţie perimetrală"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "810-1140"], ["Lățimea produsului (mm)", "800"], ["Adâncimea produsului (mm)", "409"], ["Greutatea produsului (Kgs)", "17,5"]]}, {"t": "Caracteristici particulare", "r": [["Ø Reducție (mm)", "150"], ["Colector detaşabil de ulei", "Da"], ["Sistem dublu de aspirație", "Da"], ["Consumul pentru lumina interioară (W)", "4"], ["Conexiune", "Schuko plug"], ["Lungime cablu (cm)", "100"], ["Putere (V)", "220-240"], ["Frecvență (Hz)", "50/60"], ["Puterea totală a hotei (W)", "278"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "270"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "C1RTK"]]}, {"t": "Modele", "r": [["Număr de filtre", "1"], ["Sistem de deschidere", "Piston"], ["Oprire programabilă", "Da"], ["Indicator de saturație a filtrului", "Da"], ["Numărul de viteze", "3 + 1"], ["Funcția pentru aer proaspăt", "Da"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/112930056_DVI_88-98.pdf"], "b": "Teka", "col": "inox", "kind": "insula", "w": 80}, {"sku": "123100006", "n": "DEL6550.0E", "sub": "53 cm built-in canopy hood with 4 power levels", "p": 20400, "img": ["123100006-1.webp", "123100006-2.webp", "123100006-3.webp", "123100006-4.webp", "123100006-5.webp", "123100006-6.webp"], "draw": "", "label": "", "desc": [], "specs": [], "pdf": ["https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/10/DEL6550-0E-W-DEL8550-0E-W-DEL9550-0E-UserManual-DE-ES-GB-FR-PT-IT-SE-NL-GR-RU.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/EU_FICHE-DEL6550-0E-EN.pdf"], "b": "Küppersbusch", "col": "inox", "kind": "incorporabila", "w": 55}, {"sku": "123100003", "n": "DEL9550.0E", "sub": "84 cm built-in canopy hood with 4 power levels", "p": 21100, "img": ["123100003-1.webp", "123100003-2.webp", "123100003-3.webp", "123100003-4.webp", "123100003-5.webp", "123100003-6.webp"], "draw": "", "label": "", "desc": [], "specs": [], "pdf": ["https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/1/USER_MANUAL-DEL9550_0_DE_ES_EN_FR_PT_IT_SE_NL_GR_RU.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/EU_FICHE-DEL9550-0E-EN.pdf"], "b": "Küppersbusch", "col": "inox", "kind": "incorporabila", "w": 80}, {"sku": "112930071", "n": "DVI 98-G1 EOS BM", "sub": "Editia Infinity G1. Hotă 90 cm cu design vertical, sistem de extracţie perimetrală", "p": 21200, "img": ["112930071-1.webp", "112930071-2.webp", "112930071-3.webp"], "draw": "112930071-draw.webp", "label": "", "desc": ["Infinity G1. Hotă 90 cm cu design vertical", "Sistem de extracţie perimetrală", "Functie Fresh AIR (10 min ON / 50 min OFF)", "Motor Eco Power Brushless", "Paravan sticlă de culoare neagră", "Control cu butoane / Timer"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "810-1140"], ["Lățimea produsului (mm)", "900"], ["Adâncimea produsului (mm)", "409"], ["Greutatea produsului (Kgs)", "16,8"]]}, {"t": "Caracteristici particulare", "r": [["Ø Reducție (mm)", "150"], ["Colector detaşabil de ulei", "Da"], ["Sistem dublu de aspirație", "Da"], ["Consumul pentru lumina interioară (W)", "4"], ["Conexiune", "Schuko plug"], ["Lungime cablu (cm)", "100"], ["Putere (V)", "220-240"], ["Frecvență (Hz)", "50/60"], ["Puterea totală a hotei (W)", "284"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "280"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Extensie", "Nu"], ["Filtrul de cărbune opţional", "FILTRO DE CARBON D4C"]]}, {"t": "Modele", "r": [["Număr de filtre", "2"], ["Sistem de deschidere", "Piston"], ["Oprire programabilă", "Da"], ["Numărul de viteze", "3 + 1"], ["Funcția pentru aer proaspăt", "Da"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/112930071_DVI_88-98.pdf"], "b": "Teka", "col": "inox", "kind": "insula", "w": 90}, {"sku": "122970000", "n": "DW9500.0S", "sub": "90 cm wall cooker hood with 4 power levels", "p": 28500, "img": ["122970000-1.webp", "122970000-2.webp", "122970000-3.webp", "122970000-4.webp", "122970000-5.webp", "122970000-6.webp"], "draw": "", "label": "", "desc": [], "specs": [], "pdf": ["https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/DW-9500-0-UserManual-DE-ES-EN-FR-PT-NL-IT-EL.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/EU_FICHE-DW9500-0S-EN.pdf"], "b": "Küppersbusch", "col": "inox", "kind": "perete", "w": 90}, {"sku": "112910006", "n": "CC 485 BK", "sub": "Hotă insulă, formă cilindrică si motor EcoPower", "p": 28900, "img": ["112910006-1.webp", "112910006-2.webp", "112910006-3.webp"], "draw": "112910006-draw.webp", "label": "", "desc": ["Hotă insulă", "Formă cilindrică", "Motor EcoPower", "Touch Control", "Timer", "2 spoturi LED"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "900-1200"], ["Lățimea produsului (mm)", "400"], ["Adâncimea produsului (mm)", "400"], ["Greutatea produsului (Kgs)", "21,5"]]}, {"t": "Caracteristici particulare", "r": [["Ø Reducție (mm)", "150"], ["Consumul pentru lumina interioară (W)", "3"], ["Conexiune", "European plug"], ["Putere (V)", "220-240"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "286"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "280"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Filtrul de cărbune opţional", "D4C"]]}, {"t": "Modele", "r": [["Număr de filtre", "1"], ["Sistem de deschidere", "NO"], ["Oprire programabilă", "Da"], ["Indicator de saturație a filtrului", "Da"], ["Numărul de viteze", "3+1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/112910006_CC_80_85.pdf"], "b": "Teka", "col": "negru", "kind": "insula", "w": 40}, {"sku": "40480330", "n": "CC 485", "sub": "Hotă insulă, formă cilindrică, 40 cm", "p": 28900, "img": ["40480330-1.webp", "40480330-2.webp", "40480330-3.webp", "40480330-4.webp", "40480330-5.webp", "40480330-6.webp"], "draw": "40480330-draw.webp", "label": "", "desc": ["Hotă insulă", "Formă cilindrică", "Motor EcoPower", "3 trepte putere + 1 Turbo", "Touch Control", "Afişaj de culoare albă"], "specs": [{"t": "Dimensiuni interioare", "r": [["Înălțimea interioară (mm)", "1200"]]}, {"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "900-1200"], ["Lățimea produsului (mm)", "400"], ["Adâncimea produsului (mm)", "400"], ["Greutatea produsului (Kgs)", "21,5"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CE; CB"], ["Ø Reducție (mm)", "150"], ["Tipul de iluminare interioară", "LED"], ["Consumul pentru lumina interioară (W)", "3"], ["Conexiune", "European plug"], ["Putere (V)", "220-240"], ["Frecvență (Hz)", "50"], ["Puterea totală a hotei (W)", "286"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "280"]]}, {"t": "Accesorii", "r": [["Supapă anti-retur", "Da"], ["Reducţie 150/120 mm", "Da"], ["Filtrul de cărbune opţional", "D4C"]]}, {"t": "Modele", "r": [["Număr de filtre", "1"], ["Descrierea filtrului", "Inox"], ["Panou de control", "Touch control"], ["Oprire programabilă", "Da"], ["Indicator de saturație a filtrului", "Da"], ["Numărul de viteze", "3+1"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/carte-energetica-hote.pdf"], "b": "Teka", "col": "inox", "kind": "insula", "w": 40}, {"sku": "122940005", "n": "DW8550.0KSM MattBlack", "sub": "MattBlack Design Line. 80 cm wall bonnet concept headroom with 4 power levels", "p": 32300, "img": ["122940005-1.webp", "122940005-2.webp", "122940005-3.webp", "122940005-4.webp", "122940005-5.webp", "122940005-6.webp"], "draw": "", "label": "", "desc": [], "specs": [], "pdf": ["https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/1/USER_MANUAL-DW8550_0KSM6_DE-EN_ES_PT_NL_FR_EL_IT.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/EU_FICHE_DW8550-0KSM-EN.pdf"], "b": "Küppersbusch", "col": "negru", "kind": "perete", "w": 80}, {"sku": "122940003", "n": "DW8540.0S", "sub": "Hotă şemineu, cu 4 nivele de putere, Touch control, 90 cm", "p": 32300, "img": ["122940003-1.webp"], "draw": "", "label": "", "desc": ["4 trepte putere, inclusiv High Power", "Putere absorbţie (evacuare) conform 2010/30/EU: 400 m³/h (Normal power), 570 m³/h (Intensive power)", "Control electronic prin intermendiul senzorilor touch control", "Display digital", "Sistem de extracţie perimetrală cu panou din cristal negru", "Timer cu posibilitatea de întrerupere a funcţionării"], "specs": [], "pdf": [], "b": "Küppersbusch", "col": "inox", "kind": "perete-inclinat", "w": 90}, {"sku": "122930004", "n": "DW9880.0S", "sub": "90 cm wall cooker hood concept headroom with K-Connect with 4 power levels", "p": 39600, "img": ["122930004-1.webp", "122930004-2.webp", "122930004-3.webp", "122930004-4.webp", "122930004-5.webp", "122930004-6.webp"], "draw": "", "label": "", "desc": [], "specs": [], "pdf": ["https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/1/USER_MANUAL-DW9880_0_ES_DE_EN_FR_PT_NL_EL_IT_.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/EU_FICHE-DW9880-0S-EN.pdf"], "b": "Küppersbusch", "col": "inox", "kind": "perete-inclinat", "w": 90}, {"sku": "113160000", "n": "FIH 16760 TOS BK", "sub": "Hota Modulară (Downdraft) cu Sistem de extracţie perimetrală şi 3 trepte putere + 1 Turbo", "p": 40200, "img": ["113160000-1.webp", "113160000-2.webp", "113160000-3.webp", "113160000-4.webp", "113160000-5.webp", "113160000-6.webp"], "draw": "113160000-draw.webp", "label": "", "desc": ["Hota Modulară (Downdraft)", "Design Cristal", "Sistem de extracţie perimetrală", "Touch Control", "Timer", "3 trepte putere + 1 Turbo"], "specs": [{"t": "Dimensiuni exterioare", "r": [["Înălțimea produsului (mm)", "186"], ["Lățimea produsului (mm)", "110"], ["Adâncimea produsului (mm)", "510"], ["Greutatea produsului (Kgs)", "15"]]}, {"t": "Caracteristici particulare", "r": [["Certificări", "CB / IMQ"], ["Ø Reducție (mm)", "220x90"], ["Conexiune", "EU"], ["Lungime cablu (cm)", "150"], ["Putere (V)", "220-240"], ["Frecvență (Hz)", "50/60"], ["Puterea totală a hotei (W)", "145"], ["Numărul de motoare", "1"], ["Puterea motorului (W)", "145"]]}, {"t": "Accesorii", "r": [["Reducţie 150/120 mm", "Nu"]]}, {"t": "Modele", "r": [["Număr de filtre", "1"], ["Sistem de deschidere", "manual"], ["Oprire programabilă", "Da"], ["Indicator de saturație a filtrului", "Da"], ["Numărul de viteze", "3+1"], ["Funcția pentru aer proaspăt", "Da"]]}], "pdf": ["https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf", "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/FIH-16760-TOS-InstallationManual.pdf"], "b": "Teka", "col": "negru", "kind": "perete", "w": 30}];
+const T={
+ ro:{h1:"Hote",crumbs:"Bucătărie › Hote",sub:"De perete · Telescopice · Încorporabile — <b>49 modele</b>",c_all:"Toate",c_perete:"De perete",c_telesc:"Telescopice",c_incorp:"Încorporabile",c_insula:"De insulă",c_inclin:"Înclinate",c_kb:"Küppersbusch",
+  k_perete:"De perete",k_telescopica:"Telescopică",k_incorporabila:"Încorporabilă",k_insula:"De insulă","k_perete-inclinat":"Înclinată",c_antr:"Antracit",
+  b1h:"Aerul curat,<br>fără efort.",b1p:"Motorul trage fumul și mirosurile direct de deasupra plitei, iar filtrele rețin grăsimea — bucătăria rămâne curată, fără zgomot inutil.",
+  b2k:"Gama Teka",b2s:"modele",filt:"Filtre",sort:"Recomandate ▾",more:"Încarcă încă 12",reset:"Resetează",f_w:"Lățime",f_c:"Culoare",
+  c_crem:"Crem",c_negru:"Negru",c_inox:"Inox",c_alb:"Alb",c_gri:"Gri",show:"Arată",cod:"Cod",about:"Despre produs",instal:"Instalare",drawh:"Schema de încorporare",zoom:"Mărește",specs:"Caracteristici tehnice",docs:"Documente",manual:"Manual de utilizare",elab:"Etichetă energetică",add:"Adaugă în coș",stoc:"În stoc",empty:"Niciun rezultat",emptyp:"Încearcă să resetezi filtrele.",
+  nav_t:"Catalog",ftk:"Contacte",fth:"Ai o întrebare?<br>Scrie-ne acum.",ftp:"Răspundem în WhatsApp în timpul programului, de obicei în câteva minute.",wab:"Scrie pe WhatsApp",call:"Apel",hrs:"Luni – Sâmbătă, 10:00 – 18:00",mail:"Răspuns în 24 de ore",addr:"Chișinău, str. 31 August 1989, 79/1",route:"Traseu",t1:"Dealer oficial",t1s:"Garanție Teka 2 ani",t2:"Livrare în toată Moldova",t2s:"Chișinău — gratuit",t3:"Instalare",t3s:"Montaj de specialiști",cp:"Distribuitor oficial Teka și Küppersbusch în Republica Moldova.",
+  tbk:"IntensiveBoost",tbh:"Trei viteze.<br>Plus intensiv.",tbp:"Trei trepte pentru gătitul zilnic și o treaptă intensivă pentru momentele cu fum — se întoarce singură la viteza normală.",tbu:"viteze"},
+ ru:{h1:"Вытяжки",crumbs:"Кухня › Вытяжки",sub:"Настенные · Телескопические · Встраиваемые — <b>49 моделей</b>",c_all:"Все",c_perete:"Настенные",c_telesc:"Телескопические",c_incorp:"Встраиваемые",c_insula:"Островные",c_inclin:"Наклонные",c_kb:"Küppersbusch",
+  k_perete:"Настенная",k_telescopica:"Телескопическая",k_incorporabila:"Встраиваемая",k_insula:"Островная","k_perete-inclinat":"Наклонная",c_antr:"Антрацит",
+  b1h:"Чистый воздух,<br>без усилий.",b1p:"Мотор вытягивает дым и запахи прямо над плитой, а фильтры удерживают жир — кухня остаётся чистой, без лишнего шума.",
+  b2k:"Линейка Teka",b2s:"модели",filt:"Фильтры",sort:"Рекомендуем ▾",more:"Показать ещё 12",reset:"Сбросить",f_w:"Ширина",f_c:"Цвет",
+  c_crem:"Кремовый",c_negru:"Чёрный",c_inox:"Сталь",c_alb:"Белый",c_gri:"Серый",show:"Показать",cod:"Код",about:"О товаре",instal:"Установка",drawh:"Схема встраивания",zoom:"Увеличить",specs:"Характеристики",docs:"Документы",manual:"Инструкция",elab:"Класс энергоэффективности",add:"В корзину",stoc:"В наличии",empty:"Ничего не найдено",emptyp:"Попробуйте сбросить фильтры.",
+  nav_t:"Каталог",ftk:"Контакты",fth:"Остались вопросы?<br>Напишите нам.",ftp:"Отвечаем в WhatsApp в рабочее время, обычно за пару минут.",wab:"Написать в WhatsApp",call:"Позвонить",hrs:"Пн – Сб, 10:00 – 18:00",mail:"Ответ в течение 24 часов",addr:"Кишинёв, ул. 31 Августа 1989, 79/1",route:"Маршрут",t1:"Официальный дилер",t1s:"Гарантия Teka 2 года",t2:"Доставка по всей Молдове",t2s:"Кишинёв — бесплатно",t3:"Установка",t3s:"Монтаж специалистами",cp:"Официальный дистрибьютор Teka и Küppersbusch в Республике Молдова.",
+  tbk:"IntensiveBoost",tbh:"Три скорости.<br>Плюс интенсив.",tbp:"Три ступени для повседневной готовки и интенсивный режим для моментов с дымом — сам возвращается к обычной скорости.",tbu:"скорости"}
+};
+let L='ro';
+const F={c:'all',w:null,col:null};
+const t=k=>T[L][k];
+const pl=n=>L==='ro'?(n===1?'model':'modele'):(n%10===1&&n%100!==11?'модель':n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?'модели':'моделей');
+
+function setLang(l){
+  L=l;document.documentElement.lang=l;
+  document.getElementById('lang').textContent=l==='ro'?'RU':'RO';
+  document.querySelectorAll('[data-t]').forEach(e=>e.innerHTML=t(e.dataset.t));
+  render(false);
+}
+function filtered(){
+  const byc=p=>F.c==='all'||(F.c==='kb'?p.b!=='Teka':p.kind===F.c);
+  return P.filter(p=>byc(p)&&(!F.w||p.w==F.w)&&(!F.col||p.col===F.col));
+}
+function money(v){return v.toLocaleString('ru-RU').replace(/,/g,' ')}
+function card(p,i){return `
+<article class="pc" data-i="${i}"><div class="pi" onclick="openP(${i},this)"><img src="assets/ro2/${p.img[0]}" alt="${p.n}" loading="lazy" onload="if(this.naturalHeight>this.naturalWidth*1.25)this.classList.add('tall')">
+${p.t==='sale'?`<span class="tag s">\u2212${p.d}%</span>`:''}
+<button class="fav" onclick="event.stopPropagation();like(this)"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9-9.3C2 7.4 4.2 4.5 7.3 4.5c2 0 3.6 1.2 4.7 2.8 1.1-1.6 2.7-2.8 4.7-2.8 3.1 0 5.3 2.9 4.3 6.2C19.5 15.4 12 20 12 20z"/></svg></button></div>
+<div class="pb"><div class="br">${p.b}</div><div class="nm">${p.n}</div>
+<div class="pr"><b>${money(p.p)} MDL</b>${p.o?`<s>${money(p.o)}</s>`:''}</div><div class="st">${t('stoc')}</div><div class="ln"></div></div></article>`}
+const grid=document.getElementById('grid');
+function render(anim=true){
+  const list=filtered();
+  const html=list.map((p,i)=>(i===4?`<div class="tb" id="tb"><div class="glow"></div><div class="k">${t('tbk')}</div><h3>${t('tbh')}</h3><p>${t('tbp')}</p><div class="t"><span class="tn">0</span><sup>${t('tbu')}</sup></div></div>`:'')+card(p,P.indexOf(p))).join('')
+    ||`<div class="empty"><b>${t('empty')}</b>${t('emptyp')}</div>`;
+  const n=list.length,total=n;
+  document.getElementById('cnt2').textContent=`${total} ${pl(total)}`;
+  document.getElementById('shn').textContent=`(${total})`;
+  const act=(F.w?1:0)+(F.col?1:0);
+  const fbn=document.getElementById('fbn');fbn.hidden=!act;fbn.textContent=act;
+  let done=false;
+  const go=()=>{if(done)return;done=true;grid.innerHTML=html;bindCards(anim);};
+  if(anim&&grid.children.length){
+    gsap.killTweensOf(grid.children);
+    gsap.to(grid.children,{opacity:0,y:-14,duration:.22,stagger:{each:.02,amount:.16},ease:'power1.in',overwrite:'auto',onComplete:go});
+    setTimeout(go,420);
+  } else go();
+}
+function bindCards(anim){
+  gsap.utils.toArray('.pc').forEach((c,i)=>{
+    const r=c.getBoundingClientRect(),vis=r.top<innerHeight;
+    const show=()=>{c.classList.add('in');const tg=c.querySelector('.tag.s');if(tg)gsap.fromTo(tg,{scale:0,rotate:-8},{scale:1,rotate:0,duration:.6,delay:.4,ease:'back.out(2.5)'});};
+    if(vis) gsap.to(c,{opacity:1,y:0,duration:.6,delay:i*.06,ease:'power3.out',onStart:show});
+    else gsap.to(c,{opacity:1,y:0,duration:.7,ease:'power3.out',delay:(i%2)*.1,scrollTrigger:{trigger:c,start:'top 92%',once:true,onEnter:show}});
+    ScrollTrigger.create({trigger:c,start:'top 50%',end:'bottom 50%',onToggle:s=>c.classList.toggle('lit',s.isActive)});
+  });
+  const tb=document.getElementById('tb');
+  if(tb){const ang={a:0};
+    const spin=gsap.to(ang,{a:360,duration:3,repeat:-1,ease:'none',paused:true,onUpdate:()=>tb.style.setProperty('--a',ang.a+'deg')});
+    ScrollTrigger.create({trigger:tb,start:'top 95%',end:'bottom 5%',onToggle:s=>s.isActive?spin.play():spin.pause()});
+    gsap.fromTo(tb,{opacity:0,y:30},{opacity:1,y:0,duration:.7,ease:'power3.out',scrollTrigger:{trigger:tb,start:'top 92%',once:true}});
+    const tn=tb.querySelector('.tn'),tv={v:0};
+    gsap.timeline({scrollTrigger:{trigger:tb,start:'top 75%',once:true}})
+      .to(tv,{v:4,duration:1.1,ease:'power2.out',onUpdate:()=>tn.textContent=Math.round(tv.v)})
+      .to(tb.querySelector('.t'),{opacity:.38,duration:1.2,ease:'power2.inOut',onComplete:()=>tb.classList.add('hot')},.3);}
+  ScrollTrigger.refresh();
+}
+// чипы категорий (герой + панель)
+document.querySelectorAll('.chip[data-c]').forEach(b=>b.addEventListener('click',()=>{
+  F.c=b.dataset.c;
+  document.querySelectorAll('.chip[data-c]').forEach(x=>x.classList.toggle('on',x.dataset.c===F.c));
+  syncOpts();
+  const inHero=b.closest('#intro');
+  render(!inHero);
+  if(inHero) window.scrollTo({top:document.getElementById('bar').offsetTop-60,behavior:'smooth'});
+}));
+// ───── карточка товара ─────
+const pv=document.getElementById('pv'),pvb=document.getElementById('pvb'),pvt=document.getElementById('pvt'),buy=document.getElementById('buy');
+gsap.set(pv,{yPercent:100}); gsap.set(buy,{yPercent:120});
+let curP=null;
+const DIMKEYS=[['Înălțimea produsului','H'],['Lățimea produsului','L'],['Adâncimea produsului','A']];
+const deacc=x=>x.normalize('NFD').replace(/[\u0300-\u036f\u0326\u0327]/g,'').toLowerCase();
+function findSpec(p,key){
+  const q=deacc(key);
+  for(const s of p.specs) for(const [k,v] of s.r) if(deacc(k).includes(q)) return v;
+  return '';
+}
+function pvHTML(p){
+  const dims=DIMKEYS.map(([k,lab])=>{const v=findSpec(p,k);return v?`<div><b>${v.split('+')[0]}</b><small>${lab} mm</small></div>`:''}).join('');
+  const tags=[t('k_'+p.kind), p.w+' cm'];
+  return `
+<div class="gal"><div class="tr2" id="tr2">${p.img.map(f=>`<img src="assets/ro2/${f}" alt="${p.n}">`).join('')}</div>
+  ${p.img.length>1?`<div class="dots" id="dots">${p.img.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('')}</div>`:''}</div>
+<div class="pvi">
+  <div class="br">${p.b}</div>
+  <h2>${p.n}</h2>
+  <div class="sb">${p.sub}</div>
+  <div class="prc"><b>${money(p.p)} MDL</b>${p.o?`<s style="font-size:14px;color:var(--mute)">${money(p.o)}</s>`:''}<span class="st2">${t('stoc')}</span></div>
+  <div class="tags2">${tags.map(x=>`<span>${x}</span>`).join('')}</div>
+  <div class="sku2">${t('cod')}: ${p.sku}</div>
+</div>
+${p.desc.length?`<div class="sec"><h3>${t('about')}</h3>${p.desc.map(d=>`<p>${d}</p>`).join('')}</div>`:''}
+${p.draw?`<div class="dw"><div class="k2"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 3v18"/></svg>${t('instal')}</div>
+  <h4>${t('drawh')}</h4>
+  <div class="sh2"><img src="assets/ro2/${p.draw}" alt="${t('drawh')}" loading="lazy">
+    <a class="zoom" href="assets/ro2/${p.draw}" target="_blank"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6M11 8v6M8 11h6"/></svg>${t('zoom')}</a></div>
+  ${dims?`<div class="dims">${dims}</div>`:''}</div>`:''}
+${p.specs.length?`<div class="sec"><h3>${t('specs')}</h3><div class="acc">
+  ${p.specs.map((sc,i)=>`<details${i===0?' open':''}><summary>${sc.t}</summary><dl>${sc.r.map(([k,v])=>`<div class="row2"><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl></details>`).join('')}
+</div></div>`:''}
+${(p.label||p.pdf.length)?`<div class="sec"><h3>${t('docs')}</h3>
+  ${p.label?`<div class="elab"><img src="assets/ro2/${p.label}" alt="Energy"><span><b>${t('elab')}</b><small>${findSpec(p,'Clasa de eficienta energetica')||'—'}</small></span></div>`:''}
+  <div class="docs">${p.pdf.map(u=>`<a href="${u}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg><span>${t('manual')}<small>PDF · ${u.split('/').pop().slice(0,28)}</small></span></a>`).join('')}</div>
+</div>`:''}`;
+}
+function openP(i,el){
+  const p=P[i]; curP=p;
+  pvt.textContent=p.n; pvb.innerHTML=pvHTML(p); pvb.parentElement.scrollTop=0;
+  document.getElementById('wab2').href='https://wa.me/37368272702?text='+encodeURIComponent((L==='ro'?'Bună! Mă interesează ':'Здравствуйте! Интересует ')+p.n+' ('+p.sku+')');
+  document.getElementById('addb').textContent=t('add');
+  // перелёт картинки из каталога
+  const src=el&&el.querySelector('img');
+  pv.classList.add('on'); buy.style.visibility='visible';
+  gsap.timeline()
+    .to(pv,{yPercent:0,duration:.5,ease:'expo.out'},0)
+    .to(buy,{yPercent:0,duration:.45,ease:'power3.out'},.15);
+  if(src){
+    const r=src.getBoundingClientRect(),fl=src.cloneNode();
+    fl.className='flip';Object.assign(fl.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px'});
+    document.body.appendChild(fl);
+    requestAnimationFrame(()=>{
+      const tgt=pvb.querySelector('.tr2 img');
+      if(!tgt){fl.remove();return}
+      const t2=tgt.getBoundingClientRect();
+      gsap.to(fl,{left:t2.left,top:t2.top,width:t2.width,height:t2.height,duration:.5,ease:'expo.out',onComplete:()=>fl.remove()});
+    });
+  }
+  const tr=document.getElementById('tr2'),dots=document.getElementById('dots');
+  if(tr&&dots)tr.addEventListener('scroll',()=>{const k=Math.round(tr.scrollLeft/tr.clientWidth);
+    [...dots.children].forEach((d,j)=>d.classList.toggle('on',j===k))});
+  document.body.style.overflow='hidden';
+}
+function closeP(){
+  gsap.timeline({onComplete:()=>{pv.classList.remove('on');buy.style.visibility='hidden';document.body.style.overflow=''}})
+    .to(buy,{yPercent:120,duration:.3,ease:'power2.in'},0)
+    .to(pv,{yPercent:100,duration:.4,ease:'power2.in'},.05);
+}
+function waProduct(){document.getElementById('wab2').click()}
+addEventListener('keydown',e=>{if(e.key==='Escape'&&pv.classList.contains('on'))closeP()});
+
+// стрелка панели категорий
+const cw=document.getElementById('cw'),bch=document.getElementById('bchips');
+function cwEnd(){cw.classList.toggle('end',bch.scrollLeft+bch.clientWidth>=bch.scrollWidth-4)}
+bch.addEventListener('scroll',cwEnd);cwEnd();addEventListener('resize',cwEnd);
+document.getElementById('nx').onclick=()=>bch.scrollBy({left:bch.clientWidth*.7,behavior:'smooth'});
+// шторка
+function sheet(o){document.getElementById('sh').classList.toggle('on',o);document.getElementById('shbg').classList.toggle('on',o);
+  gsap.to('#sh',{y:o?0:'105%',duration:o?.55:.35,ease:o?'expo.out':'power2.in'});}
+document.querySelector('.fb').onclick=()=>sheet(true);
+// кнопки ширины строим из данных, чтобы не было опций без товаров
+document.getElementById('wopts').innerHTML=[...new Set(P.map(p=>p.w))].sort((a,b)=>a-b)
+  .map(w=>`<button class="opt" data-k="w" data-v="${w}">${w} cm</button>`).join('');
+document.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{
+  if(b.classList.contains('off')) return;
+  const k=b.dataset.k,v=b.dataset.v;
+  F[k]=F[k]==v?null:v;
+  syncOpts();render();
+}));
+function syncOpts(){
+  const byc=p=>F.c==='all'||(F.c==='kb'?p.b!=='Teka':p.kind===F.c);
+  document.querySelectorAll('.opt').forEach(b=>{
+    const k=b.dataset.k,v=b.dataset.v;
+    b.classList.toggle('on',F[k]==v);
+    // сколько товаров даст этот вариант с учётом остальных фильтров
+    const n=P.filter(p=>byc(p)
+      &&(k==='w'  ? p.w==v : (!F.w  ||p.w==F.w))
+      &&(k==='col'? p.col===v : (!F.col||p.col===F.col))).length;
+    b.classList.toggle('off',n===0&&F[k]!=v);
+    const c=b.querySelector('.cn'); if(c) c.remove();
+    if(n) b.insertAdjacentHTML('beforeend',`<i class="cn">${n}</i>`);
+  });
+}
+function resetF(){F.w=null;F.col=null;syncOpts();render();}
+syncOpts();
+gsap.registerPlugin(ScrollTrigger);
+gsap.set('#sh',{y:'105%'});
+render(false);
+function like(b){
+  const on=b.classList.toggle('on'),card=b.closest('.pc');
+  card.classList.toggle('liked',on);
+  gsap.fromTo(b,{scale:.8},{scale:1,duration:.5,ease:'elastic.out(1,.4)'});
+  if(on){gsap.fromTo(b.querySelectorAll('.dot'),{x:0,y:0,opacity:1,scale:1},
+    {x:i=>Math.cos(i*Math.PI/3)*22,y:i=>Math.sin(i*Math.PI/3)*22,opacity:0,scale:.3,duration:.6,ease:'power2.out',stagger:.02});
+    gsap.fromTo(card.querySelector('.pi'),{scale:1},{scale:1.03,duration:.2,yoyo:true,repeat:1,ease:'power1.inOut'});}
+}
+ScrollTrigger.config({ignoreMobileResize:true});
+
+// два кадра: ожидание → свет + пицца
+// лоадер: логотип собирается, блик, потом уходим
+const ldTl=gsap.timeline()
+  .to('.ld .halo',{opacity:1,duration:1.2,ease:'power2.out'},0)
+  .fromTo('.ld b span',{opacity:0,x:i=>(i-1.5)*22},{opacity:1,x:0,duration:1.1,stagger:.05,ease:'power3.out'},.1)
+  .to('.ld i',{width:64,duration:.6,ease:'power2.inOut'},.5)
+  .to('.ld em',{opacity:1,duration:.5},.9)
+  .to('.ld .halo',{scale:1.35,opacity:.7,duration:.8,ease:'power2.out'},1.0)
+  .to('.ld .lg',{scale:1.06,duration:.4,ease:'power2.in'},1.4);
+const minWait=new Promise(r=>setTimeout(r,window.__FAST?0:1800));
+const maxWait=new Promise(r=>setTimeout(r,window.__FAST?350:4000));
+const heroReady = (f1 && f1.decode) ? f1.decode().catch(()=>{}) : Promise.resolve();
+Promise.all([minWait,Promise.race([maxWait,heroReady])]).then(()=>{
+  document.getElementById('ld').classList.add('off');
+  document.getElementById('hero').classList.add('lit');
+
+  // вход: камера садится, тексты собираются
+  gsap.timeline({defaults:{ease:'power3.out'}})
+    .fromTo('#stage',{scale:1.08,opacity:0},{scale:1,opacity:1,duration:1.4,ease:'power2.out'},0)
+    .from('.crumbs',{y:14,opacity:0,duration:.6},.35)
+    .from('h1 .ch>span',{yPercent:110,rotate:8,duration:.9,stagger:Math.min(.06,.5/document.querySelectorAll('h1 .ch').length),ease:'expo.out'},.45)
+    .from('.rule',{scaleX:0,transformOrigin:'0 50%',duration:.8,ease:'expo.inOut'},.8)
+    .from('.sub',{y:16,opacity:0,duration:.6},.85)
+    .from('.intro .chip',{y:14,opacity:0,duration:.5,stagger:.07},.95);
+
+  document.getElementById('cnt').textContent='49';
+
+  gsap.to('.ft .rv',{opacity:1,y:0,duration:.7,stagger:.09,ease:'power3.out',scrollTrigger:{trigger:'#ft',start:'top 85%',once:true}});
+  const wa=document.querySelector('.wa'),wang={a:0};
+  const waSpin=gsap.to(wang,{a:360,duration:3.5,repeat:-1,ease:'none',paused:true,onUpdate:()=>wa.style.setProperty('--a',wang.a+'deg')});
+  ScrollTrigger.create({trigger:wa,start:'top 100%',end:'bottom 0%',onToggle:s=>s.isActive?waSpin.play():waSpin.pause()});
+
+  // свечение конфорок: позиционируем по фактическому боксу фото (object-fit:cover)
+  const placeZones=()=>{
+    const img=document.getElementById('f1'),box=document.getElementById('frames');
+    if(!img||!box||!img.naturalWidth) return;
+    const bw=box.clientWidth,bh=box.clientHeight,k=Math.max(bw/img.naturalWidth,bh/img.naturalHeight);
+    const w=img.naturalWidth*k,h=img.naturalHeight*k,ox=(bw-w)/2,oy=(bh-h)/2;
+    document.querySelectorAll('.zg').forEach(z=>{
+      const d=w*parseFloat(z.dataset.d);
+      z.style.width=z.style.height=d+'px';
+      z.style.left=(ox+w*parseFloat(z.dataset.x))+'px';
+      z.style.top=(oy+h*parseFloat(z.dataset.y))+'px';
+    });
+  };
+  placeZones(); addEventListener('resize',placeZones);
+  if(f1 && 'complete' in f1){ if(f1.complete) placeZones(); else f1.addEventListener('load',placeZones); }
+
+  // шапка светлеет, когда заходим в каталог
+  ScrollTrigger.create({trigger:'#bar',start:'top 70px',
+    onEnter:()=>hdr.classList.add('light'),onLeaveBack:()=>hdr.classList.remove('light')});
+});
+
+const NAV_CUR='hoods';
+
+/* ── меню каталога ── */
+const NAV=[
+ {k:'hobs', ro:'Plite',                  ru:'Варочные панели',       n:48, on:1},
+ {k:'ovens',ro:'Cuptoare',               ru:'Духовые шкафы',         n:36, on:1},
+ {k:'hoods',ro:'Hote',                   ru:'Вытяжки',               n:49, on:1},
+ {k:'sink', ro:'Chiuvete',               ru:'Мойки',                 n:48, on:1},
+ {k:'fauc', ro:'Baterii',                ru:'Смесители',             n:39, on:1},
+ {k:'frig', ro:'Frigidere',              ru:'Холодильники',          n:24, on:1},
+ {k:'micro',ro:'Cuptoare cu microunde',  ru:'Микроволновые печи',    n:18, on:1},
+ {k:'coffee', ro:'Aparate de cafea',       ru:'Кофемашины',            n:7, on:1},
+ {k:'wash', ro:'Mașini de spălat',       ru:'Стирка и сушка',        n:14, on:1},
+ {k:'dish', ro:'Mașini de spălat vase',  ru:'Посудомоечные машины',  n:13, on:1},
+ {k:'acc',  ro:'Accesorii',              ru:'Аксессуары',            n:13, on:1},
+ {k:'wine', ro:'Răcitoare de vin',       ru:'Винные шкафы',          n:5, on:1}];
+const NAV_HREF = location.pathname.indexOf('category-')>-1
+  ? {hobs:'category-hobs.html', ovens:'category-ovens-light.html', hoods:'category-hoods.html',
+     sink:'category-sinks.html', fauc:'category-faucets.html', frig:'category-fridges.html',
+     micro:'category-microwaves.html', coffee:'category-coffee.html', wash:'category-laundry.html',
+     dish:'category-dishwashers.html', acc:'category-accessories.html', wine:'category-wine-coolers.html'}
+  : {hobs:'index.html', ovens:'ovens.html', hoods:'hoods.html'};
+const NAV_IM={hobs:'assets/nav/hobs.webp',ovens:'assets/nav/ovens.webp',hoods:'assets/nav/hoods.webp',sink:'assets/nav/sink.webp',fauc:'assets/nav/fauc.webp',frig:'assets/nav/frig.webp',micro:'assets/nav/micro.webp',coffee:'assets/nav/coffee.webp',wash:'assets/nav/wash.webp',dish:'assets/nav/dish.webp',acc:'assets/nav/acc.webp',wine:'assets/nav/wine.webp'};
+function drawNav(){
+  const soon = L==='ru'?'скоро':'în curând';
+  document.getElementById('nvl').innerHTML = NAV.map(c=>{
+    const name = L==='ru'?c.ru:c.ro;
+    return c.on
+      ? `<a href="${NAV_HREF[c.k]}" class="${c.k===NAV_CUR?'cur':''}"><b><img src="${NAV_IM[c.k]}" alt=""></b><i>${name}</i><u>${c.n}</u></a>`
+      : `<span class="d"><b><img src="${NAV_IM[c.k]}" alt=""></b><i>${name}</i><em>${soon}</em></span>`;
+  }).join('');
+}
+function nav(open){
+  document.getElementById('nv').classList.toggle('on',open);
+  document.getElementById('nvbg').classList.toggle('on',open);
+  document.getElementById('nv').setAttribute('aria-hidden',!open);
+  document.body.style.overflow=open?'hidden':'';
+}
+addEventListener('keydown',e=>{if(e.key==='Escape')nav(false)});
+const _setLang=setLang; setLang=function(l){_setLang(l);drawNav();};
+drawNav();
+</script>
+<script>
+(function(){function tag(i){if(i.naturalWidth&&i.naturalHeight>i.naturalWidth*1.25)i.classList.add('tall')}
+function sweep(){document.querySelectorAll('.pi img:not([data-tt])').forEach(function(i){i.dataset.tt=1;i.complete?tag(i):i.addEventListener('load',function(){tag(i)},{once:true})})}
+new MutationObserver(sweep).observe(document.documentElement,{childList:true,subtree:true});sweep()})();
+</script>
+<script>
+/* пар над кастрюлей: частицы поднимаются от кромки, втягиваются в вытяжку, в конусах ламп теплеют */
+(function(){
+var hero=document.getElementById('hero'),box=document.getElementById('frames'),img=document.getElementById('f1');
+if(!hero||!box||!img||!img.getContext&&!document.createElement('canvas').getContext)return;
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var cv=document.createElement('canvas');cv.id='steam';box.appendChild(cv);
+var cx=cv.getContext('2d'),dpr=Math.min(2,window.devicePixelRatio||1),G={w:0,h:0,ox:0,oy:0,bw:0,bh:0};
+function geo(){if(!img.naturalWidth)return;var bw=box.clientWidth,bh=box.clientHeight,
+  k=Math.max(bw/img.naturalWidth,bh/img.naturalHeight);
+  G={w:img.naturalWidth*k,h:img.naturalHeight*k,bw:bw,bh:bh};G.ox=(bw-G.w)/2;G.oy=(bh-G.h)/2;
+  cv.width=Math.round(bw*dpr);cv.height=Math.round(bh*dpr);cv.style.width=bw+'px';cv.style.height=bh+'px';
+  cx.setTransform(dpr,0,0,dpr,0,0);}
+function sprite(r,g,b){var s=document.createElement('canvas');s.width=s.height=128;var c=s.getContext('2d'),
+  gr=c.createRadialGradient(64,64,0,64,64,64),k='rgba('+r+','+g+','+b+',';
+  gr.addColorStop(0,k+'1)');gr.addColorStop(.35,k+'.5)');gr.addColorStop(.7,k+'.12)');gr.addColorStop(1,k+'0)');
+  c.fillStyle=gr;c.fillRect(0,0,128,128);return s;}
+var SN=sprite(236,234,230),SW=sprite(255,194,124);
+var POT={x:.645,y:.574,hw:.092},HOOD={x:.60,y:.43},LAMPS=[.447,.762];
+var P=[],acc=0,run=false,vis=true,last=0;
+function spawn(){var u=Math.random()*2-1;
+  P.push({fx:POT.x+u*POT.hw*Math.sqrt(Math.random()),fy:POT.y+Math.random()*.005,t:0,life:3+Math.random()*2.4,
+    s0:.02+Math.random()*.014,s1:.075+Math.random()*.055,vy:.028+Math.random()*.02,
+    ph:Math.random()*6.283,fr:.7+Math.random()*.9,am:.007+Math.random()*.01,a:.09+Math.random()*.08});}
+function near(p){var v=(POT.y-p.fy)/(POT.y-HOOD.y);return v<0?0:v>1?1:v;}
+function step(dt){acc+=dt*15;while(acc>1){if(P.length<80)spawn();acc-=1;}
+  for(var i=P.length-1;i>=0;i--){var p=P[i];p.t+=dt;var n=near(p);
+    if(p.t>=p.life||p.fy<HOOD.y-.012){P.splice(i,1);continue;}
+    p.fy-=p.vy*dt*(1+n*1.7);
+    p.fx+=Math.sin(p.t*p.fr+p.ph)*p.am*dt+(HOOD.x-p.fx)*n*n*.4*dt;}}
+function draw(){cx.clearRect(0,0,G.bw,G.bh);
+  for(var i=0;i<P.length;i++){var p=P[i],q=p.t/p.life,n=near(p),
+    a=p.a*Math.min(1,q/.16)*(1-q)*(1-n*n*n*n);if(a<.003)continue;
+    var s=(p.s0+(p.s1-p.s0)*Math.sqrt(q))*G.w,w=0;
+    for(var j=0;j<LAMPS.length;j++){var d=(p.fx-LAMPS[j])/.085;w=Math.max(w,Math.exp(-d*d));}
+    w*=.85;var x=G.ox+G.w*p.fx-s/2,y=G.oy+G.h*p.fy-s/2;
+    cx.globalAlpha=a*(1-w);cx.drawImage(SN,x,y,s,s);
+    if(w>.02){cx.globalAlpha=Math.min(1,a*w*1.35);cx.drawImage(SW,x,y,s,s);}}
+  cx.globalAlpha=1;}
+function loop(ts){if(!run)return;var dt=Math.min(.05,(ts-(last||ts))/1000);last=ts;step(dt);draw();requestAnimationFrame(loop);}
+function start(){if(run||!vis||document.hidden||!hero.classList.contains('lit'))return;run=true;last=0;requestAnimationFrame(loop);}
+function stop(){run=false;}
+geo();addEventListener('resize',geo);if(!img.complete)img.addEventListener('load',geo);
+if('IntersectionObserver' in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting;vis?start():stop();}).observe(hero);
+document.addEventListener('visibilitychange',function(){document.hidden?stop():start();});
+function go(){geo();for(var i=0;i<150;i++)step(1/30);start();}
+if(hero.classList.contains('lit'))go();
+else new MutationObserver(function(m,o){if(hero.classList.contains('lit')){o.disconnect();go();}}).observe(hero,{attributes:true,attributeFilter:['class']});
+})();
+</script>
+<script>
+/* язык по умолчанию — русский; выбор запоминается между страницами */
+(function(){var l='ru';try{l=localStorage.getItem('tk-lang')||'ru'}catch(e){}
+var o=setLang;setLang=function(x){o(x);try{localStorage.setItem('tk-lang',x)}catch(e){}};
+if(l!==L)o(l);})();
+</script>
+</body></html>
