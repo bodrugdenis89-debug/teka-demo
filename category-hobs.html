@@ -786,10 +786,10 @@ Promise.all([minWait,Promise.race([maxWait,f1.decode().catch(()=>{})])]).then(()
   const atTop=()=>window.scrollY<=2&&window.__heroTop!==false;(function(){const hr=document.getElementById('hero');if(!hr||!window.IntersectionObserver)return;new IntersectionObserver(e=>{window.__heroTop=e[0].intersectionRatio>.97;sync();},{threshold:[0,.5,.97,1]}).observe(hr);})();document.documentElement.classList.add('tk-lock');
   const fwd=ScrollTrigger.observe({target:window,type:'wheel,touch',wheelSpeed:-1,tolerance:12,debounce:false,preventDefault:true,lockAxis:true,ignore:'.intro .chips',
     onUp:()=>{if(busy||open)return;busy=true;
-      tl.eventCallback('onComplete',()=>{open=true;busy=false;fwd.disable();breathe.restart();document.documentElement.classList.remove('tk-lock');sync();});tl.timeScale(1/2.4).play();}});
+      tl.eventCallback('onComplete',()=>{open=true;busy=false;fwd.disable();breathe.restart();document.documentElement.classList.remove('tk-lock');sync();});tl.timeScale(1/1.5).play();}});
   const back=ScrollTrigger.observe({target:window,type:'wheel,touch',wheelSpeed:-1,tolerance:12,debounce:false,
     onDown:()=>{if(busy||!open||!atTop())return;busy=true;back.disable();breathe.pause();gsap.set('#f2',{opacity:1});
-      tl.eventCallback('onReverseComplete',()=>{open=false;busy=false;fwd.enable();document.documentElement.classList.add('tk-lock');});tl.timeScale(1/1.4).reverse();}});
+      tl.eventCallback('onReverseComplete',()=>{open=false;busy=false;fwd.enable();document.documentElement.classList.add('tk-lock');});tl.timeScale(1/1.1).reverse();}});
   back.disable();
   function sync(){if(open&&!busy&&atTop())back.enable();else back.disable();}
   addEventListener('scroll',sync,{passive:true});
