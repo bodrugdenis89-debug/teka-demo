@@ -229,28 +229,14 @@ h1 .ch>span{display:inline-block;will-change:transform}
 .st{font-size:10px;color:#2E7D46;margin-top:6px;display:flex;align-items:center;gap:5px}
 .st::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor}
 .more{margin-top:28px;height:50px;width:100%;border-radius:25px;background:var(--ink);color:#fff;font-weight:600;font-size:14px}
-/* тёмный каталог — продолжает студийный фон hero */
-.cat{color:#fff;background:
-  radial-gradient(70% 640px at 8% 0,rgba(255,255,255,.16),rgba(255,255,255,0) 72%),
-  radial-gradient(60% 520px at 100% 40%,rgba(255,255,255,.04),rgba(255,255,255,0) 70%),
-  linear-gradient(180deg,#48484b 0,#3e3e41 700px,#343437 1600px,#2c2c2e 100%)}
-.cat-h span{color:rgba(255,255,255,.62)}
-.pi{box-shadow:0 1px 2px rgba(0,0,0,.25)}
-.pc.lit .pi{box-shadow:0 26px 44px -20px rgba(0,0,0,.7)}
-.br{color:#fff}.br.kb::before{background:#fff}
-.sku,.pr s{color:rgba(255,255,255,.52)}
-.pr s::after{background:rgba(255,255,255,.52)}
-.st{color:#6FCF8E}
-.more{background:#fff;color:var(--ink)}
-.empty b{color:#fff}
-.bar{background:rgba(58,58,61,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#fff;border-bottom-color:rgba(255,255,255,.08)}
-.bar .cw::after{background:linear-gradient(90deg,rgba(58,58,61,0),#3a3a3d 60%)}
-.bar .chip{background:transparent;border-color:rgba(255,255,255,.3);color:#fff}
-.bar .chip.on{background:var(--red);border-color:var(--red)}
-.bar .nx{background:#4a4a4d;border-color:rgba(255,255,255,.14);box-shadow:0 2px 8px rgba(0,0,0,.4)}
-.bar .nx svg{stroke:#fff}
-.bar .fb{border-color:rgba(255,255,255,.85)}
-.hdr.light{background:rgba(52,52,55,.92);color:#fff;border-bottom-color:rgba(255,255,255,.08)}
+/* светлый каталог: тёплый светло-серый фон, чёрный текст, белые карточки */
+.cat{background:#F4F3F1;color:var(--ink)}
+.pi{box-shadow:0 1px 2px rgba(16,14,12,.06),0 0 0 1px rgba(16,14,12,.04)}
+.pc.lit .pi{box-shadow:0 24px 40px -18px rgba(16,14,12,.28)}
+.st{color:#2E7D46}
+.bar{background:rgba(244,243,241,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--ink);border-bottom-color:var(--line)}
+.bar .cw::after{background:linear-gradient(90deg,rgba(244,243,241,0),#F4F3F1 60%)}
+.hdr.light{background:rgba(244,243,241,.92);color:var(--ink);border-bottom-color:var(--line)}
 
 /* баннер технологии */
 .tb{grid-column:1/-1;position:relative;border-radius:16px;overflow:hidden;padding:22px 20px 24px;min-height:230px;background:#141210;color:#fff;isolation:isolate}
