@@ -115,6 +115,7 @@ a{color:inherit;text-decoration:none}
 .rip b:nth-of-type(2){animation-delay:.23s;--dx:-7px}.rip b:nth-of-type(3){animation-delay:.47s;--dx:6px}
 @keyframes drop{0%{transform:translate(0,0);opacity:0}15%{opacity:.8}50%{transform:translate(calc(var(--dx,3px)*.6),-9px)}100%{transform:translate(var(--dx,3px),1px);opacity:0}}
 #hero.idle .fxb *{animation-play-state:paused}
+.fxb *{animation-play-state:paused!important}#hero:not(.idle) .fxb.run *{animation-play-state:running!important}
 @media (prefers-reduced-motion:reduce){.fxb *{animation:none!important}.rip,.glint{display:none}}
 
 .intro{position:absolute;left:0;right:0;bottom:0;padding:0 20px 24px;will-change:transform,opacity}
@@ -459,6 +460,7 @@ h1 .ch>span{display:inline-block;will-change:transform}
   .rule{margin:9px 0 10px}
   .sub{margin-bottom:13px}
 }
+html.tk-lock body{touch-action:none;overscroll-behavior:none}html.tk-lock .intro .chips{touch-action:pan-x}
 </style>
 </head>
 <body>
@@ -784,19 +786,35 @@ setTimeout(()=>{
   const mm=gsap.matchMedia();
   mm.add({move:'(prefers-reduced-motion: no-preference)',still:'(prefers-reduced-motion: reduce)',desk:'(min-width: 768px)'},ctx=>{
     const c=ctx.conditions;
-    if(c.still){gsap.set('#f2',{opacity:1,'--r':'140%'});gsap.set('#spot,#sheen,#water',{opacity:1,scaleY:1});return;}
-    gsap.timeline({scrollTrigger:{trigger:'#hero',start:'top top',end:c.desk?'+=170%':'+=220%',pin:true,scrub:.9,anticipatePin:1}})
-      .fromTo('#frames',{scale:1,yPercent:0},{scale:1.06,yPercent:-1.2,ease:'none',duration:1},0)
+    if(c.still){gsap.set('#f2',{opacity:1,'--r':'140%'});gsap.set('#spot,#sheen,#water',{opacity:1,scaleY:1});document.getElementById('fxb').classList.add('run');return;}
+    const fxb=document.getElementById('fxb');
+    gsap.set('#f2',{opacity:0,'--r':'4%'});gsap.set('#water',{opacity:0,scaleY:0});gsap.set('#rip,#sheen,#spot,#glint',{opacity:0});
+    const tl=gsap.timeline({paused:true})
+      .fromTo('#frames',{scale:1,yPercent:0},{scale:1.06,yPercent:-1.2,ease:'sine.inOut',duration:.72,force3D:true},0)
       // свет: лента под шкафами загорается и растекается по стене, столешнице и хрому
-      .fromTo('#f2',{opacity:0,'--r':'4%'},{opacity:1,'--r':'140%',ease:'power1.inOut',duration:.3},.18)
+      .fromTo('#f2',{opacity:0,'--r':'4%'},{opacity:1,'--r':'140%',ease:'power1.inOut',duration:.34},.06)
       // вода
-      .fromTo('#water',{opacity:0,scaleY:0},{opacity:1,scaleY:1,ease:'power1.in',duration:.08},.46)
-      .fromTo('#rip',{opacity:0},{opacity:1,ease:'power1.out',duration:.05},.53)
-      .fromTo('#sheen',{opacity:0},{opacity:1,ease:'none',duration:.1},.53)
+      .call(()=>fxb.classList.toggle('run',!tl.reversed()),null,.39)
+      .fromTo('#water',{opacity:0,scaleY:0},{opacity:1,scaleY:1,ease:'power1.in',duration:.08},.4)
+      .fromTo('#rip',{opacity:0},{opacity:1,ease:'power1.out',duration:.06},.47)
+      .fromTo('#sheen',{opacity:0},{opacity:1,ease:'none',duration:.1},.47)
       // раскрытие продукта
-      .fromTo('#spot',{opacity:0},{opacity:1,ease:'power1.inOut',duration:.1},.58)
-      .fromTo('#glint',{opacity:0},{opacity:.65,ease:'none',duration:.06},.6)
-      .to({},{duration:.4},.6);
+      .fromTo('#spot',{opacity:0},{opacity:1,ease:'power1.inOut',duration:.12},.52)
+      .fromTo('#glint',{opacity:0},{opacity:.65,ease:'none',duration:.08},.56);
+    const PLAY=.72/2.6,BACK=.72/1.5;
+    let open=false,busy=false;
+    const atTop=()=>window.scrollY<=2&&window.__heroTop!==false;(function(){const hr=document.getElementById('hero');if(!hr||!window.IntersectionObserver)return;new IntersectionObserver(e=>{window.__heroTop=e[0].intersectionRatio>.97;sync();},{threshold:[0,.5,.97,1]}).observe(hr);})();document.documentElement.classList.add('tk-lock');
+    const fwd=ScrollTrigger.observe({target:window,type:'wheel,touch',wheelSpeed:-1,tolerance:12,debounce:false,preventDefault:true,lockAxis:true,ignore:'.intro .chips',
+      onUp:()=>{if(busy||open)return;busy=true;
+        tl.eventCallback('onComplete',()=>{open=true;busy=false;fwd.disable();document.documentElement.classList.remove('tk-lock');sync();});tl.timeScale(PLAY).play();}});
+    const back=ScrollTrigger.observe({target:window,type:'wheel,touch',wheelSpeed:-1,tolerance:12,debounce:false,
+      onDown:()=>{if(busy||!open||!atTop())return;busy=true;back.disable();
+        tl.eventCallback('onReverseComplete',()=>{open=false;busy=false;fwd.enable();document.documentElement.classList.add('tk-lock');});tl.timeScale(BACK).reverse();}});
+    back.disable();
+    function sync(){if(open&&!busy&&atTop())back.enable();else back.disable();}
+    addEventListener('scroll',sync,{passive:true});
+    if(window.scrollY>2){tl.progress(1);fxb.classList.add('run');open=true;fwd.disable();document.documentElement.classList.remove('tk-lock');}
+    return()=>{document.documentElement.classList.remove('tk-lock');fwd.kill();back.kill();removeEventListener('scroll',sync);};
   });
   gsap.to('.ft .rv',{opacity:1,y:0,duration:.7,stagger:.09,ease:'power3.out',scrollTrigger:{trigger:'#ft',start:'top 85%',once:true}});
   const wa=document.querySelector('.wa'),wang={a:0};
