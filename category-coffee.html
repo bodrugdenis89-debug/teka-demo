@@ -445,6 +445,8 @@ h1 .ch>span{display:inline-block;will-change:transform}
   .sub{margin-bottom:13px}
 }
 html.tk-lock body{touch-action:none;overscroll-behavior:none}html.tk-lock .intro .chips{touch-action:pan-x}
+#cat{position:relative;z-index:1}
+#bar.rise:not(.stuck){border-radius:22px 22px 0 0;box-shadow:0 -14px 34px rgba(0,0,0,.28);background:rgba(244,243,241,.97)}
 </style>
 </head>
 <body>
@@ -837,6 +839,9 @@ setTimeout(()=>{
     const c=ctx.conditions;
     if(c.still){gsap.set('#disp,#lamps,#cup,#pour,#steam,#crema',{opacity:1});gsap.set('#rim',{opacity:.35});return;}
     // один жест вниз — вся сцена целиком; наверху жест вверх — обратно
+    const bar=document.getElementById('bar'),FLOW=['#bar','#cat','#ft'];
+    const RISE=()=>Math.round(document.getElementById('hero').offsetHeight*.36);
+    const revealTop=()=>{if(!window.__pend)return;const lim=innerHeight+RISE();__pend=__pend.filter(([c,go])=>{if(!c.isConnected)return false;if(c.getBoundingClientRect().top<lim){go();return false}return true});};
     const tl=gsap.timeline({paused:true})
       // камера: медленный наезд, дальний интерьер отстаёт на пару пикселей
       .fromTo('#frames',{scale:1,x:0,y:0},{scale:1.045,x:-3,y:-4,ease:'sine.inOut',duration:.25},0)
@@ -856,28 +861,35 @@ setTimeout(()=>{
       .fromTo('#crema',{opacity:0,scale:.55},{opacity:.95,scale:1,transformOrigin:'50% 50%',ease:'power1.out',duration:.1},.74)
       // пар
       .fromTo('#steam',{opacity:0},{opacity:1,ease:'power1.inOut',duration:.12},.85)
-      .to({},{duration:.03},.97);
-    const PLAY=1/3.4,BACK=1/1.8;
+      .to({},{duration:.03},.97)
+      // текст уходит, каталог выезжает снизу и заходит на кадр
+      .to('#intro',{y:-50,opacity:0,ease:'power1.in',duration:.18},.08)
+      .call(()=>{if(!tl.reversed()){bar.classList.add('rise');revealTop();}},null,.64)
+      .to('#stage',{yPercent:-10,ease:'power2.inOut',duration:.34},.66)
+      .fromTo(FLOW,{y:0},{y:()=>-RISE(),ease:'power3.out',duration:.34},.66);
+    function settle(){gsap.set(FLOW,{y:0});bar.style.marginTop=(-RISE())+'px';ScrollTrigger.refresh();if(window.chkCards)chkCards();}
+    function unsettle(){bar.style.marginTop='';gsap.set(FLOW,{y:-RISE()});}
+    const PLAY=1/2.8,BACK=1/1.6;
     let open=false,busy=false;
     const atTop=()=>window.scrollY<=2&&window.__heroTop!==false;(function(){const hr=document.getElementById('hero');if(!hr||!window.IntersectionObserver)return;new IntersectionObserver(e=>{window.__heroTop=e[0].intersectionRatio>.97;sync();},{threshold:[0,.5,.97,1]}).observe(hr);})();document.documentElement.classList.add('tk-lock');
     const fwd=ScrollTrigger.observe({target:window,type:'wheel,touch',wheelSpeed:-1,tolerance:12,debounce:false,preventDefault:true,lockAxis:true,ignore:'.intro .chips',
       onUp:()=>{if(busy||open)return;busy=true;
-        tl.eventCallback('onComplete',()=>{open=true;busy=false;fwd.disable();document.documentElement.classList.remove('tk-lock');sync();});tl.timeScale(PLAY).play();}});
+        tl.eventCallback('onComplete',()=>{settle();open=true;busy=false;fwd.disable();document.documentElement.classList.remove('tk-lock');sync();});tl.timeScale(PLAY).play();}});
     const back=ScrollTrigger.observe({target:window,type:'wheel,touch',wheelSpeed:-1,tolerance:12,debounce:false,
-      onDown:()=>{if(busy||!open||!atTop())return;busy=true;back.disable();
-        tl.eventCallback('onReverseComplete',()=>{open=false;busy=false;fwd.enable();document.documentElement.classList.add('tk-lock');});tl.timeScale(BACK).reverse();}});
+      onDown:()=>{if(busy||!open||!atTop())return;busy=true;back.disable();unsettle();
+        tl.eventCallback('onReverseComplete',()=>{bar.classList.remove('rise');ScrollTrigger.refresh();open=false;busy=false;fwd.enable();document.documentElement.classList.add('tk-lock');});tl.timeScale(BACK).reverse();}});
     back.disable();
     function sync(){if(open&&!busy&&atTop())back.enable();else back.disable();}
     addEventListener('scroll',sync,{passive:true});
-    if(window.scrollY>2){tl.progress(1);open=true;fwd.disable();document.documentElement.classList.remove('tk-lock');}
-    return()=>{document.documentElement.classList.remove('tk-lock');fwd.kill();back.kill();removeEventListener('scroll',sync);};
+    if(window.scrollY>2){tl.progress(1);bar.classList.add('rise');settle();open=true;fwd.disable();document.documentElement.classList.remove('tk-lock');}
+    return()=>{bar.style.marginTop='';bar.classList.remove('rise');gsap.set(FLOW,{clearProps:'transform'});document.documentElement.classList.remove('tk-lock');fwd.kill();back.kill();removeEventListener('scroll',sync);};
   });
   gsap.to('.ft .rv',{opacity:1,y:0,duration:.7,stagger:.09,ease:'power3.out',scrollTrigger:{trigger:'#ft',start:'top 85%',once:true}});
   const wa=document.querySelector('.wa'),wang={a:0};
   const waSpin=gsap.to(wang,{a:360,duration:3.5,repeat:-1,ease:'none',paused:true,onUpdate:()=>wa.style.setProperty('--a',wang.a+'deg')});
   ScrollTrigger.create({trigger:wa,start:'top 100%',end:'bottom 0%',onToggle:s=>s.isActive?waSpin.play():waSpin.pause()});
   ScrollTrigger.create({trigger:'#bar',start:'top 70px',
-    onEnter:()=>hdr.classList.add('light'),onLeaveBack:()=>hdr.classList.remove('light')});
+    onEnter:()=>{hdr.classList.add('light');document.getElementById('bar').classList.add('stuck')},onLeaveBack:()=>{hdr.classList.remove('light');document.getElementById('bar').classList.remove('stuck')}});
 },window.__FAST?0:1800);
 
 /* ── меню каталога ── */
