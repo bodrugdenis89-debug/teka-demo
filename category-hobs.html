@@ -791,7 +791,7 @@ Promise.all([minWait,Promise.race([maxWait,f1.decode().catch(()=>{})])]).then(()
   const breathe=gsap.to('#f2',{opacity:.86,duration:2.2,ease:'sine.inOut',yoyo:true,repeat:-1,paused:true});
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) tl.progress(1);
   tl.eventCallback('onComplete',()=>breathe.restart());
-  tkRise(tl,{auto:true,speed:1/1.9,delay:.5});
+  tkRise(tl,{free:true,speed:1/1.9,delay:.5});
 
   gsap.to('.ft .rv',{opacity:1,y:0,duration:.7,stagger:.09,ease:'power3.out',scrollTrigger:{trigger:'#ft',start:'top 85%',once:true}});
   const wa=document.querySelector('.wa'),wang={a:0};
@@ -843,7 +843,9 @@ const NAV_HREF = location.pathname.indexOf('category-')>-1
   : {hobs:'index.html', ovens:'ovens.html', hoods:'hoods.html'};
 /* первый экран: анимация (сама или по свайпу) + выезд каталога поверх фото */
 function tkRise(anim,o){
-  o=o||{};const root=document.documentElement,bar=document.getElementById('bar'),FLOW=['#bar','#cat'],ride=o.ride||[];
+  o=o||{};
+  if(o.free){if(anim){anim.timeScale(o.speed||1);gsap.delayedCall(o.delay==null?.6:o.delay,()=>{if(anim.progress()<1)anim.play();});}return()=>{};}
+  const root=document.documentElement,bar=document.getElementById('bar'),FLOW=['#bar','#cat'],ride=o.ride||[];
   const RISE=()=>Math.round(document.getElementById('hero').offsetHeight*(o.k||.34));
   const revealTop=()=>{if(!window.__pend)return;const lim=innerHeight+RISE();__pend=__pend.filter(([c,go])=>{if(!c.isConnected)return false;if(c.getBoundingClientRect().top<lim){go();return false}return true});};
   const rt=gsap.timeline({paused:true}).call(()=>{if(!rt.reversed()){bar.classList.add('rise');revealTop();}},null,0);
