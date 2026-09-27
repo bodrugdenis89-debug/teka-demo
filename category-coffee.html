@@ -861,7 +861,7 @@ setTimeout(()=>{
       // пар
       .fromTo('#steam',{opacity:0},{opacity:1,ease:'power1.inOut',duration:.12},.85)
       .to({},{duration:.03},.97);
-    return tkRise(tl,{free:true,speed:1/2.6,delay:.5});
+    return tkRise(tl,{auto:true,speed:1/2.6,delay:.5});
   });
   gsap.to('.ft .rv',{opacity:1,y:0,duration:.7,stagger:.09,ease:'power3.out',scrollTrigger:{trigger:'#ft',start:'top 85%',once:true}});
   const wa=document.querySelector('.wa'),wang={a:0};
