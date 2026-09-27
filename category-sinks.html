@@ -82,7 +82,7 @@ a{color:inherit;text-decoration:none}
 /* мойка: CAMERA → LIGHT → WATER */
 .fxb{position:absolute;pointer-events:none}
 .fxb>*{position:absolute;pointer-events:none}
-.lit{opacity:0;--r:0%;-webkit-mask-image:linear-gradient(197deg,#000 calc(var(--r) - 28%),rgba(0,0,0,0) var(--r));mask-image:linear-gradient(197deg,#000 calc(var(--r) - 28%),rgba(0,0,0,0) var(--r))}
+.frames img.lit{opacity:0;--r:0%;-webkit-mask-image:linear-gradient(197deg,#000 calc(var(--r) - 28%),rgba(0,0,0,0) var(--r));mask-image:linear-gradient(197deg,#000 calc(var(--r) - 28%),rgba(0,0,0,0) var(--r))}
 .spot{left:4%;top:33%;width:92%;height:40%;opacity:0;mix-blend-mode:screen;border-radius:50%;
   background:radial-gradient(closest-side,rgba(255,226,190,.1),rgba(255,226,190,.04) 55%,rgba(255,226,190,0))}
 .glint{inset:0;opacity:0;mix-blend-mode:screen;
@@ -462,7 +462,6 @@ h1 .ch>span{display:inline-block;will-change:transform}
 }
 html.tk-lock body{touch-action:none;overscroll-behavior:none}html.tk-lock .intro .chips{touch-action:pan-x}
 .pc{opacity:1!important;transform:none!important}
-@media (max-width:767px){.bar,.hdr,.hdr.light,.pvh,.buy{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}.bar,.hdr.light{background:#F4F3F1!important}.pvh,.buy{background:#E9E8E6!important}.pc .pi{transition:box-shadow .5s!important}.pc.lit .pi{transform:none!important}}
 </style>
 </head>
 <body>
