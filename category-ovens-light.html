@@ -402,6 +402,7 @@ html.tk-lock body{touch-action:none;overscroll-behavior:none}html.tk-lock .intro
 #cat{position:relative;z-index:1}
 #bar.rise:not(.stuck){border-radius:22px 22px 0 0;box-shadow:0 -14px 34px rgba(0,0,0,.28);background:#F4F3F1;-webkit-backdrop-filter:none;backdrop-filter:none}
 html.tk-lock #bar,html.tk-lock #cat{will-change:transform}
+.ovf{position:absolute;inset:0;pointer-events:none;opacity:0;background:linear-gradient(180deg,rgba(40,40,41,0) 0,rgba(40,40,41,0) 67%,rgba(40,40,41,.97) 72%,#282829 100%)}
 </style>
 </head>
 <body>
@@ -435,6 +436,7 @@ html.tk-lock #bar,html.tk-lock #cat{will-change:transform}
   </div>
   <div class="dim" id="dim"></div>
   <div class="veil"></div>
+  <div class="ovf" id="ovf"></div>
 
   <div class="intro" id="intro">
     <div class="crumbs" data-t="crumbs">Bucătărie › Cuptoare</div>
@@ -772,7 +774,7 @@ Promise.all([minWait,Promise.race([maxWait,Promise.all([f1,f2].map(im=>im.decode
   tl.to('#frames',{scale:1.45,ease:'power2.inOut',duration:1},0)           // наезд на пиццу
     .to('#f2',{opacity:1,ease:'power1.inOut',duration:.3},.3)                 // свет вспыхивает — финал светлый
     .to('#intro',{y:-90,opacity:0,ease:'power1.in',duration:.25},0)
-;
+    .to('#ovf',{opacity:1,ease:'power1.inOut',duration:.3},.7);
   tkRise(tl,{speed:1/2.3,intro:false,back:1.6,overlap:.2,k:.24});
 
   gsap.to('.ft .rv',{opacity:1,y:0,duration:.7,stagger:.09,ease:'power3.out',scrollTrigger:{trigger:'#ft',start:'top 85%',once:true}});
