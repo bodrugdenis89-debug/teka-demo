@@ -451,10 +451,6 @@ html.tk-lock body{touch-action:none;overscroll-behavior:none}html.tk-lock .intro
   <div class="frames" id="frames">
     <img id="f1" src="assets/hob-cold-m.webp" srcset="assets/hob-cold-m.webp 1080w, assets/hob-cold-d.webp 1536w" sizes="100vw" alt="Plită cu inducție Teka">
     <img id="f2" src="assets/hob-hero-m.webp" srcset="assets/hob-hero-m.webp 1080w, assets/hob-hero-d.webp 1536w" sizes="100vw" alt="" aria-hidden="true">
-    <div id="zgs" style="position:absolute;inset:0;opacity:0;pointer-events:none">
-      <div class="zg" data-x=".04" data-y=".452" data-d=".5"></div>
-      <div class="zg z2" data-x=".528" data-y=".557" data-d=".56"></div>
-    </div>
   </div>
   </div>
   <div class="veil"></div>
@@ -794,19 +790,19 @@ Promise.all([minWait,Promise.race([maxWait,f1.decode().catch(()=>{})])]).then(()
 
   // один жест вниз: наезд на плиту → зоны раскаляются; наверху жест вверх — обратно
   const tl=gsap.timeline({paused:true})
-    .to('#frames',{scale:1.3,ease:'power2.inOut',duration:1},0)
-    // конфорки раскаляются: сначала слабое свечение, потом полный жар
-    .to('#f2',{keyframes:[{opacity:.35,duration:.12,ease:'power1.out'},{opacity:.25,duration:.06},{opacity:1,duration:.32,ease:'power2.in'}]},.15)
-    // после нагрева — живой жар на конфорках
-    .to('#zgs',{opacity:1,ease:'power1.inOut',duration:.35},.6);
+    .to('#frames',{scale:1.14,ease:'sine.inOut',duration:1,force3D:true},0)
+    // конфорки разогреваются одним плавным нарастанием, без вспышек
+    .to('#f2',{opacity:1,ease:'power1.in',duration:.72},.22);
+  // после нагрева — едва заметное «дыхание» жара (только opacity, дёшево для GPU)
+  const breathe=gsap.to('#f2',{opacity:.86,duration:2.2,ease:'sine.inOut',yoyo:true,repeat:-1,paused:true});
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) tl.progress(1);
   let open=false,busy=false;
   const atTop=()=>window.scrollY<=2&&window.__heroTop!==false;(function(){const hr=document.getElementById('hero');if(!hr||!window.IntersectionObserver)return;new IntersectionObserver(e=>{window.__heroTop=e[0].intersectionRatio>.97;sync();},{threshold:[0,.5,.97,1]}).observe(hr);})();document.documentElement.classList.add('tk-lock');
   const fwd=ScrollTrigger.observe({target:window,type:'wheel,touch',wheelSpeed:-1,tolerance:12,debounce:false,preventDefault:true,lockAxis:true,ignore:'.intro .chips',
     onUp:()=>{if(busy||open)return;busy=true;
-      tl.eventCallback('onComplete',()=>{open=true;busy=false;fwd.disable();document.documentElement.classList.remove('tk-lock');sync();});tl.timeScale(1/2.2).play();}});
+      tl.eventCallback('onComplete',()=>{open=true;busy=false;fwd.disable();breathe.restart();document.documentElement.classList.remove('tk-lock');sync();});tl.timeScale(1/2.4).play();}});
   const back=ScrollTrigger.observe({target:window,type:'wheel,touch',wheelSpeed:-1,tolerance:12,debounce:false,
-    onDown:()=>{if(busy||!open||!atTop())return;busy=true;back.disable();
+    onDown:()=>{if(busy||!open||!atTop())return;busy=true;back.disable();breathe.pause();gsap.set('#f2',{opacity:1});
       tl.eventCallback('onReverseComplete',()=>{open=false;busy=false;fwd.enable();document.documentElement.classList.add('tk-lock');});tl.timeScale(1/1.4).reverse();}});
   back.disable();
   function sync(){if(open&&!busy&&atTop())back.enable();else back.disable();}
