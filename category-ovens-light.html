@@ -430,13 +430,13 @@ html.tk-lock #bar,html.tk-lock #cat{will-change:transform}
 <section class="hero" id="hero">
   <div class="stage" id="stage">
   <div class="frames" id="frames">
-    <img id="f1" src="assets/o1-m.webp" srcset="assets/o1-m.webp 1080w, assets/o1-d.webp 1536w" sizes="100vw" alt="">
-    <img id="f2" src="assets/o2-m.webp" srcset="assets/o2-m.webp 1080w, assets/o2-d.webp 1536w" sizes="100vw" alt="" class="f2">
+    <img id="f1" src="assets/ov-off-m.webp" alt="Cuptor Teka">
+    <img id="f2" src="assets/ov-disp-m.webp" alt="" class="f2">
+    <img id="f3" src="assets/ov-on-m.webp" alt="" class="f2">
   </div>
   </div>
   <div class="dim" id="dim"></div>
   <div class="veil"></div>
-  <div class="ovf" id="ovf"></div>
 
   <div class="intro" id="intro">
     <div class="crumbs" data-t="crumbs">Bucătărie › Cuptoare</div>
@@ -770,12 +770,13 @@ Promise.all([minWait,Promise.race([maxWait,Promise.all([f1,f2].map(im=>im.decode
 
   const cnt={v:0},cntEl=document.getElementById('cnt');
   // один жест вниз — вся сцена целиком (~5,5 с); наверху жест вверх — обратно
-  const tl=gsap.timeline({paused:true});
-  tl.to('#frames',{scale:1.45,ease:'power2.inOut',duration:1},0)           // наезд на пиццу
-    .to('#f2',{opacity:1,ease:'power1.inOut',duration:.3},.3)                 // свет вспыхивает — финал светлый
-    .to('#intro',{y:-90,opacity:0,ease:'power1.in',duration:.25},0)
-    .to('#ovf',{opacity:1,ease:'power1.inOut',duration:.3},.7);
-  tkRise(tl,{speed:1/2.3,intro:false,back:1.6,overlap:.2,k:.24});
+  const tl=gsap.timeline({paused:true})
+    .fromTo('#frames',{scale:1},{scale:1.04,ease:'sine.inOut',duration:2.4},0)
+    // дисплей: включается с коротким морганием
+    .to('#f2',{keyframes:[{opacity:.8,duration:.08},{opacity:.25,duration:.07},{opacity:1,duration:.22}],ease:'none'},.25)
+    // свет в камере разгорается
+    .to('#f3',{opacity:1,ease:'power1.inOut',duration:.9},.8);
+  tkRise(tl,{auto:true,delay:.5,k:.24});
 
   gsap.to('.ft .rv',{opacity:1,y:0,duration:.7,stagger:.09,ease:'power3.out',scrollTrigger:{trigger:'#ft',start:'top 85%',once:true}});
   const wa=document.querySelector('.wa'),wang={a:0};

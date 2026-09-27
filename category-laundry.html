@@ -433,6 +433,10 @@ h1 .ch>span{display:inline-block;will-change:transform}
   .sub{margin-bottom:13px}
 }
 .pc{opacity:1!important;transform:none!important}
+#cat{position:relative;z-index:1}
+#bar.rise:not(.stuck){border-radius:22px 22px 0 0;box-shadow:0 -14px 34px rgba(0,0,0,.28);background:#F4F3F1;-webkit-backdrop-filter:none;backdrop-filter:none}
+html.tk-lock #bar,html.tk-lock #cat{will-change:transform}
+html.tk-lock body{touch-action:none;overscroll-behavior:none}html.tk-lock .intro .chips{touch-action:pan-x}
 </style>
 </head>
 <body>
@@ -459,7 +463,8 @@ h1 .ch>span{display:inline-block;will-change:transform}
 <section class="hero hasimg" id="hero">
   <div class="stage" id="stage">
     <div class="frames" id="frames">
-      <img id="f1" src="assets/laundry-hero-m.webp" alt="Mașină de spălat Teka în mobilier de baie">
+      <img id="f1" src="assets/ld-off-m.webp" alt="Mașină de spălat Teka în mobilier de baie">
+      <img id="f2" src="assets/laundry-hero-m.webp" alt="" aria-hidden="true" style="opacity:0">
       <div class="fxb" id="fxb"><canvas class="drum" id="drum" aria-hidden="true"></canvas><i class="ish"></i><i class="refl" id="refl"></i></div>
     </div>
     <div class="ph" id="ph"><div class="bx">
@@ -750,16 +755,56 @@ setTimeout(()=>{
     .fromTo('.sub',{y:16,opacity:0},{y:0,opacity:1,duration:.6},.8);;
   const ic=gsap.utils.toArray('.intro .chip');
   if(ic.length) tl0.fromTo(ic,{y:14,opacity:0},{y:0,opacity:1,duration:.5,stagger:.07},.9);
-  gsap.to('#intro',{y:-70,opacity:0,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}});
+  // панель загорается сама при открытии
+  const tl=gsap.timeline({paused:true})
+    .fromTo('#frames',{scale:1},{scale:1.04,ease:'sine.inOut',duration:2.2},0)
+    .to('#f2',{keyframes:[{opacity:.85,duration:.08},{opacity:.2,duration:.08},{opacity:1,duration:.35}],ease:'none'},.35);
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) tl.progress(1);
+  tkRise(tl,{auto:true,delay:.5});
   gsap.to('.ft .rv',{opacity:1,y:0,duration:.7,stagger:.09,ease:'power3.out',scrollTrigger:{trigger:'#ft',start:'top 85%',once:true}});
   const wa=document.querySelector('.wa'),wang={a:0};
   const waSpin=gsap.to(wang,{a:360,duration:3.5,repeat:-1,ease:'none',paused:true,onUpdate:()=>wa.style.setProperty('--a',wang.a+'deg')});
   ScrollTrigger.create({trigger:wa,start:'top 100%',end:'bottom 0%',onToggle:s=>s.isActive?waSpin.play():waSpin.pause()});
   ScrollTrigger.create({trigger:'#bar',start:'top 70px',
-    onEnter:()=>hdr.classList.add('light'),onLeaveBack:()=>hdr.classList.remove('light')});
+    onEnter:()=>{hdr.classList.add('light');document.getElementById('bar').classList.add('stuck')},onLeaveBack:()=>{hdr.classList.remove('light');document.getElementById('bar').classList.remove('stuck')}});
 },window.__FAST?0:1800);
 
 /* ── меню каталога ── */
+/* первый экран: анимация (сама или по свайпу) + выезд каталога поверх фото */
+function tkRise(anim,o){
+  o=o||{};
+  if(o.free){if(anim){anim.timeScale(o.speed||1);gsap.delayedCall(o.delay==null?.6:o.delay,()=>{if(anim.progress()<1)anim.play();});}return()=>{};}
+  const root=document.documentElement,bar=document.getElementById('bar'),FLOW=['#bar','#cat'],ride=o.ride||[];
+  const RISE=()=>Math.round(document.getElementById('hero').offsetHeight*(o.k||.34));
+  const revealTop=()=>{if(!window.__pend)return;const lim=innerHeight+RISE();__pend=__pend.filter(([c,go])=>{if(!c.isConnected)return false;if(c.getBoundingClientRect().top<lim){go();return false}return true});};
+  const rt=gsap.timeline({paused:true}).call(()=>{if(!rt.reversed()){bar.classList.add('rise');revealTop();}},null,0);
+  if(o.intro!==false) rt.to('#intro',{y:-50,opacity:0,ease:'power1.in',duration:.35},0);
+  rt.fromTo(FLOW,{y:0},{y:()=>-RISE(),ease:'power3.out',duration:.8},.05);
+  if(ride.length) rt.to(ride,{y:()=>'-='+RISE(),ease:'power3.out',duration:.8},.05);
+  let seq=rt;
+  if(anim){anim.timeScale(o.speed||1);
+    if(o.auto) gsap.delayedCall(o.delay==null?.6:o.delay,()=>{if(anim.progress()<1)anim.play();});
+    else{seq=gsap.timeline({paused:true});anim.paused(false);rt.paused(false);
+      const d=anim.duration()/anim.timeScale();seq.add(anim,0).add(rt,Math.max(0,d-(o.overlap||.25)));}}
+  const settle=()=>{gsap.set(FLOW,{y:0});bar.style.marginTop=(-RISE())+'px';ScrollTrigger.refresh();if(window.chkCards)chkCards();};
+  const unsettle=()=>{bar.style.marginTop='';gsap.set(FLOW,{y:-RISE()});};
+  let open=false,busy=false;
+  const atTop=()=>window.scrollY<=2&&window.__heroTop!==false;
+  const hr=document.getElementById('hero');
+  if(hr&&window.IntersectionObserver)new IntersectionObserver(e=>{window.__heroTop=e[0].intersectionRatio>.97;sync();},{threshold:[0,.5,.97,1]}).observe(hr);
+  root.classList.add('tk-lock');
+  const fwd=ScrollTrigger.observe({target:window,type:'wheel,touch',wheelSpeed:-1,tolerance:12,debounce:false,preventDefault:true,lockAxis:true,ignore:'.intro .chips',
+    onUp:()=>{if(busy||open)return;busy=true;
+      seq.eventCallback('onComplete',()=>{settle();open=true;busy=false;fwd.disable();root.classList.remove('tk-lock');sync();});seq.timeScale(1).play();}});
+  const back=ScrollTrigger.observe({target:window,type:'wheel,touch',wheelSpeed:-1,tolerance:12,debounce:false,
+    onDown:()=>{if(busy||!open||!atTop())return;busy=true;back.disable();unsettle();
+      seq.eventCallback('onReverseComplete',()=>{bar.classList.remove('rise');ScrollTrigger.refresh();open=false;busy=false;fwd.enable();root.classList.add('tk-lock');});seq.timeScale(o.back||1.3).reverse();}});
+  back.disable();
+  function sync(){if(open&&!busy&&atTop())back.enable();else back.disable();}
+  addEventListener('scroll',sync,{passive:true});
+  if(window.scrollY>2){if(anim&&o.auto)anim.progress(1);seq.progress(1);bar.classList.add('rise');settle();open=true;fwd.disable();root.classList.remove('tk-lock');}
+  return()=>{fwd.kill();back.kill();removeEventListener('scroll',sync);bar.style.marginTop='';bar.classList.remove('rise');gsap.set(FLOW,{clearProps:'transform'});root.classList.remove('tk-lock');};
+}
 const NAV_IM={hobs:'assets/nav/hobs.webp',ovens:'assets/nav/ovens.webp',hoods:'assets/nav/hoods.webp',sink:'assets/nav/sink.webp',fauc:'assets/nav/fauc.webp',frig:'assets/nav/frig.webp',micro:'assets/nav/micro.webp',coffee:'assets/nav/coffee.webp',wash:'assets/nav/wash.webp',dish:'assets/nav/dish.webp',acc:'assets/nav/acc.webp',wine:'assets/nav/wine.webp'};
 function drawNav(){
   document.getElementById('nvl').innerHTML=NAV.map(c=>{
