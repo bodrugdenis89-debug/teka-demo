@@ -795,7 +795,6 @@ setTimeout(()=>{
     const rt=gsap.timeline({paused:true})
       .call(()=>{if(!rt.reversed()){bar.classList.add('rise');revealTop();}},null,0)
       .to('#intro',{y:-50,opacity:0,ease:'power1.in',duration:.35},0)
-      .to('#stage',{yPercent:-9,ease:'power2.inOut',duration:.8},0)
       .fromTo(FLOW,{y:0},{y:()=>-RISE(),ease:'power3.out',duration:.8},.05);
     function settle(){gsap.set(FLOW,{y:0});bar.style.marginTop=(-RISE())+'px';ScrollTrigger.refresh();if(window.chkCards)chkCards();}
     function unsettle(){bar.style.marginTop='';gsap.set(FLOW,{y:-RISE()});}
