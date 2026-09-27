@@ -437,6 +437,9 @@ h1 .ch>span{display:inline-block;will-change:transform}
 }
 html.tk-lock body{touch-action:none;overscroll-behavior:none}html.tk-lock .intro .chips{touch-action:pan-x}
 .pc{opacity:1!important;transform:none!important}
+#cat{position:relative;z-index:1}
+#bar.rise:not(.stuck){border-radius:22px 22px 0 0;box-shadow:0 -14px 34px rgba(0,0,0,.28);background:#F4F3F1;-webkit-backdrop-filter:none;backdrop-filter:none}
+html.tk-lock #bar,html.tk-lock #cat{will-change:transform}
 </style>
 </head>
 <body>
@@ -783,26 +786,39 @@ setTimeout(()=>{
       // блик по стеклу
       .fromTo('#wgl',{opacity:0,backgroundPosition:'100% 0'},{opacity:1,backgroundPosition:'0% 0',ease:'power2.inOut',duration:1},2.05)
       .to('#wgl',{opacity:0,ease:'power1.in',duration:.3},2.8);
+    // свет включается сам при открытии страницы
+    gsap.delayedCall(.6,()=>tl.timeScale(1.25).play());
+    // один свайп: текст уходит, каталог выезжает снизу; наверху свайп вверх — обратно
+    const bar=document.getElementById('bar'),FLOW=['#bar','#cat'];
+    const RISE=()=>Math.round(document.getElementById('hero').offsetHeight*.34);
+    const revealTop=()=>{if(!window.__pend)return;const lim=innerHeight+RISE();__pend=__pend.filter(([c,go])=>{if(!c.isConnected)return false;if(c.getBoundingClientRect().top<lim){go();return false}return true});};
+    const rt=gsap.timeline({paused:true})
+      .call(()=>{if(!rt.reversed()){bar.classList.add('rise');revealTop();}},null,0)
+      .to('#intro',{y:-50,opacity:0,ease:'power1.in',duration:.35},0)
+      .to('#stage',{yPercent:-9,ease:'power2.inOut',duration:.8},0)
+      .fromTo(FLOW,{y:0},{y:()=>-RISE(),ease:'power3.out',duration:.8},.05);
+    function settle(){gsap.set(FLOW,{y:0});bar.style.marginTop=(-RISE())+'px';ScrollTrigger.refresh();if(window.chkCards)chkCards();}
+    function unsettle(){bar.style.marginTop='';gsap.set(FLOW,{y:-RISE()});}
     let open=false,busy=false;
     const atTop=()=>window.scrollY<=2&&window.__heroTop!==false;(function(){const hr=document.getElementById('hero');if(!hr||!window.IntersectionObserver)return;new IntersectionObserver(e=>{window.__heroTop=e[0].intersectionRatio>.97;sync();},{threshold:[0,.5,.97,1]}).observe(hr);})();document.documentElement.classList.add('tk-lock');
     const fwd=ScrollTrigger.observe({target:window,type:'wheel,touch',wheelSpeed:-1,tolerance:12,debounce:false,preventDefault:true,lockAxis:true,ignore:'.intro .chips',
       onUp:()=>{if(busy||open)return;busy=true;
-        tl.eventCallback('onComplete',()=>{open=true;busy=false;fwd.disable();document.documentElement.classList.remove('tk-lock');sync();});tl.timeScale(1).play();}});
+        rt.eventCallback('onComplete',()=>{settle();open=true;busy=false;fwd.disable();document.documentElement.classList.remove('tk-lock');sync();});rt.timeScale(1).play();}});
     const back=ScrollTrigger.observe({target:window,type:'wheel,touch',wheelSpeed:-1,tolerance:12,debounce:false,
-      onDown:()=>{if(busy||!open||!atTop())return;busy=true;back.disable();
-        tl.eventCallback('onReverseComplete',()=>{open=false;busy=false;fwd.enable();document.documentElement.classList.add('tk-lock');});tl.timeScale(1.7).reverse();}});
+      onDown:()=>{if(busy||!open||!atTop())return;busy=true;back.disable();unsettle();
+        rt.eventCallback('onReverseComplete',()=>{bar.classList.remove('rise');ScrollTrigger.refresh();open=false;busy=false;fwd.enable();document.documentElement.classList.add('tk-lock');});rt.timeScale(1.3).reverse();}});
     back.disable();
     function sync(){if(open&&!busy&&atTop())back.enable();else back.disable();}
     addEventListener('scroll',sync,{passive:true});
-    if(window.scrollY>2){tl.progress(1);open=true;fwd.disable();document.documentElement.classList.remove('tk-lock');}
-    return()=>{document.documentElement.classList.remove('tk-lock');fwd.kill();back.kill();removeEventListener('scroll',sync);};
+    if(window.scrollY>2){tl.progress(1);rt.progress(1);bar.classList.add('rise');settle();open=true;fwd.disable();document.documentElement.classList.remove('tk-lock');}
+    return()=>{bar.style.marginTop='';bar.classList.remove('rise');gsap.set(FLOW,{clearProps:'transform'});document.documentElement.classList.remove('tk-lock');fwd.kill();back.kill();removeEventListener('scroll',sync);};
   });
   gsap.to('.ft .rv',{opacity:1,y:0,duration:.7,stagger:.09,ease:'power3.out',scrollTrigger:{trigger:'#ft',start:'top 85%',once:true}});
   const wa=document.querySelector('.wa'),wang={a:0};
   const waSpin=gsap.to(wang,{a:360,duration:3.5,repeat:-1,ease:'none',paused:true,onUpdate:()=>wa.style.setProperty('--a',wang.a+'deg')});
   ScrollTrigger.create({trigger:wa,start:'top 100%',end:'bottom 0%',onToggle:s=>s.isActive?waSpin.play():waSpin.pause()});
   ScrollTrigger.create({trigger:'#bar',start:'top 70px',
-    onEnter:()=>hdr.classList.add('light'),onLeaveBack:()=>hdr.classList.remove('light')});
+    onEnter:()=>{hdr.classList.add('light');document.getElementById('bar').classList.add('stuck')},onLeaveBack:()=>{hdr.classList.remove('light');document.getElementById('bar').classList.remove('stuck')}});
 },window.__FAST?0:1800);
 
 /* ── меню каталога ── */
