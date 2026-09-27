@@ -773,7 +773,7 @@ Promise.all([minWait,Promise.race([maxWait,Promise.all([f1,f2].map(im=>im.decode
     .to('#f2',{opacity:1,ease:'power1.inOut',duration:.3},.3)                 // свет вспыхивает — финал светлый
     .to('#intro',{y:-90,opacity:0,ease:'power1.in',duration:.25},0)
 ;
-  tkRise(tl,{speed:1/2.3,intro:false,back:1.6,overlap:.2});
+  tkRise(tl,{speed:1/2.3,intro:false,back:1.6,overlap:.2,k:.24});
 
   gsap.to('.ft .rv',{opacity:1,y:0,duration:.7,stagger:.09,ease:'power3.out',scrollTrigger:{trigger:'#ft',start:'top 85%',once:true}});
   const wa=document.querySelector('.wa'),wang={a:0};
