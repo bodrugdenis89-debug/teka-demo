@@ -446,7 +446,9 @@ h1 .ch>span{display:inline-block;will-change:transform}
 }
 html.tk-lock body{touch-action:none;overscroll-behavior:none}html.tk-lock .intro .chips{touch-action:pan-x}
 #cat{position:relative;z-index:1}
-#bar.rise:not(.stuck){border-radius:22px 22px 0 0;box-shadow:0 -14px 34px rgba(0,0,0,.28);background:rgba(244,243,241,.97)}
+#bar.rise:not(.stuck){border-radius:22px 22px 0 0;box-shadow:0 -14px 34px rgba(0,0,0,.28);background:#F4F3F1;-webkit-backdrop-filter:none;backdrop-filter:none}
+html.tk-lock #bar,html.tk-lock #cat{will-change:transform}
+.pc{opacity:1!important;transform:none!important}
 </style>
 </head>
 <body>
@@ -700,7 +702,7 @@ addEventListener('scroll',chkCards,{passive:true});
 function bindCards(anim){
   gsap.utils.toArray('.pc').forEach((c,i)=>{
     const r=c.getBoundingClientRect(),vis=r.top<innerHeight;
-    const show=()=>c.classList.add('in');
+    const show=()=>c.classList.add('in');show();
     if(vis) gsap.to(c,{opacity:1,y:0,duration:.6,delay:i*.06,ease:'power3.out',onStart:show});
     else{let on=false;const go=()=>{if(on)return;on=true;io.disconnect();gsap.to(c,{opacity:1,y:0,duration:.7,ease:'power3.out',delay:(i%2)*.1,onStart:show});};const io=new IntersectionObserver(e=>{if(e[0].isIntersecting)go();},{rootMargin:'0px 0px -6% 0px'});io.observe(c);(window.__pend=window.__pend||[]).push([c,go]);}
     ScrollTrigger.create({trigger:c,start:'top 50%',end:'bottom 50%',onToggle:s=>c.classList.toggle('lit',s.isActive)});
@@ -839,7 +841,7 @@ setTimeout(()=>{
     const c=ctx.conditions;
     if(c.still){gsap.set('#disp,#lamps,#cup,#pour,#steam,#crema',{opacity:1});gsap.set('#rim',{opacity:.35});return;}
     // один жест вниз — вся сцена целиком; наверху жест вверх — обратно
-    const bar=document.getElementById('bar'),FLOW=['#bar','#cat','#ft'];
+    const bar=document.getElementById('bar'),FLOW=['#bar','#cat'];
     const RISE=()=>Math.round(document.getElementById('hero').offsetHeight*.36);
     const revealTop=()=>{if(!window.__pend)return;const lim=innerHeight+RISE();__pend=__pend.filter(([c,go])=>{if(!c.isConnected)return false;if(c.getBoundingClientRect().top<lim){go();return false}return true});};
     const tl=gsap.timeline({paused:true})
@@ -869,7 +871,7 @@ setTimeout(()=>{
       .fromTo(FLOW,{y:0},{y:()=>-RISE(),ease:'power3.out',duration:.34},.66);
     function settle(){gsap.set(FLOW,{y:0});bar.style.marginTop=(-RISE())+'px';ScrollTrigger.refresh();if(window.chkCards)chkCards();}
     function unsettle(){bar.style.marginTop='';gsap.set(FLOW,{y:-RISE()});}
-    const PLAY=1/2.8,BACK=1/1.6;
+    const PLAY=1/1.8,BACK=1/1.2;
     let open=false,busy=false;
     const atTop=()=>window.scrollY<=2&&window.__heroTop!==false;(function(){const hr=document.getElementById('hero');if(!hr||!window.IntersectionObserver)return;new IntersectionObserver(e=>{window.__heroTop=e[0].intersectionRatio>.97;sync();},{threshold:[0,.5,.97,1]}).observe(hr);})();document.documentElement.classList.add('tk-lock');
     const fwd=ScrollTrigger.observe({target:window,type:'wheel,touch',wheelSpeed:-1,tolerance:12,debounce:false,preventDefault:true,lockAxis:true,ignore:'.intro .chips',
