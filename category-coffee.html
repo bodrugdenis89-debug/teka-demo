@@ -693,12 +693,14 @@ function render(anim=true){
     setTimeout(go,420);
   } else go();
 }
+function chkCards(){if(!window.__pend)return;const h=innerHeight*.94;__pend=__pend.filter(([c,go])=>{if(!c.isConnected)return false;if(c.getBoundingClientRect().top<h){go();return false}return true});}
+addEventListener('scroll',chkCards,{passive:true});
 function bindCards(anim){
   gsap.utils.toArray('.pc').forEach((c,i)=>{
     const r=c.getBoundingClientRect(),vis=r.top<innerHeight;
     const show=()=>c.classList.add('in');
     if(vis) gsap.to(c,{opacity:1,y:0,duration:.6,delay:i*.06,ease:'power3.out',onStart:show});
-    else gsap.to(c,{opacity:1,y:0,duration:.7,ease:'power3.out',delay:(i%2)*.1,scrollTrigger:{trigger:c,start:'top 92%',once:true,onEnter:show}});
+    else{let on=false;const go=()=>{if(on)return;on=true;io.disconnect();gsap.to(c,{opacity:1,y:0,duration:.7,ease:'power3.out',delay:(i%2)*.1,onStart:show});};const io=new IntersectionObserver(e=>{if(e[0].isIntersecting)go();},{rootMargin:'0px 0px -6% 0px'});io.observe(c);(window.__pend=window.__pend||[]).push([c,go]);}
     ScrollTrigger.create({trigger:c,start:'top 50%',end:'bottom 50%',onToggle:s=>c.classList.toggle('lit',s.isActive)});
   });
   ScrollTrigger.refresh();

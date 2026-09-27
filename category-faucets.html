@@ -109,7 +109,8 @@ a{color:inherit;text-decoration:none}
 @keyframes spl{from{transform:scaleX(.9);opacity:.75}to{transform:scaleX(1.06);opacity:1}}
 .cveil{position:absolute;inset:0;pointer-events:none;opacity:0;
   background:linear-gradient(180deg,rgba(16,14,12,.62) 0,rgba(16,14,12,.3) 22%,rgba(16,14,12,0) 38%)}
-.claim{position:absolute;left:20px;right:20px;top:calc(60px + 5.5svh);pointer-events:none}
+.claim{position:absolute;left:20px;right:20px;top:calc(84px + 3svh);pointer-events:none}
+@media (max-height:740px){.claim{top:78px}.claim h2{font-size:24px}.claim .ck{margin-bottom:8px}.claim p{margin-top:8px}}
 .claim.tight h2{font-size:24px}.claim.tight .ck{margin-bottom:8px}.claim.tight p{margin-top:8px}
 .claim>*{opacity:0}
 .claim .ck{display:block;font-size:11px;font-weight:700;letter-spacing:.46em;color:rgba(255,255,255,.72);margin-bottom:12px}
@@ -651,12 +652,14 @@ function render(anim=true){
     setTimeout(go,420);
   } else go();
 }
+function chkCards(){if(!window.__pend)return;const h=innerHeight*.94;__pend=__pend.filter(([c,go])=>{if(!c.isConnected)return false;if(c.getBoundingClientRect().top<h){go();return false}return true});}
+addEventListener('scroll',chkCards,{passive:true});
 function bindCards(anim){
   gsap.utils.toArray('.pc').forEach((c,i)=>{
     const r=c.getBoundingClientRect(),vis=r.top<innerHeight;
     const show=()=>c.classList.add('in');
     if(vis) gsap.to(c,{opacity:1,y:0,duration:.6,delay:i*.06,ease:'power3.out',onStart:show});
-    else gsap.to(c,{opacity:1,y:0,duration:.7,ease:'power3.out',delay:(i%2)*.1,scrollTrigger:{trigger:c,start:'top 92%',once:true,onEnter:show}});
+    else{let on=false;const go=()=>{if(on)return;on=true;io.disconnect();gsap.to(c,{opacity:1,y:0,duration:.7,ease:'power3.out',delay:(i%2)*.1,onStart:show});};const io=new IntersectionObserver(e=>{if(e[0].isIntersecting)go();},{rootMargin:'0px 0px -6% 0px'});io.observe(c);(window.__pend=window.__pend||[]).push([c,go]);}
     ScrollTrigger.create({trigger:c,start:'top 50%',end:'bottom 50%',onToggle:s=>c.classList.toggle('lit',s.isActive)});
   });
   ScrollTrigger.refresh();
@@ -800,7 +803,7 @@ setTimeout(()=>{
       .fromTo('#splash',{opacity:0},{opacity:1,ease:'power1.out',duration:.1},.28)
       .fromTo('#cveil',{opacity:0},{opacity:1,ease:'none',duration:.22},.3)
       .fromTo('#claim>*',{y:24,opacity:0},{y:0,opacity:1,ease:'power2.out',duration:.2,stagger:.07},.36);
-    const PLAY=.62/2.2,BACK=.62/1.4;
+    const PLAY=.62/1.4,BACK=.62/1;
     let open=false,busy=false;
     const atTop=()=>window.scrollY<=2&&window.__heroTop!==false;(function(){const hr=document.getElementById('hero');if(!hr||!window.IntersectionObserver)return;new IntersectionObserver(e=>{window.__heroTop=e[0].intersectionRatio>.97;sync();},{threshold:[0,.5,.97,1]}).observe(hr);})();document.documentElement.classList.add('tk-lock');
     const fwd=ScrollTrigger.observe({target:window,type:'wheel,touch',wheelSpeed:-1,tolerance:12,debounce:false,preventDefault:true,lockAxis:true,ignore:'.intro .chips',
