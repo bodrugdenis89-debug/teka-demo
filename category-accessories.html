@@ -785,7 +785,7 @@ setTimeout(()=>{
     tl.progress(0);
     const re=()=>{const p=tl.progress();tl.invalidate().progress(p);};
     addEventListener('resize',re);
-    const off=tkRise(tl,{speed:1/1.15,k:.26,back:1.7,overlap:.5});
+    const off=tkRise(tl,{speed:1.9,k:.26,back:2.6,overlap:.6});
     return()=>{off();removeEventListener('resize',re);};
   });
   gsap.to('.ft .rv',{opacity:1,y:0,duration:.7,stagger:.09,ease:'power3.out',scrollTrigger:{trigger:'#ft',start:'top 85%',once:true}});
