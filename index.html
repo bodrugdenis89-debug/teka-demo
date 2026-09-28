@@ -55,11 +55,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,14,12,.35) 0%,rgba(16,14,12,0) 22%,rgba(16,14,12,0) 42%,rgba(16,14,12,.78) 70%,#100E0C 100%);pointer-events:none}
 .hi{position:absolute;left:20px;right:20px;bottom:calc(26px + env(safe-area-inset-bottom));z-index:2}
 .ey{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.65)}
-.hi h1{font-size:40px;line-height:1.02;font-weight:800;letter-spacing:-1.4px;margin-top:10px;text-wrap:balance}
+.hi h1{font-size:38px;line-height:1.02;font-weight:800;letter-spacing:-1.4px;margin-top:10px;text-wrap:balance}
 .hi h1 em{font-style:normal;color:var(--red)}
 .rule{width:52px;height:3px;background:var(--red);margin:16px 0 14px}
 .hi p{font-size:13px;line-height:1.5;color:rgba(255,255,255,.72);max-width:32ch}
-.cta{display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:27px;background:#fff;color:var(--ink);font-weight:700;font-size:15px;margin-top:22px;text-decoration:none;width:100%}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:27px;background:#fff;color:var(--ink);font-weight:700;font-size:15px;margin-top:6px;text-decoration:none;width:100%}
 .cta svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .now{display:flex;align-items:center;justify-content:space-between;margin-top:16px;font-size:12px;color:rgba(255,255,255,.6)}
 .now a{color:#fff;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:6px;transition:opacity .4s}
@@ -119,7 +119,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <div class="ey" data-t="ey">Dealer oficial Teka</div>
     <h1 data-t="h1">Tehnică de bucătărie Teka</h1>
     <div class="rule"></div>
-    <p data-t="sub">Livrare gratuită în toată Moldova · garanție 2 ani</p>
     <a class="cta" href="#cat"><span data-t="cta">Alege tehnica</span><svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
     <div class="now"><a id="nowa" href="category-hobs.html"><span id="nown"></span><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></a><div class="dots" id="dots"></div></div>
   </div>
@@ -170,10 +169,10 @@ const NAV=[
  {k:'dish', ro:'Mașini de spălat vase',  ru:'Посудомоечные машины',  n:13, h:'category-dishwashers.html',im:'assets/nav/dish.webp'},
  {k:'acc',  ro:'Accesorii',              ru:'Аксессуары',            n:13, h:'category-accessories.html',im:'assets/nav/acc.webp'},
  {k:'wine', ro:'Răcitoare de vin',       ru:'Винные шкафы',          n:5,  h:'category-wine-coolers.html',im:'assets/nav/wine.webp'}];
-const T={ro:{ey:'Dealer oficial Teka',h1:'Tehnică de bucătărie <em>Teka</em>',sub:'Livrare gratuită în toată Moldova · garanție 2 ani',cta:'Alege tehnica',cat:'Catalog',mod:'modele',
+const T={ro:{ey:'Dealer oficial în Moldova',h1:'Tehnică de bucătărie <em>Teka</em> și&nbsp;Küppersbusch',sub:'',cta:'Alege tehnica',cat:'Catalog',mod:'modele',
   p1:'Dealer oficial',p1s:'Teka și Küppersbusch în Moldova',p2:'Livrare gratuită',p2s:'În Chișinău și în toată Moldova',p3:'Garanție 2 ani',p3s:'Service propriu — adresați-vă în magazin',
   st_e:'Magazin',st_h:'Chișinău, str. 31 August 1989, 79/1',st_p:'Luni – Sâmbătă, 10:00 – 18:00. Vedeți tehnica live și primiți consultație.',route:'Traseu',call:'Apel',cp:'Distribuitor oficial Teka și Küppersbusch în Republica Moldova.',ttl:'Teka Moldova — tehnică de bucătărie'},
- ru:{ey:'Официальный дилер Teka',h1:'Кухонная техника <em>Teka</em>',sub:'Бесплатная доставка по всей Молдове · гарантия 2 года',cta:'Выбрать технику',cat:'Каталог',mod:'моделей',
+ ru:{ey:'Официальный дилер в Молдове',h1:'Кухонная техника <em>Teka</em> и&nbsp;Küppersbusch',sub:'',cta:'Выбрать технику',cat:'Каталог',mod:'моделей',
   p1:'Официальный дилер',p1s:'Teka и Küppersbusch в Молдове',p2:'Бесплатная доставка',p2s:'По Кишинёву и по всей Молдове',p3:'Гарантия 2 года',p3s:'Свой сервис — обращайтесь в магазин',
   st_e:'Магазин',st_h:'Кишинёв, ул. 31 August 1989, 79/1',st_p:'Пн – Сб, 10:00 – 18:00. Посмотрите технику вживую и получите консультацию.',route:'Маршрут',call:'Позвонить',cp:'Официальный дистрибьютор Teka и Küppersbusch в Республике Молдова.',ttl:'Teka Moldova — кухонная техника'}};
 let L='ru';try{L=localStorage.getItem('tk-lang')||'ru'}catch(e){}
