@@ -987,8 +987,12 @@ draw();
 .kd .kb{height:48px;border-radius:24px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid #100E0C;color:#100E0C;background:none;width:100%}
 .kd .kb svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
 @property --ka{syntax:'<angle>';inherits:false;initial-value:0deg}
-.kd .kb.vb{position:relative;isolation:isolate;background:#1c1a18;border:0;color:#fff}
-.kd .kb.vb::before{content:'';position:absolute;inset:0;border-radius:24px;padding:1.5px;background:conic-gradient(from var(--ka),rgba(255,255,255,.12) 0 62%,rgba(255,255,255,.45) 80%,rgba(255,255,255,.9) 85%,rgba(255,255,255,.12) 92%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:kspin 3.5s linear infinite;pointer-events:none}
+.kd .kb.vb{position:relative;isolation:isolate;background:#1c1a18;border:0;color:#fff;height:58px;border-radius:29px;gap:12px}
+.kd .kb.vb svg{width:22px;height:22px}
+.kd .kv{display:flex;flex-direction:column;align-items:flex-start;line-height:1.15;text-align:left}
+.kd .kv b{font-size:15px;font-weight:700}
+.kd .kv small{font-size:11.5px;font-weight:500;color:rgba(255,255,255,.6);margin-top:2px}
+.kd .kb.vb::before{content:'';position:absolute;inset:0;border-radius:29px;padding:1.5px;background:conic-gradient(from var(--ka),rgba(255,255,255,.12) 0 62%,rgba(255,255,255,.45) 80%,rgba(255,255,255,.9) 85%,rgba(255,255,255,.12) 92%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:kspin 3.5s linear infinite;pointer-events:none}
 @keyframes kspin{to{--ka:360deg}}
 @media (prefers-reduced-motion:reduce){.kd .kb.vb::before{animation:none}}
 .kd .k2{display:flex;gap:8px;margin-top:8px}
@@ -1007,8 +1011,8 @@ draw();
 <script>
 (function(){
 const PH='37368272702',KEY='tkCart';
-const TX={ro:{cart:'Coș',added:'Adăugat',inCart:'Produsul e în coș',open:'Deschide',total:'Total',deliv:'Livrare gratuită în toată Moldova',vb:'Comandă în Viber',wa:'WhatsApp',tg:'Telegram',empty:'Coșul e gol',emptyp:'Adaugă produse din catalog.',copied:'Textul comenzii e copiat — lipește-l în chat',hi:'Bună! Vreau să comand:',sum:'Total',cod:'cod'},
-          ru:{cart:'Корзина',added:'Добавлено',inCart:'Товар в корзине',open:'Открыть',total:'Итого',deliv:'Бесплатная доставка по всей Молдове',vb:'Заказать в Viber',wa:'WhatsApp',tg:'Telegram',empty:'Корзина пуста',emptyp:'Добавьте товары из каталога.',copied:'Текст заказа скопирован — вставьте в чат',hi:'Здравствуйте! Хочу заказать:',sum:'Итого',cod:'код'}};
+const TX={ro:{cart:'Coș',added:'Adăugat',inCart:'Produsul e în coș',open:'Deschide',total:'Total',deliv:'Livrare gratuită în toată Moldova',vb:'Plasează comanda',vbs:'managerul răspunde în Viber',wa:'WhatsApp',tg:'Telegram',empty:'Coșul e gol',emptyp:'Adaugă produse din catalog.',copied:'Textul comenzii e copiat — lipește-l în chat',hi:'Bună! Vreau să comand:',sum:'Total',cod:'cod'},
+          ru:{cart:'Корзина',added:'Добавлено',inCart:'Товар в корзине',open:'Открыть',total:'Итого',deliv:'Бесплатная доставка по всей Молдове',vb:'Оформить заказ',vbs:'менеджер ответит в Viber',wa:'WhatsApp',tg:'Telegram',empty:'Корзина пуста',emptyp:'Добавьте товары из каталога.',copied:'Текст заказа скопирован — вставьте в чат',hi:'Здравствуйте! Хочу заказать:',sum:'Итого',cod:'код'}};
 const tx=k=>(TX[typeof L!=='undefined'&&L==='ru'?'ru':'ro'])[k];
 const mdl=n=>n.toLocaleString('ru-RU').replace(/ /g,' ')+' MDL';
 let cart=[];try{cart=JSON.parse(localStorage.getItem(KEY)||'[]')||[]}catch(e){cart=[]}
@@ -1027,7 +1031,7 @@ function draw(){
   if(!cart.length){kl.innerHTML='<div class="ke"><b>'+tx('empty')+'</b>'+tx('emptyp')+'</div>';kf.innerHTML='';return;}
   kl.innerHTML=cart.map((x,i)=>'<div class="kr"><div class="ki">'+(x.img?'<img src="'+x.img+'" alt="" onerror="this.remove()">':'')+'</div><div class="kn"><b>'+x.n+'</b><small>'+tx('cod')+' '+x.sku+'</small><i>'+mdl(x.p)+'</i></div><div class="kq"><button data-d="-1" data-i="'+i+'" aria-label="−">−</button>'+x.q+'<button data-d="1" data-i="'+i+'" aria-label="+">+</button></div></div>').join('');
   kf.innerHTML='<div class="kt"><span>'+tx('total')+'</span><span>'+mdl(sum())+'</span></div><div class="kdl">'+tx('deliv')+'</div>'
-   +'<button class="kb vb" data-m="vb">'+IC.vb+tx('vb')+'</button>'
+   +'<button class="kb vb" data-m="vb">'+IC.vb+'<span class="kv"><b>'+tx('vb')+'</b><small>'+tx('vbs')+'</small></span></button>'
    +'<div class="k2"><button class="kb" data-m="wa">'+IC.wa+tx('wa')+'</button><button class="kb" data-m="tg">'+IC.tg+tx('tg')+'</button></div>';
 }
 function msg(){return tx('hi')+'\n'+cart.map(x=>'• '+x.n+' ('+tx('cod')+' '+x.sku+') × '+x.q+' — '+mdl(x.p*x.q)).join('\n')+'\n'+tx('sum')+': '+mdl(sum());}
