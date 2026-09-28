@@ -10,6 +10,8 @@ html.tk-in::after,html.tk-out::after{opacity:1}
 (function(){var d=document.documentElement,via=false;
 try{via=sessionStorage.getItem('tk-nav')==='1';sessionStorage.removeItem('tk-nav')}catch(e){}
 if(location.hash==='#tk'){via=true;try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
+var nt='';try{nt=(performance.getEntriesByType('navigation')[0]||{}).type||''}catch(e){}
+if(!via&&nt!=='back_forward'&&!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('tk-intro');
 if(via){d.classList.add('tk-in');addEventListener('DOMContentLoaded',function(){setTimeout(function(){d.classList.remove('tk-in')},60)});}
 document.addEventListener('click',function(e){
   if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
@@ -75,6 +77,32 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .dots{display:flex;gap:6px}
 .dots i{width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.3);transition:width .4s,background .4s}
 .dots i.on{width:18px;background:#fff}
+.ld{display:none}
+html.tk-intro .ld{position:fixed;inset:0;z-index:200;background:var(--ink);display:grid;place-items:center;transition:opacity .7s;overflow:hidden}
+.ld.off{opacity:0;pointer-events:none}
+.ld .lg{position:relative;text-align:center;color:#fff;animation:ldz .4s cubic-bezier(.5,0,.75,0) 1.4s both}
+.ld b{display:block;font-weight:800;font-size:44px;letter-spacing:-1px;line-height:1}
+.ld b span{display:inline-block;animation:ldl 1.1s cubic-bezier(.2,.8,.2,1) both}
+.ld b span:nth-child(1){--x:-33px;animation-delay:.1s}.ld b span:nth-child(2){--x:-11px;animation-delay:.15s}
+.ld b span:nth-child(3){--x:11px;animation-delay:.2s}.ld b span:nth-child(4){--x:33px;animation-delay:.25s}
+.ld i{display:block;width:64px;height:3px;background:var(--red);margin:14px auto 0;transform-origin:center;animation:ldr .6s cubic-bezier(.65,0,.35,1) .5s both}
+.ld em{display:block;font-style:normal;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:14px;animation:ldf .5s ease .9s both}
+.ld .halo{position:absolute;left:50%;top:50%;width:260px;height:260px;margin:-130px 0 0 -130px;border-radius:50%;background:radial-gradient(closest-side,rgba(216,35,42,.28),transparent);filter:blur(20px);animation:ldh 1.8s ease-out both}
+@keyframes ldl{from{opacity:0;transform:translateX(var(--x))}to{opacity:1;transform:none}}
+@keyframes ldr{from{transform:scaleX(0)}to{transform:none}}
+@keyframes ldf{from{opacity:0}to{opacity:1}}
+@keyframes ldz{to{transform:scale(1.06)}}
+@keyframes ldh{0%{opacity:0;transform:scale(1)}55%{opacity:1;transform:scale(1)}100%{opacity:.7;transform:scale(1.35)}}
+html.tk-intro .hi>*,html.tk-intro .hdr{opacity:0}
+html.tk-go .hero .sl{animation:hin 1.4s cubic-bezier(.3,.7,.3,1) both}
+html.tk-go .hdr{animation:ldf .6s ease .3s both}
+html.tk-go .hi>*{animation:tup .8s cubic-bezier(.2,.8,.2,1) both}
+html.tk-go .hi .ey{animation-delay:.35s}html.tk-go .hi h1{animation-delay:.45s}
+html.tk-go .hi .rule{animation:rin .8s cubic-bezier(.7,0,.3,1) .8s both;transform-origin:0 50%}
+html.tk-go .hi .now{animation-delay:.9s}
+@keyframes hin{from{transform:scale(1.08)}to{transform:none}}
+@keyframes tup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes rin{from{opacity:1;transform:scaleX(0)}to{opacity:1;transform:none}}
 
 .cat{background:var(--sand);color:var(--ink);padding:34px 14px 30px;border-radius:24px 24px 0 0;margin-top:-18px;position:relative;z-index:3}
 .sh{display:flex;align-items:baseline;justify-content:space-between;padding:0 6px 16px}
@@ -115,6 +143,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 </style>
 </head>
 <body>
+<div class="ld" id="ld"><div class="halo"></div><div class="lg"><b><span>T</span><span>E</span><span>K</span><span>A</span></b><i></i><em>Moldova</em></div></div>
 <div class="pg">
 <header class="hdr" id="hdr">
   <a class="logo" href="home.html" aria-label="Teka">TEKA</a><div class="sp"></div>
@@ -208,6 +237,12 @@ function go(i){S[cur].classList.remove('on');dots.children[cur].classList.remove
 addEventListener('load',()=>{S.forEach(s=>{const im=s.querySelector('img[data-src]');if(im){im.src=im.dataset.src;im.removeAttribute('data-src')}});});
 const hero=document.getElementById('hero');let heroOn=true;
 if('IntersectionObserver' in window)new IntersectionObserver(e=>{heroOn=e[0].isIntersecting;hero.classList.toggle('off',!heroOn);}).observe(hero);
+(function(){const d=document.documentElement;if(!d.classList.contains('tk-intro'))return;
+  const f=S[0].querySelector('img'),wait=ms=>new Promise(r=>setTimeout(r,ms));
+  Promise.all([wait(1800),Promise.race([wait(4000),f.decode?f.decode().catch(()=>{}):wait(0)])]).then(()=>{
+    document.getElementById('ld').classList.add('off');d.classList.add('tk-go');d.classList.remove('tk-intro');
+    setTimeout(()=>{d.classList.remove('tk-go');document.getElementById('ld').remove()},2200);});
+})();
 if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{if(!document.hidden&&heroOn)go((cur+1)%S.length)},5000);
 /* шапка светлеет над каталогом */
 const hdr=document.getElementById('hdr'),cat=document.getElementById('cat');
