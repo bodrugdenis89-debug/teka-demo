@@ -140,6 +140,10 @@ html.tk-go .hi .now{animation-delay:.9s}
 .soc a.fb:active{background:#1877F2;border-color:#1877F2}.soc a.ig:active{background:#E1306C;border-color:#E1306C}
 .soc svg{width:19px;height:19px;fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 @media (prefers-reduced-motion:reduce){.sl.on img{animation:none}.sl{transition:none}}
+
+/* шапка: непрозрачная + отступ под системную панель */
+.hdr{padding-top:calc(12px + env(safe-area-inset-top))}
+.hdr.light{background:#F4F3F1!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 </style>
 </head>
 <body>
