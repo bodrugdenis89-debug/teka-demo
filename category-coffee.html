@@ -648,7 +648,6 @@ addEventListener('pageshow',()=>fit(true));})();
   <div class="tr rv">
     <div><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span><b data-t="t1">Dealer oficial</b><span data-t="t1s">Garanție Teka 2 ani</span></span></div>
     <div><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg><span><b data-t="t2">Livrare în toată Moldova</b><span data-t="t2s">Chișinău — gratuit</span></span></div>
-    <div><svg viewBox="0 0 24 24"><path d="M14 6 8 12l3 3-6 6M13 3l8 8-4 1-5-5z"/></svg><span><b data-t="t3">Instalare</b><span data-t="t3s">Montaj de specialiști</span></span></div>
       </div>
   <div class="soc rv">
     <a href="https://www.facebook.com/tekamoldova/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
@@ -980,6 +979,7 @@ if(l!==L)o(l);})();
 .nvm .ml span{color:rgba(255,255,255,.38)}
 .nvm .ml span svg{stroke:rgba(255,255,255,.22)}
 .nvm .ml em{margin-left:auto;font-style:normal;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:3px 8px}
+.nvm .ml .mx{display:block;padding:0;border:0;color:#fff}.nvm .ml .mx small{display:block;font-size:12px;font-weight:500;color:rgba(255,255,255,.45);margin-top:2px}
 .nvm .ml a .ar{margin-left:auto;width:16px;height:16px;stroke:rgba(255,255,255,.3)}
 .nvf .mm{display:flex;gap:10px;margin-bottom:12px}
 .nvf .mm a{flex:1;height:44px;border-radius:22px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.16);color:#fff}
@@ -991,8 +991,8 @@ if(l!==L)o(l);})();
 <script>
 (function(){
 const nv=document.getElementById('nv'),nvl=document.getElementById('nvl'),nvh=nv.querySelector('.nvh'),ttl=nvh.querySelector('b'),nvf=nv.querySelector('.nvf');
-const MT={ro:{menu:'Meniu',cat:'Catalog',cats:'12 categorii · Teka și Küppersbusch',promo:'Promoții',deliv:'Livrare și plată',inst:'Instalare și garanție',show:'Showroom',cont:'Contacte',about:'Despre noi',soon:'în curând',back:'Înapoi',hrs:'Luni – Sâmbătă, 10–18'},
-          ru:{menu:'Меню',cat:'Каталог',cats:'12 категорий · Teka и Küppersbusch',promo:'Акции',deliv:'Доставка и оплата',inst:'Установка и гарантия',show:'Шоурум',cont:'Контакты',about:'О нас',soon:'скоро',back:'Назад',hrs:'Пн – Сб, 10–18'}};
+const MT={ro:{menu:'Meniu',cat:'Catalog',cats:'12 categorii · Teka și Küppersbusch',promo:'Promoții',deliv:'Livrare și plată',inst:'Garanție',show:'Adresa magazinului',addr:'Chișinău, str. 31 August 1989, 79/1',cont:'Contacte',about:'Despre noi',soon:'în curând',back:'Înapoi',hrs:'Luni – Sâmbătă, 10–18'},
+          ru:{menu:'Меню',cat:'Каталог',cats:'12 категорий · Teka и Küppersbusch',promo:'Акции',deliv:'Доставка и оплата',inst:'Гарантия',show:'Адрес магазина',addr:'Кишинёв, ул. 31 August 1989, 79/1',cont:'Контакты',about:'О нас',soon:'скоро',back:'Назад',hrs:'Пн – Сб, 10–18'}};
 const mt=k=>MT[typeof L!=='undefined'&&L==='ru'?'ru':'ro'][k];
 const I=p=>'<svg viewBox="0 0 24 24">'+p+'</svg>';
 const IC={promo:I('<path d="M20 12 12 20 4 12V4h8z"/><circle cx="8.5" cy="8.5" r="1.3"/>'),
@@ -1014,9 +1014,9 @@ function draw(){
   const lv=nv.classList.contains('lv2');ttl.textContent=lv?mt('cat'):mt('menu');bk.setAttribute('aria-label',mt('back'));
   nvm.innerHTML='<button class="mc" id="mcat"><span class="mt">'+mt('cat')+'<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></span><small>'+mt('cats')+'</small><span class="mi">'+THUMBS.map(k=>'<img src="'+NAV_IM[k]+'" alt="">').join('')+'</span></button>'
    +'<div class="ml">'
-   +['promo','deliv','inst','show'].map(k=>'<span>'+IC[k]+mt(k)+'<em>'+mt('soon')+'</em></span>').join('')
-   +'<a href="#ft" id="mcont">'+IC.cont+mt('cont')+IC.ar+'</a>'
-   +'<span>'+IC.about+mt('about')+'<em>'+mt('soon')+'</em></span></div>';
+   +['promo','deliv','inst'].map(k=>'<span>'+IC[k]+mt(k)+'<em>'+mt('soon')+'</em></span>').join('')
+   +'<a href="https://www.google.com/maps/dir/?api=1&destination=Strada+31+August+1989+79%2F1%2C+Chi%C8%99in%C4%83u%2C+Moldova&travelmode=driving" target="_blank" rel="noopener" class="ma">'+IC.show+'<span class="mx">'+mt('show')+'<small>'+mt('addr')+'</small></span>'+IC.ar+'</a>'
+   +'<a href="#ft" id="mcont">'+IC.cont+mt('cont')+IC.ar+'</a></div>';
   nvf.innerHTML='<div class="mm"><a class="vb" href="viber://chat?number=%2B37368272702" aria-label="Viber">'+IC.vb+'</a><a href="https://wa.me/37368272702" target="_blank" rel="noopener" aria-label="WhatsApp">'+IC.wa+'</a><a href="https://t.me/+37368272702" target="_blank" rel="noopener" aria-label="Telegram">'+IC.tg+'</a><a href="tel:+37368272702" aria-label="Tel">'+IC.tel+'</a></div>'
    +'<div class="mp"><a href="tel:+37368272702">+373 68 27 27 02</a><span>'+mt('hrs')+'</span></div>';
   document.getElementById('mcat').onclick=()=>{nv.classList.add('lv2');draw();nvl.scrollTop=0;};
