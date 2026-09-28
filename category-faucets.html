@@ -1039,7 +1039,11 @@ draw();
 .kd .kdl{font-size:11px;color:#6B6660;margin:3px 0 12px}
 .kd .kb{height:48px;border-radius:24px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid #100E0C;color:#100E0C;background:none;width:100%}
 .kd .kb svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
-.kd .kb.vb{background:#7360F2;border-color:#7360F2;color:#fff}
+@property --ka{syntax:'<angle>';inherits:false;initial-value:0deg}
+.kd .kb.vb{position:relative;isolation:isolate;background:#1c1a18;border:0;color:#fff}
+.kd .kb.vb::before{content:'';position:absolute;inset:0;border-radius:24px;padding:1.5px;background:conic-gradient(from var(--ka),rgba(255,255,255,.12) 0 62%,rgba(255,255,255,.45) 80%,rgba(255,255,255,.9) 85%,rgba(255,255,255,.12) 92%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:kspin 3.5s linear infinite;pointer-events:none}
+@keyframes kspin{to{--ka:360deg}}
+@media (prefers-reduced-motion:reduce){.kd .kb.vb::before{animation:none}}
 .kd .k2{display:flex;gap:8px;margin-top:8px}
 .kd .k2 .kb{height:44px;font-size:13px}
 .kd .ke{padding:40px 10px 50px;text-align:center;color:#6B6660;font-size:14px}
