@@ -1,0 +1,4707 @@
+[
+ {
+  "sku": "113510000",
+  "n": "RSF 41160 BU EU",
+  "sub": "Congelator încorporabil cu montare sub blat",
+  "p": 12900,
+  "img": [
+   "113510000-1.webp"
+  ],
+  "draw": "113510000-draw.webp",
+  "label": "",
+  "desc": [
+   "Congelator încorporabil cu montare sub blat",
+   "Panou de control electronic",
+   "Congelator 4*",
+   "3 sertare",
+   "Uşă reversibilă",
+   "Clasa energetică: E"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "87"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "818"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "545"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "34"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Înălțime încorporată (mm)",
+      "818"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "Defrost"
+     ],
+     [
+      "Capacitate totală brută (litri)",
+      "96"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "87"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "6"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "175.61"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "19"
+     ],
+     [
+      "Clasa climatică",
+      "SN-T"
+     ],
+     [
+      "Zgomot (dB)",
+      "36"
+     ],
+     [
+      "Certificări",
+      "CE; CB; TUV; VDE"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea (W)",
+      "75"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0.433"
+     ],
+     [
+      "Conexiune",
+      "EUROPEAN"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1930"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Congelarea rapidă",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ],
+     [
+      "Mâner extern",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Compartiment polivalent",
+      "NO"
+     ],
+     [
+      "Ice Off",
+      "Da"
+     ],
+     [
+      "Tavă pentru cuburi de gheață",
+      "1O"
+     ],
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/RSF-41150-BU-EU-RSF-41160-BU-UserManual_EN-DE-FR-ES.pdf"
+  ],
+  "b": "Teka",
+  "col": "inox",
+  "kind": "congelator"
+ },
+ {
+  "sku": "113470014",
+  "n": "RSR 41160 BU",
+  "sub": "Frigider încorporabil cu montare sub blat",
+  "p": 13800,
+  "img": [
+   "113470014-1.webp"
+  ],
+  "draw": "113470014-draw.webp",
+  "label": "",
+  "desc": [
+   "Frigider încorporabil cu montare sub blat",
+   "Panou de control mecanic",
+   "Sistem de dezgheţare manuală",
+   "Rafturi din sticlă securizată",
+   "Uşă reversibilă",
+   "Clasa energetică: E"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "107"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "818"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "545"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "31,5"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Înălțime încorporată (mm)",
+      "818"
+     ],
+     [
+      "Nișă încorporată (cm)",
+      "82"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "Defrost"
+     ],
+     [
+      "Capacitate totală brută (litri)",
+      "125"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "92"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "15"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "2"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "145.58"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "10"
+     ],
+     [
+      "Clasa climatică",
+      "SN-T"
+     ],
+     [
+      "Zgomot (dB)",
+      "37"
+     ],
+     [
+      "Certificări",
+      "CE; CB; TUV; VDE"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea (W)",
+      "65"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0.496"
+     ],
+     [
+      "Conexiune",
+      "EUROPEAN"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1930"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "1.7 watts [joules/second]"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ],
+     [
+      "Mâner extern",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Compartiment polivalent",
+      "NO"
+     ],
+     [
+      "Tavă pentru cuburi de gheață",
+      "1"
+     ],
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "2"
+     ],
+     [
+      "Sertare pentru legume",
+      "NO"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/TFI3_130D-RSR_41150_BU-RSR_41160_BU-UserManual-EN.pdf"
+  ],
+  "b": "Teka",
+  "col": "inox",
+  "kind": "congelator"
+ },
+ {
+  "sku": "113470020",
+  "n": "RSR 42265 FI",
+  "sub": "Frigider cu o singură ușă, încorporat în congelator superior",
+  "p": 13800,
+  "img": [
+   "113470020-1.webp"
+  ],
+  "draw": "",
+  "label": "",
+  "desc": [
+   "Frigider cu congelator superior",
+   "Dezghețare manuală",
+   "Motor invertor",
+   "Afișaj de control intern",
+   "Termostat electronic reglabil",
+   "Deschidere ușoară a ușii la 90º"
+  ],
+  "specs": [],
+  "pdf": [],
+  "b": "Teka",
+  "col": "inox",
+  "kind": "congelator"
+ },
+ {
+  "sku": "40672050",
+  "n": "NFL 345 C WHITE",
+  "sub": "Combină frigorifică free-standing, Full No Frost, panou de control electronic cu display, 2 uşi, 188 cm",
+  "p": 15300,
+  "img": [
+   "40672050-1.webp",
+   "40672050-2.webp",
+   "40672050-3.webp",
+   "40672050-4.webp",
+   "40672050-5.webp",
+   "40672050-6.webp"
+  ],
+  "draw": "40672050-draw.webp",
+  "label": "",
+  "desc": [
+   "Combină frigorifică free-standing",
+   "Full No Frost",
+   "Panou de control electronic cu display",
+   "Indicator de temperatură (frigider)",
+   "2 sertare FreshBox",
+   "Rafturi din sticlă securizată"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "302"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1880"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "635"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "68"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "FULL NF"
+     ],
+     [
+      "No Frost în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (congelator)",
+      "Da"
+     ],
+     [
+      "Capacitate totală brută (litri)",
+      "325"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "224"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "78"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "4"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "235"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "15"
+     ],
+     [
+      "Clasa climatică",
+      "N/T"
+     ],
+     [
+      "Zgomot (dB)",
+      "40"
+     ],
+     [
+      "Certificări",
+      "CE, TUV, GS"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea (W)",
+      "85"
+     ],
+     [
+      "Puterea elementului de dezghețare (W)",
+      "170"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0,613"
+     ],
+     [
+      "Conexiune",
+      "EU F TYPE"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1750"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ușă",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ],
+     [
+      "Mâner integrat",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Garnitură antibacteriană",
+      "Da"
+     ],
+     [
+      "Compartiment polivalent",
+      "NO"
+     ],
+     [
+      "Tavă pentru cuburi de gheață",
+      "1"
+     ],
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "2"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/4/NFL-320-327-329-340-430-342-345-ES-PT-EN-PL-DE-RU-FR-Manual.pdf"
+  ],
+  "b": "Teka",
+  "col": "alb",
+  "kind": "combina"
+ },
+ {
+  "sku": "113570026",
+  "n": "RBF 43345 FI",
+  "sub": "Combina frigorifica incorporabila cu sertare speciale",
+  "p": 15300,
+  "img": [
+   "113570026-1.webp",
+   "113570026-2.webp",
+   "113570026-3.webp",
+   "113570026-4.webp",
+   "113570026-5.webp",
+   "113570026-6.webp"
+  ],
+  "draw": "113570026-draw.webp",
+  "label": "",
+  "desc": [
+   "Combina frigorifica incorporabila",
+   "Motor inverter",
+   "Usi reversibile",
+   "Panou de control electronic (afisaj in partea superioara)",
+   "Sistem de iluminare interioara LED",
+   "Congelator 4*"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "271"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1785"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "540"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "55"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Nișă încorporată (cm)",
+      "564*560*1773"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "Defrost"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "192"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "79"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "3.6"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "226"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "10"
+     ],
+     [
+      "Clasa climatică",
+      "SN/N/ST/T"
+     ],
+     [
+      "Zgomot (dB)",
+      "38(C)"
+     ],
+     [
+      "Certificări",
+      "CB; CE; TUV; VDE"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220V-240V~"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0.619"
+     ],
+     [
+      "Conexiune",
+      "VDE"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1800"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "3"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj interior",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Congelarea rapidă",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ],
+     [
+      "Indicator de congelare rapidă",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Tavă pentru cuburi de gheață",
+      "1"
+     ],
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "4"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "1"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/RBF_43345_FI_UserManual_ES-EN-FR-PT_.pdf"
+  ],
+  "b": "Teka",
+  "col": "inox",
+  "kind": "incorporabil"
+ },
+ {
+  "sku": "113410001",
+  "n": "NFL 430 S WHITE",
+  "sub": "Combină frigorifică Free Standing (White), Full No Frost, clasă energetică: E, 200 cm",
+  "p": 16800,
+  "img": [
+   "113410001-1.webp",
+   "113410001-2.webp",
+   "113410001-3.webp",
+   "113410001-4.webp",
+   "113410001-5.webp",
+   "113410001-6.webp"
+  ],
+  "draw": "113410001-draw.webp",
+  "label": "",
+  "desc": [
+   "Combină frigorifică Free Standing (WHITE)",
+   "Uşi reversibile",
+   "Sistem antibacterian (garnitură)",
+   "Full No Frost",
+   "Panou de control electronic cu display pe uşă",
+   "Sistem de iluminare interioară LED"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "326"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "2010"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "630"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "76"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "FULL NF"
+     ],
+     [
+      "No Frost în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (congelator)",
+      "Da"
+     ],
+     [
+      "Capacitate totală brută (litri)",
+      "360"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "245"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "76"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "4"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "231"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "15 (9 AT 1/3/2021)"
+     ],
+     [
+      "Clasa climatică",
+      "N/ST/T"
+     ],
+     [
+      "Zgomot (dB)",
+      "41"
+     ],
+     [
+      "Certificări",
+      "CE, TUV, GS"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea (W)",
+      "150"
+     ],
+     [
+      "Puterea elementului de dezghețare (W)",
+      "190"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0,641"
+     ],
+     [
+      "Conexiune",
+      "EU F TYPE"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1750"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ușă",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ],
+     [
+      "Mâner integrat",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Garnitură antibacteriană",
+      "Da"
+     ],
+     [
+      "Compartiment polivalent",
+      "NO"
+     ],
+     [
+      "Tavă pentru cuburi de gheață",
+      "1"
+     ],
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "2"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/4/NFL-320-327-329-340-430-342-345-ES-PT-EN-PL-DE-RU-FR-Manual.pdf"
+  ],
+  "b": "Teka",
+  "col": "alb",
+  "kind": "combina"
+ },
+ {
+  "sku": "40672051",
+  "n": "NFL 345 C E-INOX",
+  "sub": "Combină frigorifică free-standing, Full No Frost, panou de control electronic cu display, clasă de eficienţă energetică: E, 188 cm",
+  "p": 17100,
+  "img": [
+   "40672051-1.webp",
+   "40672051-2.webp",
+   "40672051-3.webp",
+   "40672051-4.webp",
+   "40672051-5.webp",
+   "40672051-6.webp"
+  ],
+  "draw": "40672051-draw.webp",
+  "label": "",
+  "desc": [
+   "Combină frigorifică free-standing",
+   "Full No Frost",
+   "Uşi reversibile",
+   "Panou de control electronic cu display",
+   "Indicator de temperatură (frigider)",
+   "Sistem de iluminare LED (partea superioară)"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "302"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1880"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "635"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "68"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "FULL NF"
+     ],
+     [
+      "No Frost în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (congelator)",
+      "Da"
+     ],
+     [
+      "Capacitate totală brută (litri)",
+      "325"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "224"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "78"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "4"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "235"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "15"
+     ],
+     [
+      "Clasa climatică",
+      "N/T"
+     ],
+     [
+      "Zgomot (dB)",
+      "40"
+     ],
+     [
+      "Certificări",
+      "CE, TUV, GS"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea (W)",
+      "85"
+     ],
+     [
+      "Puterea elementului de dezghețare (W)",
+      "170"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0,613"
+     ],
+     [
+      "Conexiune",
+      "EU F TYPE"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1750"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ușă",
+      "Da"
+     ],
+     [
+      "Uşă inox anti-pată",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ],
+     [
+      "Mâner integrat",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Garnitură antibacteriană",
+      "Da"
+     ],
+     [
+      "Compartiment polivalent",
+      "NO"
+     ],
+     [
+      "Tavă pentru cuburi de gheață",
+      "1"
+     ],
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "2"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/4/NFL-320-327-329-340-430-342-345-ES-PT-EN-PL-DE-RU-FR-Manual.pdf"
+  ],
+  "b": "Teka",
+  "col": "inox",
+  "kind": "combina"
+ },
+ {
+  "sku": "40672030",
+  "n": "NFL 430 E-INOX",
+  "sub": "Combină frigorifică Free Standing (E-INOX), Full No Frost, clasă energetică: E, 200 cm",
+  "p": 18600,
+  "img": [
+   "40672030-1.webp",
+   "40672030-2.webp",
+   "40672030-3.webp",
+   "40672030-4.webp",
+   "40672030-5.webp",
+   "40672030-6.webp"
+  ],
+  "draw": "40672030-draw.webp",
+  "label": "",
+  "desc": [
+   "Combină frigorifică Free Standing (E-INOX)",
+   "Uşi reversibile",
+   "Sistem antibacterian (garnitură)",
+   "Full No Frost",
+   "Panou de control electronic cu display pe uşă",
+   "Sistem de iluminare interioară LED"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "326"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "2010"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "630"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "76"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "FULL NF"
+     ],
+     [
+      "No Frost în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (congelator)",
+      "Da"
+     ],
+     [
+      "Capacitate totală brută (litri)",
+      "360"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "245"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "76"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "4"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "231"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "15 (9 AT 1/3/2021)"
+     ],
+     [
+      "Clasa climatică",
+      "N/ST/T"
+     ],
+     [
+      "Zgomot (dB)",
+      "41"
+     ],
+     [
+      "Certificări",
+      "CE, TUV, GS"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea (W)",
+      "150"
+     ],
+     [
+      "Puterea elementului de dezghețare (W)",
+      "190"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0,641"
+     ],
+     [
+      "Conexiune",
+      "EU F TYPE"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1750"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ușă",
+      "Da"
+     ],
+     [
+      "Uşă inox anti-pată",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ],
+     [
+      "Mâner integrat",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Garnitură antibacteriană",
+      "Da"
+     ],
+     [
+      "Compartiment polivalent",
+      "NO"
+     ],
+     [
+      "Tavă pentru cuburi de gheață",
+      "1"
+     ],
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "2"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/4/NFL-320-327-329-340-430-342-345-ES-PT-EN-PL-DE-RU-FR-Manual.pdf"
+  ],
+  "b": "Teka",
+  "col": "inox",
+  "kind": "combina"
+ },
+ {
+  "sku": "113300005",
+  "n": "RSL 75640 SS",
+  "sub": "Frigider Free Standing, Full No Frost, 2 sertare FreshBox",
+  "p": 18700,
+  "img": [
+   "113300005-1.webp",
+   "113300005-2.webp",
+   "113300005-3.webp",
+   "113300005-4.webp",
+   "113300005-5.webp",
+   "113300005-6.webp"
+  ],
+  "draw": "113300005-draw.webp",
+  "label": "",
+  "desc": [
+   "Frigider Free-standing",
+   "Inox",
+   "Full No Frost",
+   "Touch control, pe usa",
+   "Termostat electronic",
+   "2 sertare FRESHBOX"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "362"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1850"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "618"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "59"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "FULL NF"
+     ],
+     [
+      "No Frost în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Capacitate totală brută (litri)",
+      "362"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "362"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "118"
+     ],
+     [
+      "Clasa climatică",
+      "SN/N/ST/T"
+     ],
+     [
+      "Zgomot (dB)",
+      "41"
+     ],
+     [
+      "Certificări",
+      "CE, TUV, GS"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0,324"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ușă",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ],
+     [
+      "Mâner extern",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ],
+     [
+      "Alarmă acustică",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Compartiment polivalent",
+      "NO"
+     ],
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ],
+     [
+      "Sertare pentru legume",
+      "2"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/RSL_75640_SS-UserManual-EN-PT-ES-FR-DE.pdf"
+  ],
+  "b": "Teka",
+  "col": "inox",
+  "kind": "o-usa"
+ },
+ {
+  "sku": "113330002",
+  "n": "RSF 75640 SS",
+  "sub": "Congelator Free-standing, Full No Frost",
+  "p": 20400,
+  "img": [
+   "113330002-1.webp",
+   "113330002-2.webp",
+   "113330002-3.webp",
+   "113330002-4.webp",
+   "113330002-5.webp",
+   "113330002-6.webp"
+  ],
+  "draw": "113330002-draw.webp",
+  "label": "",
+  "desc": [
+   "Congelator Free-standing",
+   "Inox",
+   "Full No Frost",
+   "Touch control, pe usa",
+   "Termostat electronic",
+   "Sertare: 6+2"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1850"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "618"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "63"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "FULL NF"
+     ],
+     [
+      "Compartiment No Frost (congelator)",
+      "Da"
+     ],
+     [
+      "Capacitate totală brută (litri)",
+      "273"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "273"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "12,4"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "245"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "8"
+     ],
+     [
+      "Clasa climatică",
+      "SN/N/ST/T"
+     ],
+     [
+      "Zgomot (dB)",
+      "41"
+     ],
+     [
+      "Certificări",
+      "CE, TUV, GS"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea elementului de dezghețare (W)",
+      "200"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0,673"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ușă",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de congelare",
+      "Da"
+     ],
+     [
+      "Congelarea rapidă",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ],
+     [
+      "Mâner extern",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Afișare temperatură pentru compartimentul congelator",
+      "Da"
+     ],
+     [
+      "Indicator de congelare rapidă",
+      "Da"
+     ],
+     [
+      "Alarmă acustică",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Compartiment polivalent",
+      "NO"
+     ],
+     [
+      "Zonă pentru congelare rapidă",
+      "Da"
+     ],
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/RSF_75640_SS-UserManual-EN-PT-ES-FR-DE.pdf"
+  ],
+  "b": "Teka",
+  "col": "inox",
+  "kind": "congelator"
+ },
+ {
+  "sku": "113460011",
+  "n": "RSL 73385 FI",
+  "sub": "Frigider încorporabil cu o singură ușă, tehnologie Total No Frost și motor inverter",
+  "p": 21400,
+  "img": [
+   "113460011-1.webp",
+   "113460011-2.webp",
+   "113460011-3.webp",
+   "113460011-4.webp",
+   "113460011-5.webp",
+   "113460011-6.webp"
+  ],
+  "draw": "113460011-draw.webp",
+  "label": "",
+  "desc": [
+   "Frigider încorporabil",
+   "Total No Frost",
+   "Motor inverter",
+   "Touch control in partea superioara",
+   "Termostat electronic reglabil",
+   "1 sertar VitaCare"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "304"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1785"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "540"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "63"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Nișă încorporată (cm)",
+      "564*560*1773"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "Total No frost"
+     ],
+     [
+      "No Frost în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "304"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "90"
+     ],
+     [
+      "Clasa climatică",
+      "SN/N/ST/T"
+     ],
+     [
+      "Zgomot (dB)",
+      "35(B)"
+     ],
+     [
+      "Certificări",
+      "CB; CE; TUV; VDE"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220V-240V~"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0.246"
+     ],
+     [
+      "Conexiune",
+      "VDE"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1800"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "2"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ornamente",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ],
+     [
+      "Alarmă acustică",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Suport pentru sticle (Număr de sticle)",
+      "5"
+     ],
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "6"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "1"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/RSL_73385_FI_UserManual_EN_ES_FR_PT_.pdf"
+  ],
+  "b": "Teka",
+  "col": "inox",
+  "kind": "o-usa"
+ },
+ {
+  "sku": "113560010",
+  "n": "RBF 73355 FI",
+  "sub": "Combină frigorifică încorporabilă cu Zonă Secretă în interior",
+  "p": 22100,
+  "img": [
+   "113560010-1.webp",
+   "113560010-2.webp",
+   "113560010-3.webp",
+   "113560010-4.webp",
+   "113560010-5.webp",
+   "113560010-6.webp"
+  ],
+  "draw": "113560010-draw.webp",
+  "label": "",
+  "desc": [
+   "Combină frigorifică încorporabilă",
+   "Total No Frost / Motor Inverter",
+   "Panou de control electronic, cu afisaj in partea superioara",
+   "Sistem de iluminare LED",
+   "Congelator 4*",
+   "1 sertar FreshBox / 1 sertar FlipBox"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "248"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1785"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "540"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "545"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "54.5"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Nișă încorporată (cm)",
+      "564*560*1773"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "Total No frost"
+     ],
+     [
+      "No Frost în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (congelator)",
+      "Da"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "180"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "68"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "6"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "223"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "9"
+     ],
+     [
+      "Clasa climatică",
+      "SN/N/ST/T"
+     ],
+     [
+      "Zgomot (dB)",
+      "35(B)"
+     ],
+     [
+      "Certificări",
+      "CB; CE; TUV; VDE"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220V-240V~"
+     ],
+     [
+      "Puterea elementului de dezghețare (W)",
+      "180"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0.610"
+     ],
+     [
+      "Conexiune",
+      "VDE"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1800"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "2"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Funcția de blocare",
+      "Da"
+     ],
+     [
+      "Congelarea rapidă",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ],
+     [
+      "Indicator de congelare rapidă",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Tavă pentru cuburi de gheață",
+      "1"
+     ],
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "4"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "1"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/RBF_73355_FI_UserManual_ES-EN-FR-PT_.pdf"
+  ],
+  "b": "Teka",
+  "col": "inox",
+  "kind": "incorporabil"
+ },
+ {
+  "sku": "113500012",
+  "n": "RSF 73385 FI",
+  "sub": "Congelator încorporabil cu o singură ușă, tehnologie Total No Frost și motor inverter",
+  "p": 23700,
+  "img": [
+   "113500012-1.webp",
+   "113500012-2.webp",
+   "113500012-3.webp",
+   "113500012-4.webp",
+   "113500012-5.webp",
+   "113500012-6.webp"
+  ],
+  "draw": "113500012-draw.webp",
+  "label": "",
+  "desc": [
+   "Congelator încorporabil",
+   "Total No Frost",
+   "Motor inverter",
+   "AirFlow Control",
+   "Panou de control in partea superioara",
+   "Termostat electronic reglabil"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "212"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1785"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "540"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "67"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "540"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "550"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "1785"
+     ],
+     [
+      "Nișă încorporată (cm)",
+      "564*560*1773"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "Total No frost"
+     ],
+     [
+      "Compartiment No Frost (congelator)",
+      "Da"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "212"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "10"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "189"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "8"
+     ],
+     [
+      "Clasa climatică",
+      "SN/N/ST/T"
+     ],
+     [
+      "Zgomot (dB)",
+      "35(B)"
+     ],
+     [
+      "Certificări",
+      "CB; CE; TUV; VDE"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220V-240V~"
+     ],
+     [
+      "Puterea elementului de dezghețare (W)",
+      "210"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0.517"
+     ],
+     [
+      "Conexiune",
+      "VDE"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1800"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "No"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ornamente",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de congelare",
+      "Da"
+     ],
+     [
+      "Congelarea rapidă",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (congelator)",
+      "Da"
+     ],
+     [
+      "Afișare temperatură pentru compartimentul congelator",
+      "Da"
+     ],
+     [
+      "Indicator de congelare rapidă",
+      "Da"
+     ],
+     [
+      "Alarmă acustică",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Tavă pentru cuburi de gheață",
+      "1"
+     ],
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ],
+     [
+      "Sertare pentru legume",
+      "No"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/RSF_73385_FI_UserManual_EN_ES_FR_PT_.pdf"
+  ],
+  "b": "Teka",
+  "col": "inox",
+  "kind": "congelator"
+ },
+ {
+  "sku": "113560020",
+  "n": "RBF 73380 FI EU",
+  "sub": "Combină frigorifică încorporabilă, usi reversibile si sistem LongLife No Frost",
+  "p": 25000,
+  "img": [
+   "113560020-1.webp",
+   "113560020-2.webp",
+   "113560020-3.webp",
+   "113560020-4.webp",
+   "113560020-5.webp",
+   "113560020-6.webp"
+  ],
+  "draw": "113560020-draw.webp",
+  "label": "",
+  "desc": [
+   "Combină frigorifică încorporabilă",
+   "Usi reversibile",
+   "LongLife No Frost",
+   "Panou de control electronic, cu afisaj in partea superioara",
+   "Sistem de iluminare LED",
+   "Congelator 4*"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "244"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1769"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "540"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "545"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "60"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "560"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "550"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "1774"
+     ],
+     [
+      "Nișă încorporată (cm)",
+      "Height: 1771-1774mmWidth: ≥560mmDepth: ≥560mm"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "No Frost"
+     ],
+     [
+      "No Frost în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (chiller)",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (congelator)",
+      "Da"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "151"
+     ],
+     [
+      "Capacitatea compartimentului de răcire (litri)",
+      "26"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "67"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "2,6"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "10"
+     ],
+     [
+      "Clasa climatică",
+      "ST/T"
+     ],
+     [
+      "Zgomot (dB)",
+      "41"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240V"
+     ],
+     [
+      "Puterea (W)",
+      "100"
+     ],
+     [
+      "Puterea elementului de dezghețare (W)",
+      "160W"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0.642"
+     ],
+     [
+      "Conexiune",
+      "Base on market requirement"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1800"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "5"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ornamente",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de congelare",
+      "Da"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Congelarea rapidă",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Funcția În Vacanţă",
+      "Da"
+     ],
+     [
+      "Funcția ECO",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ],
+     [
+      "Afișare temperatură pentru compartimentul congelator",
+      "Da"
+     ],
+     [
+      "Alarmă acustică",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Compartiment polivalent",
+      "NO"
+     ],
+     [
+      "Tavă pentru cuburi de gheață",
+      "yes"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "2"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "yes"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/RBF_73380_FI-UserManual-EN-DE-FR-ES-PT-TR-IL-CZ-SK.pdf"
+  ],
+  "b": "Teka",
+  "col": "inox",
+  "kind": "incorporabil"
+ },
+ {
+  "sku": "113430009",
+  "n": "RMF 77920 SS",
+  "sub": "Combină frigorifică Free Standing (4 uși), clasă energetică E, 193 cm",
+  "p": 25000,
+  "img": [
+   "113430009-1.webp",
+   "113430009-2.webp",
+   "113430009-3.webp"
+  ],
+  "draw": "",
+  "label": "",
+  "desc": [
+   "Combină frigorifică Free Standing (4 uși), finisaj Inox",
+   "Motor invertor cu compresor de eficiență superioară",
+   "Tehnologia IonClean pentru neutralizarea bacteriilor și",
+   "a mirosurilor",
+   "LongLife No Frost cu 3 circuite independente",
+   "Touch Control cu regulator independent de temperatură"
+  ],
+  "specs": [],
+  "pdf": [],
+  "b": "Teka",
+  "col": "inox",
+  "kind": "combina",
+  "o": 49999,
+  "t": "sale",
+  "d": 50
+ },
+ {
+  "sku": "113560017",
+  "n": "RBF 77360 FI WH",
+  "sub": "Combină frigorifică încorporabilă, cu usi reversibile si sistem  LongLife No Frost",
+  "p": 28300,
+  "img": [
+   "113560017-1.webp",
+   "113560017-2.webp",
+   "113560017-3.webp",
+   "113560017-4.webp"
+  ],
+  "draw": "113560017-draw.webp",
+  "label": "",
+  "desc": [
+   "Combină frigorifică încorporabilă",
+   "Usi reversibile",
+   "LongLife No Frost",
+   "Panou de control electronic, cu afisaj in partea superioara",
+   "Sistem de iluminare LED",
+   "Congelator 4*"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "284"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1935"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "540"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "545"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "61"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Nișă încorporată (cm)",
+      "193"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "Long Live No Frost"
+     ],
+     [
+      "No Frost în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (chiller)",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (congelator)",
+      "Da"
+     ],
+     [
+      "Capacitate totală brută (litri)",
+      "306"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "215"
+     ],
+     [
+      "Capacitatea compartimentului de răcire (litri)",
+      "19"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "69"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "3,5"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "223"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "13"
+     ],
+     [
+      "Clasa climatică",
+      "SN-T"
+     ],
+     [
+      "Zgomot (dB)",
+      "37"
+     ],
+     [
+      "Certificări",
+      "CE; TUV; CB; VDE"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea (W)",
+      "125"
+     ],
+     [
+      "Puterea elementului de dezghețare (W)",
+      "120"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0.610"
+     ],
+     [
+      "Conexiune",
+      "EUROPEAN"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1900"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "2"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ornamente",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de congelare",
+      "Da"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Congelarea rapidă",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Funcția În Vacanţă",
+      "Da"
+     ],
+     [
+      "Funcția ECO",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ],
+     [
+      "Afișare temperatură pentru compartimentul congelator",
+      "Da"
+     ],
+     [
+      "Indicator de congelare rapidă",
+      "Da"
+     ],
+     [
+      "Alarmă acustică",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Compartiment polivalent",
+      "NO"
+     ],
+     [
+      "Tavă pentru cuburi de gheață",
+      "1? Ice Bank with IceBox?"
+     ],
+     [
+      "Suport pentru sticle (Număr de sticle)",
+      "4"
+     ],
+     [
+      "Compartiment acoperit pt. lapte",
+      "Da"
+     ],
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "5"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "2"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/2/RBF-77360-FI-EU-InstallationManual-EN-DE-FR-IT-RO-TR.pdf"
+  ],
+  "b": "Teka",
+  "col": "alb",
+  "kind": "incorporabil"
+ },
+ {
+  "sku": "113430048",
+  "n": "RFD 77825 SS EU",
+  "sub": "Combină frigorifică Free Standing (4 usi), cu motor Inverter",
+  "p": 30000,
+  "img": [
+   "113430048-1.webp",
+   "113430048-2.webp",
+   "113430048-3.webp",
+   "113430048-4.webp",
+   "113430048-5.webp",
+   "113430048-6.webp"
+  ],
+  "draw": "113430048-draw.webp",
+  "label": "",
+  "desc": [
+   "Combină frigorifică Free Standing (4 usi), finisaj Inox",
+   "longLife No Frost",
+   "Congelator 4*",
+   "Panou de control electronic cu display pe uşă",
+   "2 sisteme antibacteriene",
+   "Congelare/ Buton Cooling Set"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1898"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "833"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "653"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "100"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "LongLife No Frost"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "347"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "169"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "306"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "7"
+     ],
+     [
+      "Clasa climatică",
+      "SN/N/ST/T"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50 Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240 V"
+     ],
+     [
+      "Puterea (W)",
+      "250"
+     ],
+     [
+      "Puterea elementului de dezghețare (W)",
+      "250"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0,818"
+     ],
+     [
+      "Conexiune",
+      "VDE"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1750"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "5"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ușă",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de congelare",
+      "Da"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Funcția de blocare",
+      "Da"
+     ],
+     [
+      "Congelarea rapidă",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Mâner integrat",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ],
+     [
+      "Afișare temperatură pentru compartimentul congelator",
+      "Da"
+     ],
+     [
+      "Indicator de congelare rapidă",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Compartiment polivalent",
+      "YES"
+     ],
+     [
+      "Tavă pentru cuburi de gheață",
+      "1"
+     ],
+     [
+      "Număr de rafturi",
+      "3"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "3"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/RFD-77825-GBK-SS-UserManual-ES-PT-EN-TR.pdf"
+  ],
+  "b": "Teka",
+  "col": "inox",
+  "kind": "french-door",
+  "o": 45000,
+  "t": "sale",
+  "d": 33
+ },
+ {
+  "sku": "123560008",
+  "n": "FKG8340.0i",
+  "sub": "Built-in fridge-freezer combination",
+  "p": 31900,
+  "img": [
+   "123560008-1.webp",
+   "123560008-2.webp",
+   "123560008-3.webp",
+   "123560008-4.webp",
+   "123560008-5.webp",
+   "123560008-6.webp"
+  ],
+  "draw": "",
+  "label": "",
+  "desc": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1775"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "540"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "545"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "56"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "1900"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/FKG8340.0i-UserManual-EN-ES-PT-DE-FR.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/EU_FICHE-FKG8540-0i-EN.pdf"
+  ],
+  "b": "Küppersbusch",
+  "col": "inox",
+  "kind": "incorporabil",
+  "specs_src": "kb-direct:fkg8340-0i_123560008"
+ },
+ {
+  "sku": "113430046",
+  "n": "RFD 77825 GBK EU",
+  "sub": "Combină frigorifică Free Standing (4 usi), cu motor Inverter",
+  "p": 35000,
+  "img": [
+   "113430046-1.webp",
+   "113430046-2.webp",
+   "113430046-3.webp",
+   "113430046-4.webp",
+   "113430046-5.webp",
+   "113430046-6.webp"
+  ],
+  "draw": "113430046-draw.webp",
+  "label": "",
+  "desc": [
+   "Combină frigorifică Free Standing (4 usi), finisaj Cristal Black",
+   "longLife No Frost",
+   "Congelator 4*",
+   "Panou de control electronic cu display pe uşă",
+   "2 sisteme antibacteriene",
+   "Congelare/ Buton Cooling Set"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1898"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "833"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "653"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "106"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "LongLife No Frost"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "347"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "169"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "306"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "7"
+     ],
+     [
+      "Clasa climatică",
+      "SN/N/ST/T"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50 Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240 V"
+     ],
+     [
+      "Puterea (W)",
+      "250"
+     ],
+     [
+      "Puterea elementului de dezghețare (W)",
+      "250"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0,818"
+     ],
+     [
+      "Conexiune",
+      "VDE"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1750"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "5"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ușă",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de congelare",
+      "Da"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Funcția de blocare",
+      "Da"
+     ],
+     [
+      "Congelarea rapidă",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Mâner integrat",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ],
+     [
+      "Afișare temperatură pentru compartimentul congelator",
+      "Da"
+     ],
+     [
+      "Indicator de congelare rapidă",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Compartiment polivalent",
+      "YES"
+     ],
+     [
+      "Tavă pentru cuburi de gheață",
+      "1"
+     ],
+     [
+      "Număr de rafturi",
+      "3"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "3"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/RFD-77825-GBK-SS-UserManual-ES-PT-EN-TR.pdf"
+  ],
+  "b": "Teka",
+  "col": "negru",
+  "kind": "french-door",
+  "o": 50000,
+  "t": "sale",
+  "d": 30
+ },
+ {
+  "sku": "113560021",
+  "n": "RBF 78780 FI 70 cm WH 2D",
+  "sub": "Combină frigorifică încorporabilă, cu usi reversibile si sistem No Frost",
+  "p": 38300,
+  "img": [
+   "113560021-1.webp",
+   "113560021-2.webp",
+   "113560021-3.webp",
+   "113560021-4.webp",
+   "113560021-5.webp",
+   "113560021-6.webp"
+  ],
+  "draw": "113560021-draw.webp",
+  "label": "",
+  "desc": [
+   "Combină frigorifică încorporabilă",
+   "Usi reversibile",
+   "No Frost",
+   "Panou de control electronic, cu afisaj in partea superioara",
+   "Sistem de iluminare LED",
+   "Congelator 4*"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "341"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1937"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "690"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "80,5"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "712"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "550"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "1939"
+     ],
+     [
+      "Nișă încorporată (cm)",
+      "Height: 1939-1942mmWidth: ≥712mmDepth: ≥550mm"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "No Frost"
+     ],
+     [
+      "No Frost în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (chiller)",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (congelator)",
+      "Da"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "222"
+     ],
+     [
+      "Capacitatea compartimentului de răcire (litri)",
+      "35"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "84"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "3,8"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "10"
+     ],
+     [
+      "Clasa climatică",
+      "SN/N/ST"
+     ],
+     [
+      "Zgomot (dB)",
+      "41"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240V"
+     ],
+     [
+      "Puterea (W)",
+      "100"
+     ],
+     [
+      "Puterea elementului de dezghețare (W)",
+      "180"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0,686"
+     ],
+     [
+      "Conexiune",
+      "EU"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "2000"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "15"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ornamente",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de congelare",
+      "Da"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Congelarea rapidă",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Funcția În Vacanţă",
+      "Da"
+     ],
+     [
+      "Funcția ECO",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ],
+     [
+      "Afișare temperatură pentru compartimentul congelator",
+      "Da"
+     ],
+     [
+      "Alarmă acustică",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Compartiment polivalent",
+      "NO"
+     ],
+     [
+      "Tavă pentru cuburi de gheață",
+      "yes"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "3"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "yes"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/1/RBF_78780_UserManual_EN_DE_FR_ES_PT_TR_IL.pdf"
+  ],
+  "b": "Teka",
+  "col": "alb",
+  "kind": "incorporabil"
+ },
+ {
+  "sku": "113430074",
+  "n": "RLF 85950 GBK",
+  "sub": "Side by Side cu refrigerator de vinuri integrat, Total No Frost, Motor inverter",
+  "p": 41200,
+  "img": [
+   "113430074-1.webp",
+   "113430074-2.webp",
+   "113430074-3.webp",
+   "113430074-4.webp",
+   "113430074-5.webp",
+   "113430074-6.webp"
+  ],
+  "draw": "113430074-draw.webp",
+  "label": "",
+  "desc": [
+   "Side by Side cu refrigerator de vinuri integrat",
+   "Full No Frost",
+   "Motor inverter",
+   "Panou de control electronic cu display pe uşă",
+   "Functie Răcire rapidă",
+   "Functie Congelare rapidă"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "548"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1830"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "911"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "706"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "113"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "1111"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "806"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "2130"
+     ],
+     [
+      "Nișă încorporată (cm)",
+      "Nu"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "Total No frost"
+     ],
+     [
+      "No Frost în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (chiller)",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (congelator)",
+      "Da"
+     ],
+     [
+      "Capacitate totală brută (litri)",
+      "Nu"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "207"
+     ],
+     [
+      "Capacitatea compartimentului de răcire (litri)",
+      "127"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "214"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "Four-star: 186 liters Two-star: 28 liters"
+     ],
+     [
+      "Capacitate de congelare",
+      "14"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "327"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "8 Hours"
+     ],
+     [
+      "Clasa climatică",
+      "SN/N/ST"
+     ],
+     [
+      "Zgomot (dB)",
+      "38"
+     ],
+     [
+      "Certificări",
+      "CE"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50HZ"
+     ],
+     [
+      "Putere (V)",
+      "220-240V"
+     ],
+     [
+      "Puterea (W)",
+      "130"
+     ],
+     [
+      "Puterea elementului de dezghețare (W)",
+      "210"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0.505"
+     ],
+     [
+      "Conexiune",
+      "EU"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "2400"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "3W"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ],
+     [
+      "Număr de sticle",
+      "6"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ușă",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de congelare",
+      "Da"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Funcția de blocare",
+      "Da"
+     ],
+     [
+      "Congelarea rapidă",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Funcția În Vacanţă",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Mâner integrat",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ],
+     [
+      "Sistem de iluminare interioară (congelator)",
+      "Da"
+     ],
+     [
+      "Afișare temperatură pentru compartimentul congelator",
+      "Da"
+     ],
+     [
+      "Indicator de congelare rapidă",
+      "Da"
+     ],
+     [
+      "Alarmă acustică",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Compartiment polivalent",
+      "YES"
+     ],
+     [
+      "Zonă pentru congelare rapidă",
+      "Da"
+     ],
+     [
+      "Aparat Twister pentru gheață",
+      "Da"
+     ],
+     [
+      "Tavă pentru cuburi de gheață",
+      "1"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Rolă (spate)",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "3"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "1"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/RLF_85950_GBK_User_Manual_EN.pdf"
+  ],
+  "b": "Teka",
+  "col": "negru",
+  "kind": "side-by-side"
+ },
+ {
+  "sku": "123560014",
+  "n": "FKGF8851.0i",
+  "sub": "Built-in fridge-freezer with NoFrost and ChillerZone",
+  "p": 41900,
+  "img": [
+   "123560014-1.webp"
+  ],
+  "draw": "",
+  "label": "",
+  "desc": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1769"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "545"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "60"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "1800"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/User_manual_FKGF8851_0i%28EN_DE_FR_ES_PT_NL_TR_IL_GR_IT%29.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/EU_FICHE-FKGF8851-0i-EN.pdf"
+  ],
+  "b": "Küppersbusch",
+  "col": "inox",
+  "kind": "incorporabil",
+  "specs_src": "kb-direct:fkgf8851-0i_123560014"
+ },
+ {
+  "sku": "123560011",
+  "n": "FKGF9850.0i",
+  "sub": "Built-in fridge-freezer with LED rear panel, NoFrost and ChillerZone",
+  "p": 44800,
+  "img": [
+   "123560011-1.webp"
+  ],
+  "draw": "",
+  "label": "",
+  "desc": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1937"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "540"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "62"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "2000"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/USER_MANUAL-FKGF9850_0i_EN_DE_FR_ES_PT_NL_TR_IL_GR_IT.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/EU_FICHE-FKGF9850-0i-EN.pdf"
+  ],
+  "b": "Küppersbusch",
+  "col": "inox",
+  "kind": "incorporabil",
+  "specs_src": "kb-direct:fkg9850-0e_123560011"
+ },
+ {
+  "sku": "123560013",
+  "n": "FKGF9835.0i",
+  "sub": "Built-in fridge-freezer with LED rear panel, NoFrost and ChillerZone",
+  "p": 66200,
+  "img": [
+   "123560013-1.webp"
+  ],
+  "draw": "",
+  "label": "",
+  "desc": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1937"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "690"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "80,5"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "2000"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/User_manual_FKGF9835_0i%28EN_DE_FR_ES_PT_NL_TR_IL_GR_IT%29.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/EU_FICHE-FKGF9835-0i-EN.pdf"
+  ],
+  "b": "Küppersbusch",
+  "col": "inox",
+  "kind": "incorporabil",
+  "specs_src": "kb-direct:fkgf9835-0i_123560013"
+ }
+]

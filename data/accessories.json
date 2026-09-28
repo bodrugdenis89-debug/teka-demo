@@ -1,0 +1,186 @@
+[
+ {
+  "sku": "set-vase-pentru-gatit",
+  "name": "Set vase pentru gatit",
+  "sub": "",
+  "price": 5000.0,
+  "old": null,
+  "desc": [],
+  "src": "md",
+  "brand": "Teka",
+  "draw": "",
+  "label": "",
+  "img": [
+   "set-vase-pentru-gatit-1.webp",
+   "set-vase-pentru-gatit-2.webp"
+  ]
+ },
+ {
+  "sku": "sita-inox",
+  "name": "Sită inox",
+  "sub": "",
+  "price": 1800.0,
+  "old": null,
+  "desc": [],
+  "src": "md",
+  "brand": "Teka",
+  "draw": "",
+  "label": "",
+  "img": [
+   "sita-inox-1.webp",
+   "sita-inox-2.webp",
+   "sita-inox-3.webp",
+   "sita-inox-4.webp"
+  ]
+ },
+ {
+  "sku": "122890011",
+  "name": "FlexiGrill",
+  "sub": "",
+  "price": 7300.0,
+  "old": null,
+  "desc": [],
+  "src": "md",
+  "brand": "Küppersbusch",
+  "draw": "",
+  "label": "",
+  "img": [
+   "122890011-1.webp"
+  ]
+ },
+ {
+  "sku": "40199260",
+  "name": "MULTIGRATER ROLLING PROFI",
+  "sub": "Grătar flexibil chiuvetă",
+  "price": 2600.0,
+  "old": null,
+  "desc": [
+   "Grătar flexibil chiuvetă",
+   "Accesoriu din inox cu design modern şi funţionalităţi multiple: sistem de răzuire, sistem de scurgere, etc.",
+   "Universal pentru diferite modele de chiuvete",
+   "Dimensiuni: 580 x 428 x 10mm",
+   "Finisaj: inox AIXI 304"
+  ],
+  "src": "ro",
+  "brand": "Teka",
+  "draw": "",
+  "label": "",
+  "img": [
+   "40199260-1.webp",
+   "40199260-2.webp",
+   "40199260-3.webp",
+   "40199260-4.webp",
+   "40199260-5.webp",
+   "40199260-6.webp"
+  ]
+ },
+ {
+  "sku": "111510000",
+  "name": "EliteGrill",
+  "sub": "",
+  "price": 3800.0,
+  "old": 4800.0,
+  "desc": [],
+  "src": "md",
+  "brand": "Teka",
+  "draw": "",
+  "label": "",
+  "img": [
+   "111510000-1.webp",
+   "111510000-2.webp",
+   "111510000-3.webp",
+   "111510000-4.webp"
+  ]
+ },
+ {
+  "sku": "115890013",
+  "name": "TR 550",
+  "sub": "Dispozitiv pentru colectarea şi tocarea resturilor",
+  "price": 6900.0,
+  "old": null,
+  "desc": [
+   "Dispozitiv pentru colectarea şi tocarea resturilor",
+   "Finisaj: negru",
+   "Tip motor: monofazat",
+   "Putere motor, HP: 0,55",
+   "Puterea motorului, W: 380",
+   "Protecție motor: Protecţie suprasarcină- resetare manuală",
+   "Volți: 220-240",
+   "Hz: 50-60",
+   "Turaţie RPM: 1725",
+   "Faze de măcinare: 1",
+   "Capacitatea camerei de măcinat, ml: 980",
+   "Flanşă chiuvetă, mm: 90"
+  ],
+  "src": "ro",
+  "brand": "Teka",
+  "draw": "",
+  "label": "",
+  "img": [
+   "115890013-1.webp",
+   "115890013-2.webp",
+   "115890013-3.webp"
+  ]
+ },
+ {
+  "sku": "41599012",
+  "name": "STEAMBOX pentru prepararea",
+  "sub": "Kitul SteamBox pentru prepararea la aburi în cuptor",
+  "price": 3000.0,
+  "old": null,
+  "desc": [
+   "SteamBox",
+   "Componente:",
+   "- Capac din sticlă",
+   "- 1 tava mare",
+   "- 2 tăvi individuale din inox-pentru gătirea la aburi a două feluri simultan",
+   "- 1 grătar",
+   "Accesoriu inlcus în iOven"
+  ],
+  "src": "ro",
+  "brand": "Teka",
+  "draw": "",
+  "label": "",
+  "img": [
+   "41599012-1.webp",
+   "41599012-2.webp",
+   "41599012-3.webp",
+   "41599012-4.webp",
+   "41599012-5.webp",
+   "41599012-6.webp"
+  ]
+ },
+ {
+  "sku": "tocator-de-deseuri-alimentare",
+  "name": "TRS 520",
+  "sub": "",
+  "price": 5900.0,
+  "old": null,
+  "desc": [],
+  "src": "md",
+  "brand": "Teka",
+  "draw": "",
+  "label": "",
+  "img": [
+   "tocator-de-deseuri-alimentare-1.webp",
+   "tocator-de-deseuri-alimentare-2.webp",
+   "tocator-de-deseuri-alimentare-3.webp"
+  ]
+ },
+ {
+  "sku": "115890050",
+  "name": "TRS 720",
+  "sub": "",
+  "price": 7500.0,
+  "old": null,
+  "desc": [],
+  "src": "md",
+  "brand": "Teka",
+  "draw": "",
+  "label": "",
+  "img": [
+   "115890050-1.webp",
+   "115890050-2.webp"
+  ]
+ }
+]

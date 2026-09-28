@@ -1,0 +1,2884 @@
+[
+ {
+  "sku": "122030001",
+  "name": "ML6330.0KSM MattBlack",
+  "sub": "MattBlack Design Line. Compact microwave with 6 functions and grill - 38 cm niche height and door hinged on the left",
+  "price": 29900.0,
+  "old": null,
+  "col": "negru",
+  "kind": "incorporabil",
+  "cap": "",
+  "draw": "",
+  "label": "",
+  "desc": [],
+  "specs": [],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/USER_MANUAL-ML6330_EN_PT_ES.pdf"
+  ],
+  "src": "kb",
+  "img": [
+   "122030001-1.webp",
+   "122030001-2.webp",
+   "122030001-3.webp",
+   "122030001-4.webp",
+   "122030001-5.webp",
+   "122030001-6.webp"
+  ]
+ },
+ {
+  "sku": "122050000",
+  "name": "ML6330.0S",
+  "sub": "Compact microwave with 6 functions and grill - 38 cm niche height and door hinged on the left",
+  "price": 29600.0,
+  "old": null,
+  "col": "negru",
+  "kind": "incorporabil",
+  "cap": "",
+  "draw": "",
+  "label": "",
+  "desc": [],
+  "specs": [],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/ML6330-0-MR6330-0-UserManual-EN-PT-ES.pdf"
+  ],
+  "src": "kb",
+  "img": [
+   "122050000-1.webp"
+  ]
+ },
+ {
+  "sku": "122050018",
+  "name": "M6120.0S",
+  "sub": "Compact microwave with 3 functions and grill - 38 cm niche height with installation frame",
+  "price": 18200.0,
+  "old": null,
+  "col": "inox",
+  "kind": "incorporabil",
+  "cap": "",
+  "draw": "",
+  "label": "",
+  "desc": [],
+  "specs": [],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/M6120-0-UserManual-DE-EN-FR-NL.pdf"
+  ],
+  "src": "kb",
+  "img": [
+   "122050018-1.webp"
+  ]
+ },
+ {
+  "sku": "112030009",
+  "name": "ML 82-G1 BIS L",
+  "sub": "Cuptor cu microunde incorporabil Infinity G1. Ediție specială Italdesign Giugiaro",
+  "price": 17800.0,
+  "old": null,
+  "col": "negru",
+  "kind": "incorporabil",
+  "cap": "21,56",
+  "draw": "112030009-draw.webp",
+  "label": "",
+  "desc": [
+   "Ediție specială Design Infinity G1",
+   "Proiectat în Italia de Italdesign Giugiaro",
+   "Finisaj exclusivist negru mat",
+   "Detalii metalice cupru",
+   "Microunde + Grill",
+   "3 funcții",
+   "Capacitate: 22 l",
+   "Bază ceramică cu încălzire uniformă",
+   "Afişaj Touch control cu butoane şi timer",
+   "Sistem electronic de deschidere a uşii",
+   "Decongelare în funcție de timp şi greutate",
+   "Microunde 5 nivele de putere, 850 W"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "220"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "350"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "280"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "21,56"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "22"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "390"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "334"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "23,2"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "3"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Timer",
+      "Da"
+     ],
+     [
+      "Grill rabatabil",
+      "Da"
+     ],
+     [
+      "Refrigerare tangențială forțată (1 viteză)",
+      "Da"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Funcța Microunde + grill",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ],
+     [
+      "Pornire rapidă (secunde)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "2700"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "20"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Grill (W)",
+      "1200"
+     ],
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ],
+     [
+      "Uși complet vitrate (cavitatea inferioară)",
+      "2"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Platou rotativ",
+      "YES"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/ML-82-G1-BIS-UserManual-PL-RU-TR-RO.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "112030009-1.webp",
+   "112030009-2.webp",
+   "112030009-3.webp",
+   "112030009-4.webp",
+   "112030009-5.webp",
+   "112030009-6.webp"
+  ]
+ },
+ {
+  "sku": "112030021",
+  "name": "Van Gogh ML 82 VG",
+  "sub": "Ediție specială Van Gogh Museum. Microunde + Grill, 3 funcții, 9 meniuri directe",
+  "price": 16500.0,
+  "old": null,
+  "col": "negru",
+  "kind": "incorporabil",
+  "cap": "21,56",
+  "draw": "112030021-draw.webp",
+  "label": "",
+  "desc": [
+   "Ediție specială Van Gogh Museum",
+   "Microunde + Grill",
+   "3 funcții",
+   "9 meniuri directe",
+   "Capacitate (brută/netă): 22 l/21,56 l",
+   "Bază ceramică cu încălzire uniformă",
+   "Afisaj Touch control cu butoane",
+   "Sistem electronic de deschidere a usii",
+   "Decongelare in funcție de timp si greutate",
+   "Microunde 5 nivele de putere, 2700 W",
+   "Buton “Quick start”",
+   "Cavitate interioară din inox"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "220"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "350"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "280"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "21,56"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "22"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "390"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "334"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "23,2"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "3"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Timer",
+      "Da"
+     ],
+     [
+      "Grill rabatabil",
+      "Da"
+     ],
+     [
+      "Refrigerare tangențială forțată (1 viteză)",
+      "Da"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Funcța Microunde + grill",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ],
+     [
+      "Pornire rapidă (secunde)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "2700"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "1,5"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Grill (W)",
+      "1200"
+     ],
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Platou rotativ",
+      "YES"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/ML_822_BIS-ML_8220_BIS-ML_820_G1_BIS-ML_82_VGogh_BIS_UserManual_PL_RU_RO.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "112030021-1.webp",
+   "112030021-2.webp",
+   "112030021-3.webp",
+   "112030021-4.webp",
+   "112030021-5.webp",
+   "112030021-6.webp"
+  ]
+ },
+ {
+  "sku": "112030017",
+  "name": "ML 8220 BIS L FBK",
+  "sub": "Ediția FullBlack. Cuptor cu microunde încorporabil cu bază ceramică și funcție grill",
+  "price": 15500.0,
+  "old": null,
+  "col": "negru",
+  "kind": "incorporabil",
+  "cap": "21,56",
+  "draw": "112030017-draw.webp",
+  "label": "",
+  "desc": [
+   "Colecţia FullBlack",
+   "Microunde + Grill",
+   "Touch control & butoane",
+   "3 funcţii (microunde, grill, microunde + grill)",
+   "9 meniuri directe (reţete presetate)",
+   "Capacitate: 22 l",
+   "Microunde 5 nivele de putere, 850 W",
+   "Buton “Quick start”",
+   "Cavitate interioară din inox",
+   "Bază ceramică + grill",
+   "Grill rabatabil, putere 1200 W",
+   "Bază ceramică cu încălzire uniformă"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "220"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "350"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "280"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "21,56"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "22"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "390"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "334"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "23,2"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "3"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Timer",
+      "Da"
+     ],
+     [
+      "Grill rabatabil",
+      "Da"
+     ],
+     [
+      "Refrigerare tangențială forțată (1 viteză)",
+      "Da"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Funcța Microunde + grill",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ],
+     [
+      "Pornire rapidă (secunde)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "2700"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "1,5"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Grill (W)",
+      "1200"
+     ],
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Platou rotativ",
+      "YES"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/6/ML-822-8220-BIS-UserManual-RO-UK.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "112030017-1.webp",
+   "112030017-2.webp",
+   "112030017-3.webp",
+   "112030017-4.webp",
+   "112030017-5.webp",
+   "112030017-6.webp"
+  ]
+ },
+ {
+  "sku": "112030000",
+  "name": "ML 8220 BIS L WH",
+  "sub": "Cuptor încorporabil, Microunde+ Grill cu bază ceramică şi capacitate 22l",
+  "price": 16000.0,
+  "old": null,
+  "col": "alb",
+  "kind": "incorporabil",
+  "cap": "21,56",
+  "draw": "112030000-draw.webp",
+  "label": "",
+  "desc": [
+   "Colecţia Urban Colours",
+   "Microunde + Grill",
+   "Panou de control electronic din sticlă, cu timer digital",
+   "9 meniuri directe (reţete presetate)",
+   "Decongelare (5 programe)",
+   "Microunde 5 nivele de putere, 850 W",
+   "Buton “Quick start” 30’’",
+   "Cavitate interioară din inox",
+   "Bază ceramică + grill",
+   "Grill rabatabil, 1200 W",
+   "Bază ceramică cu încălzire uniformă",
+   "Selector de programe și funcții electronice"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "220"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "350"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "280"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "21,56"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "22"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "390"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "334"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "23,2"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB/Gmark"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Grill rabatabil",
+      "Da"
+     ],
+     [
+      "Numărul ghidajelor (cavitatea inferioară)",
+      "0"
+     ],
+     [
+      "Refrigerare tangențială forțată (1 viteză)",
+      "Da"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Funcța Microunde + grill",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ],
+     [
+      "Pornire rapidă (minute)",
+      "Da"
+     ],
+     [
+      "Ventilație tangențială",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "2700"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "20"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Grill (W)",
+      "1200"
+     ],
+     [
+      "Maxi Grill (W)",
+      "1200"
+     ],
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Platou rotativ",
+      "YES"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/6/ML-822-8220-BIS-UserManual-RO-UK.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "112030000-1.webp",
+   "112030000-2.webp",
+   "112030000-3.webp",
+   "112030000-4.webp",
+   "112030000-5.webp",
+   "112030000-6.webp"
+  ]
+ },
+ {
+  "sku": "112030002",
+  "name": "ML 8220 BIS L ST",
+  "sub": "Cuptor cu microunde încorporabil, cu baza ceramică + grill, capacitate 22l",
+  "price": 16000.0,
+  "old": null,
+  "col": "inox",
+  "kind": "incorporabil",
+  "cap": "21,56",
+  "draw": "112030002-draw.webp",
+  "label": "",
+  "desc": [
+   "Colecţia Urban Colors",
+   "Microunde + Grill",
+   "Panou de control electronic din sticlă, cu timer digital",
+   "9 meniuri directe (reţete presetate)",
+   "Decongelare (5 programe)",
+   "Microunde 5 nivele de putere, 850 W",
+   "Buton “Quick start” 30’’",
+   "Cavitate interioară din inox",
+   "Bază ceramică + grill",
+   "Grill rabatabil, 1200 W",
+   "Bază ceramică cu încălzire uniformă",
+   "Selector de programe și funcții electronice"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "220"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "350"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "280"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "21,56"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "22"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "390"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "334"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "23,2"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB/Gmark"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "3"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Grill rabatabil",
+      "Da"
+     ],
+     [
+      "Numărul ghidajelor (cavitatea inferioară)",
+      "0"
+     ],
+     [
+      "Refrigerare tangențială forțată (1 viteză)",
+      "Da"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Funcța Microunde + grill",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ],
+     [
+      "Pornire rapidă (minute)",
+      "Da"
+     ],
+     [
+      "Ventilație tangențială",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "2700"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "20"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Grill (W)",
+      "1200"
+     ],
+     [
+      "Maxi Grill (W)",
+      "1200"
+     ],
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Platou rotativ",
+      "YES"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/6/ML-822-8220-BIS-UserManual-RO-UK.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "112030002-1.webp",
+   "112030002-2.webp",
+   "112030002-3.webp",
+   "112030002-4.webp",
+   "112030002-5.webp",
+   "112030002-6.webp"
+  ]
+ },
+ {
+  "sku": "112030004",
+  "name": "ML 8220 BIS L SM",
+  "sub": "Cuptor cu microunde încorporabil, cu baza ceramică + grill, capacitate 22l",
+  "price": 16000.0,
+  "old": null,
+  "col": "gri",
+  "kind": "incorporabil",
+  "cap": "21,56",
+  "draw": "112030004-draw.webp",
+  "label": "",
+  "desc": [
+   "Colecţia Urban Colors",
+   "Microunde + Grill",
+   "Panou de control electronic din sticlă, cu timer digital",
+   "9 meniuri directe (reţete presetate)",
+   "Decongelare (5 programe)",
+   "Microunde 5 nivele de putere, 850 W",
+   "Buton “Quick start” 30’’",
+   "Cavitate interioară din inox",
+   "Bază ceramică + grill",
+   "Grill rabatabil, 1200 W",
+   "Bază ceramică cu încălzire uniformă",
+   "Selector de programe și funcții electronice"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "220"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "350"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "280"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "21,56"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "22"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "390"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "334"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "23,2"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB/Gmark"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "3"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Grill rabatabil",
+      "Da"
+     ],
+     [
+      "Numărul ghidajelor (cavitatea inferioară)",
+      "0"
+     ],
+     [
+      "Refrigerare tangențială forțată (1 viteză)",
+      "Da"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Funcța Microunde + grill",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ],
+     [
+      "Pornire rapidă (minute)",
+      "Da"
+     ],
+     [
+      "Ventilație tangențială",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "2700"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "20"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Grill (W)",
+      "1200"
+     ],
+     [
+      "Maxi Grill (W)",
+      "1200"
+     ],
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Platou rotativ",
+      "YES"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/6/ML-822-8220-BIS-UserManual-RO-UK.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "112030004-1.webp",
+   "112030004-2.webp",
+   "112030004-3.webp",
+   "112030004-4.webp",
+   "112030004-5.webp",
+   "112030004-6.webp"
+  ]
+ },
+ {
+  "sku": "112060001",
+  "name": "ML 8200 BIS BK",
+  "sub": "Cuptor Microunde + Grill, Touch Control cu afişaj TFT de culoare albă",
+  "price": 10900.0,
+  "old": null,
+  "col": "negru",
+  "kind": "incorporabil",
+  "cap": "18",
+  "draw": "112060001-draw.webp",
+  "label": "",
+  "desc": [
+   "Colecţia Urban Colours",
+   "Microunde + Grill",
+   "Touch Control cu afişaj TFT de culoare albă",
+   "3 funcţii de preparare",
+   "3 meniuri directe (reţete presetate)",
+   "1 memorie",
+   "Microunde 5 nivele de putere, 1200 W",
+   "Decongelare în funcţie de timp şi greutate",
+   "Buton “Quick start”",
+   "Cavitate interioară din inox",
+   "Grill, 1000 W",
+   "Sistem de deconectare automată la deschiderea uşii"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "210"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "305"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "280"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "18"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "20"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "390"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "325"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "17,5"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "3"
+     ],
+     [
+      "Numărul de memorii",
+      "1"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Funcța Microunde + grill",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ],
+     [
+      "Pornire rapidă (minute)",
+      "Da"
+     ],
+     [
+      "Pornire rapidă (secunde)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "1200"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220 - 240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Grill (W)",
+      "1000"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/9/ML-820-MS-620-ML-8200-BIS-UserManual-PL-RU-RO-TR.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "112060001-1.webp",
+   "112060001-2.webp",
+   "112060001-3.webp",
+   "112060001-4.webp",
+   "112060001-5.webp",
+   "112060001-6.webp"
+  ]
+ },
+ {
+  "sku": "112060005",
+  "name": "MLEG 820 FI BK",
+  "sub": "Ediția FullBlack. Cuptor cu microunde încorporabil, cu grill",
+  "price": 10000.0,
+  "old": null,
+  "col": "negru",
+  "kind": "incorporabil",
+  "cap": "20.31",
+  "draw": "112060005-draw.webp",
+  "label": "",
+  "desc": [
+   "Cuptor cu microunde incorporabil",
+   "Microunde + Grill",
+   "Touch control",
+   "3 funcții (microunde, grill, microunde + grill)",
+   "Putere Grill 1000 W",
+   "5 niveluri de putere până la 800 W",
+   "8 programe automate",
+   "Timer 0-95’",
+   "Functie +30’’",
+   "Decongelare automată (în funcţie de timp şi greutate)",
+   "Cavitate din inox",
+   "Ușă termorezistentă dublă"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "218"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "295"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "316"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "20.31"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "20,0"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "386"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "594"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "317"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "17,0"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "GS / EMC"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "3"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "1250"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "230"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "100"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Conexiune",
+      "VDE"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "20"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Grill (W)",
+      "1000"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Blocarea de siguranță pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de curățare",
+    "r": [
+     [
+      "Inox anti-pată",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Tavă din sticlă",
+      "YES"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/1/MLEG_820_FI_BK_UserManual_ES-PT-EN-FR-DE.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "112060005-1.webp",
+   "112060005-2.webp",
+   "112060005-3.webp",
+   "112060005-4.webp",
+   "112060005-5.webp",
+   "112060005-6.webp"
+  ]
+ },
+ {
+  "sku": "112070004",
+  "name": "ML 820 FI BK",
+  "sub": "Cuptor cu microunde incorporabil, control cu butoane ,1 funcție (microunde)",
+  "price": 8100.0,
+  "old": null,
+  "col": "negru",
+  "kind": "incorporabil",
+  "cap": "20,0",
+  "draw": "112070004-draw.webp",
+  "label": "",
+  "desc": [
+   "Cuptor cu microunde incorporabil",
+   "Microunde",
+   "Control cu butoane",
+   "1 funcție (microunde)",
+   "Grill din quarț 1000 W",
+   "5 niveluri de putere până la 1.250 W",
+   "Timer 0-95’",
+   "Program Quick Start (30’’)",
+   "Decongelare automată (în funcţie de timp)",
+   "Cavitate din inox",
+   "Platou rotativ Ø 25,5 cm",
+   "Ușă termorezistentă dublă"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea netă (litri)",
+      "20,0"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "386"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "594"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "317"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "16,5"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "GS / EMC"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "1250"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "230"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "20"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Tavă din sticlă",
+      "YES"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/ML_820_FI_BK_UserManual_ES-PT-EN-FR-DE.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "112070004-1.webp",
+   "112070004-2.webp",
+   "112070004-3.webp",
+   "112070004-4.webp",
+   "112070004-5.webp",
+   "112070004-6.webp"
+  ]
+ },
+ {
+  "sku": "40586301",
+  "name": "MWR 22 BI VN",
+  "sub": "Cuptor cu microunde încorporabil, cu baza ceramică, capacitate 22l",
+  "price": 12700.0,
+  "old": null,
+  "col": "crem",
+  "kind": "incorporabil",
+  "cap": "21,56",
+  "draw": "40586301-draw.webp",
+  "label": "",
+  "desc": [
+   "Cuptor cu microunde",
+   "Panou frontal și ușă Vanilla- Country Style",
+   "Cavitate interioară din inox",
+   "Sistem electronic de deschidere a uşii",
+   "1 funcție",
+   "5 nivele de putere, 850 W",
+   "Capacitate: 22L",
+   "Timer 0-60’",
+   "Decongelare în funcţie de timp",
+   "Deconectare automată de siguranţă",
+   "Uşă interioară complet din sticlă (2 straturi)",
+   "Bază ceramică+ grill"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "220"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "350"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "280"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "21,56"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "22"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "380/390"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "334"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "21,6"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE; CB; EAC"
+     ],
+     [
+      "Selector de funcții",
+      "MECHANICAL"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "1"
+     ],
+     [
+      "Numărul ghidajelor (cavitatea inferioară)",
+      "0"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Decongelare la microunde",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ],
+     [
+      "Ventilație tangențială",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "1400"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "20"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Tavă din sticlă",
+      "0"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/MWR-22-BI-UserManual-CS-SK-RO-EL-TR.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "40586301-1.webp",
+   "40586301-2.webp",
+   "40586301-3.webp",
+   "40586301-4.webp",
+   "40586301-5.webp",
+   "40586301-6.webp"
+  ]
+ },
+ {
+  "sku": "40586300",
+  "name": "MWR 22 BI AT",
+  "sub": "Cuptor compact, Microunde, cu bază ceramică şi capacitate 22l",
+  "price": 12700.0,
+  "old": null,
+  "col": "negru",
+  "kind": "incorporabil",
+  "cap": "21,56",
+  "draw": "40586300-draw.webp",
+  "label": "",
+  "desc": [
+   "Cuptor compact, cu microunde, finisaj anthracite",
+   "Panou de control electromecanic",
+   "Cavitate interioară din inox",
+   "Sistem electronic de deschidere a uşii",
+   "1 functie (microunde)",
+   "5 nivele de putere, 850 W",
+   "Capacitate: 22L",
+   "Timer, 0-60 min.",
+   "Decongelare în funcţie de timp",
+   "Deconectare automată de siguranţă",
+   "Uşă interioară complet din sticlă (2 straturi)",
+   "Bază ceramică"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "220"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "350"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "280"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "21,56"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "22"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "380/390"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "334"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "21,6"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE; CB; EAC"
+     ],
+     [
+      "Selector de funcții",
+      "MECHANICAL"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "1"
+     ],
+     [
+      "Numărul ghidajelor (cavitatea inferioară)",
+      "0"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Decongelare la microunde",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ],
+     [
+      "Ventilație tangențială",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "1400"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "20"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Tavă din sticlă",
+      "0"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/MWR-22-BI-UserManual-CS-SK-RO-EL-TR.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "40586300-1.webp",
+   "40586300-2.webp",
+   "40586300-3.webp",
+   "40586300-4.webp",
+   "40586300-5.webp",
+   "40586300-6.webp"
+  ]
+ },
+ {
+  "sku": "40584010",
+  "name": "MS 620 BIS",
+  "sub": "Cuptor încorporabil, Microunde+ Grill, cu Touch Control cu afişaj TFT de culoare albă şi capacitate 20 litri",
+  "price": 9100.0,
+  "old": null,
+  "col": "negru",
+  "kind": "incorporabil",
+  "cap": "18",
+  "draw": "40584010-draw.webp",
+  "label": "",
+  "desc": [
+   "Microunde + Grill",
+   "Touch Control cu afişaj TFT de culoare albă",
+   "3 funcţii",
+   "3 meniuri directe (reţete presetate)",
+   "1 memorie",
+   "Capacitate: 20 l",
+   "Microunde 5 nivele de putere, 700 W",
+   "Buton Quick start 30''",
+   "Cavitate interioară din inox",
+   "Grill Quartz, 1000 W",
+   "Timer 0-90 min.",
+   "Decongelare automată în funcţie de timp şi greutate"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "210"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "305"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "280"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "18"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "20"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "390"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "325"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "16,5"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB"
+     ],
+     [
+      "Numărul de cavități",
+      "1"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "3"
+     ],
+     [
+      "Numărul de memorii",
+      "1"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Numărul ghidajelor (cavitatea inferioară)",
+      "0"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Funcța Microunde + grill",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ],
+     [
+      "Pornire rapidă (minute)",
+      "Da"
+     ],
+     [
+      "Pornire rapidă (secunde)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "1200"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220 - 240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Consumul de energie pe ciclu în mod convențional (kWh)",
+      "0.617"
+     ],
+     [
+      "Grill (W)",
+      "1000"
+     ],
+     [
+      "Maxi Grill (W)",
+      "1000"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Blocarea de siguranță pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de curățare",
+    "r": [
+     [
+      "Inox anti-pată",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Tavă din sticlă",
+      "0"
+     ]
+    ]
+   },
+   {
+    "t": "Eficienta energetica",
+    "r": [
+     [
+      "Indicele eficienței energetice (EEI)",
+      "A"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/carte-energetica-microunde.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "40584010-1.webp",
+   "40584010-2.webp",
+   "40584010-3.webp",
+   "40584010-4.webp",
+   "40584010-5.webp",
+   "40584010-6.webp"
+  ]
+ },
+ {
+  "sku": "112240003",
+  "name": "HMWE FS23 GC BK AirFry",
+  "sub": "Cuptor cu Microunde + Grill (Free-standing), functie AirFry, panou de control electronic cu display digital",
+  "price": 6100.0,
+  "old": null,
+  "col": "negru",
+  "kind": "independent",
+  "cap": "23",
+  "draw": "112240003-draw.webp",
+  "label": "",
+  "desc": [
+   "Microunde + Grill (Free-standing)",
+   "Panou de control electronic cu display digital",
+   "Grill Quantz",
+   "Capacitate: 23l",
+   "Finisaj: Negru",
+   "5 functii: microunde, grill, AirFRy, convectie, combi",
+   "5 nivele de putere",
+   "Timer 0- 95 min.",
+   "Platou rotativ: 288 mm",
+   "Microunde: 900W",
+   "Grill: 1000W",
+   "Convectie: 1.680W"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "228"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "301"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "329"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "23"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "280"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "469"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "415"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "14,65"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Numărul de funcții de gătit",
+      "4"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Funcța Microunde + grill",
+      "Da"
+     ],
+     [
+      "Decongelare la microunde",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "9"
+     ],
+     [
+      "Pornire rapidă (secunde)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "1680"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "230-240"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Conexiune",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Grill (W)",
+      "1000"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/HMWE_FS23_GC_BK_UserManual_ES-PT-EN-FR-DE.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "112240003-1.webp",
+   "112240003-2.webp",
+   "112240003-3.webp",
+   "112240003-4.webp",
+   "112240003-5.webp",
+   "112240003-6.webp"
+  ]
+ },
+ {
+  "sku": "112270003",
+  "name": "MWE FS20 G WH",
+  "sub": "Cuptor cu microunde + Grill, free-standing, capacitate 20l, alb",
+  "price": 3000.0,
+  "old": null,
+  "col": "alb",
+  "kind": "independent",
+  "cap": "20",
+  "draw": "112270003-draw.webp",
+  "label": "",
+  "desc": [
+   "Microunde + Grill (Free-standing)",
+   "Panou de control electronic cu display digital",
+   "Capacitate: 20 l",
+   "Finisaj : Alb",
+   "3 functii: microunde, grill, microunde+ grill",
+   "5 nivele de putere",
+   "Timer 0- 95 min",
+   "Platou rotativ: 255mm",
+   "Microunde: 700W",
+   "Grill Quart: 1000W",
+   "Decongelare automata in functie de timp si greutate",
+   "Sistem de siguranta impotriva accesului copiilor"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "206"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "306"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "304"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "20"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "259"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "440"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "340"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "10,75"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Funcța Microunde + grill",
+      "Da"
+     ],
+     [
+      "Decongelare la microunde",
+      "Da"
+     ],
+     [
+      "Pornire rapidă (secunde)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "230"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Conexiune",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Grill (W)",
+      "1000"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://slyr.s3.amazonaws.com/temp/ZkVoVzk0eUdwNWc9/1/MWE_FS20_G_WH_UserManual_ES-PT-EN-FR-DE-TR.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "112270003-1.webp",
+   "112270003-2.webp",
+   "112270003-3.webp",
+   "112270003-4.webp",
+   "112270003-5.webp",
+   "112270003-6.webp"
+  ]
+ },
+ {
+  "sku": "112060002",
+  "name": "ML 8200 BIS WHITE",
+  "sub": "Cuptor Microunde + Grill, Touch Control cu afişaj TFT de culoare albă",
+  "price": 10900.0,
+  "old": null,
+  "col": "alb",
+  "kind": "incorporabil",
+  "cap": "18",
+  "draw": "112060002-draw.webp",
+  "label": "",
+  "desc": [
+   "Colecţia Urban Colours",
+   "Microunde + Grill",
+   "Touch Control cu afişaj TFT de culoare albă",
+   "3 funcţii de preparare",
+   "3 meniuri directe (reţete presetate)",
+   "1 memorie",
+   "Microunde 5 nivele de putere, 1200 W",
+   "Decongelare în funcţie de timp şi greutate",
+   "Buton “Quick start”",
+   "Cavitate interioară din inox",
+   "Grill, 1000 W",
+   "Sistem de deconectare automată la deschiderea uşii"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "210"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "305"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "280"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "18"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "20"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "390"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "325"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "17,5"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "3"
+     ],
+     [
+      "Numărul de memorii",
+      "1"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Funcța Microunde + grill",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ],
+     [
+      "Pornire rapidă (minute)",
+      "Da"
+     ],
+     [
+      "Pornire rapidă (secunde)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "1200"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220 - 240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Grill (W)",
+      "1000"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/9/ML-820-MS-620-ML-8200-BIS-UserManual-PL-RU-RO-TR.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "112060002-1.webp",
+   "112060002-2.webp",
+   "112060002-3.webp",
+   "112060002-4.webp",
+   "112060002-5.webp",
+   "112060002-6.webp"
+  ]
+ }
+]

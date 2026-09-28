@@ -1,0 +1,994 @@
+[
+ {
+  "sku": "113600011",
+  "name": "RVI 20046 GBK",
+  "sub": "Refrigerator de vinuri încorporabil, Touch Control, capacitate 44 sticle",
+  "price": 27900.0,
+  "old": null,
+  "install": "incorporabil",
+  "bottles": 44,
+  "draw": "113600011-draw.webp",
+  "label": "",
+  "desc": [
+   "Refrigerator de vinuri încorporabil",
+   "Panou de control electronic",
+   "Touch Control",
+   "Capacitate: 42 sticle",
+   "Temperatură ajustabilă (5-10 grade C –compartimentul superior si 10-18 grade C –compartimentul inferior)",
+   "4 rafturi din lemn",
+   "Mâner metalic",
+   "Uşă reversibilă",
+   "Sistem de iluminare interioară: LED (de culoare albă)",
+   "Picioare reglabile",
+   "Clasa climatică: N/ST (min. 160 C – max. 380 C)",
+   "Consum de energie anual (kWh/an): 140"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "117"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "886"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "590"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "557"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "49"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Nișă încorporată (cm)",
+      "88"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "Fan cooling"
+     ],
+     [
+      "Capacitate totală brută (litri)",
+      "140"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "140"
+     ],
+     [
+      "Clasa climatică",
+      "N/ST"
+     ],
+     [
+      "Zgomot (dB)",
+      "39"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea (W)",
+      "100 W"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0,383561644"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1800"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "1,7"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Număr de sticle",
+      "42"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ușă",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ],
+     [
+      "Mâner extern",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Alarmă acustică",
+      "Da"
+     ],
+     [
+      "Alarmă vizuală",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Număr de rafturi",
+      "4"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/5/RVI-20046-GBK-UserManual-ES-PT-EN-FR-DE-RO.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "113600011-1.webp",
+   "113600011-2.webp",
+   "113600011-3.webp",
+   "113600011-4.webp",
+   "113600011-5.webp",
+   "113600011-6.webp"
+  ]
+ },
+ {
+  "sku": "113600008",
+  "name": "RVU 20046 GBK",
+  "sub": "Refrigerator de vinuri free-standing, panou de control electronic, capacitate 46 sticle",
+  "price": 26700.0,
+  "old": null,
+  "install": "independent",
+  "bottles": 46,
+  "draw": "113600008-draw.webp",
+  "label": "",
+  "desc": [
+   "Refrigerator de vinuri free-standing",
+   "Panou de control electronic",
+   "Touch Control",
+   "Capacitate: 46 sticle",
+   "Temperatură ajustabilă (5-10 grade C –compartimentul superior si 10-18 grade C –compartimentul inferior)",
+   "6 rafturi din lemn",
+   "Mâner metalic",
+   "Uşă reversibilă",
+   "Sistem de iluminare interioară: LED (de culoare albă)",
+   "Picioare reglabile",
+   "Clasa climatică: N/ST (min. 160 C – max. 380 C)",
+   "Consum de energie anual (kWh/an): 145"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "134"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "820"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "574"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "50"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Nișă încorporată (cm)",
+      "82"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "Fan cooling"
+     ],
+     [
+      "Capacitate totală brută (litri)",
+      "150"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "145"
+     ],
+     [
+      "Clasa climatică",
+      "N/ST"
+     ],
+     [
+      "Zgomot (dB)",
+      "39"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea (W)",
+      "100 W"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0,397260274"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1800"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "1,7"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Număr de sticle",
+      "46"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ușă",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ],
+     [
+      "Mâner extern",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Alarmă vizuală",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "6"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/RVU_20046_GBK-UserManual-ES-PT-EN-FR-DE-RO.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "113600008-1.webp",
+   "113600008-2.webp",
+   "113600008-3.webp",
+   "113600008-4.webp",
+   "113600008-5.webp",
+   "113600008-6.webp"
+  ]
+ },
+ {
+  "sku": "113600010",
+  "name": "RVI 20041 GBK",
+  "sub": "Refrigerator de vinuri încorporabil, Touch Control, capacitate 41 sticle",
+  "price": 23700.0,
+  "old": null,
+  "install": "incorporabil",
+  "bottles": 41,
+  "draw": "113600010-draw.webp",
+  "label": "",
+  "desc": [
+   "Refrigerator de vinuri încorporabil",
+   "Panou de control electronic",
+   "Touch Control",
+   "Capacitate: 41 sticle",
+   "Temperatură ajustabilă (5-10 grade C –compartimentul superior si 10-18 grade C –compartimentul inferior)",
+   "3 rafturi din lemn",
+   "Mâner metallic",
+   "Uşă reversibilă",
+   "Sistem de iluminare interioară: LED (de culoare albă)",
+   "Picioare reglabile",
+   "Clasa climatică: N/ST (min. 160 C – max. 380 C)",
+   "Consum de energie anual (kWh/an): 142"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "83"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "590"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "563"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "38"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Nișă încorporată (cm)",
+      "60"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "Fan cooling"
+     ],
+     [
+      "Capacitate totală brută (litri)",
+      "100"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "142"
+     ],
+     [
+      "Clasa climatică",
+      "N/ST"
+     ],
+     [
+      "Zgomot (dB)",
+      "38"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea (W)",
+      "100 W"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0,389041096"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1800"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "1,7"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Număr de sticle",
+      "41"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ușă",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ],
+     [
+      "Mâner extern",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Alarmă acustică",
+      "Da"
+     ],
+     [
+      "Alarmă vizuală",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Număr de rafturi",
+      "3"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/RVI_20041_GBK-UserManual-ES-PT-EN-FR-DE-RO.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "113600010-1.webp",
+   "113600010-2.webp",
+   "113600010-3.webp",
+   "113600010-4.webp",
+   "113600010-5.webp",
+   "113600010-6.webp"
+  ]
+ },
+ {
+  "sku": "113610004",
+  "name": "RVU 10020 GBK",
+  "sub": "Refrigerator de vinuri free-standing, capacitate de 20 de sticle",
+  "price": 15800.0,
+  "old": null,
+  "install": "independent",
+  "bottles": 20,
+  "draw": "113610004-draw.webp",
+  "label": "",
+  "desc": [
+   "Refrigerator de vinuri free-standing Panou de control electronic",
+   "Touch Control",
+   "Capacitate: 20 sticle",
+   "Temperatură ajustabilă (5-100 C – compartimentul superior si 10-180 C – compartimentul inferior)",
+   "5 rafturi din lemn",
+   "Mâner metalic; Uşă reversibilă",
+   "Sistem de iluminare interioară",
+   "LED (de culoare albă)",
+   "Picioare reglabile",
+   "Clasa climatică: N/ST (min. 160 C – max. 380 C)",
+   "Consum de energie anual (kWh/an): 99",
+   "Nivel de zgomot: 39 dBA"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "58"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "820"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "295"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "573"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "28"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Nișă încorporată (cm)",
+      "82"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "Fan cooling"
+     ],
+     [
+      "Capacitate totală brută (litri)",
+      "66"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "98"
+     ],
+     [
+      "Clasa climatică",
+      "N/ST"
+     ],
+     [
+      "Zgomot (dB)",
+      "39"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea (W)",
+      "74 W"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0,268493151"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1800"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "1,2"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Număr de sticle",
+      "20"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ușă",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ],
+     [
+      "Mâner extern",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Alarmă vizuală",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "5"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/RVU_10020_GBK-UserManual-ES-PT-EN-FR-DE.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "113610004-1.webp",
+   "113610004-2.webp",
+   "113610004-3.webp",
+   "113610004-4.webp",
+   "113610004-5.webp",
+   "113610004-6.webp"
+  ]
+ },
+ {
+  "sku": "113610003",
+  "name": "RVU 10008 GBK",
+  "sub": "Refrigerator de vinuri free-standing, cu panou de control electronic Touch Control si capacitate de 8 sticle",
+  "price": 11500.0,
+  "old": null,
+  "install": "independent",
+  "bottles": 8,
+  "draw": "113610003-draw.webp",
+  "label": "",
+  "desc": [
+   "Refrigerator de vinuri free-standing",
+   "Panou de control electronic",
+   "Touch Control",
+   "Capacitate: 8 sticle",
+   "Temperatură ajustabilă (5-180 C)",
+   "6 rafturi din lemn",
+   "Mâner metalic",
+   "Uşă reversibilă",
+   "Sistem de iluminare interioară: LED (de culoare albă)",
+   "Picioare reglabile",
+   "Clasa climatică: N/ST (min. 160 C – max. 380 C)",
+   "Consum de energie anual (kWh/an): 133"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "23"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "820"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "145"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "549"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "21.5"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Nișă încorporată (cm)",
+      "82"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "Fan cooling"
+     ],
+     [
+      "Capacitate totală brută (litri)",
+      "25"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "133"
+     ],
+     [
+      "Clasa climatică",
+      "N/ST"
+     ],
+     [
+      "Zgomot (dB)",
+      "39"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea (W)",
+      "70 W"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0,364383562"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1800"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "0,9"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Număr de sticle",
+      "8"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ușă",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ],
+     [
+      "Mâner extern",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Alarmă vizuală",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "6"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/5/RVU-10008-GBK-UserManual-ES-PT-EN-FR-DE.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "113610003-1.webp",
+   "113610003-2.webp",
+   "113610003-3.webp",
+   "113610003-4.webp",
+   "113610003-5.webp",
+   "113610003-6.webp"
+  ]
+ }
+]

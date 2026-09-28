@@ -1,0 +1,2669 @@
+[
+ {
+  "sku": "124260002",
+  "name": "G6805.1v",
+  "sub": "Mașină de spălat vase complet încorporabilă, 60 cm, cu motor Inverter, 8 programe și sistem IonClean",
+  "price": 30000.0,
+  "old": null,
+  "width": 60,
+  "install": "incorporabil",
+  "cap": "",
+  "draw": "",
+  "label": "",
+  "desc": [
+   "9 programe:",
+   "Program AutoClean",
+   "Program intensiv 70ºC",
+   "Program de îngrijire a sticlei 40ºC",
+   "Program automat 40ºC 65ºC",
+   "Program ECO 50ºC",
+   "Program rapid 35ºC",
+   "Program de 1 h 60º",
+   "DualCare 55 ºC 6 7 ºC",
+   "Prespălare",
+   "Funcții speciale: IonClean, sistem expres, opțiune de încărcare la jumătate, curățare intensivă,",
+   "Afișaj LED"
+  ],
+  "specs": [],
+  "pdf": [],
+  "src": "md",
+  "img": [
+   "124260002-1.webp",
+   "124260002-2.webp"
+  ]
+ },
+ {
+  "sku": "124270005",
+  "name": "G6500.0v",
+  "sub": "Maşină de spălat vase XXL complet încorporabilă, clasă de eficienţă energetică A+++, cu 9 programe, 60 cm",
+  "price": 25000.0,
+  "old": null,
+  "width": 60,
+  "install": "incorporabil",
+  "cap": "",
+  "draw": "",
+  "label": "",
+  "desc": [
+   "Capacitate 15 seturi conform reglementărilor internaţionale",
+   "9 programe: Program intensiv 70° C, Program special pentru sticlă 40°C",
+   "Program automat 45° C–65° C",
+   "Program economic 50° C",
+   "Program rapid 35° C",
+   "Program de 1h, 60° C",
+   "Program Flextronic, Program de îngrijire a mașinii, Preclătire",
+   "Funcții speciale: sistem expres, opțiune de încărcare la jumătate, curățare intensivă, clătire intensivă",
+   "Afișaj LED",
+   "Pornire programabilă 24h",
+   "Control electronic cu butoane „push”",
+   "Display electronic pentru reîncărcare (sare şi agent de clătire)"
+  ],
+  "specs": [],
+  "pdf": [],
+  "src": "md",
+  "img": [
+   "124270005-1.webp"
+  ]
+ },
+ {
+  "sku": "124300000",
+  "name": "G4800.1v",
+  "sub": "Mașină de spălat vase complet incorporabilă, 45 cm, capacitate 10 seturi conform reglementărilor internaţionale și 9 programe",
+  "price": 23100.0,
+  "old": null,
+  "width": 45,
+  "install": "incorporabil",
+  "cap": "10",
+  "draw": "",
+  "label": "",
+  "desc": [
+   "Capacitate 10 seturi conform reglementărilor internaţionale",
+   "9 programe:",
+   "Program AutoClean",
+   "Program intensiv 70ºC",
+   "Program de îngrijire a sticlei 40ºC",
+   "Program automat 40ºC 65ºC",
+   "Program ECO 50ºC",
+   "Program rapid 35ºC",
+   "Program de 1 h 60º",
+   "DualCare 55 ºC 6 7 ºC",
+   "Prespălare",
+   "Funcții speciale: sistem expres, opțiune de încărcare la jumătate, curățare intensivă, clătire intensivă"
+  ],
+  "specs": [],
+  "pdf": [],
+  "src": "md",
+  "img": [
+   "124300000-1.webp"
+  ]
+ },
+ {
+  "sku": "114260027",
+  "name": "DFI 76960",
+  "sub": "Mașină de spălat vase complet încorporabilă, ușă glisantă, capacitate de16 seturi si panou de control electronic",
+  "price": 18000.0,
+  "old": null,
+  "width": 60,
+  "install": "incorporabil",
+  "cap": "14",
+  "draw": "114260027-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat vase complet încorporabilă",
+   "Ușă glisantă",
+   "Capacitate: 16 seturi",
+   "Panou de control electronic",
+   "Display LED de culoare albă",
+   "Prezenţa celui de-al treilea pulverizator",
+   "Afişaj luminos pe podea",
+   "8 programe de spălare",
+   "5 nivele de temperatură",
+   "Program Uscare Premium - sistem automat de deschidere",
+   "Pornire programabilă 1-24 h",
+   "Filtru cu ioni de argint"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "815"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "598"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "33,00"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Capacitate (Poziţionare)",
+      "14"
+     ],
+     [
+      "Consum de energie (kWh / an)",
+      "189"
+     ],
+     [
+      "Consum de energie (Kwh)",
+      "0,662"
+     ],
+     [
+      "Consum de apă (litri / an)",
+      "2744"
+     ],
+     [
+      "Consum de apă (litri)",
+      "9.8"
+     ],
+     [
+      "Programul standard",
+      "ECO"
+     ],
+     [
+      "Durată ciclu(minute)",
+      "220"
+     ],
+     [
+      "Zgomot (dB)",
+      "42"
+     ],
+     [
+      "Certificări",
+      "GS/CE/EMC/LVD/CB"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240 V"
+     ],
+     [
+      "Conexiune",
+      "EU(VDE PLUG)"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "2100W"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800W"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "140"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "183"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Display digital",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "8"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "5"
+     ],
+     [
+      "Filtru antibacterian",
+      "Da"
+     ],
+     [
+      "Afisaj luminos pe podea",
+      "Da"
+     ],
+     [
+      "Ion Clean (bacterii anti-miros)",
+      "Da"
+     ],
+     [
+      "Aqua-Logic",
+      "Da"
+     ],
+     [
+      "Dedurizator apă",
+      "Da"
+     ],
+     [
+      "Microfiltru",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Prevenirea scurgerilor interne",
+      "Da"
+     ],
+     [
+      "Aquastop",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Indicator pentru nivel scăzut de sare",
+      "Da"
+     ],
+     [
+      "Pastile pentru clătire",
+      "Da"
+     ],
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Indicator pentru deschiderea automată a ușii",
+      "Da"
+     ],
+     [
+      "Alarmă acustică pentru finalul programului",
+      "Da"
+     ],
+     [
+      "Alarmă vizuală pentru finalul programului",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Programul Uscare / Prespălare",
+      "Da"
+     ],
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program de 1 oră",
+      "Da"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Program intens",
+      "Da"
+     ],
+     [
+      "Spălare alternativă (spălare pe zonă)",
+      "Da"
+     ],
+     [
+      "Timer (programare întârziată) (h)",
+      "1-24H"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Număr de rafturi",
+      "0"
+     ],
+     [
+      "Al treilea coș",
+      "Da"
+     ],
+     [
+      "Al treilea pulverizator",
+      "Da"
+     ],
+     [
+      "Picioarele din spate cu posibilitatea de reglaj frontal",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://slyr.s3.amazonaws.com/temp/ZkVoVzk0eUdwNWc9/DFI_76960_UserManual_EN_.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "114260027-1.webp",
+   "114260027-2.webp",
+   "114260027-3.webp",
+   "114260027-4.webp",
+   "114260027-5.webp"
+  ]
+ },
+ {
+  "sku": "114270039",
+  "name": "DFI 46960",
+  "sub": "Mașină de spălat vase complet încorporabilă, 60 cm, ușă glisantă si capacitate de 14 seturi",
+  "price": 15200.0,
+  "old": null,
+  "width": 60,
+  "install": "incorporabil",
+  "cap": "14",
+  "draw": "114270039-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat vase complet încorporabilă",
+   "60 cm",
+   "Ușă glisantă",
+   "Capacitate: 14 seturi",
+   "Panou de control electronic",
+   "Display LED de culoare albă",
+   "8 programe de spălare",
+   "5 nivele de temperatură",
+   "Sistem SmartSensor pentru măsurarea gradului de murdărie",
+   "Programe speciale: Power Wash",
+   "Extra-uscare",
+   "Express"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "815"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "598"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "33,00"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Capacitate (Poziţionare)",
+      "14"
+     ],
+     [
+      "Consum de energie (kWh / an)",
+      "218"
+     ],
+     [
+      "Consum de energie (Kwh)",
+      "0,765"
+     ],
+     [
+      "Consum de apă (litri / an)",
+      "2744"
+     ],
+     [
+      "Consum de apă (litri)",
+      "9.8"
+     ],
+     [
+      "Programul standard",
+      "ECO"
+     ],
+     [
+      "Durată ciclu(minute)",
+      "220"
+     ],
+     [
+      "Zgomot (dB)",
+      "44"
+     ],
+     [
+      "Certificări",
+      "GS/CE/EMC/LVD/CB"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240 V"
+     ],
+     [
+      "Conexiune",
+      "EU(VDE PLUG)"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "2100W"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800W"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "140"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "183"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Display digital",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "8"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "5"
+     ],
+     [
+      "Filtru antibacterian",
+      "Da"
+     ],
+     [
+      "Ion Clean (bacterii anti-miros)",
+      "Da"
+     ],
+     [
+      "Aqua-Logic",
+      "Da"
+     ],
+     [
+      "Dedurizator apă",
+      "Da"
+     ],
+     [
+      "Microfiltru",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Prevenirea scurgerilor interne",
+      "Da"
+     ],
+     [
+      "Aquastop",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Indicator pentru nivel scăzut de sare",
+      "Da"
+     ],
+     [
+      "Pastile pentru clătire",
+      "Da"
+     ],
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Indicator pentru deschiderea automată a ușii",
+      "Da"
+     ],
+     [
+      "Alarmă acustică pentru finalul programului",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Programul Uscare / Prespălare",
+      "Da"
+     ],
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program de 1 oră",
+      "Da"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Program intens",
+      "Da"
+     ],
+     [
+      "Spălare alternativă (spălare pe zonă)",
+      "Da"
+     ],
+     [
+      "Timer (programare întârziată) (h)",
+      "1-24H"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Număr de rafturi",
+      "0"
+     ],
+     [
+      "Al treilea coș",
+      "Da"
+     ],
+     [
+      "Al treilea pulverizator",
+      "Da"
+     ],
+     [
+      "Picioarele din spate cu posibilitatea de reglaj frontal",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/DFI_46960_UserManual_EN_.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "114270039-1.webp",
+   "114270039-2.webp",
+   "114270039-3.webp",
+   "114270039-4.webp",
+   "114270039-5.webp"
+  ]
+ },
+ {
+  "sku": "114270038",
+  "name": "DFI 46760",
+  "sub": "Mașină de spălat vase complet încorporabilă, 60 cm, usă glisantă, capacitate: 14 seturi",
+  "price": 15900.0,
+  "old": null,
+  "width": 60,
+  "install": "incorporabil",
+  "cap": "14",
+  "draw": "114270038-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat vase complet încorporabilă, 60 cm",
+   "Usă glisantă",
+   "Capacitate: 14 seturi",
+   "Panou de control electronic cu afisaj de culoare albă",
+   "6 programe de spălare / 5 nivele de temperatură: 45°, 50°, 55°, 60°, 65° C",
+   "Programe speciale: Program rapid: 30 minute, Intensiv, Glass Care, ECO, 1 ora",
+   "Premium Dry – sistem automat de deschidere",
+   "Functii speciale: Incărcare la jumătate, Extra Uscare",
+   "Pornire programabilă 1-24 h",
+   "Indicator: on/off, program selectat, incărcare la jumătate, timer, nivel sare dedurizare; nivel lichid clătire",
+   "Aqua Stop & Aqua Safe",
+   "Clasă eficienţă energetică: D"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "815"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "598"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "33,00"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Capacitate (Poziţionare)",
+      "14"
+     ],
+     [
+      "Consum de energie (kWh / an)",
+      "237"
+     ],
+     [
+      "Consum de energie (Kwh)",
+      "0,833"
+     ],
+     [
+      "Consum de apă (litri / an)",
+      "3080"
+     ],
+     [
+      "Consum de apă (litri)",
+      "11"
+     ],
+     [
+      "Programul standard",
+      "ECO"
+     ],
+     [
+      "Durată ciclu(minute)",
+      "198"
+     ],
+     [
+      "Zgomot (dB)",
+      "44"
+     ],
+     [
+      "Certificări",
+      "GS/CE/EMC/LVD/CB"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240 V"
+     ],
+     [
+      "Conexiune",
+      "EU(VDE PLUG)"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "2100W"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800W"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "140"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "183"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Display digital",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "6"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "5"
+     ],
+     [
+      "Dedurizator apă",
+      "Da"
+     ],
+     [
+      "Microfiltru",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Prevenirea scurgerilor interne",
+      "Da"
+     ],
+     [
+      "Aquastop",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Indicator pentru nivel scăzut de sare",
+      "Da"
+     ],
+     [
+      "Pastile pentru clătire",
+      "Da"
+     ],
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Alarmă acustică pentru finalul programului",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program de 1 oră",
+      "Da"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Program intens",
+      "Da"
+     ],
+     [
+      "Încărcare la jumătate",
+      "Da"
+     ],
+     [
+      "Timer (programare întârziată) (h)",
+      "1-24H"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Număr de rafturi",
+      "0"
+     ],
+     [
+      "Al treilea coș",
+      "Da"
+     ],
+     [
+      "Al treilea pulverizator",
+      "Da"
+     ],
+     [
+      "Picioarele din spate cu posibilitatea de reglaj frontal",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://teka-assets.b-cdn.net/wp-json/custom/v1/generate-zip?urls=https%3A%2F%2Fslyr.s3.amazonaws.com%2Ftemp%2FZkVoVzk0eUdwNWc9%2FDFI_46760_UserManual_EN_.pdf%2Chttps%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2FCMP1219%2Ffiles%2FDFI_46760_UserManual_EN_-FR.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "114270038-1.webp",
+   "114270038-2.webp",
+   "114270038-3.webp",
+   "114270038-4.webp",
+   "114270038-5.webp"
+  ]
+ },
+ {
+  "sku": "114270001",
+  "name": "DFI 46700",
+  "sub": "Mașină de spălat vase complet încorporabilă, cu funcţie Extra-uscare, program DualCare, 60 cm,",
+  "price": 12200.0,
+  "old": null,
+  "width": 60,
+  "install": "incorporabil",
+  "cap": "15",
+  "draw": "114270001-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat vase complet încorporabilă, 60 cm",
+   "Capacitate: 15 seturi",
+   "Ușă glisantă",
+   "Afisaj luminos pe podea",
+   "Panou de control electronic",
+   "Display LED de culoare albă",
+   "9 programe de spălare",
+   "6 nivele de temperatură: 35°, 40°, 45°, 50°, 65°, 70° C",
+   "Senzor MultiCleaner (3 in 1)",
+   "Sistem SmartSensor pentru măsurarea gradului de murdărie",
+   "Program special: Auto-Curăţare",
+   "GlassCare si DualCare"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "818"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "598"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "38,4"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Înălțimea nișei de încorporare (cm)",
+      "82-87 cm"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Capacitate (Poziţionare)",
+      "15"
+     ],
+     [
+      "Consum de energie (kWh / an)",
+      "270"
+     ],
+     [
+      "Consum de energie (Kwh)",
+      "0.94"
+     ],
+     [
+      "Consum de apă (litri / an)",
+      "2660"
+     ],
+     [
+      "Consum de apă (litri)",
+      "9.5"
+     ],
+     [
+      "Programul standard",
+      "Eco 50"
+     ],
+     [
+      "Durată ciclu(minute)",
+      "245"
+     ],
+     [
+      "Zgomot (dB)",
+      "46"
+     ],
+     [
+      "Certificări",
+      "CB; CE"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Conexiune",
+      "EU"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "170"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "2100"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Display digital",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "9"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "6"
+     ],
+     [
+      "Afisaj luminos pe podea",
+      "Da"
+     ],
+     [
+      "Aqua-Logic",
+      "Da"
+     ],
+     [
+      "Selector 3 in 1",
+      "Da"
+     ],
+     [
+      "Dedurizator apă",
+      "Da"
+     ],
+     [
+      "Microfiltru",
+      "Da"
+     ],
+     [
+      "Instalarea în coloană",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Prevenirea scurgerilor interne",
+      "Da"
+     ],
+     [
+      "Aquastop",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Indicator pentru nivel scăzut de sare",
+      "Da"
+     ],
+     [
+      "Pastile pentru clătire",
+      "Da"
+     ],
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Timp rămas",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Programul Uscare / Prespălare",
+      "Da"
+     ],
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program rapid (minute)",
+      "30"
+     ],
+     [
+      "Program de 1 oră",
+      "Da"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Program intens",
+      "Da"
+     ],
+     [
+      "Încărcare la jumătate",
+      "Da"
+     ],
+     [
+      "Timer (programare întârziată) (h)",
+      "1-24 HOURS"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Număr de rafturi",
+      "0"
+     ],
+     [
+      "Al treilea coș",
+      "Da"
+     ],
+     [
+      "Al treilea pulverizator",
+      "Da"
+     ],
+     [
+      "Picioarele din spate cu posibilitatea de reglaj frontal",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "114270001-1.webp",
+   "114270001-2.webp",
+   "114270001-3.webp",
+   "114270001-4.webp",
+   "114270001-5.webp",
+   "114270001-6.webp"
+  ]
+ },
+ {
+  "sku": "114270033",
+  "name": "DFI 46650",
+  "sub": "Mașină de spălat vase complet încorporabilă,  60 cm, capacitate 12 seturi  si panou de control electronic",
+  "price": 12200.0,
+  "old": null,
+  "width": 60,
+  "install": "incorporabil",
+  "cap": "12",
+  "draw": "114270033-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat vase complet încorporabilă",
+   "60 cm",
+   "Capacitate: 12 seturi",
+   "Panou de control electronic",
+   "Display LED de culoare albă",
+   "5 programe de spălare: Spălare rapidă, 1h, Eco, Spălare Intensivă, Spalare normală",
+   "5 nivele de temperature: 45°, 50°, 55°, 60°, 65° C",
+   "1 functie; 2 sertare",
+   "Funcţie Extra-uscare",
+   "Funcţii speciale: Incărcare la jumătate și Pornire programabilă 3-6-9-12 h",
+   "Indicator luminos pentru: nivel sare dedurizare; nivel lichid clătire",
+   "Clasă eficienţă energetică: E;"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "815"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "598"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "32,5"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Capacitate (Poziţionare)",
+      "12"
+     ],
+     [
+      "Consum de energie (kWh / an)",
+      "258"
+     ],
+     [
+      "Consum de energie (Kwh)",
+      "0,908"
+     ],
+     [
+      "Consum de apă (litri / an)",
+      "3080"
+     ],
+     [
+      "Consum de apă (litri)",
+      "11"
+     ],
+     [
+      "Programul standard",
+      "EC0"
+     ],
+     [
+      "Durată ciclu(minute)",
+      "220"
+     ],
+     [
+      "Zgomot (dB)",
+      "47dB"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Conexiune",
+      "EU(VDE PLUG)"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "2100"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "1.4"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "1.5"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Număr de programe",
+      "5"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "5"
+     ],
+     [
+      "Dedurizator apă",
+      "Da"
+     ],
+     [
+      "Microfiltru",
+      "Da"
+     ],
+     [
+      "Instalarea în coloană",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Prevenirea scurgerilor interne",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Indicator pentru nivel scăzut de sare",
+      "Da"
+     ],
+     [
+      "Pastile pentru clătire",
+      "Da"
+     ],
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Alarmă acustică pentru finalul programului",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program de 1 oră",
+      "Da"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Program intens",
+      "Da"
+     ],
+     [
+      "Încărcare la jumătate",
+      "Da"
+     ],
+     [
+      "Timer (programare întârziată) (h)",
+      "3-6-9-12hours"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Număr de rafturi",
+      "0"
+     ],
+     [
+      "Picioarele din spate cu posibilitatea de reglaj frontal",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/DFI-46650_UserManual_EN.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "114270033-1.webp",
+   "114270033-2.webp",
+   "114270033-3.webp",
+   "114270033-4.webp",
+   "114270033-5.webp",
+   "114270033-6.webp"
+  ]
+ },
+ {
+  "sku": "114300007",
+  "name": "DFI 74960",
+  "sub": "Mașină de spălat vase complet încorporabilă, panou de control electronic, prezenţa celui de-al treilea pulverizator, 45 cm",
+  "price": 15800.0,
+  "old": null,
+  "width": 45,
+  "install": "incorporabil",
+  "cap": "10",
+  "draw": "114300007-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat vase complet încorporabilă , 45 cm",
+   "Capacitate: 10 seturi",
+   "Panou de control electronic",
+   "Display LCD",
+   "9 programe de spălare",
+   "6 nivele de temperatură: 35°, 40°, 45°, 50°, 65°, 70° C",
+   "Compartiment culisant pentru detergent",
+   "Sistem microfiltrare",
+   "Program Eco",
+   "Funcţie Express",
+   "Funcţie Uscare premium – sistem automat de deschidere",
+   "Funcţii speciale: Încărcare la jumătate, Express, Spălare Intensivă și Extra-clătire"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "818"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "448"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "28,5"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Înălțimea nișei de încorporare (cm)",
+      "82-87 cm"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Capacitate (Poziţionare)",
+      "10"
+     ],
+     [
+      "Consum de energie (kWh / an)",
+      "201"
+     ],
+     [
+      "Consum de energie (Kwh)",
+      "0.70"
+     ],
+     [
+      "Consum de apă (litri / an)",
+      "2436"
+     ],
+     [
+      "Consum de apă (litri)",
+      "8.7"
+     ],
+     [
+      "Programul standard",
+      "Eco 50"
+     ],
+     [
+      "Durată ciclu(minute)",
+      "184"
+     ],
+     [
+      "Zgomot (dB)",
+      "45"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Conexiune",
+      "EU"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "170"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "2100"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Display digital",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "9"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "6"
+     ],
+     [
+      "Aqua-Logic",
+      "Da"
+     ],
+     [
+      "Selector 3 in 1",
+      "Da"
+     ],
+     [
+      "Dedurizator apă",
+      "Da"
+     ],
+     [
+      "Microfiltru",
+      "Da"
+     ],
+     [
+      "Instalarea în coloană",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Prevenirea scurgerilor interne",
+      "Da"
+     ],
+     [
+      "Aquastop",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Indicator pentru nivel scăzut de sare",
+      "Da"
+     ],
+     [
+      "Pastile pentru clătire",
+      "Da"
+     ],
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Timp rămas",
+      "Da"
+     ],
+     [
+      "Indicator pentru clătire suplimentară",
+      "Da"
+     ],
+     [
+      "Indicator pentru deschiderea automată a ușii",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Programul Uscare / Prespălare",
+      "Da"
+     ],
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program de 1 oră",
+      "Da"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Program intens",
+      "Da"
+     ],
+     [
+      "Încărcare la jumătate",
+      "Da"
+     ],
+     [
+      "Timer (programare întârziată) (h)",
+      "1-24 HOURS"
+     ],
+     [
+      "Clătire suplimentară",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Număr de rafturi",
+      "0"
+     ],
+     [
+      "Al treilea coș",
+      "Da"
+     ],
+     [
+      "Al treilea pulverizator",
+      "Da"
+     ],
+     [
+      "Picioarele din spate cu posibilitatea de reglaj frontal",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/DFI-74960-UserManual-EN.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "114300007-1.webp",
+   "114300007-2.webp",
+   "114300007-3.webp",
+   "114300007-4.webp",
+   "114300007-5.webp",
+   "114300007-6.webp"
+  ]
+ },
+ {
+  "sku": "114300001",
+  "name": "DFI 74910",
+  "sub": "Mașină de spălat vase complet încorporabilă, capacitate 11 seturi, clasă de eficienţă energetică E, 45 cm",
+  "price": 13100.0,
+  "old": null,
+  "width": 45,
+  "install": "incorporabil",
+  "cap": "11",
+  "draw": "114300001-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat vase complet încorporabilă",
+   "45 cm",
+   "Capacitate: 11 seturi",
+   "Panou de control electronic",
+   "Display LED de culoare albă",
+   "9 programe de spălare",
+   "6 nivele de temperatură: 35°, 40°, 45°, 50°, 65°, 70° C",
+   "Senzor MultiCleaner (3 în 1)",
+   "Sistem SmartSensor pentru măsurarea gradului de murdărie",
+   "Program special: Auto-Curăţare",
+   "GlassCare şi DualCare",
+   "Funcţie Extra-uscare"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "818"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "448"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "28,5"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Înălțimea nișei de încorporare (cm)",
+      "82-87 cm"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Capacitate (Poziţionare)",
+      "11"
+     ],
+     [
+      "Consum de energie (kWh / an)",
+      "225"
+     ],
+     [
+      "Consum de energie (Kwh)",
+      "0.78"
+     ],
+     [
+      "Consum de apă (litri / an)",
+      "2436"
+     ],
+     [
+      "Consum de apă (litri)",
+      "8.7"
+     ],
+     [
+      "Programul standard",
+      "Eco 50"
+     ],
+     [
+      "Durată ciclu(minute)",
+      "184"
+     ],
+     [
+      "Zgomot (dB)",
+      "45"
+     ],
+     [
+      "Certificări",
+      "CB; CE"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Conexiune",
+      "EU"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "170"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "2100"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Display digital",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "9"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "6"
+     ],
+     [
+      "Aqua-Logic",
+      "Da"
+     ],
+     [
+      "Selector 3 in 1",
+      "Da"
+     ],
+     [
+      "Dedurizator apă",
+      "Da"
+     ],
+     [
+      "Microfiltru",
+      "Da"
+     ],
+     [
+      "Instalarea în coloană",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Prevenirea scurgerilor interne",
+      "Da"
+     ],
+     [
+      "Aquastop",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Indicator pentru nivel scăzut de sare",
+      "Da"
+     ],
+     [
+      "Pastile pentru clătire",
+      "Da"
+     ],
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Timp rămas",
+      "Da"
+     ],
+     [
+      "Indicator pentru clătire suplimentară",
+      "Da"
+     ],
+     [
+      "Indicator pentru deschiderea automată a ușii",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Programul Uscare / Prespălare",
+      "Da"
+     ],
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program rapid (minute)",
+      "30"
+     ],
+     [
+      "Program de 1 oră",
+      "Da"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Program intens",
+      "Da"
+     ],
+     [
+      "Încărcare la jumătate",
+      "Da"
+     ],
+     [
+      "Timer (programare întârziată) (h)",
+      "1-24 HOURS"
+     ],
+     [
+      "Clătire suplimentară",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Număr de rafturi",
+      "0"
+     ],
+     [
+      "Al treilea coș",
+      "Da"
+     ],
+     [
+      "Al treilea pulverizator",
+      "Da"
+     ],
+     [
+      "Picioarele din spate cu posibilitatea de reglaj frontal",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/DFI-74910-74950-44700-RO-UserManual.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "114300001-1.webp",
+   "114300001-2.webp",
+   "114300001-3.webp",
+   "114300001-4.webp",
+   "114300001-5.webp",
+   "114300001-6.webp"
+  ]
+ },
+ {
+  "sku": "114310008",
+  "name": "DFI 44850",
+  "sub": "Mașină de spălat vase complet încorporabilă, 45 cm, ușă glisantă  si capacitate de 10 seturi",
+  "price": 13100.0,
+  "old": null,
+  "width": 45,
+  "install": "incorporabil",
+  "cap": "10",
+  "draw": "114310008-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat vase complet încorporabilă",
+   "45 cm",
+   "Ușă glisantă",
+   "Capacitate: 10 seturi",
+   "Panou de control electronic",
+   "Display LED de culoare albă",
+   "6 programe de spălare: Spălare rapidă, 1h, Eco, Spălare Intensivă, Spalare normală, GlassCare",
+   "5 nivele de temperatura: 45°, 50°, 55°, 60°, 65° C",
+   "2 functii; 2 sertare + 1 glisant",
+   "Funcţie Extra-uscare, AquaStop",
+   "Funcţii speciale: Incărcare la jumătate și Pornire programabilă 1-24 h",
+   "Indicator luminos pentru: nivel sare dedurizare; nivel lichid clătire"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "815"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "448"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "30,5"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Capacitate (Poziţionare)",
+      "10"
+     ],
+     [
+      "Consum de energie (kWh / an)",
+      "211"
+     ],
+     [
+      "Consum de energie (Kwh)",
+      "0,741"
+     ],
+     [
+      "Consum de apă (litri / an)",
+      "2520"
+     ],
+     [
+      "Consum de apă (litri)",
+      "9"
+     ],
+     [
+      "Programul standard",
+      "ECO"
+     ],
+     [
+      "Durată ciclu(minute)",
+      "235"
+     ],
+     [
+      "Zgomot (dB)",
+      "47"
+     ],
+     [
+      "Certificări",
+      "GS/CE/EMC/LVD/CB"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240 V"
+     ],
+     [
+      "Conexiune",
+      "EU(VDE PLUG)"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "2100W"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800W"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "140"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "183"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Display digital",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "6"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "5"
+     ],
+     [
+      "Dedurizator apă",
+      "Da"
+     ],
+     [
+      "Microfiltru",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Prevenirea scurgerilor interne",
+      "Da"
+     ],
+     [
+      "Aquastop",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Indicator pentru nivel scăzut de sare",
+      "Da"
+     ],
+     [
+      "Pastile pentru clătire",
+      "Da"
+     ],
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Alarmă acustică pentru finalul programului",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program de 1 oră",
+      "Da"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Program intens",
+      "Da"
+     ],
+     [
+      "Încărcare la jumătate",
+      "Da"
+     ],
+     [
+      "Timer (programare întârziată) (h)",
+      "1-24H"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Număr de rafturi",
+      "0"
+     ],
+     [
+      "Picioarele din spate cu posibilitatea de reglaj frontal",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://slyr.s3.amazonaws.com/temp/ZkVoVzk0eUdwNWc9/DFI_44850_UserManual_EN_.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "114310008-1.webp",
+   "114310008-2.webp",
+   "114310008-3.webp",
+   "114310008-4.webp",
+   "114310008-5.webp"
+  ]
+ },
+ {
+  "sku": "114310007",
+  "name": "DFI 44800",
+  "sub": "Mașină de spălat vase complet încorporabilă , 45 cm, capacitate de 10 seturi  si panou de control electronic",
+  "price": 11600.0,
+  "old": null,
+  "width": 45,
+  "install": "incorporabil",
+  "cap": "10",
+  "draw": "114310007-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat vase complet încorporabilă",
+   "45 cm",
+   "Capacitate: 10 seturi",
+   "Panou de control electronic",
+   "Display LED de culoare albă",
+   "6 programe de spălare: Spălare rapidă, 1h, Eco, Spălare Intensivă, Spalare normală, GlassCare",
+   "5 nivele de temperature: 45°, 50°, 55°, 60°, 65° C",
+   "2 functii; 2 sertare + 1 glisant",
+   "Funcţie Extra-uscare, AquaStop",
+   "Funcţii speciale: Incărcare la jumătate și Pornire programabilă 1-24 h",
+   "Indicator luminos pentru: nivel sare dedurizare; nivel lichid clătire",
+   "Clasă eficienţă energetică: E; Clasa eficienta uscare/spalare: A/A"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "815"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "448"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "30,5"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Capacitate (Poziţionare)",
+      "10"
+     ],
+     [
+      "Consum de energie (kWh / an)",
+      "211"
+     ],
+     [
+      "Consum de energie (Kwh)",
+      "0,741"
+     ],
+     [
+      "Consum de apă (litri / an)",
+      "2520"
+     ],
+     [
+      "Consum de apă (litri)",
+      "9"
+     ],
+     [
+      "Programul standard",
+      "ECO"
+     ],
+     [
+      "Durată ciclu(minute)",
+      "235"
+     ],
+     [
+      "Zgomot (dB)",
+      "47"
+     ],
+     [
+      "Certificări",
+      "GS/CE/EMC/LVD/CB"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240 V"
+     ],
+     [
+      "Conexiune",
+      "EU(VDE PLUG)"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "2100W"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800W"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "140"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "183"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Display digital",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "6"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "5"
+     ],
+     [
+      "Dedurizator apă",
+      "Da"
+     ],
+     [
+      "Microfiltru",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Prevenirea scurgerilor interne",
+      "Da"
+     ],
+     [
+      "Aquastop",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Indicator pentru nivel scăzut de sare",
+      "Da"
+     ],
+     [
+      "Pastile pentru clătire",
+      "Da"
+     ],
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Alarmă acustică pentru finalul programului",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program de 1 oră",
+      "Da"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Program intens",
+      "Da"
+     ],
+     [
+      "Încărcare la jumătate",
+      "Da"
+     ],
+     [
+      "Timer (programare întârziată) (h)",
+      "1-24H"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Număr de rafturi",
+      "0"
+     ],
+     [
+      "Picioarele din spate cu posibilitatea de reglaj frontal",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://teka-assets.b-cdn.net/wp-json/custom/v1/generate-zip?urls=https%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2FCMP1219%2Ffiles%2FDFI_44800_UserManual_EN_.pdf%2Chttps%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2FCMP1219%2Ffiles%2F1%2FDFI_44800_UserManual_FR.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "114310007-1.webp",
+   "114310007-2.webp",
+   "114310007-3.webp",
+   "114310007-4.webp",
+   "114310007-5.webp"
+  ]
+ },
+ {
+  "sku": "114350001",
+  "name": "LC 24700 BK",
+  "sub": "Masină de spălat vase compactă, free standing, Panou de control electronic cu display, Capacitate: 6 seturi, Programe de spalare: 7",
+  "price": 8900.0,
+  "old": null,
+  "width": 60,
+  "install": "independent",
+  "cap": "6",
+  "draw": "114350001-draw.webp",
+  "label": "",
+  "desc": [
+   "Masină de spălat vase compactă, free standing",
+   "Panou de control electronic cu display",
+   "Capacitate: 6 seturi",
+   "Programe de spalare: 7",
+   "Temperatura spalare: 40º, 45º, 60º, 65º, 70º C",
+   "Programe speciale: Rapid: 30 minute, GlassCare, Intensiv, ECO",
+   "Functii speciale: Extra-Uscare",
+   "Sistem de seguranta AquaSafe",
+   "Timer: 1-24 h",
+   "Nivel de zgomot: 49 dBA",
+   "Sistem de instalare: coloana"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "438"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "500"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "20"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Certificări",
+      "GS/CE/EMC/LVD/CB"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240 V"
+     ],
+     [
+      "Conexiune",
+      "EU(VDE PLUG)"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "2100W"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800W"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "140"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "150"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Table top"
+     ],
+     [
+      "Display digital",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "7"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "6"
+     ],
+     [
+      "Dedurizator apă",
+      "Da"
+     ],
+     [
+      "Microfiltru",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Prevenirea scurgerilor interne",
+      "Da"
+     ],
+     [
+      "Sistem de siguranţă pentru limitarea accesului copiilor",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Indicator pentru nivel scăzut de sare",
+      "Da"
+     ],
+     [
+      "Pastile pentru clătire",
+      "Da"
+     ],
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Timp rămas",
+      "Da"
+     ],
+     [
+      "Alarmă acustică pentru finalul programului",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Program intens",
+      "Da"
+     ],
+     [
+      "Timer (programare întârziată) (h)",
+      "24"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Număr de rafturi",
+      "0"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "114350001-1.webp",
+   "114350001-2.webp",
+   "114350001-3.webp"
+  ]
+ }
+]

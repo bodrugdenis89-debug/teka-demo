@@ -1,0 +1,2457 @@
+[
+ {
+  "sku": "113960013",
+  "name": "WDK 81050 WH",
+  "sub": "Mașină de spălat rufe free-standing cu uscător prin condensare, Motor Inverter, capacitate spălare: 10 kg , capacitate uscare: 7 kg",
+  "price": 19700.0,
+  "old": null,
+  "kind": "spalat-uscat",
+  "install": "independent",
+  "cap": "70,0 L",
+  "draw": "113960013-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat rufe free-standing cu uscător prin condensare",
+   "Motor Inverter",
+   "400 - 1500 rpm",
+   "Capacitate spălare: 10 kg",
+   "Capacitate uscare: 7 kg",
+   "Panou de control electronic",
+   "14 programe spălare",
+   "Programe speciale: rapid 15 min, ECO, Lană, Delicat, Sport, Bumbac, Hainute bebeluși, Jeans",
+   "Functii speciale: Timer, Spălare rapidă, Abur, Clătire suplimentară, Prespălare, Mute, Nivel de murdărie, Spălare de noapte, Memorie",
+   "Sistem de control al balansului",
+   "Sistem de reglare automată a apei",
+   "Sistem de siguranță pentru blocarea automată a ușii"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "70,0 L"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "850"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "630"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "72"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50 Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240 V~"
+     ],
+     [
+      "Conexiune",
+      "EU"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "1900 W"
+     ],
+     [
+      "Puterea nominală a motorului (W)",
+      "420 W"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800 W"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "1.5"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Tambur din inox",
+      "Da"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "6"
+     ],
+     [
+      "Sistem de siguranţă pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Ușă cu blocare automată",
+      "Da"
+     ],
+     [
+      "Butonul de anulare a ciclului de centrifugare",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Timp rămas",
+      "Da"
+     ],
+     [
+      "Uscare",
+      "Da"
+     ],
+     [
+      "Timer uscare (minute)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program rapid (minute)",
+      "15 min"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Timer (programare întârziată) (h)",
+      "1"
+     ],
+     [
+      "Țesături delicate",
+      "Da"
+     ],
+     [
+      "Rezistent",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/WDK_81050_UserManual_EN-ES-PT.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "113960013-1.webp"
+  ]
+ },
+ {
+  "sku": "113900019",
+  "name": "WMK 71240 WH",
+  "sub": "Mașină de spălat rufe free-standing fără uscător, Motor Inverter, 400 -  1400 rpm",
+  "price": 16600.0,
+  "old": null,
+  "kind": "spalat",
+  "install": "independent",
+  "cap": "76,0 L",
+  "draw": "113900019-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat rufe free-standing fără uscător",
+   "Motor Inverter",
+   "400 - 1400 rpm",
+   "Capacitate spălare: 12 kg",
+   "Panou de control electronic",
+   "Touch Control",
+   "14 programe spălare",
+   "Programe speciale: rapid 15 min, ECO, Lană, Delicat, Sport, Bumbac, Hainute bebeluși, Jeans, Sterilizare",
+   "Functii speciale: Timer, Spălare rapidă, Abur, Clătire suplimentară, Prespălare, Memento pentru curățarea tamburului, Mute, Nivel de murdărie, Spălare de noapte, Memorie",
+   "Sistem de control al balansului",
+   "Sistem de reglare automată a apei",
+   "Sistem de siguranță pentru blocarea automată a ușii"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "76,0 L"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "850"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "660"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "73"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50 Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240 V~"
+     ],
+     [
+      "Conexiune",
+      "EU"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1.5 m"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "2000 W"
+     ],
+     [
+      "Puterea nominală a motorului (W)",
+      "420"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "1.5"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Tambur din inox",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "14"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "6"
+     ],
+     [
+      "Managementul electronic al spălării",
+      "Da"
+     ],
+     [
+      "Sistem de siguranţă pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Ușă cu blocare automată",
+      "Da"
+     ],
+     [
+      "Butonul de anulare a ciclului de centrifugare",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Timp rămas",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program rapid (minute)",
+      "15 min"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Țesături delicate",
+      "Da"
+     ],
+     [
+      "Rezistent",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/WMK_70840_70940_71240_UserManual_EN-ES-PT.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "113900019-1.webp"
+  ]
+ },
+ {
+  "sku": "113900017",
+  "name": "WMK 70940 WH",
+  "sub": "Mașină de spălat rufe free-standing fără uscător, Motor Inverter, 400 -  1400 rpm, Capacitate spălare: 9 kg",
+  "price": 13800.0,
+  "old": null,
+  "kind": "spalat",
+  "install": "independent",
+  "cap": "64,0 L",
+  "draw": "113900017-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat rufe free-standing fără uscător",
+   "Motor Inverter",
+   "400 - 1400 rpm",
+   "Capacitate spălare: 9 kg",
+   "Panou de control electronic",
+   "Touch Control",
+   "14 programe spălare",
+   "Programe speciale: rapid 15 min, ECO, Lană, Delicat, Sport, Bumbac, Hainute bebeluși, Jeans, Sterilizare",
+   "Functii speciale: Timer, Spălare rapidă, Abur, Clătire suplimentară, Prespălare, Memento pentru curățarea tamburului, Mute, Nivel de murdărie, Spălare de noapte, Memorie",
+   "Sistem de control al balansului",
+   "Sistem de reglare automată a apei",
+   "Sistem de siguranță pentru blocarea automată a ușii"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "64,0 L"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "850"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "599"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "65"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50 Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240 V~"
+     ],
+     [
+      "Conexiune",
+      "EU"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1.5 m"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "1950 W"
+     ],
+     [
+      "Puterea nominală a motorului (W)",
+      "420"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "1.5"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Tambur din inox",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "14"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "6"
+     ],
+     [
+      "Managementul electronic al spălării",
+      "Da"
+     ],
+     [
+      "Sistem de siguranţă pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Ușă cu blocare automată",
+      "Da"
+     ],
+     [
+      "Butonul de anulare a ciclului de centrifugare",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Timp rămas",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program rapid (minute)",
+      "15 min"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Țesături delicate",
+      "Da"
+     ],
+     [
+      "Rezistent",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://slyr.s3.amazonaws.com/temp/ZkVoVzk0eUdwNWc9/WMK_70940_EU_WH_EN-ES-PT.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "113900017-1.webp"
+  ]
+ },
+ {
+  "sku": "113910020",
+  "name": "WMK 40940 WH",
+  "sub": "Mașină de spălat rufe free-standing fără uscător, Motor Inverter, 400 -  1400 rpm, Capacitate spălare: 9 kg",
+  "price": 11900.0,
+  "old": null,
+  "kind": "spalat",
+  "install": "independent",
+  "cap": "56,0 L",
+  "draw": "113910020-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat rufe free-standing fără uscător",
+   "Motor Inverter",
+   "400 - 1400 rpm",
+   "Capacitate spălare: 9 kg",
+   "Panou de control electronic",
+   "Touch Control",
+   "15 programe spălare",
+   "Programe speciale: rapid 15 min, ECO, Lană, Delicat, Sport, Bumbac, Hainute bebeluși, Jeans",
+   "Functii speciale: Timer, Spălare rapidă, Abur, Clătire suplimentară, Prespălare, Memento pentru curățarea tamburului, Mute",
+   "Sistem de control al balansului",
+   "Sistem de reglare automată a apei",
+   "Sistem de siguranță pentru blocarea automată a ușii"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "56,0 L"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "850"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "555"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "61"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50 Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240 V~"
+     ],
+     [
+      "Conexiune",
+      "EU"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1.5 m"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "1950 W"
+     ],
+     [
+      "Puterea nominală a motorului (W)",
+      "420"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "1.5"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Tambur din inox",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "15"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "5"
+     ],
+     [
+      "Managementul electronic al spălării",
+      "Da"
+     ],
+     [
+      "Sistem de siguranţă pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Ușă cu blocare automată",
+      "Da"
+     ],
+     [
+      "Butonul de anulare a ciclului de centrifugare",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Timp rămas",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program rapid (minute)",
+      "15 min"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Țesături delicate",
+      "Da"
+     ],
+     [
+      "Rezistent",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://slyr.s3.amazonaws.com/temp/ZkVoVzk0eUdwNWc9/WMK_40940_WH_UserManual_EN-ES-PT.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "113910020-1.webp"
+  ]
+ },
+ {
+  "sku": "113910018",
+  "name": "WMK 40840 WH",
+  "sub": "Mașină de spălat rufe free-standing fără uscător, Motor Inverter, 400 -  1400 rpm, Capacitate spălare: 8 kg",
+  "price": 11400.0,
+  "old": null,
+  "kind": "spalat",
+  "install": "independent",
+  "cap": "52,7 L",
+  "draw": "113910018-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat rufe free-standing fără uscător",
+   "Motor Inverter",
+   "400 - 1400 rpm",
+   "Capacitate spălare: 8 kg",
+   "Panou de control electronic",
+   "Touch Control",
+   "15 programe spălare",
+   "Programe speciale: rapid 15 min, ECO, Lană, Delicat, Sport, Bumbac, Hainute bebeluși, Jeans",
+   "Functii speciale: Timer, Spălare rapidă, Abur, Clătire suplimentară, Prespălare, Memento pentru curățarea tamburului, Mute",
+   "Sistem de control al balansului",
+   "Sistem de reglare automată a apei",
+   "Sistem de siguranță pentru blocarea automată a ușii"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "52,7 L"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "850"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "533"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "60"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50 Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240 V~"
+     ],
+     [
+      "Conexiune",
+      "EU"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1.5 m"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "1950 W"
+     ],
+     [
+      "Puterea nominală a motorului (W)",
+      "420"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "1.5"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Tambur din inox",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "15"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "5"
+     ],
+     [
+      "Managementul electronic al spălării",
+      "Da"
+     ],
+     [
+      "Sistem de siguranţă pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Ușă cu blocare automată",
+      "Da"
+     ],
+     [
+      "Butonul de anulare a ciclului de centrifugare",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Timp rămas",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program rapid (minute)",
+      "15 min"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Țesături delicate",
+      "Da"
+     ],
+     [
+      "Rezistent",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://slyr.s3.amazonaws.com/temp/ZkVoVzk0eUdwNWc9/WMK_40840_UserManual_EN-ES-PT.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "113910018-1.webp"
+  ]
+ },
+ {
+  "sku": "113920010",
+  "name": "WMK 10620 WH",
+  "sub": "Mașină de spălat rufe free-standing fără uscător, 400 -  1200 rpm, Capacitate spălare: 6 kg",
+  "price": 9400.0,
+  "old": null,
+  "kind": "spalat",
+  "install": "independent",
+  "cap": "45L",
+  "draw": "113920010-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat rufe free-standing fără uscător",
+   "400 - 1200 rpm",
+   "Capacitate spălare: 6 kg",
+   "Panou de control electronic",
+   "Touch Control",
+   "15 programe spălare",
+   "Programe speciale: rapid 15 min, ECO, Lană, Delicat, Sport, Bumbac, Hainute bebeluși, Jeans",
+   "Functii speciale: Timer, Spălare rapidă, Abur, Clătire suplimentară, Prespălare, Memento pentru curățarea tamburului, Mute",
+   "Sistem de control al balansului",
+   "Sistem de reglare automată a apei",
+   "Sistem de siguranță pentru blocarea automată a ușii",
+   "Sistem de blocare impotriva accesului copiilor"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "45L"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "850"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "465"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "55"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50 Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240 V~"
+     ],
+     [
+      "Conexiune",
+      "EU"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1.5 m"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "2050 W"
+     ],
+     [
+      "Puterea nominală a motorului (W)",
+      "400"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "1.5"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Tambur din inox",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "15"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "5"
+     ],
+     [
+      "Managementul electronic al spălării",
+      "Da"
+     ],
+     [
+      "Sistem de siguranţă pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Ușă cu blocare automată",
+      "Da"
+     ],
+     [
+      "Butonul de anulare a ciclului de centrifugare",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Timp rămas",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program rapid (minute)",
+      "15 min"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Țesături delicate",
+      "Da"
+     ],
+     [
+      "Rezistent",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/2/WMK_10620_UserManual_EN-ES-PT.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "113920010-1.webp"
+  ]
+ },
+ {
+  "sku": "114030005",
+  "name": "LSI6 1480 WH",
+  "sub": "Masină de spălat rufe incorporabilă cu uscator prin condensare dotat cu pompa de caldura, Motor Inverter, Capacitate spălare: 8 kg,  Capacitate uscare: 6 kg",
+  "price": 21200.0,
+  "old": null,
+  "kind": "spalat-uscat",
+  "install": "incorporabil",
+  "cap": "52,7",
+  "draw": "114030005-draw.webp",
+  "label": "",
+  "desc": [
+   "Masină de spălat rufe incorporabilă cu uscator prin condensare dotat cu pompa de caldura",
+   "Panou de control electronic, display digital",
+   "Motor Inverter",
+   "Capacitate spălare: 8 kg",
+   "Capacitate uscare: 6 kg",
+   "16 programe de spălare",
+   "Programe speciale pentru Lână, Delicate, tip spălare manuală, ECO, Sport, Program rapid 45’",
+   "Functii speciale: programare diferita, spalare rapida",
+   "Turatie maximă: 1400 rpm",
+   "Sistem de reglare automată a apei",
+   "Sistem de siguranță pentru blocarea automată a ușii",
+   "Sistem de blocare impotriva accesului copiilor"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "52,7"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "825"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "540"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "63"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Capacitate de uscare (Kgs)",
+      "6"
+     ],
+     [
+      "Consum de energie (kWh / an)",
+      "150"
+     ],
+     [
+      "Consum de apă (litri / an)",
+      "12800"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Conexiune",
+      "EU"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "1900"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "1.6"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Număr de programe",
+      "16"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "0-20-30-40-60-90"
+     ],
+     [
+      "Sistem de siguranţă pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Ușă cu blocare automată",
+      "Da"
+     ],
+     [
+      "Butonul de anulare a ciclului de centrifugare",
+      "Da"
+     ],
+     [
+      "Blat detașabil",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Timp rămas",
+      "Da"
+     ],
+     [
+      "Uscare",
+      "Da"
+     ],
+     [
+      "Timer uscare (minute)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program rapid (minute)",
+      "45"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Program intens",
+      "Da"
+     ],
+     [
+      "Timer (programare întârziată) (h)",
+      "24"
+     ],
+     [
+      "Țesături delicate",
+      "Da"
+     ],
+     [
+      "Rezistent",
+      "Da"
+     ],
+     [
+      "Ușor de călcat / Anti-șifonare",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/LSI6_1480-UserManual-EN-ES-PT.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "114030005-1.webp",
+   "114030005-2.webp",
+   "114030005-3.webp",
+   "114030005-4.webp",
+   "114030005-5.webp",
+   "114030005-6.webp"
+  ]
+ },
+ {
+  "sku": "114010001",
+  "name": "LI6 1471",
+  "sub": "Masină de spălat rufe incorporabilă, Motor Inverter, Display digital, 16 programe de spălare",
+  "price": 17700.0,
+  "old": null,
+  "kind": "spalat",
+  "install": "incorporabil",
+  "cap": "52,7",
+  "draw": "114010001-draw.webp",
+  "label": "",
+  "desc": [
+   "Masină de spălat rufe incorporabilă",
+   "Finisaj: Alb",
+   "Motor Inverter",
+   "Panou de control electronic",
+   "Display digital",
+   "16 programe de spălare",
+   "Pornire programabilă: 1-24 h",
+   "Capacitate spălare: 7 Kg",
+   "600 -1400 rpm",
+   "Gestionare electronică a procesului de spălare",
+   "Sistem de control al balansului",
+   "Reglarea automată a consumului de apă"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "52,7"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Consum de energie (kWh / an)",
+      "44 kW·h/100 cycles"
+     ],
+     [
+      "Consum de apă (litri / an)",
+      "45 L/cycle"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "1950"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Tambur din inox",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "16"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "Cold-20-30-40-60-90"
+     ],
+     [
+      "Managementul electronic al spălării",
+      "Da"
+     ],
+     [
+      "Sistem de siguranţă pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Ușă cu blocare automată",
+      "Da"
+     ],
+     [
+      "Butonul de anulare a ciclului de centrifugare",
+      "Da"
+     ],
+     [
+      "Blat detașabil",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program rapid (minute)",
+      "15"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Program intens",
+      "Da"
+     ],
+     [
+      "Țesături delicate",
+      "Da"
+     ],
+     [
+      "Rezistent",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "114010001-1.webp",
+   "114010001-2.webp",
+   "114010001-3.webp",
+   "114010001-4.webp",
+   "114010001-5.webp",
+   "114010001-6.webp"
+  ]
+ },
+ {
+  "sku": "114060008",
+  "name": "SHK 70840 WH",
+  "sub": "Uscator free-standing prin condensare cu pompa de caldura, Capacitate de uscare: 8 kg, 14 programe",
+  "price": 17100.0,
+  "old": null,
+  "kind": "uscator",
+  "install": "independent",
+  "cap": "8 kg",
+  "draw": "114060008-draw.webp",
+  "label": "",
+  "desc": [
+   "Uscator free-standing prin condensare cu pompa de caldura",
+   "Control electronic cu display digital",
+   "Capacitate de uscare: 8 kg",
+   "14 programe",
+   "Sistem de rotatie bidirectional",
+   "Sistem de blocare de siguranta pentru limitarea accesului copiilor",
+   "Indictor LED pentru: on/off, saturarea filtrului, rezervor plin",
+   "Indicator pentru afisarea timpului ramas",
+   "Pornire programabila",
+   "Program ECO",
+   "Program tesaturi din lana",
+   "Program de ingrijire haine bebelusi"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "845"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "600"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "41"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ],
+     [
+      "Capacitate de uscare (Kgs)",
+      "8"
+     ],
+     [
+      "Eficiența de condensare",
+      "B"
+     ],
+     [
+      "Consumul de energie pe ciclu de uscare (încărcare completă) (kWh)",
+      "1.74"
+     ],
+     [
+      "Consum de energie (kWh / an)",
+      "216 kWh/annum"
+     ],
+     [
+      "Durata ciclului de uscare (încărcare completă) (minute)",
+      "162"
+     ],
+     [
+      "Automat (senzor uscare)",
+      "Da"
+     ],
+     [
+      "Certificări",
+      "EMC/ERP/LVD/ROHS/REACH"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "800"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Număr de programe",
+      "14"
+     ],
+     [
+      "Sistem de siguranţă pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Butonul de anulare a ciclului de centrifugare",
+      "Da"
+     ],
+     [
+      "Rotire bidirecțională",
+      "Da"
+     ],
+     [
+      "Iluminare tambur",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Timp rămas",
+      "Da"
+     ],
+     [
+      "Uscare",
+      "Da"
+     ],
+     [
+      "Timer uscare (minute)",
+      "Da"
+     ],
+     [
+      "Indicator rezervor de apă plin",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Țesături delicate",
+      "Da"
+     ],
+     [
+      "Rezistent",
+      "Da"
+     ],
+     [
+      "Ușor de călcat / Anti-șifonare",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/SHK_70840_EN-ES-PT.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "114060008-1.webp"
+  ]
+ },
+ {
+  "sku": "114060005",
+  "name": "SCK 70820 WH",
+  "sub": "Uscator free-standing prin condensare, Capacitate de uscare: 8 kg, 14 programe",
+  "price": 13000.0,
+  "old": null,
+  "kind": "uscator",
+  "install": "independent",
+  "cap": "8 kg",
+  "draw": "114060005-draw.webp",
+  "label": "",
+  "desc": [
+   "Uscator free-standing prin condensare",
+   "Control electronic cu display digital",
+   "Capacitate de uscare: 8 kg",
+   "14 programe",
+   "Sistem de rotatie bidirectional",
+   "Sistem de blocare de siguranta pentru limitarea accesului copiilor",
+   "Indictor LED pentru: on/off, afisarea timpului ramas",
+   "Pornire programabila",
+   "Program ECO",
+   "Program tesaturi din lana",
+   "Program anti-sifonare",
+   "Program pentru tesaturi delicate"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "845"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "615"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "41"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ],
+     [
+      "Capacitate de uscare (Kgs)",
+      "8"
+     ],
+     [
+      "Eficiența de condensare",
+      "B"
+     ],
+     [
+      "Consumul de energie pe ciclu de uscare (încărcare completă) (kWh)",
+      "4.73"
+     ],
+     [
+      "Consum de energie (kWh / an)",
+      "561 kWh/annum"
+     ],
+     [
+      "Durata ciclului de uscare (încărcare completă) (minute)",
+      "111"
+     ],
+     [
+      "Automat (senzor uscare)",
+      "Da"
+     ],
+     [
+      "Certificări",
+      "EMC/ERP/LVD/ROHS/REACH"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "2700"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Număr de programe",
+      "14"
+     ],
+     [
+      "Sistem de siguranţă pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Butonul de anulare a ciclului de centrifugare",
+      "Da"
+     ],
+     [
+      "Rotire bidirecțională",
+      "Da"
+     ],
+     [
+      "Iluminare tambur",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Timp rămas",
+      "Da"
+     ],
+     [
+      "Uscare",
+      "Da"
+     ],
+     [
+      "Timer uscare (minute)",
+      "Da"
+     ],
+     [
+      "Indicator rezervor de apă plin",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Țesături delicate",
+      "Da"
+     ],
+     [
+      "Rezistent",
+      "Da"
+     ],
+     [
+      "Ușor de călcat / Anti-șifonare",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/SCK_70820_%28code_114060005%29_user_manual.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "114060005-1.webp"
+  ]
+ },
+ {
+  "sku": "113900015",
+  "name": "WMK 81050",
+  "sub": "Mașină de spălat cu o capacitate de 10 kg, sistem AutoDose și 14 programe",
+  "price": 15200.0,
+  "old": null,
+  "kind": "spalat",
+  "install": "independent",
+  "cap": "",
+  "draw": "113900015-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat independentă",
+   "Sistem AutoDose",
+   "Motor invertor",
+   "Panou de control electronic cu afișaj",
+   "Capacitate de spălare: 10 kg",
+   "14 programe de spălare",
+   "Programe speciale: Program rapid: 15 minute, program mod ECO, program de îngrijire a lânii",
+   "Funcții speciale: Funcție temporizator cu întârziere, funcție de spălare rapidă, funcție de abur, funcție de clătire suplimentară",
+   "Sistem SmartWash",
+   "Viteză maximă de rotație: 1500 RPM",
+   "Reglarea automată a apei",
+   "Sistem automat de siguranță pentru blocarea ușilor"
+  ],
+  "specs": [],
+  "pdf": [],
+  "src": "md",
+  "img": [
+   "113900015-1.webp",
+   "113900015-2.webp",
+   "113900015-3.webp"
+  ]
+ },
+ {
+  "sku": "113920019",
+  "name": "WM 20841 W EU",
+  "sub": "Mașină de spălat rufe free-standing fără uscător, Motor Inverter, Touch Control, 15 programe, 400 - 1400 rpm, Capacitate spălare: 8 kg",
+  "price": 12200.0,
+  "old": null,
+  "kind": "spalat",
+  "install": "independent",
+  "cap": "52.7 L",
+  "draw": "113920019-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat rufe free-standing fără uscător",
+   "Motor Inverter",
+   "400 - 1400 rpm",
+   "Capacitate spălare: 8 kg",
+   "Panou de control electronic",
+   "Touch Control",
+   "15 programe spălare",
+   "Programe speciale: rapid 15 min, ECO, Lană, Delicat, Sport, Bumbac, Hainute bebeluși, Jeans, PetHair",
+   "Functii speciale: Timer, Spălare rapidă, SteamCare, Clătire suplimentară, Prespălare, Memento pentru curățarea tamburului, Mute",
+   "Sistem de control al balansului",
+   "SmartWash Technology",
+   "Sistem de reglare automată a apei"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "52.7 L"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "850"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "490"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "64"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Conexiune",
+      "Schuko"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1.5 M"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1880"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "1.8"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Număr de programe",
+      "15"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/WM_20841_W_EU-UserManual-RO.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "113920019-1.webp",
+   "113920019-2.webp",
+   "113920019-3.webp",
+   "113920019-4.webp",
+   "113920019-5.webp",
+   "113920019-6.webp"
+  ]
+ },
+ {
+  "sku": "113920028",
+  "name": "WM 20941 W EU",
+  "sub": "Mașină de spălat rufe free-standing fără uscător, Motor Inverter, Touch Control, 15 programe, 400 - 1400 rpm, Capacitate spălare: 9 kg",
+  "price": 14200.0,
+  "old": null,
+  "kind": "spalat",
+  "install": "independent",
+  "cap": "64.0 L",
+  "draw": "113920028-draw.webp",
+  "label": "",
+  "desc": [
+   "Mașină de spălat rufe free-standing fără uscător",
+   "Motor Inverter",
+   "400 - 1400 rpm",
+   "Capacitate spălare: 9 kg",
+   "Panou de control electronic",
+   "Touch Control",
+   "15 programe spălare",
+   "Programe speciale: rapid 15 min, ECO, Lană, Delicat, Sport, Bumbac, Hainute bebeluși, Jeans, PetHair",
+   "Functii speciale: Timer, Spălare rapidă, SteamCare, Clătire suplimentară, Prespălare, Memento pentru curățarea tamburului, Mute",
+   "Sistem de control al balansului",
+   "SmartWash Technology",
+   "Sistem de reglare automată a apei"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "64.0 L"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "850"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "555"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "67"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Conexiune",
+      "Schuko"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1.5 M"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1880"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "1.8"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Număr de programe",
+      "15"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/WM_20941_W_EU-UserManual-RO.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "113920028-1.webp",
+   "113920028-2.webp",
+   "113920028-3.webp",
+   "113920028-4.webp",
+   "113920028-5.webp",
+   "113920028-6.webp"
+  ]
+ },
+ {
+  "sku": "114080008",
+  "name": "D 208D W EU",
+  "sub": "Uscător free-standing prin condensare cu pompă de căldură, Capacitate de uscare: 8 kg, 16 programe",
+  "price": 12200.0,
+  "old": null,
+  "kind": "uscator",
+  "install": "independent",
+  "cap": "8 kg",
+  "draw": "114080008-draw.webp",
+  "label": "",
+  "desc": [
+   "Uscător free-standing prin condensare cu pompă de căldură",
+   "Motor inverter",
+   "FreshBreeze Technology",
+   "Control electronic cu display digital",
+   "Capacitate de uscare: 8 kg",
+   "16 programe",
+   "Senzor SmartDry pentru controlul precis al uscării",
+   "Barieră Hygiene, reducere a alergenilor cu 99%",
+   "Programe speciale: Bumbac, Sintetice, Mix, Lână, Alergii, “Refresh”, Bed&Bath, Uscare, Rapid 30’, ECO, Sport, Ţesături delicate, Îngrijire haine bebeluși, Blugi, Cămăși",
+   "Funcții speciale: UV, Anti-șifonare, Nivel de uscare",
+   "Indicator pentru afişarea timpului rămas",
+   "Pornire programabila"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "850"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "600"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "46"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free Standing"
+     ],
+     [
+      "Capacitate de uscare (Kgs)",
+      "8"
+     ],
+     [
+      "Eficiența de condensare",
+      "D"
+     ],
+     [
+      "Consumul de energie pe ciclu de uscare (încărcare completă) (kWh)",
+      "1.78"
+     ],
+     [
+      "Consum de energie (kWh / an)",
+      "119"
+     ],
+     [
+      "Durata ciclului de uscare (încărcare completă) (minute)",
+      "210"
+     ],
+     [
+      "Automat (senzor uscare)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Conexiune",
+      "Schuko"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "1.5 M"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "800"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Număr de programe",
+      "16"
+     ],
+     [
+      "Sistem de siguranţă pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ],
+     [
+      "Iluminare tambur",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/D_208D_W_EU-UserManual-RO.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "114080008-1.webp",
+   "114080008-2.webp",
+   "114080008-3.webp",
+   "114080008-4.webp",
+   "114080008-5.webp",
+   "114080008-6.webp"
+  ]
+ }
+]

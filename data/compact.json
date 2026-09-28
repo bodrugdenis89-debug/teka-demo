@@ -1,0 +1,2500 @@
+[
+ {
+  "sku": "40589920",
+  "name": "CP 15 GS",
+  "sub": "Sertar termic telescopic, ideal pentru a fi combinat cu modelele de cuptoare compacte si microunde",
+  "price": 10400.0,
+  "old": null,
+  "kind": "sertar-termic",
+  "col": "negru",
+  "brand": "Teka",
+  "draw": "",
+  "label": "",
+  "desc": [
+   "Sertar termic telescopic",
+   "Capacitate: 6 farfurii",
+   "Înălţime utilă: 10 cm",
+   "Interval temperatură: 30°-80°C",
+   "Putere maximă nominală: 430 W",
+   "Ideal pentru a fi combinat cu modelele de cuptoare compacte si microunde"
+  ],
+  "specs": [],
+  "pdf": [],
+  "src": "md",
+  "img": [
+   "40589920-1.webp",
+   "40589920-2.webp",
+   "40589920-3.webp",
+   "40589920-4.webp",
+   "40589920-5.webp"
+  ]
+ },
+ {
+  "sku": "40589951",
+  "name": "VS 152 GS",
+  "sub": "Aparat de vidat cu cântar de bucătărie cu capac de protecţie şi sistem de închidere a uşii SoftClose",
+  "price": 15900.0,
+  "old": null,
+  "kind": "aparat-de-vidat",
+  "col": "negru",
+  "brand": "Teka",
+  "draw": "40589951-draw.webp",
+  "label": "",
+  "desc": [
+   "Aparat de vidat",
+   "Cântar de bucătărie cu capac de protecţie",
+   "Suport pentru rolă de folie de aluminiu",
+   "Compartiment pentru accesorii",
+   "Sistem de închidere a uşii SoftClose",
+   "Ideal pentru a fi combinat cu modelele de cuptoare compacte şi microunde"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "100"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "470"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "500"
+     ],
+     [
+      "Capacitatea (litri)",
+      "23/23"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "140"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "557"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE"
+     ],
+     [
+      "Numărul de cavități",
+      "2"
+     ],
+     [
+      "Numărul ghidajelor",
+      "0"
+     ],
+     [
+      "Numărul ghidajelor (cavitatea inferioară)",
+      "0"
+     ],
+     [
+      "Mâner",
+      "Push-pull"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "115"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Conexiune",
+      "Schuko"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/carte-energetica-compacte.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "40589951-1.webp",
+   "40589951-2.webp",
+   "40589951-3.webp",
+   "40589951-4.webp",
+   "40589951-5.webp",
+   "40589951-6.webp"
+  ]
+ },
+ {
+  "sku": "121630008",
+  "name": "CKV6800.0KSM MattBlack",
+  "sub": "MattBlack Design Line. Fully automatic coffee machine with TFT touch display",
+  "price": 97900.0,
+  "old": null,
+  "kind": "espresso",
+  "col": "negru",
+  "brand": "Küppersbusch",
+  "draw": "",
+  "label": "",
+  "desc": [],
+  "specs": [],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/1/USER_MANUAL-CKV6800_0_DE_EN_ES_NL_FR_IT.pdf"
+  ],
+  "src": "kb",
+  "img": [
+   "121630008-1.webp",
+   "121630008-2.webp",
+   "121630008-3.webp",
+   "121630008-4.webp",
+   "121630008-5.webp",
+   "121630008-6.webp"
+  ]
+ },
+ {
+  "sku": "121240001",
+  "name": "CBD 6550.0S",
+  "sub": "Compact steam oven with ökotherm®, TFT display, roasting thermometer and 22 functions",
+  "price": 58600.0,
+  "old": null,
+  "kind": "cuptor-abur",
+  "col": "negru",
+  "brand": "Küppersbusch",
+  "draw": "",
+  "label": "",
+  "desc": [],
+  "specs": [],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/6/CBD6550-0-UserManual-EN.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/EU_FICHE-CBD6550-0S-EN.pdf"
+  ],
+  "src": "kb",
+  "img": [
+   "121240001-1.webp",
+   "121240001-2.webp",
+   "121240001-3.webp",
+   "121240001-4.webp",
+   "121240001-5.webp"
+  ]
+ },
+ {
+  "sku": "121170001",
+  "name": "CBM6550.0S",
+  "sub": "Cuptor combi, compact cu sistem ökotherm® și 24 de funcții, în variantele de finisaj Negru și Inox",
+  "price": 70100.0,
+  "old": null,
+  "kind": "cuptor-compact",
+  "col": "negru",
+  "brand": "Küppersbusch",
+  "draw": "",
+  "label": "",
+  "desc": [
+   "Convertor catalitic ökotherm®",
+   "14 programe",
+   "8 funcţii speciale",
+   "2 programe pentru microunde (exclusiv microunde sau în combinaţie cu oricare funcţie a cuptorului)",
+   "Microunde 10 nivele de putere",
+   "Microunde 1000 W",
+   "Funcţie Quick-start",
+   "Peste 40 programe automate",
+   "20 programe favorite",
+   "Display TFT 3,9´´, cu text clar și afișaj grafic",
+   "Control electronic al cuptorului prin intermediul senzorilor touch control back-lit",
+   "Indicarea temperaturii curente și recomandarea temperaturii optime"
+  ],
+  "specs": [],
+  "pdf": [],
+  "src": "md",
+  "img": [
+   "121170001-1.webp"
+  ]
+ },
+ {
+  "sku": "121630009",
+  "name": "CKV6800.0S",
+  "sub": "Fully automatic coffee machine with TFT touch display",
+  "price": 94700.0,
+  "old": null,
+  "kind": "espresso",
+  "col": "negru",
+  "brand": "Küppersbusch",
+  "draw": "",
+  "label": "",
+  "desc": [],
+  "specs": [],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/1/USER_MANUAL-CKV6800_0_DE_EN_ES_NL_FR_IT.pdf"
+  ],
+  "src": "kb",
+  "img": [
+   "121630009-1.webp",
+   "121630009-2.webp",
+   "121630009-3.webp",
+   "121630009-4.webp",
+   "121630009-5.webp",
+   "121630009-6.webp"
+  ]
+ },
+ {
+  "sku": "111160015",
+  "name": "HLC 84-G1 BM",
+  "sub": "Cuptor compact multifuncțional, combi-microunde 11 funcţii. Editie speciala Design Infinity G1",
+  "price": 31200.0,
+  "old": null,
+  "kind": "cuptor-compact",
+  "col": "negru",
+  "brand": "Teka",
+  "draw": "111160015-draw.webp",
+  "label": "",
+  "desc": [
+   "Editie speciala Design Infinity G1",
+   "Cuptor compact multifuncțional, combi-microunde",
+   "11 funcţii",
+   "Funcţie TURBO",
+   "Funcţii: microunde, pizza & ECO",
+   "Sistem de curăţare HydroClean®",
+   "Email Slippery",
+   "Touch Control & butoane",
+   "Putere maxi grill: 2.500 W",
+   "Putere microunde: 1.000 W",
+   "Decongelare în funcţie de timp şi greutate",
+   "Sistem de siguranţă pentru limitarea accesului copiilor"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "232"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "365"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "40"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "41"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "455"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "559"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "30,0"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB"
+     ],
+     [
+      "Cavitatea emailată",
+      "Da"
+     ],
+     [
+      "Regulator de temperatură Min. (ºC)",
+      "50"
+     ],
+     [
+      "Regulator de temperatură Max. (ºC)",
+      "250"
+     ],
+     [
+      "Selector de funcții",
+      "Mechanical"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "11"
+     ],
+     [
+      "Încălzire convenţională",
+      "Da"
+     ],
+     [
+      "Funcția MaxiGrill",
+      "Da"
+     ],
+     [
+      "Convecţie",
+      "Da"
+     ],
+     [
+      "MaxiGrill + Ventilaţie",
+      "Da"
+     ],
+     [
+      "Element inferior de încălzire",
+      "Da"
+     ],
+     [
+      "Element inferior de încălzire + TURBO (Pizza)",
+      "Da"
+     ],
+     [
+      "Funcţia TURBO",
+      "Da"
+     ],
+     [
+      "Funcția ECO",
+      "Da"
+     ],
+     [
+      "Programator Touch Control",
+      "Da"
+     ],
+     [
+      "Suporturi cromate detaşabile",
+      "Da"
+     ],
+     [
+      "Numărul ghidajelor",
+      "5"
+     ],
+     [
+      "Refrigerare tangențială forțată (1 viteză)",
+      "Da"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Funcța Microunde + grill",
+      "Da"
+     ],
+     [
+      "Funcția Microunde + turbo",
+      "Da"
+     ],
+     [
+      "Funcţia Microunde + Încălzire convenţională",
+      "Da"
+     ],
+     [
+      "Decongelare la microunde",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ],
+     [
+      "Pornire rapidă (secunde)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "3400"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "25"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Element inferior de încălzire (W)",
+      "1000"
+     ],
+     [
+      "Maxi Grill (W)",
+      "2500"
+     ],
+     [
+      "Tradițional (W)",
+      "2100"
+     ],
+     [
+      "Turbo (W)",
+      "1600"
+     ],
+     [
+      "Turbo multifuncțional (W)",
+      "30"
+     ],
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ],
+     [
+      "Tavă cu protecţie la răsturnare",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de curățare",
+    "r": [
+     [
+      "Inox anti-pată",
+      "Da"
+     ],
+     [
+      "Email Crystal Clean (Slippery)",
+      "Da"
+     ],
+     [
+      "Hydroclean ECO",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Tavă din sticlă",
+      "1"
+     ],
+     [
+      "Grătar ranforsat",
+      "1"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/1/HLC-84-G1-C-UserManual-PL-RU-TR-RO.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "111160015-1.webp",
+   "111160015-2.webp",
+   "111160015-3.webp",
+   "111160015-4.webp",
+   "111160015-5.webp",
+   "111160015-6.webp"
+  ]
+ },
+ {
+  "sku": "111160028",
+  "name": "HLC 8440 C FBK",
+  "sub": "Ediția FullBlack. Cuptor compact multifunctional cu microunde, 9 functii de preparare si sistem HydroClean",
+  "price": 30300.0,
+  "old": null,
+  "kind": "cuptor-compact",
+  "col": "negru",
+  "brand": "Teka",
+  "draw": "111160028-draw.webp",
+  "label": "",
+  "desc": [
+   "Colectia FullBlack",
+   "Cuptor compact multifuncțional, combi-microunde",
+   "11 funcţii",
+   "Funcţie TURBO",
+   "Funcţii: microunde, pizza & ECO",
+   "Sistem de curăţare HydroClean® ECO",
+   "Email Slippery",
+   "Touch Control cu display LED",
+   "Buton “Quick start” 30’’",
+   "Putere maxi grill: 2.500 W",
+   "Decongelare în funcţie de timp şi greutate",
+   "Sistem de siguranţă pentru limitarea accesului copiilor"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "232"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "365"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "40"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "41"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "455"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "559"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "30,0"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB"
+     ],
+     [
+      "Cavitatea emailată",
+      "Da"
+     ],
+     [
+      "Regulator de temperatură Min. (ºC)",
+      "50"
+     ],
+     [
+      "Regulator de temperatură Max. (ºC)",
+      "250"
+     ],
+     [
+      "Selector de funcții",
+      "Mechanical"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "11"
+     ],
+     [
+      "Încălzire convenţională",
+      "Da"
+     ],
+     [
+      "Funcția MaxiGrill",
+      "Da"
+     ],
+     [
+      "Convecţie",
+      "Da"
+     ],
+     [
+      "MaxiGrill + Ventilaţie",
+      "Da"
+     ],
+     [
+      "Element inferior de încălzire",
+      "Da"
+     ],
+     [
+      "Element inferior de încălzire + TURBO (Pizza)",
+      "Da"
+     ],
+     [
+      "Funcţia TURBO",
+      "Da"
+     ],
+     [
+      "Funcția ECO",
+      "Da"
+     ],
+     [
+      "Programator Touch Control",
+      "Da"
+     ],
+     [
+      "Suporturi cromate detaşabile",
+      "Da"
+     ],
+     [
+      "Numărul ghidajelor",
+      "4"
+     ],
+     [
+      "Refrigerare tangențială forțată (1 viteză)",
+      "Da"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Funcța Microunde + grill",
+      "Da"
+     ],
+     [
+      "Funcția Microunde + turbo",
+      "Da"
+     ],
+     [
+      "Decongelare la microunde",
+      "Da"
+     ],
+     [
+      "Pornire rapidă (secunde)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "3400"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "25"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Element inferior de încălzire (W)",
+      "1000"
+     ],
+     [
+      "Maxi Grill (W)",
+      "2500"
+     ],
+     [
+      "Tradițional (W)",
+      "2100"
+     ],
+     [
+      "Turbo (W)",
+      "1600"
+     ],
+     [
+      "Turbo multifuncțional (W)",
+      "30"
+     ],
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ],
+     [
+      "Tavă cu protecţie la răsturnare",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de curățare",
+    "r": [
+     [
+      "Inox anti-pată",
+      "Da"
+     ],
+     [
+      "Email Crystal Clean (Slippery)",
+      "Da"
+     ],
+     [
+      "Hydroclean ECO",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Tavă din sticlă",
+      "1"
+     ],
+     [
+      "Grătar ranforsat",
+      "1"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/3/HLC-8440-C-UserManual-EN-PT-ES-DE-FR-NL-EL-AR-.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "111160028-1.webp",
+   "111160028-2.webp",
+   "111160028-3.webp",
+   "111160028-4.webp",
+   "111160028-5.webp",
+   "111160028-6.webp"
+  ]
+ },
+ {
+  "sku": "111160012",
+  "name": "HLC 8440 C BK",
+  "sub": "Cuptor compact multifuncţional, cu sistem SurroundTemp şi sistem de curăţare HydroClean, 45 cm",
+  "price": 30300.0,
+  "old": null,
+  "kind": "cuptor-compact",
+  "col": "negru",
+  "brand": "Teka",
+  "draw": "111160012-draw.webp",
+  "label": "",
+  "desc": [
+   "Colecţia Urban Colors",
+   "Cuptor compact multifuncțional, combi-microunde",
+   "11 funcţii",
+   "Funcţie TURBO",
+   "Funcţii: microunde, pizza & ECO",
+   "Sistem de curăţare HydroClean® ECO",
+   "Email Slippery",
+   "Touch Control cu display LED",
+   "Buton “Quick start” 30’’",
+   "Putere maxi grill: 2.500 W",
+   "Decongelare în funcţie de timp şi greutate",
+   "Sistem de siguranţă pentru limitarea accesului copiilor"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "232"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "365"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "40"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "41"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "455"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "559"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "30,0"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Cavitatea emailată",
+      "Da"
+     ],
+     [
+      "Regulator de temperatură Min. (ºC)",
+      "50"
+     ],
+     [
+      "Regulator de temperatură Max. (ºC)",
+      "250"
+     ],
+     [
+      "Selector de funcții",
+      "Mechanical"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "11"
+     ],
+     [
+      "Încălzire convenţională",
+      "Da"
+     ],
+     [
+      "Funcția MaxiGrill",
+      "Da"
+     ],
+     [
+      "Convecţie",
+      "Da"
+     ],
+     [
+      "MaxiGrill + Ventilaţie",
+      "Da"
+     ],
+     [
+      "Element inferior de încălzire",
+      "Da"
+     ],
+     [
+      "Element inferior de încălzire + TURBO (Pizza)",
+      "Da"
+     ],
+     [
+      "Funcţia TURBO",
+      "Da"
+     ],
+     [
+      "Funcția ECO",
+      "Da"
+     ],
+     [
+      "Programator Touch Control",
+      "Da"
+     ],
+     [
+      "Suporturi cromate detaşabile",
+      "Da"
+     ],
+     [
+      "Numărul ghidajelor",
+      "4"
+     ],
+     [
+      "Numărul ghidajelor (cavitatea inferioară)",
+      "0"
+     ],
+     [
+      "Refrigerare tangențială forțată (1 viteză)",
+      "Da"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Funcța Microunde + grill",
+      "Da"
+     ],
+     [
+      "Funcția Microunde + turbo",
+      "Da"
+     ],
+     [
+      "Decongelare la microunde",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ],
+     [
+      "Pornire rapidă (secunde)",
+      "Da"
+     ],
+     [
+      "Ventilație tangențială",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "3400"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "25"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Element inferior de încălzire (W)",
+      "1000"
+     ],
+     [
+      "Maxi Grill (W)",
+      "2500"
+     ],
+     [
+      "Tradițional (W)",
+      "2100"
+     ],
+     [
+      "Turbo (W)",
+      "1600"
+     ],
+     [
+      "Turbo multifuncțional (W)",
+      "30"
+     ],
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Blocarea de siguranță pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ],
+     [
+      "Tavă cu protecţie la răsturnare",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de curățare",
+    "r": [
+     [
+      "Inox anti-pată",
+      "Da"
+     ],
+     [
+      "Email Crystal Clean (Slippery)",
+      "Da"
+     ],
+     [
+      "Hydroclean ECO",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Tavă din sticlă",
+      "1"
+     ],
+     [
+      "Grătar ranforsat",
+      "1"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/3/HLC-8440-C-EN-PT-ES-DE-FR-NL-EL-AR-UserManual.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "111160012-1.webp",
+   "111160012-2.webp",
+   "111160012-3.webp",
+   "111160012-4.webp",
+   "111160012-5.webp",
+   "111160012-6.webp"
+  ]
+ },
+ {
+  "sku": "111630007",
+  "name": "CLC 85-G1 GM BM",
+  "sub": "Automat espresso încorporabili pentru cafea Infinity G1. Ediție specială Italdesign Giugiaro",
+  "price": 44200.0,
+  "old": null,
+  "kind": "espresso",
+  "col": "negru",
+  "brand": "Teka",
+  "draw": "111630007-draw.webp",
+  "label": "",
+  "desc": [
+   "Automat espresso încorporabil",
+   "Ediţie specială Design Infinity G1",
+   "Capacitate: 2 ceşti",
+   "30 programe automate",
+   "Touch Control & butoane",
+   "Presiune pompă: 15 bar",
+   "Tavă uşor detaşabilă pentru colectarea zaţului de cafea",
+   "Funcţie de auto-curăţare",
+   "Sistem integrat de râşnire a boabelor de cafea (13 trepte)",
+   "Posibilitatea de ajustare a cantităţii, temperaturii şi concentraţiei cafelei",
+   "Suport telescopic",
+   "Recipient pentru cafea boabe cu capacitate de 200 g"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitate rezervor de apă (litri)",
+      "1.8"
+     ],
+     [
+      "Capacitatea tăvii pentru colectarea zaţului (căni)",
+      "14"
+     ],
+     [
+      "Capacitatea sertarului de boabe de cafea (Gr)",
+      "200"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "455"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "412"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "23"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "560"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "550"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "450"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Puterea pompei (W)",
+      "50"
+     ],
+     [
+      "Număr de programe",
+      "30"
+     ],
+     [
+      "Număr de ceşti",
+      "2"
+     ],
+     [
+      "Dispenser reglabil pentru cafea",
+      "Da"
+     ],
+     [
+      "Țeavă reglabilă pentru abur și apă caldă",
+      "Da"
+     ],
+     [
+      "Cafea măcinată",
+      "Da"
+     ],
+     [
+      "On / Off",
+      "Da"
+     ],
+     [
+      "Steamer",
+      "Da"
+     ],
+     [
+      "Apă fierbinte",
+      "Da"
+     ],
+     [
+      "Temperatură cafea",
+      "Da"
+     ],
+     [
+      "Indicator de funcție selectat",
+      "Da"
+     ],
+     [
+      "Indicator rezervor de apă plin",
+      "Da"
+     ],
+     [
+      "Cafea măcinată prea fin, reglați indicatorul de râşnire",
+      "Da"
+     ],
+     [
+      "Indicator pentru de boabe de cafea lipsă",
+      "Da"
+     ],
+     [
+      "Indicator pentru sertar de cafea gol",
+      "Da"
+     ],
+     [
+      "Indicator pentru introducere sertar de cafea (lipsă)",
+      "Da"
+     ],
+     [
+      "Alarmă generică",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://teka-assets.b-cdn.net/wp-json/custom/v1/generate-zip?urls=https%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2FCMP1219%2Ffiles%2F5%2FCLC855-USERMANUAL-ES.pdf%2Chttps%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2Ftemp%2FZkVoVzk0eUdwNWc9%2FCLC_UserManual_EN.pdf%2Chttps%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2FCMP1219%2Ffiles%2Fleaflet_stand_by.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "111630007-1.webp",
+   "111630007-2.webp",
+   "111630007-3.webp",
+   "111630007-4.webp",
+   "111630007-5.webp",
+   "111630007-6.webp"
+  ]
+ },
+ {
+  "sku": "111630003",
+  "name": "CLC 855 GM ST",
+  "sub": "Automat espresso încorporabil, cu 30 programe automate şi presiune 15 bar",
+  "price": 44200.0,
+  "old": null,
+  "kind": "espresso",
+  "col": "inox",
+  "brand": "Teka",
+  "draw": "111630003-draw.webp",
+  "label": "",
+  "desc": [
+   "Colecţia Urban Colors",
+   "Automat espresso încorporabil",
+   "Capacitate: 2 ceşti",
+   "30 programe automate",
+   "Panou de control electronic",
+   "Presiune pompă: 15 bar",
+   "Recipient pentru cafea boabe cu capacitate de 200 g",
+   "Tavă uşor detaşabilă pentru colectarea zaţului de cafea",
+   "3 funcţii (cafea, abur, apă fierbinte)",
+   "Funcţie de auto-curăţare",
+   "Sistem integrat de râşnire a boabelor de cafea (13 trepte)",
+   "Posibilitatea de ajustare a cantităţii, temperaturii şi concentraţiei cafelei"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitate rezervor de apă (litri)",
+      "1.8"
+     ],
+     [
+      "Capacitatea tăvii pentru colectarea zaţului (căni)",
+      "14"
+     ],
+     [
+      "Capacitatea sertarului de boabe de cafea (Gr)",
+      "200"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "455"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "412"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "23"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "560"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "550"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "450"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Certificări",
+      "IMQ/CCC"
+     ],
+     [
+      "Presiunea pompei (bar)",
+      "15"
+     ],
+     [
+      "Puterea pompei (W)",
+      "50"
+     ],
+     [
+      "Anti-pată",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "30"
+     ],
+     [
+      "Număr de ceşti",
+      "2"
+     ],
+     [
+      "Dispenser reglabil pentru cafea",
+      "Da"
+     ],
+     [
+      "Țeavă reglabilă pentru abur și apă caldă",
+      "Da"
+     ],
+     [
+      "Cafea măcinată",
+      "Da"
+     ],
+     [
+      "On / Off",
+      "Da"
+     ],
+     [
+      "Steamer",
+      "Da"
+     ],
+     [
+      "Apă fierbinte",
+      "Da"
+     ],
+     [
+      "Ceas (opţiune in meniu)",
+      "Da"
+     ],
+     [
+      "Îndepărtarea depunerilor de calcar (opţiune in meniu)",
+      "Da"
+     ],
+     [
+      "Temperatură cafea (opțiune în meniu)",
+      "Da"
+     ],
+     [
+      "Temperatură cafea",
+      "Da"
+     ],
+     [
+      "Indicator de funcție selectat",
+      "Da"
+     ],
+     [
+      "Indicator rezervor de apă plin",
+      "Da"
+     ],
+     [
+      "Cafea măcinată prea fin, reglați indicatorul de râşnire",
+      "Da"
+     ],
+     [
+      "Indicator pentru de boabe de cafea lipsă",
+      "Da"
+     ],
+     [
+      "Indicator pentru sertar de cafea gol",
+      "Da"
+     ],
+     [
+      "Indicator pentru introducere sertar de cafea (lipsă)",
+      "Da"
+     ],
+     [
+      "Alarmă generică",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://teka-assets.b-cdn.net/wp-json/custom/v1/generate-zip?urls=https%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2Ftemp%2FZkVoVzk0eUdwNWc9%2FCLC_UserManual_EN.pdf%2Chttps%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2FCMP1219%2Ffiles%2Fleaflet_stand_by.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "111630003-1.webp",
+   "111630003-2.webp",
+   "111630003-3.webp",
+   "111630003-4.webp",
+   "111630003-5.webp",
+   "111630003-6.webp"
+  ]
+ },
+ {
+  "sku": "111630005",
+  "name": "CLC 8350 MC BK",
+  "sub": "Automat espresso încorporabil pentru capsule şi cafea măcinată, cu panou de control electronic cu afișaj TFT şi presiune pompă de 19 bar",
+  "price": 31000.0,
+  "old": null,
+  "kind": "espresso",
+  "col": "negru",
+  "brand": "Teka",
+  "draw": "111630005-draw.webp",
+  "label": "",
+  "desc": [
+   "Colectia Urban Colors",
+   "Automat espresso încorporabil pentru capsule si cafea macinata",
+   "Selector de cafea (mică / medie / mare / extra large / infuzie)",
+   "Panou de control electronic cu afișaj TFT",
+   "Include 5 adaptori pentru capsule",
+   "Capacitate: 1 ceaşcă",
+   "Suport pentru ceaşcă ajustabil pe înălţime",
+   "Selector de temperatură",
+   "Presiune pompă: 19 bar",
+   "2 compartimente laterale pentru depozitare",
+   "Sertar pentru depozitare",
+   "Tava pentru colectarea zaţului"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitate rezervor de apă (litri)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "455"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "330"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "18,7"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "560"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "580"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "450"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB"
+     ],
+     [
+      "Presiunea pompei (bar)",
+      "19"
+     ],
+     [
+      "Anti-pată",
+      "Da"
+     ],
+     [
+      "Număr de ceşti",
+      "1"
+     ],
+     [
+      "Țeavă reglabilă pentru abur și apă caldă",
+      "Da"
+     ],
+     [
+      "Cafea măcinată",
+      "Da"
+     ],
+     [
+      "Capsule cafea",
+      "Da"
+     ],
+     [
+      "On / Off",
+      "Da"
+     ],
+     [
+      "Steamer",
+      "Da"
+     ],
+     [
+      "Temperatură cafea",
+      "Da"
+     ],
+     [
+      "Indicator de funcție selectat",
+      "Da"
+     ],
+     [
+      "Indicator rezervor de apă plin",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/2/CLC-835-EN-PT-ES-DE-FR-UserManual.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "111630005-1.webp",
+   "111630005-2.webp",
+   "111630005-3.webp",
+   "111630005-4.webp",
+   "111630005-5.webp",
+   "111630005-6.webp"
+  ]
+ },
+ {
+  "sku": "111630015",
+  "name": "CLC 8350 MC WH",
+  "sub": "Colectia Urban Colors. Automat espresso încorporabil pentru capsule si cafea macinata",
+  "price": 31000.0,
+  "old": null,
+  "kind": "espresso",
+  "col": "alb",
+  "brand": "Teka",
+  "draw": "111630015-draw.webp",
+  "label": "",
+  "desc": [
+   "Colectia Urban Colors",
+   "Automat espresso încorporabil pentru capsule si cafea macinata",
+   "Selector de cafea (mică / medie / mare / extra large / infuzie)",
+   "Panou de control electronic cu afișaj TFT",
+   "Include 5 adaptori pentru capsule",
+   "Capacitate: 1 ceaşcă",
+   "Suport pentru ceaşcă ajustabil pe înălţime",
+   "Selector de temperatură",
+   "Presiune pompă: 19 bar",
+   "2 compartimente laterale pentru depozitare",
+   "Sertar pentru depozitare",
+   "Tava pentru colectarea zaţului"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitate rezervor de apă (litri)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "455"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "330"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "18.7"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "560"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "580"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "450"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB"
+     ],
+     [
+      "Presiunea pompei (bar)",
+      "19"
+     ],
+     [
+      "Număr de ceşti",
+      "1"
+     ],
+     [
+      "Țeavă reglabilă pentru abur și apă caldă",
+      "Da"
+     ],
+     [
+      "Cafea măcinată",
+      "Da"
+     ],
+     [
+      "Capsule cafea",
+      "Da"
+     ],
+     [
+      "On / Off",
+      "Da"
+     ],
+     [
+      "Steamer",
+      "Da"
+     ],
+     [
+      "Temperatură cafea",
+      "Da"
+     ],
+     [
+      "Indicator de funcție selectat",
+      "Da"
+     ],
+     [
+      "Indicator rezervor de apă plin",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/CLC-835-MC-UserManual-EN-PT-ES-DE-FR.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "111630015-1.webp",
+   "111630015-2.webp",
+   "111630015-3.webp",
+   "111630015-4.webp",
+   "111630015-5.webp",
+   "111630015-6.webp"
+  ]
+ },
+ {
+  "sku": "111160003",
+  "name": "MLC 8440 BK",
+  "sub": "Cuptor incorporabil, Microunde + grill , 3 funcţii, Colecţia Urban Colors, 45 cm",
+  "price": 27300.0,
+  "old": null,
+  "kind": "cuptor-compact",
+  "col": "negru",
+  "brand": "Teka",
+  "draw": "111160003-draw.webp",
+  "label": "",
+  "desc": [
+   "Colecţia Urban Colors",
+   "Microunde + grill",
+   "Email Slippery",
+   "Touch Control cu display LED",
+   "3 funcţii",
+   "Quick start 30’’",
+   "5 nivele de putere, 1.000W",
+   "Grill 1.400W",
+   "Timer 0-90 min.",
+   "Decongelare în funcţie de timp şi greutate",
+   "Sistem de deconectare automată",
+   "Uşă interioară complet din sticlă (2 straturi)"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "232"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "365"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "44"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "45"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "455"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "559"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "28,4"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB"
+     ],
+     [
+      "Numărul de cavități",
+      "1"
+     ],
+     [
+      "Cavitatea emailată",
+      "Da"
+     ],
+     [
+      "Regulator de temperatură Min. (ºC)",
+      "50"
+     ],
+     [
+      "Regulator de temperatură Max. (ºC)",
+      "250"
+     ],
+     [
+      "Selector de funcții",
+      "Mechanical"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "3"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Programator Touch Control",
+      "Da"
+     ],
+     [
+      "Timer",
+      "Da"
+     ],
+     [
+      "Suporturi cromate detaşabile",
+      "Da"
+     ],
+     [
+      "Numărul ghidajelor",
+      "4"
+     ],
+     [
+      "Numărul ghidajelor (cavitatea inferioară)",
+      "0"
+     ],
+     [
+      "Refrigerare tangențială forțată (1 viteză)",
+      "Da"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Funcța Microunde + grill",
+      "Da"
+     ],
+     [
+      "Decongelare la microunde",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ],
+     [
+      "Ventilație tangențială",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "3200"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "25"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Grill (W)",
+      "1400"
+     ],
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de curățare",
+    "r": [
+     [
+      "Inox anti-pată",
+      "Da"
+     ],
+     [
+      "Email Crystal Clean (Slippery)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Tavă din sticlă",
+      "1"
+     ],
+     [
+      "Grătar ranforsat",
+      "1"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/MLC-844-8440-UserManual-EN-PT-ES-FR-DE-NL-AR.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "111160003-1.webp",
+   "111160003-2.webp",
+   "111160003-3.webp",
+   "111160003-4.webp",
+   "111160003-5.webp",
+   "111160003-6.webp"
+  ]
+ },
+ {
+  "sku": "111600004",
+  "name": "VS 1520 GS",
+  "sub": "Aparat de vidat cu cântar de bucătărie cu capac de protecţie şi sistem de închidere a uşii SoftClose",
+  "price": 14800.0,
+  "old": null,
+  "kind": "aparat-de-vidat",
+  "col": "negru",
+  "brand": "Teka",
+  "draw": "111600004-draw.webp",
+  "label": "",
+  "desc": [
+   "Aparat de vidat",
+   "Cântar de bucătărie cu capac de protecţie",
+   "Suport pentru rolă de folie de aluminiu",
+   "Suport pentru rolă de folie transparentă",
+   "Compartiment pentru accesorii",
+   "Sistem de închidere a uşii SoftClose",
+   "Ideal pentru a fi combinat cu modelele de cuptoare compacte și microunde",
+   "Notă: Panoul frontal din cristal nu este inclus, produsul se comandă împreună cu unul din kit-urile de mai jos:",
+   "111890002 - Black",
+   "111890003 - White",
+   "111890004 - Stone Grey",
+   "111890005 - Steam Grey"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "140"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "557"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE"
+     ],
+     [
+      "Numărul de cavități",
+      "2"
+     ],
+     [
+      "Numărul ghidajelor",
+      "0"
+     ],
+     [
+      "Numărul ghidajelor (cavitatea inferioară)",
+      "0"
+     ],
+     [
+      "Mâner",
+      "Push-pull"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "115"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Conexiune",
+      "Schuko"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/VS-152-1520-GS-UserManual-EN-DE-RU-PL.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "111600004-1.webp",
+   "111600004-2.webp",
+   "111600004-3.webp",
+   "111600004-4.webp",
+   "111600004-5.webp",
+   "111600004-6.webp"
+  ]
+ },
+ {
+  "sku": "111600003",
+  "name": "CP 150 GS",
+  "sub": "Sertar termic telescopic, ideal pentru a fi combinat cu modelele de cuptoare compacte si microunde",
+  "price": 10800.0,
+  "old": null,
+  "kind": "sertar-termic",
+  "col": "negru",
+  "brand": "Teka",
+  "draw": "111600003-draw.webp",
+  "label": "",
+  "desc": [
+   "Colecția Urban Colors",
+   "Sertar termic telescopic",
+   "Interval de temperatură: 30º-80º",
+   "Capacitate: 6 farfurii, 6 farfurii pentru cină (24 cm), 6 farfurii adânci (10 cm) și 3 farfurii pt. servire (17, 19 și 32 cm) sau 20 de farfurii (28 cm) sau 40 de căni de ceai sau 80 de căni de cafea.",
+   "Sertar telescopic",
+   "Sistem de deschidere push-pull",
+   "Bază antiderapantă",
+   "Ideal pentru a fi combinat cu modelele de cuptoare compacte și microunde",
+   "Panoul frontal din cristal nu este inclus:",
+   "• 111890006 - Cristal London Brick Brown",
+   "• 111890004 - Cristal Stone Grey",
+   "• 111890005 - Cristal Steam Grey"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "100"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "470"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "500"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "140"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "557"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE; CB"
+     ],
+     [
+      "Regulator de temperatură Min. (ºC)",
+      "30"
+     ],
+     [
+      "Regulator de temperatură Max. (ºC)",
+      "80"
+     ],
+     [
+      "Partea frontală rece",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "420"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50-60"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/CP-15-150-GS-UserManual-ES-PT-EN-DE-FR-NL-CS-SK-RO.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "111600003-1.webp",
+   "111600003-2.webp",
+   "111600003-3.webp",
+   "111600003-4.webp",
+   "111600003-5.webp",
+   "111600003-6.webp"
+  ]
+ },
+ {
+  "sku": "111630004",
+  "name": "CLC 855 GM BK",
+  "sub": "Automat espresso încorporabil, cu 30 programe automate şi presiune 15 bar",
+  "price": 44200.0,
+  "old": null,
+  "kind": "espresso",
+  "col": "negru",
+  "brand": "Teka",
+  "draw": "111630004-draw.webp",
+  "label": "",
+  "desc": [
+   "Colecţia Urban Colors",
+   "Automat espresso încorporabil",
+   "Capacitate: 2 ceşti",
+   "30 programe automate",
+   "Panou de control electronic",
+   "Presiune pompă: 15 bar",
+   "Recipient pentru cafea boabe cu capacitate de 200 g",
+   "Tavă uşor detaşabilă pentru colectarea zaţului de cafea",
+   "3 funcţii (cafea, abur, apă fierbinte)",
+   "Funcţie de auto-curăţare",
+   "Sistem integrat de râşnire a boabelor de cafea (13 trepte)",
+   "Posibilitatea de ajustare a cantităţii, temperaturii şi concentraţiei cafelei"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitate rezervor de apă (litri)",
+      "1.8"
+     ],
+     [
+      "Capacitatea tăvii pentru colectarea zaţului (căni)",
+      "14"
+     ],
+     [
+      "Capacitatea sertarului de boabe de cafea (Gr)",
+      "200"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "455"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "412"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "23"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "560"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "550"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "450"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Presiunea pompei (bar)",
+      "15"
+     ],
+     [
+      "Puterea pompei (W)",
+      "50"
+     ],
+     [
+      "Anti-pată",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "30"
+     ],
+     [
+      "Număr de ceşti",
+      "2"
+     ],
+     [
+      "Dispenser reglabil pentru cafea",
+      "Da"
+     ],
+     [
+      "Țeavă reglabilă pentru abur și apă caldă",
+      "Da"
+     ],
+     [
+      "Cafea măcinată",
+      "Da"
+     ],
+     [
+      "On / Off",
+      "Da"
+     ],
+     [
+      "Steamer",
+      "Da"
+     ],
+     [
+      "Apă fierbinte",
+      "Da"
+     ],
+     [
+      "Ceas (opţiune in meniu)",
+      "Da"
+     ],
+     [
+      "Îndepărtarea depunerilor de calcar (opţiune in meniu)",
+      "Da"
+     ],
+     [
+      "Temperatură cafea (opțiune în meniu)",
+      "Da"
+     ],
+     [
+      "Indicator de funcție selectat",
+      "Da"
+     ],
+     [
+      "Indicator rezervor de apă plin",
+      "Da"
+     ],
+     [
+      "Cafea măcinată prea fin, reglați indicatorul de râşnire",
+      "Da"
+     ],
+     [
+      "Indicator pentru de boabe de cafea lipsă",
+      "Da"
+     ],
+     [
+      "Indicator pentru sertar de cafea gol",
+      "Da"
+     ],
+     [
+      "Indicator pentru introducere sertar de cafea (lipsă)",
+      "Da"
+     ],
+     [
+      "Alarmă generică",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://teka-assets.b-cdn.net/wp-json/custom/v1/generate-zip?urls=https%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2Ftemp%2FZkVoVzk0eUdwNWc9%2FCLC_UserManual_EN.pdf%2Chttps%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2FCMP1219%2Ffiles%2Fleaflet_stand_by.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "111630004-1.webp",
+   "111630004-2.webp",
+   "111630004-3.webp",
+   "111630004-4.webp",
+   "111630004-5.webp",
+   "111630004-6.webp"
+  ]
+ }
+]
