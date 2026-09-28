@@ -201,6 +201,14 @@ h1 .ch>span{display:inline-block;will-change:transform}
 .nm{font-size:13px;font-weight:600;line-height:1.3;margin:5px 0 3px}
 .sku{font-size:10px;color:var(--mute)}
 .pr{display:flex;align-items:baseline;gap:7px;margin-top:9px}
+.pr .qa{margin-left:auto;align-self:center;flex:none;width:38px;height:38px;border-radius:50%;border:0;background:var(--ink);color:#fff;display:grid;place-items:center;cursor:pointer;transition:transform .15s,background .25s}
+.pr .qa:active{transform:scale(.9)}
+.pr .qa svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;grid-area:1/1}
+.pr .qa .ok{opacity:0;transform:scale(.5);transition:opacity .2s,transform .25s}
+.pr .qa svg:first-child{transition:opacity .2s,transform .25s}
+.pr .qa.done{background:var(--red)}
+.pr .qa.done .ok{opacity:1;transform:none}
+.pr .qa.done svg:first-child{opacity:0;transform:scale(.5)}
 .pr b{font-size:15px;font-weight:700}.pr s{font-size:11px;color:var(--mute)}
 .st{font-size:10px;color:#2E7D46;margin-top:6px;display:flex;align-items:center;gap:5px}
 .st::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor}
@@ -602,7 +610,7 @@ function card(p,i){return `
 <button class="fav" onclick="event.stopPropagation();like(this)"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9-9.3C2 7.4 4.2 4.5 7.3 4.5c2 0 3.6 1.2 4.7 2.8 1.1-1.6 2.7-2.8 4.7-2.8 3.1 0 5.3 2.9 4.3 6.2C19.5 15.4 12 20 12 20z"/></svg></button></div>
 <div class="pb"><div class="br${p.b==='Teka'?'':' kb'}">${p.b}</div><div class="nm">${p.n}</div>
 ${p.sku?`<div class="sku">${p.sku}</div>`:''}
-<div class="pr"><b>${money(p.p)} MDL</b>${p.o?`<s>${money(p.o)}</s>`:''}</div><div class="st">${t('stoc')}</div><div class="ln"></div></div></article>`}
+<div class="pr"><b>${money(p.p)} MDL</b>${p.o?`<s>${money(p.o)}</s>`:''}<button class="qa" data-i="${i}" aria-label="${t('add')}"><svg viewBox="0 0 24 24"><path d="M2.5 3.5h3l2.2 11.2a1.5 1.5 0 0 0 1.5 1.3h8.4a1.5 1.5 0 0 0 1.5-1.2L20.5 7H6.4"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg><svg class="ok" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div><div class="st">${t('stoc')}</div><div class="ln"></div></div></article>`}
 const grid=document.getElementById('grid');
 function render(anim=true){
   const list=filtered();
@@ -983,12 +991,12 @@ const kt=document.getElementById('ktoast');let tt=0;
 function toast(s,btn){kt.style.bottom=document.querySelector('.pv.on')?'calc(92px + env(safe-area-inset-bottom))':'';document.getElementById('ktt').textContent=s;const o=document.getElementById('kto');o.textContent=btn||'';o.hidden=!btn;kt.classList.add('on');clearTimeout(tt);tt=setTimeout(closeToast,3200);}
 function closeToast(){kt.classList.remove('on')}
 document.getElementById('kto').addEventListener('click',open);
-const addb=document.getElementById('addb');
-addb.addEventListener('click',()=>{const p=curP;if(!p)return;
-  const card=document.querySelector('.pc[data-i="'+P.indexOf(p)+'"] img');
+function addP(p){const card=document.querySelector('.pc[data-i="'+P.indexOf(p)+'"] img');
   const x=cart.find(y=>y.sku===p.sku);if(x)x.q++;else cart.push({sku:p.sku,n:p.n,p:p.p,q:1,img:card?card.getAttribute('src'):''});
-  save();badge(true);addb.textContent=tx('added')+' ✓';setTimeout(()=>{addb.textContent=t('add')},1400);
-  toast(tx('inCart'),tx('open'));});
+  save();badge(true);toast(tx('inCart'),tx('open'));}
+const addb=document.getElementById('addb');
+addb.addEventListener('click',()=>{if(!curP)return;addP(curP);addb.textContent=tx('added')+' ✓';setTimeout(()=>{addb.textContent=t('add')},1400);});
+document.addEventListener('click',e=>{const b=e.target.closest('.qa');if(!b)return;e.stopPropagation();const p=P[+b.dataset.i];if(!p)return;addP(p);b.classList.add('done');clearTimeout(b._t);b._t=setTimeout(()=>b.classList.remove('done'),1500);},true);
 addEventListener('storage',e=>{if(e.key===KEY){try{cart=JSON.parse(e.newValue||'[]')}catch(_){}badge();}});
 badge();
 })();
