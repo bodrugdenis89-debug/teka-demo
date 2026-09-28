@@ -901,6 +901,76 @@ setTimeout(function(){if('IntersectionObserver' in window)new IntersectionObserv
 var o=setLang;setLang=function(x){o(x);try{localStorage.setItem('tk-lang',x)}catch(e){}};
 if(l!==L)o(l);})();
 </script>
+<!-- ── меню: разделы → каталог ── -->
+<style>
+.nv:not(.lv2) .nvl{display:none}
+.nv.lv2 .nvm{display:none}
+.nv.lv2 .nvl{animation:nvin .32s cubic-bezier(.2,.8,.2,1)}
+.nvm{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:6px 0 24px;animation:nvback .32s cubic-bezier(.2,.8,.2,1)}
+@keyframes nvin{from{opacity:0;transform:translateX(28px)}}
+@keyframes nvback{from{opacity:0;transform:translateX(-28px)}}
+.nvh .nbk{margin:0 -4px 0 -8px;width:34px;height:34px;display:none;place-items:center;background:none;border:0;color:#fff;cursor:pointer}
+.nv.lv2 .nvh .nbk{display:grid}
+.nvm .mc{display:block;margin:8px 14px 14px;padding:16px 16px 14px;border-radius:14px;background:#F4F3F1;color:var(--ink);text-decoration:none;cursor:pointer;border:0;width:calc(100% - 28px);text-align:left;font:inherit;transition:transform .2s}
+.nvm .mc:active{transform:scale(.98)}
+.nvm .mc .mt{display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;letter-spacing:-.4px}
+.nvm .mc .mt svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.nvm .mc small{display:block;font-size:12px;color:rgba(16,14,12,.5);margin-top:2px}
+.nvm .mc .mi{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:12px}
+.nvm .mc .mi img{width:100%;aspect-ratio:1;object-fit:contain;mix-blend-mode:multiply;background:#fff;border-radius:8px;padding:4px;box-sizing:border-box}
+.nvm .ml a,.nvm .ml span{display:flex;align-items:center;gap:14px;padding:15px 22px;color:#fff;text-decoration:none;font-size:16px;font-weight:600;border-bottom:1px solid rgba(255,255,255,.06)}
+.nvm .ml svg{width:20px;height:20px;flex:none;stroke:rgba(255,255,255,.55);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.nvm .ml span{color:rgba(255,255,255,.38)}
+.nvm .ml span svg{stroke:rgba(255,255,255,.22)}
+.nvm .ml em{margin-left:auto;font-style:normal;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:3px 8px}
+.nvm .ml a .ar{margin-left:auto;width:16px;height:16px;stroke:rgba(255,255,255,.3)}
+.nvf .mm{display:flex;gap:10px;margin-bottom:12px}
+.nvf .mm a{flex:1;height:44px;border-radius:22px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.16);color:#fff}
+.nvf .mm a.vb{background:#7360F2;border-color:#7360F2}
+.nvf .mm svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nvf .mp{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.nvf .mp a{color:#fff;font-size:15px;font-weight:700;text-decoration:none}
+</style>
+<script>
+(function(){
+const nv=document.getElementById('nv'),nvl=document.getElementById('nvl'),nvh=nv.querySelector('.nvh'),ttl=nvh.querySelector('b'),nvf=nv.querySelector('.nvf');
+const MT={ro:{menu:'Meniu',cat:'Catalog',cats:'12 categorii · Teka și Küppersbusch',promo:'Promoții',deliv:'Livrare și plată',inst:'Instalare și garanție',show:'Showroom',cont:'Contacte',about:'Despre noi',soon:'în curând',back:'Înapoi',hrs:'Luni – Sâmbătă, 10–18'},
+          ru:{menu:'Меню',cat:'Каталог',cats:'12 категорий · Teka и Küppersbusch',promo:'Акции',deliv:'Доставка и оплата',inst:'Установка и гарантия',show:'Шоурум',cont:'Контакты',about:'О нас',soon:'скоро',back:'Назад',hrs:'Пн – Сб, 10–18'}};
+const mt=k=>MT[typeof L!=='undefined'&&L==='ru'?'ru':'ro'][k];
+const I=p=>'<svg viewBox="0 0 24 24">'+p+'</svg>';
+const IC={promo:I('<path d="M20 12 12 20 4 12V4h8z"/><circle cx="8.5" cy="8.5" r="1.3"/>'),
+ deliv:I('<path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/>'),
+ inst:I('<path d="M14.5 5.5a4 4 0 0 0-5 5L4 16l4 4 5.5-5.5a4 4 0 0 0 5-5l-2.5 2.5-3-3z"/>'),
+ show:I('<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/>'),
+ cont:I('<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>'),
+ about:I('<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 7.6v.1"/>'),
+ ar:'<svg class="ar" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>',
+ vb:I('<path d="M12 2.6c5 0 8.1 2.9 8.1 7.7v3.3c0 4.8-3.1 7.7-8.1 7.7-.5 0-.9 0-1.3-.1l-2.9 2.4v-3.1c-2.5-1.3-3.9-3.6-3.9-6.9v-3.3c0-4.8 3.1-7.7 8.1-7.7z"/>'),
+ wa:I('<path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/>'),
+ tg:I('<path d="M21.3 4.3 3.1 11.2c-.6.22-.58.72.02.9l4.5 1.4 1.75 5.4c.15.46.6.52.9.22l2.35-2.25 4.55 3.35c.5.36 1 .1 1.14-.5l3.05-14.3c.15-.6-.3-.9-.86-.72z"/>'),
+ tel:I('<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>')};
+ttl.removeAttribute('data-t');
+const bk=document.createElement('button');bk.className='nbk';bk.innerHTML='<svg viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg>';nvh.insertBefore(bk,ttl);
+const nvm=document.createElement('div');nvm.className='nvm';nvm.id='nvm';nv.insertBefore(nvm,nvl);
+const THUMBS=['hobs','ovens','hoods','frig','coffee','wine'];
+function draw(){
+  const lv=nv.classList.contains('lv2');ttl.textContent=lv?mt('cat'):mt('menu');bk.setAttribute('aria-label',mt('back'));
+  nvm.innerHTML='<button class="mc" id="mcat"><span class="mt">'+mt('cat')+'<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></span><small>'+mt('cats')+'</small><span class="mi">'+THUMBS.map(k=>'<img src="'+NAV_IM[k]+'" alt="">').join('')+'</span></button>'
+   +'<div class="ml">'
+   +['promo','deliv','inst','show'].map(k=>'<span>'+IC[k]+mt(k)+'<em>'+mt('soon')+'</em></span>').join('')
+   +'<a href="#ft" id="mcont">'+IC.cont+mt('cont')+IC.ar+'</a>'
+   +'<span>'+IC.about+mt('about')+'<em>'+mt('soon')+'</em></span></div>';
+  nvf.innerHTML='<div class="mm"><a class="vb" href="viber://chat?number=%2B37368272702" aria-label="Viber">'+IC.vb+'</a><a href="https://wa.me/37368272702" target="_blank" rel="noopener" aria-label="WhatsApp">'+IC.wa+'</a><a href="https://t.me/+37368272702" target="_blank" rel="noopener" aria-label="Telegram">'+IC.tg+'</a><a href="tel:+37368272702" aria-label="Tel">'+IC.tel+'</a></div>'
+   +'<div class="mp"><a href="tel:+37368272702">+373 68 27 27 02</a><span>'+mt('hrs')+'</span></div>';
+  document.getElementById('mcat').onclick=()=>{nv.classList.add('lv2');draw();nvl.scrollTop=0;};
+  document.getElementById('mcont').onclick=e=>{e.preventDefault();nav(false);setTimeout(()=>{const f=document.getElementById('ft');if(f)f.scrollIntoView({behavior:'smooth'});},350);};
+}
+bk.onclick=()=>{nv.classList.remove('lv2');draw();};
+const _nav=nav;nav=function(o){if(o){nv.classList.remove('lv2');draw();}_nav(o);};
+const _sl=setLang;setLang=function(l){_sl(l);draw();};
+draw();
+})();
+</script>
 <!-- ── корзина ── -->
 <style>
 .cb[hidden]{display:none}
