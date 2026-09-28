@@ -446,7 +446,7 @@ html.tk-lock #bar,html.tk-lock #cat{will-change:transform}
   <div class="logo">TEKA</div><div class="sp"></div>
   <button class="ib"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></button>
   <button class="lang" id="lang" onclick="setLang(L==='ro'?'ru':'ro')">RU</button>
-  <button class="ib"><svg class="ic" viewBox="0 0 24 24"><path d="M2.5 3.5h3l2.2 11.2a1.5 1.5 0 0 0 1.5 1.3h8.4a1.5 1.5 0 0 0 1.5-1.2L20.5 7H6.4"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg><span class="cb">2</span></button>
+  <button class="ib"><svg class="ic" viewBox="0 0 24 24"><path d="M2.5 3.5h3l2.2 11.2a1.5 1.5 0 0 0 1.5 1.3h8.4a1.5 1.5 0 0 0 1.5-1.2L20.5 7H6.4"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg><span class="cb" hidden>0</span></button>
   <button class="ib" onclick="nav(true)" aria-label="Meniu"><svg class="ic" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
 </header>
 
@@ -839,5 +839,105 @@ new MutationObserver(sweep).observe(document.documentElement,{childList:true,sub
 (function(){var l='ru';try{l=localStorage.getItem('tk-lang')||'ru'}catch(e){}
 var o=setLang;setLang=function(x){o(x);try{localStorage.setItem('tk-lang',x)}catch(e){}};
 if(l!==L)o(l);})();
+</script>
+<!-- ── корзина ── -->
+<style>
+.cb[hidden]{display:none}
+.cb.bump{animation:cbump .45s ease}
+@keyframes cbump{40%{transform:scale(1.5)}}
+.ktoast{position:fixed;left:14px;right:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:120;background:#100E0C;color:#fff;border-radius:14px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;transform:translateY(calc(100% + 140px));opacity:0;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .25s;max-width:460px;margin:0 auto}
+.ktoast.on{transform:none;opacity:1}
+.ktoast button{color:#fff;font:inherit;font-weight:600;text-decoration:underline;background:none;border:0;padding:0;cursor:pointer}
+.kbg{position:fixed;inset:0;z-index:110;background:rgba(16,14,12,.55);opacity:0;pointer-events:none;transition:opacity .3s}
+.kbg.on{opacity:1;pointer-events:auto}
+.kd{position:fixed;left:0;right:0;bottom:0;z-index:111;max-height:86svh;display:flex;flex-direction:column;background:#F4F3F1;color:#100E0C;border-radius:22px 22px 0 0;transform:translateY(105%);transition:transform .42s cubic-bezier(.2,.8,.2,1);max-width:520px;margin:0 auto;padding-bottom:env(safe-area-inset-bottom)}
+.kd.on{transform:none}
+.kd .kg{width:40px;height:4px;border-radius:2px;background:#C9C5BF;margin:8px auto 4px;flex:none}
+.kd .kh{display:flex;justify-content:space-between;align-items:center;padding:6px 18px 8px;flex:none}
+.kd .kh b{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kd .kx{width:36px;height:36px;border-radius:50%;border:0;background:#E7E4DF;display:grid;place-items:center;cursor:pointer}
+.kd .kx svg{width:16px;height:16px;stroke:#100E0C;stroke-width:2;fill:none}
+.kd .kl{overflow:auto;padding:0 18px;flex:1;overscroll-behavior:contain}
+.kd .kr{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #E4E1DC}
+.kd .ki{width:58px;height:58px;flex:none;border-radius:12px;background:#fff;display:grid;place-items:center;overflow:hidden}
+.kd .ki img{width:84%;height:84%;object-fit:contain}
+.kd .kn{flex:1;min-width:0}
+.kd .kn b{display:block;font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kd .kn small{display:block;font-size:11px;color:#6B6660;margin-top:1px}
+.kd .kn i{display:block;font-style:normal;font-size:13px;font-weight:600;margin-top:3px}
+.kd .kq{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
+.kd .kq button{width:30px;height:30px;border-radius:50%;border:1px solid #C9C5BF;background:none;font-size:16px;line-height:1;color:#100E0C;cursor:pointer}
+.kd .kf{padding:14px 18px 16px;flex:none;border-top:1px solid #E4E1DC}
+.kd .kt{display:flex;justify-content:space-between;font-size:16px;font-weight:700}
+.kd .kdl{font-size:11px;color:#6B6660;margin:3px 0 12px}
+.kd .kb{height:48px;border-radius:24px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid #100E0C;color:#100E0C;background:none;width:100%}
+.kd .kb svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
+.kd .kb.vb{background:#7360F2;border-color:#7360F2;color:#fff}
+.kd .k2{display:flex;gap:8px;margin-top:8px}
+.kd .k2 .kb{height:44px;font-size:13px}
+.kd .ke{padding:40px 10px 50px;text-align:center;color:#6B6660;font-size:14px}
+.kd .ke b{display:block;color:#100E0C;font-size:17px;margin-bottom:6px}
+</style>
+<div class="kbg" id="kbg"></div>
+<div class="kd" id="kd" role="dialog" aria-modal="true" aria-labelledby="kdt">
+  <div class="kg"></div>
+  <div class="kh"><b id="kdt"></b><button class="kx" id="kx" aria-label="Închide"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="kl" id="kl"></div>
+  <div class="kf" id="kf"></div>
+</div>
+<div class="ktoast" id="ktoast"><span id="ktt"></span><button id="kto"></button></div>
+<script>
+(function(){
+const PH='37368272702',KEY='tkCart';
+const TX={ro:{cart:'Coș',added:'Adăugat',inCart:'Produsul e în coș',open:'Deschide',total:'Total',deliv:'Livrare gratuită în Chișinău',vb:'Comandă în Viber',wa:'WhatsApp',tg:'Telegram',empty:'Coșul e gol',emptyp:'Adaugă produse din catalog.',copied:'Textul comenzii e copiat — lipește-l în chat',hi:'Bună! Vreau să comand:',sum:'Total',cod:'cod'},
+          ru:{cart:'Корзина',added:'Добавлено',inCart:'Товар в корзине',open:'Открыть',total:'Итого',deliv:'Доставка по Кишинёву бесплатно',vb:'Заказать в Viber',wa:'WhatsApp',tg:'Telegram',empty:'Корзина пуста',emptyp:'Добавьте товары из каталога.',copied:'Текст заказа скопирован — вставьте в чат',hi:'Здравствуйте! Хочу заказать:',sum:'Итого',cod:'код'}};
+const tx=k=>(TX[typeof L!=='undefined'&&L==='ru'?'ru':'ro'])[k];
+const mdl=n=>n.toLocaleString('ru-RU').replace(/ /g,' ')+' MDL';
+let cart=[];try{cart=JSON.parse(localStorage.getItem(KEY)||'[]')||[]}catch(e){cart=[]}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(cart))}catch(e){}};
+const cnt=()=>cart.reduce((a,x)=>a+x.q,0), sum=()=>cart.reduce((a,x)=>a+x.q*x.p,0);
+const hdrBtn=document.querySelector('.cb').parentElement, cb=document.querySelector('.cb');
+hdrBtn.setAttribute('aria-label','Coș');
+function badge(b){const n=cnt();cb.textContent=n;cb.hidden=!n;if(b){cb.classList.remove('bump');void cb.offsetWidth;cb.classList.add('bump');}}
+const kd=document.getElementById('kd'),kbg=document.getElementById('kbg'),kl=document.getElementById('kl'),kf=document.getElementById('kf');
+const IC={vb:'<svg viewBox="0 0 24 24"><path d="M12 2.6c5 0 8.1 2.9 8.1 7.7v3.3c0 4.8-3.1 7.7-8.1 7.7-.5 0-.9 0-1.3-.1l-2.9 2.4v-3.1c-2.5-1.3-3.9-3.6-3.9-6.9v-3.3c0-4.8 3.1-7.7 8.1-7.7z"/></svg>',
+ wa:'<svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>',
+ tg:'<svg viewBox="0 0 24 24"><path d="M21.3 4.3 3.1 11.2c-.6.22-.58.72.02.9l4.5 1.4 1.75 5.4c.15.46.6.52.9.22l2.35-2.25 4.55 3.35c.5.36 1 .1 1.14-.5l3.05-14.3c.15-.6-.3-.9-.86-.72z"/></svg>'};
+function draw(){
+  document.getElementById('kdt').textContent=tx('cart')+(cnt()?' · '+cnt():'');
+  if(!cart.length){kl.innerHTML='<div class="ke"><b>'+tx('empty')+'</b>'+tx('emptyp')+'</div>';kf.innerHTML='';return;}
+  kl.innerHTML=cart.map((x,i)=>'<div class="kr"><div class="ki">'+(x.img?'<img src="'+x.img+'" alt="" onerror="this.remove()">':'')+'</div><div class="kn"><b>'+x.n+'</b><small>'+tx('cod')+' '+x.sku+'</small><i>'+mdl(x.p)+'</i></div><div class="kq"><button data-d="-1" data-i="'+i+'" aria-label="−">−</button>'+x.q+'<button data-d="1" data-i="'+i+'" aria-label="+">+</button></div></div>').join('');
+  kf.innerHTML='<div class="kt"><span>'+tx('total')+'</span><span>'+mdl(sum())+'</span></div><div class="kdl">'+tx('deliv')+'</div>'
+   +'<button class="kb vb" data-m="vb">'+IC.vb+tx('vb')+'</button>'
+   +'<div class="k2"><button class="kb" data-m="wa">'+IC.wa+tx('wa')+'</button><button class="kb" data-m="tg">'+IC.tg+tx('tg')+'</button></div>';
+}
+function msg(){return tx('hi')+'\n'+cart.map(x=>'• '+x.n+' ('+tx('cod')+' '+x.sku+') × '+x.q+' — '+mdl(x.p*x.q)).join('\n')+'\n'+tx('sum')+': '+mdl(sum());}
+function copy(s){try{if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(s)}catch(e){}
+  const a=document.createElement('textarea');a.value=s;a.style.cssText='position:fixed;opacity:0';document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove();return Promise.resolve();}
+kl.addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(!b)return;const x=cart[+b.dataset.i];x.q+=+b.dataset.d;if(x.q<1)cart.splice(+b.dataset.i,1);save();badge();draw();});
+kf.addEventListener('click',e=>{const b=e.target.closest('button[data-m]');if(!b)return;const m=b.dataset.m,s=msg();
+  if(m==='wa'){window.open('https://wa.me/'+PH+'?text='+encodeURIComponent(s),'_blank','noopener');return;}
+  copy(s);toast(tx('copied'),'');
+  setTimeout(()=>{if(m==='vb')location.href='viber://chat?number=%2B'+PH;else window.open('https://t.me/+'+PH,'_blank','noopener');},350);});
+
+function open(){closeToast();draw();kd.classList.add('on');kbg.classList.add('on');document.documentElement.style.overflow='hidden';}
+function close(){kd.classList.remove('on');kbg.classList.remove('on');document.documentElement.style.overflow='';}
+hdrBtn.addEventListener('click',open);kbg.addEventListener('click',close);document.getElementById('kx').addEventListener('click',close);
+addEventListener('keydown',e=>{if(e.key==='Escape'&&kd.classList.contains('on'))close();});
+let sy=null;kd.addEventListener('touchstart',e=>{sy=kl.scrollTop>0?null:e.touches[0].clientY},{passive:true});
+kd.addEventListener('touchend',e=>{if(sy!=null&&e.changedTouches[0].clientY-sy>70)close();sy=null},{passive:true});
+const kt=document.getElementById('ktoast');let tt=0;
+function toast(s,btn){kt.style.bottom=document.querySelector('.pv.on')?'calc(92px + env(safe-area-inset-bottom))':'';document.getElementById('ktt').textContent=s;const o=document.getElementById('kto');o.textContent=btn||'';o.hidden=!btn;kt.classList.add('on');clearTimeout(tt);tt=setTimeout(closeToast,3200);}
+function closeToast(){kt.classList.remove('on')}
+document.getElementById('kto').addEventListener('click',open);
+const addb=document.getElementById('addb');
+addb.addEventListener('click',()=>{const p=curP;if(!p)return;
+  const card=document.querySelector('.pc[data-i="'+P.indexOf(p)+'"] img');
+  const x=cart.find(y=>y.sku===p.sku);if(x)x.q++;else cart.push({sku:p.sku,n:p.n,p:p.p,q:1,img:card?card.getAttribute('src'):''});
+  save();badge(true);addb.textContent=tx('added')+' ✓';setTimeout(()=>{addb.textContent=t('add')},1400);
+  toast(tx('inCart'),tx('open'));});
+addEventListener('storage',e=>{if(e.key===KEY){try{cart=JSON.parse(e.newValue||'[]')}catch(_){}badge();}});
+badge();
+})();
 </script>
 </body></html>
