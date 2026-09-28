@@ -424,7 +424,7 @@ html.tk-lock #bar,html.tk-lock #cat{will-change:transform}
 
 /* шапка: непрозрачная + отступ под системную панель */
 .hdr{padding-top:calc(12px + env(safe-area-inset-top))}
-.hdr::after{content:"";position:absolute;left:0;right:0;bottom:100%;height:100vh;background:inherit;pointer-events:none}
+.hdr{left:0!important;right:0!important;width:auto!important;transform:none!important;padding-left:calc(max(0px,(100vw - var(--W))/2) + 16px)!important;padding-right:calc(max(0px,(100vw - var(--W))/2) + 16px)!important}
 .hdr.light{background:#F4F3F1!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 </style>
 </head>
