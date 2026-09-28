@@ -169,6 +169,9 @@ body.v2.det .thm{border-color:rgba(16,14,12,.2)}
   font-size:13px;font-weight:600;letter-spacing:.04em;border-radius:2px;transition:background .3s}
 .cta:hover{background:#B51F24}.cta span{opacity:.75;font-weight:400}
 .hint{margin-top:18px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#777}
+.sp .w{display:inline-block;white-space:nowrap}
+.sp .ch{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
+.sp .ch>span{display:inline-block;will-change:transform}
 .swap{will-change:transform,opacity}
 
 .detail{position:absolute;left:6vw;bottom:9vh;z-index:31;width:min(34vw,470px);opacity:0;pointer-events:none}
@@ -388,13 +391,18 @@ function render(p){
   const k=Math.max(0,Math.min(N-1,Math.round(p)));if(k!==shown)setInfo(k);
 }
 let shown=-1;
+function splitT(el,t){el.classList.add('sp');el.setAttribute('aria-label',t);
+  el.innerHTML=t.split(/\s+/).map(w=>'<span class="w" aria-hidden="true">'+[...w].map(c=>'<span class="ch"><span>'+c+'</span></span>').join('')+'</span>').join(' ');return el}
+function riseT(el,d){const c=el.querySelectorAll('.ch>span');
+  return gsap.fromTo(c,{yPercent:110,rotate:8},{yPercent:0,rotate:0,duration:.9,delay:d||0,stagger:Math.min(.045,.45/c.length),ease:'expo.out'})}
 function setInfo(k){
   const first=shown<0;shown=k;const c=IT[k];
-  const fill=()=>{$('nm').textContent=c.name;$('ds').textContent=c.d;$('mn').textContent=c.n;$('go').href=c.href;$('cn').textContent=String(k+1).padStart(2,'0')};
-  if(first){fill();return}
-  gsap.killTweensOf('.swap');
-  gsap.to('.swap',{y:-12,opacity:0,duration:.16,stagger:.03,ease:'power2.in',onComplete(){fill();
-    gsap.fromTo('.swap',{y:16,opacity:0},{y:0,opacity:1,duration:.45,stagger:.05,ease:'power3.out'})}});
+  const fill=()=>{splitT($('nm'),c.name);$('ds').textContent=c.d;$('mn').textContent=c.n;$('go').href=c.href;$('cn').textContent=String(k+1).padStart(2,'0')};
+  if(first){fill();riseT($('nm'),.75);return}
+  gsap.killTweensOf(['.swap','#nm .ch>span','#ds','#go']);
+  gsap.timeline().to('#nm .ch>span',{yPercent:-110,duration:.22,stagger:.008,ease:'power2.in'},0).to(['#ds','#go'],{y:-10,opacity:0,duration:.18,ease:'power2.in'},0)
+    .add(()=>{fill();gsap.set('.swap',{opacity:1,y:0});riseT($('nm'));
+      gsap.fromTo(['#ds','#go'],{y:18,opacity:0},{y:0,opacity:1,duration:.6,stagger:.08,delay:.25,ease:'power3.out'})});
 }
 function power(i,replay){
   const o=els[i].on();if(!o)return;
@@ -414,7 +422,7 @@ async function models(f){if(!DATA[f]){
   return DATA[f]}
 async function openDetail(i){document.body.classList.add('det');
   const c=IT[i];busy=true;
-  $('dnm').textContent=c.name;$('dul').innerHTML=c.x.map(t=>`<li>${t}</li>`).join('');
+  splitT($('dnm'),c.name);gsap.set('#dnm .ch>span',{yPercent:110});$('dul').innerHTML=c.x.map(t=>`<li>${t}</li>`).join('');
   $('ch').textContent=c.n+' modele · alege';
   let L=await models(c.f);
   if(c.k==='coffee')L=L.filter(m=>/espresso|coffee|cafe/i.test(m.sub||''));
@@ -429,7 +437,8 @@ async function openDetail(i){document.body.classList.add('det');
   tl.to(det,{v:1,duration:.9,ease:'power3.inOut'},0)
     .to('#cards',{x:0,duration:.8,ease:'power3.out'},.35)
     .call(syncQA,null,0).fromTo('.card',{y:30,opacity:0},{y:0,opacity:1,duration:.5,stagger:.05,ease:'power3.out'},.6)
-    .to('#detail',{opacity:1,duration:.5,onStart(){$('detail').style.pointerEvents='auto'}},.55);
+    .to('#detail',{opacity:1,duration:.5,onStart(){$('detail').style.pointerEvents='auto'}},.55)
+    .add(()=>riseT($('dnm')),.6).fromTo('#dul li',{y:16,opacity:0},{y:0,opacity:1,duration:.5,stagger:.07,ease:'power3.out'},.85).fromTo('#back',{y:10,opacity:0},{y:0,opacity:1,duration:.5},.55);
 }
 const kind=v=>m=>m.kind===v,kb=m=>m.b!=='Teka',tk=m=>m.b==='Teka';
 const FL={
@@ -493,7 +502,8 @@ function openLB(m,src){
   $('lbTh').innerHTML=im.length>1?im.map((f,j)=>`<img src="${f}" data-j="${j}" alt="" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}">`).join(''):'';
   $('lbP').style.display=$('lbN').style.display=im.length>1?'':'none';
   $('lbx').classList.add('show');gsap.fromTo('#lbx',{opacity:0},{opacity:1,duration:.35});
-  gsap.fromTo('#lbA>*',{y:24,opacity:0},{y:0,opacity:1,duration:.5,stagger:.05,delay:.1,ease:'power3.out'});
+  const h2=$('lbA').querySelector('h2');splitT(h2,m.n);gsap.set(h2.querySelectorAll('.ch>span'),{yPercent:110});riseT(h2,.2);
+  gsap.fromTo('#lbA .pvi>*:not(h2),#lbA>*:not(.pvi)',{y:24,opacity:0},{y:0,opacity:1,duration:.6,stagger:.05,delay:.3,ease:'power3.out'});
   lbShow(0);
 }
 function closeLB(){gsap.to('#lbx',{opacity:0,duration:.3,onComplete(){$('lbx').classList.remove('show')}})}
