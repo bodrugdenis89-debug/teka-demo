@@ -131,6 +131,10 @@ h1 .ch>span{display:inline-block;will-change:transform}
 .bar .fb svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
 .bar .fb b{min-width:16px;height:16px;border-radius:8px;background:var(--red);color:#fff;font-size:10px;display:grid;place-items:center;padding:0 4px}
 .bar .fb b[hidden]{display:none}
+.intro .chips{display:none}
+.bar .fb{width:40px;height:40px;padding:0;gap:0;justify-content:center;border:0;border-radius:50%;background:var(--ink);color:#fff}
+.bar .fb span{display:none}.bar .fb svg{width:18px;height:18px}
+.bar .fb b{position:absolute;top:-3px;right:-3px;box-shadow:0 0 0 2px #F4F3F1}
 .empty{grid-column:1/-1;text-align:center;padding:40px 20px;color:var(--mute);font-size:14px}
 .empty b{display:block;color:var(--ink);font-size:18px;margin-bottom:6px}
 .lang{cursor:pointer}
@@ -513,7 +517,7 @@ addEventListener('pageshow',()=>fit(true));})();
 <div class="bar" id="bar">
   <div class="cw" id="cw"><div class="chips" id="bchips"><button class="chip on" data-k="all" data-v="" data-t="all">Toate</button><button class="chip" data-k="install" data-v="independent" data-t="v_independent">Independent</button><button class="chip" data-k="install" data-v="incorporabil" data-t="v_incorporabil">Încorporabil</button></div>
   <button class="nx" id="nx" aria-label="Mai multe"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button></div>
-  <button class="fb"><svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span data-t="filt">Filtre</span><b id="fbn" hidden></b></button>
+  <button class="fb" aria-label="Filtre"><svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span data-t="filt">Filtre</span><b id="fbn" hidden></b></button>
 </div>
 
 <div class="pv" id="pv">
