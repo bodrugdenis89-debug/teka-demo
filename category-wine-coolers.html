@@ -918,7 +918,8 @@ const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(cart))}catch(e){}};
 const cnt=()=>cart.reduce((a,x)=>a+x.q,0), sum=()=>cart.reduce((a,x)=>a+x.q*x.p,0);
 const hdrBtn=document.querySelector('.cb').parentElement, cb=document.querySelector('.cb');
 hdrBtn.setAttribute('aria-label','Coș');
-function badge(b){const n=cnt();cb.textContent=n;cb.hidden=!n;if(b){cb.classList.remove('bump');void cb.offsetWidth;cb.classList.add('bump');}}
+function syncQA(){document.querySelectorAll('.qa').forEach(b=>{const p=P[+b.dataset.i];b.classList.toggle('done',!!(p&&cart.some(y=>y.sku===p.sku)));});}
+function badge(b){const n=cnt();cb.textContent=n;cb.hidden=!n;syncQA();if(b){cb.classList.remove('bump');void cb.offsetWidth;cb.classList.add('bump');}}
 const kd=document.getElementById('kd'),kbg=document.getElementById('kbg'),kl=document.getElementById('kl'),kf=document.getElementById('kf');
 const IC={vb:'<svg viewBox="0 0 24 24"><path d="M12 2.6c5 0 8.1 2.9 8.1 7.7v3.3c0 4.8-3.1 7.7-8.1 7.7-.5 0-.9 0-1.3-.1l-2.9 2.4v-3.1c-2.5-1.3-3.9-3.6-3.9-6.9v-3.3c0-4.8 3.1-7.7 8.1-7.7z"/></svg>',
  wa:'<svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>',
@@ -955,7 +956,8 @@ function addP(p){const card=document.querySelector('.pc[data-i="'+P.indexOf(p)+'
   save();badge(true);toast(tx('inCart'),tx('open'));}
 const addb=document.getElementById('addb');
 addb.addEventListener('click',()=>{if(!curP)return;addP(curP);addb.textContent=tx('added')+' ✓';setTimeout(()=>{addb.textContent=t('add')},1400);});
-document.addEventListener('click',e=>{const b=e.target.closest('.qa');if(!b)return;e.stopPropagation();const p=P[+b.dataset.i];if(!p)return;addP(p);b.classList.add('done');clearTimeout(b._t);b._t=setTimeout(()=>b.classList.remove('done'),1500);},true);
+document.addEventListener('click',e=>{const b=e.target.closest('.qa');if(!b)return;e.stopPropagation();const p=P[+b.dataset.i];if(!p)return;addP(p);},true);
+{let q=0;const g=document.getElementById('cat');if(g)new MutationObserver(()=>{if(!q)q=setTimeout(()=>{q=0;syncQA();},0);}).observe(g,{childList:true,subtree:true});}
 addEventListener('storage',e=>{if(e.key===KEY){try{cart=JSON.parse(e.newValue||'[]')}catch(_){}badge();}});
 badge();
 })();
