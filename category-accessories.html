@@ -873,8 +873,8 @@ function sweep(){document.querySelectorAll('.pi img:not([data-tt])').forEach(fun
 new MutationObserver(sweep).observe(document.documentElement,{childList:true,subtree:true});sweep()})();
 </script>
 <script>
-/* язык по умолчанию — русский; выбор запоминается между страницами */
-(function(){var l='ru';try{l=localStorage.getItem('tk-lang')||'ru'}catch(e){}
+/* язык по умолчанию — румынский; выбор запоминается между страницами */
+(function(){var l='ro';try{l=localStorage.getItem('tk-lang')||'ro'}catch(e){}
 var o=setLang;setLang=function(x){o(x);try{localStorage.setItem('tk-lang',x)}catch(e){}};
 if(l!==L)o(l);})();
 </script>

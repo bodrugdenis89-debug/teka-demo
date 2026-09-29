@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ro">
 <head>
 <meta charset="utf-8">
 <style id="tk-nav-css">
@@ -223,7 +223,7 @@ const T={ro:{ey:'Dealer oficial în Moldova',h1:'Tehnică de bucătărie <em>Tek
  ru:{ey:'Официальный дилер в Молдове',h1:'Кухонная техника <em>Teka</em> и&nbsp;<em class="kp">Küppersbusch</em>',sub:'',cta:'Выбрать технику',cat:'Каталог',mod:'моделей',
   p1:'Официальный дилер',p1s:'Teka и Küppersbusch в Молдове',p2:'Бесплатная доставка',p2s:'По муниципию Кишинёв',p3:'Гарантия 2 года',p3s:'Свой сервис — обращайтесь в магазин',
   st_e:'Магазин',st_h:'Кишинёв, ул. 31 August 1989, 79/1',st_p:'Пн – Пт 10:00 – 18:00, Сб 10:00 – 15:00, Вс — выходной. Посмотрите технику вживую и получите консультацию.',route:'Маршрут',call:'Позвонить',cp:'Официальный дистрибьютор Teka и Küppersbusch в Республике Молдова.',ttl:'Teka Moldova — кухонная техника'}};
-let L='ru';try{L=localStorage.getItem('tk-lang')||'ru'}catch(e){}
+let L='ro';try{L=localStorage.getItem('tk-lang')||'ro'}catch(e){}
 const t=k=>T[L][k];
 function drawGrid(){
   document.getElementById('grid').innerHTML=NAV.map(c=>'<a class="tile" href="'+c.h+'"><b><img src="'+c.im+'" alt="" loading="lazy"></b><i>'+(L==='ru'?c.ru:c.ro)+'</i><u>'+c.n+' '+t('mod')+'</u></a>').join('');
