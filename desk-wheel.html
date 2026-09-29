@@ -281,7 +281,7 @@ body.v3 .bk2{border-color:rgba(255,255,255,.3);color:#F1ECE6}
 .fbot b{color:#fff}.soc{display:flex;gap:10px}.soc a{width:42px;height:42px;border-radius:50%;border:1px solid #2a2a2a;display:grid;place-items:center}.soc a:hover{border-color:#fff}
 .soc svg{width:19px;height:19px;stroke:rgba(255,255,255,.88);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 #intro{position:fixed;inset:0;z-index:45;overflow:hidden;background:#0b0b0b;color:#F1ECE6}
-#intro .ibg{position:absolute;inset:0;background:url(assets/wheel/bg-right.jpg) 50% 80.5%/cover}
+#intro .ibg{position:absolute;inset:0;background:url(assets/wheel/bg-right.webp) 50% 80.5%/cover}
 body.v2 #intro{background:#E3E3E3;color:#100E0C}
 body.v2 #intro .ibg{background:radial-gradient(ellipse 30% 46% at 64% 40%,rgba(255,255,255,.8),rgba(255,255,255,0)),linear-gradient(180deg,#E4E4E4 0%,#E0E0E0 80.3%,#D6D6D6 80.6%,#DCDCDC 88%,#CFCFCF 100%)}
 .ip{position:absolute;left:0;top:0}
@@ -355,8 +355,8 @@ html{background:#0a0808}
 <div class="kto" id="kto"><span id="ktt">Produsul e în coș</span><button id="kto2">Deschide</button></div>
 
 <section class="tour" id="tour">
-  <div class="bg" id="bgR" style="background-image:url(assets/wheel/bg-right.jpg);background-position:50% 80.5%"></div>
-  <div class="bg" id="bgL" style="background-image:url(assets/wheel/bg-left.jpg)"></div>
+  <div class="bg" id="bgR" style="background-image:url(assets/wheel/bg-right.webp);background-position:50% 80.5%"></div>
+  <div class="bg" id="bgL" style="background-image:url(assets/wheel/bg-left.webp)"></div>
   <div class="bg" id="bgW"></div>
   <div class="stage" id="stage"></div>
   <div class="info" id="info">
@@ -483,11 +483,11 @@ const IT=[
 ];
 const N=IT.length,$=id=>document.getElementById(id),stage=$('stage');
 $('ct').textContent=N;
-let META={};
+let META={};const FR={fridge:'abo',hood:'ab',hob:'ab',sink:'a',faucet:'a',dish:'ab',oven:'ab',micro:'ab',coffee:'ab',wine:'ab',washer:'ab',pots:'a',disposer:'a'};
 const els=IT.map((c,i)=>{
   const e=document.createElement('div');e.className='it';
-  const ly=s=>`<div class="ly l${s}" style="-webkit-mask-image:url(${W+c.k}-${s}-m.png?v=3);mask-image:url(${W+c.k}-${s}-m.png?v=3)"><img src="${W+c.k}-${s}.jpg?v=3" alt="${s==='a'?c.name:''}" onerror="this.parentNode.remove()"></div>`;
-  e.innerHTML=ly('a')+ly('b')+ly('o');
+  const ly=s=>`<div class="ly l${s}" style="-webkit-mask-image:url(${W+c.k}-${s}-m.webp?v=4);mask-image:url(${W+c.k}-${s}-m.webp?v=4)"><img src="${W+c.k}-${s}.webp?v=4" alt="${s==='a'?c.name:''}" onerror="this.parentNode.remove()"></div>`;
+  e.innerHTML=[...(FR[c.k]||'a')].map(ly).join('');
   e.onclick=()=>{if(det.v>0)return;idx===i&&!busy?openDetail(i):go(i)};
   e.onmouseenter=()=>{if(idx===i&&!busy&&det.v===0)power(i)};
   const sh=document.createElement('div');sh.className='sh';
@@ -742,7 +742,7 @@ function addCart(m,src){if(!m)return;const x=cart.find(y=>y.sku===m.sku);
 addEventListener('storage',e=>{if(e.key===KEY){try{cart=JSON.parse(e.newValue||'[]')}catch(_){}badge()}});
 badge();
 
-function drawCat(){$('cg').innerHTML=IT.map((c,i)=>`<a class="ct" href="#" data-i="${i}" style="--d:${.03*i}s"><div class="ci"><div style="background-image:url(${W+c.k}-a.jpg);-webkit-mask-image:url(${W+c.k}-a-m.png);mask-image:url(${W+c.k}-a-m.png)"></div></div><b>${tr(c.name)}</b><small>${modS(c.n)}</small></a>`).join('')}
+function drawCat(){$('cg').innerHTML=IT.map((c,i)=>`<a class="ct" href="#" data-i="${i}" style="--d:${.03*i}s"><div class="ci"><div style="background-image:url(${W+c.k}-a.webp?v=4);-webkit-mask-image:url(${W+c.k}-a-m.webp?v=4);mask-image:url(${W+c.k}-a-m.webp?v=4)"></div></div><b>${tr(c.name)}</b><small>${modS(c.n)}</small></a>`).join('')}
 drawCat();
 function openCat(){$('cto').classList.add('on')}
 function closeCat(){$('cto').classList.remove('on')}
@@ -784,7 +784,7 @@ $('go').onclick=e=>{e.preventDefault();if(det.v>0||busy)return;const i=idx;if(Ma
 const T=(ro,ru)=>LANG==='ru'?ru:ro;
 const IN=$('intro');let inOn=true,inStarted=false,inExit=null;
 function mkP(c){const m=META[c.k]||{h:.7,ar:1};const d=document.createElement('div');d.className='ip';
-  d.innerHTML=['a','b'].map(s=>`<div class="ly l${s}" style="-webkit-mask-image:url(${W+c.k}-${s}-m.png?v=3);mask-image:url(${W+c.k}-${s}-m.png?v=3)"><img src="${W+c.k}-${s}.jpg?v=3" alt="" onerror="this.parentNode.remove()"></div>`).join('');
+  d.innerHTML=['a','b'].filter(s=>!m.f||m.f.includes(s)).map(s=>`<div class="ly l${s}" style="-webkit-mask-image:url(${W+c.k}-${s}-m.webp?v=4);mask-image:url(${W+c.k}-${s}-m.webp?v=4)"><img src="${W+c.k}-${s}.webp?v=4" alt="" onerror="this.parentNode.remove()"></div>`).join('');
   d.m=m;return d}
 const place=(d,x,bottom,h)=>{const w=h*d.m.ar;Object.assign(d.style,{left:x-w/2+'px',top:bottom-h+'px',width:w+'px',height:h+'px'});return {w,h}};
 function startWheel(i,spin){if(inStarted)return;inStarted=true;
@@ -837,7 +837,7 @@ function introInit(){
   const gs=L.map(o=>o.g);
   gsap.set(gs,lt?{opacity:0,y:18}:{opacity:0,y:18,filter:'brightness(0)'});gsap.set(['#i4h','#i4n','#i4f'],{opacity:0});gsap.set('#i4b',{opacity:0});
   const O=B.map(b=>b.o),C=3,seq=[[C],[C-1,C+1],[C-2,C+2],[C-3,C+3]];
-  const tl=gsap.timeline({delay:.15,onComplete(){const h=L.find(o=>o.g.matches(':hover'));if(h)h.g.onmouseenter()}});
+  const tl=gsap.timeline({paused:true,delay:.15,onComplete(){const h=L.find(o=>o.g.matches(':hover'));if(h)h.g.onmouseenter()}});
   tl.to('#i4b',{opacity:1,duration:2,ease:'sine.inOut'},0)
     .to('#i4h',{opacity:1,duration:.01},.1).add(()=>{splitT($('i4h'),'TEKA');riseT($('i4h'))},.1)
     .to('#i4f',{opacity:1,duration:1.4,ease:'sine.inOut'},.6);
@@ -845,6 +845,8 @@ function introInit(){
   tl.to(em,lt?{opacity:1,y:0,duration:1.4,stagger:.1,ease:'sine.out'}:{keyframes:{opacity:[0,.6,1],filter:['brightness(0)','brightness(.35)','brightness(1)'],y:[18,6,0],easeEach:'sine.inOut'},duration:1.6,stagger:.1,ease:'power1.out'},.5);
   [3,2,4,1,5,0,6].forEach((j,k)=>tl.to(O[j].lbs,{opacity:1,duration:1,ease:'sine.inOut'},2+k*.27));
   tl.to('#i4n',{opacity:1,duration:1,ease:'sine.inOut'},3.6);
+  const imgs=[...$('i4r').querySelectorAll('img')];
+  Promise.race([Promise.all(imgs.map(i=>(i.complete?Promise.resolve():new Promise(r=>{i.addEventListener('load',r);i.addEventListener('error',r)})).then(()=>i.decode&&i.decode().catch(()=>{})))),new Promise(r=>setTimeout(r,4000))]).then(()=>{if(inOn)tl.play()});
   const lab=document.createElement('div');lab.className='i4lab';lab.innerHTML='<b></b><span></span>';IN.appendChild(lab);
   const dim=o=>L.forEach(q=>{if(q!==o)gsap.to(q.g,{opacity:lt?.45:.3,duration:.4,overwrite:'auto'})});
   L.forEach(o=>{
