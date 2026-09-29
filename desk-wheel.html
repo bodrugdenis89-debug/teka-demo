@@ -344,7 +344,7 @@ body.v2 .i4ttl p{color:#555}
 </style>
 </head>
 <body>
-<script>(()=>{let v='v2';try{v=localStorage.getItem('tkv')||v}catch(e){}if(v!=='v3')v='v2';document.body.classList.add(v);document.documentElement.style.background=v==='v3'?'#0a0808':'#E3E3E3'})()</script><!--ith-->
+<script>(()=>{let v='v2';try{v=sessionStorage.getItem('tkv')||v}catch(e){}if(v!=='v3')v='v2';document.body.classList.add(v);document.documentElement.style.background=v==='v3'?'#0a0808':'#E3E3E3'})()</script><!--ith-->
 <div id="intro" class="iv4"><div class="i4bg" id="i4b"></div><div class="i4fl" id="i4f"></div><div class="i4row" id="i4r"></div>
 <div class="i4ttl" id="i4t"><h1 id="i4h">TEKA</h1></div>
 <div class="i4hint" id="i4n"><i class="ln"></i><i class="ms"></i><span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 9l7 7 7-7"/></svg></div></div>
@@ -709,8 +709,8 @@ fetch(W+'meta.json').then(r=>r.json()).then(m=>{META=m;
 });
 </script>
 <script>
-(()=>{const b=document.body,set=v=>{b.classList.remove('v1','v2','v3','v4');b.classList.add(v);document.querySelectorAll('#vsw button').forEach(x=>x.classList.toggle('on',x.dataset.v===v));try{localStorage.setItem('tkv',v)}catch(e){}};
-let v='v2';try{v=localStorage.getItem('tkv')||v}catch(e){}if(v!=='v3')v='v2';set(v);
+(()=>{const b=document.body,set=v=>{b.classList.remove('v1','v2','v3','v4');b.classList.add(v);document.querySelectorAll('#vsw button').forEach(x=>x.classList.toggle('on',x.dataset.v===v));try{sessionStorage.setItem('tkv',v)}catch(e){}};
+let v='v2';try{v=sessionStorage.getItem('tkv')||v}catch(e){}if(v!=='v3')v='v2';set(v);
 document.getElementById('vsw').onclick=e=>{const x=e.target.closest('button');if(x)set(x.dataset.v)};})();
 </script>
 <script>
