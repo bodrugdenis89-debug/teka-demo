@@ -188,7 +188,7 @@ html.tk-go .hi .now{animation-delay:.9s}
 <section class="st">
   <div class="ey" data-t="st_e">Magazin</div>
   <h2 data-t="st_h">Chișinău, str. 31 August 1989, 79/1</h2>
-  <p data-t="st_p">Luni – Sâmbătă, 10:00 – 18:00. Vedeți tehnica live și primiți consultație.</p>
+  <p data-t="st_p">Luni – Vineri 10:00 – 18:00, Sâmbătă 10:00 – 15:00, Duminică — zi liberă. Vedeți tehnica live și primiți consultație.</p>
   <div class="row">
     <a class="bt wh" href="https://www.google.com/maps/dir/?api=1&destination=Strada+31+August+1989+79%2F1%2C+Chi%C8%99in%C4%83u%2C+Moldova&travelmode=driving" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg><span data-t="route">Traseu</span></a>
     <a class="bt" href="tel:+37368272702"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span data-t="call">Apel</span></a>
@@ -219,10 +219,10 @@ const NAV=[
  {k:'wine', ro:'Răcitoare de vin',       ru:'Винные шкафы',          n:5,  h:'category-wine-coolers.html',im:'assets/nav/wine.webp'}];
 const T={ro:{ey:'Dealer oficial în Moldova',h1:'Tehnică de bucătărie <em>Teka</em> și&nbsp;<em class="kp">Küppersbusch</em>',sub:'',cta:'Alege tehnica',cat:'Catalog',mod:'modele',
   p1:'Dealer oficial',p1s:'Teka și Küppersbusch în Moldova',p2:'Livrare gratuită',p2s:'În municipiul Chișinău',p3:'Garanție 2 ani',p3s:'Service propriu — adresați-vă în magazin',
-  st_e:'Magazin',st_h:'Chișinău, str. 31 August 1989, 79/1',st_p:'Luni – Sâmbătă, 10:00 – 18:00. Vedeți tehnica live și primiți consultație.',route:'Traseu',call:'Apel',cp:'Distribuitor oficial Teka și Küppersbusch în Republica Moldova.',ttl:'Teka Moldova — tehnică de bucătărie'},
+  st_e:'Magazin',st_h:'Chișinău, str. 31 August 1989, 79/1',st_p:'Luni – Vineri 10:00 – 18:00, Sâmbătă 10:00 – 15:00, Duminică — zi liberă. Vedeți tehnica live și primiți consultație.',route:'Traseu',call:'Apel',cp:'Distribuitor oficial Teka și Küppersbusch în Republica Moldova.',ttl:'Teka Moldova — tehnică de bucătărie'},
  ru:{ey:'Официальный дилер в Молдове',h1:'Кухонная техника <em>Teka</em> и&nbsp;<em class="kp">Küppersbusch</em>',sub:'',cta:'Выбрать технику',cat:'Каталог',mod:'моделей',
   p1:'Официальный дилер',p1s:'Teka и Küppersbusch в Молдове',p2:'Бесплатная доставка',p2s:'По муниципию Кишинёв',p3:'Гарантия 2 года',p3s:'Свой сервис — обращайтесь в магазин',
-  st_e:'Магазин',st_h:'Кишинёв, ул. 31 August 1989, 79/1',st_p:'Пн – Сб, 10:00 – 18:00. Посмотрите технику вживую и получите консультацию.',route:'Маршрут',call:'Позвонить',cp:'Официальный дистрибьютор Teka и Küppersbusch в Республике Молдова.',ttl:'Teka Moldova — кухонная техника'}};
+  st_e:'Магазин',st_h:'Кишинёв, ул. 31 August 1989, 79/1',st_p:'Пн – Пт 10:00 – 18:00, Сб 10:00 – 15:00, Вс — выходной. Посмотрите технику вживую и получите консультацию.',route:'Маршрут',call:'Позвонить',cp:'Официальный дистрибьютор Teka и Küppersbusch в Республике Молдова.',ttl:'Teka Moldova — кухонная техника'}};
 let L='ru';try{L=localStorage.getItem('tk-lang')||'ru'}catch(e){}
 const t=k=>T[L][k];
 function drawGrid(){
