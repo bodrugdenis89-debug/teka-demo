@@ -1,0 +1,959 @@
+[
+ {
+  "sku": "121630008",
+  "name": "CKV6800.0KSM MattBlack",
+  "sub": "MattBlack Design Line. Fully automatic coffee machine with TFT touch display",
+  "price": 97900.0,
+  "old": null,
+  "kind": "espresso",
+  "col": "negru",
+  "brand": "Küppersbusch",
+  "draw": "",
+  "label": "",
+  "desc": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "458"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "596"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "484"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "1350"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/1/USER_MANUAL-CKV6800_0_DE_EN_ES_NL_FR_IT.pdf"
+  ],
+  "src": "kb",
+  "img": [
+   "121630008-1.webp",
+   "121630008-2.webp",
+   "121630008-3.webp",
+   "121630008-4.webp",
+   "121630008-5.webp",
+   "121630008-6.webp"
+  ],
+  "specs_src": "kb-direct:ckv6800-0ksm_121630008"
+ },
+ {
+  "sku": "121630009",
+  "name": "CKV6800.0S",
+  "sub": "Fully automatic coffee machine with TFT touch display",
+  "price": 94700.0,
+  "old": null,
+  "kind": "espresso",
+  "col": "negru",
+  "brand": "Küppersbusch",
+  "draw": "",
+  "label": "",
+  "desc": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "458"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "596"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "484"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "1350"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/1/USER_MANUAL-CKV6800_0_DE_EN_ES_NL_FR_IT.pdf"
+  ],
+  "src": "kb",
+  "img": [
+   "121630009-1.webp",
+   "121630009-2.webp",
+   "121630009-3.webp",
+   "121630009-4.webp",
+   "121630009-5.webp",
+   "121630009-6.webp"
+  ],
+  "specs_src": "kb-direct:ckv6800-0s_121630009"
+ },
+ {
+  "sku": "111630007",
+  "name": "CLC 85-G1 GM BM",
+  "sub": "Automat espresso încorporabili pentru cafea Infinity G1. Ediție specială Italdesign Giugiaro",
+  "price": 44200.0,
+  "old": null,
+  "kind": "espresso",
+  "col": "negru",
+  "brand": "Teka",
+  "draw": "111630007-draw.webp",
+  "label": "",
+  "desc": [
+   "Automat espresso încorporabil",
+   "Ediţie specială Design Infinity G1",
+   "Capacitate: 2 ceşti",
+   "30 programe automate",
+   "Touch Control & butoane",
+   "Presiune pompă: 15 bar",
+   "Tavă uşor detaşabilă pentru colectarea zaţului de cafea",
+   "Funcţie de auto-curăţare",
+   "Sistem integrat de râşnire a boabelor de cafea (13 trepte)",
+   "Posibilitatea de ajustare a cantităţii, temperaturii şi concentraţiei cafelei",
+   "Suport telescopic",
+   "Recipient pentru cafea boabe cu capacitate de 200 g"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitate rezervor de apă (litri)",
+      "1.8"
+     ],
+     [
+      "Capacitatea tăvii pentru colectarea zaţului (căni)",
+      "14"
+     ],
+     [
+      "Capacitatea sertarului de boabe de cafea (Gr)",
+      "200"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "455"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "412"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "23"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "560"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "550"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "450"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Puterea pompei (W)",
+      "50"
+     ],
+     [
+      "Număr de programe",
+      "30"
+     ],
+     [
+      "Număr de ceşti",
+      "2"
+     ],
+     [
+      "Dispenser reglabil pentru cafea",
+      "Da"
+     ],
+     [
+      "Țeavă reglabilă pentru abur și apă caldă",
+      "Da"
+     ],
+     [
+      "Cafea măcinată",
+      "Da"
+     ],
+     [
+      "On / Off",
+      "Da"
+     ],
+     [
+      "Steamer",
+      "Da"
+     ],
+     [
+      "Apă fierbinte",
+      "Da"
+     ],
+     [
+      "Temperatură cafea",
+      "Da"
+     ],
+     [
+      "Indicator de funcție selectat",
+      "Da"
+     ],
+     [
+      "Indicator rezervor de apă plin",
+      "Da"
+     ],
+     [
+      "Cafea măcinată prea fin, reglați indicatorul de râşnire",
+      "Da"
+     ],
+     [
+      "Indicator pentru de boabe de cafea lipsă",
+      "Da"
+     ],
+     [
+      "Indicator pentru sertar de cafea gol",
+      "Da"
+     ],
+     [
+      "Indicator pentru introducere sertar de cafea (lipsă)",
+      "Da"
+     ],
+     [
+      "Alarmă generică",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://teka-assets.b-cdn.net/wp-json/custom/v1/generate-zip?urls=https%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2FCMP1219%2Ffiles%2F5%2FCLC855-USERMANUAL-ES.pdf%2Chttps%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2Ftemp%2FZkVoVzk0eUdwNWc9%2FCLC_UserManual_EN.pdf%2Chttps%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2FCMP1219%2Ffiles%2Fleaflet_stand_by.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "111630007-1.webp",
+   "111630007-2.webp",
+   "111630007-3.webp",
+   "111630007-4.webp",
+   "111630007-5.webp",
+   "111630007-6.webp"
+  ]
+ },
+ {
+  "sku": "111630003",
+  "name": "CLC 855 GM ST",
+  "sub": "Automat espresso încorporabil, cu 30 programe automate şi presiune 15 bar",
+  "price": 44200.0,
+  "old": null,
+  "kind": "espresso",
+  "col": "inox",
+  "brand": "Teka",
+  "draw": "111630003-draw.webp",
+  "label": "",
+  "desc": [
+   "Colecţia Urban Colors",
+   "Automat espresso încorporabil",
+   "Capacitate: 2 ceşti",
+   "30 programe automate",
+   "Panou de control electronic",
+   "Presiune pompă: 15 bar",
+   "Recipient pentru cafea boabe cu capacitate de 200 g",
+   "Tavă uşor detaşabilă pentru colectarea zaţului de cafea",
+   "3 funcţii (cafea, abur, apă fierbinte)",
+   "Funcţie de auto-curăţare",
+   "Sistem integrat de râşnire a boabelor de cafea (13 trepte)",
+   "Posibilitatea de ajustare a cantităţii, temperaturii şi concentraţiei cafelei"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitate rezervor de apă (litri)",
+      "1.8"
+     ],
+     [
+      "Capacitatea tăvii pentru colectarea zaţului (căni)",
+      "14"
+     ],
+     [
+      "Capacitatea sertarului de boabe de cafea (Gr)",
+      "200"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "455"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "412"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "23"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "560"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "550"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "450"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Certificări",
+      "IMQ/CCC"
+     ],
+     [
+      "Presiunea pompei (bar)",
+      "15"
+     ],
+     [
+      "Puterea pompei (W)",
+      "50"
+     ],
+     [
+      "Anti-pată",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "30"
+     ],
+     [
+      "Număr de ceşti",
+      "2"
+     ],
+     [
+      "Dispenser reglabil pentru cafea",
+      "Da"
+     ],
+     [
+      "Țeavă reglabilă pentru abur și apă caldă",
+      "Da"
+     ],
+     [
+      "Cafea măcinată",
+      "Da"
+     ],
+     [
+      "On / Off",
+      "Da"
+     ],
+     [
+      "Steamer",
+      "Da"
+     ],
+     [
+      "Apă fierbinte",
+      "Da"
+     ],
+     [
+      "Ceas (opţiune in meniu)",
+      "Da"
+     ],
+     [
+      "Îndepărtarea depunerilor de calcar (opţiune in meniu)",
+      "Da"
+     ],
+     [
+      "Temperatură cafea (opțiune în meniu)",
+      "Da"
+     ],
+     [
+      "Temperatură cafea",
+      "Da"
+     ],
+     [
+      "Indicator de funcție selectat",
+      "Da"
+     ],
+     [
+      "Indicator rezervor de apă plin",
+      "Da"
+     ],
+     [
+      "Cafea măcinată prea fin, reglați indicatorul de râşnire",
+      "Da"
+     ],
+     [
+      "Indicator pentru de boabe de cafea lipsă",
+      "Da"
+     ],
+     [
+      "Indicator pentru sertar de cafea gol",
+      "Da"
+     ],
+     [
+      "Indicator pentru introducere sertar de cafea (lipsă)",
+      "Da"
+     ],
+     [
+      "Alarmă generică",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://teka-assets.b-cdn.net/wp-json/custom/v1/generate-zip?urls=https%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2Ftemp%2FZkVoVzk0eUdwNWc9%2FCLC_UserManual_EN.pdf%2Chttps%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2FCMP1219%2Ffiles%2Fleaflet_stand_by.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "111630003-1.webp",
+   "111630003-2.webp",
+   "111630003-3.webp",
+   "111630003-4.webp",
+   "111630003-5.webp",
+   "111630003-6.webp"
+  ]
+ },
+ {
+  "sku": "111630005",
+  "name": "CLC 8350 MC BK",
+  "sub": "Automat espresso încorporabil pentru capsule şi cafea măcinată, cu panou de control electronic cu afișaj TFT şi presiune pompă de 19 bar",
+  "price": 31000.0,
+  "old": null,
+  "kind": "espresso",
+  "col": "negru",
+  "brand": "Teka",
+  "draw": "111630005-draw.webp",
+  "label": "",
+  "desc": [
+   "Colectia Urban Colors",
+   "Automat espresso încorporabil pentru capsule si cafea macinata",
+   "Selector de cafea (mică / medie / mare / extra large / infuzie)",
+   "Panou de control electronic cu afișaj TFT",
+   "Include 5 adaptori pentru capsule",
+   "Capacitate: 1 ceaşcă",
+   "Suport pentru ceaşcă ajustabil pe înălţime",
+   "Selector de temperatură",
+   "Presiune pompă: 19 bar",
+   "2 compartimente laterale pentru depozitare",
+   "Sertar pentru depozitare",
+   "Tava pentru colectarea zaţului"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitate rezervor de apă (litri)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "455"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "330"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "18,7"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "560"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "580"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "450"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB"
+     ],
+     [
+      "Presiunea pompei (bar)",
+      "19"
+     ],
+     [
+      "Anti-pată",
+      "Da"
+     ],
+     [
+      "Număr de ceşti",
+      "1"
+     ],
+     [
+      "Țeavă reglabilă pentru abur și apă caldă",
+      "Da"
+     ],
+     [
+      "Cafea măcinată",
+      "Da"
+     ],
+     [
+      "Capsule cafea",
+      "Da"
+     ],
+     [
+      "On / Off",
+      "Da"
+     ],
+     [
+      "Steamer",
+      "Da"
+     ],
+     [
+      "Temperatură cafea",
+      "Da"
+     ],
+     [
+      "Indicator de funcție selectat",
+      "Da"
+     ],
+     [
+      "Indicator rezervor de apă plin",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/2/CLC-835-EN-PT-ES-DE-FR-UserManual.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "111630005-1.webp",
+   "111630005-2.webp",
+   "111630005-3.webp",
+   "111630005-4.webp",
+   "111630005-5.webp",
+   "111630005-6.webp"
+  ]
+ },
+ {
+  "sku": "111630015",
+  "name": "CLC 8350 MC WH",
+  "sub": "Colectia Urban Colors. Automat espresso încorporabil pentru capsule si cafea macinata",
+  "price": 31000.0,
+  "old": null,
+  "kind": "espresso",
+  "col": "alb",
+  "brand": "Teka",
+  "draw": "111630015-draw.webp",
+  "label": "",
+  "desc": [
+   "Colectia Urban Colors",
+   "Automat espresso încorporabil pentru capsule si cafea macinata",
+   "Selector de cafea (mică / medie / mare / extra large / infuzie)",
+   "Panou de control electronic cu afișaj TFT",
+   "Include 5 adaptori pentru capsule",
+   "Capacitate: 1 ceaşcă",
+   "Suport pentru ceaşcă ajustabil pe înălţime",
+   "Selector de temperatură",
+   "Presiune pompă: 19 bar",
+   "2 compartimente laterale pentru depozitare",
+   "Sertar pentru depozitare",
+   "Tava pentru colectarea zaţului"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitate rezervor de apă (litri)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "455"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "330"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "18.7"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "560"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "580"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "450"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB"
+     ],
+     [
+      "Presiunea pompei (bar)",
+      "19"
+     ],
+     [
+      "Număr de ceşti",
+      "1"
+     ],
+     [
+      "Țeavă reglabilă pentru abur și apă caldă",
+      "Da"
+     ],
+     [
+      "Cafea măcinată",
+      "Da"
+     ],
+     [
+      "Capsule cafea",
+      "Da"
+     ],
+     [
+      "On / Off",
+      "Da"
+     ],
+     [
+      "Steamer",
+      "Da"
+     ],
+     [
+      "Temperatură cafea",
+      "Da"
+     ],
+     [
+      "Indicator de funcție selectat",
+      "Da"
+     ],
+     [
+      "Indicator rezervor de apă plin",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/1/CLC-835-MC-UserManual-EN-PT-ES-DE-FR.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "111630015-1.webp",
+   "111630015-2.webp",
+   "111630015-3.webp",
+   "111630015-4.webp",
+   "111630015-5.webp",
+   "111630015-6.webp"
+  ]
+ },
+ {
+  "sku": "111630004",
+  "name": "CLC 855 GM BK",
+  "sub": "Automat espresso încorporabil, cu 30 programe automate şi presiune 15 bar",
+  "price": 44200.0,
+  "old": null,
+  "kind": "espresso",
+  "col": "negru",
+  "brand": "Teka",
+  "draw": "111630004-draw.webp",
+  "label": "",
+  "desc": [
+   "Colecţia Urban Colors",
+   "Automat espresso încorporabil",
+   "Capacitate: 2 ceşti",
+   "30 programe automate",
+   "Panou de control electronic",
+   "Presiune pompă: 15 bar",
+   "Recipient pentru cafea boabe cu capacitate de 200 g",
+   "Tavă uşor detaşabilă pentru colectarea zaţului de cafea",
+   "3 funcţii (cafea, abur, apă fierbinte)",
+   "Funcţie de auto-curăţare",
+   "Sistem integrat de râşnire a boabelor de cafea (13 trepte)",
+   "Posibilitatea de ajustare a cantităţii, temperaturii şi concentraţiei cafelei"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitate rezervor de apă (litri)",
+      "1.8"
+     ],
+     [
+      "Capacitatea tăvii pentru colectarea zaţului (căni)",
+      "14"
+     ],
+     [
+      "Capacitatea sertarului de boabe de cafea (Gr)",
+      "200"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "455"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "412"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "23"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "560"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "550"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "450"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Incorporabile"
+     ],
+     [
+      "Presiunea pompei (bar)",
+      "15"
+     ],
+     [
+      "Puterea pompei (W)",
+      "50"
+     ],
+     [
+      "Anti-pată",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "30"
+     ],
+     [
+      "Număr de ceşti",
+      "2"
+     ],
+     [
+      "Dispenser reglabil pentru cafea",
+      "Da"
+     ],
+     [
+      "Țeavă reglabilă pentru abur și apă caldă",
+      "Da"
+     ],
+     [
+      "Cafea măcinată",
+      "Da"
+     ],
+     [
+      "On / Off",
+      "Da"
+     ],
+     [
+      "Steamer",
+      "Da"
+     ],
+     [
+      "Apă fierbinte",
+      "Da"
+     ],
+     [
+      "Ceas (opţiune in meniu)",
+      "Da"
+     ],
+     [
+      "Îndepărtarea depunerilor de calcar (opţiune in meniu)",
+      "Da"
+     ],
+     [
+      "Temperatură cafea (opțiune în meniu)",
+      "Da"
+     ],
+     [
+      "Indicator de funcție selectat",
+      "Da"
+     ],
+     [
+      "Indicator rezervor de apă plin",
+      "Da"
+     ],
+     [
+      "Cafea măcinată prea fin, reglați indicatorul de râşnire",
+      "Da"
+     ],
+     [
+      "Indicator pentru de boabe de cafea lipsă",
+      "Da"
+     ],
+     [
+      "Indicator pentru sertar de cafea gol",
+      "Da"
+     ],
+     [
+      "Indicator pentru introducere sertar de cafea (lipsă)",
+      "Da"
+     ],
+     [
+      "Alarmă generică",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
+   "https://teka-assets.b-cdn.net/wp-json/custom/v1/generate-zip?urls=https%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2Ftemp%2FZkVoVzk0eUdwNWc9%2FCLC_UserManual_EN.pdf%2Chttps%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2FCMP1219%2Ffiles%2Fleaflet_stand_by.pdf"
+  ],
+  "src": "ro",
+  "img": [
+   "111630004-1.webp",
+   "111630004-2.webp",
+   "111630004-3.webp",
+   "111630004-4.webp",
+   "111630004-5.webp",
+   "111630004-6.webp"
+  ]
+ }
+]

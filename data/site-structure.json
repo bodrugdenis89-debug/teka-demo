@@ -1,0 +1,53 @@
+{
+  "generated": "2026-09-23",
+  "note_field_naming": "Ключи полей отличаются между категориями (name/n, price/p, brand/b/src, kind/f/c, col/c) — унаследовано от разных build_*.py скриптов, собиравшихся в разное время. Перед дизайн-фазой стоит либо привести все data/*.json к единой схеме, либо на фронте использовать простой адаптер fallback-получения полей.",
+
+  "menu": {
+    "Bucătărie": [
+      {"label": "Cuptoare", "data": "data/ovens.json", "assets": "assets/ro", "count": 34, "kinds": {"multi": 30, "micro": 4}, "cols": {"inox": 12, "negru": 19, "crem": 1, "alb": 2}, "design_status": "done (шаблон category-ovens-light.html утверждён клиентом)"},
+      {"label": "Cuptoare cu microunde", "data": "data/microwaves.json", "count": 18, "kinds": {"incorporabil": 16, "independent": 2}, "cols": {"negru": 11, "alb": 3, "inox": 2, "gri": 1, "crem": 1}, "brands": {"Teka": 15, "Küppersbusch": 3}, "design_status": "не начат"},
+      {"label": "Plite", "data": "data/hobs.json", "count": 48, "kinds": {"gaz": 25, "inductie": 21, "vitroceramica": 2}, "cols": {"negru": 39, "inox": 3, "alb": 3, "gri": 2, "crem": 1}, "brands": {"Teka": 37, "Küppersbusch": 11}, "design_status": "не начат", "note": "35→48: дыра с plite-catalog-kuppersbusch закрыта, 2 позиции (KMI8500.0SR, VKET3800.0SR) остались на фото teka.md"},
+      {"label": "Hote", "data": "data/hoods.json", "count": 49, "kinds": {"perete": 15, "telescopica": 10, "incorporabila": 10, "insula": 9, "perete-inclinat": 5}, "cols": {"inox": 30, "negru": 12, "alb": 5, "gri": 1, "antracit": 1}, "brands": {"Teka": 42, "Küppersbusch": 7}, "design_status": "не начат", "note": "42→49: дыра с категорией hota (singular) закрыта, 1 позиция (DW8540.0S) осталась на фото teka.md"},
+      {"label": "Aparate Frigorifice", "data": "data/fridges.json", "count": 24, "kinds": {"incorporabil": 9, "congelator": 5, "combina": 5, "o-usa": 2, "french-door": 2, "side-by-side": 1}, "cols": {"inox": 18, "alb": 4, "negru": 2}, "brands": {"Teka": 20, "Küppersbusch": 4}, "design_status": "не начат"},
+      {"label": "Refrigeratoare de vinuri", "data": "data/wine-coolers.json", "count": 5, "design_status": "не начат", "note": "6-й (RLF 85950 GBK, side-by-side со встроенным винным отсеком) уже внутри fridges.json — не дублировать"},
+      {"label": "Chiuvete", "data": "data/sinks.json", "count": 48, "cols": {"negru": 21, "inox": 20, "gri": 3, "alb": 3, "auriu": 1}, "brands": {"Teka": 48}, "design_status": "не начат"},
+      {"label": "Baterii de Bucătărie", "data": "data/faucets.json", "count": 39, "kinds": {"standard": 17, "extractibil": 14, "dozator": 5, "osmoza": 3}, "cols": {"crom": 22, "negru": 8, "auriu": 5, "inox": 2, "gri": 1, "alb": 1}, "brands": {"Teka": 39}, "design_status": "не начат"},
+      {"label": "Mașini de spălat vase", "data": "data/dishwashers.json", "count": 13, "brands_note": "10 Teka + 3 Küppersbusch (G6805.1v/G6500.0v/G4800.1v — SKU на home-kueppersbusch.com не совпадает, намеренно не сматчено, фото/данные с teka.md)", "design_status": "не начат"},
+      {"label": "Compacte (доп. категория, найдена в этом заходе)", "data": "data/compact.json", "count": 17, "kinds": {"espresso": 7, "cuptor-compact": 5, "sertar-termic": 2, "aparat-de-vidat": 2, "cuptor-abur": 1}, "cols": {"negru": 15, "inox": 1, "alb": 1}, "design_status": "не начат", "note": "на teka.com/ro-ro нет отдельного пункта меню — товары лежат внутри Cuptoare/микроволновок/кофе, но на teka.md есть отдельный физический раздел сайта"},
+      {"label": "Accesorii Bucătărie (+ доп. категории найдены)", "data": "data/accessories.json", "count": 9, "design_status": "не начат", "note": "объединяет accesorii-bucatarie, elitegrill, tocator-550 с сайта — у 3 позиций на teka.md нет SKU и RO-страницы, синтетический id из URL"}
+    ],
+    "Spălare și Uscare": [
+      {"label": "Mașini de spălat / uscat", "data": "data/laundry.json", "count": 14, "kinds": {"spalat": 9, "uscator": 3, "spalat-uscat": 2}, "design_status": "не начат"}
+    ]
+  },
+
+  "service_pages": [
+    {"label": "Contact", "status": "контент готов", "source": "content нет отдельного файла — данные: Strada 31 August 1989 79/1, Chișinău; +373 68 27 27 02; tekamoldova@gmail.com; 10:00–18:00"},
+    {"label": "Livrare și plată", "status": "финал, готов к вёрстке", "file": "content/livrare-plata.md"},
+    {"label": "Garanție și service", "status": "финал, готов к вёрстке", "file": "content/garantie-service.md"},
+    {"label": "F.A.Q.", "status": "контент уже есть и корректен на teka.md/faq/ — просто нужен новый дизайн, текст не трогать"}
+  ],
+
+  "known_site_issues": [
+    "Главное меню сайта (шапка, <ul id=\"header_menu\">) физически пустое на всех страницах teka.md — навигации между категориями сейчас нет вообще, только прямые ссылки/поиск. Строить с нуля.",
+    "/payments-2/ — демо-заглушка темы WooCommerce (текст про Яндекс.Кассу/CloudPayments), не отредактирована клиентом. Заменяется черновиком content/livrare-plata.md после уточнений.",
+    "Товар CNL 6610 (вытяжка) — og:image и SKU украдены с другого товара.",
+    "Товар HLX 640 KBA OE IX (плита) — на сайте стоит фото круглой мойки вместо плиты.",
+    "Товар DFI 74910 (духовка) — og:image и SKU украдены с DFI 74960; в нашем ovens.json уже исправлено на верный SKU 114300001."
+  ],
+
+  "pending_client_answers": [],
+  "resolved_client_answers": {
+    "Доставка": "Бесплатная по всей Молдове, 3 дня, подъём/занос включён в стоимость. Детали за пределами Кишинёва — индивидуально с менеджером.",
+    "Оплата": "Наличные, карта (POS есть), безнал для юрлиц — всё работает. Онлайн-оплата на сайте не будет подключаться.",
+    "Гарантия/ремонт": "Свой сервис, ремонт делают сами, без переадресации к официальному представителю Teka."
+  },
+
+  "not_transferring_from_ro": [
+    "Design (Infinity Design) — маркетинговая страница бренда, вне бюджета",
+    "Inspirație — блог/маркетинг бренда",
+    "Ghiduri de cumpărare — контент-маркетинг",
+    "PDF-каталог — заменяется собственным каталогом на сайте",
+    "Формы Suport (регистрация гарантии / заявка на ремонт) — это глобальная CRM производителя Teka, не подходит дилеру напрямую"
+  ]
+}
