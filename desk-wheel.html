@@ -675,7 +675,7 @@ addEventListener('wheel',e=>{if(fzOn())e.stopImmediatePropagation()},{capture:tr
 $('back').onclick=closeDetail;$('back2').onclick=closeDetail;
 
 gsap.registerPlugin(ScrollTrigger);
-const state={p:0};let idx=0,busy=false,acc=0,lastT=0,lastD=0;
+const state={p:0};let idx=0,busy=false,acc=0,lastT=0,wLock=false;
 gsap.ticker.add(()=>render(state.p));
 const st=ScrollTrigger.create({trigger:'#tour',start:'top top',end:()=>'+='+innerHeight*(N-1),pin:true,
   onUpdate:s=>{if(!busy&&det.v===0){state.p=s.progress*(N-1);idx=Math.round(state.p)}}});
@@ -692,10 +692,11 @@ addEventListener('wheel',e=>{
   if(lbOpen()||modal())return;if(det.v>0){if(!e.target.closest('.cards'))e.preventDefault();return}
   const dir=Math.sign(e.deltaY);
   if((idx===0&&dir<0&&!busy)||(idx===N-1&&dir>0&&!busy&&scrollY>=pos(N-1)-2))return;
-  e.preventDefault();const now=performance.now(),ad=Math.abs(e.deltaY),gap=now-lastT,pd=lastD;lastT=now;lastD=ad;if(busy)return;
-  if(gap<140&&ad<=pd&&acc===0)return;
+  e.preventDefault();const now=performance.now(),gap=now-lastT;lastT=now;
+  if(wLock){if(gap>200&&!busy)wLock=false;else return}
+  if(busy)return;
   if(gap>250)acc=0;acc+=e.deltaY;
-  if(Math.abs(acc)>25){go(idx+(acc>0?1:-1));acc=0}
+  if(Math.abs(acc)>25){wLock=true;go(idx+(acc>0?1:-1));acc=0}
 },{passive:false});
 let ty=null;
 addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});
