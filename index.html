@@ -2,6 +2,13 @@
 <html lang="ro">
 <head>
 <meta charset="utf-8">
+<script id="tk-router">(function(){try{
+var v=new URLSearchParams(location.search).get('v');
+if(v){localStorage.setItem('tkView',v)}else{v=localStorage.getItem('tkView')}
+if(v==='m')return;
+if(v==='d'||matchMedia('(min-width:1024px) and (hover:hover)').matches)location.replace('desk-wheel.html'+location.hash);
+}catch(e){}})()</script>
+
 <style id="tk-nav-css">
 html::after{content:"";position:fixed;inset:0;z-index:9999;background:#100E0C;pointer-events:none;opacity:0;transition:opacity .25s ease}
 html.tk-in::after,html.tk-out::after{opacity:1}
