@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="google" content="notranslate">
-<title>Teka Moldova — tehnică de bucătărie</title>
+<title>Produs — Teka Moldova</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -200,6 +200,108 @@ footer .bot .wrap{display:flex;justify-content:space-between;padding-top:18px;pa
 
 @media (max-width:1180px){.cats{grid-template-columns:repeat(4,1fr)}.grid{grid-template-columns:repeat(3,1fr)}nav.mn>div>a{padding:0 10px}}
 @media (max-width:900px){.wrap{padding:0 16px}.cats{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,1fr)}.adv{grid-template-columns:1fr}.adv div+div{border-left:0;border-top:1px solid var(--line)}nav.mn,.top .hide{display:none}.sl{grid-template-columns:1fr}.sl .pic{position:absolute;inset:0;opacity:.35}.sl .tx{padding:0 24px}.hn{left:24px}.brands,.shw{grid-template-columns:1fr}footer .wrap{grid-template-columns:1fr 1fr}}
+
+.crumbs{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--mute);padding:22px 0 18px;flex-wrap:wrap}
+.crumbs a:hover{color:var(--red)}.crumbs svg{width:12px;height:12px}.crumbs b{color:var(--ink);font-weight:500}
+.pp{display:grid;grid-template-columns:1.12fr 1fr;gap:56px;align-items:start}
+.gal{display:grid;grid-template-columns:84px 1fr;gap:16px;position:sticky;top:96px}
+.th{display:flex;flex-direction:column;gap:10px;max-height:600px;overflow-y:auto;scrollbar-width:none}
+.th button{width:84px;height:84px;border:1px solid var(--line);border-radius:8px;padding:8px;background:#fff;flex:none;transition:border-color .2s}
+.th button img{width:100%;height:100%;object-fit:contain}
+.th button:hover{border-color:#bbb}.th button.on{border-color:var(--ink)}
+.th:empty{display:none}
+.gal.one{grid-template-columns:1fr}
+.mi{position:relative;aspect-ratio:1/1;border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden;cursor:zoom-in}
+.mi img{position:absolute;inset:40px;width:calc(100% - 80px);height:calc(100% - 80px);object-fit:contain;transition:opacity .25s}
+.mi img.ld{opacity:0}
+.mi .bdg{left:18px;top:18px}
+.nv{position:absolute;top:50%;width:46px;height:46px;margin-top:-23px;border-radius:50%;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.1);display:grid;place-items:center;opacity:0;transition:opacity .2s,transform .2s;z-index:3}
+.nv.p{left:16px}.nv.n{right:16px}
+.mi:hover .nv{opacity:1}.nv:hover{transform:scale(1.06)}
+.zm{position:absolute;right:16px;bottom:16px;width:42px;height:42px;border-radius:50%;background:var(--soft);display:grid;place-items:center;z-index:3}
+.mi .ct{position:absolute;left:18px;bottom:18px;font-size:12.5px;color:var(--mute);z-index:3}
+.gal.one .nv,.gal.one .ct{display:none}
+.bx .br{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.bx .br.kb{color:#8a6d3b}
+.bx h1{margin-top:6px;font-size:38px;line-height:1.08;font-weight:700;letter-spacing:-.02em}
+.bx .sb{margin-top:12px;font-size:16px;color:var(--ink2);line-height:1.5}
+.bx .cd{margin-top:10px;font-size:13px;color:var(--mute)}
+.bx .cd b{color:var(--ink2);font-weight:500}
+.kf{margin-top:22px;display:grid;gap:9px;list-style:none}
+.kf li{display:flex;gap:10px;font-size:14.5px;align-items:flex-start}
+.kf li svg{width:18px;height:18px;color:var(--red);flex:none;margin-top:2px;stroke-width:2}
+.kf a{font-size:14px;font-weight:600;color:var(--ink);border-bottom:1px solid;justify-self:start;margin-left:28px}
+.buy{margin-top:26px;border:1px solid var(--line);border-radius:10px;padding:24px}
+.pr2{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.pr2 b{font-size:34px;font-weight:700;letter-spacing:-.01em}
+.pr2 s{font-size:17px;color:var(--mute)}
+.pr2 em{font-style:normal;font-size:13px;font-weight:700;background:var(--red);color:#fff;padding:4px 9px;border-radius:3px;align-self:center}
+.pr2 .ask{font-size:26px}
+.sv{margin-top:4px;font-size:14px;color:var(--red);font-weight:600}
+.stk{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:14px;color:var(--ok);font-weight:500}
+.stk:before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.ac{display:flex;gap:12px;margin-top:20px}
+.qt{display:flex;align-items:center;border:1px solid var(--line);border-radius:26px;height:52px}
+.qt button{width:44px;height:100%;display:grid;place-items:center;font-size:20px;color:var(--ink2)}
+.qt button:hover{color:var(--ink)}
+.qt input{width:34px;text-align:center;border:0;font:inherit;font-weight:600;font-size:16px;outline:none}
+.add{flex:1;height:52px;border-radius:26px;background:var(--red);color:#fff;font-weight:600;font-size:15.5px;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .2s}
+.add:hover{background:var(--red2)}
+.add.ok{background:var(--ink)}
+.wa{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:#1fa855;flex:none;transition:border-color .2s}
+.wa:hover{border-color:#1fa855}
+.wa svg{fill:currentColor;stroke:none;width:22px;height:22px}
+.go{display:block;margin-top:12px;font-size:13.5px;color:var(--ink2);text-align:center}
+.go a{font-weight:600;color:var(--ink);border-bottom:1px solid}
+.srv{margin-top:16px;display:grid;gap:0;border:1px solid var(--line);border-radius:10px}
+.srv>div{display:flex;gap:14px;padding:16px 20px;align-items:flex-start}
+.srv>div+div{border-top:1px solid var(--line)}
+.srv svg{width:24px;height:24px;color:var(--red);flex:none;stroke-width:1.5}
+.srv b{display:block;font-size:14.5px;font-weight:600}.srv small{display:block;font-size:13px;color:var(--ink2);line-height:1.45}
+.srv a{color:var(--red);font-weight:600}
+.ptabs{position:sticky;top:76px;z-index:20;background:#fff;border-bottom:1px solid var(--line);display:flex;gap:6px;margin-top:64px}
+.ptabs a{padding:18px 16px;font-size:15px;font-weight:600;color:var(--mute);border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}
+.ptabs a:hover{color:var(--ink)}.ptabs a.on{color:var(--ink);border-bottom-color:var(--red)}
+.ps{padding:48px 0 8px;scroll-margin-top:140px}
+.ps>h2{font-size:28px;font-weight:700;letter-spacing:-.015em;margin-bottom:24px}
+.dsc{display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start}
+.dsc ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 32px}
+.dsc li{display:flex;gap:12px;font-size:15px;line-height:1.45;padding-bottom:12px;border-bottom:1px solid var(--soft)}
+.dsc li svg{width:18px;height:18px;color:var(--red);flex:none;margin-top:2px;stroke-width:2}
+.lbl{background:var(--soft);border-radius:10px;padding:20px;text-align:center}
+.lbl img{max-height:300px;margin:0 auto;cursor:zoom-in}
+.lbl small{display:block;margin-top:10px;font-size:12.5px;color:var(--mute)}
+.spc{display:grid;grid-template-columns:1fr 1fr;gap:28px 48px;align-items:start}
+.spc h4{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding-bottom:10px;border-bottom:1px solid var(--ink)}
+.spc dl>div{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
+.spc dt{color:var(--ink2)}.spc dd{font-weight:500}
+.spc .more3{grid-column:1/-1;justify-self:center;height:46px;padding:0 24px;border-radius:23px;border:1px solid var(--ink);font-weight:600;font-size:14px}
+.spc.cut2 .g:nth-child(n+5){display:none}
+.drw{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:center;background:var(--soft);border-radius:10px;padding:32px}
+.drw img{max-height:420px;margin:0 auto;mix-blend-mode:multiply;cursor:zoom-in}
+.dims{display:grid;gap:12px}
+.dims div{background:#fff;border-radius:8px;padding:16px 20px;display:flex;justify-content:space-between;align-items:baseline}
+.dims b{font-size:24px;font-weight:700}.dims small{font-size:13px;color:var(--mute)}
+.docs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.docs a{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:18px;transition:border-color .2s}
+.docs a:hover{border-color:var(--ink)}
+.docs svg{width:30px;height:30px;color:var(--red);flex:none;stroke-width:1.4}
+.docs b{display:block;font-size:14.5px}.docs small{display:block;font-size:12px;color:var(--mute);word-break:break-all}
+.bl2{margin-top:72px}
+.nf{padding:120px 0;text-align:center}.nf h1{font-size:32px}.nf p{margin-top:10px;color:var(--ink2)}.nf .btn{margin-top:24px}
+.lbx{position:fixed;inset:0;z-index:200;background:#fff;display:none;align-items:center;justify-content:center}
+.lbx.on{display:flex}
+.lbx>img{max-width:calc(100% - 240px);max-height:calc(100% - 180px);object-fit:contain}
+.lbx .x{position:absolute;right:28px;top:24px;width:52px;height:52px;border-radius:50%;background:var(--soft);display:grid;place-items:center}
+.lbx .nv{opacity:1}.lbx .nv.p{left:40px}.lbx .nv.n{right:40px}
+.lth{position:absolute;bottom:24px;left:0;right:0;display:flex;gap:10px;justify-content:center}
+.lth button{width:64px;height:64px;border:1px solid var(--line);border-radius:8px;padding:6px;background:#fff}
+.lth button.on{border-color:var(--ink)}.lth img{width:100%;height:100%;object-fit:contain}
+.lbx.one .nv,.lbx.one .lth{display:none}
+@media (max-width:1100px){.pp{grid-template-columns:1fr 1fr;gap:36px}.bx h1{font-size:30px}.docs{grid-template-columns:1fr 1fr}.dsc ul{grid-template-columns:1fr}}
+@media (max-width:900px){.pp,.dsc,.drw,.spc{grid-template-columns:1fr}.gal{position:static;grid-template-columns:1fr}.th{flex-direction:row;order:2}.docs{grid-template-columns:1fr}}
+.go[hidden]{display:none}
+.mi.nop{cursor:default;background:var(--soft) url(assets/teka-logo.svg) center/120px auto no-repeat}.mi.nop img,.mi.nop .zm{display:none}
 </style>
 </head>
 <body>
@@ -218,71 +320,33 @@ footer .bot .wrap{display:flex;justify-content:space-between;padding-top:18px;pa
     <div><a href="desk-cat.html?c=oven"><span data-t="n_k">Bucătărie</span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
       <div class="mega"><div class="wrap" id="mgK"></div></div></div>
     <div><a href="desk-cat.html?c=washer"><span data-t="n_l">Spălare și uscare</span></a></div>
-    <div><a href="#offers"><span data-t="n_o">Oferte</span></a></div>
-    <div><a href="#show"><span data-t="n_s">Magazin</span></a></div>
+    <div><a href="desk-catalog.html#offers"><span data-t="n_o">Oferte</span></a></div>
+    <div><a href="desk-catalog.html#show"><span data-t="n_s">Magazin</span></a></div>
     <div><a href="#ft"><span data-t="n_c">Contacte</span></a></div>
   </nav>
   <div class="srch"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="q" autocomplete="off" data-tp="s_ph" placeholder="Caută model, cod sau categorie"><div class="sres" id="sr"></div></div>
   <a class="cartb" id="cb" href="desk-cart.html" aria-label="Coș"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11h11l2-8H6.3"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg><em id="cbn" hidden>0</em></a>
 </div></header>
 
-<main>
-<section class="hero"><div class="wrap">
-  <div class="hs" id="hs"></div>
-  <div class="adv">
-    <div><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg><span><b data-t="a1">Dealer oficial</b><small data-t="a1s">Teka și Küppersbusch</small></span></div>
-    <div><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg><span><b data-t="a2">Livrare gratuită</b><small data-t="a2s">în municipiul Chișinău</small></span></div>
-    <div><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg><span><b data-t="a4">Garanție 2 ani</b><small data-t="a4s">Service propriu</small></span></div>
+<main><div class="wrap">
+  <div class="crumbs"><a href="desk-catalog.html" data-t="home">Acasă</a><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg><a id="crC" href="desk-cat.html"></a><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg><b id="crP"></b></div>
+  <div class="pp" id="pp">
+    <div class="gal"><div class="th" id="th"></div><div class="mi" id="mi"><div class="bdg" id="mb"></div><img id="mimg" alt=""><button class="nv p" data-d="-1" aria-label="prev"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><button class="nv n" data-d="1" aria-label="next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button><button class="zm" id="zm" aria-label="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4M11 8v6M8 11h6"/></svg></button><div class="ct" id="mct"></div></div></div>
+    <div class="bx" id="bx"></div>
   </div>
-</div></section>
+  <nav class="ptabs" id="pt"></nav>
+  <div id="det"></div>
+  <section class="bl2" id="relS"><div class="bh"><h2 data-t="rel_h">Alte modele din categorie</h2><a class="more" id="relA" href="desk-cat.html"><span data-t="allp">Tot catalogul</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="grid" id="rel"></div></section>
+  <section class="bl2" id="seenS" hidden><div class="bh"><h2 data-t="seen_h">Ați văzut recent</h2></div><div class="grid" id="seen"></div></section>
+</div></main>
+<div class="lbx" id="lbx"><button class="x" id="lbC" aria-label="close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><button class="nv p" data-d="-1" aria-label="prev"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><img id="lbI" alt=""><button class="nv n" data-d="1" aria-label="next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button><div class="lth" id="lbT"></div></div>
 
-<section class="bl" id="cat"><div class="wrap">
-  <div class="bh"><h2 data-t="h_cat">Categorii</h2><a class="more" href="desk-cat.html?c=oven"><span data-t="allp">Tot catalogul</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-  <div class="cats" id="cats"></div>
-</div></section>
-
-<section class="bl" id="offers"><div class="wrap">
-  <div class="bh"><h2 data-t="h_off">Oferte speciale</h2><a class="more" href="#offers"><span data-t="allo">Toate ofertele</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-  <div class="grid" id="gOff"></div>
-</div></section>
-
-<section class="bl"><div class="wrap">
-  <div class="bh"><h2 data-t="h_pop">Populare în magazin</h2><div class="tabs" id="tabs"></div></div>
-  <div class="grid" id="gPop"></div>
-</div></section>
-
-<section class="bl"><div class="wrap">
-  <div class="brands">
-    <a class="t" href="desk-cat.html?c=oven"><div class="bg"></div><i class="cut" data-k="oven" data-s="b"></i><b>TEKA</b><span data-t="b_t">Tehnică de bucătărie germană din 1924. Cuptoare, plite, hote, chiuvete.</span><em><span data-t="b_go">Vezi produsele</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></em></a>
-    <a class="k" href="desk-cat.html?c=coffee"><div class="bg"></div><i class="cut" data-k="coffee" data-s="b"></i><b>KÜPPERSBUSCH</b><span data-t="b_k">Linia premium: design individual, materiale nobile, tehnologii profesionale.</span><em><span data-t="b_go">Vezi produsele</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></em></a>
-  </div>
-</div></section>
-
-<section class="bl" id="show"><div class="wrap">
-  <div class="shw">
-    <div class="tx">
-      <div class="ey" data-t="s_ey">Magazin Teka</div>
-      <h2 data-t="s_h">Vino să vezi tehnica în funcțiune</h2>
-      <ul>
-        <li><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span><span data-t="s_a">Chișinău, str. 31 August 1989, 79/1</span><small data-t="s_as">Parcare lângă magazin</small></span></li>
-        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><span data-t="s_h1">Luni – Vineri 10:00 – 18:00</span><small data-t="s_h2">Sâmbătă 10:00 – 15:00, Duminică — zi liberă</small></span></li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>+373 68 27 27 02<small data-t="s_p">Consultanță gratuită la alegere</small></span></li>
-      </ul>
-      <div class="bt">
-        <a class="btn r" href="https://maps.google.com/?q=Chi%C8%99in%C4%83u%2C%20str.%2031%20August%201989%2C%2079%2F1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg><span data-t="s_r">Traseu</span></a>
-        <a class="btn o" href="https://wa.me/37368272702" target="_blank" rel="noopener"><span data-t="s_w">Scrie pe WhatsApp</span></a>
-      </div>
-    </div>
-    <div class="vis"><div class="fl"></div><div class="row" id="shRow"></div></div>
-  </div>
-</div></section>
-</main>
 
 <footer id="ft">
   <div class="wrap">
     <div><a class="lg" href="desk-catalog.html"><img src="assets/teka-logo-sq.svg" alt="TEKA"></a><p data-t="f_ab">Distribuitor oficial Teka și Küppersbusch în Republica Moldova. Magazin, livrare și service.</p></div>
     <div><h6 data-t="f_c">Catalog</h6><div id="fCat"></div></div>
-    <div><h6 data-t="f_i">Clienți</h6><a href="desk-info.html#livrare" data-t="f_d">Livrare și plată</a><a href="desk-info.html#garantie" data-t="f_g">Garanție și service</a><a href="#show" data-t="n_s">Magazin</a><a href="desk-info.html#despre" data-t="f_ab2">Despre noi</a></div>
+    <div><h6 data-t="f_i">Clienți</h6><a href="desk-info.html#livrare" data-t="f_d">Livrare și plată</a><a href="desk-info.html#garantie" data-t="f_g">Garanție și service</a><a href="desk-catalog.html#show" data-t="n_s">Magazin</a><a href="desk-info.html#despre" data-t="f_ab2">Despre noi</a></div>
     <div class="ct"><h6 data-t="n_c">Contacte</h6>
       <a href="tel:+37368272702"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>+373 68 27 27 02</a>
       <a href="https://maps.google.com/?q=Chi%C8%99in%C4%83u%2C%20str.%2031%20August%201989%2C%2079%2F1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-t="s_a">Chișinău, str. 31 August 1989, 79/1</span></a>
@@ -328,36 +392,6 @@ document.querySelectorAll('[data-tp]').forEach(e=>D.ro[e.dataset.tp]=e.placehold
 const cut=(k,s='a',cls='')=>`<i class="cut ${cls}" style="--ar:${META[k]||1};-webkit-mask-image:url(${W+k}-${s}-m.webp${V});mask-image:url(${W+k}-${s}-m.webp${V});background-image:url(${W+k}-${s}.webp${V})"></i>`;
 const mdl=v=>(+v||0).toLocaleString('ru-RU').replace(/,/g,' ')+' MDL';
 
-const SL=[
-  {k:'oven',s:'b',ro:['Noutăți 2026','Cuptoare cu abur și piroliză','Gătit precis și curățare automată. 34 de modele Teka și Küppersbusch.','Vezi cuptoarele'],ru:['Новинки 2026','Духовки с паром и пиролизом','Точное приготовление и автоочистка. 34 модели Teka и Küppersbusch.','Смотреть духовки']},
-  {k:'hob',s:'b',ro:['Plite cu inducție','Putere Booster, control DirectSense','Zone flexibile pentru orice vas. 48 de modele pe stoc în Chișinău.','Vezi plitele'],ru:['Индукционные панели','Режим Booster и управление DirectSense','Гибкие зоны под любую посуду. 48 моделей в наличии в Кишинёве.','Смотреть панели']},
-  {k:'fridge',s:'b',ro:['Răcire','Frigidere side-by-side','Uși din sticlă neagră, No Frost și secțiune pentru vin.','Vezi frigiderele'],ru:['Охлаждение','Холодильники side-by-side','Двери из чёрного стекла, No Frost и секция для вина.','Смотреть холодильники']}
-];
-let si=0,stm=0;
-function drawHero(){
-  $('hs').innerHTML=SL.map((s,i)=>{const t=s[LANG];return `<div class="sl" data-i="${i}"><div class="bg"></div><div class="tx"><span class="ey">${t[0]}</span><h1>${t[1]}</h1><p>${t[2]}</p><div class="bt"><a class="btn r" href="desk-cat.html?c=${s.k}">${t[3]}<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn o" href="#show">${T('n_s','Magazin')}</a></div></div><div class="pic"><div class="sh"></div>${cut(s.k,s.s)}</div></div>`}).join('')
-   +`<div class="hn">${SL.map((_,i)=>`<button data-i="${i}" aria-label="${i+1}"><i></i></button>`).join('')}</div><div class="ha"><button data-d="-1" aria-label="prev"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><button data-d="1" aria-label="next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button></div>`;
-  $('hs').querySelectorAll('.hn button').forEach(b=>b.onclick=()=>show(+b.dataset.i));
-  $('hs').querySelectorAll('.ha button').forEach(b=>b.onclick=()=>show(si+ +b.dataset.d));
-  show(si);
-}
-function show(i){si=(i+SL.length)%SL.length;const ss=$('hs').querySelectorAll('.sl'),bs=$('hs').querySelectorAll('.hn button');
-  ss.forEach((s,j)=>s.classList.toggle('on',j===si));
-  bs.forEach((b,j)=>{b.classList.remove('on','done');void b.offsetWidth;if(j<si)b.classList.add('done');if(j===si)b.classList.add('on')});
-  clearTimeout(stm);stm=setTimeout(()=>show(si+1),6000)}
-$('hs').addEventListener('mouseenter',()=>{clearTimeout(stm);$('hs').querySelectorAll('.hn button.on i').forEach(i=>i.style.animationPlayState='paused')});
-$('hs').addEventListener('mouseleave',()=>{$('hs').querySelectorAll('.hn button.on i').forEach(i=>i.style.animationPlayState='');const i=$('hs').querySelector('.hn button.on i');const left=i?6000*(1-(new DOMMatrix(getComputedStyle(i).transform).a||0)):6000;stm=setTimeout(()=>show(si+1),left)});
-
-function drawCats(){
-  $('cats').innerHTML=CATS.map(c=>`<a class="cat" href="desk-cat.html?c=${c.k}" title="${cn(c)}"><div class="im">${cut(c.k)}</div><b>${cn(c)}</b><small>${c.n} ${T('mdl','modele')}</small></a>`).join('');
-  const g={};CATS.filter(c=>c.g!=='laund').forEach(c=>(g[c.g]=g[c.g]||[]).push(c));
-  $('mgK').innerHTML=Object.entries(g).map(([k,a])=>`<div><h6>${GR[k][LANG==='ru'?1:0]}</h6>${a.map(c=>`<a href="desk-cat.html?c=${c.k}">${cn(c)}<small>${c.n}</small></a>`).join('')}</div>`).join('')
-    +`<div class="pr"><b>${T('promo_t','Cuptoare cu abur și piroliză')}</b><span>${T('promo_s','Noutăți 2026 în magazin')}</span>${cut('oven','b')}<a href="desk-cat.html?c=oven&f=f:aburi">${T('promo_a','Vezi →')}</a></div>`;
-  $('fCat').innerHTML=CATS.slice(0,8).map(c=>`<a href="desk-cat.html?c=${c.k}">${cn(c)}</a>`).join('');
-  $('shRow').innerHTML=[['coffee',.2],['fridge',.3],['oven',.36],['wine',.24],['hood',.3]].map(([k,h])=>cut(k,'b').replace('class="cut "',`class="cut" `).replace('style="',`style="height:${h*100*1.6}%;`)).join('');
-  document.querySelectorAll('.brands .cut[data-k]').forEach(e=>{e.outerHTML=cut(e.dataset.k,e.dataset.s)});
-}
-
 let PHO={},GL={lo:{}};const DATA={};
 const RO1=new Set(["111020005", "111020031", "41560140", "111010079", "111010071", "111010082", "111000076", "111000005", "111010012", "111010010", "111000004", "111010086", "111000094", "111000045", "111000010", "111000012", "111000013", "111000011", "111000046", "111000056", "111000026", "111200001", "111000000", "121010037", "121020000", "121010060", "121010007", "121210000", "121200002", "121000001"]);
 const rd=u=>fetch(u).then(r=>r.ok?r.json():null).catch(()=>null);
@@ -368,19 +402,6 @@ function card(x,f){const p=pics(x),o=od(x),pp=pr(x),d=o>pp&&pp?Math.round((1-pp/
   return `<a class="pc" href="desk-product.html?f=${f}&sku=${encodeURIComponent(x.sku)}" data-sku="${x.sku}" data-f="${f}"><div class="ph">${d?`<div class="bdg"><span>−${d}%</span></div>`:''}<img class="b1 ${p[1]?'h2':''}" src="${p[0]||''}" alt="${nm(x)}" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}">${p[1]?`<img class="b2" src="${p[1]}" alt="" loading="lazy">`:''}</div>
   <div class="inf"><div class="br">${bnd(x)==='Teka'?'<img src="assets/teka-logo.svg" alt="TEKA">':bnd(x)}</div><h3>${nm(x)}</h3><div class="sb">${x.sub||''}</div><div class="bt"><div class="pr">${o>pp?`<s>${mdl(o)}</s>`:''}<b>${mdl(pp)}</b><div class="st">${T('instock','În stoc')}</div></div><button class="qa ${inCart(x.sku)?'done':''}" aria-label="${T('cart','Coș')}"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11h11l2-8H6.3"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg></button></div></div></a>`}
 const sk=n=>Array.from({length:n},()=>'<div class="pc sk"><div class="ph"></div><div class="inf"><div class="br">&nbsp;</div><h3>&nbsp;</h3><div class="sb"></div></div></div>').join('');
-
-async function drawOffers(){$('gOff').innerHTML=sk(4);
-  const fs=['ovens','fridges','hobs','hoods','dishwashers','sinks'];const all=[];
-  for(const f of fs)(await cat(f)).forEach(x=>{if(od(x)>pr(x)&&pr(x))all.push([x,f])});
-  const L=all.sort((a,b)=>(1-pr(b[0])/od(b[0]))-(1-pr(a[0])/od(a[0]))).slice(0,4);
-  const fill=L.length<4?(await cat('ovens')).filter(x=>pr(x)&&!L.some(y=>y[0]===x)).slice(0,4-L.length).map(x=>[x,'ovens']):[];
-  $('gOff').innerHTML=L.concat(fill).map(([x,f])=>card(x,f)).join('')}
-const TB=['oven','hob','fridge','hood','dish','sink'];let tb='oven';
-function drawTabs(){$('tabs').innerHTML=TB.map(k=>{const c=CATS.find(c=>c.k===k);return `<button data-k="${k}" class="${k===tb?'on':''}">${cn(c)}</button>`}).join('');
-  $('tabs').querySelectorAll('button').forEach(b=>b.onclick=()=>{tb=b.dataset.k;drawTabs();drawPop()})}
-async function drawPop(){const c=CATS.find(c=>c.k===tb);$('gPop').innerHTML=sk(4);
-  const L=(await cat(c.f)).filter(x=>pr(x)&&pics(x).length);const pick=L.filter(x=>PHO[String(x.sku)]).concat(L.filter(x=>!PHO[String(x.sku)])).slice(0,8);
-  if(c.k===tb)$('gPop').innerHTML=pick.map(x=>card(x,c.f)).join('')}
 
 const KEY='tkCart';let cart=[];try{cart=JSON.parse(localStorage.getItem(KEY)||'[]')||[]}catch(e){}
 const inCart=s=>cart.some(y=>String(y.sku)===String(s));
@@ -408,11 +429,113 @@ function langStatic(){document.documentElement.lang=LANG;
   document.querySelectorAll('[data-t]').forEach(e=>{const k=e.dataset.t;e.innerHTML=LANG==='ru'&&D.ru[k]||D.ro[k]});
   document.querySelectorAll('[data-tp]').forEach(e=>{const k=e.dataset.tp;e.placeholder=LANG==='ru'&&D.ru[k]||D.ro[k]});
   document.querySelectorAll('#lng button').forEach(b=>b.classList.toggle('on',b.dataset.l===LANG))}
-function drawAll(){langStatic();drawHero();drawCats();drawTabs();drawOffers();drawPop()}
-$('lng').onclick=e=>{const b=e.target.closest('button');if(!b||b.dataset.l===LANG)return;LANG=b.dataset.l;try{localStorage.setItem('tk-lang',LANG)}catch(_){}IDX=null;drawAll()};
+$('q').addEventListener('keydown',e=>{if(e.key==='Enter'){const a=$('sr').querySelector('a');if(a)location.href=a.href}});
+function drawMega(){
+  const g={};CATS.filter(c=>c.g!=='laund').forEach(c=>(g[c.g]=g[c.g]||[]).push(c));
+  $('mgK').innerHTML=Object.entries(g).map(([k,a])=>`<div><h6>${GR[k][LANG==='ru'?1:0]}</h6>${a.map(c=>`<a href="desk-cat.html?c=${c.k}">${cn(c)}<small>${c.n}</small></a>`).join('')}</div>`).join('')
+    +`<div class="pr"><b>${T('promo_t','Cuptoare cu abur și piroliză')}</b><span>${T('promo_s','Noutăți 2026 în magazin')}</span>${cut('oven','b')}<a href="desk-cat.html?c=oven&f=f:aburi">${T('promo_a','Vezi →')}</a></div>`;
+  $('fCat').innerHTML=CATS.slice(0,8).map(c=>`<a href="desk-cat.html?c=${c.k}">${cn(c)}</a>`).join('');
+}
 
-badge();
-Promise.all([rd('data/photos.json').then(j=>PHO=j||{}),rd('data/gallery.json').then(j=>GL=j||{lo:{}})]).finally(drawAll);
+Object.assign(D.ru,{home:'Главная',rel_h:'Другие модели категории',seen_h:'Вы недавно смотрели'});
+const RO_DRAW=["111000000-draw.webp", "111000004-draw.webp", "111000005-draw.webp", "111000010-draw.webp", "111000011-draw.webp", "111000012-draw.webp", "111000013-draw.webp", "111000026-draw.webp", "111000045-draw.webp", "111000046-draw.webp", "111000056-draw.webp", "111000076-draw.webp", "111000094-draw.webp", "111010010-draw.webp", "111010012-draw.webp", "111010071-draw.webp", "111010082-draw.webp", "111010086-draw.webp", "111020005-draw.webp", "111020031-draw.webp", "111160003-draw.webp", "111160012-draw.webp", "111160015-draw.webp", "111160028-draw.webp", "111200001-draw.webp", "41560140-draw.webp"];
+const Q=new URLSearchParams(location.search);
+const F=Q.get('f')||'ovens',SKU=Q.get('sku')||'';
+const C=CATS.find(c=>c.f===F)||CATS[0];
+const R2={'Cod':'Код','În stoc':'В наличии','Adaugă în coș':'Добавить в корзину','În coș — adaugă încă':'В корзине — добавить ещё','Economisești':'Экономия','Preț la cerere':'Цена по запросу',
+'Caracteristici principale':'Главные особенности','Toate caracteristicile':'Все характеристики','Descriere':'Описание','Specificații':'Характеристики','Schema de încorporare':'Схема встраивания','Documente':'Документы',
+'Instrucțiuni':'Инструкция','Catalog':'Каталог','Fișa energetică':'Энергетическая этикетка','Arată toate specificațiile':'Показать все характеристики','Ascunde':'Скрыть',
+'Înălțime':'Высота','Lățime':'Ширина','Adâncime':'Глубина','Livrare gratuită':'Бесплатная доставка','în municipiul Chișinău. Data și ora le stabilește managerul după comandă.':'по муниципию Кишинёв. Дату и время согласует менеджер после заказа.',
+'Ridicare din magazin':'Самовывоз из магазина','Chișinău, str. 31 August 1989, 79/1 · Lu–Vi 10–18, Sâ 10–15':'Кишинёв, ул. 31 Августа 1989, 79/1 · Пн–Пт 10–18, Сб 10–15',
+'Garanție oficială 2 ani':'Официальная гарантия 2 года','Service propriu în Chișinău':'Собственный сервис в Кишинёве','Plată':'Оплата','Numerar, card bancar în magazin, transfer pe factură':'Наличными, картой в магазине, переводом по счёту',
+'Întrebări? Sunați':'Вопросы? Звоните','Bună! Mă interesează ':'Здравствуйте! Интересует ','Produsul nu a fost găsit':'Товар не найден','Poate a fost scos din catalog.':'Возможно, он снят с продажи.','Înapoi în catalog':'Вернуться в каталог',
+'Produsul e în coș':'Товар в корзине','Vezi coșul':'Перейти в корзину'};
+const t=s=>LANG==='ru'&&R2[s]||s;
+const ICK='<svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>';
+const WAI='<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>';
+let X=null,IM=[],K=0,QTY=1;
+const deac=x=>String(x).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const spec=k=>{const q=deac(k);for(const g of X.specs||[])for(const [a,v] of g.r)if(deac(a).includes(q))return v;return ''};
+function allPics(x){const k=String(x.sku);if(PHO[k]&&PHO[k].length)return PHO[k].map(i=>({m:'assets/hi/'+i+'-m.webp',s:'assets/hi/'+i+'-s.webp',l:'assets/hi/'+i+'-l.webp'}));
+  const d=RO1.has(k)&&!GL.lo[k]?'assets/ro/':'assets/ro2/';return (GL.lo[k]||x.img||[]).map(f=>({m:d+f,s:d+f,l:d+f}))}
+const fb="if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}";
+async function pageInit(){const L=await cat(F);X=L.find(x=>String(x.sku)===SKU)||null;
+  if(!X){$('pp').outerHTML=`<div class="nf" id="pp"><h1>${t('Produsul nu a fost găsit')}</h1><p>${t('Poate a fost scos din catalog.')}</p><a class="btn r" href="desk-cat.html?c=${C.k}">${t('Înapoi în catalog')}</a></div>`;['pt','det','relS'].forEach(i=>$(i).remove());return}
+  IM=allPics(X);
+  try{let s=JSON.parse(localStorage.getItem('tkSeen')||'[]').filter(y=>!(y.f===F&&y.sku===SKU));s.unshift({f:F,sku:SKU});localStorage.setItem('tkSeen',JSON.stringify(s.slice(0,9)))}catch(e){}
+  draw();drawRel();drawSeen()}
+function pageLang(){if(X){draw();drawRel();drawSeen()}}
+function draw(){
+  const p=pr(X),o=od(X),d=o>p&&p?Math.round((1-p/o)*100):0,kb=bnd(X)!=='Teka';
+  document.title=nm(X)+' — '+cn(C)+' · Teka Moldova';
+  $('crC').textContent=cn(C);$('crC').href='desk-cat.html?c='+C.k;$('crP').textContent=nm(X);$('relA').href='desk-cat.html?c='+C.k;
+  const one=IM.length<2;$('pp').querySelector('.gal').classList.toggle('one',one);
+  $('th').innerHTML=one?'':IM.map((m,j)=>`<button data-j="${j}"><img src="${m.s}" alt="" loading="lazy" onerror="${fb}"></button>`).join('');
+  $('mb').innerHTML=d?`<span>−${d}%</span>`:'';
+  show(K);
+  const desc=(X.desc||[]).filter(Boolean);
+  const dims=[['Înălțimea produsului','Înălțime'],['Lățimea produsului','Lățime'],['Adâncimea produsului','Adâncime']].map(([k,l])=>[t(l),String(spec(k)).split('+')[0]]).filter(a=>a[1]);
+  const inC=inCart(X.sku);
+  $('bx').innerHTML=`<div class="br${kb?' kb':''}">${kb?bnd(X):'<img src="assets/teka-logo.svg" alt="TEKA" style="height:24px;border-radius:2px">'}</div><h1>${nm(X)}</h1>${X.sub?`<div class="sb">${X.sub}</div>`:''}<div class="cd">${t('Cod')}: <b>${X.sku}</b></div>
+   ${desc.length?`<ul class="kf">${desc.slice(0,5).map(s=>`<li>${ICK}<span>${s}</span></li>`).join('')}${desc.length>5||(X.specs||[]).length?`<a href="#s-spec">${t('Toate caracteristicile')}</a>`:''}</ul>`:''}
+   <div class="buy"><div class="pr2">${p?`<b>${mdl(p)}</b>${d?`<s>${mdl(o)}</s><em>−${d}%</em>`:''}`:`<b class="ask">${t('Preț la cerere')}</b>`}</div>${d?`<div class="sv">${t('Economisești')} ${mdl(o-p)}</div>`:''}<div class="stk">${t('În stoc')}</div>
+   <div class="ac"><div class="qt"><button data-q="-1" aria-label="-">−</button><input id="qv" value="${QTY}" inputmode="numeric"><button data-q="1" aria-label="+">+</button></div><button class="add${inC?' ok':''}" id="add"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11h11l2-8H6.3"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg>${t(inC?'În coș — adaugă încă':'Adaugă în coș')}</button><a class="wa" target="_blank" rel="noopener" href="https://wa.me/37368272702?text=${encodeURIComponent(t('Bună! Mă interesează ')+nm(X)+' ('+X.sku+')')}" aria-label="WhatsApp">${WAI}</a></div>
+   <div class="go" id="go" ${inC?'':'hidden'}>${t('Produsul e în coș')} · <a href="desk-cart.html">${t('Vezi coșul')}</a></div></div>
+   <div class="srv">
+    <div><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg><span><b>${t('Livrare gratuită')}</b><small>${t('în municipiul Chișinău. Data și ora le stabilește managerul după comandă.')}</small></span></div>
+    <div><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span><b>${t('Ridicare din magazin')}</b><small>${t('Chișinău, str. 31 August 1989, 79/1 · Lu–Vi 10–18, Sâ 10–15')}</small></span></div>
+    <div><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg><span><b>${t('Garanție oficială 2 ani')}</b><small>${t('Service propriu în Chișinău')}</small></span></div>
+    <div><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg><span><b>${t('Plată')}</b><small>${t('Numerar, card bancar în magazin, transfer pe factură')}</small></span></div>
+    <div><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span><b>${t('Întrebări? Sunați')}</b><small><a href="tel:+37368272702">+373 68 27 27 02</a></small></span></div>
+   </div>`;
+  const S=[];let h='';
+  if(desc.length||X.label){S.push(['s-desc','Descriere']);h+=`<section class="ps" id="s-desc"><h2>${t('Descriere')}</h2><div class="dsc"${X.label?'':' style="grid-template-columns:1fr"'}><ul>${desc.map(s=>`<li>${ICK}<span>${s}</span></li>`).join('')}</ul>${X.label?`<div class="lbl"><img src="assets/ro/${X.label}" alt="" data-z="assets/ro/${X.label}" onerror="this.closest('.lbl').remove()"><small>${t('Fișa energetică')}</small></div>`:''}</div></section>`}
+  const sp=X.specs||[];
+  if(sp.length){S.push(['s-spec','Specificații']);const big=sp.length>4;h+=`<section class="ps" id="s-spec"><h2>${t('Specificații')}</h2><div class="spc${big?' cut2':''}" id="spc">${sp.map(g=>`<div class="g"><h4>${g.t}</h4><dl>${g.r.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl></div>`).join('')}${big?`<button class="more3" id="spm">${t('Arată toate specificațiile')}</button>`:''}</div></section>`}
+  if(X.draw){S.push(['s-draw','Schema de încorporare']);h+=`<section class="ps" id="s-draw"><h2>${t('Schema de încorporare')}</h2><div class="drw"${dims.length?'':' style="grid-template-columns:1fr"'}><img src="assets/${RO_DRAW.includes(X.draw)?'ro':'ro2'}/${X.draw}" data-z="1" alt="" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}else this.closest('.ps').remove()">${dims.length?`<div class="dims">${dims.map(([l,v])=>`<div><small>${l}</small><b>${v} <small>mm</small></b></div>`).join('')}</div>`:''}</div></section>`}
+  const pdf=(X.pdf||[]).filter(Boolean);
+  if(pdf.length){S.push(['s-docs','Documente']);h+=`<section class="ps" id="s-docs"><h2>${t('Documente')}</h2><div class="docs">${pdf.map(u=>{const n=decodeURIComponent(u.split('/').pop()),ct=/catalog/i.test(n);return `<a href="${u}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span><b>${t(ct?'Catalog':'Instrucțiuni')}</b><small>PDF · ${n.slice(0,40)}</small></span></a>`}).join('')}</div></section>`}
+  $('det').innerHTML=h;
+  $('pt').innerHTML=S.map(([id,l],i)=>`<a href="#${id}" class="${i?'':'on'}">${t(l)}</a>`).join('');$('pt').hidden=!S.length;
+}
+function show(j){$('mi').classList.toggle('nop',!IM.length);if(!IM.length){$('mimg').removeAttribute('src');$('mct').textContent='';return}
+  K=(j+IM.length)%IM.length;const im=$('mimg');im.dataset.f='';im.classList.add('ld');im.onload=()=>im.classList.remove('ld');im.onerror=()=>{if(!im.dataset.f){im.dataset.f=1;im.src=im.src.replace('/ro2/','/ro/')}};im.src=IM[K].m;im.alt=nm(X);
+  $('th').querySelectorAll('button').forEach((b,i)=>b.classList.toggle('on',i===K));$('mct').textContent=IM.length>1?`${K+1} / ${IM.length}`:''}
+function lb(j,src){const l=$('lbx'),I=$('lbI');l.classList.add('on');document.body.style.overflow='hidden';
+  if(src){l.classList.add('one');I.src=src;return}
+  l.classList.toggle('one',IM.length<2);K=(j+IM.length)%IM.length;show(K);I.dataset.f='';I.onerror=()=>{if(!I.dataset.f){I.dataset.f=1;I.src=IM[K].m.replace('/ro2/','/ro/')}};
+  I.src=IM[K].m;if(IM[K].l!==IM[K].m){const b=new Image(),k=K;b.onload=()=>{if(K===k)I.src=b.src};b.src=IM[K].l}
+  $('lbT').innerHTML=IM.map((m,i)=>`<button data-j="${i}" class="${i===K?'on':''}"><img src="${m.s}" alt="" onerror="${fb}"></button>`).join('')}
+function lbClose(){$('lbx').classList.remove('on','one');document.body.style.overflow=''}
+function drawRel(){const L=(DATA[F]||[]).filter(x=>x!==X&&(F!=='compact'||C.k!=='coffee'||x.kind===X.kind));const p=pr(X)||0;
+  const pick=L.filter(x=>pics(x).length).sort((a,b)=>Math.abs((pr(a)||0)-p)-Math.abs((pr(b)||0)-p)).slice(0,4);
+  $('rel').innerHTML=pick.map(x=>card(x,F)).join('');$('relS').hidden=!pick.length}
+async function drawSeen(){let s=[];try{s=JSON.parse(localStorage.getItem('tkSeen')||'[]')}catch(e){}
+  s=s.filter(y=>!(y.f===F&&y.sku===SKU)).slice(0,4);if(!s.length)return;
+  const R=[];for(const y of s){const x=(await cat(y.f)).find(z=>String(z.sku)===y.sku);if(x)R.push(card(x,y.f))}
+  $('seen').innerHTML=R.join('');$('seenS').hidden=!R.length}
+function addQ(){const q=Math.max(1,Math.min(99,+$('qv').value||1));const c=cart.find(y=>String(y.sku)===String(X.sku));
+  if(c)c.q+=q;else cart.push({sku:X.sku,n:nm(X),p:pr(X),q,img:(IM[0]&&IM[0].m)||'',f:F});
+  try{localStorage.setItem(KEY,JSON.stringify(cart))}catch(_){}badge(true);toast(T('added','Produsul e în coș'));
+  const b=$('add');b.classList.add('ok');b.lastChild.textContent=t('În coș — adaugă încă');$('go').hidden=false;QTY=1;$('qv').value=1}
+document.addEventListener('click',e=>{const g=e.target;
+  const th=g.closest('#th button');if(th){show(+th.dataset.j);return}
+  const nv=g.closest('#mi .nv');if(nv){e.stopPropagation();show(K+ +nv.dataset.d);return}
+  if(g.closest('#mi')&&IM.length){lb(K);return}
+  const z=g.closest('[data-z]');if(z){lb(0,z.src);return}
+  const lnv=g.closest('#lbx .nv');if(lnv){lb(K+ +lnv.dataset.d);return}
+  const lt=g.closest('#lbT button');if(lt){lb(+lt.dataset.j);return}
+  if(g.closest('#lbC')||g.id==='lbx'){lbClose();return}
+  const q=g.closest('.qt button');if(q){QTY=Math.max(1,Math.min(99,(+$('qv').value||1)+ +q.dataset.q));$('qv').value=QTY;return}
+  if(g.closest('#add')){addQ();return}
+  if(g.closest('#spm')){const s=$('spc');const c=s.classList.toggle('cut2');$('spm').textContent=t(c?'Arată toate specificațiile':'Ascunde');if(c)$('s-spec').scrollIntoView({behavior:'smooth'});return}
+  const pa=g.closest('#pt a');if(pa){e.preventDefault();document.querySelector(pa.getAttribute('href')).scrollIntoView({behavior:'smooth'})}});
+addEventListener('keydown',e=>{if(!$('lbx').classList.contains('on'))return;if(e.key==='Escape')lbClose();if($('lbx').classList.contains('one'))return;if(e.key==='ArrowLeft')lb(K-1);if(e.key==='ArrowRight')lb(K+1)});
+addEventListener('scroll',()=>{const a=[...document.querySelectorAll('#pt a')];let on=a[0];a.forEach(x=>{const s=document.querySelector(x.getAttribute('href'));if(s&&s.getBoundingClientRect().top<200)on=x});a.forEach(x=>x.classList.toggle('on',x===on))},{passive:true});
+function drawAll(){langStatic();drawMega();pageLang()}
+$('lng').onclick=e=>{const b=e.target.closest('button');if(!b||b.dataset.l===LANG)return;LANG=b.dataset.l;try{localStorage.setItem('tk-lang',LANG)}catch(_){}IDX=null;drawAll()};
+badge();langStatic();drawMega();
+Promise.all([rd('data/photos.json').then(j=>PHO=j||{}),rd('data/gallery.json').then(j=>GL=j||{lo:{}})]).finally(pageInit);
 </script>
 </body>
 </html>

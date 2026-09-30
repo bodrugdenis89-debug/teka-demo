@@ -114,12 +114,12 @@ section.bl{margin-top:72px}
 .bh a.more svg{width:16px;height:16px}
 
 .cats{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
-.cat{background:var(--soft);border-radius:8px;padding:20px 18px 16px;display:flex;flex-direction:column;height:236px;position:relative;overflow:hidden;transition:background .25s}
+.cat{background:var(--soft);border-radius:8px;padding:20px 18px 16px;display:flex;flex-direction:column;min-height:236px;position:relative;overflow:hidden;transition:background .25s}
 .cat:hover{background:var(--soft2)}
 .cat .im{height:140px;flex:none;display:flex;align-items:center;justify-content:center;container-type:size}
 .cat .cut{height:min(100cqh,calc(86cqw / var(--ar)));width:auto;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
 .cat:hover .cut{transform:translateY(-4px) scale(1.04)}
-.cat b{margin-top:auto;font-size:14.5px;font-weight:600;line-height:1.25;min-height:2.5em;display:flex;align-items:flex-end}
+.cat b{margin-top:14px;font-size:14.5px;font-weight:600;line-height:1.25;min-height:2.5em;display:flex;align-items:flex-end}
 .cat small{font-size:12.5px;color:var(--mute)}
 
 .tabs{display:flex;gap:8px;flex-wrap:wrap}
@@ -138,6 +138,7 @@ section.bl{margin-top:72px}
 .bdg span.n{background:var(--ink)}
 .pc .inf{padding:16px 18px 18px;border-top:1px solid var(--soft);display:flex;flex-direction:column;flex:1}
 .pc .br{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.pc .br{height:20px;display:flex;align-items:center}.pc .br img{height:20px;width:auto;border-radius:2px}
 .pc h3{margin-top:4px;font-size:16px;font-weight:600;line-height:1.25}
 .pc .sb{margin-top:6px;font-size:13px;color:var(--ink2);line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:38px}
 .pc .bt{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:auto;padding-top:14px}
@@ -309,10 +310,10 @@ aside.sb{position:sticky;top:96px;max-height:calc(100vh - 112px);overflow-y:auto
     <div><a href="desk-cat.html?c=washer"><span data-t="n_l">Spălare și uscare</span></a></div>
     <div><a href="desk-catalog.html#offers"><span data-t="n_o">Oferte</span></a></div>
     <div><a href="desk-catalog.html#show"><span data-t="n_s">Magazin</span></a></div>
-    <div><a href="desk-catalog.html#ft"><span data-t="n_c">Contacte</span></a></div>
+    <div><a href="#ft"><span data-t="n_c">Contacte</span></a></div>
   </nav>
   <div class="srch"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="q" autocomplete="off" data-tp="s_ph" placeholder="Caută model, cod sau categorie"><div class="sres" id="sr"></div></div>
-  <a class="cartb" id="cb" href="#" aria-label="Coș"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11h11l2-8H6.3"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg><em id="cbn" hidden>0</em></a>
+  <a class="cartb" id="cb" href="desk-cart.html" aria-label="Coș"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11h11l2-8H6.3"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg><em id="cbn" hidden>0</em></a>
 </div></header>
 
 <main><div class="wrap">
@@ -340,7 +341,7 @@ aside.sb{position:sticky;top:96px;max-height:calc(100vh - 112px);overflow-y:auto
   <div class="wrap">
     <div><a class="lg" href="desk-catalog.html"><img src="assets/teka-logo-sq.svg" alt="TEKA"></a><p data-t="f_ab">Distribuitor oficial Teka și Küppersbusch în Republica Moldova. Magazin, livrare și service.</p></div>
     <div><h6 data-t="f_c">Catalog</h6><div id="fCat"></div></div>
-    <div><h6 data-t="f_i">Clienți</h6><a href="#" data-t="f_d">Livrare și plată</a><a href="#" data-t="f_g">Garanție și service</a><a href="desk-catalog.html#show" data-t="n_s">Magazin</a><a href="#" data-t="f_ab2">Despre noi</a></div>
+    <div><h6 data-t="f_i">Clienți</h6><a href="desk-info.html#livrare" data-t="f_d">Livrare și plată</a><a href="desk-info.html#garantie" data-t="f_g">Garanție și service</a><a href="desk-catalog.html#show" data-t="n_s">Magazin</a><a href="desk-info.html#despre" data-t="f_ab2">Despre noi</a></div>
     <div class="ct"><h6 data-t="n_c">Contacte</h6>
       <a href="tel:+37368272702"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>+373 68 27 27 02</a>
       <a href="https://maps.google.com/?q=Chi%C8%99in%C4%83u%2C%20str.%2031%20August%201989%2C%2079%2F1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-t="s_a">Chișinău, str. 31 August 1989, 79/1</span></a>
@@ -387,13 +388,14 @@ const cut=(k,s='a',cls='')=>`<i class="cut ${cls}" style="--ar:${META[k]||1};-we
 const mdl=v=>(+v||0).toLocaleString('ru-RU').replace(/,/g,' ')+' MDL';
 
 let PHO={},GL={lo:{}};const DATA={};
+const RO1=new Set(["111020005", "111020031", "41560140", "111010079", "111010071", "111010082", "111000076", "111000005", "111010012", "111010010", "111000004", "111010086", "111000094", "111000045", "111000010", "111000012", "111000013", "111000011", "111000046", "111000056", "111000026", "111200001", "111000000", "121010037", "121020000", "121010060", "121010007", "121210000", "121200002", "121000001"]);
 const rd=u=>fetch(u).then(r=>r.ok?r.json():null).catch(()=>null);
 const nm=x=>x.n||x.name||'';const pr=x=>+(x.p||x.price||0);const od=x=>+(x.o||x.old||0);const bnd=x=>x.b||x.brand||'Teka';
-function pics(x){const k=String(x.sku);if(PHO[k]&&PHO[k].length)return PHO[k].slice(0,2).map(i=>'assets/hi/'+i+'-m.webp');return (GL.lo[k]||x.img||[]).slice(0,2).map(f=>'assets/ro2/'+f)}
+function pics(x){const k=String(x.sku);if(PHO[k]&&PHO[k].length)return PHO[k].slice(0,2).map(i=>'assets/hi/'+i+'-m.webp');return (GL.lo[k]||x.img||[]).slice(0,2).map(f=>(RO1.has(k)&&!GL.lo[k]?'assets/ro/':'assets/ro2/')+f)}
 async function cat(f){if(!DATA[f])DATA[f]=(await rd('data/'+f+'.json'))||[];return DATA[f]}
 function card(x,f){const p=pics(x),o=od(x),pp=pr(x),d=o>pp&&pp?Math.round((1-pp/o)*100):0;
-  return `<a class="pc" href="#" data-sku="${x.sku}" data-f="${f}"><div class="ph">${d?`<div class="bdg"><span>−${d}%</span></div>`:''}<img class="b1 ${p[1]?'h2':''}" src="${p[0]||''}" alt="${nm(x)}" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}">${p[1]?`<img class="b2" src="${p[1]}" alt="" loading="lazy">`:''}</div>
-  <div class="inf"><div class="br">${bnd(x)}</div><h3>${nm(x)}</h3><div class="sb">${x.sub||''}</div><div class="bt"><div class="pr">${o>pp?`<s>${mdl(o)}</s>`:''}<b>${mdl(pp)}</b><div class="st">${T('instock','În stoc')}</div></div><button class="qa ${inCart(x.sku)?'done':''}" aria-label="${T('cart','Coș')}"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11h11l2-8H6.3"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg></button></div></div></a>`}
+  return `<a class="pc" href="desk-product.html?f=${f}&sku=${encodeURIComponent(x.sku)}" data-sku="${x.sku}" data-f="${f}"><div class="ph">${d?`<div class="bdg"><span>−${d}%</span></div>`:''}<img class="b1 ${p[1]?'h2':''}" src="${p[0]||''}" alt="${nm(x)}" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}">${p[1]?`<img class="b2" src="${p[1]}" alt="" loading="lazy">`:''}</div>
+  <div class="inf"><div class="br">${bnd(x)==='Teka'?'<img src="assets/teka-logo.svg" alt="TEKA">':bnd(x)}</div><h3>${nm(x)}</h3><div class="sb">${x.sub||''}</div><div class="bt"><div class="pr">${o>pp?`<s>${mdl(o)}</s>`:''}<b>${mdl(pp)}</b><div class="st">${T('instock','În stoc')}</div></div><button class="qa ${inCart(x.sku)?'done':''}" aria-label="${T('cart','Coș')}"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11h11l2-8H6.3"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg></button></div></div></a>`}
 const sk=n=>Array.from({length:n},()=>'<div class="pc sk"><div class="ph"></div><div class="inf"><div class="br">&nbsp;</div><h3>&nbsp;</h3><div class="sb"></div></div></div>').join('');
 
 const KEY='tkCart';let cart=[];try{cart=JSON.parse(localStorage.getItem(KEY)||'[]')||[]}catch(e){}
@@ -410,7 +412,7 @@ let IDX=null,qt=0;
 async function index(){if(IDX)return IDX;const r=[];for(const c of CATS)(await cat(c.f)).forEach(x=>r.push({x,c,s:(nm(x)+' '+x.sku+' '+(x.sub||'')+' '+c.ro+' '+c.ru+' '+bnd(x)).toLowerCase()}));return IDX=r}
 $('q').addEventListener('input',()=>{clearTimeout(qt);qt=setTimeout(async()=>{const v=$('q').value.trim().toLowerCase();if(v.length<2){$('sr').classList.remove('on');return}
   const ws=v.split(/\s+/),R=(await index()).filter(r=>ws.every(w=>r.s.includes(w))).slice(0,8);
-  $('sr').innerHTML=R.length?R.map(({x,c})=>`<a href="#"><img src="${(pics(x)[0]||'').replace('-m.webp','-s.webp')}" alt="" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}else this.style.visibility='hidden'"><span><b>${nm(x)}</b><small>${cn(c)} · ${x.sub||''}</small></span><i>${pr(x)?mdl(pr(x)):''}</i></a>`).join(''):`<p>${T('nf','Nimic găsit')}</p>`;
+  $('sr').innerHTML=R.length?R.map(({x,c})=>`<a href="desk-product.html?f=${c.f}&sku=${encodeURIComponent(x.sku)}"><img src="${(pics(x)[0]||'').replace('-m.webp','-s.webp')}" alt="" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}else this.style.visibility='hidden'"><span><b>${nm(x)}</b><small>${cn(c)} · ${x.sub||''}</small></span><i>${pr(x)?mdl(pr(x)):''}</i></a>`).join(''):`<p>${T('nf','Nimic găsit')}</p>`;
   $('sr').classList.add('on')},160)});
 $('q').addEventListener('focus',()=>{index();if($('q').value.trim().length>1)$('sr').classList.add('on')});
 document.addEventListener('click',e=>{if(!e.target.closest('.srch'))$('sr').classList.remove('on')});
@@ -422,8 +424,15 @@ function langStatic(){document.documentElement.lang=LANG;
   document.querySelectorAll('[data-t]').forEach(e=>{const k=e.dataset.t;e.innerHTML=LANG==='ru'&&D.ru[k]||D.ro[k]});
   document.querySelectorAll('[data-tp]').forEach(e=>{const k=e.dataset.tp;e.placeholder=LANG==='ru'&&D.ru[k]||D.ro[k]});
   document.querySelectorAll('#lng button').forEach(b=>b.classList.toggle('on',b.dataset.l===LANG))}
+$('q').addEventListener('keydown',e=>{if(e.key==='Enter'){const a=$('sr').querySelector('a');if(a)location.href=a.href}});
+function drawMega(){
+  const g={};CATS.filter(c=>c.g!=='laund').forEach(c=>(g[c.g]=g[c.g]||[]).push(c));
+  $('mgK').innerHTML=Object.entries(g).map(([k,a])=>`<div><h6>${GR[k][LANG==='ru'?1:0]}</h6>${a.map(c=>`<a href="desk-cat.html?c=${c.k}">${cn(c)}<small>${c.n}</small></a>`).join('')}</div>`).join('')
+    +`<div class="pr"><b>${T('promo_t','Cuptoare cu abur și piroliză')}</b><span>${T('promo_s','Noutăți 2026 în magazin')}</span>${cut('oven','b')}<a href="desk-cat.html?c=oven&f=f:aburi">${T('promo_a','Vezi →')}</a></div>`;
+  $('fCat').innerHTML=CATS.slice(0,8).map(c=>`<a href="desk-cat.html?c=${c.k}">${cn(c)}</a>`).join('');
+}
 
-Object.assign(D.ru,{home:'Главная',sort:'Сортировка:',found:'Найдено',of:'из',shown:'Показано',more:'Показать ещё',reset:'Сбросить всё',nores:'Нет товаров по этим фильтрам',nores2:'Попробуйте убрать часть фильтров',ask:'Цена по запросу',allc:'Все',cats:'Категории',brand:'Бренд',price:'Цена, MDL',sale:'Только со скидкой',help:'Нужна помощь с выбором?',helps:'Консультант магазина подберёт технику под вашу кухню.',call:'Позвонить',rel:'Смотрите также',kitchen:'Кухня',laund:'Стирка и сушка'});
+Object.assign(D.ru,{home:'Главная',sort:'Сортировка:',found:'Найдено',of:'из',shown:'Показано',more:'Показать ещё',reset:'Сбросить всё',nores:'Нет товаров по этим фильтрам',nores2:'Попробуйте убрать часть фильтров',ask:'Цена по запросу',allc:'Все',cats:'Категории',brand:'Бренд',price:'Цена, MDL',sale:'Только со скидкой',help:'Нужна помощь с выбором?',helps:'Консультант шоурума подберёт технику под вашу кухню.',call:'Позвонить',rel:'Смотрите также',kitchen:'Кухня',laund:'Стирка и сушка'});
 const SO=[['pop','Popularitate','По популярности'],['pa','Preț crescător','Цена по возрастанию'],['pd','Preț descrescător','Цена по убыванию'],['disc','Reducere','Размер скидки'],['nm','Nume A–Z','Название А–Я']];
 const CL={negru:['Negru','Чёрный','#111'],inox:['Inox','Нержавейка','linear-gradient(135deg,#eee,#9a9a9a)'],alb:['Alb','Белый','#fff'],crem:['Crem','Кремовый','#EDE3CF'],gri:['Gri','Серый','#8a8a8a'],antracit:['Antracit','Антрацит','#3a3c3f'],crom:['Crom','Хром','linear-gradient(135deg,#fafafa,#b5b5b5)'],auriu:['Auriu','Золото','linear-gradient(135deg,#f3dc9b,#b8923d)']};
 const VV=(ro,ru)=>[ro,ru];
@@ -479,7 +488,7 @@ function drawStatic(){
   $('crG').textContent=C.g==='laund'?T('laund','Spălare și uscare'):T('kitchen','Bucătărie');$('crC').textContent=cn(C);
   $('cT').innerHTML=`${cn(C)}<small>${ALL.length} ${T('mdl','modele')}</small>`;$('cD').textContent=tr(INFO[C.k]||VV('',''));
   $('cI').innerHTML=cut(C.k,'b');
-  $('sH').textContent=cn(C)+' Teka — Moldova';$('sP').textContent=tr(INFO[C.k]||VV('',''))+' '+(LANG==='ru'?'Все модели можно посмотреть вживую в магазине в Кишинёве. Бесплатная доставка по муниципию Кишинёв.':'Toate modelele pot fi văzute în magazinul din Chișinău. Livrare gratuită în municipiul Chișinău.');
+  $('sH').textContent=cn(C)+' Teka — Moldova';$('sP').textContent=tr(INFO[C.k]||VV('',''))+' '+(LANG==='ru'?'Все модели можно посмотреть вживую в шоуруме в Кишинёве. Бесплатная доставка по муниципию Кишинёв, установка специалистами.':'Toate modelele pot fi văzute în showroom-ul din Chișinău. Livrare gratuită în municipiul Chișinău, montaj de specialiști.');
   const rel=CATS.filter(c=>c.g===C.g&&c!==C).concat(CATS.filter(c=>c.g!==C.g&&c!==C)).slice(0,3);
   $('rel').innerHTML=rel.map(c=>`<a href="desk-cat.html?c=${c.k}">${cut(c.k)}<b>${cn(c)}</b></a>`).join('');
   $('so').innerHTML=SO.map(s=>`<option value="${s[0]}" ${s[0]===ST.so?'selected':''}>${LANG==='ru'?s[2]:s[1]}</option>`).join('');
@@ -498,7 +507,7 @@ function render(){
     vals.sort((a,b)=>f[2]==='cm'?a-b:(order.indexOf(a)+1||99)-(order.indexOf(b)+1||99)||a.localeCompare(b));
     h+=`<div class="fg"><h5>${tr(f[1])}<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></h5><div class="fb">${vals.map(v=>{const n=ALL.filter(x=>pass(x,f[0])&&fv(x,f[0]).includes(v)).length,on=sel(f[0]).has(v);
       return `<label class="ck ${!n&&!on?'dis':''}"><input type="checkbox" data-k="${f[0]}" data-v="${v}" ${on?'checked':''}>${f[2]==='col'&&CL[v]?`<i style="background:${CL[v][2]}"></i>`:''}${lab(f,v)}<small>${n}</small></label>`}).join('')}</div></div>`});
-  h+=`<div class="help"><b>${T('help','Ai nevoie de ajutor la alegere?')}</b><span>${T('helps','Consultantul din magazin va alege tehnica potrivită pentru bucătăria ta.')}</span><a href="tel:+37368272702">${T('call','Sună')} +373 68 27 27 02</a></div>`;
+  h+=`<div class="help"><b>${T('help','Ai nevoie de ajutor la alegere?')}</b><span>${T('helps','Consultantul din showroom va alege tehnica potrivită pentru bucătăria ta.')}</span><a href="tel:+37368272702">${T('call','Sună')} +373 68 27 27 02</a></div>`;
   const cl=[...document.querySelectorAll('#sb .fg.cl h5')].map(e=>e.textContent);
   $('sb').innerHTML=h;document.querySelectorAll('#sb .fg h5').forEach(e=>{if(cl.includes(e.textContent))e.parentNode.classList.add('cl')});
   pf();
@@ -533,16 +542,12 @@ document.addEventListener('click',e=>{const t=e.target;
   const a=t.closest('#act button,.empty button');if(a){if(a.dataset.clr)reset();else if(a.dataset.p){ST.lo=PMIN;ST.hi=PMAX}else if(a.dataset.s)ST.sale=false;else sel(a.dataset.k).delete(a.dataset.v);ST.n=12;render();return}
   if(t.closest('#more')){ST.n+=12;render();return}
   const vb=t.closest('.vw button');if(vb){ST.g=+vb.dataset.g;document.querySelectorAll('.vw button').forEach(b=>b.classList.toggle('on',b===vb));render()}});
-function drawMega(){
-  const g={};CATS.filter(c=>c.g!=='laund').forEach(c=>(g[c.g]=g[c.g]||[]).push(c));
-  $('mgK').innerHTML=Object.entries(g).map(([k,a])=>`<div><h6>${GR[k][LANG==='ru'?1:0]}</h6>${a.map(c=>`<a href="desk-cat.html?c=${c.k}">${cn(c)}<small>${c.n}</small></a>`).join('')}</div>`).join('')
-    +`<div class="pr"><b>${T('promo_t','Cuptoare cu abur și piroliză')}</b><span>${T('promo_s','Noutăți 2026 în magazin')}</span>${cut('oven','b')}<a href="desk-cat.html?c=oven&f=f:aburi">${T('promo_a','Vezi →')}</a></div>`;
-  $('fCat').innerHTML=CATS.slice(0,8).map(c=>`<a href="desk-cat.html?c=${c.k}">${cn(c)}</a>`).join('');
-}
-function drawAll(){langStatic();drawMega();if(ALL.length){drawStatic();render()}}
+
+const pageInit=load;function pageLang(){if(ALL.length){drawStatic();render()}}
+function drawAll(){langStatic();drawMega();pageLang()}
 $('lng').onclick=e=>{const b=e.target.closest('button');if(!b||b.dataset.l===LANG)return;LANG=b.dataset.l;try{localStorage.setItem('tk-lang',LANG)}catch(_){}IDX=null;drawAll()};
 badge();langStatic();drawMega();
-Promise.all([rd('data/photos.json').then(j=>PHO=j||{}),rd('data/gallery.json').then(j=>GL=j||{lo:{}})]).finally(load);
+Promise.all([rd('data/photos.json').then(j=>PHO=j||{}),rd('data/gallery.json').then(j=>GL=j||{lo:{}})]).finally(pageInit);
 </script>
 </body>
 </html>
