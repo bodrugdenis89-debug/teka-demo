@@ -114,12 +114,12 @@ section.bl{margin-top:72px}
 .bh a.more svg{width:16px;height:16px}
 
 .cats{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
-.cat{background:var(--soft);border-radius:8px;padding:20px 18px 16px;display:flex;flex-direction:column;height:236px;position:relative;overflow:hidden;transition:background .25s}
+.cat{background:var(--soft);border-radius:8px;padding:20px 18px 16px;display:flex;flex-direction:column;min-height:236px;position:relative;overflow:hidden;transition:background .25s}
 .cat:hover{background:var(--soft2)}
 .cat .im{height:140px;flex:none;display:flex;align-items:center;justify-content:center;container-type:size}
 .cat .cut{height:min(100cqh,calc(86cqw / var(--ar)));width:auto;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
 .cat:hover .cut{transform:translateY(-4px) scale(1.04)}
-.cat b{margin-top:auto;font-size:14.5px;font-weight:600;line-height:1.25;min-height:2.5em;display:flex;align-items:flex-end}
+.cat b{margin-top:14px;font-size:14.5px;font-weight:600;line-height:1.25;min-height:2.5em;display:flex;align-items:flex-end}
 .cat small{font-size:12.5px;color:var(--mute)}
 
 .tabs{display:flex;gap:8px;flex-wrap:wrap}
@@ -313,7 +313,7 @@ const CATS=[
   {k:'dish',f:'dishwashers',g:'wash',n:13,ro:'Mașini de spălat vase',ru:'Посудомоечные машины'},
   {k:'sink',f:'sinks',g:'wash',n:48,ro:'Chiuvete',ru:'Мойки'},
   {k:'faucet',f:'faucets',g:'wash',n:39,ro:'Baterii de bucătărie',ru:'Смесители'},
-  {k:'washer',f:'laundry',g:'laund',n:14,ro:'Mașini de spălat / uscat',ru:'Стиральные / сушильные машины'},
+  {k:'washer',f:'laundry',g:'laund',n:14,ro:'Mașini de spălat / uscat',ru:'Стиральные и сушильные машины'},
   {k:'pots',f:'accessories',g:'acc',n:9,ro:'Accesorii bucătărie',ru:'Аксессуары для кухни'}
 ];
 const GR={cook:['Gătit','Приготовление'],cool:['Răcire','Охлаждение'],wash:['Spălare vase și chiuvete','Мойка посуды и мойки'],acc:['Accesorii','Аксессуары']};
