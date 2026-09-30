@@ -207,6 +207,21 @@ footer .bot .wrap{display:flex;justify-content:space-between;padding-top:18px;pa
 @media (max-width:1180px){.cats{grid-template-columns:repeat(4,1fr)}.grid{grid-template-columns:repeat(3,1fr)}nav.mn>div>a{padding:0 10px}}
 @media (max-width:900px){.wrap{padding:0 16px}.cats{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,1fr)}.adv{grid-template-columns:1fr}.adv div+div{border-left:0;border-top:1px solid var(--line)}nav.mn,.top .hide{display:none}.sl{grid-template-columns:1fr}.sl .pic{position:absolute;inset:0;opacity:.35}.sl .tx{padding:0 24px}.hn{left:24px}.brands,.shw{grid-template-columns:1fr}footer .wrap{grid-template-columns:1fr 1fr}}
 
+#cat,#offers,#show,#ft{scroll-margin-top:100px}
+.cm{position:relative}
+.cm .ch{width:16px;height:16px;transition:transform .2s}.cm.on .ch{transform:rotate(180deg)}
+.cm.on>.btn{border-color:var(--ink)}
+.cmp{position:absolute;left:0;bottom:calc(100% + 10px);width:320px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 50px -20px rgba(0,0,0,.3);padding:8px;z-index:20;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s}
+.cm.on .cmp{opacity:1;visibility:visible;transform:none}
+.cmp>small{display:block;padding:8px 12px 6px;font-size:12px;color:var(--mute);font-weight:500}
+.cmp a{display:flex;align-items:center;gap:14px;padding:10px 12px;border-radius:10px;font-weight:600;font-size:15px;transition:background .15s}
+.cmp a:hover{background:var(--soft)}
+.cmp a span small{display:block;font-weight:400;font-size:12.5px;color:var(--mute)}
+.cmp i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;flex:none}
+.cmp i svg{width:21px;height:21px;fill:currentColor;stroke:none}
+.cmp i svg.st{fill:none;stroke:currentColor;stroke-width:1.8}
+.cmp .wa i{background:#25D366}.cmp .vb i{background:#7360F2}.cmp .tg i{background:#229ED9}.cmp .ph i{background:var(--ink)}
+
 .crumbs{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--mute);padding:22px 0 18px;flex-wrap:wrap}
 .crumbs a:hover{color:var(--red)}.crumbs svg{width:12px;height:12px}.crumbs b{color:var(--ink);font-weight:500}
 .pp{display:grid;grid-template-columns:1.12fr 1fr;gap:56px;align-items:start}
@@ -392,7 +407,7 @@ const CATS=[
   {k:'pots',f:'accessories',g:'acc',n:9,ro:'Accesorii bucătărie',ru:'Аксессуары для кухни'}
 ];
 const GR={cook:['Gătit','Приготовление'],cool:['Răcire','Охлаждение'],wash:['Spălare vase și chiuvete','Мойка посуды и мойки'],acc:['Accesorii','Аксессуары']};
-const D={ru:{addr:'Магазин: Кишинёв, ул. 31 Августа 1989, 79/1',hrs:'Пн – Пт 10:00–18:00, Сб 10:00–15:00, Вс — выходной',f_hrs:'Пн – Пт 10:00–18:00<br>Сб 10:00–15:00<br>Вс — выходной',n_k:'Кухня',n_l:'Стирка и сушка',n_o:'Акции',n_s:'Магазин',n_c:'Контакты',s_ph:'Поиск по модели, коду или категории',a1:'Официальный дилер',a1s:'Teka и Küppersbusch',a2:'Бесплатная доставка',a2s:'по муниципию Кишинёв',a4:'Гарантия 2 года',a4s:'Собственный сервис',h_cat:'Категории',allp:'Весь каталог',h_off:'Специальные предложения',allo:'Все акции',h_pop:'Популярное в магазине',b_t:'Немецкая кухонная техника с 1924 года. Духовки, варочные панели, вытяжки, мойки.',b_k:'Премиальная линия: индивидуальный дизайн, благородные материалы, профессиональные технологии.',b_go:'Смотреть товары',s_ey:'Магазин Teka',s_h:'Приходите посмотреть технику в работе',s_a:'Кишинёв, ул. 31 Августа 1989, 79/1',s_as:'Парковка рядом с магазином',s_h1:'Пн – Пт 10:00 – 18:00',s_h2:'Сб 10:00 – 15:00, Вс — выходной',s_p:'Бесплатная консультация по выбору',s_r:'Маршрут',s_w:'Написать в WhatsApp',f_ab:'Официальный дистрибьютор Teka и Küppersbusch в Республике Молдова. Магазин, доставка и сервис.',f_c:'Каталог',f_i:'Покупателям',f_d:'Доставка и оплата',f_g:'Гарантия и сервис',f_ab2:'О нас',f_cp:'© 2026 teka.md · Официальный дистрибьютор Teka и Küppersbusch в Молдове',mdl:'моделей',instock:'В наличии',added:'Товар в корзине',nf:'Ничего не найдено',all:'Все',cart:'Корзина',promo_t:'Духовки с паром и пиролизом',promo_s:'Новинки 2026 в магазине',promo_a:'Смотреть →'},ro:{}};
+const D={ru:{addr:'Магазин: Кишинёв, ул. 31 Августа 1989, 79/1',hrs:'Пн – Пт 10:00–18:00, Сб 10:00–15:00, Вс — выходной',f_hrs:'Пн – Пт 10:00–18:00<br>Сб 10:00–15:00<br>Вс — выходной',n_k:'Кухня',n_l:'Стирка и сушка',n_o:'Акции',n_s:'Магазин',n_c:'Контакты',s_ph:'Поиск по модели, коду или категории',a1:'Официальный дилер',a1s:'Teka и Küppersbusch',a2:'Бесплатная доставка',a2s:'по муниципию Кишинёв',a4:'Гарантия 2 года',a4s:'Собственный сервис',h_cat:'Категории',allp:'Весь каталог',h_off:'Специальные предложения',allo:'Все акции',h_pop:'Популярное в магазине',b_t:'Немецкая кухонная техника с 1924 года. Духовки, варочные панели, вытяжки, мойки.',b_k:'Премиальная линия: индивидуальный дизайн, благородные материалы, профессиональные технологии.',b_go:'Смотреть товары',s_ey:'Магазин Teka',s_h:'Приходите посмотреть технику в работе',s_a:'Кишинёв, ул. 31 Августа 1989, 79/1',s_as:'Парковка рядом с магазином',s_h1:'Пн – Пт 10:00 – 18:00',s_h2:'Сб 10:00 – 15:00, Вс — выходной',s_p:'Бесплатная консультация по выбору',s_r:'Маршрут',s_w:'Связаться с менеджером',s_wh:'Выберите, как вам удобно',c_on:'ответим за несколько минут',c_call:'Позвонить',c_hrs:'Пн–Пт 10:00–18:00, Сб 10:00–15:00',f_ab:'Официальный дистрибьютор Teka и Küppersbusch в Республике Молдова. Магазин, доставка и сервис.',f_c:'Каталог',f_i:'Покупателям',f_d:'Доставка и оплата',f_g:'Гарантия и сервис',f_ab2:'О нас',f_cp:'© 2026 teka.md · Официальный дистрибьютор Teka и Küppersbusch в Молдове',mdl:'моделей',instock:'В наличии',added:'Товар в корзине',nf:'Ничего не найдено',all:'Все',cart:'Корзина',promo_t:'Духовки с паром и пиролизом',promo_s:'Новинки 2026 в магазине',promo_a:'Смотреть →'},ro:{}};
 let LANG='ro';try{LANG=localStorage.getItem('tk-lang')==='ru'?'ru':'ro'}catch(e){}
 const T=(k,ro)=>LANG==='ru'&&D.ru[k]||ro;
 const cn=c=>LANG==='ru'?c.ru:c.ro;
