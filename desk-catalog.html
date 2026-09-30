@@ -117,8 +117,15 @@ section.bl{margin-top:72px}
 .cat{background:var(--soft);border-radius:8px;padding:20px 18px 16px;display:flex;flex-direction:column;min-height:236px;position:relative;overflow:hidden;transition:background .25s}
 .cat:hover{background:var(--soft2)}
 .cat .im{height:140px;flex:none;display:flex;align-items:center;justify-content:center;container-type:size}
-.cat .cut{height:min(100cqh,calc(86cqw / var(--ar)));width:auto;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
-.cat:hover .cut{transform:translateY(-4px) scale(1.04)}
+.cat .sw{position:relative;display:block;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.cat .cut{height:min(100cqh,calc(86cqw / var(--ar)));width:auto}
+.cat .cut.on{position:absolute;inset:0;height:100%;width:100%;opacity:0;transition:opacity .6s ease .05s}
+.cat:hover .sw{transform:translateY(-4px) scale(1.04)}
+.cat:hover .cut.on{opacity:1}
+.cat .wt{position:absolute;left:8.6%;top:36.5%;width:3.2%;height:66%;border-radius:0 0 40% 40%;transform:scaleY(0);transform-origin:top;transition:transform .35s cubic-bezier(.4,0,.6,1);background:repeating-linear-gradient(180deg,rgba(255,255,255,0) 0 8px,rgba(255,255,255,.45) 12px,rgba(255,255,255,0) 16px),linear-gradient(90deg,rgba(90,150,200,.55),rgba(215,235,250,.95) 45%,rgba(90,150,200,.55));background-size:100% 18px,100% 100%;animation:wt .35s linear infinite;box-shadow:0 0 6px rgba(120,180,230,.5)}
+.cat .wt::after{content:"";position:absolute;left:50%;bottom:-3px;width:600%;height:6px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(rgba(120,180,230,.55),transparent 70%);opacity:0;transition:opacity .2s .3s}
+.cat:hover .wt{transform:scaleY(1)}.cat:hover .wt::after{opacity:1}
+@keyframes wt{to{background-position:0 18px,0 0}}
 .cat b{margin-top:14px;font-size:14.5px;font-weight:600;line-height:1.25;min-height:2.5em;display:flex;align-items:flex-end}
 .cat small{font-size:12.5px;color:var(--mute)}
 
@@ -380,7 +387,8 @@ $('hs').addEventListener('mouseenter',()=>{clearTimeout(stm);$('hs').querySelect
 $('hs').addEventListener('mouseleave',()=>{$('hs').querySelectorAll('.hn button.on i').forEach(i=>i.style.animationPlayState='');const i=$('hs').querySelector('.hn button.on i');const left=i?6000*(1-(new DOMMatrix(getComputedStyle(i).transform).a||0)):6000;stm=setTimeout(()=>show(si+1),left)});
 
 function drawCats(){
-  $('cats').innerHTML=CATS.map(c=>`<a class="cat" href="desk-cat.html?c=${c.k}" title="${cn(c)}"><div class="im">${cut(c.k)}</div><b>${cn(c)}</b><small>${c.n} ${T('mdl','modele')}</small></a>`).join('');
+  const ON=['oven','hob','hood','micro','coffee','fridge','wine','dish','washer'];
+  $('cats').innerHTML=CATS.map(c=>`<a class="cat" href="desk-cat.html?c=${c.k}" title="${cn(c)}"><div class="im"><span class="sw">${cut(c.k)}${ON.includes(c.k)?cut(c.k,'b','on'):''}${c.k==='faucet'?'<i class="wt"></i>':''}</span></div><b>${cn(c)}</b><small>${c.n} ${T('mdl','modele')}</small></a>`).join('');
   const g={};CATS.filter(c=>c.g!=='laund').forEach(c=>(g[c.g]=g[c.g]||[]).push(c));
   $('mgK').innerHTML=Object.entries(g).map(([k,a])=>`<div><h6>${GR[k][LANG==='ru'?1:0]}</h6>${a.map(c=>`<a href="desk-cat.html?c=${c.k}">${cn(c)}<small>${c.n}</small></a>`).join('')}</div>`).join('')
     +`<div class="pr"><b>${T('promo_t','Cuptoare cu abur și piroliză')}</b><span>${T('promo_s','Noutăți 2026 în magazin')}</span>${cut('oven','b')}<a href="desk-cat.html?c=oven&f=f:aburi">${T('promo_a','Vezi →')}</a></div>`;
