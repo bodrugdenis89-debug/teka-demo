@@ -174,7 +174,7 @@ section.bl{margin-top:72px}
 .shw li small{display:block;color:var(--mute);font-size:13px}
 .shw .bt{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
 .shw .vis{position:relative;background:linear-gradient(180deg,#1e1818,#0d0b0b);overflow:hidden;min-height:380px}
-.shw .vis:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 30% 70% at 50% 20%,rgba(208,94,80,.55),transparent 75%)}
+.shw .vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}.shw .vis:hover img{transform:scale(1.03)}.shw .vis span{position:absolute;left:20px;bottom:20px;background:rgba(0,0,0,.6);color:#fff;font-size:13px;font-weight:500;padding:8px 14px;border-radius:18px;backdrop-filter:blur(6px)}
 .shw .row{position:absolute;left:4%;right:4%;top:20%;bottom:22%;display:flex;align-items:flex-end;justify-content:center;gap:3%}
 .shw .row .cut{width:auto;max-width:28%}
 .shw .row .cut{filter:drop-shadow(0 10px 12px rgba(0,0,0,.5))}
@@ -267,6 +267,7 @@ footer .bot .wrap{display:flex;justify-content:space-between;padding-top:18px;pa
 .map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
 @media (max-width:1100px){.steps,.facts{grid-template-columns:1fr 1fr}.pays{grid-template-columns:1fr}}
 @media (max-width:900px){.il,.cards,.ctg{grid-template-columns:1fr}.inav{position:static;grid-template-columns:1fr 1fr}}
+.sf{margin:0 0 24px;border-radius:12px;overflow:hidden;position:relative}.sf img{width:100%;aspect-ratio:16/8;object-fit:cover;display:block}.sf figcaption{position:absolute;left:20px;bottom:20px;background:rgba(0,0,0,.62);color:#fff;border-radius:12px;padding:14px 18px;max-width:440px;backdrop-filter:blur(6px)}.sf b{display:block;font-size:16px}.sf span{display:block;font-size:13.5px;opacity:.85;margin-top:2px}
 </style>
 </head>
 <body>
@@ -343,6 +344,7 @@ footer .bot .wrap{display:flex;justify-content:space-between;padding-top:18px;pa
       </section>
       <section id="contacte">
         <h1 data-t="i_n4">Contacte</h1>
+        <figure class="sf"><img src="assets/store-front.webp" alt="Magazin Teka, Chișinău, str. 31 August 1989, 79/1" loading="lazy"><figcaption><b data-t="i_sf">Așa arată magazinul nostru</b><span data-t="i_sfs">Fațada roșie cu logo TEKA, intrarea — pe scări, în stânga vitrinei.</span></figcaption></figure>
         <div class="ctg">
           <div class="cts">
             <a href="tel:+37368272702"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span><small data-t="i_ph">Telefon</small>+373 68 27 27 02</span></a>
@@ -385,8 +387,8 @@ footer .bot .wrap{display:flex;justify-content:space-between;padding-top:18px;pa
 
 <script>
 const $=id=>document.getElementById(id);
-const W='assets/wheel/',V='?v=4';
-const META={fridge:.875,hood:.794,hob:1.868,sink:1.83,faucet:.722,dish:1.23,oven:1.057,micro:1.39,coffee:1.159,wine:.713,washer:.812,pots:2.03,disposer:.531};
+const W='assets/wheel/',V='?v=5';
+const META={fridge:.875,hood:.794,hob:1.868,sink:1.83,faucet:.722,dish:1.23,oven:1.057,micro:1.39,coffee:1.159,wine:.713,washer:.812,pots:1.797,disposer:.531};
 const CATS=[
   {k:'oven',f:'ovens',g:'cook',n:34,ro:'Cuptoare',ru:'Духовые шкафы'},
   {k:'hob',f:'hobs',g:'cook',n:48,ro:'Plite',ru:'Варочные панели'},
@@ -402,7 +404,7 @@ const CATS=[
   {k:'pots',f:'accessories',g:'acc',n:9,ro:'Accesorii bucătărie',ru:'Аксессуары для кухни'}
 ];
 const GR={cook:['Gătit','Приготовление'],cool:['Răcire','Охлаждение'],wash:['Spălare vase și chiuvete','Мойка посуды и мойки'],acc:['Accesorii','Аксессуары']};
-const D={ru:{addr:'Магазин: Кишинёв, ул. 31 Августа 1989, 79/1',hrs:'Пн – Пт 10:00–18:00, Сб 10:00–15:00, Вс — выходной',f_hrs:'Пн – Пт 10:00–18:00<br>Сб 10:00–15:00<br>Вс — выходной',n_k:'Кухня',n_l:'Стирка и сушка',n_o:'Акции',n_s:'Магазин',n_c:'Контакты',s_ph:'Поиск по модели, коду или категории',a1:'Официальный дилер',a1s:'Teka и Küppersbusch',a2:'Бесплатная доставка',a2s:'по муниципию Кишинёв',a4:'Гарантия 2 года',a4s:'Собственный сервис',h_cat:'Категории',allp:'Весь каталог',h_off:'Специальные предложения',allo:'Все акции',h_pop:'Популярное в магазине',b_t:'Немецкая кухонная техника с 1924 года. Духовки, варочные панели, вытяжки, мойки.',b_k:'Премиальная линия: индивидуальный дизайн, благородные материалы, профессиональные технологии.',b_go:'Смотреть товары',s_ey:'Магазин Teka',s_h:'Приходите посмотреть технику в работе',s_a:'Кишинёв, ул. 31 Августа 1989, 79/1',s_as:'Парковка рядом с магазином',s_h1:'Пн – Пт 10:00 – 18:00',s_h2:'Сб 10:00 – 15:00, Вс — выходной',s_p:'Бесплатная консультация по выбору',s_r:'Маршрут',s_w:'Связаться с менеджером',s_wh:'Выберите, как вам удобно',c_on:'ответим за несколько минут',c_call:'Позвонить',c_hrs:'Пн–Пт 10:00–18:00, Сб 10:00–15:00',f_ab:'Официальный дистрибьютор Teka и Küppersbusch в Республике Молдова. Магазин, доставка и сервис.',f_c:'Каталог',f_i:'Покупателям',f_d:'Доставка и оплата',f_g:'Гарантия и сервис',f_ab2:'О нас',f_cp:'© 2026 teka.md · Официальный дистрибьютор Teka и Küppersbusch в Молдове',mdl:'моделей',instock:'В наличии',added:'Товар в корзине',nf:'Ничего не найдено',all:'Все',cart:'Корзина',promo_t:'Духовки с паром и пиролизом',promo_s:'Новинки 2026 в магазине',promo_a:'Смотреть →'},ro:{}};
+const D={ru:{addr:'Магазин: Кишинёв, ул. 31 Августа 1989, 79/1',hrs:'Пн – Пт 10:00–18:00, Сб 10:00–15:00, Вс — выходной',f_hrs:'Пн – Пт 10:00–18:00<br>Сб 10:00–15:00<br>Вс — выходной',n_k:'Кухня',n_l:'Стирка и сушка',n_o:'Акции',n_s:'Магазин',n_c:'Контакты',s_ph:'Поиск по модели, коду или категории',a1:'Официальный дилер',a1s:'Teka и Küppersbusch',a2:'Бесплатная доставка',a2s:'по муниципию Кишинёв',a4:'Гарантия 2 года',a4s:'Собственный сервис',h_cat:'Категории',allp:'Весь каталог',h_off:'Специальные предложения',allo:'Все акции',h_pop:'Популярное в магазине',b_t:'Немецкая кухонная техника с 1924 года. Духовки, варочные панели, вытяжки, мойки.',b_k:'Премиальная линия: индивидуальный дизайн, благородные материалы, профессиональные технологии.',b_go:'Смотреть товары',s_ey:'Магазин Teka',s_h:'Приходите посмотреть технику в работе',s_a:'Кишинёв, ул. 31 Августа 1989, 79/1',s_as:'Парковка рядом с магазином',s_h1:'Пн – Пт 10:00 – 18:00',s_h2:'Сб 10:00 – 15:00, Вс — выходной',s_p:'Бесплатная консультация по выбору',s_ph2:'Так выглядит наш магазин',s_r:'Маршрут',s_w:'Связаться с менеджером',s_wh:'Выберите, как вам удобно',c_on:'ответим за несколько минут',c_call:'Позвонить',c_hrs:'Пн–Пт 10:00–18:00, Сб 10:00–15:00',f_ab:'Официальный дистрибьютор Teka и Küppersbusch в Республике Молдова. Магазин, доставка и сервис.',f_c:'Каталог',f_i:'Покупателям',f_d:'Доставка и оплата',f_g:'Гарантия и сервис',f_ab2:'О нас',f_cp:'© 2026 teka.md · Официальный дистрибьютор Teka и Küppersbusch в Молдове',mdl:'моделей',instock:'В наличии',added:'Товар в корзине',nf:'Ничего не найдено',all:'Все',cart:'Корзина',promo_t:'Духовки с паром и пиролизом',promo_s:'Новинки 2026 в магазине',promo_a:'Смотреть →'},ro:{}};
 let LANG='ro';try{LANG=localStorage.getItem('tk-lang')==='ru'?'ru':'ro'}catch(e){}
 const T=(k,ro)=>LANG==='ru'&&D.ru[k]||ro;
 const cn=c=>LANG==='ru'?c.ru:c.ro;
@@ -458,7 +460,7 @@ function drawMega(){
   $('fCat').innerHTML=CATS.slice(0,8).map(c=>`<a href="desk-cat.html?c=${c.k}">${cn(c)}</a>`).join('');
 }
 
-Object.assign(D.ru,{home:'Главная',i_n1:'Доставка и оплата',i_n2:'Гарантия и сервис',i_n3:'О нас',i_n4:'Контакты',i_d:'Доставка',i_dp:'<b>Бесплатно</b> по муниципию Кишинёв. Дату и время доставки согласует менеджер после заказа.',i_pk:'Самовывоз из магазина',i_pkp:'Кишинёв, ул. 31 Августа 1989, 79/1<br>Пн – Пт 10:00 – 18:00, Сб 10:00 – 15:00, Вс — выходной',i_pay:'Оплата',i_p1:'Наличными',i_p2:'Банковской картой в магазине',i_p3:'Банковским переводом по счёту',i_bz:'Работаем с фирмами.',i_bzp:'Выставим счёт на юрлицо — свяжитесь с нами.',i_how:'Как заказать?',i_s1:'Добавьте товары в корзину',i_s2:'Укажите имя, телефон и адрес',i_s3:'Отправьте заказ в WhatsApp или Viber',i_s4:'Менеджер подтвердит заказ и согласует день доставки',i_wb:'2 года',i_w:'Официальная гарантия Teka',i_wp:'На всю технику Teka и Küppersbusch, купленную у нас.',i_s:'Собственный сервис',i_sp:'У нас свой сервисный центр. Если что-то не работает — обращайтесь в магазин: позвоните, напишите или приходите.',i_ab:'Teka Moldova — официальный дистрибьютор Teka и Küppersbusch в Республике Молдова. В магазине в Кишинёве можно посмотреть технику в работе и получить бесплатную консультацию по выбору.',i_f1:'год основания Teka',i_f2:'категорий техники',i_f3:'бренда: Teka и Küppersbusch',i_f4:'года официальной гарантии',i_ph:'Телефон',i_ad:'Адрес магазина',i_hr:'График работы',i_hrs:'Пн – Пт 10:00 – 18:00<br>Сб 10:00 – 15:00<br>Вс — выходной'});
+Object.assign(D.ru,{home:'Главная',i_n1:'Доставка и оплата',i_n2:'Гарантия и сервис',i_n3:'О нас',i_n4:'Контакты',i_d:'Доставка',i_dp:'<b>Бесплатно</b> по муниципию Кишинёв. Дату и время доставки согласует менеджер после заказа.',i_pk:'Самовывоз из магазина',i_pkp:'Кишинёв, ул. 31 Августа 1989, 79/1<br>Пн – Пт 10:00 – 18:00, Сб 10:00 – 15:00, Вс — выходной',i_pay:'Оплата',i_p1:'Наличными',i_p2:'Банковской картой в магазине',i_p3:'Банковским переводом по счёту',i_bz:'Работаем с фирмами.',i_bzp:'Выставим счёт на юрлицо — свяжитесь с нами.',i_how:'Как заказать?',i_s1:'Добавьте товары в корзину',i_s2:'Укажите имя, телефон и адрес',i_s3:'Отправьте заказ в WhatsApp или Viber',i_s4:'Менеджер подтвердит заказ и согласует день доставки',i_wb:'2 года',i_w:'Официальная гарантия Teka',i_wp:'На всю технику Teka и Küppersbusch, купленную у нас.',i_s:'Собственный сервис',i_sp:'У нас свой сервисный центр. Если что-то не работает — обращайтесь в магазин: позвоните, напишите или приходите.',i_ab:'Teka Moldova — официальный дистрибьютор Teka и Küppersbusch в Республике Молдова. В магазине в Кишинёве можно посмотреть технику в работе и получить бесплатную консультацию по выбору.',i_f1:'год основания Teka',i_f2:'категорий техники',i_f3:'бренда: Teka и Küppersbusch',i_f4:'года официальной гарантии',i_ph:'Телефон',i_sf:'Так выглядит наш магазин',i_sfs:'Красный фасад с логотипом TEKA, вход — по ступенькам слева от витрины.',i_ad:'Адрес магазина',i_hr:'График работы',i_hrs:'Пн – Пт 10:00 – 18:00<br>Сб 10:00 – 15:00<br>Вс — выходной'});
 document.querySelectorAll('[data-t]').forEach(e=>{if(!(e.dataset.t in D.ro))D.ro[e.dataset.t]=e.innerHTML});
 const SEC=['livrare','garantie','despre','contacte'];
 function mark(){let on=SEC[0];SEC.forEach(id=>{const s=$(id);if(s&&s.getBoundingClientRect().top<220)on=id});if(innerHeight+scrollY>=document.body.scrollHeight-4)on=SEC[SEC.length-1];
