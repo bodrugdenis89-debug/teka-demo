@@ -2,381 +2,314 @@
 <html lang="ro">
 <head>
 <meta charset="utf-8">
-<script id="tk-router">(function(){try{
-var v=new URLSearchParams(location.search).get('v');
-if(v){localStorage.setItem('tkView',v)}else{v=localStorage.getItem('tkView')}
-if(v==='m')return;
-if(v==='d'||matchMedia('(min-width:1024px) and (hover:hover)').matches)location.replace('desk-wheel.html'+location.hash);
-}catch(e){}})()</script>
-
-<style id="tk-nav-css">
-html::after{content:"";position:fixed;inset:0;z-index:9999;background:#100E0C;pointer-events:none;opacity:0;transition:opacity .25s ease}
-html.tk-in::after,html.tk-out::after{opacity:1}
-</style>
-<script>
-(function(){var d=document.documentElement,via=false;
-try{via=sessionStorage.getItem('tk-nav')==='1';sessionStorage.removeItem('tk-nav')}catch(e){}
-if(location.hash==='#tk'){via=true;try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
-var nt='';try{nt=(performance.getEntriesByType('navigation')[0]||{}).type||''}catch(e){}
-if(!via&&nt!=='back_forward'&&!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('tk-intro');
-if(via){d.classList.add('tk-in');addEventListener('DOMContentLoaded',function(){setTimeout(function(){d.classList.remove('tk-in')},60)});}
-document.addEventListener('click',function(e){
-  if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
-  var a=e.target.closest&&e.target.closest('a[href]');if(!a||a.target==='_blank')return;
-  var h=a.getAttribute('href');if(!/^(index|home|category-[a-z-]+)\.html$/.test(h))return;
-  e.preventDefault();try{sessionStorage.setItem('tk-nav','1')}catch(x){}
-  d.classList.add('tk-out');setTimeout(function(){location.href=h+'#tk'},250);},true);
-addEventListener('pageshow',function(e){if(e.persisted)d.classList.remove('tk-out','tk-in')});
-})();
-</script>
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#100E0C">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Teka">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="manifest" href="manifest.webmanifest">
-<title>Teka Moldova — кухонная техника</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--red:#D8232A;--ink:#100E0C;--cream:#E9E8E6;--mute:#7A736D;--line:rgba(16,14,12,.1);--W:430px;--sand:#F4F3F1}
-html,body{background:#0a0908;margin:0;min-height:100%}
-body{font-family:Montserrat,system-ui,sans-serif;color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;display:flex;justify-content:center}
-a{color:inherit}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-.pg{width:min(100%,var(--W));background:var(--ink);position:relative}
-
-.hdr{position:fixed;top:0;left:50%;transform:translateX(-50%);width:min(100%,var(--W));z-index:20;display:flex;align-items:center;gap:14px;padding:12px 16px;transition:background .35s,color .35s}
-.hdr::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,14,12,.6),rgba(16,14,12,0));pointer-events:none;transition:opacity .35s}
-.hdr.light{background:rgba(244,243,241,.97);color:var(--ink);border-bottom:1px solid var(--line)}
-.hdr.light::before{opacity:0}
-.hdr>*{position:relative}
-.logo{width:44px;height:36px;background:var(--red);display:grid;place-items:center;border-radius:2px;font-weight:700;font-size:13px;color:#fff;text-decoration:none}
-.sp{flex:1}
-.ic{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
-.ib{width:34px;height:34px;display:grid;place-items:center;position:relative}
-.lang{font-size:11px;font-weight:600;letter-spacing:.08em;padding:5px 8px;border:1px solid currentColor;border-radius:20px;opacity:.85}
-.cb{position:absolute;top:2px;right:0;min-width:15px;height:15px;border-radius:8px;background:var(--red);color:#fff;font-size:9px;font-weight:700;display:grid;place-items:center;padding:0 4px}
-
-.hero{position:relative;height:100svh;min-height:560px;max-height:900px;overflow:hidden;background:#000}
-.sl{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1.2s ease,visibility 0s linear 1.2s}
-.sl.on{opacity:1;visibility:visible;transition:opacity 1.2s ease}
-.sl img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.02);backface-visibility:hidden}
-.sl.on img{animation:kb 7s ease-out forwards;will-change:transform}
-.hero.off .sl.on img{animation-play-state:paused;will-change:auto}
-@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.1)}}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,14,12,.35) 0%,rgba(16,14,12,0) 22%,rgba(16,14,12,0) 42%,rgba(16,14,12,.78) 70%,#100E0C 100%);pointer-events:none}
-.hi{position:absolute;left:20px;right:20px;bottom:calc(26px + env(safe-area-inset-bottom));z-index:2}
-.ey{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.65)}
-.hi h1{font-size:38px;line-height:1.02;font-weight:800;letter-spacing:-1.4px;margin-top:10px;text-wrap:balance}
-.hi h1 em{font-style:normal;color:var(--red)}
-.hi h1 em.kp{color:#BDBAB4}
-.rule{width:52px;height:3px;background:var(--red);margin:16px 0 14px}
-.hi p{font-size:13px;line-height:1.5;color:rgba(255,255,255,.72);max-width:32ch}
-.cta{display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:27px;background:#fff;color:var(--ink);font-weight:700;font-size:15px;margin-top:6px;text-decoration:none;width:100%}
-.cta svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.now{display:flex;align-items:center;justify-content:space-between;margin-top:4px;font-size:12px;color:rgba(255,255,255,.6)}
-.now a{color:#fff;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:6px;transition:opacity .4s}
-.now a svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.2}
-.dots{display:flex;gap:6px}
-.dots i{width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.3);transition:width .4s,background .4s}
-.dots i.on{width:18px;background:#fff}
-.ld{display:none}
-html.tk-intro .ld{position:fixed;inset:0;z-index:200;background:var(--ink);display:grid;place-items:center;transition:opacity .7s;overflow:hidden}
-.ld.off{opacity:0;pointer-events:none}
-.ld .lg{position:relative;text-align:center;color:#fff;animation:ldz .4s cubic-bezier(.5,0,.75,0) 1.4s both}
-.ld b{display:block;font-weight:800;font-size:44px;letter-spacing:-1px;line-height:1}
-.ld b span{display:inline-block;animation:ldl 1.1s cubic-bezier(.2,.8,.2,1) both}
-.ld b span:nth-child(1){--x:-33px;animation-delay:.1s}.ld b span:nth-child(2){--x:-11px;animation-delay:.15s}
-.ld b span:nth-child(3){--x:11px;animation-delay:.2s}.ld b span:nth-child(4){--x:33px;animation-delay:.25s}
-.ld i{display:block;width:64px;height:3px;background:var(--red);margin:14px auto 0;transform-origin:center;animation:ldr .6s cubic-bezier(.65,0,.35,1) .5s both}
-.ld em{display:block;font-style:normal;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:14px;animation:ldf .5s ease .9s both}
-.ld .halo{position:absolute;left:50%;top:50%;width:260px;height:260px;margin:-130px 0 0 -130px;border-radius:50%;background:radial-gradient(closest-side,rgba(216,35,42,.28),transparent);filter:blur(20px);animation:ldh 1.8s ease-out both}
-@keyframes ldl{from{opacity:0;transform:translateX(var(--x))}to{opacity:1;transform:none}}
-@keyframes ldr{from{transform:scaleX(0)}to{transform:none}}
-@keyframes ldf{from{opacity:0}to{opacity:1}}
-@keyframes ldz{to{transform:scale(1.06)}}
-@keyframes ldh{0%{opacity:0;transform:scale(1)}55%{opacity:1;transform:scale(1)}100%{opacity:.7;transform:scale(1.35)}}
-html.tk-intro .hi>*,html.tk-intro .hdr{opacity:0}
-html.tk-go .hero .sl{animation:hin 1.4s cubic-bezier(.3,.7,.3,1) both}
-html.tk-go .hdr{animation:ldf .6s ease .3s both}
-html.tk-go .hi>*{animation:tup .8s cubic-bezier(.2,.8,.2,1) both}
-html.tk-go .hi .ey{animation-delay:.35s}html.tk-go .hi h1{animation-delay:.45s}
-html.tk-go .hi .rule{animation:rin .8s cubic-bezier(.7,0,.3,1) .8s both;transform-origin:0 50%}
-html.tk-go .hi .now{animation-delay:.9s}
-@keyframes hin{from{transform:scale(1.08)}to{transform:none}}
-@keyframes tup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-@keyframes rin{from{opacity:1;transform:scaleX(0)}to{opacity:1;transform:none}}
-
-.cat{background:var(--sand);color:var(--ink);padding:34px 14px 30px;border-radius:24px 24px 0 0;margin-top:-18px;position:relative;z-index:3}
-.sh{display:flex;align-items:baseline;justify-content:space-between;padding:0 6px 16px}
-.sh h2{font-size:26px;font-weight:800;letter-spacing:-.8px}
-.sh span{font-size:12px;color:rgba(16,14,12,.5)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.tile{display:flex;flex-direction:column;background:#fff;border-radius:16px;padding:12px 12px 14px;text-decoration:none;color:var(--ink);transition:transform .2s}
-.tile:active{transform:scale(.97)}
-.tile b{display:block;height:112px}
-.tile img{width:100%;height:100%;object-fit:contain;display:block}
-.tile i{font-style:normal;font-size:13.5px;font-weight:700;line-height:1.2;margin-top:10px;text-wrap:balance}
-.tile u{text-decoration:none;font-size:11.5px;color:rgba(16,14,12,.45);margin-top:3px}
-
-.pl{background:var(--sand);color:var(--ink);padding:6px 14px 34px}
-.pls{display:grid;gap:10px}
-.pli{display:flex;gap:14px;align-items:center;background:#fff;border-radius:16px;padding:16px}
-.pli svg{width:26px;height:26px;flex:none;stroke:var(--red);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.pli b{display:block;font-size:15px;font-weight:700}
-.pli span{display:block;font-size:12.5px;color:rgba(16,14,12,.55);margin-top:2px}
-
-.st{padding:36px 20px 20px}
-.st .ey{color:rgba(255,255,255,.5)}
-.st h2{font-size:26px;font-weight:800;letter-spacing:-.8px;margin-top:10px;line-height:1.1}
-.st p{font-size:14px;line-height:1.55;color:rgba(255,255,255,.7);margin-top:10px}
-.st .row{display:flex;gap:10px;margin-top:18px}
-.bt{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;height:48px;border-radius:24px;border:1px solid rgba(255,255,255,.18);color:#fff;text-decoration:none;font-size:13.5px;font-weight:600;transition:background .15s,border-color .15s}
-.bt svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.bt.wh{background:#fff;color:var(--ink);border-color:#fff}
-.bt.mig:active{background:#E1306C;border-color:#E1306C}.bt.mvb:active{background:#7360F2;border-color:#7360F2}.bt.mwa:active{background:#25D366;border-color:#25D366}.bt.mtg:active{background:#2AABEE;border-color:#2AABEE}
-.ft{padding:26px 20px calc(30px + env(safe-area-inset-bottom));border-top:1px solid rgba(255,255,255,.08);margin-top:26px;font-size:11.5px;line-height:1.6;color:rgba(255,255,255,.4)}
-.ft b{color:rgba(255,255,255,.75)}
-.soc{display:flex;gap:10px;margin-bottom:18px}
-.soc a{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;transition:background .15s,border-color .15s}
-.soc a:active{transform:scale(.94)}
-.soc a.fb:active{background:#1877F2;border-color:#1877F2}.soc a.ig:active{background:#E1306C;border-color:#E1306C}
-.soc svg{width:19px;height:19px;fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-@media (prefers-reduced-motion:reduce){.sl.on img{animation:none}.sl{transition:none}}
-
-/* шапка: непрозрачная + отступ под системную панель */
-.hdr{padding-top:calc(12px + env(safe-area-inset-top))}
-.hdr{left:0!important;right:0!important;width:auto!important;transform:none!important;padding-left:calc(max(0px,(100vw - var(--W))/2) + 16px)!important;padding-right:calc(max(0px,(100vw - var(--W))/2) + 16px)!important}
-.hdr.light{background:#F4F3F1!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
-</style>
+<title>Teka Moldova — Cooking a better tomorrow</title>
+<meta name="description" content="Distribuitor oficial Teka, Küppersbusch și Strohm în Moldova. Cuptoare, plite, hote, frigidere. Showroom în Chișinău.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="ld" id="ld"><div class="halo"></div><div class="lg"><b><span>T</span><span>E</span><span>K</span><span>A</span></b><i></i><em>Moldova</em></div></div>
-<div class="pg">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-fan" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="1.6"/><path d="M12 10.4c-.5-2.8.4-5 2.6-5.4 1.9-.3 2.2 2.6-2.6 5.4M13.6 12c2.8-.5 5 .4 5.4 2.6.3 1.9-2.6 2.2-5.4-2.6M12 13.6c.5 2.8-.4 5-2.6 5.4-1.9.3-2.2-2.6 2.6-5.4M10.4 12c-2.8.5-5-.4-5.4-2.6-.3-1.9 2.6-2.2 5.4 2.6"/></symbol>
+  <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5M4 4l5 5M20 4l-5 5M4 20l5-5M20 20l-5-5"/></symbol>
+  <symbol id="i-touch" viewBox="0 0 24 24"><path d="M9.5 11V5.5a1.8 1.8 0 0 1 3.6 0V11"/><path d="M13.1 9.5a1.8 1.8 0 0 1 3.6 0v4c0 4.2-2.8 7.5-6.6 7.5-2.8 0-4.6-1.8-5.5-4.6L4 14.2a1.6 1.6 0 0 1 3-1l1 2"/><path d="M6.5 5.5a4.5 4.5 0 0 1 8.9-1"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8.5 6-14 15-14 0 9-5.5 15-14 15"/><path d="M5 19l8-8"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12V4.5a1 1 0 0 1 1-1H12l8.5 8.5-8.5 8.5z"/><circle cx="8" cy="8" r="1.4"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 13h6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5z"/><path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H19"/></symbol>
+  <symbol id="i-screen" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></symbol>
+  <symbol id="i-door" viewBox="0 0 24 24"><rect x="4.5" y="3" width="15" height="18" rx="1.5"/><path d="M8 7h8M8 10.5h8v6.5H8z"/></symbol>
+  <symbol id="i-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9-9.3C2 7.4 4.2 4.5 7.3 4.5c2 0 3.6 1.2 4.7 2.8 1.1-1.6 2.7-2.8 4.7-2.8 3.1 0 5.3 2.9 4.3 6.2C19.5 15.4 12 20 12 20z"/></symbol>
+</svg>
+
+<div class="loader" id="loader">
+  <div><div class="wordmark">TEKA</div><span class="spaced">Cooking a better tomorrow</span></div>
+  <div class="loader-bar" id="loaderBar"></div>
+</div>
+
 <header class="hdr" id="hdr">
-  <a class="logo" href="home.html" aria-label="Teka">TEKA</a><div class="sp"></div>
-  <button class="lang" id="lang" onclick="setLang(L==='ro'?'ru':'ro')">RO</button>
-  <button class="ib" aria-label="Coș"><svg class="ic" viewBox="0 0 24 24"><path d="M2.5 3.5h3l2.2 11.2a1.5 1.5 0 0 0 1.5 1.3h8.4a1.5 1.5 0 0 0 1.5-1.2L20.5 7H6.4"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg><span class="cb" hidden>0</span></button>
+  <a href="#top" class="wordmark">TEKA</a>
+  <nav class="nav">
+    <a href="#catalog" data-i18n="nav.products">Produse</a>
+    <a href="#urban" data-i18n="nav.collections">Colecții</a>
+    <a href="#life" data-i18n="nav.inspo">Inspirație</a>
+    <a href="#showroom" data-i18n="nav.support">Suport</a>
+    <a href="#branduri" data-i18n="nav.about">Despre noi</a>
+  </nav>
+  <div class="hdr-r">
+    <label class="search"><input type="search" placeholder="Caută produse…" data-i18n-ph="search.ph"><svg class="ic"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></label>
+    <div class="lang"><button class="on" data-lang="ro">RO</button><button data-lang="ru">RU</button></div>
+    <button class="ic-btn" aria-label="Favorite"><svg class="ic"><use href="#i-heart"/></svg><span class="badge" id="favCount" hidden>0</span></button>
+    <button class="ic-btn ic-user" aria-label="Cont"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.3-7 8-7s7 2.5 8 7"/></svg></button>
+    <button class="ic-btn" aria-label="Coș"><svg class="ic" viewBox="0 0 24 24"><path d="M2.5 3.5h3l2.2 11.2a1.5 1.5 0 0 0 1.5 1.3h8.4a1.5 1.5 0 0 0 1.5-1.2L20.5 7H6.4"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg><span class="badge" id="cartCount">0</span></button>
+  </div>
 </header>
 
+<main id="top">
+
+<!-- HERO -->
 <section class="hero" id="hero">
-  <div class="sl on" data-k="frig"><img src="assets/fridge-hero-m.webp" alt="" fetchpriority="high"></div>
-  <div class="sl" data-k="hobs"><img data-src="assets/hob-hero-m-f2.webp" alt=""></div>
-  <div class="sl" data-k="ovens"><img data-src="assets/ov-on-m.webp" alt=""></div>
-  <div class="sl" data-k="coffee"><img data-src="assets/coffee-hero-m.webp" alt=""></div>
-  <div class="sl" data-k="wine"><img data-src="assets/wn-on-m.webp" alt=""></div>
-  <div class="sl" data-k="sink"><img data-src="assets/sink-hero-m.webp" alt=""></div>
-  <div class="sl" data-k="wash"><img data-src="assets/laundry-hero-m.webp" alt=""></div>
-  <div class="hi">
-    <div class="ey" data-t="ey">Dealer oficial Teka</div>
-    <h1 data-t="h1">Tehnică de bucătărie Teka</h1>
-    <div class="rule"></div>
-    <div class="now"><a id="nowa" href="category-fridges.html"><span id="nown"></span><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></a><div class="dots" id="dots"></div></div>
+  <div class="hero-txt" id="heroTxt">
+    <span class="eyebrow" data-i18n="hero.eyebrow">Cuptor multifuncțional</span>
+    <h1 class="h1"><span class="ln"><span><b>Urban</b></span></span><span class="ln"><span class="thin">HLB 8600</span></span></h1>
+    <p class="hero-lead" data-i18n="hero.lead">Mai mult decât un cuptor. O experiență culinară completă.</p>
+    <div class="hero-cta">
+      <a href="#specs" class="btn btn-wine"><span data-i18n="hero.cta">Descoperă produsul</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+      <button class="play" id="playBtn"><i><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></i><span data-i18n="hero.video">Vezi video</span></button>
+    </div>
+    <ul class="feats">
+      <li><svg class="ic"><use href="#i-fan"/></svg><span data-i18n-html="f1">Surround Temp<br>12 funcții</span></li>
+      <li><svg class="ic"><use href="#i-expand"/></svg><span data-i18n-html="f2">Capacitate<br>70 L</span></li>
+      <li><svg class="ic"><use href="#i-touch"/></svg><span data-i18n-html="f3">Display<br>TFT 4″</span></li>
+      <li><svg class="ic"><use href="#i-leaf"/></svg><span data-i18n-html="f4">Clasă<br>energetică A+</span></li>
+    </ul>
+    <div class="hero-cue"><i></i><span data-i18n="hero.scroll">Derulează</span></div>
+  </div>
+  <div class="hero-media" id="heroMedia">
+    <div class="hero-zoom" id="heroZoom"><img id="heroImg" src="assets/hero-oven.webp" alt="Cuptor Teka HLB 8600 într-o bucătărie bordo"></div>
+    <div class="hero-shade" id="heroShade"></div>
+    <div class="tagline" id="tagline"><span>Good</span><span>Food</span><span>Better</span><span>Living</span><i></i></div>
+    <h2 class="hero-end" id="heroEnd" data-i18n-html="hero.end">Bucătăria în care<br><em>vrei să rămâi.</em></h2>
   </div>
 </section>
 
-<section class="cat" id="cat">
-  <div class="sh"><h2 data-t="cat">Catalog</h2><span id="tot"></span></div>
-  <div class="grid" id="grid"></div>
+<!-- FEATURE CARDS -->
+<section class="fcards" id="inspiratie">
+  <a class="fcard" href="#specs"><img src="assets/card-airfry.webp" alt=""><div class="fc-txt"><h3 data-i18n="fc1.h">Gătit uniform</h3><p data-i18n="fc1.p">Surround Temp: aceeași căldură pe toate cele 5 niveluri.</p></div><span class="circ"><svg class="ic"><use href="#i-arrow"/></svg></span></a>
+  <a class="fcard" href="#specs"><img src="assets/card-control.webp" alt=""><div class="fc-txt"><h3 data-i18n="fc2.h">Control intuitiv</h3><p data-i18n="fc2.p">Display TFT 4″ și 20 de rețete presetate.</p></div><span class="circ"><svg class="ic"><use href="#i-arrow"/></svg></span></a>
+  <a class="fcard" href="#specs"><img src="assets/card-racks.webp" alt=""><div class="fc-txt"><h3 data-i18n="fc3.h">Spațiu pentru mai multe rețete</h3><p data-i18n="fc3.p">70 L și ghidaje telescopice.</p></div><span class="circ"><svg class="ic"><use href="#i-arrow"/></svg></span></a>
+  <a class="fcard wine" href="#specs"><img src="assets/card-details.webp" alt=""><div class="fc-txt"><h3 data-i18n="fc4.h">Detalii care contează</h3><p data-i18n="fc4.p">SoftClose, sticlă triplă, HydroClean® PRO.</p></div><span class="circ"><svg class="ic"><use href="#i-arrow"/></svg></span></a>
 </section>
 
-<section class="pl">
-  <div class="pls">
-    <div class="pli"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><div><b data-t="p1">Dealer oficial</b><span data-t="p1s">Teka și Küppersbusch în Moldova</span></div></div>
-    <div class="pli"><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg><div><b data-t="p2">Livrare gratuită</b><span data-t="p2s">În municipiul Chișinău</span></div></div>
-    <div class="pli"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><div><b data-t="p3">Garanție 2 ani</b><span data-t="p3s">Service propriu — adresați-vă în magazin</span></div></div>
+<!-- MARQUEE -->
+<div class="marquee"><div class="marquee-track" id="marquee">
+  <span>Cooking a better tomorrow</span>
+  <span><b>140</b>&nbsp;<em data-i18n="mq.years">de ani de istorie</em></span>
+  <span><b>120+</b>&nbsp;<em data-i18n="mq.countries">de țări</em></span>
+  <span><b>338</b>&nbsp;<em data-i18n="mq.models">de modele</em></span>
+</div></div>
+
+<!-- INDUCTION STORY -->
+<section class="story" id="inductie">
+  <div class="story-vis" id="storyVis">
+    <svg class="hob-svg" viewBox="0 0 640 560" aria-hidden="true">
+      <defs>
+        <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b1b1f"/><stop offset=".55" stop-color="#0c0c0e"/><stop offset="1" stop-color="#141417"/></linearGradient>
+        <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".07"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+        <radialGradient id="heatG"><stop offset="0" stop-color="#FFB067"/><stop offset=".35" stop-color="#FF4A1C"/><stop offset=".75" stop-color="#C8102E" stop-opacity=".55"/><stop offset="1" stop-color="#C8102E" stop-opacity="0"/></radialGradient>
+        <filter id="blur"><feGaussianBlur stdDeviation="14"/></filter>
+        <clipPath id="glassClip"><rect x="20" y="20" width="600" height="520" rx="22"/></clipPath>
+      </defs>
+      <rect x="20" y="20" width="600" height="520" rx="22" fill="url(#glass)" stroke="rgba(255,255,255,.14)"/>
+      <g clip-path="url(#glassClip)">
+        <g class="zone" id="z1">
+          <circle class="heat" cx="185" cy="200" r="118" fill="url(#heatG)" filter="url(#blur)" opacity="0"/>
+          <g class="coils" opacity="0" fill="none" stroke="#FF6A3A"><circle cx="185" cy="200" r="96" stroke-opacity=".5"/><circle cx="185" cy="200" r="72" stroke-opacity=".35"/><circle cx="185" cy="200" r="48" stroke-opacity=".25"/></g>
+          <circle class="ring" cx="185" cy="200" r="108" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
+        </g>
+        <g class="zone" id="z2">
+          <circle class="heat" cx="455" cy="150" r="96" fill="url(#heatG)" filter="url(#blur)" opacity="0"/>
+          <g class="coils" opacity="0" fill="none" stroke="#FF6A3A"><circle cx="455" cy="150" r="76" stroke-opacity=".5"/><circle cx="455" cy="150" r="54" stroke-opacity=".3"/></g>
+          <circle class="ring" cx="455" cy="150" r="88" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
+        </g>
+        <g class="zone" id="z3">
+          <circle class="heat" cx="455" cy="345" r="96" fill="url(#heatG)" filter="url(#blur)" opacity="0"/>
+          <g class="coils" opacity="0" fill="none" stroke="#FF6A3A"><circle cx="455" cy="345" r="76" stroke-opacity=".5"/><circle cx="455" cy="345" r="54" stroke-opacity=".3"/></g>
+          <circle class="ring" cx="455" cy="345" r="88" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
+        </g>
+        <g class="zone" id="z4">
+          <circle class="heat" cx="185" cy="390" r="74" fill="url(#heatG)" filter="url(#blur)" opacity="0"/>
+          <circle class="ring" cx="185" cy="390" r="66" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
+        </g>
+        <rect id="bridge" x="440" y="238" width="30" height="19" rx="4" fill="#FF4A1C" opacity="0" filter="url(#blur)"/>
+        <rect id="bridgeLine" x="453" y="232" width="4" height="31" rx="2" fill="#FFB067" opacity="0"/>
+        <circle id="pot" cx="185" cy="200" r="100" fill="none" stroke="#F2F0EC" stroke-width="3" stroke-dasharray="629" stroke-dashoffset="629"/>
+        <rect x="-200" y="20" width="160" height="520" fill="url(#sheen)" transform="skewX(-18)" id="sheenBar"/>
+      </g>
+      <g font-family="Montserrat, sans-serif" font-size="12" fill="rgba(255,255,255,.45)">
+        <line x1="60" y1="500" x2="580" y2="500" stroke="rgba(255,255,255,.1)"/>
+        <rect x="60" y="490" width="0" height="3" rx="1.5" fill="#FF4A1C" id="slider"/>
+        <text x="60" y="524">MultiSlider Touch Control</text>
+        <text x="580" y="524" text-anchor="end" id="panelTxt">0 W</text>
+      </g>
+      <g id="chipPot" opacity="0"><rect x="108" y="70" width="154" height="30" rx="15" fill="#F2F0EC"/><text x="185" y="90" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="12" font-weight="600" fill="#1C0507">Ø 215 mm · detectat</text></g>
+      <g id="chipSync" opacity="0"><rect x="500" y="232" width="92" height="30" rx="15" fill="#FF4A1C"/><text x="546" y="252" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="12" font-weight="600" fill="#fff">Syncro</text></g>
+    </svg>
+  </div>
+  <div class="story-txt">
+    <span class="eyebrow">DirectSense · MasterSense</span>
+    <h2 class="h-l" data-i18n-html="story.title"><span class="ln"><span>Inducție care</span></span><span class="ln"><span><em>simte.</em></span></span></h2>
+    <ol class="steps" id="steps">
+      <li class="step on"><span class="n">01</span><h3 data-i18n="s1.h">Recunoaște vasul</h3><p data-i18n="s1.p">Plita detectează automat tigaia și încălzește doar suprafața ei — fără energie pierdută.</p></li>
+      <li class="step"><span class="n">02</span><h3 data-i18n="s2.h">Power Plus</h3><p data-i18n="s2.p">Până la 3 000 W pe o singură zonă. Apa fierbe aproape instant.</p></li>
+      <li class="step"><span class="n">03</span><h3 data-i18n="s3.h">Syncro</h3><p data-i18n="s3.p">Două zone lucrează ca una — pentru grătar, tăvi și vase mari.</p></li>
+    </ol>
+    <div class="watt"><b id="watt">0</b><span>W · Power Plus</span></div>
   </div>
 </section>
 
-<section class="st">
-  <div class="ey" data-t="st_e">Magazin</div>
-  <h2 data-t="st_h">Chișinău, str. 31 August 1989, 79/1</h2>
-  <p data-t="st_p">Luni – Vineri 10:00 – 18:00, Sâmbătă 10:00 – 15:00, Duminică — zi liberă. Vedeți tehnica live și primiți consultație.</p>
-  <div class="row">
-    <a class="bt wh" href="https://www.google.com/maps/dir/?api=1&destination=Strada+31+August+1989+79%2F1%2C+Chi%C8%99in%C4%83u%2C+Moldova&travelmode=driving" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg><span data-t="route">Traseu</span></a>
-    <a class="bt" href="tel:+37368272702"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span data-t="call">Apel</span></a>
+<!-- URBAN COLOURS -->
+<section class="urban" id="urban">
+  <div class="urban-head">
+    <span class="eyebrow" data-i18n="u.eyebrow">Ediția Urban Colors</span>
+    <h2 class="h-l" style="margin-top:16px" data-i18n-html="u.title"><span class="ln"><span>Culoarea ta.</span></span><span class="ln"><span><em>Stilul tău.</em></span></span></h2>
   </div>
-  <div class="row">
-    <a class="bt mvb" href="viber://chat?number=%2B37368272702"><svg viewBox="0 0 24 24"><path d="M12 2.6c5 0 8.1 2.9 8.1 7.7v3.3c0 4.8-3.1 7.7-8.1 7.7-.5 0-.9 0-1.3-.1l-2.9 2.4v-3.1c-2.5-1.3-3.9-3.6-3.9-6.9v-3.3c0-4.8 3.1-7.7 8.1-7.7z"/></svg>Viber</a>
-    <a class="bt mwa" href="https://wa.me/37368272702" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>WhatsApp</a>
-    <a class="bt mtg" href="https://t.me/+37368272702" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21.3 4.3 3.1 11.2c-.6.22-.58.72.02.9l4.5 1.4 1.75 5.4c.15.46.6.52.9.22l2.35-2.25 4.55 3.35c.5.36 1 .1 1.14-.5l3.05-14.3c.15-.6-.3-.9-.86-.72z"/></svg>Telegram</a>
+  <div class="u-dots" id="uDots"><i class="on"></i><i></i><i></i><i></i></div>
+  <div class="urban-track" id="urbanTrack">
+    <div class="u-panel" data-bg="#5A0B15" data-fg="#F7F2ED"><div class="ghost" data-i18n="c.bk">Negru</div><img src="assets/oven-bk.webp" alt="HLB 8600 BK"><div class="u-meta"><b>HLB 8600 BK</b><span>MDL 17.700</span></div></div>
+    <div class="u-panel" data-bg="#3f4246" data-fg="#F7F2ED"><div class="ghost" data-i18n="c.st">Gri piatră</div><img src="assets/oven-st.webp" alt="HLB 8600 ST"><div class="u-meta"><b>HLB 8600 ST</b><span>MDL 17.700</span></div></div>
+    <div class="u-panel" data-bg="#EEE6DE" data-fg="#1B1214"><div class="ghost" data-i18n="c.wh">Alb</div><img src="assets/oven-wh.webp" alt="HLB 8600 WH"><div class="u-meta"><b>HLB 8600 WH</b><span>MDL 17.700</span></div></div>
+    <div class="u-panel" data-bg="#A6A6A8" data-fg="#1B1214"><div class="ghost" data-i18n="c.sm">Argintiu</div><img src="assets/oven-sm.webp" alt="HLB 8600 SM"><div class="u-meta"><b>HLB 8600 SM</b><span>MDL 17.700</span></div></div>
   </div>
 </section>
 
-<footer class="ft"><div class="soc"><a class="fb" href="https://www.facebook.com/tekamoldova/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a class="ig" href="https://www.instagram.com/tekamoldova/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5.4"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r=".9" fill="#fff" stroke="none"/></svg></a></div><b>Teka Moldova</b> · +373 68 27 27 02<br><span data-t="cp">Distribuitor oficial Teka și Küppersbusch în Republica Moldova.</span></footer>
+<!-- SPECS + RECOMMENDED -->
+<section class="sec specs" id="specs">
+  <div class="specs-grid">
+    <div class="spec-tbl">
+      <div class="blk-head"><h2 class="h-s" data-i18n="sp.title">Specificații tehnice</h2><a href="#" class="lnk"><span data-i18n="sp.all">Vezi toate specificațiile</span><svg class="ic" style="width:16px;height:16px"><use href="#i-arrow"/></svg></a></div>
+      <dl id="specRows">
+        <div><dt><svg class="ic"><use href="#i-tag"/></svg><span data-i18n="sp.r1">Tip</span></dt><dd data-i18n="sp.v1">Cuptor multifuncțional</dd></div>
+        <div><dt><svg class="ic"><use href="#i-box"/></svg><span data-i18n="sp.r2">Capacitate</span></dt><dd data-i18n="sp.v2">70 L</dd></div>
+        <div><dt><svg class="ic"><use href="#i-leaf"/></svg><span data-i18n="sp.r3">Clasă energetică</span></dt><dd>A+</dd></div>
+        <div><dt><svg class="ic"><use href="#i-fan"/></svg><span data-i18n="sp.r4">Funcții</span></dt><dd>12 · Surround Temp</dd></div>
+        <div><dt><svg class="ic"><use href="#i-book"/></svg><span data-i18n="sp.r5">Rețete presetate</span></dt><dd>20</dd></div>
+        <div><dt><svg class="ic"><use href="#i-screen"/></svg><span data-i18n="sp.r6">Display</span></dt><dd>TFT True Colour 4″</dd></div>
+        <div><dt><svg class="ic"><use href="#i-drop"/></svg><span data-i18n="sp.r7">Curățare</span></dt><dd>HydroClean® PRO</dd></div>
+        <div><dt><svg class="ic"><use href="#i-door"/></svg><span data-i18n="sp.r8">Ușă</span></dt><dd data-i18n="sp.v8">SoftClose, sticlă triplă</dd></div>
+        <div><dt><svg class="ic"><use href="#i-dot"/></svg><span data-i18n="sp.r9">Culoare</span></dt><dd data-i18n="sp.v9">Negru</dd></div>
+      </dl>
+    </div>
+    <div class="dims" id="dims">
+      <svg viewBox="0 0 300 300" aria-hidden="true">
+        <path class="draw" pathLength="1" d="M60 40h190v190H60z"/>
+        <path class="draw" pathLength="1" d="M60 78h190"/>
+        <path class="draw" pathLength="1" d="M93 59a7 7 0 1 0 14 0a7 7 0 1 0-14 0M203 59a7 7 0 1 0 14 0a7 7 0 1 0-14 0"/>
+        <path class="draw" pathLength="1" d="M140 52h30v14h-30z"/>
+        <path class="draw" pathLength="1" d="M78 90h154"/>
+        <path class="draw" pathLength="1" d="M88 104h134v106H88z"/>
+        <path class="draw" pathLength="1" d="M60 258h190M60 252v12M250 252v12"/>
+        <path class="draw" pathLength="1" d="M28 40v190M22 40h12M22 230h12"/>
+        <text x="155" y="282" text-anchor="middle">595</text>
+        <text x="14" y="140" text-anchor="middle" transform="rotate(-90 14 135)">595</text>
+      </svg>
+      <p data-i18n="dims.note">HLB 8600 · dimensiuni, mm</p>
+    </div>
+    <div class="recs">
+      <div class="blk-head"><h2 class="h-s" data-i18n="rec.title">Produse recomandate</h2><a href="#catalog" class="lnk"><span data-i18n="rec.all">Vezi toate cuptoarele</span><svg class="ic" style="width:16px;height:16px"><use href="#i-arrow"/></svg></a></div>
+      <div class="rec-list">
+        <article class="rec"><button class="heart" aria-label="Favorite"><svg class="ic"><use href="#i-heart"/></svg></button><div class="rec-img"><img src="assets/pizza.webp" alt=""></div><h4>HLB 85-G1 P</h4><small data-i18n="rec1.t">MaestroPizza · 340 °C</small><div class="rec-foot"><b>MDL 23.600</b><button class="add" aria-label="Adaugă">+</button></div></article>
+        <article class="rec"><button class="heart" aria-label="Favorite"><svg class="ic"><use href="#i-heart"/></svg></button><div class="rec-img"><img src="assets/vg-oven.webp" alt=""></div><h4>HLB 84-VG</h4><small data-i18n="rec2.t">Ediția Van Gogh</small><div class="rec-foot"><b>MDL 15.900</b><button class="add" aria-label="Adaugă">+</button></div></article>
+        <article class="rec"><button class="heart" aria-label="Favorite"><svg class="ic"><use href="#i-heart"/></svg></button><div class="rec-img"><img src="assets/oven-wh.webp" alt=""></div><h4>HLB 8600 WH</h4><small data-i18n="rec3.t">Urban Colors · alb</small><div class="rec-foot"><b>MDL 17.700</b><button class="add" aria-label="Adaugă">+</button></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFESTYLE -->
+<section class="life" id="life">
+  <div class="life-media"><img id="lifeImg" src="assets/life-coffee.webp" alt=""></div>
+  <div class="life-txt">
+    <span class="eyebrow" data-i18n="life.eyebrow">Inspirație</span>
+    <h2 class="h-l" data-i18n-html="life.title"><span class="ln"><span>Dimineți care</span></span><span class="ln"><span>încep <em>cu gustul</em></span></span><span class="ln"><span><em>potrivit.</em></span></span></h2>
+    <p data-i18n="life.p">Tehnica Teka se integrează în bucătărie ca o piesă de mobilier — discret, elegant, pentru mulți ani.</p>
+    <a href="#catalog" class="btn btn-cream"><span data-i18n="life.cta">Vezi inspirația</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="sec" id="catalog">
+  <div class="sec-head">
+    <div><span class="eyebrow" data-i18n="cat.eyebrow">Catalog</span><h2 class="h-l" data-i18n-html="cat.title"><span class="ln"><span>Tot ce are nevoie</span></span><span class="ln"><span>o bucătărie <em>completă.</em></span></span></h2></div>
+    <p class="lead" data-i18n="cat.p">338 de modele în stoc sau la comandă. Filtre după lățime, tip de instalare și culoare.</p>
+  </div>
+  <div class="bento">
+    <a class="tile w2 h2" href="#"><div class="tile-top"><h3 data-i18n="k.oven">Cuptoare</h3><span class="cnt">51</span></div><img src="assets/oven-bk.webp" alt=""><span class="go">↗</span></a>
+    <a class="tile w2" href="#"><div class="tile-top"><h3 data-i18n="k.hob">Plite</h3><span class="cnt">52</span></div><img src="assets/hob-air.webp" alt=""><span class="go">↗</span></a>
+    <a class="tile" href="#"><div class="tile-top"><h3 data-i18n="k.hood">Hote</h3><span class="cnt">59</span></div><img src="assets/hood.webp" alt=""><span class="go">↗</span></a>
+    <a class="tile" href="#"><div class="tile-top"><h3 data-i18n="k.fridge">Frigidere</h3><span class="cnt">24</span></div><img src="assets/fridge.webp" alt=""><span class="go">↗</span></a>
+    <a class="tile" href="#"><div class="tile-top"><h3 data-i18n="k.dish">Mașini de spălat vase</h3><span class="cnt">14</span></div><img src="assets/dish.webp" alt=""><span class="go">↗</span></a>
+    <a class="tile w2" href="#"><div class="tile-top"><h3 data-i18n="k.sink">Chiuvete și baterii</h3><span class="cnt">88</span></div><img src="assets/sink.webp" alt=""><span class="go">↗</span></a>
+    <a class="tile" href="#"><div class="tile-top"><h3 data-i18n="k.wine">Vitrine de vin</h3><span class="cnt">5</span></div><img src="assets/wine.webp" alt=""><span class="go">↗</span></a>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="sec" id="branduri" style="padding-top:0">
+  <div class="sec-head"><div><span class="eyebrow" data-i18n="b.eyebrow">Branduri</span><h2 class="h-m" style="margin-top:16px" data-i18n="b.title">Trei nume. Un standard.</h2></div></div>
+  <div class="brands-list">
+    <a class="brand-row" href="#"><h3>Teka</h3><p data-i18n="b.teka">Grupul german fondat în 1924. Prezent în peste 120 de țări, cu 15 fabrici proprii.</p><span class="yr">1924 →</span></a>
+    <a class="brand-row" href="#"><h3>Küppersbusch</h3><p data-i18n="b.kup">Segmentul premium al grupului: design german și tehnologii profesionale pentru acasă.</p><span class="yr">1875 →</span></a>
+    <a class="brand-row" href="#"><h3>Strohm</h3><p data-i18n="b.str">Chiuvete și baterii care completează bucătăria în aceeași linie de design.</p><span class="yr">→</span></a>
+  </div>
+</section>
+
+<!-- COUNTERS -->
+<section class="sec" style="padding-top:0">
+  <div class="svc">
+    <div><b data-count="338">0</b><span data-i18n="sv.1">modele disponibile</span></div>
+    <div><b data-count="3">0</b><span data-i18n="sv.2">branduri oficiale</span></div>
+    <div><b data-count="140">0</b><span data-i18n="sv.3">de ani de istorie a grupului</span></div>
+    <div><b data-count="1">0</b><span data-i18n="sv.4">showroom în Chișinău</span></div>
+  </div>
+</section>
+
+<!-- SHOWROOM -->
+<section id="showroom">
+  <div class="show">
+    <div class="show-txt">
+      <span class="eyebrow" data-i18n="sh.eyebrow">Showroom Chișinău</span>
+      <h2 class="h-l" data-i18n-html="sh.title"><span class="ln"><span>Vino să le vezi</span></span><span class="ln"><span><em>pe viu.</em></span></span></h2>
+      <div class="show-cta">
+        <a class="btn btn-cream" href="tel:+37368272702"><span data-i18n="sh.call">Sună acum</span></a>
+        <a class="btn btn-wa" href="https://wa.me/37368272702" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=Teka+Moldova%2C+Chi%C8%99in%C4%83u&travelmode=driving" target="_blank" rel="noopener"><span data-i18n="sh.route">Traseu</span></a>
+      </div>
+      <div class="show-info">
+        <div><small data-i18n="sh.addr">Adresă</small>str. 31 August 1989 79/1</div>
+        <div><small data-i18n="sh.hours">Program</small>10:00 – 18:00</div>
+        <div><small data-i18n="sh.contact">Contact</small>+373 68 27 27 02</div>
+      </div>
+    </div>
+    <div class="show-media"><img id="showImg" src="assets/card-tray.webp" alt=""></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ftr">
+  <div class="ftr-grid">
+    <div><div class="wordmark">TEKA</div><p data-i18n="f.about">Distribuitor oficial Teka, Küppersbusch și Strohm în Republica Moldova.</p></div>
+    <div><h5 data-i18n="nav.products">Produse</h5><a href="#" data-i18n="k.oven">Cuptoare</a><a href="#" data-i18n="k.hob">Plite</a><a href="#" data-i18n="k.hood">Hote</a><a href="#" data-i18n="k.fridge">Frigidere</a></div>
+    <div><h5 data-i18n="f.buyers">Cumpărători</h5><a href="#" data-i18n="f.delivery">Livrare și instalare</a><a href="#" data-i18n="f.pay">Plată</a><a href="#" data-i18n="f.warranty">Garanție</a><a href="#">FAQ</a></div>
+    <div><h5 data-i18n="sh.contact">Contact</h5><a href="tel:+37368272702">+373 68 27 27 02</a><a href="https://wa.me/37368272702">WhatsApp</a><a href="#showroom">Showroom</a></div>
+  </div>
+  <div class="ftr-word" id="ftrWord">TEKA</div>
+  <div class="ftr-bar">
+    <span class="wordmark" style="font-size:24px">TEKA</span><span class="sep"></span><span class="spaced">Cooking a better tomorrow</span>
+    <span class="soc"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></span>
+    <small data-i18n="f.demo">© 2026 · concept de design</small>
+  </div>
+</footer>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-bg" data-close></div>
+  <div class="modal-box"><button class="modal-x" data-close aria-label="Închide">×</button><video id="vid" controls playsinline preload="none" src="https://teka.md/wp-content/uploads/2024/01/Urban-Colors-Edition-_-Exclusive-Appliances-Edition-by-Teka.mp4"></video></div>
 </div>
+<div class="toast" id="toast"></div>
 
-<script>
-const NAV=[
- {k:'hobs', ro:'Plite',                  ru:'Варочные панели',       n:48, h:'category-hobs.html',im:'assets/nav/hobs.webp'},
- {k:'ovens',ro:'Cuptoare',               ru:'Духовые шкафы',         n:36, h:'category-ovens-light.html',im:'assets/nav/ovens.webp'},
- {k:'hoods',ro:'Hote',                   ru:'Вытяжки',               n:49, h:'category-hoods.html',im:'assets/nav/hoods.webp'},
- {k:'sink', ro:'Chiuvete',               ru:'Мойки',                 n:48, h:'category-sinks.html',im:'assets/nav/sink.webp'},
- {k:'fauc', ro:'Baterii',                ru:'Смесители',             n:39, h:'category-faucets.html',im:'assets/nav/fauc.webp'},
- {k:'frig', ro:'Frigidere',              ru:'Холодильники',          n:24, h:'category-fridges.html',im:'assets/nav/frig.webp'},
- {k:'micro',ro:'Cuptoare cu microunde',  ru:'Микроволновые печи',    n:18, h:'category-microwaves.html',im:'assets/nav/micro.webp'},
- {k:'coffee',ro:'Aparate de cafea',      ru:'Кофемашины',            n:7,  h:'category-coffee.html',im:'assets/nav/coffee.webp'},
- {k:'wash', ro:'Mașini de spălat',       ru:'Стирка и сушка',        n:14, h:'category-laundry.html',im:'assets/nav/wash.webp'},
- {k:'dish', ro:'Mașini de spălat vase',  ru:'Посудомоечные машины',  n:13, h:'category-dishwashers.html',im:'assets/nav/dish.webp'},
- {k:'acc',  ro:'Accesorii',              ru:'Аксессуары',            n:13, h:'category-accessories.html',im:'assets/nav/acc.webp'},
- {k:'wine', ro:'Răcitoare de vin',       ru:'Винные шкафы',          n:5,  h:'category-wine-coolers.html',im:'assets/nav/wine.webp'}];
-const T={ro:{ey:'Dealer oficial în Moldova',h1:'Tehnică de bucătărie <em>Teka</em> și&nbsp;<em class="kp">Küppersbusch</em>',sub:'',cta:'Alege tehnica',cat:'Catalog',mod:'modele',
-  p1:'Dealer oficial',p1s:'Teka și Küppersbusch în Moldova',p2:'Livrare gratuită',p2s:'În municipiul Chișinău',p3:'Garanție 2 ani',p3s:'Service propriu — adresați-vă în magazin',
-  st_e:'Magazin',st_h:'Chișinău, str. 31 August 1989, 79/1',st_p:'Luni – Vineri 10:00 – 18:00, Sâmbătă 10:00 – 15:00, Duminică — zi liberă. Vedeți tehnica live și primiți consultație.',route:'Traseu',call:'Apel',cp:'Distribuitor oficial Teka și Küppersbusch în Republica Moldova.',ttl:'Teka Moldova — tehnică de bucătărie'},
- ru:{ey:'Официальный дилер в Молдове',h1:'Кухонная техника <em>Teka</em> и&nbsp;<em class="kp">Küppersbusch</em>',sub:'',cta:'Выбрать технику',cat:'Каталог',mod:'моделей',
-  p1:'Официальный дилер',p1s:'Teka и Küppersbusch в Молдове',p2:'Бесплатная доставка',p2s:'По муниципию Кишинёв',p3:'Гарантия 2 года',p3s:'Свой сервис — обращайтесь в магазин',
-  st_e:'Магазин',st_h:'Кишинёв, ул. 31 August 1989, 79/1',st_p:'Пн – Пт 10:00 – 18:00, Сб 10:00 – 15:00, Вс — выходной. Посмотрите технику вживую и получите консультацию.',route:'Маршрут',call:'Позвонить',cp:'Официальный дистрибьютор Teka и Küppersbusch в Республике Молдова.',ttl:'Teka Moldova — кухонная техника'}};
-let L='ro';try{L=localStorage.getItem('tk-lang')||'ro'}catch(e){}
-const t=k=>T[L][k];
-function drawGrid(){
-  document.getElementById('grid').innerHTML=NAV.map(c=>'<a class="tile" href="'+c.h+'"><b><img src="'+c.im+'" alt="" loading="lazy"></b><i>'+(L==='ru'?c.ru:c.ro)+'</i><u>'+c.n+' '+t('mod')+'</u></a>').join('');
-  document.getElementById('tot').textContent=NAV.reduce((a,c)=>a+c.n,0)+' '+t('mod');
-}
-function setLang(l){L=l;try{localStorage.setItem('tk-lang',l)}catch(e){}
-  document.documentElement.lang=l;document.getElementById('lang').textContent=l==='ro'?'RU':'RO';
-  document.querySelectorAll('[data-t]').forEach(e=>{const v=T[l][e.dataset.t];if(v!=null)e.innerHTML=v});
-  document.title=t('ttl');drawGrid();showNow();}
-/* слайды */
-const S=[...document.querySelectorAll('.sl')],dots=document.getElementById('dots');let cur=0;
-dots.innerHTML=S.map((_,i)=>'<i class="'+(i?'':'on')+'"></i>').join('');
-function showNow(){const c=NAV.find(x=>x.k===S[cur].dataset.k);const a=document.getElementById('nowa');a.href=c.h;document.getElementById('nown').textContent=L==='ru'?c.ru:c.ro;}
-function go(i){S[cur].classList.remove('on');dots.children[cur].classList.remove('on');cur=i;const im=S[cur].querySelector('img');if(im.dataset.src){im.src=im.dataset.src;im.removeAttribute('data-src')}
-  S[cur].classList.add('on');dots.children[cur].classList.add('on');showNow();}
-addEventListener('load',()=>{S.forEach(s=>{const im=s.querySelector('img[data-src]');if(im){im.src=im.dataset.src;im.removeAttribute('data-src')}});});
-const hero=document.getElementById('hero');let heroOn=true;
-if('IntersectionObserver' in window)new IntersectionObserver(e=>{heroOn=e[0].isIntersecting;hero.classList.toggle('off',!heroOn);}).observe(hero);
-(function(){const d=document.documentElement;if(!d.classList.contains('tk-intro'))return;
-  const f=S[0].querySelector('img'),wait=ms=>new Promise(r=>setTimeout(r,ms));
-  Promise.all([wait(1800),Promise.race([wait(4000),f.decode?f.decode().catch(()=>{}):wait(0)])]).then(()=>{
-    document.getElementById('ld').classList.add('off');d.classList.add('tk-go');d.classList.remove('tk-intro');
-    setTimeout(()=>{d.classList.remove('tk-go');document.getElementById('ld').remove()},2200);});
-})();
-if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{if(!document.hidden&&heroOn)go((cur+1)%S.length)},5000);
-/* шапка светлеет над каталогом */
-const hdr=document.getElementById('hdr'),cat=document.getElementById('cat');
-function hs(){const r=cat.getBoundingClientRect();hdr.classList.toggle('light',r.top<60&&r.bottom>60||document.querySelector('.pl').getBoundingClientRect().top<60&&document.querySelector('.pl').getBoundingClientRect().bottom>60);}
-let hq=0;addEventListener('scroll',()=>{if(!hq)hq=requestAnimationFrame(()=>{hq=0;hs();});},{passive:true});
-setLang(L);hs();
-</script>
-<!-- ── корзина ── -->
-<style>
-.cb[hidden]{display:none}
-.cb.bump{animation:cbump .45s ease}
-@keyframes cbump{40%{transform:scale(1.5)}}
-.ktoast{position:fixed;left:14px;right:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:120;background:#100E0C;color:#fff;border-radius:14px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;transform:translateY(calc(100% + 140px));opacity:0;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .25s;max-width:460px;margin:0 auto}
-.ktoast.on{transform:none;opacity:1}
-.ktoast button{color:#fff;font:inherit;font-weight:600;text-decoration:underline;background:none;border:0;padding:0;cursor:pointer}
-.kbg{position:fixed;inset:0;z-index:110;background:rgba(16,14,12,.55);opacity:0;pointer-events:none;transition:opacity .3s}
-.kbg.on{opacity:1;pointer-events:auto}
-.kd{position:fixed;left:0;right:0;bottom:0;z-index:111;max-height:86svh;display:flex;flex-direction:column;background:#F4F3F1;color:#100E0C;border-radius:22px 22px 0 0;transform:translateY(105%);transition:transform .42s cubic-bezier(.2,.8,.2,1);max-width:520px;margin:0 auto;padding-bottom:env(safe-area-inset-bottom)}
-.kd.on{transform:none}
-.kd .kg{width:40px;height:4px;border-radius:2px;background:#C9C5BF;margin:8px auto 4px;flex:none}
-.kd .kh{display:flex;justify-content:space-between;align-items:center;padding:6px 18px 8px;flex:none}
-.kd .kh b{font-size:19px;font-weight:700;letter-spacing:-.3px}
-.kd .kx{width:36px;height:36px;border-radius:50%;border:0;background:#E7E4DF;display:grid;place-items:center;cursor:pointer}
-.kd .kx svg{width:16px;height:16px;stroke:#100E0C;stroke-width:2;fill:none}
-.kd .kl{overflow:auto;padding:0 18px;flex:1;overscroll-behavior:contain}
-.kd .kr{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #E4E1DC}
-.kd .ki{width:58px;height:58px;flex:none;border-radius:12px;background:#fff;display:grid;place-items:center;overflow:hidden}
-.kd .ki img{width:84%;height:84%;object-fit:contain}
-.kd .kn{flex:1;min-width:0}
-.kd .kn b{display:block;font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.kd .kn small{display:block;font-size:11px;color:#6B6660;margin-top:1px}
-.kd .kn i{display:block;font-style:normal;font-size:13px;font-weight:600;margin-top:3px}
-.kd .kq{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
-.kd .kq button{width:30px;height:30px;border-radius:50%;border:1px solid #C9C5BF;background:none;font-size:16px;line-height:1;color:#100E0C;cursor:pointer}
-.kd .kf{padding:14px 18px 16px;flex:none;border-top:1px solid #E4E1DC}
-.kd .kt{display:flex;justify-content:space-between;font-size:16px;font-weight:700}
-.kd .kdl{font-size:11px;color:#6B6660;margin:3px 0 12px}
-.kd .kb{height:48px;border-radius:24px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid #100E0C;color:#100E0C;background:none;width:100%}
-.kd .kb svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
-@property --ka{syntax:'<angle>';inherits:false;initial-value:0deg}
-.kd .kb.vb{position:relative;isolation:isolate;background:#1c1a18;border:0;color:#fff;height:58px;border-radius:29px;gap:12px}
-.kd .kb.vb svg{width:22px;height:22px}
-.kd .kv{display:flex;flex-direction:column;align-items:flex-start;line-height:1.15;text-align:left}
-.kd .kv b{font-size:15px;font-weight:700}
-.kd .kv small{font-size:11.5px;font-weight:500;color:rgba(255,255,255,.6);margin-top:2px}
-.kd .kb.vb::before{content:'';position:absolute;inset:0;border-radius:29px;padding:1.5px;background:conic-gradient(from var(--ka),rgba(255,255,255,.12) 0 62%,rgba(255,255,255,.45) 80%,rgba(255,255,255,.9) 85%,rgba(255,255,255,.12) 92%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:kspin 3.5s linear infinite;pointer-events:none}
-@keyframes kspin{to{--ka:360deg}}
-@media (prefers-reduced-motion:reduce){.kd .kb.vb::before{animation:none}}
-.kd .k2{display:flex;gap:8px;margin-top:8px}
-.kd .k2 .kb{height:44px;font-size:13px}
-.kd .ke{padding:40px 10px 50px;text-align:center;color:#6B6660;font-size:14px}
-.kd .ke b{display:block;color:#100E0C;font-size:17px;margin-bottom:6px}
-</style>
-<div class="kbg" id="kbg"></div>
-<div class="kd" id="kd" role="dialog" aria-modal="true" aria-labelledby="kdt">
-  <div class="kg"></div>
-  <div class="kh"><b id="kdt"></b><button class="kx" id="kx" aria-label="Închide"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
-  <div class="kl" id="kl"></div>
-  <div class="kf" id="kf"></div>
-</div>
-<div class="ktoast" id="ktoast"><span id="ktt"></span><button id="kto"></button></div>
-<script>
-(function(){
-const PH='37368272702',KEY='tkCart';
-const TX={ro:{cart:'Coș',added:'Adăugat',inCart:'Produsul e în coș',open:'Deschide',total:'Total',deliv:'Livrare gratuită în municipiul Chișinău',vb:'Plasează comanda',vbs:'managerul răspunde în Viber',wa:'WhatsApp',tg:'Telegram',empty:'Coșul e gol',emptyp:'Adaugă produse din catalog.',copied:'Textul comenzii e copiat — lipește-l în chat',hi:'Bună! Vreau să comand:',sum:'Total',cod:'cod'},
-          ru:{cart:'Корзина',added:'Добавлено',inCart:'Товар в корзине',open:'Открыть',total:'Итого',deliv:'Бесплатная доставка по муниципию Кишинёв',vb:'Оформить заказ',vbs:'менеджер ответит в Viber',wa:'WhatsApp',tg:'Telegram',empty:'Корзина пуста',emptyp:'Добавьте товары из каталога.',copied:'Текст заказа скопирован — вставьте в чат',hi:'Здравствуйте! Хочу заказать:',sum:'Итого',cod:'код'}};
-const tx=k=>(TX[typeof L!=='undefined'&&L==='ru'?'ru':'ro'])[k];
-const mdl=n=>n.toLocaleString('ru-RU').replace(/ /g,' ')+' MDL';
-let cart=[];try{cart=JSON.parse(localStorage.getItem(KEY)||'[]')||[]}catch(e){cart=[]}
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(cart))}catch(e){}};
-const cnt=()=>cart.reduce((a,x)=>a+x.q,0), sum=()=>cart.reduce((a,x)=>a+x.q*x.p,0);
-const hdrBtn=document.querySelector('.cb').parentElement, cb=document.querySelector('.cb');
-hdrBtn.setAttribute('aria-label','Coș');
-function syncQA(){if(typeof P==='undefined')return;document.querySelectorAll('.qa').forEach(b=>{const p=P[+b.dataset.i];b.classList.toggle('done',!!(p&&cart.some(y=>y.sku===p.sku)));});}
-function badge(b){const n=cnt();cb.textContent=n;cb.hidden=!n;syncQA();if(b){cb.classList.remove('bump');void cb.offsetWidth;cb.classList.add('bump');}}
-const kd=document.getElementById('kd'),kbg=document.getElementById('kbg'),kl=document.getElementById('kl'),kf=document.getElementById('kf');
-const IC={vb:'<svg viewBox="0 0 24 24"><path d="M12 2.6c5 0 8.1 2.9 8.1 7.7v3.3c0 4.8-3.1 7.7-8.1 7.7-.5 0-.9 0-1.3-.1l-2.9 2.4v-3.1c-2.5-1.3-3.9-3.6-3.9-6.9v-3.3c0-4.8 3.1-7.7 8.1-7.7z"/></svg>',
- wa:'<svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>',
- tg:'<svg viewBox="0 0 24 24"><path d="M21.3 4.3 3.1 11.2c-.6.22-.58.72.02.9l4.5 1.4 1.75 5.4c.15.46.6.52.9.22l2.35-2.25 4.55 3.35c.5.36 1 .1 1.14-.5l3.05-14.3c.15-.6-.3-.9-.86-.72z"/></svg>'};
-function draw(){
-  document.getElementById('kdt').textContent=tx('cart')+(cnt()?' · '+cnt():'');
-  if(!cart.length){kl.innerHTML='<div class="ke"><b>'+tx('empty')+'</b>'+tx('emptyp')+'</div>';kf.innerHTML='';return;}
-  kl.innerHTML=cart.map((x,i)=>'<div class="kr"><div class="ki">'+(x.img?'<img src="'+x.img+'" alt="" onerror="this.remove()">':'')+'</div><div class="kn"><b>'+x.n+'</b><small>'+tx('cod')+' '+x.sku+'</small><i>'+mdl(x.p)+'</i></div><div class="kq"><button data-d="-1" data-i="'+i+'" aria-label="−">−</button>'+x.q+'<button data-d="1" data-i="'+i+'" aria-label="+">+</button></div></div>').join('');
-  kf.innerHTML='<div class="kt"><span>'+tx('total')+'</span><span>'+mdl(sum())+'</span></div><div class="kdl">'+tx('deliv')+'</div>'
-   +'<button class="kb vb" data-m="vb">'+IC.vb+'<span class="kv"><b>'+tx('vb')+'</b><small>'+tx('vbs')+'</small></span></button>'
-   +'<div class="k2"><button class="kb" data-m="wa">'+IC.wa+tx('wa')+'</button><button class="kb" data-m="tg">'+IC.tg+tx('tg')+'</button></div>';
-}
-function msg(){return tx('hi')+'\n'+cart.map(x=>'• '+x.n+' ('+tx('cod')+' '+x.sku+') × '+x.q+' — '+mdl(x.p*x.q)).join('\n')+'\n'+tx('sum')+': '+mdl(sum());}
-function copy(s){try{if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(s)}catch(e){}
-  const a=document.createElement('textarea');a.value=s;a.style.cssText='position:fixed;opacity:0';document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove();return Promise.resolve();}
-kl.addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(!b)return;const x=cart[+b.dataset.i];x.q+=+b.dataset.d;if(x.q<1)cart.splice(+b.dataset.i,1);save();badge();draw();});
-kf.addEventListener('click',e=>{const b=e.target.closest('button[data-m]');if(!b)return;const m=b.dataset.m,s=msg();
-  if(m==='wa'){window.open('https://wa.me/'+PH+'?text='+encodeURIComponent(s),'_blank','noopener');return;}
-  copy(s);toast(tx('copied'),'');
-  setTimeout(()=>{if(m==='vb')location.href='viber://chat?number=%2B'+PH;else window.open('https://t.me/+'+PH,'_blank','noopener');},350);});
-
-function open(){closeToast();draw();kd.classList.add('on');kbg.classList.add('on');document.documentElement.style.overflow='hidden';}
-function close(){kd.classList.remove('on');kbg.classList.remove('on');document.documentElement.style.overflow='';}
-hdrBtn.addEventListener('click',open);kbg.addEventListener('click',close);document.getElementById('kx').addEventListener('click',close);
-addEventListener('keydown',e=>{if(e.key==='Escape'&&kd.classList.contains('on'))close();});
-let sy=null;kd.addEventListener('touchstart',e=>{sy=kl.scrollTop>0?null:e.touches[0].clientY},{passive:true});
-kd.addEventListener('touchend',e=>{if(sy!=null&&e.changedTouches[0].clientY-sy>70)close();sy=null},{passive:true});
-const kt=document.getElementById('ktoast');let tt=0;
-function toast(s,btn){kt.style.bottom=document.querySelector('.pv.on')?'calc(92px + env(safe-area-inset-bottom))':'';document.getElementById('ktt').textContent=s;const o=document.getElementById('kto');o.textContent=btn||'';o.hidden=!btn;kt.classList.add('on');clearTimeout(tt);tt=setTimeout(closeToast,3200);}
-function closeToast(){kt.classList.remove('on')}
-document.getElementById('kto').addEventListener('click',open);
-function addP(p){const card=document.querySelector('.pc[data-i="'+P.indexOf(p)+'"] img');
-  const x=cart.find(y=>y.sku===p.sku);if(x)x.q++;else cart.push({sku:p.sku,n:p.n,p:p.p,q:1,img:card?card.getAttribute('src'):''});
-  save();badge(true);toast(tx('inCart'),tx('open'));}
-const addb=document.getElementById('addb');
-if(addb)addb.addEventListener('click',()=>{if(!curP)return;addP(curP);addb.textContent=tx('added')+' ✓';setTimeout(()=>{addb.textContent=t('add')},1400);});
-document.addEventListener('click',e=>{const b=e.target.closest('.qa');if(!b)return;e.stopPropagation();const p=P[+b.dataset.i];if(!p)return;addP(p);},true);
-{let q=0;const g=document.getElementById('cat');if(g)new MutationObserver(()=>{if(!q)q=setTimeout(()=>{q=0;syncQA();},0);}).observe(g,{childList:true,subtree:true});}
-addEventListener('storage',e=>{if(e.key===KEY){try{cart=JSON.parse(e.newValue||'[]')}catch(_){}badge();}});
-badge();
-})();
-</script>
-<script>
-/* цвет панели браузера = цвет шапки */
-(function(){var h=document.querySelector('.hdr'),m=document.querySelector('meta[name=theme-color]');if(!h||!m)return;
-function u(){m.setAttribute('content',h.classList.contains('light')?'#F4F3F1':'#100E0C')}
-new MutationObserver(u).observe(h,{attributes:true,attributeFilter:['class']});u();})();
-</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="i18n.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
