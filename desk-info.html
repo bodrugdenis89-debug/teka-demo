@@ -186,11 +186,17 @@ footer .lg img{width:64px;height:64px}
 footer p{margin-top:16px;color:#9a9a9a;font-size:13.5px;max-width:300px}
 footer h6{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff;font-weight:600;margin-bottom:14px}
 footer a{display:block;padding:5px 0;color:#bdbdbd;transition:color .2s}footer a:hover{color:#fff}
-footer .ct a{display:flex;gap:10px;align-items:center}
+footer .ct a{display:flex;gap:10px;align-items:flex-start}footer .ct a svg{margin-top:2px}
 footer .ct svg{width:17px;height:17px;flex:none}
-footer .ms{display:flex;gap:8px;margin-top:14px}
-footer .ms a{width:40px;height:40px;border-radius:50%;border:1px solid #333;display:grid;place-items:center;padding:0}
-footer .ms a:hover{border-color:#fff}
+footer .ms{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+footer .ms.sc{margin-top:10px}
+footer .ms a{display:flex;align-items:center;gap:10px;height:48px;padding:0 14px 0 6px;border-radius:24px;border:1px solid #2c2c2c;color:#e6e6e6;font-weight:600;font-size:14px;transition:border-color .2s,background .2s}
+footer .ms a:hover{border-color:#555;background:#1a1a1a;color:#fff}
+footer .ms i{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;flex:none;color:#fff}
+footer .ms i svg{width:20px;height:20px;fill:currentColor;stroke:none}
+footer .ms i svg.st{fill:none;stroke:currentColor;stroke-width:2}
+footer .ms .wa i{background:#25D366}footer .ms .vb i{background:#7360F2}footer .ms .tg i{background:#229ED9}
+footer .ms .fb i{background:#1877F2}footer .ms .ig i{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%)}
 footer .bot{border-top:1px solid #222}
 footer .bot .wrap{display:flex;justify-content:space-between;padding-top:18px;padding-bottom:22px;font-size:12.5px;color:#777}
 
@@ -252,7 +258,7 @@ footer .bot .wrap{display:flex;justify-content:space-between;padding-top:18px;pa
 
 <div class="top"><div class="wrap">
   <span class="hide"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-t="addr">Magazin: Chișinău, str. 31 August 1989, 79/1</span></span>
-  <span class="hide"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-t="hrs">Lu – Vi 10–18, Sâ 10–15, Du — liber</span></span>
+  <span class="hide"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-t="hrs">Lu – Vi 10:00–18:00, Sâ 10:00–15:00, Du — liber</span></span>
   <span class="sp"></span>
   <a href="tel:+37368272702"><span><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>+373 68 27 27 02</span></a>
   <div class="lng" id="lng"><button data-l="ro">RO</button><button data-l="ru">RU</button></div>
@@ -345,11 +351,15 @@ footer .bot .wrap{display:flex;justify-content:space-between;padding-top:18px;pa
     <div class="ct"><h6 data-t="n_c">Contacte</h6>
       <a href="tel:+37368272702"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>+373 68 27 27 02</a>
       <a href="https://maps.google.com/?q=Chi%C8%99in%C4%83u%2C%20str.%2031%20August%201989%2C%2079%2F1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-t="s_a">Chișinău, str. 31 August 1989, 79/1</span></a>
-      <a><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-t="hrs">Lu – Vi 10–18, Sâ 10–15, Du — liber</span></a>
+      <a><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-t="f_hrs">Lu – Vi 10:00–18:00<br>Sâ 10:00–15:00<br>Du — liber</span></a>
       <div class="ms">
-        <a href="https://wa.me/37368272702" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg></a>
-        <a href="viber://chat?number=%2B37368272702" aria-label="Viber"><svg viewBox="0 0 24 24"><path d="M12 2.6c5 0 8.1 2.9 8.1 7.7v3.3c0 4.8-3.1 7.7-8.1 7.7-.5 0-.9 0-1.3-.1l-2.9 2.4v-3.1c-2.5-1.3-3.9-3.6-3.9-6.9v-3.3c0-4.8 3.1-7.7 8.1-7.7z"/></svg></a>
-        <a href="https://t.me/+37368272702" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.3 4.3 3.1 11.2c-.6.22-.58.72.02.9l4.5 1.4 1.75 5.4c.15.46.6.52.9.22l2.35-2.25 4.55 3.35c.5.36 1 .1 1.14-.5l3.05-14.3c.15-.6-.3-1-.96-.78z"/></svg></a>
+        <a class="wa" href="https://wa.me/37368272702" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></i>WhatsApp</a>
+        <a class="vb" href="viber://chat?number=%2B37368272702"><i><svg viewBox="0 0 24 24"><path d="M12 2C6.6 2 3.5 4.6 3.5 9.6v3.2c0 3.4 1.4 5.8 4 7.1V23l3-2.5c.5.1 1 .1 1.5.1 5.4 0 8.5-2.7 8.5-7.8V9.6C20.5 4.6 17.4 2 12 2zm3.9 13.2c-.4.6-1.2 1-1.9.8-2.8-.9-5.1-3.2-6-6-.2-.7.2-1.5.8-1.9l.6-.4c.4-.2.9-.1 1.1.3l.9 1.5c.2.4.1.8-.2 1.1l-.5.4c.4 1.1 1.3 2 2.4 2.4l.4-.5c.3-.3.7-.4 1.1-.2l1.5.9c.4.2.5.7.3 1.1z"/></svg></i>Viber</a>
+        <a class="tg" href="https://t.me/+37368272702" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24"><path d="M21.4 4.6 2.9 11.7c-1.2.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.1.9.8.9.5 0 .7-.2 1-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.5zM17 8l-7.8 7.1-.3 3.2-1.4-4.4L17 8z"/></svg></i>Telegram</a>
+      </div>
+      <div class="ms sc">
+        <a class="fb" href="https://www.facebook.com/tekamoldova/" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24"><path d="M14 8.5V6.8c0-.8.5-1 1-1h2.3V2.1L14.2 2C10.8 2 10 4.5 10 6.2v2.3H7.7v3.8H10V22h4v-9.7h3l.4-3.8H14z"/></svg></i>Facebook</a>
+        <a class="ig" href="https://www.instagram.com/tekamoldova/" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" class="st"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1"/></svg></i>Instagram</a>
       </div>
     </div>
   </div>
@@ -377,7 +387,7 @@ const CATS=[
   {k:'pots',f:'accessories',g:'acc',n:9,ro:'Accesorii bucătărie',ru:'Аксессуары для кухни'}
 ];
 const GR={cook:['Gătit','Приготовление'],cool:['Răcire','Охлаждение'],wash:['Spălare vase și chiuvete','Мойка посуды и мойки'],acc:['Accesorii','Аксессуары']};
-const D={ru:{addr:'Магазин: Кишинёв, ул. 31 Августа 1989, 79/1',hrs:'Пн – Пт 10–18, Сб 10–15, Вс — выходной',n_k:'Кухня',n_l:'Стирка и сушка',n_o:'Акции',n_s:'Магазин',n_c:'Контакты',s_ph:'Поиск по модели, коду или категории',a1:'Официальный дилер',a1s:'Teka и Küppersbusch',a2:'Бесплатная доставка',a2s:'по муниципию Кишинёв',a4:'Гарантия 2 года',a4s:'Собственный сервис',h_cat:'Категории',allp:'Весь каталог',h_off:'Специальные предложения',allo:'Все акции',h_pop:'Популярное в магазине',b_t:'Немецкая кухонная техника с 1924 года. Духовки, варочные панели, вытяжки, мойки.',b_k:'Премиальная линия: индивидуальный дизайн, благородные материалы, профессиональные технологии.',b_go:'Смотреть товары',s_ey:'Магазин Teka',s_h:'Приходите посмотреть технику в работе',s_a:'Кишинёв, ул. 31 Августа 1989, 79/1',s_as:'Парковка рядом с магазином',s_h1:'Пн – Пт 10:00 – 18:00',s_h2:'Сб 10:00 – 15:00, Вс — выходной',s_p:'Бесплатная консультация по выбору',s_r:'Маршрут',s_w:'Написать в WhatsApp',f_ab:'Официальный дистрибьютор Teka и Küppersbusch в Республике Молдова. Магазин, доставка и сервис.',f_c:'Каталог',f_i:'Покупателям',f_d:'Доставка и оплата',f_g:'Гарантия и сервис',f_ab2:'О нас',f_cp:'© 2026 teka.md · Официальный дистрибьютор Teka и Küppersbusch в Молдове',mdl:'моделей',instock:'В наличии',added:'Товар в корзине',nf:'Ничего не найдено',all:'Все',cart:'Корзина',promo_t:'Духовки с паром и пиролизом',promo_s:'Новинки 2026 в магазине',promo_a:'Смотреть →'},ro:{}};
+const D={ru:{addr:'Магазин: Кишинёв, ул. 31 Августа 1989, 79/1',hrs:'Пн – Пт 10:00–18:00, Сб 10:00–15:00, Вс — выходной',f_hrs:'Пн – Пт 10:00–18:00<br>Сб 10:00–15:00<br>Вс — выходной',n_k:'Кухня',n_l:'Стирка и сушка',n_o:'Акции',n_s:'Магазин',n_c:'Контакты',s_ph:'Поиск по модели, коду или категории',a1:'Официальный дилер',a1s:'Teka и Küppersbusch',a2:'Бесплатная доставка',a2s:'по муниципию Кишинёв',a4:'Гарантия 2 года',a4s:'Собственный сервис',h_cat:'Категории',allp:'Весь каталог',h_off:'Специальные предложения',allo:'Все акции',h_pop:'Популярное в магазине',b_t:'Немецкая кухонная техника с 1924 года. Духовки, варочные панели, вытяжки, мойки.',b_k:'Премиальная линия: индивидуальный дизайн, благородные материалы, профессиональные технологии.',b_go:'Смотреть товары',s_ey:'Магазин Teka',s_h:'Приходите посмотреть технику в работе',s_a:'Кишинёв, ул. 31 Августа 1989, 79/1',s_as:'Парковка рядом с магазином',s_h1:'Пн – Пт 10:00 – 18:00',s_h2:'Сб 10:00 – 15:00, Вс — выходной',s_p:'Бесплатная консультация по выбору',s_r:'Маршрут',s_w:'Написать в WhatsApp',f_ab:'Официальный дистрибьютор Teka и Küppersbusch в Республике Молдова. Магазин, доставка и сервис.',f_c:'Каталог',f_i:'Покупателям',f_d:'Доставка и оплата',f_g:'Гарантия и сервис',f_ab2:'О нас',f_cp:'© 2026 teka.md · Официальный дистрибьютор Teka и Küppersbusch в Молдове',mdl:'моделей',instock:'В наличии',added:'Товар в корзине',nf:'Ничего не найдено',all:'Все',cart:'Корзина',promo_t:'Духовки с паром и пиролизом',promo_s:'Новинки 2026 в магазине',promo_a:'Смотреть →'},ro:{}};
 let LANG='ro';try{LANG=localStorage.getItem('tk-lang')==='ru'?'ru':'ro'}catch(e){}
 const T=(k,ro)=>LANG==='ru'&&D.ru[k]||ro;
 const cn=c=>LANG==='ru'?c.ru:c.ro;
