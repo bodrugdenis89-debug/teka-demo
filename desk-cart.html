@@ -353,6 +353,7 @@ const cut=(k,s='a',cls='')=>`<i class="cut ${cls}" style="--ar:${META[k]||1};-we
 const mdl=v=>(+v||0).toLocaleString('ru-RU').replace(/,/g,' ')+' MDL';
 
 let PHO={},GL={lo:{}};const DATA={};
+let RU={k:{},v:{},d:{},s:{}};const tx=(c,v)=>LANG==='ru'&&v&&RU[c]&&RU[c][v]||v;
 const RO1=new Set(["111020005", "111020031", "41560140", "111010079", "111010071", "111010082", "111000076", "111000005", "111010012", "111010010", "111000004", "111010086", "111000094", "111000045", "111000010", "111000012", "111000013", "111000011", "111000046", "111000056", "111000026", "111200001", "111000000", "121010037", "121020000", "121010060", "121010007", "121210000", "121200002", "121000001"]);
 const rd=u=>fetch(u).then(r=>r.ok?r.json():null).catch(()=>null);
 const nm=x=>x.n||x.name||'';const pr=x=>+(x.p||x.price||0);const od=x=>+(x.o||x.old||0);const bnd=x=>x.b||x.brand||'Teka';
@@ -360,7 +361,7 @@ function pics(x){const k=String(x.sku);if(PHO[k]&&PHO[k].length)return PHO[k].sl
 async function cat(f){if(!DATA[f])DATA[f]=(await rd('data/'+f+'.json'))||[];return DATA[f]}
 function card(x,f){const p=pics(x),o=od(x),pp=pr(x),d=o>pp&&pp?Math.round((1-pp/o)*100):0;
   return `<a class="pc" href="desk-product.html?f=${f}&sku=${encodeURIComponent(x.sku)}" data-sku="${x.sku}" data-f="${f}"><div class="ph">${d?`<div class="bdg"><span>−${d}%</span></div>`:''}<img class="b1 ${p[1]?'h2':''}" src="${p[0]||''}" alt="${nm(x)}" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}">${p[1]?`<img class="b2" src="${p[1]}" alt="" loading="lazy">`:''}</div>
-  <div class="inf"><div class="br">${bnd(x)==='Teka'?'<img src="assets/teka-logo.svg" alt="TEKA">':bnd(x)}</div><h3>${nm(x)}</h3><div class="sb">${x.sub||''}</div><div class="bt"><div class="pr">${o>pp?`<s>${mdl(o)}</s>`:''}<b>${mdl(pp)}</b><div class="st">${T('instock','În stoc')}</div></div><button class="qa ${inCart(x.sku)?'done':''}" aria-label="${T('cart','Coș')}"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11h11l2-8H6.3"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg></button></div></div></a>`}
+  <div class="inf"><div class="br">${bnd(x)==='Teka'?'<img src="assets/teka-logo.svg" alt="TEKA">':bnd(x)}</div><h3>${nm(x)}</h3><div class="sb">${tx('s',x.sub)||''}</div><div class="bt"><div class="pr">${o>pp?`<s>${mdl(o)}</s>`:''}<b>${mdl(pp)}</b><div class="st">${T('instock','În stoc')}</div></div><button class="qa ${inCart(x.sku)?'done':''}" aria-label="${T('cart','Coș')}"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11h11l2-8H6.3"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg></button></div></div></a>`}
 const sk=n=>Array.from({length:n},()=>'<div class="pc sk"><div class="ph"></div><div class="inf"><div class="br">&nbsp;</div><h3>&nbsp;</h3><div class="sb"></div></div></div>').join('');
 
 const KEY='tkCart';let cart=[];try{cart=JSON.parse(localStorage.getItem(KEY)||'[]')||[]}catch(e){}
@@ -377,7 +378,7 @@ let IDX=null,qt=0;
 async function index(){if(IDX)return IDX;const r=[];for(const c of CATS)(await cat(c.f)).forEach(x=>r.push({x,c,s:(nm(x)+' '+x.sku+' '+(x.sub||'')+' '+c.ro+' '+c.ru+' '+bnd(x)).toLowerCase()}));return IDX=r}
 $('q').addEventListener('input',()=>{clearTimeout(qt);qt=setTimeout(async()=>{const v=$('q').value.trim().toLowerCase();if(v.length<2){$('sr').classList.remove('on');return}
   const ws=v.split(/\s+/),R=(await index()).filter(r=>ws.every(w=>r.s.includes(w))).slice(0,8);
-  $('sr').innerHTML=R.length?R.map(({x,c})=>`<a href="desk-product.html?f=${c.f}&sku=${encodeURIComponent(x.sku)}"><img src="${(pics(x)[0]||'').replace('-m.webp','-s.webp')}" alt="" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}else this.style.visibility='hidden'"><span><b>${nm(x)}</b><small>${cn(c)} · ${x.sub||''}</small></span><i>${pr(x)?mdl(pr(x)):''}</i></a>`).join(''):`<p>${T('nf','Nimic găsit')}</p>`;
+  $('sr').innerHTML=R.length?R.map(({x,c})=>`<a href="desk-product.html?f=${c.f}&sku=${encodeURIComponent(x.sku)}"><img src="${(pics(x)[0]||'').replace('-m.webp','-s.webp')}" alt="" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}else this.style.visibility='hidden'"><span><b>${nm(x)}</b><small>${cn(c)} · ${tx('s',x.sub)||''}</small></span><i>${pr(x)?mdl(pr(x)):''}</i></a>`).join(''):`<p>${T('nf','Nimic găsit')}</p>`;
   $('sr').classList.add('on')},160)});
 $('q').addEventListener('focus',()=>{index();if($('q').value.trim().length>1)$('sr').classList.add('on')});
 document.addEventListener('click',e=>{if(!e.target.closest('.srch'))$('sr').classList.remove('on')});
@@ -422,7 +423,7 @@ const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(cart))}catch(_){}bad
 function row(y){const i=INFO[String(y.sku)]||{},x=i.x,f=y.f||i.f,o=x?od(x):0,p=+y.p||0;
   const href=f?`desk-product.html?f=${f}&sku=${encodeURIComponent(y.sku)}`:'#';const img=(x&&pics(x)[0])||y.img||'';
   return `<div class="it" data-s="${y.sku}"><a class="im" href="${href}">${img?`<img src="${img}" alt="" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}">`:''}</a>
-  <div class="nm"><a href="${href}"><b>${y.n}</b></a><small>${x&&x.sub?x.sub.slice(0,90):''}</small><small>${t('Cod')}: ${y.sku}</small><div class="ok">${t('În stoc')}</div></div>
+  <div class="nm"><a href="${href}"><b>${y.n}</b></a><small>${x&&x.sub?tx('s',x.sub).slice(0,90):''}</small><small>${t('Cod')}: ${y.sku}</small><div class="ok">${t('În stoc')}</div></div>
   <div class="qt"><button data-q="-1" aria-label="-">−</button><span>${y.q}</span><button data-q="1" aria-label="+">+</button></div>
   <div class="sm">${p?`<b>${mdl(p*y.q)}</b>${y.q>1?`<small>${mdl(p)} / ${t('buc.')}</small>`:''}${o>p?`<small><s>${mdl(o*y.q)}</s></small>`:''}`:`<b>${t('Preț la cerere')}</b>`}</div>
   <button class="rm" data-rm="1" aria-label="${t('Șterge')}"><svg viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button></div>`}
@@ -477,7 +478,7 @@ document.addEventListener('click',e=>{if(e.target.closest('#rec .qa'))setTimeout
 function drawAll(){langStatic();drawMega();pageLang()}
 $('lng').onclick=e=>{const b=e.target.closest('button');if(!b||b.dataset.l===LANG)return;LANG=b.dataset.l;try{localStorage.setItem('tk-lang',LANG)}catch(_){}IDX=null;drawAll()};
 badge();langStatic();drawMega();
-Promise.all([rd('data/photos.json').then(j=>PHO=j||{}),rd('data/gallery.json').then(j=>GL=j||{lo:{}})]).finally(pageInit);
+Promise.all([rd('data/photos.json').then(j=>PHO=j||{}),rd('data/gallery.json').then(j=>GL=j||{lo:{}}),rd('data/ru.json').then(j=>{if(j)RU=j})]).finally(pageInit);
 </script>
 </body>
 </html>
