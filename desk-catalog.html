@@ -452,8 +452,11 @@ $('lng').onclick=e=>{const b=e.target.closest('button');if(!b||b.dataset.l===LAN
 
 document.addEventListener('click',e=>{const c=$('cm');if(!c)return;if(e.target.closest('#cmB')){c.classList.toggle('on');return}if(!e.target.closest('.cmp'))c.classList.remove('on')});
 addEventListener('keydown',e=>{if(e.key==='Escape'&&$('cm'))$('cm').classList.remove('on')});
+history.scrollRestoration='manual';
+const JUMP=location.hash.slice(1);if(JUMP)history.replaceState(null,'',location.pathname+location.search);
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]'),h=a&&a.getAttribute('href').slice(1),t=h&&$(h);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}});
 badge();
-Promise.all([rd('data/photos.json').then(j=>PHO=j||{}),rd('data/gallery.json').then(j=>GL=j||{lo:{}}),rd('data/ru.json').then(j=>{if(j)RU=j})]).finally(drawAll);
+Promise.all([rd('data/photos.json').then(j=>PHO=j||{}),rd('data/gallery.json').then(j=>GL=j||{lo:{}}),rd('data/ru.json').then(j=>{if(j)RU=j})]).finally(()=>{drawAll();if(JUMP&&$(JUMP))setTimeout(()=>$(JUMP).scrollIntoView({behavior:'instant'}),300)});
 </script>
 </body>
 </html>
