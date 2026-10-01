@@ -481,7 +481,7 @@ const RO1=new Set(["111020005", "111020031", "41560140", "111010079", "111010071
 const rd=u=>fetch(u).then(r=>r.ok?r.json():null).catch(()=>null);
 const nm=x=>x.n||x.name||'';const pr=x=>+(x.p||x.price||0);const od=x=>+(x.o||x.old||0);const bnd=x=>x.b||x.brand||'Teka';const stk=x=>x.st==='order'?T('order','La comandă'):x.st==='out'?T('out','Nu este în stoc'):T('instock','În stoc');const blogo=(x,h)=>bnd(x)==='Teka'?`<img src="assets/teka-logo.svg" alt="TEKA"${h?` style="height:${h}px"`:''}>`:`<span class="kbl"${h?` style="height:${h}px"`:''}>${bnd(x).toUpperCase()}</span>`;
 function pics(x){if(x.u&&x.u.length)return x.u.slice(0,2);const k=String(x.sku);if(PHO[k]&&PHO[k].length)return PHO[k].slice(0,2).map(i=>'assets/hi/'+i+'-m.webp');return (GL.lo[k]||x.img||[]).slice(0,2).map(f=>(RO1.has(k)&&!GL.lo[k]?'assets/ro/':'assets/ro2/')+f)}
-async function cat(f){if(!DATA[f])DATA[f]=((await rd('data/'+f+'.json'))||[]).filter(x=>!x.hid);return DATA[f]}
+const PRM={};function cat(f){return PRM[f]||(PRM[f]=rd('data/'+f+'.json').then(j=>DATA[f]=(j||[]).filter(x=>!x.hid)))}
 const CP=u=>u.replace(/^assets\/(hi|ro2?)\//,'assets/c/$1-'),OE="if(this.src.indexOf('/c/')>0){this.src=this.dataset.o}else if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}";
 function card(x,f){const p=pics(x),o=od(x),pp=pr(x),d=o>pp&&pp?Math.round((1-pp/o)*100):0;
   return `<a class="pc" href="desk-product.html?f=${f}&sku=${encodeURIComponent(x.sku)}" data-sku="${x.sku}" data-f="${f}"><div class="ph">${d?`<div class="bdg"><span>−${d}%</span></div>`:''}<img class="b1 ${p[1]?'h2':''}" src="${CP(p[0]||'')}" data-o="${p[0]||''}" alt="${nm(x)}" loading="lazy" onerror="${OE}">${p[1]?`<img class="b2" src="${CP(p[1])}" data-o="${p[1]}" alt="" loading="lazy" onerror="${OE}">`:''}</div>
@@ -499,7 +499,7 @@ document.addEventListener('click',e=>{const q=e.target.closest('.qa');if(q){e.pr
 addEventListener('storage',e=>{if(e.key===KEY){try{cart=JSON.parse(e.newValue||'[]')}catch(_){}badge()}});
 
 let IDX=null,qt=0;
-async function index(){if(IDX)return IDX;const r=[];for(const c of CATS)(await cat(c.f)).forEach(x=>r.push({x,c,s:(nm(x)+' '+x.sku+' '+(x.sub||'')+' '+c.ro+' '+c.ru+' '+bnd(x)).toLowerCase()}));return IDX=r}
+async function index(){if(IDX)return IDX;await Promise.all(CATS.map(c=>cat(c.f)));const r=[];for(const c of CATS)(await cat(c.f)).forEach(x=>r.push({x,c,s:(nm(x)+' '+x.sku+' '+(x.sub||'')+' '+c.ro+' '+c.ru+' '+bnd(x)).toLowerCase()}));return IDX=r}
 $('q').addEventListener('input',()=>{clearTimeout(qt);qt=setTimeout(async()=>{const v=$('q').value.trim().toLowerCase();if(v.length<2){$('sr').classList.remove('on');return}
   const ws=v.split(/\s+/),R=(await index()).filter(r=>ws.every(w=>r.s.includes(w))).slice(0,8);
   $('sr').innerHTML=R.length?R.map(({x,c})=>`<a href="desk-product.html?f=${c.f}&sku=${encodeURIComponent(x.sku)}"><img src="${(pics(x)[0]||'').replace('-m.webp','-s.webp')}" alt="" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}else this.style.visibility='hidden'"><span><b>${nm(x)}</b><small>${cn(c)} · ${tx('s',x.sub)||''}</small></span><i>${pr(x)?mdl(pr(x)):''}</i></a>`).join(''):`<p>${T('nf','Nimic găsit')}</p>`;
@@ -597,7 +597,7 @@ function drawRel(){const L=(DATA[F]||[]).filter(x=>x!==X&&(F!=='compact'||C.k!==
   $('rel').innerHTML=pick.map(x=>card(x,F)).join('');$('relS').hidden=!pick.length}
 async function drawSeen(){let s=[];try{s=JSON.parse(localStorage.getItem('tkSeen')||'[]')}catch(e){}
   s=s.filter(y=>!(y.f===F&&y.sku===SKU)).slice(0,4);if(!s.length)return;
-  const R=[];for(const y of s){const x=(await cat(y.f)).find(z=>String(z.sku)===y.sku);if(x)R.push(card(x,y.f))}
+  const R=[];await Promise.all(s.map(y=>cat(y.f)));for(const y of s){const x=(await cat(y.f)).find(z=>String(z.sku)===y.sku);if(x)R.push(card(x,y.f))}
   $('seen').innerHTML=R.join('');$('seenS').hidden=!R.length}
 function addQ(){const q=Math.max(1,Math.min(99,+$('qv').value||1));const c=cart.find(y=>String(y.sku)===String(X.sku));
   if(c)c.q+=q;else cart.push({sku:X.sku,n:nm(X),p:pr(X),q,img:(IM[0]&&IM[0].m)||'',f:F});
