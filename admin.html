@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Teka — админка</title>
+<link rel="icon" href="assets/teka-logo.svg">
+<style>
+:root{--red:#E30613;--ink:#141414;--ink2:#3a3a3a;--mute:#767676;--line:#E6E6E6;--soft:#F5F5F5;--ok:#1A7F37;--warn:#B26B00;--bg:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:500 14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--soft)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+a{color:inherit}
+.btn{height:38px;padding:0 16px;border-radius:8px;background:#fff;border:1px solid var(--line);font-weight:600;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.btn:hover{border-color:#bbb}
+.btn.r{background:var(--red);border-color:var(--red);color:#fff}
+.btn.r:hover{background:#c40511}
+.btn.k{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn:disabled{opacity:.5;cursor:default}
+input.t,select.t,textarea.t{height:38px;border:1px solid var(--line);border-radius:8px;padding:0 12px;background:#fff;width:100%}
+textarea.t{height:auto;padding:10px 12px;resize:vertical;min-height:90px}
+input.t:focus,select.t:focus,textarea.t:focus{outline:2px solid #111;outline-offset:-1px;border-color:transparent}
+/* вход */
+#login{position:fixed;inset:0;display:grid;place-items:center;background:var(--soft);z-index:50}
+#login[hidden]{display:none}
+#login form{background:#fff;border-radius:16px;padding:36px;width:min(360px,92vw);display:grid;gap:14px;box-shadow:0 10px 40px rgba(0,0,0,.06)}
+#login img{height:36px;justify-self:start}
+#login h1{font-size:20px}
+#login .er{color:var(--red);min-height:20px;font-size:13px}
+/* шапка */
+header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
+.hb{display:flex;align-items:center;gap:12px;padding:12px 20px;flex-wrap:wrap}
+.hb .lg{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-right:8px}
+.hb .lg img{height:26px}
+.hb .q{flex:1 1 260px;max-width:420px}
+.hb .sp{flex:1}
+.hb select.t{width:auto;min-width:150px}
+/* таблица */
+main{padding:16px 20px 120px}
+#tw{overflow-x:auto;border-radius:12px}
+.sum{color:var(--mute);margin:0 0 10px 2px}
+table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+th{text-align:left;font-size:12px;font-weight:600;color:var(--mute);padding:10px 10px;border-bottom:1px solid var(--line);background:#fafafa;white-space:nowrap}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tr.dz td{background:#FFF8E6}
+tr.hd td{opacity:.55}
+tr.hd td:last-child,tr.hd td:nth-last-child(2){opacity:1}
+td.ph{width:64px}
+td.ph img{width:52px;height:52px;object-fit:contain;border-radius:6px;background:#fff;border:1px solid var(--line);display:block}
+td.nm b{display:block;font-size:14.5px}
+td.nm small{display:block;color:var(--mute);font-size:12.5px;max-width:300px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+td.nm .kb{display:inline-block;font-size:10px;font-weight:700;background:#000;color:#fff;padding:1px 5px;border-radius:3px;margin-left:6px;vertical-align:2px}
+td.sk{color:var(--mute);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.ct{color:var(--ink2);font-size:13px;max-width:150px}
+td.pr input{width:96px;height:34px;text-align:right;font-variant-numeric:tabular-nums}
+td.pr .pc{display:block;font-size:11.5px;color:var(--red);text-align:right;min-height:14px}
+td.st select{height:34px;width:132px}
+td.st select.order,td.st select.out{color:var(--warn)}
+.eye{width:34px;height:34px;border-radius:8px;display:grid;place-items:center;border:1px solid var(--line);background:#fff}
+.eye svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
+.eye.off{color:var(--red);border-color:#f3b3b6;background:#FFF1F1}
+.ebtn{height:34px;padding:0 12px;border-radius:8px;border:1px solid var(--line);background:#fff;font-weight:600}
+.ebtn:hover{border-color:#999}
+.empty{padding:60px;text-align:center;color:var(--mute);background:#fff;border-radius:12px;border:1px solid var(--line)}
+/* панель сохранения */
+#bar{position:fixed;left:50%;bottom:20px;transform:translate(-50%,140%);transition:transform .25s;background:var(--ink);color:#fff;border-radius:14px;padding:10px 10px 10px 20px;display:flex;align-items:center;gap:14px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:20;max-width:calc(100vw - 32px)}
+#bar.on{transform:translate(-50%,0)}
+#bar .btn{border:0}
+#bar .btn.g{background:#333;color:#fff}
+/* редактор */
+#ov{position:fixed;inset:0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s;z-index:30}
+#ov.on{opacity:1;pointer-events:auto}
+#ed{position:fixed;top:0;right:0;bottom:0;width:min(860px,100vw);background:#fff;z-index:31;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column}
+#ed.on{transform:none}
+.eh{display:flex;align-items:center;gap:12px;padding:16px 24px;border-bottom:1px solid var(--line)}
+.eh h2{font-size:18px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.eb{flex:1;overflow:auto;padding:8px 24px 40px}
+.ef{display:flex;gap:10px;padding:14px 24px;border-top:1px solid var(--line);align-items:center}
+.ef .sp{flex:1}
+.ef .del{color:var(--red);font-weight:600;padding:0 6px}
+fieldset{border:0;padding:18px 0;border-bottom:1px solid var(--line)}
+fieldset:last-child{border-bottom:0}
+legend{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--mute);padding:0;margin-bottom:12px;float:left;width:100%}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;clear:both}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;clear:both}
+.g1{display:grid;gap:12px;clear:both}
+label.f{display:grid;gap:5px;font-size:12.5px;color:var(--ink2);font-weight:600}
+label.f small{font-weight:500;color:var(--mute)}
+label.ck{display:flex;align-items:center;gap:8px;font-weight:600;margin-top:22px}
+label.ck input{width:18px;height:18px;accent-color:var(--red)}
+.hint{font-size:12.5px;color:var(--mute);clear:both;margin-top:8px}
+/* фото */
+.phs{display:flex;flex-wrap:wrap;gap:10px;clear:both}
+.phs .p{width:112px;height:112px;border:1px solid var(--line);border-radius:10px;position:relative;background:#fff;cursor:grab}
+.phs .p img{width:100%;height:100%;object-fit:contain;border-radius:10px;pointer-events:none}
+.phs .p:first-child{border:2px solid var(--ink)}
+.phs .p:first-child:after{content:"Главное";position:absolute;left:6px;bottom:6px;background:var(--ink);color:#fff;font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:4px}
+.phs .p.new:before{content:"новое";position:absolute;right:6px;bottom:6px;background:var(--ok);color:#fff;font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:4px}
+.phs .p button{position:absolute;top:-8px;right:-8px;width:24px;height:24px;border-radius:50%;background:#fff;border:1px solid var(--line);font-size:15px;line-height:1;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.phs .p button:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.phs .p.dg{opacity:.4}
+.phs .add{width:112px;height:112px;border:2px dashed #ccc;border-radius:10px;display:grid;place-items:center;text-align:center;color:var(--mute);font-size:12.5px;font-weight:600;cursor:pointer;padding:8px}
+.phs .add:hover,.phs .add.drop{border-color:var(--ink);color:var(--ink)}
+/* характеристики */
+.sg{border:1px solid var(--line);border-radius:10px;padding:12px;margin-top:10px;clear:both}
+.sg .st{display:flex;gap:8px;margin-bottom:8px}
+.sg .st input{font-weight:700}
+.sr{display:grid;grid-template-columns:1.2fr 1fr 30px;gap:6px;margin-top:6px}
+.sr input.t{height:32px;font-size:13px}
+.x{width:30px;height:32px;border-radius:6px;color:var(--mute);font-size:18px}
+.x:hover{background:#FFF1F1;color:var(--red)}
+.lnk{color:var(--ink);font-weight:600;font-size:13px;margin-top:8px;padding:4px 0}
+.lnk:hover{color:var(--red)}
+/* уведомления */
+#toast{position:fixed;top:16px;left:50%;transform:translate(-50%,-150%);transition:transform .25s;background:var(--ink);color:#fff;padding:12px 18px;border-radius:10px;z-index:60;font-weight:600;max-width:calc(100vw - 32px)}
+#toast.on{transform:translate(-50%,0)}
+#toast.er{background:var(--red)}
+#busy{position:fixed;inset:0;background:rgba(255,255,255,.6);display:none;place-items:center;z-index:70;font-weight:700}
+#busy.on{display:grid}
+@media (max-width:900px){.hb .q{max-width:none;flex-basis:100%;order:5}td.ct,th.ct,td.sk,th.sk{display:none}.g2,.g3{grid-template-columns:1fr}.eh,.eb,.ef{padding-left:16px;padding-right:16px}main{padding:12px 8px 120px}}
+</style>
+</head>
+<body>
+
+<div id="login" hidden>
+  <form id="lf">
+    <img src="assets/teka-logo.svg" alt="TEKA">
+    <h1>Вход в админку</h1>
+    <input class="t" id="lp" type="password" placeholder="Пароль" autocomplete="current-password" required>
+    <button class="btn r" type="submit">Войти</button>
+    <div class="er" id="le"></div>
+  </form>
+</div>
+
+<header>
+  <div class="hb">
+    <div class="lg"><img src="assets/teka-logo.svg" alt="TEKA">Админка</div>
+    <input class="t q" id="q" type="search" placeholder="Поиск: модель, код, описание">
+    <select class="t" id="fc"></select>
+    <select class="t" id="fs">
+      <option value="">Все товары</option>
+      <option value="sale">Со скидкой</option>
+      <option value="noprice">Без цены</option>
+      <option value="order">Под заказ</option>
+      <option value="out">Нет в наличии</option>
+      <option value="hid">Скрытые</option>
+      <option value="dirty">Изменённые</option>
+    </select>
+    <span class="sp"></span>
+    <button class="btn r" id="nw">+ Новый товар</button>
+    <a class="btn" href="desk-catalog.html" target="_blank" rel="noopener">Сайт ↗</a>
+    <button class="btn" id="lo" title="Выйти">Выйти</button>
+  </div>
+</header>
+
+<main>
+  <div class="sum" id="sum"></div>
+  <div id="tw"></div>
+</main>
+
+<div id="bar"><span id="bt"></span><button class="btn g" id="bu">Отменить</button><button class="btn r" id="bs">Сохранить на сайт</button></div>
+
+<div id="ov"></div>
+<aside id="ed" aria-hidden="true">
+  <div class="eh"><h2 id="et"></h2><button class="btn" id="ec">Закрыть</button></div>
+  <div class="eb" id="eb"></div>
+  <div class="ef"><button class="del" id="edl">Удалить товар</button><span class="sp"></span><button class="btn" id="ex">Отмена</button><button class="btn k" id="eo">Готово</button></div>
+</aside>
+
+<div id="toast"></div>
+<div id="busy">Сохраняю…</div>
+<input type="file" id="fi" accept="image/*" multiple hidden>
+
+<script>
+const API=/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?'':'https://teka-admin.teka-md.workers.dev';
+const FILES=[
+  {f:'ovens',n:'Духовые шкафы'},{f:'hobs',n:'Варочные панели'},{f:'hoods',n:'Вытяжки'},{f:'microwaves',n:'Микроволновые печи'},
+  {f:'compact',n:'Компактная техника и кофемашины'},{f:'fridges',n:'Холодильники'},{f:'wine-coolers',n:'Винные шкафы'},
+  {f:'dishwashers',n:'Посудомоечные машины'},{f:'sinks',n:'Мойки'},{f:'faucets',n:'Смесители'},
+  {f:'laundry',n:'Стиральные и сушильные машины'},{f:'accessories',n:'Аксессуары'}];
+const FN=Object.fromEntries(FILES.map(c=>[c.f,c.n]));
+const RO1=new Set(["111020005","111020031","41560140","111010079","111010071","111010082","111000076","111000005","111010012","111010010","111000004","111010086","111000094","111000045","111000010","111000012","111000013","111000011","111000046","111000056","111000026","111200001","111000000","121010037","121020000","121010060","121010007","121210000","121200002","121000001"]);
+const XL={col:'Цвет',kind:'Тип',w:'Ширина, см',width:'Ширина, см',mat:'Материал',bowls:'Количество чаш',cap:'Объём',install:'Встраивание',bottles:'Бутылок',c:'Класс',f:'Функции'};
+const BASE=new Set(['sku','n','name','sub','p','price','o','old','t','d','b','brand','img','draw','label','desc','specs','pdf','u','st','hid','src']);
+
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let TOK='';try{TOK=localStorage.getItem('tkAdm')||''}catch(e){}
+let RAW='',DB={},RU=null,PHO={},GL={lo:{}},ROWS=[],DIRTY=new Set(),CHG=new Set(),UP={};
+
+function toast(m,er){const t=$('toast');t.textContent=m;t.className='on'+(er?' er':'');clearTimeout(t._t);t._t=setTimeout(()=>t.className=er?'er':'',er?6000:3500)}
+async function api(p,body){
+  const r=await fetch(API+p,{method:body?'POST':'GET',headers:{'Content-Type':'application/json',...(TOK?{Authorization:'Bearer '+TOK}:{})},body:body?JSON.stringify(body):undefined});
+  const j=await r.json().catch(()=>({error:'Сервер не отвечает'}));
+  if(r.status===401&&p!=='/api/login'){showLogin();throw new Error(j.error)}
+  if(!r.ok){const e=new Error(j.error||('Ошибка '+r.status));e.status=r.status;e.j=j;throw e}
+  return j}
+
+/* ключи разных схем товара */
+const K={n:x=>'name' in x&&!('n' in x)?'name':'n',p:x=>'price' in x&&!('p' in x)?'price':'p',o:x=>'old' in x&&!('o' in x)?'old':('price' in x&&!('p' in x)?'old':'o'),b:x=>'brand' in x&&!('b' in x)?'brand':'b'};
+const nm=x=>x[K.n(x)]||'',pr=x=>+(x[K.p(x)]||0),od=x=>+(x[K.o(x)]||0),bnd=x=>x[K.b(x)]||'Teka';
+function setPrice(x,p,o){
+  x[K.p(x)]=p;const ok=K.o(x);
+  if(o>p&&p){x[ok]=o;if('t' in x||ok==='o'){x.t='sale';x.d=Math.round((1-p/o)*100)}}
+  else{if(ok==='old'&&'old' in x)x.old=0;else delete x[ok];if(x.t==='sale'){delete x.t;delete x.d}}}
+function pics(x){
+  if(x.u&&x.u.length)return x.u.slice();const k=String(x.sku);
+  if(PHO[k]&&PHO[k].length)return PHO[k].map(i=>'assets/hi/'+i+'-m.webp');
+  return (GL.lo[k]||x.img||[]).map(f=>(RO1.has(k)&&!GL.lo[k]?'assets/ro/':'assets/ro2/')+f)}
+const thumb=u=>u.replace(/^assets\/(hi|ro2?)\//,'assets/c/$1-');
+function imgSrc(u){return UP[u]?UP[u].url:u}
+const IMGERR="if(!this.dataset.e){this.dataset.e=1;this.src=this.dataset.o}else if(this.dataset.e==1&&this.dataset.r){this.dataset.e=2;this.src=this.dataset.r}";
+const img=(u,cls='')=>{if(!u)return `<img class="${cls}" alt="">`;const s=imgSrc(u);return `<img class="${cls}" src="${esc(UP[u]?s:thumb(s))}" data-o="${esc(s)}" ${RAW?`data-r="${esc(RAW+u)}"`:''} alt="" loading="lazy" onerror="${IMGERR}">`};
+
+/* вход */
+function showLogin(){$('login').hidden=false;setTimeout(()=>$('lp').focus(),50)}
+$('lf').onsubmit=async e=>{e.preventDefault();$('le').textContent='';
+  try{const j=await api('/api/login',{pass:$('lp').value});TOK=j.token;try{localStorage.setItem('tkAdm',TOK)}catch(e){}$('lp').value='';$('login').hidden=true;load()}
+  catch(er){$('le').textContent=er.message}};
+$('lo').onclick=()=>{if(dirtyCount()&&!confirm('Есть несохранённые изменения. Выйти без сохранения?'))return;TOK='';try{localStorage.removeItem('tkAdm')}catch(e){}location.reload()};
+
+/* загрузка */
+async function load(){
+  $('tw').innerHTML='<div class="empty">Загружаю товары…</div>';
+  try{
+    const cfg=await api('/api/config');RAW=cfg.raw||'';
+    const [ru,...fs]=await Promise.all([api('/api/file?path=data/ru.json'),...FILES.map(c=>api('/api/file?path=data/'+c.f+'.json'))]);
+    RU={sha:ru.sha,data:JSON.parse(ru.text)};
+    FILES.forEach((c,i)=>DB[c.f]={sha:fs[i].sha,items:JSON.parse(fs[i].text)});
+    const rd=u=>fetch(u,{cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null);
+    [PHO,GL]=await Promise.all([rd('data/photos.json').then(j=>j||{}),rd('data/gallery.json').then(j=>j||{lo:{}})]);
+    DIRTY.clear();CHG.clear();UP={};
+    $('fc').innerHTML='<option value="">Все категории</option>'+FILES.map(c=>`<option value="${c.f}">${c.n} (${DB[c.f].items.length})</option>`).join('');
+    draw();bar()}
+  catch(e){if(e.status!==401)$('tw').innerHTML=`<div class="empty">Не удалось загрузить: ${esc(e.message)}</div>`}}
+
+/* список */
+function rows(){const q=$('q').value.trim().toLowerCase(),fc=$('fc').value,fs=$('fs').value;const R=[];
+  for(const c of FILES){if(fc&&fc!==c.f)continue;
+    for(const x of DB[c.f].items){
+      if(q&&!(nm(x)+' '+x.sku+' '+(x.sub||'')+' '+bnd(x)).toLowerCase().includes(q))continue;
+      if(fs==='sale'&&!(od(x)>pr(x)&&pr(x)))continue;if(fs==='noprice'&&pr(x))continue;
+      if((fs==='order'||fs==='out')&&x.st!==fs)continue;if(fs==='hid'&&!x.hid)continue;if(fs==='dirty'&&!DIRTY.has(x))continue;
+      R.push({f:c.f,x})}}
+  return R}
+const EYE='<svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+const EYE0='<svg viewBox="0 0 24 24"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3.2 4.1M6.6 6.6C3.7 8.4 2 12 2 12s3.6 7 10 7a10 10 0 0 0 5.4-1.6M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>';
+function pct(x){const p=pr(x),o=od(x);return o>p&&p?'−'+Math.round((1-p/o)*100)+'%':''}
+function draw(){ROWS=rows();
+  $('sum').textContent=`Показано ${ROWS.length} из ${FILES.reduce((s,c)=>s+DB[c.f].items.length,0)} товаров`;
+  if(!ROWS.length){$('tw').innerHTML='<div class="empty">Ничего не найдено</div>';return}
+  $('tw').innerHTML=`<table><thead><tr><th></th><th>Товар</th><th class="sk">Код</th><th class="ct">Категория</th><th>Цена, MDL</th><th>Старая цена</th><th>Наличие</th><th title="Показывать на сайте">Сайт</th><th></th></tr></thead><tbody>${ROWS.map(({f,x},i)=>`
+  <tr data-i="${i}" class="${DIRTY.has(x)?'dz':''} ${x.hid?'hd':''}">
+   <td class="ph">${img(pics(x)[0])}</td>
+   <td class="nm"><b>${esc(nm(x))||'<i>без названия</i>'}${bnd(x)!=='Teka'?'<span class="kb">KB</span>':''}</b><small>${esc(x.sub)}</small></td>
+   <td class="sk">${esc(x.sku)}</td><td class="ct">${esc(FN[f])}</td>
+   <td class="pr"><input class="t" data-k="p" value="${pr(x)||''}" inputmode="numeric"><span class="pc"></span></td>
+   <td class="pr"><input class="t" data-k="o" value="${od(x)>pr(x)?od(x):''}" inputmode="numeric" placeholder="—"><span class="pc">${pct(x)}</span></td>
+   <td class="st"><select class="t ${x.st||''}" data-k="st"><option value="">В наличии</option><option value="order" ${x.st==='order'?'selected':''}>Под заказ</option><option value="out" ${x.st==='out'?'selected':''}>Нет в наличии</option></select></td>
+   <td><button class="eye ${x.hid?'off':''}" data-k="hid" title="${x.hid?'Скрыт с сайта — показать':'Виден на сайте — скрыть'}">${x.hid?EYE0:EYE}</button></td>
+   <td><button class="ebtn" data-k="ed">Изменить</button></td></tr>`).join('')}</tbody></table>`}
+const num=v=>{const n=parseInt(String(v).replace(/[^\d]/g,''),10);return isNaN(n)?0:n};
+function touch(x,f){DIRTY.add(x);CHG.add(f);bar()}
+$('tw').addEventListener('change',e=>{const el=e.target,tr=el.closest('tr');if(!tr)return;const {f,x}=ROWS[+tr.dataset.i];
+  if(el.dataset.k==='p'||el.dataset.k==='o'){const ins=tr.querySelectorAll('td.pr input');const p=num(ins[0].value),o=num(ins[1].value);
+    setPrice(x,p,o);ins[0].value=p||'';ins[1].value=od(x)>pr(x)?od(x):'';tr.querySelectorAll('td.pr .pc')[1].textContent=pct(x)}
+  if(el.dataset.k==='st'){if(el.value)x.st=el.value;else delete x.st;el.className='t '+(x.st||'')}
+  touch(x,f);tr.classList.add('dz')});
+$('tw').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const tr=b.closest('tr');const {f,x}=ROWS[+tr.dataset.i];
+  if(b.dataset.k==='hid'){if(x.hid)delete x.hid;else x.hid=true;touch(x,f);draw()}
+  if(b.dataset.k==='ed')openEd(f,x)});
+$('tw').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('input')){e.target.blur()}});
+let qt;$('q').oninput=()=>{clearTimeout(qt);qt=setTimeout(draw,150)};$('fc').onchange=draw;$('fs').onchange=draw;
+
+/* сохранение */
+const dirtyCount=()=>DIRTY.size+[...CHG].filter(f=>f.startsWith('-')).length;
+function bar(){const n=DIRTY.size,d=[...CHG].filter(f=>f.startsWith('-')).length;
+  $('bt').textContent=(n?`Изменено товаров: ${n}`:'')+(d?(n?' · ':'')+`удалено: ${d}`:'');$('bar').classList.toggle('on',CHG.size>0)}
+const dump=d=>JSON.stringify(d,null,1);
+$('bu').onclick=()=>{if(confirm('Отменить все несохранённые изменения?'))load()};
+$('bs').onclick=save;
+async function save(){
+  const fs=[...new Set([...CHG].map(f=>f.replace(/^-/,'')))].filter(f=>DB[f]);
+  const files=fs.map(f=>({path:`data/${f}.json`,text:dump(DB[f].items),base:DB[f].sha}));
+  if(RU.dirty)files.push({path:'data/ru.json',text:JSON.stringify(RU.data,null,1).replace(/^ +/gm,''),base:RU.sha});
+  const used=new Set(fs.flatMap(f=>DB[f].items.flatMap(x=>x.u||[])));
+  for(const [p,u] of Object.entries(UP))if(used.has(p))files.push({path:p,b64:u.b64});
+  if(!files.length){CHG.clear();bar();return}
+  const names=[...DIRTY].map(nm).filter(Boolean);
+  const msg='Админка: '+(names.length?names.slice(0,6).join(', ')+(names.length>6?` и ещё ${names.length-6}`:''):'изменения в каталоге');
+  $('busy').classList.add('on');
+  try{const r=await api('/api/commit',{message:msg,files});
+    fs.forEach(f=>DB[f].sha=r.shas[`data/${f}.json`]);if(RU.dirty){RU.sha=r.shas['data/ru.json'];RU.dirty=false}
+    for(const p of Object.keys(UP))if(used.has(p))UP[p].saved=true;
+    DIRTY.clear();CHG.clear();bar();draw();toast('Сохранено. Сайт обновится примерно через 1–2 минуты.')}
+  catch(e){toast(e.status===409?'Кто-то изменил каталог в другом окне. Обновите страницу (ваши правки не сохранены).':'Не сохранилось: '+e.message,true)}
+  finally{$('busy').classList.remove('on')}}
+addEventListener('beforeunload',e=>{if(CHG.size){e.preventDefault();e.returnValue=''}});
+
+/* редактор */
+let ED=null;
+function openEd(f,x,isNew){
+  const E=JSON.parse(JSON.stringify(x));ED={f,x,isNew,E,ph:pics(x),phc:false};
+  $('et').textContent=isNew?'Новый товар':nm(x)||'Без названия';
+  const tr=(c,v)=>(RU.data[c]||{})[v]||'';
+  const extras=Object.keys(E).filter(k=>!BASE.has(k));
+  const desc=(E.desc||[]).filter(s=>s!=null);
+  $('eb').innerHTML=`
+  <fieldset><legend>Основное</legend>
+   <div class="g3">
+    <label class="f">Модель<input class="t" id="e_n" value="${esc(nm(E))}"></label>
+    <label class="f">Код товара (артикул)<input class="t" id="e_sku" value="${esc(E.sku)}"></label>
+    <label class="f">Бренд<select class="t" id="e_b"><option ${bnd(E)==='Teka'?'selected':''}>Teka</option><option ${bnd(E)==='Küppersbusch'?'selected':''}>Küppersbusch</option></select></label>
+   </div>
+   ${isNew?`<div class="g1" style="margin-top:12px"><label class="f">Категория<select class="t" id="e_f">${FILES.map(c=>`<option value="${c.f}" ${c.f===f?'selected':''}>${c.n}</option>`).join('')}</select></label></div>`:''}
+  </fieldset>
+  <fieldset><legend>Цена и наличие</legend>
+   <div class="g3">
+    <label class="f">Цена, MDL<input class="t" id="e_p" value="${pr(E)||''}" inputmode="numeric"></label>
+    <label class="f">Старая цена, MDL <small>— заполните для скидки</small><input class="t" id="e_o" value="${od(E)>pr(E)?od(E):''}" inputmode="numeric" placeholder="нет скидки"></label>
+    <label class="f">Наличие<select class="t" id="e_st"><option value="">В наличии</option><option value="order" ${E.st==='order'?'selected':''}>Под заказ</option><option value="out" ${E.st==='out'?'selected':''}>Нет в наличии</option></select></label>
+   </div>
+   <label class="ck"><input type="checkbox" id="e_hid" ${E.hid?'checked':''}> Скрыть с сайта</label>
+   <div class="hint">Если цена не указана, на сайте будет «Цена по запросу».</div>
+  </fieldset>
+  <fieldset><legend>Фото</legend>
+   <div class="phs" id="phs"></div>
+   <div class="hint">Перетаскивайте фото, чтобы поменять порядок. Первое — главное в каталоге. Можно бросить файлы прямо сюда.</div>
+  </fieldset>
+  <fieldset><legend>Описание</legend>
+   <div class="g2">
+    <label class="f">Подзаголовок (RO)<textarea class="t" id="e_s" rows="2" style="min-height:60px">${esc(E.sub)}</textarea></label>
+    <label class="f">Подзаголовок (RU)<textarea class="t" id="e_sr" rows="2" style="min-height:60px">${esc(tr('s',E.sub))}</textarea></label>
+    <label class="f">Преимущества (RO) <small>— по одному в строке</small><textarea class="t" id="e_d" rows="6">${esc(desc.join('\n'))}</textarea></label>
+    <label class="f">Преимущества (RU) <small>— строки в том же порядке</small><textarea class="t" id="e_dr" rows="6">${esc(desc.map(s=>tr('d',s)).join('\n'))}</textarea></label>
+   </div>
+  </fieldset>
+  <fieldset><legend>Характеристики</legend><div id="sgs"></div><button class="lnk" id="sga">+ Добавить группу</button></fieldset>
+  ${extras.length?`<fieldset><legend>Фильтры в каталоге</legend><div class="g3">${extras.map(k=>`<label class="f">${esc(XL[k]||k)}<input class="t" data-x="${esc(k)}" value="${esc(typeof E[k]==='object'?JSON.stringify(E[k]):E[k])}"></label>`).join('')}</div><div class="hint">Значения как у других товаров этой категории (например, цвет: inox, negru, alb).</div></fieldset>`:''}
+  <fieldset><legend>Документы (PDF)</legend><label class="f">Ссылки, по одной в строке<textarea class="t" id="e_pdf" rows="3">${esc((E.pdf||[]).join('\n'))}</textarea></label></fieldset>`;
+  drawPh();drawSpecs(E.specs||[]);
+  $('sga').onclick=()=>{const s=readSpecs();s.push({t:'',r:[['','']]});drawSpecs(s)};
+  $('edl').hidden=!!isNew;
+  $('ov').classList.add('on');$('ed').classList.add('on');$('ed').setAttribute('aria-hidden','false');$('eb').scrollTop=0}
+function closeEd(){ED=null;$('ov').classList.remove('on');$('ed').classList.remove('on');$('ed').setAttribute('aria-hidden','true')}
+$('ec').onclick=$('ex').onclick=$('ov').onclick=()=>closeEd();
+addEventListener('keydown',e=>{if(e.key==='Escape'&&ED)closeEd()});
+
+/* фото */
+function drawPh(){
+  $('phs').innerHTML=ED.ph.map((u,i)=>`<div class="p ${UP[u]&&!UP[u].saved?'new':''}" draggable="true" data-i="${i}">${img(u)}<button data-rm="${i}" title="Убрать фото">×</button></div>`).join('')+'<div class="add" id="pha">+ Добавить фото</div>';
+  $('pha').onclick=()=>$('fi').click();
+  let from=null;
+  $('phs').querySelectorAll('.p').forEach(el=>{
+    el.ondragstart=()=>{from=+el.dataset.i;el.classList.add('dg')};el.ondragend=()=>el.classList.remove('dg');
+    el.ondragover=e=>e.preventDefault();
+    el.ondrop=e=>{e.preventDefault();if(e.dataTransfer.files.length)return addFiles(e.dataTransfer.files);if(from==null)return;const to=+el.dataset.i;const [m]=ED.ph.splice(from,1);ED.ph.splice(to,0,m);ED.phc=true;drawPh()}});
+  $('phs').querySelectorAll('[data-rm]').forEach(b=>b.onclick=e=>{e.stopPropagation();ED.ph.splice(+b.dataset.rm,1);ED.phc=true;drawPh()});
+  const a=$('pha');a.ondragover=e=>{e.preventDefault();a.classList.add('drop')};a.ondragleave=()=>a.classList.remove('drop');
+  a.ondrop=e=>{e.preventDefault();a.classList.remove('drop');addFiles(e.dataTransfer.files)}}
+$('fi').onchange=()=>{addFiles($('fi').files);$('fi').value=''};
+const slug=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40)||'p';
+async function addFiles(fl){if(!ED)return;
+  for(const file of [...fl].filter(f=>f.type.startsWith('image/'))){
+    try{const bm=await createImageBitmap(file);const M=1600,s=Math.min(1,M/Math.max(bm.width,bm.height));
+      const c=document.createElement('canvas');c.width=Math.round(bm.width*s);c.height=Math.round(bm.height*s);
+      const g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,c.width,c.height);g.drawImage(bm,0,0,c.width,c.height);
+      let url=c.toDataURL('image/webp',.86),ext='webp';if(!url.startsWith('data:image/webp')){url=c.toDataURL('image/jpeg',.88);ext='jpg'}
+      const path=`assets/u/${slug($('e_sku').value||$('e_n').value)}-${Date.now().toString(36)}${Math.random().toString(36).slice(2,5)}.${ext}`;
+      UP[path]={url,b64:url.split(',')[1]};ED.ph.push(path);ED.phc=true}
+    catch(e){toast('Не удалось прочитать файл '+file.name,true)}}
+  drawPh()}
+
+/* характеристики */
+function drawSpecs(S){
+  $('sgs').innerHTML=S.map((g,gi)=>`<div class="sg" data-g="${gi}"><div class="st"><input class="t" data-gt value="${esc(g.t)}" placeholder="Название группы, например: Dimensiuni"><button class="x" data-gx title="Удалить группу">×</button></div>
+    ${(g.r||[]).map(([k,v])=>`<div class="sr"><input class="t" data-rk value="${esc(k)}" placeholder="Параметр"><input class="t" data-rv value="${esc(v)}" placeholder="Значение"><button class="x" data-rx title="Удалить строку">×</button></div>`).join('')}
+    <button class="lnk" data-ra>+ строка</button></div>`).join('');
+  $('sgs').querySelectorAll('[data-gx]').forEach(b=>b.onclick=()=>{const s=readSpecs();s.splice(+b.closest('.sg').dataset.g,1);drawSpecs(s)});
+  $('sgs').querySelectorAll('[data-rx]').forEach(b=>b.onclick=()=>{b.closest('.sr').remove()});
+  $('sgs').querySelectorAll('[data-ra]').forEach(b=>b.onclick=()=>{const s=readSpecs();s[+b.closest('.sg').dataset.g].r.push(['','']);drawSpecs(s)})}
+function readSpecs(){return [...$('sgs').querySelectorAll('.sg')].map(g=>({t:g.querySelector('[data-gt]').value.trim(),r:[...g.querySelectorAll('.sr')].map(r=>[r.querySelector('[data-rk]').value.trim(),r.querySelector('[data-rv]').value.trim()]).filter(([k,v])=>k||v)}))}
+
+/* применить */
+const lines=v=>v.split('\n').map(s=>s.trim()).filter(Boolean);
+function ruSet(c,ro,ru){if(!ro)return;RU.data[c]=RU.data[c]||{};const cur=RU.data[c][ro]||'';if(ru&&ru!==cur){RU.data[c][ro]=ru;RU.dirty=true}}
+$('eo').onclick=()=>{if(!ED)return;const {x,isNew}=ED;let f=ED.f;
+  const n=$('e_n').value.trim(),sku=$('e_sku').value.trim();
+  if(!n){toast('Укажите модель',true);$('e_n').focus();return}
+  if(isNew)f=$('e_f').value;
+  if(sku&&DB[f].items.some(y=>y!==x&&String(y.sku)===sku)){toast('Товар с кодом '+sku+' уже есть в этой категории',true);return}
+  x[K.n(x)]=n;x.sku=sku;x[K.b(x)]=$('e_b').value;
+  setPrice(x,num($('e_p').value),num($('e_o').value));
+  if($('e_st').value)x.st=$('e_st').value;else delete x.st;
+  if($('e_hid').checked)x.hid=true;else delete x.hid;
+  x.sub=$('e_s').value.trim();ruSet('s',x.sub,$('e_sr').value.trim());
+  const d=lines($('e_d').value),dr=lines($('e_dr').value);x.desc=d;
+  if(dr.length===d.length)d.forEach((s,i)=>ruSet('d',s,dr[i]));
+  else if(dr.length)toast('Русских строк преимуществ не столько же, сколько румынских — перевод не сохранён',true);
+  x.specs=readSpecs().filter(g=>g.t||g.r.length);
+  x.pdf=lines($('e_pdf').value);
+  $('eb').querySelectorAll('[data-x]').forEach(el=>{const k=el.dataset.x,v=el.value.trim(),o=ED.E[k];
+    if(typeof o==='number')x[k]=v===''?'':(isNaN(+v)?v:+v);else if(o&&typeof o==='object'){try{x[k]=JSON.parse(v||'[]')}catch(e){}}else x[k]=v});
+  if(ED.phc)x.u=ED.ph.slice();
+  if(isNew)DB[f].items.unshift(x);
+  touch(x,f);closeEd();draw();toast(isNew?'Товар добавлен. Не забудьте «Сохранить на сайт».':'Изменения применены. Нажмите «Сохранить на сайт».')};
+$('edl').onclick=()=>{if(!ED)return;const {f,x}=ED;
+  if(!confirm(`Удалить «${nm(x)}» из каталога?\nЕсли нужно лишь временно убрать с сайта — используйте «Скрыть с сайта».`))return;
+  const L=DB[f].items;L.splice(L.indexOf(x),1);DIRTY.delete(x);CHG.add(f);CHG.add('-'+f+':'+Date.now());closeEd();draw();bar()};
+$('nw').onclick=()=>{const f=$('fc').value||'ovens';const tpl=DB[f].items.find(y=>!('name' in y))||{};
+  const x={sku:'',n:'',sub:'',p:0,img:[],draw:'',label:'',desc:[],specs:[],pdf:[],b:'Teka'};
+  for(const k of Object.keys(tpl))if(!BASE.has(k))x[k]=typeof tpl[k]==='number'?'':Array.isArray(tpl[k])?[]:'';
+  openEd(f,x,true)};
+
+if(TOK)load();else showLogin();
+</script>
+</body>
+</html>
