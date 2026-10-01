@@ -7663,7 +7663,83 @@
    "2 funcţii speciale",
    "Control electronic al cuptorului prin intermediul butoanelor din aluminiu"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "364"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "402"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "70"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "71"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "537+22"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "39"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "3621"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220/240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "25"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Küppersbusch",
   "f": [
@@ -7696,7 +7772,83 @@
    "Display TFT 3,9´´cu text clar și afișaj grafic",
    "Control electronic al cuptorului prin intermediul butoanelor din aluminiu"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "364"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "402"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "70"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "71"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "537+22"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "34"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "3558"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220/240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "180"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "25"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Küppersbusch",
   "f": [
@@ -7757,7 +7909,83 @@
    "Peste 40 programe automate",
    "20 programe favorite"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "364"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "402"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "70"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "71"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "537+22"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "38"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "3558"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220/240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "180"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "25"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Küppersbusch",
   "f": [
@@ -7790,7 +8018,83 @@
    "Control electronic al cuptorului prin intermediul butoanelor din aluminiu",
    "Timer electronic (programarea duratei de preparare, a sfârșitului duratei de preparare, timer), cu afișaj alb pe fond negru"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "364"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "402"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "70"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "71"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "537+22"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "32"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "3215"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220/240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "25"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Küppersbusch",
   "f": [
@@ -7823,7 +8127,83 @@
    "Control electronic al cuptorului prin intermediul butoanelor din aluminiu",
    "Timer electronic (programarea duratei de preparare, a sfârșitului duratei de preparare, timer), cu afișaj alb pe fond negru"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "364"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "402"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "70"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "71"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "537+22"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "32"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "3215"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220/240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "25"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Küppersbusch",
   "f": [
@@ -7851,7 +8231,83 @@
    "56 programe favorite",
    "Display TFT 5,0´´cu text clar și afișaj grafic"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "364"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "402"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "70"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "71"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "537+22"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "39"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "3558"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220/240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "180"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "25"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Küppersbusch",
   "f": [

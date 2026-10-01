@@ -3644,7 +3644,46 @@
   "draw": "",
   "label": "",
   "desc": [],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1775"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "540"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "545"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "56"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "1900"
+     ]
+    ]
+   }
+  ],
   "pdf": [
    "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/FKG8340.0i-UserManual-EN-ES-PT-DE-FR.pdf",
    "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/EU_FICHE-FKG8540-0i-EN.pdf"
@@ -4496,7 +4535,46 @@
   "draw": "",
   "label": "",
   "desc": [],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1769"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "545"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "60"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "1800"
+     ]
+    ]
+   }
+  ],
   "pdf": [
    "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/User_manual_FKGF8851_0i%28EN_DE_FR_ES_PT_NL_TR_IL_GR_IT%29.pdf",
    "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/EU_FICHE-FKGF8851-0i-EN.pdf"
@@ -4516,7 +4594,46 @@
   "draw": "",
   "label": "",
   "desc": [],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1937"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "540"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "62"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "2000"
+     ]
+    ]
+   }
+  ],
   "pdf": [
    "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/USER_MANUAL-FKGF9850_0i_EN_DE_FR_ES_PT_NL_TR_IL_GR_IT.pdf",
    "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/EU_FICHE-FKGF9850-0i-EN.pdf"
@@ -4536,7 +4653,46 @@
   "draw": "",
   "label": "",
   "desc": [],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1937"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "690"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "80,5"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "2000"
+     ]
+    ]
+   }
+  ],
   "pdf": [
    "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/User_manual_FKGF9835_0i%28EN_DE_FR_ES_PT_NL_TR_IL_GR_IT%29.pdf",
    "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/EU_FICHE-FKGF9835-0i-EN.pdf"

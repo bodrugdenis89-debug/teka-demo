@@ -24,7 +24,54 @@
    "Funcții speciale: IonClean, sistem expres, opțiune de încărcare la jumătate, curățare intensivă,",
    "Afișaj LED"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "818"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "598"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "40.6"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "2100"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "170"
+     ],
+     [
+      "Conexiune",
+      "EU"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "src": "md",
   "img": [
@@ -57,7 +104,54 @@
    "Control electronic cu butoane „push”",
    "Display electronic pentru reîncărcare (sare şi agent de clătire)"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "818"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "598"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "39,6"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "2100"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "170"
+     ],
+     [
+      "Conexiune",
+      "EU"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "src": "md",
   "img": [
@@ -89,7 +183,54 @@
    "Prespălare",
    "Funcții speciale: sistem expres, opțiune de încărcare la jumătate, curățare intensivă, clătire intensivă"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "818"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "448"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "28,5"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "2100"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "170"
+     ],
+     [
+      "Conexiune",
+      "EU"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "src": "md",
   "img": [

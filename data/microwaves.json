@@ -11,7 +11,50 @@
   "draw": "",
   "label": "",
   "desc": [],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "390"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "334"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "22"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "2500"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "110"
+     ]
+    ]
+   }
+  ],
   "pdf": [
    "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/USER_MANUAL-ML6330_EN_PT_ES.pdf"
   ],
@@ -37,7 +80,50 @@
   "draw": "",
   "label": "",
   "desc": [],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "390"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "334"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "22"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "2500"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "150"
+     ]
+    ]
+   }
+  ],
   "pdf": [
    "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/ML6330-0-MR6330-0-UserManual-EN-PT-ES.pdf"
   ],
@@ -58,7 +144,50 @@
   "draw": "",
   "label": "",
   "desc": [],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "390"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "325"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "18,6"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "1200"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "110"
+     ]
+    ]
+   }
+  ],
   "pdf": [
    "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/M6120-0-UserManual-DE-EN-FR-NL.pdf"
   ],

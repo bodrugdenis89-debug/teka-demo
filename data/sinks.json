@@ -957,7 +957,106 @@
    "Bol adâncime de 200 mm",
    "Unitate de bază de 45 cm"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Lățimea produsului (mm)",
+      "510"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "200"
+     ],
+     [
+      "Lungimea produsului (mm)",
+      "650"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "10,5"
+     ]
+    ]
+   },
+   {
+    "t": "Cuvă principală",
+    "r": [
+     [
+      "Lungimea cuvei principale (mm)",
+      "345"
+     ],
+     [
+      "Lățimea cuvei principale (mm)",
+      "414"
+     ],
+     [
+      "Adâncimea cuvei principale (mm)",
+      "200"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Granit Tegranite+"
+     ],
+     [
+      "Modalitate de instalare",
+      "Inset"
+     ],
+     [
+      "Numărul de găuri pentru baterii",
+      "Pre-Drilled"
+     ],
+     [
+      "Tip orificiu pentru ţeavă",
+      "3½\""
+     ]
+    ]
+   },
+   {
+    "t": "Alții",
+    "r": [
+     [
+      "Bază (cm)",
+      "45"
+     ]
+    ]
+   },
+   {
+    "t": "Chiuvetă Lay out",
+    "r": [
+     [
+      "Numărul de cuve",
+      "1"
+     ],
+     [
+      "Numărul de picurătoare",
+      "1"
+     ],
+     [
+      "Poziţia picurătorului",
+      "Reversibil"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Clipuri pentru instalare",
+      "Da"
+     ],
+     [
+      "Sifon",
+      "Da"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Teka",
   "mat": "granit",
@@ -4522,7 +4621,114 @@
    "Colțuri cu rază R15 ușor de curățat",
    "Coș de scurgere automat de 3½” SQ cu sifon"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Lățimea produsului (mm)",
+      "520"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "200"
+     ],
+     [
+      "Lungimea produsului (mm)",
+      "860"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "5,51"
+     ]
+    ]
+   },
+   {
+    "t": "Cuvă principală",
+    "r": [
+     [
+      "Lungimea cuvei principale (mm)",
+      "400"
+     ],
+     [
+      "Lățimea cuvei principale (mm)",
+      "400"
+     ],
+     [
+      "Adâncimea cuvei principale (mm)",
+      "200"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Inox"
+     ],
+     [
+      "Modalitate de instalare",
+      "Flush"
+     ],
+     [
+      "Numărul de găuri pentru baterii",
+      "2"
+     ],
+     [
+      "Tip orificiu pentru ţeavă",
+      "97"
+     ]
+    ]
+   },
+   {
+    "t": "Alții",
+    "r": [
+     [
+      "Bază (cm)",
+      "50"
+     ]
+    ]
+   },
+   {
+    "t": "Chiuvetă Lay out",
+    "r": [
+     [
+      "Numărul de cuve",
+      "1"
+     ],
+     [
+      "Numărul de picurătoare",
+      "1"
+     ],
+     [
+      "Poziţia picurătorului",
+      "Pe dreapta"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Izolat fonic",
+      "Da"
+     ],
+     [
+      "SilentSmart",
+      "Da"
+     ],
+     [
+      "Clipuri pentru instalare",
+      "Da"
+     ],
+     [
+      "Sifon",
+      "Da"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Teka",
   "mat": "inox",
@@ -4948,7 +5154,110 @@
    "Colțuri cu rază R15, ușor de curățat",
    "Sistem SilentSmart, cu 50% mai puțin zgomot"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Lățimea produsului (mm)",
+      "500"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "200"
+     ],
+     [
+      "Lungimea produsului (mm)",
+      "540"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "4,45"
+     ]
+    ]
+   },
+   {
+    "t": "Cuvă principală",
+    "r": [
+     [
+      "Lungimea cuvei principale (mm)",
+      "500"
+     ],
+     [
+      "Lățimea cuvei principale (mm)",
+      "400"
+     ],
+     [
+      "Adâncimea cuvei principale (mm)",
+      "200"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Inox"
+     ],
+     [
+      "Modalitate de instalare",
+      "Top,Flush"
+     ],
+     [
+      "Numărul de găuri pentru baterii",
+      "1"
+     ],
+     [
+      "Tip orificiu pentru ţeavă",
+      "3½\" SQUARED"
+     ]
+    ]
+   },
+   {
+    "t": "Alții",
+    "r": [
+     [
+      "Bază (cm)",
+      "60"
+     ]
+    ]
+   },
+   {
+    "t": "Chiuvetă Lay out",
+    "r": [
+     [
+      "Numărul de cuve",
+      "1"
+     ],
+     [
+      "Numărul de picurătoare",
+      "0"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Izolat fonic",
+      "Da"
+     ],
+     [
+      "SilentSmart",
+      "Da"
+     ],
+     [
+      "Clipuri pentru instalare",
+      "Da"
+     ],
+     [
+      "Sifon",
+      "Da"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Teka",
   "mat": "inox",
@@ -4975,7 +5284,110 @@
    "Colțuri cu rază R15, ușor de curățat",
    "Sistem SilentSmart, cu 50% mai puțin zgomot"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Lățimea produsului (mm)",
+      "500"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "200"
+     ],
+     [
+      "Lungimea produsului (mm)",
+      "540"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "4,45"
+     ]
+    ]
+   },
+   {
+    "t": "Cuvă principală",
+    "r": [
+     [
+      "Lungimea cuvei principale (mm)",
+      "500"
+     ],
+     [
+      "Lățimea cuvei principale (mm)",
+      "400"
+     ],
+     [
+      "Adâncimea cuvei principale (mm)",
+      "200"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Inox"
+     ],
+     [
+      "Modalitate de instalare",
+      "Top,Flush"
+     ],
+     [
+      "Numărul de găuri pentru baterii",
+      "1"
+     ],
+     [
+      "Tip orificiu pentru ţeavă",
+      "3½\" SQUARED"
+     ]
+    ]
+   },
+   {
+    "t": "Alții",
+    "r": [
+     [
+      "Bază (cm)",
+      "60"
+     ]
+    ]
+   },
+   {
+    "t": "Chiuvetă Lay out",
+    "r": [
+     [
+      "Numărul de cuve",
+      "1"
+     ],
+     [
+      "Numărul de picurătoare",
+      "0"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Izolat fonic",
+      "Da"
+     ],
+     [
+      "SilentSmart",
+      "Da"
+     ],
+     [
+      "Clipuri pentru instalare",
+      "Da"
+     ],
+     [
+      "Sifon",
+      "Da"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Teka",
   "mat": "inox",

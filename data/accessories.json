@@ -148,6 +148,29 @@
    "41599012-4.webp",
    "41599012-5.webp",
    "41599012-6.webp"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "114"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "453"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "373"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "4.4"
+     ]
+    ]
+   }
   ]
  },
  {

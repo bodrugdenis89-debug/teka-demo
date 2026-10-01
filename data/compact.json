@@ -18,7 +18,93 @@
    "Putere maximă nominală: 430 W",
    "Ideal pentru a fi combinat cu modelele de cuptoare compacte si microunde"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "100"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "470"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "500"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "140"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "557"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE; CB"
+     ],
+     [
+      "Regulator de temperatură Min. (ºC)",
+      "30"
+     ],
+     [
+      "Regulator de temperatură Max. (ºC)",
+      "80"
+     ],
+     [
+      "Partea frontală rece",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "420"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50-60"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "src": "md",
   "img": [
@@ -172,7 +258,42 @@
   "draw": "",
   "label": "",
   "desc": [],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "458"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "596"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "484"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "1350"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ]
+    ]
+   }
+  ],
   "pdf": [
    "https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/1/USER_MANUAL-CKV6800_0_DE_EN_ES_NL_FR_IT.pdf"
   ],
@@ -198,7 +319,46 @@
   "draw": "",
   "label": "",
   "desc": [],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "540"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "34,20"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220/240"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "120"
+     ]
+    ]
+   }
+  ],
   "pdf": [
    "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/6/CBD6550-0-UserManual-EN.pdf",
    "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/EU_FICHE-CBD6550-0S-EN.pdf"
@@ -237,7 +397,79 @@
    "Control electronic al cuptorului prin intermediul senzorilor touch control back-lit",
    "Indicarea temperaturii curente și recomandarea temperaturii optime"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "232"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "365"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "43"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "41"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "540+22"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "36,00"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "3400W"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220/240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "src": "md",
   "img": [
@@ -256,7 +488,42 @@
   "draw": "",
   "label": "",
   "desc": [],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "458"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "596"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "484"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "1350"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ]
+    ]
+   }
+  ],
   "pdf": [
    "https://d7rh5s3nxmpy4.cloudfront.net/temp/RUZaSzFYcmRIWlU9/1/USER_MANUAL-CKV6800_0_DE_EN_ES_NL_FR_IT.pdf"
   ],
