@@ -339,7 +339,7 @@ function msg(){return tx('hi')+'\n'+cart.map(x=>'• '+x.n+' ('+tx('cod')+' '+x.
 function copy(s){try{if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(s)}catch(e){}
   const a=document.createElement('textarea');a.value=s;a.style.cssText='position:fixed;opacity:0';document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove();return Promise.resolve();}
 kl.addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(!b)return;const x=cart[+b.dataset.i];x.q+=+b.dataset.d;if(x.q<1)cart.splice(+b.dataset.i,1);save();badge();draw();});
-kf.addEventListener('click',e=>{const b=e.target.closest('button[data-m]');if(!b)return;const m=b.dataset.m,s=msg();
+kf.addEventListener('click',e=>{const b=e.target.closest('button[data-m]');if(!b)return;const m=b.dataset.m,s=msg();window.tkOrder&&tkOrder(cart,m);
   if(m==='wa'){window.open('https://wa.me/'+PH+'?text='+encodeURIComponent(s),'_blank','noopener');return;}
   copy(s);toast(tx('copied'),'');
   setTimeout(()=>{if(m==='vb')location.href='viber://chat?number=%2B'+PH;else window.open('https://t.me/+'+PH,'_blank','noopener');},350);});
@@ -362,7 +362,7 @@ if(addb)addb.addEventListener('click',()=>{if(!curP)return;addP(curP);addb.textC
 document.addEventListener('click',e=>{const b=e.target.closest('.qa');if(!b)return;e.stopPropagation();const p=P[+b.dataset.i];if(!p)return;addP(p);},true);
 {let q=0;const g=document.getElementById('cat');if(g)new MutationObserver(()=>{if(!q)q=setTimeout(()=>{q=0;syncQA();},0);}).observe(g,{childList:true,subtree:true});}
 addEventListener('storage',e=>{if(e.key===KEY){try{cart=JSON.parse(e.newValue||'[]')}catch(_){}badge();}});
-badge();
+window.tkCartAPI={get:()=>cart,save,badge};badge();
 })();
 </script>
 <script>
@@ -371,5 +371,7 @@ badge();
 function u(){m.setAttribute('content',h.classList.contains('light')?'#F4F3F1':'#100E0C')}
 new MutationObserver(u).observe(h,{attributes:true,attributeFilter:['class']});u();})();
 </script>
+<script src="m-sync.js?v=fd4700f6" data-f="home" data-img="assets/ro2/"></script>
+<script src="chat.js?v=931bb3f6" defer></script>
 </body>
 </html>

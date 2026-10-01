@@ -953,7 +953,7 @@ function draw(){
   const lv=nv.classList.contains('lv2');ttl.textContent=lv?mt('cat'):nv.classList.contains('lvi')?mt(info):mt('menu');if(nv.classList.contains('lvi'))drawInfo();bk.setAttribute('aria-label',mt('back'));
   nvm.innerHTML='<button class="mc" id="mcat"><span class="mt">'+mt('cat')+'<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></span><small>'+mt('cats')+'</small><span class="mi">'+THUMBS.map(k=>'<img src="'+NAV_IM[k]+'" alt="">').join('')+'</span></button>'
    +'<div class="ml">'
-   +'<span>'+IC.promo+mt('promo')+'<em>'+mt('soon')+'</em></span>'+['deliv','inst'].map(k=>'<a href="#" data-info="'+k+'">'+IC[k]+mt(k)+IC.ar+'</a>').join('')
+   +'<a href="category-promo.html">'+IC.promo+mt('promo')+IC.ar+'</a>'+['deliv','inst'].map(k=>'<a href="#" data-info="'+k+'">'+IC[k]+mt(k)+IC.ar+'</a>').join('')
    +'<a href="https://www.google.com/maps/dir/?api=1&destination=Teka+Moldova%2C+Chi%C8%99in%C4%83u&travelmode=driving" target="_blank" rel="noopener" class="ma">'+IC.show+'<span class="mx">'+mt('show')+'<small>'+mt('addr')+'</small></span>'+IC.ar+'</a>'
    +'<a href="#ft" id="mcont">'+IC.cont+mt('cont')+IC.ar+'</a>'
    +'<a href="https://www.instagram.com/tekamoldova/" target="_blank" rel="noopener">'+IC.ig+'Instagram<small class="mig">@tekamoldova</small>'+IC.ar+'</a></div>';
@@ -1053,7 +1053,7 @@ function msg(){return tx('hi')+'\n'+cart.map(x=>'• '+x.n+' ('+tx('cod')+' '+x.
 function copy(s){try{if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(s)}catch(e){}
   const a=document.createElement('textarea');a.value=s;a.style.cssText='position:fixed;opacity:0';document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove();return Promise.resolve();}
 kl.addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(!b)return;const x=cart[+b.dataset.i];x.q+=+b.dataset.d;if(x.q<1)cart.splice(+b.dataset.i,1);save();badge();draw();});
-kf.addEventListener('click',e=>{const b=e.target.closest('button[data-m]');if(!b)return;const m=b.dataset.m,s=msg();
+kf.addEventListener('click',e=>{const b=e.target.closest('button[data-m]');if(!b)return;const m=b.dataset.m,s=msg();window.tkOrder&&tkOrder(cart,m);
   if(m==='wa'){window.open('https://wa.me/'+PH+'?text='+encodeURIComponent(s),'_blank','noopener');return;}
   copy(s);toast(tx('copied'),'');
   setTimeout(()=>{if(m==='vb')location.href='viber://chat?number=%2B'+PH;else window.open('https://t.me/+'+PH,'_blank','noopener');},350);});
@@ -1076,7 +1076,7 @@ if(addb)addb.addEventListener('click',()=>{if(!curP)return;addP(curP);addb.textC
 document.addEventListener('click',e=>{const b=e.target.closest('.qa');if(!b)return;e.stopPropagation();const p=P[+b.dataset.i];if(!p)return;addP(p);},true);
 {let q=0;const g=document.getElementById('cat');if(g)new MutationObserver(()=>{if(!q)q=setTimeout(()=>{q=0;syncQA();},0);}).observe(g,{childList:true,subtree:true});}
 addEventListener('storage',e=>{if(e.key===KEY){try{cart=JSON.parse(e.newValue||'[]')}catch(_){}badge();}});
-badge();
+window.tkCartAPI={get:()=>cart,save,badge};badge();
 })();
 </script>
 <script>
@@ -1085,4 +1085,6 @@ badge();
 function u(){m.setAttribute('content',h.classList.contains('light')?'#F4F3F1':'#100E0C')}
 new MutationObserver(u).observe(h,{attributes:true,attributeFilter:['class']});u();})();
 </script>
+<script src="m-sync.js?v=fd4700f6" data-f="wine-coolers" data-img="assets/ro2/"></script>
+<script src="chat.js?v=931bb3f6" defer></script>
 </body></html>
