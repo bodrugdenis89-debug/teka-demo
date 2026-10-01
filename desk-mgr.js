@@ -56,7 +56,7 @@ const st=document.createElement('style');st.textContent=`
 @media print{.mgp,.mgb,#mgAdd,.mgd,.mgw{display:none!important}}`;
 document.head.appendChild(st);
 
-function logout(){M=null;try{localStorage.removeItem(MK)}catch(_){}document.querySelectorAll('.mgp,.mgb,#mgAdd').forEach(e=>e.remove());close()}
+function logout(){M=null;S={items:[],dk:'pct',dv:0,name:'',tel:'',cm:''};RES=null;try{localStorage.removeItem(MK);localStorage.removeItem(SK)}catch(_){}document.querySelectorAll('.mgp,.mgb,#mgAdd').forEach(e=>e.remove());close()}
 function login(){const w=document.createElement('div');w.className='mgl';
   w.innerHTML=`<form><h4>Вход для менеджера</h4><input name="n" placeholder="Имя" autocomplete="username" required><input name="p" type="password" placeholder="Пароль" autocomplete="current-password" required><button>Войти</button><div class="er"></div><button type="button" class="cn">Отмена</button></form>`;
   document.body.appendChild(w);const f=q('form',w);setTimeout(()=>f.n.focus(),50);
@@ -70,7 +70,7 @@ const IX={};
 async function item(f,sku){const L=await cat(f);return L.find(x=>String(x.sku)===String(sku))||null}
 const has=(f,sku)=>S.items.some(i=>i.f===f&&String(i.sku)===String(sku));
 async function add(f,sku){if(has(f,sku)){toast('Уже в подборке');return}const x=await item(f,sku);if(!x)return;S.items.push({f,sku:String(sku),q:1,dk:'pct',dv:0});sv();mark();toast('Добавлено в подборку')}
-function mark(){document.querySelectorAll('.pc[data-sku]').forEach(a=>{let b=q('.mgb',a);if(!b){b=document.createElement('button');b.className='mgb';b.type='button';const qa=q('.bt .qa',a);if(!qa)return;qa.before(b)}
+function mark(){if(!M)return;document.querySelectorAll('.pc[data-sku]').forEach(a=>{let b=q('.mgb',a);if(!b){b=document.createElement('button');b.className='mgb';b.type='button';const qa=q('.bt .qa',a);if(!qa)return;qa.before(b)}
     const on=has(a.dataset.f,a.dataset.sku);b.classList.toggle('on',on);b.textContent=on?'✓':'+';b.title=on?L('În selecție','В подборке'):L('Adaugă în selecție','Добавить в подборку')});
   const ad=q('#add');if(ad&&typeof SKU!=='undefined'&&typeof F!=='undefined'){let b=q('#mgAdd');if(!b){b=document.createElement('button');b.id='mgAdd';b.type='button';ad.after(b)}const on=has(F,SKU);b.classList.toggle('on',on);b.textContent=on?L('✓ În selecție','✓ В подборке'):L('+ Adaugă în selecție','+ В подборку')}}
 
@@ -153,7 +153,7 @@ function start(){bar();ui();mark();if(location.hash==='#sel'||window.MGR_SEL){wi
   api('/api/me').catch(e=>toast(e.message));if(S.tel)findCl()}
 document.addEventListener('click',e=>{if(!M)return;const b=e.target.closest('.mgb');if(b){e.preventDefault();e.stopPropagation();const a=b.closest('.pc');add(a.dataset.f,a.dataset.sku);return}
   if(e.target.closest('#mgAdd')){add(F,SKU);return}
-  const m=e.target.closest('.mgp [data-m]');if(m){if(m.dataset.m==='sel')open();if(m.dataset.m==='out'&&confirm('Выйти из режима менеджера?'))logout()}},true);
+  const m=e.target.closest('.mgp [data-m]');if(m){if(m.dataset.m==='sel')open();if(m.dataset.m==='out'&&confirm(L('Ieșiți din modul manager? Selecția curentă va fi golită.','Выйти из режима менеджера? Текущая подборка очистится.')))logout()}},true);
 document.addEventListener('click',e=>{if(e.target.closest('#lng'))setTimeout(()=>{bar();mark()},0)});
 addEventListener('storage',e=>{if(e.key===SK){S=ld();bar();mark()}});
 if(M)start();else if(window.MGR_LOGIN)login();
