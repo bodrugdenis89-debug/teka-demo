@@ -178,6 +178,9 @@ td.od input{width:64px;height:34px;text-align:center}
 .res button:hover{background:var(--soft)}
 .res img{width:36px;height:36px;object-fit:contain;border:1px solid var(--line);border-radius:6px;background:#fff}
 .res small{color:var(--mute)}
+.pbr{margin-top:10px;border:1px solid var(--line);border-radius:10px;padding:10px;background:#fff}.pbh{display:flex;gap:8px;flex-wrap:wrap}.pbh .dd,.pbh select{flex:1 1 260px}.pbh input{flex:1 1 180px}
+.pbl{display:grid;max-height:360px;overflow:auto;margin-top:8px}.pbl:empty{display:none}.pbl label{display:flex;align-items:center;gap:10px;padding:6px 8px;border-radius:8px;cursor:pointer}.pbl label:hover{background:var(--soft)}
+.pbl input{width:18px;height:18px;flex:none;accent-color:var(--red)}.pbl img{width:40px;height:40px;object-fit:contain;border:1px solid var(--line);border-radius:6px;background:#fff;flex:none}.pbl span{flex:1;display:grid}.pbl small{color:var(--mute)}.pbl em{font-style:normal;font-weight:600;white-space:nowrap}
 .chip.x2:after{content:" ×";color:var(--mute)}
 .chip:disabled{opacity:.45;cursor:default}
 .drop{border:2px dashed #ccc;border-radius:12px;padding:28px;text-align:center;color:var(--mute);font-weight:600;clear:both}
@@ -263,7 +266,7 @@ html[lang=ro] .phs .p.new:before{content:"nouă"}
 const API=/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?'':'https://teka-admin.teka-md.workers.dev';
 /* язык интерфейса: T('русская строка',...аргументы) → перевод из RO, {0},{1} — подстановки */
 let LANG='ru';try{if(localStorage.getItem('tkAdmLang')==='ro')LANG='ro'}catch(e){}
-const RO={'Удалить заказ':'Șterge comanda','Удалить этот заказ? Это нельзя отменить.':'Ștergeți această comandă? Acțiunea nu poate fi anulată.','Заказ удалён':'Comanda a fost ștearsă','Не удалось удалить: {0}':'Nu s-a putut șterge: {0}',
+const RO={'скрыт':'ascuns','Снять все':'Debifează tot','Отметить все':'Bifează tot','Фильтр в категории':'Filtru în categorie','Выбрать из каталога: категория…':'Alege din catalog: categorie…','Клиент удалён':'Clientul a fost șters','Удалить клиента {0}? Его заказы останутся в журнале заказов.':'Ștergeți clientul {0}? Comenzile lui rămân în jurnalul de comenzi.','Удалить клиента':'Șterge clientul','Скидка на всю подборку':'Reducere la toată selecția','Удалить заказ':'Șterge comanda','Удалить этот заказ? Это нельзя отменить.':'Ștergeți această comandă? Acțiunea nu poate fi anulată.','Заказ удалён':'Comanda a fost ștearsă','Не удалось удалить: {0}':'Nu s-a putut șterge: {0}',
 'Teka — админка':'Teka — administrare','Вход в админку':'Autentificare','Войти':'Intră','Пароль':'Parolă','Админка':'Administrare',
 'Поиск: модель, код, описание':'Căutare: model, cod, descriere','Сайт ↗':'Site ↗','Выйти':'Ieșire',
 'Товары':'Produse','Акции':'Promoții','Проверка каталога':'Verificare catalog','Контакты и тексты':'Contacte și texte','Заказы':'Comenzi','Подборки':'Selecții','Клиенты':'Clienți','История':'Istoric',
@@ -748,7 +751,9 @@ function openPromo(i){const p=i==null?{id:Date.now().toString(36),on:true,ro:'',
   <fieldset><legend>${T('Какие товары участвуют')}</legend><div class="g2">
    <label class="f">${T('Охват')}<select class="t" id="p_sc"><option value="all" ${p.scope==='all'?'selected':''}>${T('Все товары')}</option><option value="cat" ${p.scope==='cat'?'selected':''}>${T('Выбранные категории')}</option><option value="sku" ${p.scope==='sku'?'selected':''}>${T('Выбранные товары')}</option></select></label></div>
    <div class="chips" id="p_cats" style="margin-top:12px">${FILES.map(c=>`<button type="button" class="chip ${p.cats.includes(c.f)?'on':''}" data-v="${c.f}">${esc(cn(c))}</button>`).join('')}</div>
-   <div id="p_skw" style="margin-top:12px"><input class="t" id="p_q" type="search" placeholder="${T('Добавить товар: модель или код')}" autocomplete="off"><div class="res" id="p_res"></div><div class="chips" id="p_sk" style="margin-top:10px"></div></div>
+   <div id="p_skw" style="margin-top:12px"><input class="t" id="p_q" type="search" placeholder="${T('Добавить товар: модель или код')}" autocomplete="off"><div class="res" id="p_res"></div>
+   <div class="pbr"><div class="pbh"><select class="t" id="p_bc"><option value="">${T('Выбрать из каталога: категория…')}</option>${FILES.map(c=>`<option value="${esc(c.f)}">${esc(FN[c.f]||c.f)}</option>`).join('')}</select><input class="t" id="p_bq" type="search" placeholder="${T('Фильтр в категории')}" autocomplete="off"><button type="button" class="btn" id="p_ba">${T('Отметить все')}</button></div><div class="pbl" id="p_bl"></div></div>
+   <div class="chips" id="p_sk" style="margin-top:10px"></div></div>
    <div class="warnb" id="p_n"></div></fieldset>
   <fieldset><legend>${T('Баннер на главной (необязательно)')}</legend>
    <div class="phs" id="p_img"></div>
@@ -757,10 +762,13 @@ function openPromo(i){const p=i==null?{id:Date.now().toString(36),on:true,ro:'',
     <label class="f">${T('Текст баннера (RU)')}<textarea class="t" id="p_bru" rows="2" style="min-height:60px">${esc(p.bt.ru)}</textarea></label></div>
    <div class="hint">${T('Пока акция идёт, на главной показывается баннер со ссылкой на страницу «Акции». Нет ни картинки, ни текста — баннера не будет. Картинка лучше горизонтальная, примерно 1200×600.')}</div></fieldset>`,
   FT(T('Готово'),i==null?'':`<button class="del" data-a="del">${T('Удалить акцию')}</button>`),{
-    on:e=>{if(e.target.id==='p_q')return pSearch();pRead();pUI()},
+    on:e=>{if(e.target.id==='p_q')return pSearch();if(e.target.id==='p_bc'||e.target.id==='p_bq')return pBr();
+      if(e.target.matches('#p_bl input')){if(e.type!=='change')return;const v=e.target.dataset.s;PE.skus=e.target.checked?[...new Set([...PE.skus,v])]:PE.skus.filter(s=>s!==v);pUI();pBa();return}
+      pRead();pUI()},
     click:e=>{const c=e.target.closest('#p_cats .chip');if(c){c.classList.toggle('on');pRead();pUI();return}
       const r=e.target.closest('#p_res button');if(r){if(!PE.skus.includes(r.dataset.s))PE.skus.push(r.dataset.s);$('p_q').value='';$('p_res').innerHTML='';pUI();return}
-      const k=e.target.closest('#p_sk .chip');if(k){PE.skus=PE.skus.filter(s=>s!==k.dataset.s);pUI();return}
+      const k=e.target.closest('#p_sk .chip');if(k){PE.skus=PE.skus.filter(s=>s!==k.dataset.s);pUI();pBr();return}
+      if(e.target.closest('#p_ba')){const L=pBL().map(({x})=>String(x.sku)),all=L.length&&L.every(s=>PE.skus.includes(s));PE.skus=all?PE.skus.filter(s=>!L.includes(s)):[...new Set([...PE.skus,...L])];pUI();pBr();return}
       if(e.target.closest('#p_img .add'))return $('fi2').click();
       if(e.target.closest('#p_img [data-rm]')){PE.img='';pUI()}},
     act:{ok:()=>{pRead();const p=PE;
@@ -783,6 +791,10 @@ function pUI(){const p=PE;$('p_cats').hidden=p.scope!=='cat';$('p_skw').hidden=p
   const better=ok?L.filter(({x})=>pPrice(p,x)<pr(x)).length:0;
   $('p_n').innerHTML=ok?T('Под акцию попадает товаров с ценой: <b>{0}</b>',L.length)+(L.length!==better?T(', из них у {0} своя скидка больше — у них останется своя',L.length-better):'')+'.'+(L.length?T(' Пример: {0} — {1} → <b>{2} MDL</b>.',esc(nm(L[0].x)),Math.max(pr(L[0].x),od(L[0].x)),Math.min(pr(L[0].x),pPrice(p,L[0].x))):''):T('Укажите размер скидки.');
   $('p_img').innerHTML=(p.img?`<div class="p" style="width:220px">${img(p.img)}<button data-rm="1" title="${T('Убрать картинку')}">×</button></div>`:'')+(p.img?'':`<div class="add">${T('+ Картинка баннера')}</div>`)}
+function pBL(){const f=$('p_bc').value,q=$('p_bq').value.trim().toLowerCase();if(!f||!DB[f])return [];return DB[f].items.filter(x=>!q||(nm(x)+' '+x.sku).toLowerCase().includes(q)).map(x=>({f,x}))}
+function pBa(){const L=pBL().map(({x})=>String(x.sku));$('p_ba').textContent=L.length&&L.every(s=>PE.skus.includes(s))?T('Снять все'):T('Отметить все');$('p_ba').hidden=!L.length}
+function pBr(){const L=pBL();$('p_bq').hidden=!$('p_bc').value;
+  $('p_bl').innerHTML=$('p_bc').value?(L.map(({x})=>`<label><input type="checkbox" data-s="${esc(x.sku)}" ${PE.skus.includes(String(x.sku))?'checked':''}>${img(pics(x)[0])}<span><b>${esc(nm(x))}</b><small>${esc(x.sku)}${x.hid?' · '+T('скрыт'):''}</small></span><em>${pr(x)?pr(x).toLocaleString(LOC())+' MDL':T('без цены')}</em></label>`).join('')||`<small style="padding:8px">${T('Не найдено')}</small>`):'';pBa()}
 function pSearch(){const q=$('p_q').value.trim().toLowerCase();if(q.length<2){$('p_res').innerHTML='';return}
   const R=allItems().filter(({x})=>(nm(x)+' '+x.sku).toLowerCase().includes(q)&&!PE.skus.includes(String(x.sku))).slice(0,8);
   $('p_res').innerHTML=R.map(({f,x})=>`<button type="button" data-s="${esc(x.sku)}">${img(pics(x)[0])}<span><b>${esc(nm(x))}</b> <small>${esc(x.sku)} · ${esc(FN[f])} · ${pr(x)||T('без цены')}</small></span></button>`).join('')||`<small style="padding:6px 8px">${T('Не найдено')}</small>`}
@@ -921,16 +933,17 @@ function drawOrders(){$('sum').textContent=ORD?T('Заказов: {0}',ORD.lengt
   $('vw').querySelectorAll('tr[data-id]').forEach(tr=>{tr.querySelector('select').onchange=e=>setOst(tr.dataset.id,e.target.value);tr.querySelector('[data-k=op]').onclick=()=>openOrder(tr.dataset.id);tr.querySelector('[data-k=del]').onclick=()=>delOrder(tr.dataset.id)})}
 async function delOrder(id){if(!confirm(T('Удалить этот заказ? Это нельзя отменить.')))return;
   try{await api('/api/order-del',{id});oFix(id,{del:1});ORD=ORD.filter(o=>o.id!==id);CLS=null;toast(T('Заказ удалён'));navOrders();drawOrders()}catch(e){toast(T('Не удалось удалить: {0}',e.message),true)}}
-async function setOst(id,st){try{await api('/api/order-status',{id,st});oFix(id,{st});const o=ORD.find(z=>z.id===id);if(o)o.st=st;toast(T('Статус: {0}',OSL(st)));navOrders();drawOrders()}catch(e){toast(T('Не удалось изменить статус: {0}',e.message),true)}}
+async function setOst(id,st){const o=ORD&&ORD.find(z=>z.id===id),was=o&&o.st;if(o){o.st=st;navOrders();if(VIEW==='orders')drawOrders()}
+  try{await api('/api/order-status',{id,st});oFix(id,{st});toast(T('Статус: {0}',OSL(st)));return true}catch(e){if(o){o.st=was;navOrders();if(VIEW==='orders')drawOrders()}toast(T('Не удалось изменить статус: {0}',e.message),true);return false}}
 async function openOrder(id){let o;try{o=await api('/api/order?id='+encodeURIComponent(id))}catch(e){return toast(e.message,true)}
-  tlOpen(T('Заказ от {0}',dt(o.t)),`<fieldset><legend>${T('Товары')}</legend><table class="pv"><thead><tr><th>${T('Товар')}</th><th>${T('Код')}</th><th style="text-align:right">${T('Кол-во')}</th><th style="text-align:right">${T('Цена')}</th><th style="text-align:right">${T('Сумма')}</th></tr></thead><tbody>${o.items.map(i=>{const z=allItems().find(({x})=>String(x.sku)===String(i.sku));return `<tr><td class="oi">${z?img(pics(z.x)[0]):'<img alt="">'}<span>${esc(i.n)}</span></td><td class="sk">${esc(i.sku)}</td><td class="n">${i.q}</td><td class="n">${i.o>i.p?`<s>${i.o}</s> `:''}${i.p||T('по запросу')}</td><td class="n"><b>${i.p*i.q}</b></td></tr>`}).join('')}<tr><td colspan="4"><b>${T('Итого, MDL')}</b></td><td class="n"><b>${o.tot}</b></td></tr></tbody></table></fieldset>
+  tlOpen(T('Заказ от {0}',dt(o.t)),`<fieldset><legend>${T('Товары')}</legend><table class="pv"><thead><tr><th>${T('Товар')}</th><th>${T('Код')}</th><th style="text-align:right">${T('Кол-во')}</th><th style="text-align:right">${T('Цена')}</th><th style="text-align:right">${T('Сумма')}</th></tr></thead><tbody>${o.items.map(i=>{const z=allItems().find(({x})=>String(x.sku)===String(i.sku));return `<tr><td class="oi">${z?img(pics(z.x)[0]):'<img alt="">'}<span>${esc(i.n)}</span></td><td class="sk">${esc(i.sku)}</td><td class="n">${i.q}</td><td class="n">${i.o>i.p?`<s>${i.o}</s> `:''}${i.p||T('по запросу')}</td><td class="n"><b>${i.p*i.q}</b></td></tr>`}).join('')}${(()=>{const sm=o.items.reduce((a,i)=>a+(i.p||0)*i.q,0);return sm>o.tot?`<tr><td colspan="4">${T('Товары')}</td><td class="n">${sm}</td></tr><tr><td colspan="4">${T('Скидка на всю подборку')}</td><td class="n" style="color:var(--red)">−${sm-o.tot}</td></tr>`:''})()}<tr><td colspan="4"><b>${T('Итого, MDL')}</b></td><td class="n"><b>${o.tot}</b></td></tr></tbody></table></fieldset>
    <fieldset><legend>${T('Детали')}</legend><div class="kv"><b>${T('Статус')}</b><span>${Object.keys(OS).map(k=>`<button type="button" class="chip ${o.st===k?'on':''}" data-st="${k}" style="margin:0 6px 6px 0">${OSL(k)}</button>`).join('')}</span>
     <b>${T('Канал')}</b><span>${CHN(o.ch)}</span><b>${T('Получение')}</b><span>${o.m==='p'?T('Самовывоз'):o.m==='d'?T('Доставка'):'—'}</span>
     ${o.name?`<b>${T('Имя')}</b><span>${esc(o.name)}</span>`:''}${o.tel?`<b>${T('Телефон')}</b><span><a href="tel:${esc(o.tel)}">${esc(o.tel)}</a></span>`:''}
     ${o.mg?`<b>${T('Менеджер')}</b><span>${esc(o.mg)}</span>`:''}${o.of?`<b>${T('Подборка')}</b><span><a href="desk-offer.html?o=${esc(o.of)}&nv=1" target="_blank" rel="noopener">№${esc(o.of)} ↗</a></span>`:''}
     <b>${T('Комментарий')}</b><span>${esc(o.cm||'—')}</span><b>${T('Язык сайта')}</b><span>${esc(o.lang||'—')}</span><b>${T('Страница')}</b><span style="word-break:break-all">${esc(o.page||'—')}</span></div>
     <div class="hint">${o.ch==='mgr'?T('Заказ оформлен менеджером в режиме менеджера.'):T('Это копия заказа, которую сайт отправляет параллельно с сообщением в мессенджер. Клиент мог не отправить само сообщение — сверяйтесь с WhatsApp/Viber.')}</div></fieldset>`,
-   `<span class="sp"></span><button class="btn k" data-a="x">${T('Закрыть')}</button>`,{click:async e=>{const b=e.target.closest('[data-st]');if(!b)return;await setOst(id,b.dataset.st);$('tlb').querySelectorAll('[data-st]').forEach(c=>c.classList.toggle('on',c===b))}})}
+   `<span class="sp"></span><button class="btn k" data-a="x">${T('Закрыть')}</button>`,{click:async e=>{const b=e.target.closest('[data-st]');if(!b||b.classList.contains('on'))return;const L=[...$('tlb').querySelectorAll('[data-st]')],was=L.find(c=>c.classList.contains('on'));L.forEach(c=>c.classList.toggle('on',c===b));if(!await setOst(id,b.dataset.st))L.forEach(c=>c.classList.toggle('on',c===was))}})}
 
 /* подборки менеджеров */
 let OFS=null,OFF='',OFM='';
@@ -951,7 +964,7 @@ let CLS=null,CLQ='',CLM='',CLT='',CLO='last';
 const TAGS0=['дизайнер','застройщик','повторный','VIP'];
 const ddate=t=>t?new Date(t).toLocaleDateString(LOC()):'—';
 async function drawClients(){
-  if(!CLS){$('vw').innerHTML=LOADING();try{CLS=(await api('/api/clients')).clients}catch(e){if(e.status!==401)$('vw').innerHTML=`<div class="empty">${T('Не удалось загрузить: {0}',esc(e.message))}</div>`;return}if(VIEW!=='clients')return}
+  if(!CLS){$('vw').innerHTML=LOADING();try{CLS=cApply((await api('/api/clients')).clients)}catch(e){if(e.status!==401)$('vw').innerHTML=`<div class="empty">${T('Не удалось загрузить: {0}',esc(e.message))}</div>`;return}if(VIEW!=='clients')return}
   const MG=[...new Set(CLS.map(c=>c.mg).filter(Boolean))].sort(),TG=[...new Set(CLS.flatMap(c=>c.tg||[]))].sort();
   const q=CLQ.trim().toLowerCase(),qd=q.replace(/\D/g,'');
   const L=CLS.filter(c=>(!q||(c.n||'').toLowerCase().includes(q)||qd.length>2&&c.tel.replace(/\D/g,'').includes(qd))&&(!CLM||c.mg===CLM)&&(!CLT||(c.tg||[]).includes(CLT)))
@@ -966,9 +979,14 @@ async function drawClients(){
   let qt2;$('clq').oninput=e=>{clearTimeout(qt2);qt2=setTimeout(()=>{CLQ=e.target.value;drawClients();const i=$('clq');i.focus();i.setSelectionRange(i.value.length,i.value.length)},250)};
   $('clr').onclick=()=>{CLS=null;drawClients()};$('cln').onclick=()=>openClient();$('clx').onclick=()=>csvOut(L);
   $('vw').innerHTML=L.length?`<table><thead><tr><th>${T('Клиент')}</th><th>${T('Город')}</th><th>${T('Менеджер')}</th><th>${T('Теги')}</th><th>${T('Заказы')}</th><th>${T('Подборки')}</th><th>${T('Сумма заказов')}</th><th>${T('Последний контакт')}</th><th></th></tr></thead><tbody>${L.map(c=>`<tr data-t="${esc(c.tel)}"><td class="nm"><b>${esc(c.n||T('без имени'))}</b><small>${esc(c.tel)}</small></td><td class="ct">${esc(c.c||'—')}</td><td class="ct">${esc(c.mg||'—')}</td>
-    <td>${(c.tg||[]).map(t=>`<span class="pill">${esc(T(t))}</span>`).join('')||'—'}</td><td class="sk">${c.no||0}</td><td class="sk">${c.nf||0}</td><td class="sk"><b>${(c.tot||0).toLocaleString(LOC())} MDL</b></td><td class="sk">${ddate(c.last)}</td><td><button class="ebtn">${T('Открыть')}</button></td></tr>`).join('')}</tbody></table>
+    <td>${(c.tg||[]).map(t=>`<span class="pill">${esc(T(t))}</span>`).join('')||'—'}</td><td class="sk">${c.no||0}</td><td class="sk">${c.nf||0}</td><td class="sk"><b>${(c.tot||0).toLocaleString(LOC())} MDL</b></td><td class="sk">${ddate(c.last)}</td><td><button class="ebtn">${T('Изменить')}</button><button class="odel" data-k="cdel" title="${T('Удалить клиента')}" aria-label="${T('Удалить клиента')}"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></svg></button></td></tr>`).join('')}</tbody></table>
     <div class="hint" style="margin-top:12px">${T('Клиенты появляются автоматически из заказов и подборок, где указан телефон. Сумма — по заказам без отменённых.')}</div>`:`<div class="empty">${T('Клиентов пока нет. Добавьте вручную кнопкой «+ Новый клиент» — или они появятся сами из заказов и подборок менеджеров с телефоном.')}</div>`;
-  $('vw').querySelectorAll('tr[data-t] .ebtn').forEach(b=>b.onclick=()=>openClient(b.closest('tr').dataset.t))}
+  $('vw').querySelectorAll('tr[data-t] .ebtn').forEach(b=>b.onclick=()=>openClient(b.closest('tr').dataset.t));$('vw').querySelectorAll('tr[data-t] [data-k=cdel]').forEach(b=>b.onclick=()=>delClient(b.closest('tr').dataset.t))}
+async function delClient(tel){const k=(CLS||[]).find(x=>x.tel===tel);if(!confirm(T('Удалить клиента {0}? Его заказы останутся в журнале заказов.',(k&&k.n?k.n+' ':'')+tel)))return;
+  try{await api('/api/client-del',{tel});cFix(tel,{del:1});CLS=(CLS||[]).filter(x=>x.tel!==tel);tlClose();drawClients();toast(T('Клиент удалён'))}catch(e){toast(T('Не удалось удалить: {0}',e.message),true)}}
+let CFIX={};try{CFIX=JSON.parse(localStorage.getItem('tkCFix')||'{}')}catch(_){}
+function cFix(tel,v){const now=Date.now();CFIX[tel]={...v,u:now+150000};for(const k in CFIX)if(CFIX[k].u<now)delete CFIX[k];try{localStorage.setItem('tkCFix',JSON.stringify(CFIX))}catch(_){}}
+const cApply=L=>{const now=Date.now(),A=L.filter(c=>!(CFIX[c.tel]&&CFIX[c.tel].u>now&&CFIX[c.tel].del)).map(c=>CFIX[c.tel]&&CFIX[c.tel].u>now&&CFIX[c.tel].row?{...c,...CFIX[c.tel].row}:c);for(const t in CFIX)if(CFIX[t].u>now&&CFIX[t].row&&!A.some(c=>c.tel===t))A.push({tel:t,tot:0,last:0,no:0,nf:0,...CFIX[t].row});return A};
 function csvOut(L){const c=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
   const t='﻿'+[['Имя','Телефон','Город','Менеджер','Теги','Заказов','Подборок','Сумма заказов, MDL','Последний контакт'].map(h=>c(T(h))).join(';')].concat(L.map(k=>[k.n,k.tel,k.c,k.mg,(k.tg||[]).join(', '),k.no||0,k.nf||0,k.tot||0,ddate(k.last)].map(c).join(';'))).join('\r\n');
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'text/csv;charset=utf-8'}));a.download='teka-clients-'+today()+'.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
@@ -976,7 +994,7 @@ async function openClient(tel){let c;const nw=!tel;if(nw)c={tel:'',name:'',city:
   const MG=[...new Set((CLS||[]).map(k=>k.mg).concat(ORD?ORD.map(o=>o.mg):[]).filter(Boolean))].sort();
   const tags=[...new Set(TAGS0.concat(c.tags||[]))];
   tlOpen(nw?T('Новый клиент'):(c.name||T('Клиент'))+' · '+c.tel,`
-  <fieldset><legend>${T('Карточка')}</legend>${nw?`<div class="g3" style="margin-bottom:12px"><label class="f">${T('Телефон')}<input class="t" id="c_t" type="tel" placeholder="+373 6X XXX XXX"></label></div>`:''}<div class="g3">
+  <fieldset><legend>${T('Карточка')}</legend><div class="g3" style="margin-bottom:12px"><label class="f">${T('Телефон')}<input class="t" id="c_t" type="tel" placeholder="+373 6X XXX XXX" value="${esc(c.tel)}"></label></div><div class="g3">
    <label class="f">${T('Имя')}<input class="t" id="c_n" value="${esc(c.name)}"></label>
    <label class="f">${T('Город')}<input class="t" id="c_c" value="${esc(c.city)}"></label>
    <label class="f">${T('Кто ведёт')}<input class="t" id="c_m" value="${esc(c.mg)}" list="c_ml" placeholder="${T('Менеджер')}"><datalist id="c_ml">${MG.map(m=>`<option value="${esc(m)}">`).join('')}</datalist></label></div>
@@ -985,13 +1003,14 @@ async function openClient(tel){let c;const nw=!tel;if(nw)c={tel:'',name:'',city:
    <div class="f">${T('Теги')}<div class="chips" id="c_tg">${tags.map(t=>`<button type="button" class="chip ${(c.tags||[]).includes(t)?'on':''}" data-v="${esc(t)}">${esc(T(t))}</button>`).join('')}<input class="t" id="c_nt" placeholder="${T('+ свой тег')}" style="width:140px;height:34px"></div></div></div>
    <div class="kv" style="margin-top:14px"><b>${T('Сумма заказов')}</b><span><b>${(c.tot||0).toLocaleString(LOC())} MDL</b> ${T('(без отменённых)')}</span><b>${T('Первый контакт')}</b><span>${ddate(c.first)}</span><b>${T('Последний контакт')}</b><span>${ddate(c.last)}</span></div></fieldset>
   <fieldset><legend>${T('Заказы')} (${c.orders.length})</legend>${c.orders.length?`<table class="pv"><thead><tr><th>${T('Дата')}</th><th>${T('Статус')}</th><th>${T('Менеджер')}</th><th>${T('Подборка')}</th><th style="text-align:right">${T('Сумма')}</th></tr></thead><tbody>${c.orders.map(o=>`<tr><td>${dt(o.t)}</td><td><span class="pill ${o.st}">${OS[o.st]?OSL(o.st):esc(o.st)}</span></td><td>${esc(o.mg||'—')}</td><td>${o.of?`№${esc(o.of)}`:'—'}</td><td class="n"><b>${(o.tot||0).toLocaleString(LOC())}</b></td></tr>`).join('')}</tbody></table>`:`<div class="hint">${T('Заказов нет')}</div>`}</fieldset>
-  <fieldset><legend>${T('Подборки')} (${c.offers.length})</legend>${c.offers.length?`<table class="pv"><thead><tr><th>${T('Дата')}</th><th>${T('Подборка')}</th><th>${T('Менеджер')}</th><th style="text-align:right">${T('Сумма')}</th></tr></thead><tbody>${c.offers.map(o=>`<tr><td>${dt(o.t)}</td><td><a href="desk-offer.html?o=${esc(o.id)}&nv=1" target="_blank" rel="noopener">№${esc(o.id)} ↗</a></td><td>${esc(o.mg||'—')}</td><td class="n"><b>${(o.tot||0).toLocaleString(LOC())}</b></td></tr>`).join('')}</tbody></table>`:`<div class="hint">${T('Подборок нет')}</div>`}</fieldset>`,
-  FT(T('Сохранить')),{click:e=>{const b=e.target.closest('#c_tg .chip');if(b)b.classList.toggle('on')},
+  ${nw?'':`<div style="margin:4px 0 8px"><button type="button" class="btn" id="c_del" style="color:var(--red);border-color:var(--red)">${T('Удалить клиента')}</button></div>`}<fieldset><legend>${T('Подборки')} (${c.offers.length})</legend>${c.offers.length?`<table class="pv"><thead><tr><th>${T('Дата')}</th><th>${T('Подборка')}</th><th>${T('Менеджер')}</th><th style="text-align:right">${T('Сумма')}</th></tr></thead><tbody>${c.offers.map(o=>`<tr><td>${dt(o.t)}</td><td><a href="desk-offer.html?o=${esc(o.id)}&nv=1" target="_blank" rel="noopener">№${esc(o.id)} ↗</a></td><td>${esc(o.mg||'—')}</td><td class="n"><b>${(o.tot||0).toLocaleString(LOC())}</b></td></tr>`).join('')}</tbody></table>`:`<div class="hint">${T('Подборок нет')}</div>`}</fieldset>`,
+  FT(T('Сохранить')),{click:e=>{const b=e.target.closest('#c_tg .chip');if(b)b.classList.toggle('on');if(e.target.closest('#c_del'))delClient(c.tel)},
    act:{ok:async()=>{const nt=$('c_nt').value.trim();const tg=[...$('c_tg').querySelectorAll('.chip.on')].map(b=>b.dataset.v).concat(nt?[nt]:[]);
-     const tel=nw?$('c_t').value.trim():c.tel;if(nw&&tel.replace(/\D/g,'').length<8){$('c_t').focus();return toast(T('Укажите телефон клиента'),true)}
-     if(nw&&(CLS||[]).some(k=>k.tel.replace(/\D/g,'').endsWith(tel.replace(/\D/g,'').replace(/^0/,'').slice(-8)))&&!confirm(T('Клиент с таким телефоном уже есть. Обновить его карточку?')))return;
-     try{const r=await api('/api/client',{tel,name:$('c_n').value.trim(),city:$('c_c').value.trim(),addr:$('c_a').value.trim(),mg:$('c_m').value.trim(),notes:$('c_no').value,tags:tg});
-       const k=(CLS||[]).find(x=>x.tel===r.tel);if(k)Object.assign(k,{n:r.name,c:r.city,mg:r.mg,tg:r.tags});else if(CLS)CLS.push({tel:r.tel,n:r.name,c:r.city,mg:r.mg,tg:r.tags,tot:0,last:0,no:0,nf:0});tlClose();drawClients();toast(nw?T('Клиент добавлен'):T('Клиент сохранён'))}catch(e){toast(T('Не сохранилось: {0}',e.message),true)}}}});
+     const tel=$('c_t').value.trim(),dg=tel.replace(/\D/g,''),chg=!nw&&dg.slice(-8)!==c.tel.replace(/\D/g,'').slice(-8);if(dg.length<8||dg.length>15||/[^\d\s+()-]/.test(tel)){$('c_t').focus();return toast(T('Укажите телефон клиента'),true)}
+     if((nw||chg)&&(CLS||[]).some(k=>k.tel!==c.tel&&k.tel.replace(/\D/g,'').endsWith(tel.replace(/\D/g,'').replace(/^0/,'').slice(-8)))&&!confirm(T('Клиент с таким телефоном уже есть. Обновить его карточку?')))return;
+     try{const r=await api('/api/client',{tel,...(chg?{old:c.tel}:{}),name:$('c_n').value.trim(),city:$('c_c').value.trim(),addr:$('c_a').value.trim(),mg:$('c_m').value.trim(),notes:$('c_no').value,tags:tg});
+       if(chg){cFix(c.tel,{del:1});if(CLS)CLS=CLS.filter(x=>x.tel!==c.tel)}const row={n:r.name,c:r.city,mg:r.mg,tg:r.tags,tot:r.tot||0,last:r.last||0,no:(r.orders||[]).length,nf:(r.offers||[]).length};cFix(r.tel,{row});
+       const k=(CLS||[]).find(x=>x.tel===r.tel);if(k)Object.assign(k,row);else if(CLS)CLS.push({tel:r.tel,...row});tlClose();drawClients();toast(nw?T('Клиент добавлен'):T('Клиент сохранён'))}catch(e){toast(T('Не сохранилось: {0}',e.message),true)}}}});
   $('c_nt').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();const v=e.target.value.trim();if(v){e.target.insertAdjacentHTML('beforebegin',`<button type="button" class="chip on" data-v="${esc(v)}">${esc(T(v))}</button>`);e.target.value=''}}}}
 
 /* история */
