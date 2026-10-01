@@ -156,7 +156,7 @@ section.bl{margin-top:72px}
 .pc:hover .ph img.b2{opacity:1}.pc:hover .ph img.b1.h2{opacity:0}
 .bdg{position:absolute;left:12px;top:12px;z-index:2;display:flex;gap:6px}
 .bdg span{font-size:11.5px;font-weight:700;padding:4px 9px;border-radius:3px;background:var(--red);color:#fff;letter-spacing:.02em}
-.bdg span.n{background:var(--ink)}
+.bdg span.n{background:var(--ink)}.bdg span.r,#mb span.r{background:#2F6F4F}
 .pc .inf{padding:16px 18px 18px;border-top:1px solid var(--soft);display:flex;flex-direction:column;flex:1}
 .pc .br{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
 .pc .br{height:20px;display:flex;align-items:center}.kbl{display:inline-flex;align-items:center;height:20px;padding:0 8px;background:#111;color:#fff;font-size:10px;font-weight:700;letter-spacing:.12em;border-radius:2px;line-height:1;white-space:nowrap}.pc .br img{height:20px;width:auto;border-radius:2px}
@@ -537,8 +537,8 @@ function applyPromo(x,f,L){const base=Math.max(pr(x),od(x));if(!pr(x))return x;l
     const np=Math.max(0,Math.round(p.kind==='sum'?base-p.v:base*(1-p.v/100)));if(np<bp){bp=np;best=p}}
   if(best){x._pm=best;x.p=bp;x.o=base}return x}
 const pdays=x=>x._pm&&x._pm.to?Math.round((new Date(x._pm.to)-new Date(today()))/864e5)+1:0;
-const TAGS={hit:['Hit','Хит'],new:['Nou','Новинка']};
-const tagB=x=>TAGS[x.tag]?`<span class="n">${TAGS[x.tag][LANG==='ru'?1:0]}</span>`:'';
+const TAGS={hit:['Hit','Хит'],new:['Nou','Новинка'],ref:['Recondiționat','Восстановленный']};
+const tagB=x=>TAGS[x.tag]?`<span class="n${x.tag==='ref'?' r':''}">${TAGS[x.tag][LANG==='ru'?1:0]}</span>`:'';
 const ordv=x=>(x.ord!==''&&x.ord!=null&&!isNaN(x.ord)?+x.ord:1e6)-(x.tag==='hit'?.5:0);
 const PRM={};function cat(f){return PRM[f]||(PRM[f]=Promise.all([rd('data/'+f+'.json'),PROMO]).then(([j,L])=>DATA[f]=(j||[]).filter(x=>!x.hid).map(x=>applyPromo(x,f,L))))}
 const CP=u=>u.replace(/^assets\/(hi|ro2?)\//,'assets/c/$1-'),OE="if(this.src.indexOf('/c/')>0){this.src=this.dataset.o}else if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}";

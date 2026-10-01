@@ -196,6 +196,7 @@ html[lang=ro] .phs .p.new:before{content:"nouă"}
 #login form{position:relative}#login .lsw{position:absolute;top:20px;right:20px;height:32px}
 .pv td.oi{display:flex;align-items:center;gap:12px}.pv td.oi img{width:48px;height:48px;flex:none;object-fit:contain;border:1px solid var(--line);border-radius:8px;background:#fff}
 .odel{width:36px;height:36px;margin-left:8px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--mute);display:inline-grid;place-items:center;vertical-align:middle;cursor:pointer;transition:color .15s,border-color .15s}.odel:hover{color:var(--red);border-color:var(--red)}
+.tg.ref{background:#2F6F4F;color:#fff}
 </style>
 </head>
 <body>
@@ -287,7 +288,7 @@ const RO={'скрыт':'ascuns','Снять все':'Debifează tot','Отмет
 'Не сохранилось: {0}':'Nu s-a salvat: {0}',
 'Новый товар':'Produs nou','Основное':'Date de bază','Модель':'Model','Код товара (артикул)':'Cod produs (articol)','Бренд':'Brand','Цена и наличие':'Preț și stoc','Старая цена, MDL':'Preț vechi, MDL',
 '— заполните для скидки':'— completați pentru reducere','нет скидки':'fără reducere','Скрыть с сайта':'Ascunde pe site','Если цена не указана, на сайте будет «Цена по запросу».':'Dacă prețul nu este indicat, pe site va apărea „Preț la cerere”.',
-'Витрина':'Vitrină','Отметка на карточке':'Etichetă pe card','Нет':'Fără','Хит':'Hit','Новинка':'Noutate','Порядок в категории':'Ordinea în categorie','— меньше число, выше на сайте':'— cu cât numărul e mai mic, cu atât e mai sus pe site','авто':'auto',
+'Витрина':'Vitrină','Отметка на карточке':'Etichetă pe card','Нет':'Fără','Хит':'Hit','Новинка':'Noutate','Восстановленный':'Recondiționat','ВОССТ.':'RECOND.','Порядок в категории':'Ordinea în categorie','— меньше число, выше на сайте':'— cu cât numărul e mai mic, cu atât e mai sus pe site','авто':'auto',
 'Фото':'Fotografii','Перетаскивайте фото, чтобы поменять порядок. Первое — главное в каталоге. Можно бросить файлы прямо сюда.':'Trageți fotografiile pentru a schimba ordinea. Prima este cea principală în catalog. Puteți plasa fișierele direct aici.',
 'Описание':'Descriere','Подзаголовок (RO)':'Subtitlu (RO)','Подзаголовок (RU)':'Subtitlu (RU)','Преимущества (RO)':'Avantaje (RO)','Преимущества (RU)':'Avantaje (RU)','— по одному в строке':'— câte unul pe rând','— строки в том же порядке':'— rândurile în aceeași ordine',
 'Характеристики':'Caracteristici','+ Добавить группу':'+ Adaugă grup','Фильтры в каталоге':'Filtre în catalog','По этим полям покупатель фильтрует товары в каталоге.':'După aceste câmpuri cumpărătorul filtrează produsele în catalog.',
@@ -570,7 +571,7 @@ function openEd(f,x,isNew){
   </fieldset>
   <fieldset><legend>${T('Витрина')}</legend>
    <div class="g2">
-    <div class="f">${T('Отметка на карточке')}<div class="chips" id="e_tag">${[['','Нет'],['hit','Хит'],['new','Новинка']].map(([v,l])=>`<button type="button" class="chip ${(E.tag||'')===v?'on':''}" data-v="${v}">${T(l)}</button>`).join('')}</div></div>
+    <div class="f">${T('Отметка на карточке')}<div class="chips" id="e_tag">${[['','Нет'],['hit','Хит'],['new','Новинка'],['ref','Восстановленный']].map(([v,l])=>`<button type="button" class="chip ${(E.tag||'')===v?'on':''}" data-v="${v}">${T(l)}</button>`).join('')}</div></div>
     <label class="f">${T('Порядок в категории')} <small>${T('— меньше число, выше на сайте')}</small><input class="t" id="e_ord" value="${E.ord??''}" inputmode="numeric" placeholder="${T('авто')}"></label>
    </div>
   </fieldset>
@@ -695,7 +696,7 @@ function render(){document.body.className='v-'+VIEW;$('nav').querySelectorAll('b
 $('nav').onclick=e=>{const b=e.target.closest('button');if(!b)return;VIEW=b.dataset.v;try{sessionStorage.setItem('tkV',VIEW)}catch(_){}render();scrollTo(0,0)};
 const today=()=>new Date().toLocaleDateString('sv-SE',{timeZone:'Europe/Chisinau'});
 const dmy=s=>s?s.slice(8,10)+'.'+s.slice(5,7)+'.'+s.slice(0,4):'';
-const tagH=x=>x.tag==='hit'?`<span class="tg hit">${T('ХИТ')}</span>`:x.tag==='new'?'<span class="tg">NEW</span>':'';
+const tagH=x=>x.tag==='hit'?`<span class="tg hit">${T('ХИТ')}</span>`:x.tag==='new'?'<span class="tg">NEW</span>':x.tag==='ref'?`<span class="tg ref">${T('ВОССТ.')}</span>`:'';
 const allItems=()=>FILES.flatMap(c=>DB[c.f].items.map(x=>({f:c.f,x})));
 const inScope=(p,x,f)=>p.scope==='all'||p.scope==='cat'&&(p.cats||[]).includes(f)||p.scope==='sku'&&(p.skus||[]).map(String).includes(String(x.sku));
 const pState=p=>{const t=today();return !p.on?['off',T('Выключена')]:p.to&&p.to<t?['off',T('Завершена')]:p.from&&p.from>t?['plan',T('Запланирована')]:['on',T('Идёт')]};
