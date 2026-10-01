@@ -860,7 +860,281 @@
    "Email BrightClean ultra-rezistent",
    "Sistem FastClick pentru suporturi de tavă"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "364"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "402"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "70"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "71"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "537+22"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "28"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "N / CE / CCA / CB"
+     ],
+     [
+      "Numărul de cavități",
+      "1"
+     ],
+     [
+      "Tipul de iluminare interioară",
+      "Halogen"
+     ],
+     [
+      "Cavitatea emailată",
+      "Da"
+     ],
+     [
+      "Regulator de temperatură Min. (ºC)",
+      "50"
+     ],
+     [
+      "Regulator de temperatură Max. (ºC)",
+      "250"
+     ],
+     [
+      "Selector de funcții",
+      "11+0"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "9"
+     ],
+     [
+      "Încălzire convenţională",
+      "Da"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Funcția MaxiGrill",
+      "Da"
+     ],
+     [
+      "MaxiGrill + Ventilaţie",
+      "Da"
+     ],
+     [
+      "Element inferior de încălzire",
+      "Da"
+     ],
+     [
+      "Element inferior de încălzire + TURBO (Pizza)",
+      "Da"
+     ],
+     [
+      "Funcţia TURBO",
+      "Da"
+     ],
+     [
+      "Funcția ECO",
+      "Da"
+     ],
+     [
+      "Încălzire rapidă mecanică",
+      "Da"
+     ],
+     [
+      "Suporturi cromate detaşabile",
+      "Da"
+     ],
+     [
+      "Numărul ghidajelor",
+      "5"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "3215"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220/240"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "150"
+     ],
+     [
+      "Ștecher",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "25"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Consumul de energie pe ciclu în mod convențional (kWh)",
+      "0.81"
+     ],
+     [
+      "Consumul de energie pe ciclu în modul de convecție forțată de ventilator (kWh)",
+      "0.68"
+     ],
+     [
+      "Element inferior de încălzire (W)",
+      "1150"
+     ],
+     [
+      "Grill (W)",
+      "1400"
+     ],
+     [
+      "Maxi Grill (W)",
+      "2500"
+     ],
+     [
+      "Tradițional (W)",
+      "2550"
+     ],
+     [
+      "Turbo (W)",
+      "2000"
+     ],
+     [
+      "Turbo multifuncțional (W)",
+      "22"
+     ],
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ],
+     [
+      "Tavă cu protecţie la răsturnare",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de curățare",
+    "r": [
+     [
+      "Inox anti-pată",
+      "Da"
+     ],
+     [
+      "Email Crystal Clean (Slippery)",
+      "Da"
+     ],
+     [
+      "Hydroclean PRO",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Tavă pentru copt",
+      "1"
+     ],
+     [
+      "Tavă adâncă (50mm)",
+      "1"
+     ],
+     [
+      "Grătar standard",
+      "1"
+     ],
+     [
+      "Tavă pentru copt (cavitatea inferioară)",
+      "1"
+     ],
+     [
+      "Tavă adâncă (cavitate inferioară) (50 mm)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Eficienta energetica",
+    "r": [
+     [
+      "Clasa de eficiență energetică",
+      "A+"
+     ],
+     [
+      "Indicele eficienței energetice (EEI)",
+      "81"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Teka",
   "f": [],
@@ -7630,7 +7904,328 @@
    "Sondă carne",
    "Sistem de curăţare HydroClean® PRO"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "364"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "402"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "70"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "71"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "537+22"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "40"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "N / CE / CCA / CB/EAC/GMARK/SASO"
+     ],
+     [
+      "Numărul de cavități",
+      "1"
+     ],
+     [
+      "Cavitatea emailată",
+      "Da"
+     ],
+     [
+      "Regulator de temperatură Min. (ºC)",
+      "30"
+     ],
+     [
+      "Regulator de temperatură Max. (ºC)",
+      "270"
+     ],
+     [
+      "Selector de funcții",
+      "ELECTRONIC"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "18"
+     ],
+     [
+      "Numărul de rețete",
+      "50"
+     ],
+     [
+      "Încălzire convenţională",
+      "Da"
+     ],
+     [
+      "Grill + Element inferior de încălzire",
+      "Da"
+     ],
+     [
+      "Element superior de încălzire",
+      "Da"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Funcția MaxiGrill",
+      "Da"
+     ],
+     [
+      "Convecţie",
+      "Da"
+     ],
+     [
+      "Grill + Ventilaţie",
+      "Da"
+     ],
+     [
+      "MaxiGrill + Ventilaţie",
+      "Da"
+     ],
+     [
+      "Element inferior de încălzire",
+      "Da"
+     ],
+     [
+      "Element inferior de încălzire + TURBO (Pizza)",
+      "Da"
+     ],
+     [
+      "Funcţia TURBO",
+      "Da"
+     ],
+     [
+      "Funcția ECO",
+      "Da"
+     ],
+     [
+      "Funcția de coacere a pâinii",
+      "Da"
+     ],
+     [
+      "Funcția de fermentare",
+      "Da"
+     ],
+     [
+      "Menținerea temperaturii",
+      "Da"
+     ],
+     [
+      "Încălzire rapidă automată",
+      "Da"
+     ],
+     [
+      "Slow Cook",
+      "Da"
+     ],
+     [
+      "Suporturi cromate detaşabile",
+      "Da"
+     ],
+     [
+      "Numărul ghidajelor",
+      "5"
+     ],
+     [
+      "Ghidaje telescopice cu extragere completă",
+      "Da"
+     ],
+     [
+      "Ghidaje telescopice Easy Slide",
+      "Da"
+     ],
+     [
+      "Grill rabatabil",
+      "Da"
+     ],
+     [
+      "SoftClose",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "3552"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "150"
+     ],
+     [
+      "Ștecher",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "25"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Consumul de energie pe ciclu în mod convențional (kWh)",
+      "0.95"
+     ],
+     [
+      "Consumul de energie pe ciclu în modul de convecție forțată de ventilator (kWh)",
+      "0,68"
+     ],
+     [
+      "Element inferior de încălzire (W)",
+      "1050"
+     ],
+     [
+      "Grill (W)",
+      "1400"
+     ],
+     [
+      "Maxi Grill (W)",
+      "2450"
+     ],
+     [
+      "Tradițional (W)",
+      "2450"
+     ],
+     [
+      "Turbo (W)",
+      "2000"
+     ],
+     [
+      "Turbo multifuncțional (W)",
+      "25"
+     ],
+     [
+      "Cooling fan motor (W)",
+      "30"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Blocarea de siguranță pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ],
+     [
+      "Tavă cu protecţie la răsturnare",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de curățare",
+    "r": [
+     [
+      "Email Crystal Clean (Slippery)",
+      "Da"
+     ],
+     [
+      "Hydroclean PRO",
+      "Da"
+     ],
+     [
+      "Pirolitic",
+      "Da"
+     ],
+     [
+      "DualClean",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Tavă pentru copt",
+      "1"
+     ],
+     [
+      "Tavă adâncă (50mm)",
+      "1"
+     ],
+     [
+      "The SteamBox",
+      "1"
+     ],
+     [
+      "Grătar ranforsat",
+      "2"
+     ],
+     [
+      "Sondă carne",
+      "1"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Teka",
   "f": [
@@ -7876,7 +8471,83 @@
    "Display TFT 3,9´´",
    "Control electronic al cuptorului prin intermediul butoanelor din aluminiu"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "364"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "402"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "70"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "71"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "537+22"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "34"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "3558"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220/240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "180"
+     ],
+     [
+      "Ștecher",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "25"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Küppersbusch",
   "f": [

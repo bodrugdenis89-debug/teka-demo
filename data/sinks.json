@@ -13,7 +13,98 @@
    "Material:inox microtextura",
    "Accesorii incluse: Set de scurgere 3 ½ cu Preaplin"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Lățimea produsului (mm)",
+      "Ø510"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "180"
+     ],
+     [
+      "Lungimea produsului (mm)",
+      "Ø510"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "2,1"
+     ]
+    ]
+   },
+   {
+    "t": "Cuvă principală",
+    "r": [
+     [
+      "Lungimea cuvei principale (mm)",
+      "Ø390"
+     ],
+     [
+      "Lățimea cuvei principale (mm)",
+      "Ø390"
+     ],
+     [
+      "Adâncimea cuvei principale (mm)",
+      "180"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Inox"
+     ],
+     [
+      "Modalitate de instalare",
+      "Inset"
+     ],
+     [
+      "Tip orificiu pentru ţeavă",
+      "3½\""
+     ]
+    ]
+   },
+   {
+    "t": "Alții",
+    "r": [
+     [
+      "Bază (cm)",
+      "45"
+     ]
+    ]
+   },
+   {
+    "t": "Chiuvetă Lay out",
+    "r": [
+     [
+      "Numărul de cuve",
+      "1"
+     ],
+     [
+      "Numărul de picurătoare",
+      "1B"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Izolat fonic",
+      "Da"
+     ],
+     [
+      "Clipuri pentru instalare",
+      "Da"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Teka",
   "mat": "granit",
@@ -419,7 +510,110 @@
    "Instalare în insert",
    "Coș manual de gunoi de 3½”."
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Lățimea produsului (mm)",
+      "485"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "165"
+     ],
+     [
+      "Lungimea produsului (mm)",
+      "465"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "1,82"
+     ]
+    ]
+   },
+   {
+    "t": "Cuvă principală",
+    "r": [
+     [
+      "Lungimea cuvei principale (mm)",
+      "400"
+     ],
+     [
+      "Lățimea cuvei principale (mm)",
+      "360"
+     ],
+     [
+      "Adâncimea cuvei principale (mm)",
+      "165"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Inox"
+     ],
+     [
+      "Modalitate de instalare",
+      "Inset"
+     ],
+     [
+      "Numărul de găuri pentru baterii",
+      "2"
+     ],
+     [
+      "Tip orificiu pentru ţeavă",
+      "3½\""
+     ],
+     [
+      "Orificiu preaplin",
+      "Round"
+     ],
+     [
+      "Grosime cuvă / blat (mm)",
+      "0,7"
+     ]
+    ]
+   },
+   {
+    "t": "Alții",
+    "r": [
+     [
+      "Bază (cm)",
+      "45"
+     ]
+    ]
+   },
+   {
+    "t": "Chiuvetă Lay out",
+    "r": [
+     [
+      "Numărul de cuve",
+      "1"
+     ],
+     [
+      "Numărul de picurătoare",
+      "0"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Izolat fonic",
+      "Da"
+     ],
+     [
+      "Clipuri pentru instalare",
+      "Da"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Teka",
   "mat": "inox",
@@ -2549,7 +2743,110 @@
    "Gol de încastrare min. 45 cm",
    "Versiune: reversibilă"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Lățimea produsului (mm)",
+      "500"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "200"
+     ],
+     [
+      "Lungimea produsului (mm)",
+      "650"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "11,77"
+     ]
+    ]
+   },
+   {
+    "t": "Cuvă principală",
+    "r": [
+     [
+      "Lungimea cuvei principale (mm)",
+      "345"
+     ],
+     [
+      "Lățimea cuvei principale (mm)",
+      "430"
+     ],
+     [
+      "Adâncimea cuvei principale (mm)",
+      "200"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Granit Tegranite+"
+     ],
+     [
+      "Modalitate de instalare",
+      "Inset"
+     ],
+     [
+      "Numărul de găuri pentru baterii",
+      "Pre-Drilled"
+     ],
+     [
+      "Tip orificiu pentru ţeavă",
+      "3½\""
+     ],
+     [
+      "Orificiu preaplin",
+      "Round"
+     ],
+     [
+      "Grosime cuvă / blat (mm)",
+      "10/7"
+     ]
+    ]
+   },
+   {
+    "t": "Alții",
+    "r": [
+     [
+      "Bază (cm)",
+      "45"
+     ]
+    ]
+   },
+   {
+    "t": "Chiuvetă Lay out",
+    "r": [
+     [
+      "Numărul de cuve",
+      "1"
+     ],
+     [
+      "Numărul de picurătoare",
+      "1"
+     ],
+     [
+      "Poziţia picurătorului",
+      "Reversibil"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Clipuri pentru instalare",
+      "Da"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Teka",
   "mat": "granit",
@@ -2574,7 +2871,119 @@
    "Modalitate de instalare: Inset",
    "Gol de încastrare min. 60 cm"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Lățimea produsului (mm)",
+      "500"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "200"
+     ],
+     [
+      "Lungimea produsului (mm)",
+      "780"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "12,00"
+     ]
+    ]
+   },
+   {
+    "t": "Cuvă principală",
+    "r": [
+     [
+      "Lungimea cuvei principale (mm)",
+      "344"
+     ],
+     [
+      "Lățimea cuvei principale (mm)",
+      "430"
+     ],
+     [
+      "Adâncimea cuvei principale (mm)",
+      "200"
+     ]
+    ]
+   },
+   {
+    "t": "Cuvă secundară",
+    "r": [
+     [
+      "Lungimea cuvei auxiliare (mm)",
+      "164"
+     ],
+     [
+      "Lățimea cuvei auxiliare (mm)",
+      "285"
+     ],
+     [
+      "Adâncimea cuvei auxiliare (mm)",
+      "145"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Granit Tegranite+"
+     ],
+     [
+      "Modalitate de instalare",
+      "Inset"
+     ],
+     [
+      "Numărul de găuri pentru baterii",
+      "Pre-Drilled"
+     ],
+     [
+      "Tip orificiu pentru ţeavă",
+      "3½\""
+     ]
+    ]
+   },
+   {
+    "t": "Alții",
+    "r": [
+     [
+      "Bază (cm)",
+      "60"
+     ]
+    ]
+   },
+   {
+    "t": "Chiuvetă Lay out",
+    "r": [
+     [
+      "Numărul de cuve",
+      "1"
+     ],
+     [
+      "Numărul de picurătoare",
+      "1"
+     ],
+     [
+      "Poziţia picurătorului",
+      "Reversibil"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Clipuri pentru instalare",
+      "Da"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Teka",
   "mat": "granit",
@@ -3908,7 +4317,60 @@
    "Gol de încastrare min. 60 cm",
    "Accesorii incluse: Set de scurgere 3 ½ cu Preaplin şi Pop-up"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Lungimea produsului (mm)",
+      "570"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "510"
+     ]
+    ]
+   },
+   {
+    "t": "Cuvă principală",
+    "r": [
+     [
+      "Lungimea cuvei principale (mm)",
+      "513"
+     ],
+     [
+      "Lățimea cuvei principale (mm)",
+      "358"
+     ],
+     [
+      "Adâncimea cuvei principale (mm)",
+      "180"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Tegranit"
+     ],
+     [
+      "Modalitate de instalare",
+      "Inset"
+     ]
+    ]
+   },
+   {
+    "t": "Alții",
+    "r": [
+     [
+      "Bază (cm)",
+      "60"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Teka",
   "mat": "granit",

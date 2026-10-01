@@ -13,6 +13,50 @@
   "img": [
    "set-vase-pentru-gatit-1.webp",
    "set-vase-pentru-gatit-2.webp"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "563"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "311"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "252"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "3.7"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Oțel inoxidabil 18/10"
+     ],
+     [
+      "Număr de piese",
+      "9"
+     ],
+     [
+      "Grosimea bazei (mm)",
+      "6,3"
+     ],
+     [
+      "Compatibil cu inducția",
+      "Da"
+     ]
+    ]
+   }
   ]
  },
  {
@@ -31,6 +75,38 @@
    "sita-inox-2.webp",
    "sita-inox-3.webp",
    "sita-inox-4.webp"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "74"
+     ],
+     [
+      "Lungimea produsului (mm)",
+      "420"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "200"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "0,88"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Inox"
+     ]
+    ]
+   }
   ]
  },
  {
@@ -72,6 +148,38 @@
    "40199260-4.webp",
    "40199260-5.webp",
    "40199260-6.webp"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "10"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "580"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "428"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "1,16"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Inox"
+     ]
+    ]
+   }
   ]
  },
  {
@@ -90,6 +198,67 @@
    "111510000-2.webp",
    "111510000-3.webp",
    "111510000-4.webp"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "168"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "356"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "347"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "4.2"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "2000"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "80"
+     ],
+     [
+      "Ștecher",
+      "Da"
+     ],
+     [
+      "Conexiune",
+      "VDE"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Element inferior de încălzire (W)",
+      "1000"
+     ]
+    ]
+   }
   ]
  },
  {
@@ -120,6 +289,30 @@
    "115890013-1.webp",
    "115890013-2.webp",
    "115890013-3.webp"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Greutatea produsului (Kgs)",
+      "7,9"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Puterea motorului (W)",
+      "380"
+     ],
+     [
+      "Capacitatea camerei de măcinare (ml)",
+      "980"
+     ]
+    ]
+   }
   ]
  },
  {
@@ -188,6 +381,30 @@
    "tocator-de-deseuri-alimentare-1.webp",
    "tocator-de-deseuri-alimentare-2.webp",
    "tocator-de-deseuri-alimentare-3.webp"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Greutatea produsului (Kgs)",
+      "4,41"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Puterea motorului (W)",
+      "370"
+     ],
+     [
+      "Capacitatea camerei de măcinare (ml)",
+      "857"
+     ]
+    ]
+   }
   ]
  },
  {
@@ -204,6 +421,38 @@
   "img": [
    "115890050-1.webp",
    "115890050-2.webp"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Lățimea produsului (mm)",
+      "160"
+     ],
+     [
+      "Lungimea produsului (mm)",
+      "386"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "5,18"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Puterea motorului (W)",
+      "550"
+     ],
+     [
+      "Capacitatea camerei de măcinare (ml)",
+      "857"
+     ]
+    ]
+   }
   ]
  }
 ]

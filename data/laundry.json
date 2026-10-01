@@ -2021,7 +2021,184 @@
    "Reglarea automată a apei",
    "Sistem automat de siguranță pentru blocarea ușilor"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "70,0 L"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "850"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "630"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "72"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ],
+     [
+      "Certificări",
+      "CE"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50 Hz"
+     ],
+     [
+      "Putere (V)",
+      "220-240 V~"
+     ],
+     [
+      "Conexiune",
+      "EU"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "1.5 m"
+     ],
+     [
+      "Puterea nominală maximă (W)",
+      "2000 W"
+     ],
+     [
+      "Puterea nominală a motorului (W)",
+      "420"
+     ],
+     [
+      "Puterea nominală a elementului de încălzire(W)",
+      "1800"
+     ],
+     [
+      "Lungimea furtunului de evacuare a apei (m)",
+      "1.5"
+     ],
+     [
+      "Lungimea furtunului de admisie a apei (m)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Tambur din inox",
+      "Da"
+     ],
+     [
+      "Număr de programe",
+      "14"
+     ],
+     [
+      "Numărul de temperaturi de spălare",
+      "6"
+     ],
+     [
+      "Panou de control",
+      "Electronic"
+     ],
+     [
+      "Managementul electronic al spălării",
+      "Da"
+     ],
+     [
+      "Sistem de siguranţă pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Ușă cu blocare automată",
+      "Da"
+     ],
+     [
+      "Butonul de anulare a ciclului de centrifugare",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Selectați programul",
+      "Da"
+     ],
+     [
+      "Timp rămas",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Funcții speciale",
+    "r": [
+     [
+      "Program rapid",
+      "Da"
+     ],
+     [
+      "Program rapid (minute)",
+      "15 min"
+     ],
+     [
+      "Program economic",
+      "Da"
+     ],
+     [
+      "Țesături delicate",
+      "Da"
+     ],
+     [
+      "Rezistent",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "src": "md",
   "img": [

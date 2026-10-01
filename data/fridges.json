@@ -415,7 +415,204 @@
    "Termostat electronic reglabil",
    "Deschidere ușoară a ușii la 90º"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "190"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1255"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "540"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "550"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "40"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Nișă încorporată (cm)",
+      "564*560*1220"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "Defrost"
+     ],
+     [
+      "No Frost în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "174"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "16"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "2.5"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "149"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "9"
+     ],
+     [
+      "Clasa climatică",
+      "SN/N/ST/T"
+     ],
+     [
+      "Zgomot (dB)",
+      "35(B)"
+     ],
+     [
+      "Certificări",
+      "CB; CE; TUV; VDE"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220V-240V~"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0.409"
+     ],
+     [
+      "Conexiune",
+      "VDE"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "1800"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "2"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Built-in"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Panou de control",
+      "Electronic"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Tipul de iluminare interioară",
+      "LED"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "4"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "1"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Teka",
   "col": "inox",
@@ -3093,7 +3290,259 @@
    "LongLife No Frost cu 3 circuite independente",
    "Touch Control cu regulator independent de temperatură"
   ],
-  "specs": [],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "637"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "1935"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "908"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "775 (762)"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "133"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "LongLife No Frost"
+     ],
+     [
+      "No Frost în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (chiller)",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (congelator)",
+      "Da"
+     ],
+     [
+      "Capacitate totală brută (litri)",
+      "648"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "455"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "182"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "15"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "339"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "16"
+     ],
+     [
+      "Clasa climatică",
+      "SN/N/ST/T"
+     ],
+     [
+      "Zgomot (dB)",
+      "43"
+     ],
+     [
+      "Certificări",
+      "CE, TUV, GS"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Puterea (W)",
+      "175"
+     ],
+     [
+      "Puterea elementului de dezghețare (W)",
+      "262"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "1,04"
+     ],
+     [
+      "Lungimea cablului de conectare (cm)",
+      "1750"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ușă",
+      "Da"
+     ],
+     [
+      "Uşă inox anti-pată",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "IonClean"
+     ],
+     [
+      "Buton pentru setare grad de congelare",
+      "Da"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Funcția de blocare",
+      "Da"
+     ],
+     [
+      "Congelarea rapidă",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Funcția În Vacanţă",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Tipul de iluminare interioară",
+      "LED"
+     ],
+     [
+      "Mâner integrat",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ],
+     [
+      "Sistem de iluminare interioară (congelator)",
+      "Da"
+     ],
+     [
+      "Afișare temperatură pentru compartimentul congelator",
+      "Da"
+     ],
+     [
+      "Indicator de congelare rapidă",
+      "Da"
+     ],
+     [
+      "Alarmă acustică",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Compartiment polivalent",
+      "MultiZone"
+     ],
+     [
+      "Aparat Twister pentru gheață",
+      "Da"
+     ],
+     [
+      "Tavă pentru cuburi de gheață",
+      "2"
+     ],
+     [
+      "Picioarele din spate reglabile",
+      "Da"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "0"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "4"
+     ]
+    ]
+   }
+  ],
   "pdf": [],
   "b": "Teka",
   "col": "inox",
