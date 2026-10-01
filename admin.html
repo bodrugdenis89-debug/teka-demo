@@ -109,11 +109,17 @@ legend{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.0
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;clear:both}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;clear:both}
 .g1{display:grid;gap:12px;clear:both}
-label.f{display:grid;gap:5px;font-size:12.5px;color:var(--ink2);font-weight:600}
+label.f,div.f{display:grid;gap:5px;font-size:12.5px;color:var(--ink2);font-weight:600}
 label.f small{font-weight:500;color:var(--mute)}
 label.ck{display:flex;align-items:center;gap:8px;font-weight:600;margin-top:22px}
 label.ck input{width:18px;height:18px;accent-color:var(--red)}
 .hint{font-size:12.5px;color:var(--mute);clear:both;margin-top:8px}
+.f.wide{grid-column:1/-1}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{height:34px;padding:0 14px;border-radius:20px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:13px;color:var(--ink2)}
+.chip:hover{border-color:#999}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip.on:before{content:"✓ "}
 /* фото */
 .phs{display:flex;flex-wrap:wrap;gap:10px;clear:both}
 .phs .p{width:112px;height:112px;border:1px solid var(--line);border-radius:10px;position:relative;background:#fff;cursor:grab}
@@ -205,7 +211,12 @@ const FILES=[
   {f:'laundry',n:'Стиральные и сушильные машины'},{f:'accessories',n:'Аксессуары'}];
 const FN=Object.fromEntries(FILES.map(c=>[c.f,c.n]));
 const RO1=new Set(["111020005","111020031","41560140","111010079","111010071","111010082","111000076","111000005","111010012","111010010","111000004","111010086","111000094","111000045","111000010","111000012","111000013","111000011","111000046","111000056","111000026","111200001","111000000","121010037","121020000","121010060","121010007","121210000","121200002","121000001"]);
-const XL={col:'Цвет',kind:'Тип',w:'Ширина, см',width:'Ширина, см',mat:'Материал',bowls:'Количество чаш',cap:'Объём',install:'Встраивание',bottles:'Бутылок',c:'Класс',f:'Функции'};
+const XL={col:'Цвет',kind:'Тип',w:'Ширина, см',width:'Ширина, см',mat:'Материал',bowls:'Количество чаш',cap:'Объём',install:'Встраивание',bottles:'Бутылок',c:'Тип духовки',f:'Функции'};
+const VL={col:{negru:'Чёрный',inox:'Нержавейка',alb:'Белый',gri:'Серый',crem:'Кремовый',crom:'Хром',auriu:'Золотой',antracit:'Антрацит'},
+ kind:{inductie:'Индукция',gaz:'Газ',vitroceramica:'Стеклокерамика',incorporabila:'Встраиваемая',telescopica:'Телескопическая',perete:'Настенная','perete-inclinat':'Наклонная',insula:'Островная',incorporabil:'Встраиваемый',combina:'Комби',congelator:'Морозильник','o-usa':'Однодверный','french-door':'French door','side-by-side':'Side-by-side',standard:'Стандарт',extractibil:'Выдвижной душ',dozator:'Дозатор',osmoza:'Осмос',spalat:'Стирка','spalat-uscat':'Стирка + сушка',uscator:'Сушилка',independent:'Отдельностоящий',espresso:'Кофемашина','cuptor-compact':'Компактная духовка','sertar-termic':'Подогреватель посуды','aparat-de-vidat':'Вакууматор','cuptor-abur':'Паровая духовка'},
+ install:{incorporabil:'Встраиваемый',independent:'Отдельностоящий'},c:{multi:'Мультифункциональный',micro:'С СВЧ'},
+ f:{piro:'Пиролиз',aburi:'Пар',micro:'СВЧ',airfry:'AirFry',pizza:'Пицца 300°'},mat:{granit:'Тегранит',inox:'Нержавейка'},bowls:{1:'1 чаша',2:'2 чаши'}};
+const TXTK=new Set(['cap','bottles']),NUMK=new Set(['w','width','bowls','bottles']);
 const BASE=new Set(['sku','n','name','sub','p','price','o','old','t','d','b','brand','img','draw','label','desc','specs','pdf','u','st','hid','src']);
 
 const $=id=>document.getElementById(id);
@@ -347,7 +358,7 @@ function openEd(f,x,isNew){
   const E=JSON.parse(JSON.stringify(x));ED={f,x,isNew,E,ph:pics(x),phc:false};
   $('et').textContent=isNew?'Новый товар':nm(x)||'Без названия';
   const tr=(c,v)=>(RU.data[c]||{})[v]||'';
-  const extras=Object.keys(E).filter(k=>!BASE.has(k));
+  const fx=Object.keys(E).filter(k=>!BASE.has(k));
   const desc=(E.desc||[]).filter(s=>s!=null);
   $('eb').innerHTML=`
   <fieldset><legend>Основное</legend>
@@ -380,8 +391,11 @@ function openEd(f,x,isNew){
    </div>
   </fieldset>
   <fieldset><legend>Характеристики</legend><div id="sgs"></div><button class="lnk" id="sga">+ Добавить группу</button></fieldset>
-  ${extras.length?`<fieldset><legend>Фильтры в каталоге</legend><div class="g3">${extras.map(k=>`<label class="f">${esc(XL[k]||k)}<input class="t" data-x="${esc(k)}" value="${esc(typeof E[k]==='object'?JSON.stringify(E[k]):E[k])}"></label>`).join('')}</div><div class="hint">Значения как у других товаров этой категории (например, цвет: inox, negru, alb).</div></fieldset>`:''}
-  <fieldset><legend>Документы (PDF)</legend><label class="f">Ссылки, по одной в строке<textarea class="t" id="e_pdf" rows="3">${esc((E.pdf||[]).join('\n'))}</textarea></label></fieldset>`;
+  ${fx.length?`<fieldset><legend>Фильтры в каталоге</legend><div class="g3">${fx.map(k=>filt(k,E[k],f)).join('')}</div><div class="hint">По этим полям покупатель фильтрует товары в каталоге.</div></fieldset>`:''}
+  <fieldset><legend>Документы (PDF)</legend><div class="g1"><label class="f">Ссылки, по одной в строке<textarea class="t" id="e_pdf" rows="3">${esc((E.pdf||[]).join('\n'))}</textarea></label></div></fieldset>`;
+  $('eb').querySelectorAll('.chip').forEach(b=>b.onclick=()=>b.classList.toggle('on'));
+  $('eb').querySelectorAll('select[data-x]').forEach(sl=>sl.addEventListener('change',()=>{if(sl.value!=='__new')return;const v=(prompt('Новое значение (латиницей, как у других товаров):')||'').trim();
+    if(v){const o=new Option(v,v);sl.add(o,sl.options[sl.options.length-1]);sl.value=v}else sl.value=sl.dataset.cur||'';dd(sl)}));
   drawPh();drawSpecs(E.specs||[]);$('eb').querySelectorAll('select').forEach(dd);
   $('sga').onclick=()=>{const s=readSpecs();s.push({t:'',r:[['','']]});drawSpecs(s)};
   $('edl').hidden=!!isNew;
@@ -389,6 +403,18 @@ function openEd(f,x,isNew){
 function closeEd(){ED=null;$('ov').classList.remove('on');$('ed').classList.remove('on');$('ed').setAttribute('aria-hidden','true')}
 $('ec').onclick=$('ex').onclick=$('ov').onclick=()=>closeEd();
 addEventListener('keydown',e=>{if(e.key==='Escape'&&ED)closeEd()});
+
+/* поле фильтра: варианты берём из товаров этой категории */
+function filt(k,v,f){
+  const L=XL[k]||k,vl=VL[k]||{},seen=new Set();
+  DB[f].items.forEach(y=>{const z=y[k];(Array.isArray(z)?z:[z]).forEach(e=>{if(e!==''&&e!=null)seen.add(String(e))})});
+  Object.keys(vl).forEach(e=>{if(Array.isArray(v)||seen.size)seen.add(e)});
+  const vals=[...seen].sort((a,b)=>isNaN(a)||isNaN(b)?(vl[a]||a).localeCompare(vl[b]||b):a-b);
+  const nm=e=>vl[e]?vl[e]:e;
+  if(Array.isArray(v))return `<div class="f wide"><span>${esc(L)}</span><div class="chips" data-xa="${esc(k)}">${vals.map(e=>`<button type="button" class="chip ${v.map(String).includes(e)?'on':''}" data-v="${esc(e)}">${esc(nm(e))}</button>`).join('')}</div></div>`;
+  if(TXTK.has(k))return `<label class="f">${esc(L)}<input class="t" data-x="${esc(k)}" value="${esc(v)}"></label>`;
+  const cur=String(v??'');if(cur&&!vals.includes(cur))vals.push(cur);
+  return `<label class="f">${esc(L)}<select class="t" data-x="${esc(k)}" data-cur="${esc(cur)}"><option value="">—</option>${vals.map(e=>`<option value="${esc(e)}" ${e===cur?'selected':''}>${esc(nm(e))}${NUMK.has(k)&&!vl[e]&&(k==='w'||k==='width')?' см':''}</option>`).join('')}<option value="__new">+ Другое значение…</option></select></label>`}
 
 /* фото */
 function drawPh(){
@@ -443,8 +469,9 @@ $('eo').onclick=()=>{if(!ED)return;const {x,isNew}=ED;let f=ED.f;
   else if(dr.length)toast('Русских строк преимуществ не столько же, сколько румынских — перевод не сохранён',true);
   x.specs=readSpecs().filter(g=>g.t||g.r.length);
   x.pdf=lines($('e_pdf').value);
-  $('eb').querySelectorAll('[data-x]').forEach(el=>{const k=el.dataset.x,v=el.value.trim(),o=ED.E[k];
-    if(typeof o==='number')x[k]=v===''?'':(isNaN(+v)?v:+v);else if(o&&typeof o==='object'){try{x[k]=JSON.parse(v||'[]')}catch(e){}}else x[k]=v});
+  $('eb').querySelectorAll('[data-x]').forEach(el=>{const k=el.dataset.x,v=el.value.trim();
+    x[k]=(typeof ED.E[k]==='number'||NUMK.has(k))&&v!==''&&!isNaN(+v)?+v:v});
+  $('eb').querySelectorAll('[data-xa]').forEach(el=>{x[el.dataset.xa]=[...el.querySelectorAll('.chip.on')].map(b=>b.dataset.v)});
   if(ED.phc)x.u=ED.ph.slice();
   if(isNew)DB[f].items.unshift(x);
   touch(x,f);closeEd();draw();toast(isNew?'Товар добавлен. Не забудьте «Сохранить на сайт».':'Изменения применены. Нажмите «Сохранить на сайт».')};
