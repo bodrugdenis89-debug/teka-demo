@@ -12,6 +12,10 @@ const st=document.createElement('style');st.textContent=`
 .mgp b{padding:0 10px 0 12px;font-weight:600;display:flex;align-items:center;gap:7px}.mgp b:before{content:"";width:7px;height:7px;border-radius:50%;background:#3ccf7a}
 .mgp button{height:32px;padding:0 13px;border-radius:16px;color:#fff;font-weight:600;font-size:13px}.mgp button:hover{background:#333}.mgp button.on{background:var(--red)}
 .mgp em{font-style:normal;background:#fff;color:var(--ink);border-radius:9px;padding:0 6px;margin-left:6px;font-size:11.5px}
+.top .mgp{position:static;background:none;color:var(--mute);box-shadow:none;padding:0;border-radius:0;gap:16px;font-size:12.5px}
+.top .mgp b{padding:0;font-weight:500;gap:6px}.top .mgp b:before{width:6px;height:6px;opacity:.8}
+.top .mgp button{height:auto;padding:0;border-radius:0;background:none;color:var(--mute);font-weight:500;font-size:12.5px}.top .mgp button:hover,.top .mgp button.on{background:none;color:var(--ink)}
+.top .mgp em{background:var(--line);color:var(--ink);margin-left:5px}
 .mgb{position:absolute;right:10px;top:10px;z-index:3;height:30px;padding:0 11px;border-radius:15px;background:rgba(22,22,22,.86);color:#fff;font-size:12px;font-weight:600}
 .mgb.on{background:var(--ok)}
 .mgw{position:fixed;inset:0;z-index:95;background:rgba(0,0,0,.35);display:none}.mgw.on{display:block}
@@ -70,7 +74,7 @@ function mark(){document.querySelectorAll('.pc[data-sku]').forEach(a=>{let b=q('
     const on=has(a.dataset.f,a.dataset.sku);b.classList.toggle('on',on);b.textContent=on?'✓ В подборке':'+ Подборка'});
   const ad=q('#add');if(ad&&typeof SKU!=='undefined'&&typeof F!=='undefined'){let b=q('#mgAdd');if(!b){b=document.createElement('button');b.id='mgAdd';b.type='button';ad.after(b)}const on=has(F,SKU);b.classList.toggle('on',on);b.textContent=on?'✓ В подборке':'+ В подборку'}}
 
-function bar(){if(!M)return;let p=q('.mgp');if(!p){p=document.createElement('div');p.className='mgp';document.body.appendChild(p)}
+function bar(){if(!M)return;let p=q('.mgp');if(!p){p=document.createElement('div');p.className='mgp';const t=q('.top .wrap');t?t.insertBefore(p,q('#lng')||null):document.body.appendChild(p)}
   const n=S.items.reduce((a,i)=>a+i.q,0);p.innerHTML=`<b>${he(M.n)}</b><button data-m="sel" class="${n?'on':''}">Подборка${n?`<em>${n}</em>`:''}</button><button data-m="out" title="Выйти из режима менеджера">Выйти</button>`}
 
 /* расчёт как на сервере */

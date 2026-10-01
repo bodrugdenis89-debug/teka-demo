@@ -834,22 +834,22 @@ async function drawClients(){
    <select class="t" id="clm"><option value="">Все менеджеры</option>${MG.map(m=>`<option ${CLM===m?'selected':''}>${esc(m)}</option>`).join('')}</select>
    <select class="t" id="clt"><option value="">Все теги</option>${TG.map(m=>`<option ${CLT===m?'selected':''}>${esc(m)}</option>`).join('')}</select>
    <select class="t" id="clo"><option value="last" ${CLO==='last'?'selected':''}>Сначала недавние</option><option value="tot" ${CLO==='tot'?'selected':''}>По сумме заказов</option><option value="nm" ${CLO==='nm'?'selected':''}>По имени</option></select>
-   <button class="btn" id="clx">Экспорт CSV</button><button class="btn" id="clr">Обновить</button>`;
+   <button class="btn" id="clx">Экспорт CSV</button><button class="btn" id="clr">Обновить</button><button class="btn r" id="cln">+ Новый клиент</button>`;
   ['clm','clt','clo'].forEach(i=>{dd($(i));$(i).onchange=e=>{({clm:v=>CLM=v,clt:v=>CLT=v,clo:v=>CLO=v})[i](e.target.value);drawClients()}});
   let qt2;$('clq').oninput=e=>{clearTimeout(qt2);qt2=setTimeout(()=>{CLQ=e.target.value;drawClients();const i=$('clq');i.focus();i.setSelectionRange(i.value.length,i.value.length)},250)};
-  $('clr').onclick=()=>{CLS=null;drawClients()};$('clx').onclick=()=>csvOut(L);
+  $('clr').onclick=()=>{CLS=null;drawClients()};$('cln').onclick=()=>openClient();$('clx').onclick=()=>csvOut(L);
   $('vw').innerHTML=L.length?`<table><thead><tr><th>Клиент</th><th>Город</th><th>Менеджер</th><th>Теги</th><th>Заказы</th><th>Подборки</th><th>Сумма заказов</th><th>Последний контакт</th><th></th></tr></thead><tbody>${L.map(c=>`<tr data-t="${esc(c.tel)}"><td class="nm"><b>${esc(c.n||'без имени')}</b><small>${esc(c.tel)}</small></td><td class="ct">${esc(c.c||'—')}</td><td class="ct">${esc(c.mg||'—')}</td>
     <td>${(c.tg||[]).map(t=>`<span class="pill">${esc(t)}</span>`).join('')||'—'}</td><td class="sk">${c.no||0}</td><td class="sk">${c.nf||0}</td><td class="sk"><b>${(c.tot||0).toLocaleString('ru-RU')} MDL</b></td><td class="sk">${ddate(c.last)}</td><td><button class="ebtn">Открыть</button></td></tr>`).join('')}</tbody></table>
-    <div class="hint" style="margin-top:12px">Клиенты появляются автоматически из заказов и подборок, где указан телефон. Сумма — по заказам без отменённых.</div>`:'<div class="empty">Клиентов пока нет. Они появятся из заказов и подборок менеджеров с телефоном.</div>';
+    <div class="hint" style="margin-top:12px">Клиенты появляются автоматически из заказов и подборок, где указан телефон. Сумма — по заказам без отменённых.</div>`:'<div class="empty">Клиентов пока нет. Добавьте вручную кнопкой «+ Новый клиент» — или они появятся сами из заказов и подборок менеджеров с телефоном.</div>';
   $('vw').querySelectorAll('tr[data-t] .ebtn').forEach(b=>b.onclick=()=>openClient(b.closest('tr').dataset.t))}
 function csvOut(L){const c=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
   const t='﻿'+[['Имя','Телефон','Город','Менеджер','Теги','Заказов','Подборок','Сумма заказов, MDL','Последний контакт'].map(c).join(';')].concat(L.map(k=>[k.n,k.tel,k.c,k.mg,(k.tg||[]).join(', '),k.no||0,k.nf||0,k.tot||0,ddate(k.last)].map(c).join(';'))).join('\r\n');
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'text/csv;charset=utf-8'}));a.download='teka-clients-'+today()+'.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
-async function openClient(tel){let c;try{c=await api('/api/client?tel='+encodeURIComponent(tel))}catch(e){return toast(e.message,true)}
+async function openClient(tel){let c;const nw=!tel;if(nw)c={tel:'',name:'',city:'',addr:'',mg:'',notes:'',tags:[],orders:[],offers:[]};else try{c=await api('/api/client?tel='+encodeURIComponent(tel))}catch(e){return toast(e.message,true)}
   const MG=[...new Set((CLS||[]).map(k=>k.mg).concat(ORD?ORD.map(o=>o.mg):[]).filter(Boolean))].sort();
   const tags=[...new Set(TAGS0.concat(c.tags||[]))];
-  tlOpen((c.name||'Клиент')+' · '+c.tel,`
-  <fieldset><legend>Карточка</legend><div class="g3">
+  tlOpen(nw?'Новый клиент':(c.name||'Клиент')+' · '+c.tel,`
+  <fieldset><legend>Карточка</legend>${nw?'<div class="g3" style="margin-bottom:12px"><label class="f">Телефон<input class="t" id="c_t" type="tel" placeholder="+373 6X XXX XXX"></label></div>':''}<div class="g3">
    <label class="f">Имя<input class="t" id="c_n" value="${esc(c.name)}"></label>
    <label class="f">Город<input class="t" id="c_c" value="${esc(c.city)}"></label>
    <label class="f">Кто ведёт<input class="t" id="c_m" value="${esc(c.mg)}" list="c_ml" placeholder="Менеджер"><datalist id="c_ml">${MG.map(m=>`<option value="${esc(m)}">`).join('')}</datalist></label></div>
@@ -861,8 +861,10 @@ async function openClient(tel){let c;try{c=await api('/api/client?tel='+encodeUR
   <fieldset><legend>Подборки (${c.offers.length})</legend>${c.offers.length?`<table class="pv"><thead><tr><th>Дата</th><th>Подборка</th><th>Менеджер</th><th style="text-align:right">Сумма</th></tr></thead><tbody>${c.offers.map(o=>`<tr><td>${dt(o.t)}</td><td><a href="desk-offer.html?o=${esc(o.id)}&nv=1" target="_blank" rel="noopener">№${esc(o.id)} ↗</a></td><td>${esc(o.mg||'—')}</td><td class="n"><b>${(o.tot||0).toLocaleString('ru-RU')}</b></td></tr>`).join('')}</tbody></table>`:'<div class="hint">Подборок нет</div>'}</fieldset>`,
   FT('Сохранить'),{click:e=>{const b=e.target.closest('#c_tg .chip');if(b)b.classList.toggle('on')},
    act:{ok:async()=>{const nt=$('c_nt').value.trim();const tg=[...$('c_tg').querySelectorAll('.chip.on')].map(b=>b.dataset.v).concat(nt?[nt]:[]);
-     try{const r=await api('/api/client',{tel:c.tel,name:$('c_n').value.trim(),city:$('c_c').value.trim(),addr:$('c_a').value.trim(),mg:$('c_m').value.trim(),notes:$('c_no').value,tags:tg});
-       const k=(CLS||[]).find(x=>x.tel===c.tel);if(k)Object.assign(k,{n:r.name,c:r.city,mg:r.mg,tg:r.tags});tlClose();drawClients();toast('Клиент сохранён')}catch(e){toast('Не сохранилось: '+e.message,true)}}}});
+     const tel=nw?$('c_t').value.trim():c.tel;if(nw&&tel.replace(/\D/g,'').length<8){$('c_t').focus();return toast('Укажите телефон клиента',true)}
+     if(nw&&(CLS||[]).some(k=>k.tel.replace(/\D/g,'').endsWith(tel.replace(/\D/g,'').replace(/^0/,'').slice(-8)))&&!confirm('Клиент с таким телефоном уже есть. Обновить его карточку?'))return;
+     try{const r=await api('/api/client',{tel,name:$('c_n').value.trim(),city:$('c_c').value.trim(),addr:$('c_a').value.trim(),mg:$('c_m').value.trim(),notes:$('c_no').value,tags:tg});
+       const k=(CLS||[]).find(x=>x.tel===r.tel);if(k)Object.assign(k,{n:r.name,c:r.city,mg:r.mg,tg:r.tags});else if(CLS)CLS.push({tel:r.tel,n:r.name,c:r.city,mg:r.mg,tg:r.tags,tot:0,last:0,no:0,nf:0});tlClose();drawClients();toast(nw?'Клиент добавлен':'Клиент сохранён')}catch(e){toast('Не сохранилось: '+e.message,true)}}}});
   $('c_nt').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();const v=e.target.value.trim();if(v){e.target.insertAdjacentHTML('beforebegin',`<button type="button" class="chip on" data-v="${esc(v)}">${esc(v)}</button>`);e.target.value=''}}}}
 
 /* история */
