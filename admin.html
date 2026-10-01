@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Teka — админка</title>
-<link rel="icon" href="assets/teka-logo.svg">
+<link rel="icon" href="assets/teka-logo-sq.svg">
 <style>
 :root{--red:#E30613;--ink:#141414;--ink2:#3a3a3a;--mute:#767676;--line:#E6E6E6;--soft:#F5F5F5;--ok:#1A7F37;--warn:#B26B00;--bg:#fff}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -26,14 +26,14 @@ input.t:focus,select.t:focus,textarea.t:focus{outline:2px solid #111;outline-off
 #login{position:fixed;inset:0;display:grid;place-items:center;background:var(--soft);z-index:50}
 #login[hidden]{display:none}
 #login form{background:#fff;border-radius:16px;padding:36px;width:min(360px,92vw);display:grid;gap:14px;box-shadow:0 10px 40px rgba(0,0,0,.06)}
-#login img{height:36px;justify-self:start}
+#login img{width:64px;height:64px;justify-self:start;border-radius:10px}
 #login h1{font-size:20px}
 #login .er{color:var(--red);min-height:20px;font-size:13px}
 /* шапка */
 header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
 .hb{display:flex;align-items:center;gap:12px;padding:12px 20px;flex-wrap:wrap}
 .hb .lg{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-right:8px}
-.hb .lg img{height:26px}
+.hb .lg img{width:34px;height:34px;border-radius:6px}
 .hb .q{flex:1 1 260px;max-width:420px}
 .hb .sp{flex:1}
 .hb select.t{width:auto;min-width:150px}
@@ -127,7 +127,7 @@ label.ck input{width:18px;height:18px;accent-color:var(--red)}
 
 <div id="login" hidden>
   <form id="lf">
-    <img src="assets/teka-logo.svg" alt="TEKA">
+    <img src="assets/teka-logo-sq.svg" alt="TEKA">
     <h1>Вход в админку</h1>
     <input class="t" id="lp" type="password" placeholder="Пароль" autocomplete="current-password" required>
     <button class="btn r" type="submit">Войти</button>
@@ -137,7 +137,7 @@ label.ck input{width:18px;height:18px;accent-color:var(--red)}
 
 <header>
   <div class="hb">
-    <div class="lg"><img src="assets/teka-logo.svg" alt="TEKA">Админка</div>
+    <div class="lg"><img src="assets/teka-logo-sq.svg" alt="TEKA">Админка</div>
     <input class="t q" id="q" type="search" placeholder="Поиск: модель, код, описание">
     <select class="t" id="fc"></select>
     <select class="t" id="fs">
