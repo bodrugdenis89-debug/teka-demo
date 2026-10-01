@@ -26,17 +26,38 @@ input.t:focus,select.t:focus,textarea.t:focus{outline:2px solid #111;outline-off
 #login{position:fixed;inset:0;display:grid;place-items:center;background:var(--soft);z-index:50}
 #login[hidden]{display:none}
 #login form{background:#fff;border-radius:16px;padding:36px;width:min(360px,92vw);display:grid;gap:14px;box-shadow:0 10px 40px rgba(0,0,0,.06)}
-#login img{width:64px;height:64px;justify-self:start;border-radius:10px}
+#login img{width:76px;height:76px;justify-self:start}
 #login h1{font-size:20px}
 #login .er{color:var(--red);min-height:20px;font-size:13px}
 /* шапка */
 header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
 .hb{display:flex;align-items:center;gap:12px;padding:12px 20px;flex-wrap:wrap}
 .hb .lg{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-right:8px}
-.hb .lg img{width:34px;height:34px;border-radius:6px}
+.hb .lg img{width:64px;height:64px;margin:-12px 0 -12px -20px;align-self:flex-start}
+.hb .lg{align-self:stretch;align-items:center}
 .hb .q{flex:1 1 260px;max-width:420px}
 .hb .sp{flex:1}
 .hb select.t{width:auto;min-width:150px}
+/* выпадающие списки */
+.dd{position:relative}
+.dd>button{height:38px;border:1px solid var(--line);border-radius:8px;background:#fff;padding:0 38px 0 14px;font-weight:600;min-width:180px;text-align:left;position:relative;white-space:nowrap;width:100%}
+.dd>button:hover{border-color:#bbb}
+.dd>button:after{content:"";position:absolute;right:14px;top:50%;width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.dd.on>button{border-color:var(--ink)}
+.dd.on>button:after{transform:translateY(-20%) rotate(-135deg)}
+.dd ul{position:fixed;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 36px rgba(0,0,0,.13);padding:6px;list-style:none;z-index:40;display:none;max-height:70vh;overflow:auto}
+.dd.on ul{display:block}
+.dd li{padding:9px 12px;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;white-space:nowrap}
+.dd li:hover{background:var(--soft)}
+.dd li span{flex:1}
+.dd li small{color:var(--mute);font-weight:600;font-size:12.5px;background:var(--soft);border-radius:20px;padding:1px 8px}
+.dd li:hover small{background:#fff}
+.dd li.sel{color:var(--red);font-weight:700}
+td.st .dd>button,#ed .dd>button{min-width:0}
+td.st .dd>button{height:34px;width:140px;font-weight:600}
+td.st .dd.order>button,td.st .dd.out>button{color:var(--warn);border-color:#f0d9b5;background:#FFFAF0}
+#ed .dd>button{font-weight:500}
+.dd li.sel:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);margin-right:-10px;flex:none}
 /* таблица */
 main{padding:16px 20px 120px}
 #tw{overflow-x:auto;border-radius:12px}
@@ -233,9 +254,27 @@ async function load(){
     const rd=u=>fetch(u,{cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null);
     [PHO,GL]=await Promise.all([rd('data/photos.json').then(j=>j||{}),rd('data/gallery.json').then(j=>j||{lo:{}})]);
     DIRTY.clear();CHG.clear();UP={};
-    $('fc').innerHTML='<option value="">Все категории</option>'+FILES.map(c=>`<option value="${c.f}">${c.n} (${DB[c.f].items.length})</option>`).join('');
+    $('fc').innerHTML='<option value="">Все категории</option>'+FILES.map(c=>`<option value="${c.f}">${c.n} (${DB[c.f].items.length})</option>`).join('');dd($('fc'));
     draw();bar()}
   catch(e){if(e.status!==401)$('tw').innerHTML=`<div class="empty">Не удалось загрузить: ${esc(e.message)}</div>`}}
+
+/* свои выпадающие списки вместо системных */
+function dd(sel){
+  let w=sel._dd;
+  if(!w){w=document.createElement('div');w.className='dd';sel.after(w);sel.hidden=true;sel._dd=w;
+    w.addEventListener('click',e=>{const li=e.target.closest('li');
+      if(li){sel.value=li.dataset.v;sel.dispatchEvent(new Event('change',{bubbles:true}));w.classList.remove('on');dd(sel);return}
+      if(e.target.closest('button')){const o=w.classList.contains('on');ddClose();if(!o){w.classList.add('on');ddPlace(w)}}})}
+  const sp=t=>{const m=t.match(/^(.*?)\s*\((\d+)\)$/);return m?[m[1],m[2]]:[t,'']};
+  w.className='dd '+(sel.value||'');const cur=sel.options[sel.selectedIndex];
+  w.innerHTML=`<button type="button">${esc(sp(cur?cur.text:'')[0])}</button><ul>${[...sel.options].map(o=>{const [t,n]=sp(o.text);return `<li data-v="${esc(o.value)}" class="${o.value===sel.value?'sel':''}"><span>${esc(t)}</span>${n?`<small>${n}</small>`:''}</li>`}).join('')}</ul>`}
+const ddClose=()=>document.querySelectorAll('.dd.on').forEach(x=>x.classList.remove('on'));
+function ddPlace(w){const b=w.querySelector('button').getBoundingClientRect(),u=w.querySelector('ul');u.style.minWidth=b.width+'px';u.style.left=Math.min(b.left,innerWidth-u.offsetWidth-8)+'px';
+  const h=u.offsetHeight;u.style.top=(b.bottom+6+h>innerHeight&&b.top-6-h>0?b.top-6-h:b.bottom+6)+'px'}
+document.addEventListener('click',e=>{if(!e.target.closest('.dd'))ddClose()});
+addEventListener('keydown',e=>{if(e.key==='Escape')ddClose()});
+addEventListener('scroll',e=>{if(!(e.target.closest&&e.target.closest('.dd ul')))ddClose()},true);addEventListener('resize',ddClose);
+dd($('fs'));
 
 /* список */
 function rows(){const q=$('q').value.trim().toLowerCase(),fc=$('fc').value,fs=$('fs').value;const R=[];
@@ -261,13 +300,14 @@ function draw(){ROWS=rows();
    <td class="pr"><input class="t" data-k="o" value="${od(x)>pr(x)?od(x):''}" inputmode="numeric" placeholder="—"><span class="pc">${pct(x)}</span></td>
    <td class="st"><select class="t ${x.st||''}" data-k="st"><option value="">В наличии</option><option value="order" ${x.st==='order'?'selected':''}>Под заказ</option><option value="out" ${x.st==='out'?'selected':''}>Нет в наличии</option></select></td>
    <td><button class="eye ${x.hid?'off':''}" data-k="hid" title="${x.hid?'Скрыт с сайта — показать':'Виден на сайте — скрыть'}">${x.hid?EYE0:EYE}</button></td>
-   <td><button class="ebtn" data-k="ed">Изменить</button></td></tr>`).join('')}</tbody></table>`}
+   <td><button class="ebtn" data-k="ed">Изменить</button></td></tr>`).join('')}</tbody></table>`;
+  $('tw').querySelectorAll('td.st select').forEach(dd)}
 const num=v=>{const n=parseInt(String(v).replace(/[^\d]/g,''),10);return isNaN(n)?0:n};
 function touch(x,f){DIRTY.add(x);CHG.add(f);bar()}
 $('tw').addEventListener('change',e=>{const el=e.target,tr=el.closest('tr');if(!tr)return;const {f,x}=ROWS[+tr.dataset.i];
   if(el.dataset.k==='p'||el.dataset.k==='o'){const ins=tr.querySelectorAll('td.pr input');const p=num(ins[0].value),o=num(ins[1].value);
     setPrice(x,p,o);ins[0].value=p||'';ins[1].value=od(x)>pr(x)?od(x):'';tr.querySelectorAll('td.pr .pc')[1].textContent=pct(x)}
-  if(el.dataset.k==='st'){if(el.value)x.st=el.value;else delete x.st;el.className='t '+(x.st||'')}
+  if(el.dataset.k==='st'){if(el.value)x.st=el.value;else delete x.st;el.className='t '+(x.st||'');dd(el)}
   touch(x,f);tr.classList.add('dz')});
 $('tw').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const tr=b.closest('tr');const {f,x}=ROWS[+tr.dataset.i];
   if(b.dataset.k==='hid'){if(x.hid)delete x.hid;else x.hid=true;touch(x,f);draw()}
@@ -341,7 +381,7 @@ function openEd(f,x,isNew){
   <fieldset><legend>Характеристики</legend><div id="sgs"></div><button class="lnk" id="sga">+ Добавить группу</button></fieldset>
   ${extras.length?`<fieldset><legend>Фильтры в каталоге</legend><div class="g3">${extras.map(k=>`<label class="f">${esc(XL[k]||k)}<input class="t" data-x="${esc(k)}" value="${esc(typeof E[k]==='object'?JSON.stringify(E[k]):E[k])}"></label>`).join('')}</div><div class="hint">Значения как у других товаров этой категории (например, цвет: inox, negru, alb).</div></fieldset>`:''}
   <fieldset><legend>Документы (PDF)</legend><label class="f">Ссылки, по одной в строке<textarea class="t" id="e_pdf" rows="3">${esc((E.pdf||[]).join('\n'))}</textarea></label></fieldset>`;
-  drawPh();drawSpecs(E.specs||[]);
+  drawPh();drawSpecs(E.specs||[]);$('eb').querySelectorAll('select').forEach(dd);
   $('sga').onclick=()=>{const s=readSpecs();s.push({t:'',r:[['','']]});drawSpecs(s)};
   $('edl').hidden=!!isNew;
   $('ov').classList.add('on');$('ed').classList.add('on');$('ed').setAttribute('aria-hidden','false');$('eb').scrollTop=0}
