@@ -2,7 +2,7 @@
  "promos": [
   {
    "id": "mupgrg73",
-   "on": true,
+   "on": false,
    "ro": "test",
    "ru": "test",
    "from": "2026-10-01",
