@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Teka — админка</title>
+<title data-i18n>Teka — админка</title>
 <link rel="icon" href="assets/teka-logo-sq.svg">
 <style>
 :root{--red:#E30613;--ink:#141414;--ink2:#3a3a3a;--mute:#767676;--line:#E6E6E6;--soft:#F5F5F5;--ok:#1A7F37;--warn:#B26B00;--bg:#fff}
@@ -128,6 +128,7 @@ label.ck input{width:18px;height:18px;accent-color:var(--red)}
 .phs .p img{width:100%;height:100%;object-fit:contain;border-radius:10px;pointer-events:none}
 .phs .p:first-child{border:2px solid var(--ink)}
 .phs .p:first-child:after{content:"Главное";position:absolute;left:6px;bottom:6px;background:var(--ink);color:#fff;font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:4px}
+html[lang=ro] .phs .p:first-child:after{content:"Principală"}
 .phs .p.new:before{content:"новое";position:absolute;right:6px;bottom:6px;background:var(--ok);color:#fff;font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:4px}
 .phs .p button{position:absolute;top:-8px;right:-8px;width:24px;height:24px;border-radius:50%;background:#fff;border:1px solid var(--line);font-size:15px;line-height:1;box-shadow:0 1px 4px rgba(0,0,0,.12)}
 .phs .p button:hover{background:var(--red);color:#fff;border-color:var(--red)}
@@ -184,7 +185,14 @@ td.od input{width:64px;height:34px;text-align:center}
 .kv{display:grid;grid-template-columns:150px 1fr;gap:6px 14px;font-size:13.5px;clear:both}.kv b{color:var(--mute);font-weight:600}
 .warnb{background:#FFF8E6;border:1px solid #f0d9b5;border-radius:10px;padding:10px 14px;font-size:13px;margin-top:10px;clear:both}
 @media (max-width:900px){.hb .q{max-width:none;flex-basis:100%;order:5}td.ct,th.ct,td.sk,th.sk{display:none}.g2,.g3{grid-template-columns:1fr}.eh,.eb,.ef{padding-left:16px;padding-right:16px}main{padding:12px 8px 120px}}
+html[lang=ro] .phs .p.new:before{content:"nouă"}
+.lsw{display:inline-flex;height:38px;border:1px solid var(--line);border-radius:8px;background:#fff;overflow:hidden;flex:none}
+.lsw button{padding:0 12px;font-weight:700;font-size:13px;color:var(--mute)}
+.lsw button:hover{color:var(--ink)}
+.lsw button.on{background:var(--ink);color:#fff}
+#login form{position:relative}#login .lsw{position:absolute;top:20px;right:20px;height:32px}
 .pv td.oi{display:flex;align-items:center;gap:12px}.pv td.oi img{width:48px;height:48px;flex:none;object-fit:contain;border:1px solid var(--line);border-radius:8px;background:#fff}
+.odel{width:36px;height:36px;margin-left:8px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--mute);display:inline-grid;place-items:center;vertical-align:middle;cursor:pointer;transition:color .15s,border-color .15s}.odel:hover{color:var(--red);border-color:var(--red)}
 </style>
 </head>
 <body>
@@ -192,35 +200,37 @@ td.od input{width:64px;height:34px;text-align:center}
 <div id="login" hidden>
   <form id="lf">
     <img src="assets/teka-logo-sq.svg" alt="TEKA">
-    <h1>Вход в админку</h1>
-    <input class="t" id="lp" type="password" placeholder="Пароль" autocomplete="current-password" required>
-    <button class="btn r" type="submit">Войти</button>
+    <div class="lsw"><button type="button" data-lang="ru">RU</button><button type="button" data-lang="ro">RO</button></div>
+    <h1 data-i18n>Вход в админку</h1>
+    <input class="t" id="lp" type="password" placeholder="Пароль" data-i18n-ph autocomplete="current-password" required>
+    <button class="btn r" type="submit" data-i18n>Войти</button>
     <div class="er" id="le"></div>
   </form>
 </div>
 
 <header>
   <div class="hb">
-    <div class="lg"><img src="assets/teka-logo-sq.svg" alt="TEKA">Админка</div>
-    <div class="iv"><input class="t q" id="q" type="search" placeholder="Поиск: модель, код, описание">
+    <div class="lg"><img src="assets/teka-logo-sq.svg" alt="TEKA"><span data-i18n>Админка</span></div>
+    <div class="iv"><input class="t q" id="q" type="search" placeholder="Поиск: модель, код, описание" data-i18n-ph>
     <select class="t" id="fc"></select>
     <select class="t" id="fs">
-      <option value="">Все товары</option>
-      <option value="sale">Со скидкой</option>
-      <option value="noprice">Без цены</option>
-      <option value="order">Под заказ</option>
-      <option value="out">Нет в наличии</option>
-      <option value="hid">Скрытые</option>
-      <option value="tag">Хит или новинка</option>
-      <option value="promo">В акции</option>
-      <option value="dirty">Изменённые</option>
+      <option value="" data-i18n>Все товары</option>
+      <option value="sale" data-i18n>Со скидкой</option>
+      <option value="noprice" data-i18n>Без цены</option>
+      <option value="order" data-i18n>Под заказ</option>
+      <option value="out" data-i18n>Нет в наличии</option>
+      <option value="hid" data-i18n>Скрытые</option>
+      <option value="tag" data-i18n>Хит или новинка</option>
+      <option value="promo" data-i18n>В акции</option>
+      <option value="dirty" data-i18n>Изменённые</option>
     </select></div>
     <span class="sp"></span>
-    <div class="iv"><button class="btn r" id="nw">+ Новый товар</button></div>
-    <a class="btn" href="desk-catalog.html" target="_blank" rel="noopener">Сайт ↗</a>
-    <button class="btn" id="lo" title="Выйти">Выйти</button>
+    <div class="iv"><button class="btn r" id="nw" data-i18n>+ Новый товар</button></div>
+    <a class="btn" href="desk-catalog.html" target="_blank" rel="noopener" data-i18n>Сайт ↗</a>
+    <div class="lsw" id="lsw"><button type="button" data-lang="ru">RU</button><button type="button" data-lang="ro">RO</button></div>
+    <button class="btn" id="lo" title="Выйти" data-i18n-ti data-i18n>Выйти</button>
   </div>
-  <nav class="tabs" id="nav"><button data-v="items">Товары</button><button data-v="promo">Акции</button><button data-v="check">Проверка каталога</button><button data-v="site">Контакты и тексты</button><button data-v="orders">Заказы</button><button data-v="offers">Подборки</button><button data-v="clients">Клиенты</button><button data-v="hist">История</button></nav>
+  <nav class="tabs" id="nav"><button data-v="items" data-i18n>Товары</button><button data-v="promo" data-i18n>Акции</button><button data-v="check" data-i18n>Проверка каталога</button><button data-v="site" data-i18n>Контакты и тексты</button><button data-v="orders">Заказы</button><button data-v="offers" data-i18n>Подборки</button><button data-v="clients" data-i18n>Клиенты</button><button data-v="hist" data-i18n>История</button></nav>
 </header>
 
 <main>
@@ -229,34 +239,141 @@ td.od input{width:64px;height:34px;text-align:center}
   <div id="vw" hidden></div>
 </main>
 
-<div id="bar"><span id="bt"></span><button class="btn g" id="bu">Отменить</button><button class="btn r" id="bs">Сохранить на сайт</button></div>
+<div id="bar"><span id="bt"></span><button class="btn g" id="bu" data-i18n>Отменить</button><button class="btn r" id="bs" data-i18n>Сохранить на сайт</button></div>
 
 <div id="ov"></div>
 <aside id="ed" aria-hidden="true">
-  <div class="eh"><h2 id="et"></h2><button class="btn" id="ec">Закрыть</button></div>
+  <div class="eh"><h2 id="et"></h2><button class="btn" id="ec" data-i18n>Закрыть</button></div>
   <div class="eb" id="eb"></div>
-  <div class="ef"><button class="del" id="edl">Удалить товар</button><span class="sp"></span><button class="btn" id="edu" title="Применить правки и создать копию товара">Дублировать</button><button class="btn" id="ex">Отмена</button><button class="btn k" id="eo">Готово</button></div>
+  <div class="ef"><button class="del" id="edl" data-i18n>Удалить товар</button><span class="sp"></span><button class="btn" id="edu" title="Применить правки и создать копию товара" data-i18n-ti data-i18n>Дублировать</button><button class="btn" id="ex" data-i18n>Отмена</button><button class="btn k" id="eo" data-i18n>Готово</button></div>
 </aside>
 <aside id="tl" aria-hidden="true">
-  <div class="eh"><h2 id="tlt"></h2><button class="btn" id="tlc">Закрыть</button></div>
+  <div class="eh"><h2 id="tlt"></h2><button class="btn" id="tlc" data-i18n>Закрыть</button></div>
   <div class="eb" id="tlb"></div>
   <div class="ef" id="tlf"></div>
 </aside>
 
 <div id="toast"></div>
-<div id="busy">Сохраняю…</div>
+<div id="busy" data-i18n>Сохраняю…</div>
 <input type="file" id="fi" accept="image/*" multiple hidden>
 <input type="file" id="fi2" accept="image/*" hidden>
 <input type="file" id="fi3" accept=".csv,.xlsx,.xls,text/csv" hidden>
 
 <script>
 const API=/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?'':'https://teka-admin.teka-md.workers.dev';
+/* язык интерфейса: T('русская строка',...аргументы) → перевод из RO, {0},{1} — подстановки */
+let LANG='ru';try{if(localStorage.getItem('tkAdmLang')==='ro')LANG='ro'}catch(e){}
+const RO={'Удалить заказ':'Șterge comanda','Удалить этот заказ? Это нельзя отменить.':'Ștergeți această comandă? Acțiunea nu poate fi anulată.','Заказ удалён':'Comanda a fost ștearsă','Не удалось удалить: {0}':'Nu s-a putut șterge: {0}',
+'Teka — админка':'Teka — administrare','Вход в админку':'Autentificare','Войти':'Intră','Пароль':'Parolă','Админка':'Administrare',
+'Поиск: модель, код, описание':'Căutare: model, cod, descriere','Сайт ↗':'Site ↗','Выйти':'Ieșire',
+'Товары':'Produse','Акции':'Promoții','Проверка каталога':'Verificare catalog','Контакты и тексты':'Contacte și texte','Заказы':'Comenzi','Подборки':'Selecții','Клиенты':'Clienți','История':'Istoric',
+'Все товары':'Toate produsele','Со скидкой':'Cu reducere','Без цены':'Fără preț','Под заказ':'La comandă','Нет в наличии':'Nu este în stoc','В наличии':'În stoc','Скрытые':'Ascunse','Хит или новинка':'Hit sau noutate','В акции':'În promoție','Изменённые':'Modificate',
+'+ Новый товар':'+ Produs nou','Отменить':'Anulează','Сохранить на сайт':'Salvează pe site','Закрыть':'Închide','Удалить товар':'Șterge produsul',
+'Применить правки и создать копию товара':'Aplică modificările și creează o copie a produsului','Дублировать':'Duplică','Отмена':'Anulează','Готово':'Gata','Сохраняю…':'Se salvează…',
+'Сервер не отвечает':'Serverul nu răspunde','Ошибка {0}':'Eroare {0}',
+'Неверное имя или пароль':'Nume sau parolă greșită','Неверный пароль':'Parolă greșită','Нет доступа':'Acces interzis','Нечего отменять':'Nu este nimic de anulat','Нужно войти заново':'Trebuie să vă autentificați din nou','KV ORDERS не подключён':'KV ORDERS nu este conectat',
+'Есть несохранённые изменения. Выйти без сохранения?':'Există modificări nesalvate. Ieșiți fără a salva?',
+'Загружаю товары…':'Se încarcă produsele…','Загружаю…':'Se încarcă…','Не удалось загрузить: {0}':'Nu s-a putut încărca: {0}','Все категории':'Toate categoriile',
+'Показано {0} из {1} товаров':'Produse afișate: {0} din {1}',' · отмечено {0}':' · selectate: {0}','Снять отметки':'Deselectează tot','Цены пачкой':'Prețuri în masă','Импорт прайса':'Import listă de prețuri',
+'Ничего не найдено':'Nu s-a găsit nimic','Отметить все показанные':'Selectează toate cele afișate','Товар':'Produs','Код':'Cod','Категория':'Categorie','Цена, MDL':'Preț, MDL','Старая цена':'Preț vechi','Наличие':'Stoc',
+'Порядок в категории: меньше — выше':'Ordinea în categorie: mai mic — mai sus','Порядок':'Ordine','Показывать на сайте':'Afișează pe site','Сайт':'Site','без названия':'fără denumire','Без названия':'Fără denumire',
+'Участвует в акции':'Participă la promoție','Скрыт с сайта — показать':'Ascuns pe site — afișează','Виден на сайте — скрыть':'Vizibil pe site — ascunde','Изменить':'Editează',
+'акции':'promoțiile','контакты':'contactele','Изменено товаров: {0}':'Produse modificate: {0}','удалено: {0}':'șterse: {0}','изменены {0}':'modificate: {0}',' и ':' și ',
+'Отменить все несохранённые изменения?':'Anulați toate modificările nesalvate?','Сохранено. Сайт обновится примерно через 1–2 минуты.':'Salvat. Site-ul se va actualiza în aproximativ 1–2 minute.',
+'Кто-то изменил каталог в другом окне. Обновите страницу (ваши правки не сохранены).':'Cineva a modificat catalogul într-o altă fereastră. Reîncărcați pagina (modificările dvs. nu au fost salvate).',
+'Не сохранилось: {0}':'Nu s-a salvat: {0}',
+'Новый товар':'Produs nou','Основное':'Date de bază','Модель':'Model','Код товара (артикул)':'Cod produs (articol)','Бренд':'Brand','Цена и наличие':'Preț și stoc','Старая цена, MDL':'Preț vechi, MDL',
+'— заполните для скидки':'— completați pentru reducere','нет скидки':'fără reducere','Скрыть с сайта':'Ascunde pe site','Если цена не указана, на сайте будет «Цена по запросу».':'Dacă prețul nu este indicat, pe site va apărea „Preț la cerere”.',
+'Витрина':'Vitrină','Отметка на карточке':'Etichetă pe card','Нет':'Fără','Хит':'Hit','Новинка':'Noutate','Порядок в категории':'Ordinea în categorie','— меньше число, выше на сайте':'— cu cât numărul e mai mic, cu atât e mai sus pe site','авто':'auto',
+'Фото':'Fotografii','Перетаскивайте фото, чтобы поменять порядок. Первое — главное в каталоге. Можно бросить файлы прямо сюда.':'Trageți fotografiile pentru a schimba ordinea. Prima este cea principală în catalog. Puteți plasa fișierele direct aici.',
+'Описание':'Descriere','Подзаголовок (RO)':'Subtitlu (RO)','Подзаголовок (RU)':'Subtitlu (RU)','Преимущества (RO)':'Avantaje (RO)','Преимущества (RU)':'Avantaje (RU)','— по одному в строке':'— câte unul pe rând','— строки в том же порядке':'— rândurile în aceeași ordine',
+'Характеристики':'Caracteristici','+ Добавить группу':'+ Adaugă grup','Фильтры в каталоге':'Filtre în catalog','По этим полям покупатель фильтрует товары в каталоге.':'După aceste câmpuri cumpărătorul filtrează produsele în catalog.',
+'Документы (PDF)':'Documente (PDF)','Ссылки, по одной в строке':'Linkuri, câte unul pe rând','Новое значение (латиницей, как у других товаров):':'Valoare nouă (cu litere latine, ca la celelalte produse):',
+'см':'cm','+ Другое значение…':'+ Altă valoare…','Убрать фото':'Elimină fotografia','+ Добавить фото':'+ Adaugă fotografie','Не удалось прочитать файл {0}':'Fișierul {0} nu a putut fi citit',
+'Название группы, например: Dimensiuni':'Denumirea grupului, de exemplu: Dimensiuni','Удалить группу':'Șterge grupul','Параметр':'Parametru','Значение':'Valoare','Удалить строку':'Șterge rândul','+ строка':'+ rând',
+'Укажите модель':'Indicați modelul','Товар с кодом {0} уже есть в этой категории':'Un produs cu codul {0} există deja în această categorie',
+'Русских строк преимуществ не столько же, сколько румынских — перевод не сохранён':'Numărul rândurilor de avantaje în rusă diferă de cel în română — traducerea nu a fost salvată',
+'Товар добавлен. Не забудьте «Сохранить на сайт».':'Produs adăugat. Nu uitați să apăsați „Salvează pe site”.','Изменения применены. Нажмите «Сохранить на сайт».':'Modificările au fost aplicate. Apăsați „Salvează pe site”.',
+'Удалить «{0}» из каталога?\nЕсли нужно лишь временно убрать с сайта — используйте «Скрыть с сайта».':'Ștergeți „{0}” din catalog?\nDacă trebuie doar să-l scoateți temporar de pe site — folosiți „Ascunde pe site”.',
+' (копия)':' (copie)','Копия: укажите код товара и нажмите «Готово»':'Copie: indicați codul produsului și apăsați „Gata”',
+'ХИТ':'HIT','Выключена':'Dezactivată','Завершена':'Încheiată','Запланирована':'Planificată','Идёт':'Activă',
+'Акция «{0}» ({1}): на сайте цена будет {2} MDL вместо {3} MDL.':'Promoția „{0}” ({1}): pe site prețul va fi {2} MDL în loc de {3} MDL.',
+'Товаров: {0}':'Produse: {0}','Акций: {0}, идёт сейчас: {1}':'Promoții: {0}, active acum: {1}','+ Новая акция':'+ Promoție nouă',
+'Акций пока нет. Создайте первую — сайт сам включит её в нужный день и выключит после окончания.':'Încă nu există promoții. Creați prima — site-ul o va activa singur în ziua stabilită și o va dezactiva după încheiere.',
+'Акция':'Promoție','Скидка':'Reducere','Даты':'Perioada','Статус':'Status',' · есть баннер':' · are banner','{0} с ценой':'cu preț: {0}','без срока':'fără termen','Выключить':'Dezactivează','Включить':'Activează',
+'Акция работает на сайте с даты «с» по дату «по» включительно (время Кишинёва). Если у товара уже есть своя скидка — показывается бо́льшая. Корзина и сообщение в WhatsApp/Viber используют цену со скидкой.':'Promoția funcționează pe site de la data „De la” până la data „Până la” inclusiv (ora Chișinăului). Dacă produsul are deja propria reducere, se afișează cea mai mare. Coșul și mesajul în WhatsApp/Viber folosesc prețul redus.',
+'Новая акция':'Promoție nouă','Акция: {0}':'Promoție: {0}','Название':'Denumire','Название (RO)':'Denumire (RO)','Название (RU)':'Denumire (RU)','Срок и скидка':'Perioadă și reducere','С даты':'De la data','По дату (включительно)':'Până la data (inclusiv)',
+'Акция включена':'Promoție activată','Тип скидки':'Tip reducere','Процент':'Procent','Сумма, MDL':'Sumă, MDL','Размер скидки':'Valoarea reducerii',
+'Скидка считается от обычной цены товара. Если у товара уже есть своя (ручная) скидка — на сайте покажется бо́льшая из двух.':'Reducerea se calculează din prețul obișnuit al produsului. Dacă produsul are deja propria reducere (manuală), pe site se va afișa cea mai mare dintre ele.',
+'Какие товары участвуют':'Produse participante','Охват':'Se aplică la','Выбранные категории':'Categoriile selectate','Выбранные товары':'Produsele selectate','Добавить товар: модель или код':'Adaugă produs: model sau cod',
+'Баннер на главной (необязательно)':'Banner pe pagina principală (opțional)','Текст баннера (RO)':'Textul bannerului (RO)','Текст баннера (RU)':'Textul bannerului (RU)',
+'Пока акция идёт, на главной показывается баннер со ссылкой на страницу «Акции». Нет ни картинки, ни текста — баннера не будет. Картинка лучше горизонтальная, примерно 1200×600.':'Cât timp promoția este activă, pe pagina principală se afișează un banner cu link spre pagina „Promoții”. Fără imagine și fără text nu va exista banner. Imaginea e de preferat orizontală, aproximativ 1200×600.',
+'Удалить акцию':'Șterge promoția','Укажите название акции':'Indicați denumirea promoției','Укажите размер скидки от 1 до 99%':'Indicați reducerea de la 1 la 99%','Укажите размер скидки':'Indicați valoarea reducerii',
+'Дата окончания раньше даты начала':'Data de încheiere este înaintea datei de început','Выберите хотя бы одну категорию':'Selectați cel puțin o categorie','Добавьте хотя бы один товар':'Adăugați cel puțin un produs',
+'Акция сохранена в черновик. Нажмите «Сохранить на сайт».':'Promoția a fost salvată ca ciornă. Apăsați „Salvează pe site”.','Удалить акцию «{0}»?':'Ștergeți promoția „{0}”?',
+'Под акцию попадает товаров с ценой: <b>{0}</b>':'Produse cu preț incluse în promoție: <b>{0}</b>',', из них у {0} своя скидка больше — у них останется своя':', dintre care {0} au propria reducere mai mare, care se păstrează',
+' Пример: {0} — {1} → <b>{2} MDL</b>.':' Exemplu: {0} — {1} → <b>{2} MDL</b>.','Укажите размер скидки.':'Indicați valoarea reducerii.','Убрать картинку':'Elimină imaginea','+ Картинка баннера':'+ Imagine banner',
+'без цены':'fără preț','Не найдено':'Nu s-a găsit','Не удалось прочитать файл':'Fișierul nu a putut fi citit',
+'Изменить цены пачкой':'Modificare prețuri în masă','Какие товары':'Ce produse','Отмеченные':'Selectate','Показанные в списке':'Afișate în listă','Категория целиком':'Toată categoria','Как изменить':'Cum se modifică','Действие':'Acțiune',
+'Поднять на %':'Majorează cu %','Снизить на %':'Reduce cu %','Поднять на сумму, MDL':'Majorează cu suma, MDL','Снизить на сумму, MDL':'Reduce cu suma, MDL','например, 5':'de exemplu, 5','Округлить до 10 MDL':'Rotunjește la 10 MDL',
+'У товаров со скидкой менять и старую цену (размер скидки сохранится)':'La produsele cu reducere modifică și prețul vechi (mărimea reducerii se păstrează)','Предпросмотр: было → стало':'Previzualizare: înainte → după','Укажите значение.':'Indicați valoarea.',
+'Применить':'Aplică','Нечего менять':'Nu este nimic de modificat','Цены изменены у {0} товаров. Проверьте и нажмите «Сохранить на сайт».':'Prețuri modificate: {0}. Verificați și apăsați „Salvează pe site”.','Применить к {0}':'Aplică la {0}',
+'Цена':'Preț','…и ещё {0}':'…și încă {0}','Нет изменений: укажите значение или выберите товары с ценой.':'Nicio modificare: indicați valoarea sau selectați produse cu preț.',
+'не загрузился модуль Excel':'modulul Excel nu s-a încărcat','Файл':'Fișier','Перетащите сюда файл CSV или Excel (XLSX)':'Trageți aici un fișier CSV sau Excel (XLSX)','или выберите файл':'sau alegeți un fișier',
+'В файле нужны колонки «артикул» (или «модель») и «цена»; первая строка — заголовки. Товары сопоставляются по коду товара или по модели.':'Fișierul trebuie să conțină coloanele „articol” (sau „model”) și „preț”; primul rând conține antetele. Produsele se potrivesc după codul produsului sau după model.',
+'Обновлено цен: {0}. Проверьте и нажмите «Сохранить на сайт».':'Prețuri actualizate: {0}. Verificați și apăsați „Salvează pe site”.','Читаю файл…':'Se citește fișierul…','в файле нет таблицы':'fișierul nu conține un tabel',
+'— нет —':'— nu —','Колонка {0}':'Coloana {0}','Колонки · {0} · строк: {1}':'Coloane · {0} · rânduri: {1}','Сопоставлять по':'Potrivire după','Новая цена':'Preț nou','Старая цена (необязательно)':'Preț vechi (opțional)',
+'Что в колонке сопоставления':'Ce conține coloana de potrivire','Код или модель (автоматически)':'Cod sau model (automat)','Предпросмотр':'Previzualizare','Не удалось прочитать файл: {0}':'Fișierul nu a putut fi citit: {0}',
+'Применить {0} изменений':'Aplică modificările: {0}','Изменится: <b>{0}</b> · без изменений: {1} · не найдено в каталоге: {2}':'Se modifică: <b>{0}</b> · fără modificări: {1} · negăsite în catalog: {2}','Не найдены: {0}':'Negăsite: {0}',' и ещё {0}':' și încă {0}',
+'Товаров с замечаниями: {0}':'Produse cu observații: {0}','Все':'Toate','Что не так':'Ce lipsește','Замечаний нет':'Nu există observații',
+'Без фото':'Fără fotografii','Без перевода RU':'Fără traducere RU','Без характеристик':'Fără caracteristici',
+'Контакты и тексты сайта':'Contactele și textele site-ului','Связь':'Comunicare',
+'Эти номера и ссылки подставляются во все кнопки «Позвонить», WhatsApp, Viber, Telegram и соцсети на ПК-сайте, а также в отправку заказа из корзины.':'Aceste numere și linkuri se folosesc în toate butoanele „Sună”, WhatsApp, Viber, Telegram și rețelele sociale de pe site-ul desktop, precum și la trimiterea comenzii din coș.',
+'Пустое поле — на сайте остаётся текущий текст (он показан серым). Изменения попадут на сайт после «Сохранить на сайт».':'Câmp gol — pe site rămâne textul actual (afișat cu gri). Modificările ajung pe site după „Salvează pe site”.',
+'Телефон (как показывать)':'Telefon (cum se afișează)','WhatsApp — номер цифрами':'WhatsApp — numărul, doar cifre','Viber — номер':'Viber — număr','Telegram — ссылка или @имя':'Telegram — link sau @nume','Facebook — ссылка':'Facebook — link','Instagram — ссылка':'Instagram — link',
+'Адрес магазина':'Adresa magazinului','График работы — по строке на строку':'Program de lucru — câte o zi pe rând','Доставка — текст':'Livrare — text','Гарантия — текст':'Garanție — text',
+'Менеджер в магазине':'Manager în magazin','Заказов: {0}':'Comenzi: {0}','Обновить':'Actualizează','Журнал заказов недоступен: {0}':'Jurnalul comenzilor nu este disponibil: {0}','Все менеджеры':'Toți managerii','Сайт (без менеджера)':'Site (fără manager)',
+'Когда':'Când','Заказ':'Comandă','Сумма':'Sumă','Канал':'Canal','Менеджер':'Manager','всего {0} шт.':'total {0} buc.','1 шт.':'1 buc.',' · подборка №':' · selecția nr. ','Открыть':'Deschide',
+'Заказов нет. Копии заказов из корзины сайта (WhatsApp/Viber) появляются здесь автоматически.':'Nu există comenzi. Copiile comenzilor din coșul site-ului (WhatsApp/Viber) apar aici automat.',
+'Новый':'Nouă','В работе':'În lucru','Выдан':'Predată','Отменён':'Anulată',
+'Статус: {0}':'Status: {0}','Не удалось изменить статус: {0}':'Statusul nu a putut fi modificat: {0}','Заказ от {0}':'Comanda din {0}','Кол-во':'Cant.','по запросу':'la cerere','Итого, MDL':'Total, MDL','Детали':'Detalii','Получение':'Primire',
+'Самовывоз':'Ridicare din magazin','Доставка':'Livrare','Имя':'Nume','Телефон':'Telefon','Подборка':'Selecție','Комментарий':'Comentariu','Язык сайта':'Limba site-ului','Страница':'Pagina',
+'Заказ оформлен менеджером в режиме менеджера.':'Comanda a fost plasată de manager în modul manager.',
+'Это копия заказа, которую сайт отправляет параллельно с сообщением в мессенджер. Клиент мог не отправить само сообщение — сверяйтесь с WhatsApp/Viber.':'Aceasta este o copie a comenzii, pe care site-ul o trimite în paralel cu mesajul în messenger. Este posibil ca clientul să nu fi trimis mesajul propriu-zis — verificați în WhatsApp/Viber.',
+'Подборок: {0}':'Selecții: {0}','Клиент':'Client','Клиент открыл':'Deschisă de client','{0} шт.':'{0} buc.','не открыта':'nedeschisă','да':'da',
+'Не открыты':'Nedeschise','Открыты':'Deschise','Стали заказом':'Transformate în comenzi',
+'Подборок нет. Менеджеры создают их на сайте в режиме менеджера (desk-catalog.html#manager).':'Nu există selecții. Managerii le creează pe site în modul manager (desk-catalog.html#manager).',
+'Клиентов: {0}':'Clienți: {0}',' из {0}':' din {0}','Имя или телефон':'Nume sau telefon','Все теги':'Toate etichetele','Сначала недавние':'Cele mai recente întâi','По сумме заказов':'După suma comenzilor','По имени':'După nume',
+'Экспорт CSV':'Export CSV','+ Новый клиент':'+ Client nou','Город':'Oraș','Теги':'Etichete','Сумма заказов':'Suma comenzilor','Последний контакт':'Ultimul contact','без имени':'fără nume',
+'Клиенты появляются автоматически из заказов и подборок, где указан телефон. Сумма — по заказам без отменённых.':'Clienții apar automat din comenzile și selecțiile în care este indicat telefonul. Suma include comenzile, fără cele anulate.',
+'Клиентов пока нет. Добавьте вручную кнопкой «+ Новый клиент» — или они появятся сами из заказов и подборок менеджеров с телефоном.':'Încă nu există clienți. Adăugați-i manual cu butonul „+ Client nou” sau vor apărea singuri din comenzile și selecțiile managerilor care au telefon.',
+'Новый клиент':'Client nou','Карточка':'Fișa clientului','Кто ведёт':'Responsabil','Адрес':'Adresă','Заметки':'Notițe','+ свой тег':'+ etichetă proprie','(без отменённых)':'(fără cele anulate)','Первый контакт':'Primul contact','Дата':'Data',
+'Заказов нет':'Nu există comenzi','Подборок нет':'Nu există selecții','Сохранить':'Salvează','Укажите телефон клиента':'Indicați telefonul clientului',
+'Клиент с таким телефоном уже есть. Обновить его карточку?':'Un client cu acest telefon există deja. Actualizați fișa lui?','Клиент добавлен':'Client adăugat','Клиент сохранён':'Client salvat',
+'Заказов':'Comenzi','Подборок':'Selecții','Сумма заказов, MDL':'Suma comenzilor, MDL',
+'дизайнер':'designer','застройщик':'dezvoltator imobiliar','повторный':'client recurent',
+'фото':'fotografii','Переводы RU':'Traduceri RU','Последние сохранения каталога':'Ultimele salvări ale catalogului','Загружаю историю…':'Se încarcă istoricul…','Не удалось загрузить историю: {0}':'Istoricul nu a putut fi încărcat: {0}',
+'Сохранений пока нет':'Încă nu există salvări','Что сохранили':'Ce s-a salvat','Файлы':'Fișiere',
+'«Отменить» возвращает файлы этого сохранения в состояние до него — новым сохранением, поэтому отмену тоже можно отменить. Если эти же файлы меняли позже, более поздние правки в них тоже откатятся.':'„Anulează” readuce fișierele acestei salvări la starea de dinaintea ei, printr-o salvare nouă, deci și anularea poate fi anulată. Dacă aceleași fișiere au fost modificate ulterior, și modificările ulterioare din ele vor fi anulate.',
+'Сначала сохраните или отмените несохранённые изменения':'Mai întâi salvați sau anulați modificările nesalvate',
+'Отменить «{0}» от {1}?\n\nФайлы ({2}) вернутся к состоянию до этого сохранения. Более поздние правки этих файлов тоже откатятся.':'Anulați „{0}” din {1}?\n\nFișierele ({2}) vor reveni la starea de dinaintea acestei salvări. Modificările ulterioare ale acestor fișiere vor fi și ele anulate.',
+'Отменено. Сайт обновится примерно через 1–2 минуты.':'Anulat. Site-ul se va actualiza în aproximativ 1–2 minute.','Не получилось отменить: {0}':'Anularea nu a reușit: {0}',
+'Цвет':'Culoare','Тип':'Tip','Ширина, см':'Lățime, cm','Материал':'Material','Количество чаш':'Număr de cuve','Объём':'Volum','Встраивание':'Instalare','Бутылок':'Sticle','Тип духовки':'Tip cuptor','Функции':'Funcții',
+'Чёрный':'Negru','Нержавейка':'Inox','Белый':'Alb','Серый':'Gri','Кремовый':'Crem','Хром':'Crom','Золотой':'Auriu','Антрацит':'Antracit',
+'Индукция':'Inducție','Газ':'Gaz','Стеклокерамика':'Vitroceramică','Встраиваемая':'Încorporabilă','Телескопическая':'Telescopică','Настенная':'De perete','Наклонная':'Înclinată','Островная':'Insulă','Встраиваемый':'Încorporabil',
+'Комби':'Combină','Морозильник':'Congelator','Однодверный':'O ușă','Стандарт':'Standard','Выдвижной душ':'Duș extractibil','Дозатор':'Dozator','Осмос':'Osmoză','Стирка':'Spălare','Стирка + сушка':'Spălare + uscare','Сушилка':'Uscător',
+'Отдельностоящий':'Independent','Кофемашина':'Aparat de cafea','Компактная духовка':'Cuptor compact','Подогреватель посуды':'Sertar termic','Вакууматор':'Aparat de vidat','Паровая духовка':'Cuptor cu abur',
+'Мультифункциональный':'Multifuncțional','С СВЧ':'Cu microunde','Пиролиз':'Piroliză','Пар':'Abur','СВЧ':'Microunde','Пицца 300°':'Pizza 300°','Тегранит':'Tegranit','1 чаша':'1 cuvă','2 чаши':'2 cuve'
+};
+function T(s,...a){const r=LANG==='ro'&&RO[s]!=null?RO[s]:s;return a.length?r.replace(/\{(\d)\}/g,(m,i)=>a[i]):r}
+const LOADING=()=>`<div class="empty">${T('Загружаю…')}</div>`;
 const FILES=[
-  {f:'ovens',n:'Духовые шкафы'},{f:'hobs',n:'Варочные панели'},{f:'hoods',n:'Вытяжки'},{f:'microwaves',n:'Микроволновые печи'},
-  {f:'compact',n:'Компактная техника и кофемашины'},{f:'fridges',n:'Холодильники'},{f:'wine-coolers',n:'Винные шкафы'},
-  {f:'dishwashers',n:'Посудомоечные машины'},{f:'sinks',n:'Мойки'},{f:'faucets',n:'Смесители'},
-  {f:'laundry',n:'Стиральные и сушильные машины'},{f:'accessories',n:'Аксессуары'}];
-const FN=Object.fromEntries(FILES.map(c=>[c.f,c.n]));
+  {f:'ovens',n:'Духовые шкафы',ro:'Cuptoare'},{f:'hobs',n:'Варочные панели',ro:'Plite'},{f:'hoods',n:'Вытяжки',ro:'Hote'},{f:'microwaves',n:'Микроволновые печи',ro:'Cuptoare cu microunde'},
+  {f:'compact',n:'Компактная техника и кофемашины',ro:'Tehnică compactă și aparate de cafea'},{f:'fridges',n:'Холодильники',ro:'Aparate frigorifice'},{f:'wine-coolers',n:'Винные шкафы',ro:'Refrigeratoare de vinuri'},
+  {f:'dishwashers',n:'Посудомоечные машины',ro:'Mașini de spălat vase'},{f:'sinks',n:'Мойки',ro:'Chiuvete'},{f:'faucets',n:'Смесители',ro:'Baterii de bucătărie'},
+  {f:'laundry',n:'Стиральные и сушильные машины',ro:'Mașini de spălat / uscat'},{f:'accessories',n:'Аксессуары',ro:'Accesorii bucătărie'}];
+const cn=c=>LANG==='ro'?c.ro:c.n;
+const FN={};FILES.forEach(c=>FN[c.f]=cn(c));
 const RO1=new Set(["111020005","111020031","41560140","111010079","111010071","111010082","111000076","111000005","111010012","111010010","111000004","111010086","111000094","111000045","111000010","111000012","111000013","111000011","111000046","111000056","111000026","111200001","111000000","121010037","121020000","121010060","121010007","121210000","121200002","121000001"]);
 const XL={col:'Цвет',kind:'Тип',w:'Ширина, см',width:'Ширина, см',mat:'Материал',bowls:'Количество чаш',cap:'Объём',install:'Встраивание',bottles:'Бутылок',c:'Тип духовки',f:'Функции'};
 const VL={col:{negru:'Чёрный',inox:'Нержавейка',alb:'Белый',gri:'Серый',crem:'Кремовый',crom:'Хром',auriu:'Золотой',antracit:'Антрацит'},
@@ -275,8 +392,8 @@ function toast(m,er){const t=$('toast');t.textContent=m;t.className='on'+(er?' e
 async function api(p,body){
   const r=await fetch(API+p,{method:body?'POST':'GET',headers:{'Content-Type':'application/json',...(TOK?{Authorization:'Bearer '+TOK}:{})},body:body?JSON.stringify(body):undefined});
   const j=await r.json().catch(()=>({error:'Сервер не отвечает'}));
-  if(r.status===401&&p!=='/api/login'){showLogin();throw new Error(j.error)}
-  if(!r.ok){const e=new Error(j.error||('Ошибка '+r.status));e.status=r.status;e.j=j;throw e}
+  if(r.status===401&&p!=='/api/login'){showLogin();throw new Error(T(j.error))}
+  if(!r.ok){const e=new Error(j.error?T(j.error):T('Ошибка {0}',r.status));e.status=r.status;e.j=j;throw e}
   return j}
 
 /* ключи разных схем товара */
@@ -300,11 +417,11 @@ function showLogin(){$('login').hidden=false;setTimeout(()=>$('lp').focus(),50)}
 $('lf').onsubmit=async e=>{e.preventDefault();$('le').textContent='';
   try{const j=await api('/api/login',{pass:$('lp').value});TOK=j.token;try{localStorage.setItem('tkAdm',TOK)}catch(e){}$('lp').value='';$('login').hidden=true;load()}
   catch(er){$('le').textContent=er.message}};
-$('lo').onclick=()=>{if(dirtyCount()&&!confirm('Есть несохранённые изменения. Выйти без сохранения?'))return;TOK='';try{localStorage.removeItem('tkAdm')}catch(e){}location.reload()};
+$('lo').onclick=()=>{if(dirtyCount()&&!confirm(T('Есть несохранённые изменения. Выйти без сохранения?')))return;TOK='';try{localStorage.removeItem('tkAdm')}catch(e){}location.reload()};
 
 /* загрузка */
 async function load(){
-  $('tw').innerHTML='<div class="empty">Загружаю товары…</div>';
+  $('tw').innerHTML=`<div class="empty">${T('Загружаю товары…')}</div>`;
   try{
     const cfg=await api('/api/config');RAW=cfg.raw||'';
     const opt=p=>api('/api/file?path='+p).catch(e=>{if(e.status===401)throw e;return {sha:null,text:null}});
@@ -317,9 +434,9 @@ async function load(){
     const rd=u=>fetch(u,{cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null);
     [PHO,GL]=await Promise.all([rd('data/photos.json').then(j=>j||{}),rd('data/gallery.json').then(j=>j||{lo:{}})]);
     DIRTY.clear();CHG.clear();UP={};SEL.clear();
-    $('fc').innerHTML='<option value="">Все категории</option>'+FILES.map(c=>`<option value="${c.f}">${c.n} (${DB[c.f].items.length})</option>`).join('');dd($('fc'));
-    render();bar();loadOrders(true)}
-  catch(e){if(e.status!==401)$('tw').innerHTML=`<div class="empty">Не удалось загрузить: ${esc(e.message)}</div>`}}
+    fillFc();render();bar();loadOrders(true)}
+  catch(e){if(e.status!==401)$('tw').innerHTML=`<div class="empty">${T('Не удалось загрузить: {0}',esc(e.message))}</div>`}}
+function fillFc(){const v=$('fc').value;$('fc').innerHTML=`<option value="">${T('Все категории')}</option>`+FILES.map(c=>`<option value="${c.f}">${esc(cn(c))} (${DB[c.f].items.length})</option>`).join('');$('fc').value=v;dd($('fc'))}
 
 /* свои выпадающие списки вместо системных */
 function dd(sel){
@@ -354,23 +471,24 @@ const ow=x=>x.ord!==''&&x.ord!=null&&!isNaN(x.ord)?+x.ord:1e6;
 const EYE='<svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
 const EYE0='<svg viewBox="0 0 24 24"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3.2 4.1M6.6 6.6C3.7 8.4 2 12 2 12s3.6 7 10 7a10 10 0 0 0 5.4-1.6M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>';
 function pct(x){const p=pr(x),o=od(x);return o>p&&p?'−'+Math.round((1-p/o)*100)+'%':''}
-function selUI(){$('sum').textContent=`Показано ${ROWS.length} из ${FILES.reduce((s,c)=>s+DB[c.f].items.length,0)} товаров`+(SEL.size?` · отмечено ${SEL.size}`:'');
-  $('vb').innerHTML=`${SEL.size?'<button class="btn" id="b_un">Снять отметки</button>':''}<button class="btn" id="b_bulk">Цены пачкой</button><button class="btn" id="b_imp">Импорт прайса</button>`}
+function selUI(){$('sum').textContent=T('Показано {0} из {1} товаров',ROWS.length,FILES.reduce((s,c)=>s+DB[c.f].items.length,0))+(SEL.size?T(' · отмечено {0}',SEL.size):'');
+  $('vb').innerHTML=`${SEL.size?`<button class="btn" id="b_un">${T('Снять отметки')}</button>`:''}<button class="btn" id="b_bulk">${T('Цены пачкой')}</button><button class="btn" id="b_imp">${T('Импорт прайса')}</button>`}
 function draw(){ROWS=rows();const fc=$('fc').value;selUI();
-  if(!ROWS.length){$('tw').innerHTML='<div class="empty">Ничего не найдено</div>';return}
-  $('tw').innerHTML=`<table><thead><tr><th class="cb"><input type="checkbox" id="ca" title="Отметить все показанные" ${ROWS.every(r=>SEL.has(r.x))?'checked':''}></th><th></th><th>Товар</th><th class="sk">Код</th><th class="ct">Категория</th><th>Цена, MDL</th><th>Старая цена</th><th>Наличие</th>${fc?'<th title="Порядок в категории: меньше — выше">Порядок</th>':''}<th title="Показывать на сайте">Сайт</th><th></th></tr></thead><tbody>${ROWS.map(({f,x},i)=>`
+  if(!ROWS.length){$('tw').innerHTML=`<div class="empty">${T('Ничего не найдено')}</div>`;return}
+  $('tw').innerHTML=`<table><thead><tr><th class="cb"><input type="checkbox" id="ca" title="${T('Отметить все показанные')}" ${ROWS.every(r=>SEL.has(r.x))?'checked':''}></th><th></th><th>${T('Товар')}</th><th class="sk">${T('Код')}</th><th class="ct">${T('Категория')}</th><th>${T('Цена, MDL')}</th><th>${T('Старая цена')}</th><th>${T('Наличие')}</th>${fc?`<th title="${T('Порядок в категории: меньше — выше')}">${T('Порядок')}</th>`:''}<th title="${T('Показывать на сайте')}">${T('Сайт')}</th><th></th></tr></thead><tbody>${ROWS.map(({f,x},i)=>`
   <tr data-i="${i}" class="${DIRTY.has(x)?'dz':''} ${x.hid?'hd':''}">
    <td class="cb"><input type="checkbox" data-k="sel" ${SEL.has(x)?'checked':''}></td>
    <td class="ph">${img(pics(x)[0])}</td>
-   <td class="nm"><b>${esc(nm(x))||'<i>без названия</i>'}${bnd(x)!=='Teka'?'<span class="kb">KB</span>':''}${tagH(x)}${promoOf(x,f)?'<span class="tg hit" title="Участвует в акции">%</span>':''}</b><small>${esc(x.sub)}</small></td>
+   <td class="nm"><b>${esc(nm(x))||`<i>${T('без названия')}</i>`}${bnd(x)!=='Teka'?'<span class="kb">KB</span>':''}${tagH(x)}${promoOf(x,f)?`<span class="tg hit" title="${T('Участвует в акции')}">%</span>`:''}</b><small>${esc(x.sub)}</small></td>
    <td class="sk">${esc(x.sku)}</td><td class="ct">${esc(FN[f])}</td>
    <td class="pr"><input class="t" data-k="p" value="${pr(x)||''}" inputmode="numeric"><span class="pc"></span></td>
    <td class="pr"><input class="t" data-k="o" value="${od(x)>pr(x)?od(x):''}" inputmode="numeric" placeholder="—"><span class="pc">${pct(x)}</span></td>
-   <td class="st"><select class="t ${x.st||''}" data-k="st"><option value="">В наличии</option><option value="order" ${x.st==='order'?'selected':''}>Под заказ</option><option value="out" ${x.st==='out'?'selected':''}>Нет в наличии</option></select></td>
+   <td class="st"><select class="t ${x.st||''}" data-k="st">${stOpts(x.st)}</select></td>
    ${fc?`<td class="od"><input class="t" data-k="ord" value="${x.ord??''}" inputmode="numeric" placeholder="—"></td>`:''}
-   <td><button class="eye ${x.hid?'off':''}" data-k="hid" title="${x.hid?'Скрыт с сайта — показать':'Виден на сайте — скрыть'}">${x.hid?EYE0:EYE}</button></td>
-   <td><button class="ebtn" data-k="ed">Изменить</button></td></tr>`).join('')}</tbody></table>`;
+   <td><button class="eye ${x.hid?'off':''}" data-k="hid" title="${x.hid?T('Скрыт с сайта — показать'):T('Виден на сайте — скрыть')}">${x.hid?EYE0:EYE}</button></td>
+   <td><button class="ebtn" data-k="ed">${T('Изменить')}</button></td></tr>`).join('')}</tbody></table>`;
   $('tw').querySelectorAll('td.st select').forEach(dd)}
+const stOpts=st=>`<option value="">${T('В наличии')}</option><option value="order" ${st==='order'?'selected':''}>${T('Под заказ')}</option><option value="out" ${st==='out'?'selected':''}>${T('Нет в наличии')}</option>`;
 const num=v=>{const n=parseInt(String(v).replace(/[^\d]/g,''),10);return isNaN(n)?0:n};
 function touch(x,f){DIRTY.add(x);CHG.add(f);bar()}
 $('tw').addEventListener('change',e=>{const el=e.target;
@@ -393,10 +511,10 @@ $('vb').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)re
 
 /* сохранение */
 const dirtyCount=()=>DIRTY.size+[...CHG].filter(f=>f.startsWith('-')).length+(PM.dirty?1:0)+(SC.dirty?1:0);
-function bar(){const n=DIRTY.size,d=[...CHG].filter(f=>f.startsWith('-')).length,ex=[PM.dirty?'акции':'',SC.dirty?'контакты':''].filter(Boolean);
-  $('bt').textContent=[n?`Изменено товаров: ${n}`:'',d?`удалено: ${d}`:'',ex.length?'изменены '+ex.join(' и '):''].filter(Boolean).join(' · ');$('bar').classList.toggle('on',CHG.size>0)}
+function bar(){const n=DIRTY.size,d=[...CHG].filter(f=>f.startsWith('-')).length,ex=[PM.dirty?T('акции'):'',SC.dirty?T('контакты'):''].filter(Boolean);
+  $('bt').textContent=[n?T('Изменено товаров: {0}',n):'',d?T('удалено: {0}',d):'',ex.length?T('изменены {0}',ex.join(T(' и '))):''].filter(Boolean).join(' · ');$('bar').classList.toggle('on',CHG.size>0)}
 const dump=d=>JSON.stringify(d,null,1);
-$('bu').onclick=()=>{if(confirm('Отменить все несохранённые изменения?'))load()};
+$('bu').onclick=()=>{if(confirm(T('Отменить все несохранённые изменения?')))load()};
 $('bs').onclick=save;
 async function save(){
   const fs=[...new Set([...CHG].map(f=>f.replace(/^-/,'')))].filter(f=>DB[f]);
@@ -415,8 +533,8 @@ async function save(){
     fs.forEach(f=>DB[f].sha=r.shas[`data/${f}.json`]);if(RU.dirty){RU.sha=r.shas['data/ru.json'];RU.dirty=false}
     if(PM.dirty){PM.sha=r.shas['data/promo.json'];PM.dirty=false}if(SC.dirty){SC.sha=r.shas['data/site.json'];SC.dirty=false}HIST=null;
     for(const p of Object.keys(UP))if(used.has(p))UP[p].saved=true;
-    DIRTY.clear();CHG.clear();bar();render();toast('Сохранено. Сайт обновится примерно через 1–2 минуты.')}
-  catch(e){toast(e.status===409?'Кто-то изменил каталог в другом окне. Обновите страницу (ваши правки не сохранены).':'Не сохранилось: '+e.message,true)}
+    DIRTY.clear();CHG.clear();bar();render();toast(T('Сохранено. Сайт обновится примерно через 1–2 минуты.'))}
+  catch(e){toast(e.status===409?T('Кто-то изменил каталог в другом окне. Обновите страницу (ваши правки не сохранены).'):T('Не сохранилось: {0}',e.message),true)}
   finally{$('busy').classList.remove('on')}}
 addEventListener('beforeunload',e=>{if(CHG.size){e.preventDefault();e.returnValue=''}});
 
@@ -424,53 +542,53 @@ addEventListener('beforeunload',e=>{if(CHG.size){e.preventDefault();e.returnValu
 let ED=null;
 function openEd(f,x,isNew){
   const E=JSON.parse(JSON.stringify(x));ED={f,x,isNew,E,ph:pics(x),phc:false};
-  $('et').textContent=isNew?'Новый товар':nm(x)||'Без названия';
+  $('et').textContent=isNew?T('Новый товар'):nm(x)||T('Без названия');
   const tr=(c,v)=>(RU.data[c]||{})[v]||'';
   const fx=Object.keys(E).filter(k=>!BASE.has(k));
   const desc=(E.desc||[]).filter(s=>s!=null);
   $('eb').innerHTML=`
-  <fieldset><legend>Основное</legend>
+  <fieldset><legend>${T('Основное')}</legend>
    <div class="g3">
-    <label class="f">Модель<input class="t" id="e_n" value="${esc(nm(E))}"></label>
-    <label class="f">Код товара (артикул)<input class="t" id="e_sku" value="${esc(E.sku)}"></label>
-    <label class="f">Бренд<select class="t" id="e_b"><option ${bnd(E)==='Teka'?'selected':''}>Teka</option><option ${bnd(E)==='Küppersbusch'?'selected':''}>Küppersbusch</option></select></label>
+    <label class="f">${T('Модель')}<input class="t" id="e_n" value="${esc(nm(E))}"></label>
+    <label class="f">${T('Код товара (артикул)')}<input class="t" id="e_sku" value="${esc(E.sku)}"></label>
+    <label class="f">${T('Бренд')}<select class="t" id="e_b"><option ${bnd(E)==='Teka'?'selected':''}>Teka</option><option ${bnd(E)==='Küppersbusch'?'selected':''}>Küppersbusch</option></select></label>
    </div>
-   ${isNew?`<div class="g1" style="margin-top:12px"><label class="f">Категория<select class="t" id="e_f">${FILES.map(c=>`<option value="${c.f}" ${c.f===f?'selected':''}>${c.n}</option>`).join('')}</select></label></div>`:''}
+   ${isNew?`<div class="g1" style="margin-top:12px"><label class="f">${T('Категория')}<select class="t" id="e_f">${FILES.map(c=>`<option value="${c.f}" ${c.f===f?'selected':''}>${esc(cn(c))}</option>`).join('')}</select></label></div>`:''}
   </fieldset>
-  <fieldset><legend>Цена и наличие</legend>
+  <fieldset><legend>${T('Цена и наличие')}</legend>
    <div class="g3">
-    <label class="f">Цена, MDL<input class="t" id="e_p" value="${pr(E)||''}" inputmode="numeric"></label>
-    <label class="f">Старая цена, MDL <small>— заполните для скидки</small><input class="t" id="e_o" value="${od(E)>pr(E)?od(E):''}" inputmode="numeric" placeholder="нет скидки"></label>
-    <label class="f">Наличие<select class="t" id="e_st"><option value="">В наличии</option><option value="order" ${E.st==='order'?'selected':''}>Под заказ</option><option value="out" ${E.st==='out'?'selected':''}>Нет в наличии</option></select></label>
+    <label class="f">${T('Цена, MDL')}<input class="t" id="e_p" value="${pr(E)||''}" inputmode="numeric"></label>
+    <label class="f">${T('Старая цена, MDL')} <small>${T('— заполните для скидки')}</small><input class="t" id="e_o" value="${od(E)>pr(E)?od(E):''}" inputmode="numeric" placeholder="${T('нет скидки')}"></label>
+    <label class="f">${T('Наличие')}<select class="t" id="e_st">${stOpts(E.st)}</select></label>
    </div>
-   <label class="ck"><input type="checkbox" id="e_hid" ${E.hid?'checked':''}> Скрыть с сайта</label>
-   <div class="hint">Если цена не указана, на сайте будет «Цена по запросу».</div>
+   <label class="ck"><input type="checkbox" id="e_hid" ${E.hid?'checked':''}> ${T('Скрыть с сайта')}</label>
+   <div class="hint">${T('Если цена не указана, на сайте будет «Цена по запросу».')}</div>
    ${isNew?'':promoHint(x,f)}
   </fieldset>
-  <fieldset><legend>Витрина</legend>
+  <fieldset><legend>${T('Витрина')}</legend>
    <div class="g2">
-    <div class="f">Отметка на карточке<div class="chips" id="e_tag">${[['','Нет'],['hit','Хит'],['new','Новинка']].map(([v,l])=>`<button type="button" class="chip ${(E.tag||'')===v?'on':''}" data-v="${v}">${l}</button>`).join('')}</div></div>
-    <label class="f">Порядок в категории <small>— меньше число, выше на сайте</small><input class="t" id="e_ord" value="${E.ord??''}" inputmode="numeric" placeholder="авто"></label>
+    <div class="f">${T('Отметка на карточке')}<div class="chips" id="e_tag">${[['','Нет'],['hit','Хит'],['new','Новинка']].map(([v,l])=>`<button type="button" class="chip ${(E.tag||'')===v?'on':''}" data-v="${v}">${T(l)}</button>`).join('')}</div></div>
+    <label class="f">${T('Порядок в категории')} <small>${T('— меньше число, выше на сайте')}</small><input class="t" id="e_ord" value="${E.ord??''}" inputmode="numeric" placeholder="${T('авто')}"></label>
    </div>
   </fieldset>
-  <fieldset><legend>Фото</legend>
+  <fieldset><legend>${T('Фото')}</legend>
    <div class="phs" id="phs"></div>
-   <div class="hint">Перетаскивайте фото, чтобы поменять порядок. Первое — главное в каталоге. Можно бросить файлы прямо сюда.</div>
+   <div class="hint">${T('Перетаскивайте фото, чтобы поменять порядок. Первое — главное в каталоге. Можно бросить файлы прямо сюда.')}</div>
   </fieldset>
-  <fieldset><legend>Описание</legend>
+  <fieldset><legend>${T('Описание')}</legend>
    <div class="g2">
-    <label class="f">Подзаголовок (RO)<textarea class="t" id="e_s" rows="2" style="min-height:60px">${esc(E.sub)}</textarea></label>
-    <label class="f">Подзаголовок (RU)<textarea class="t" id="e_sr" rows="2" style="min-height:60px">${esc(tr('s',E.sub))}</textarea></label>
-    <label class="f">Преимущества (RO) <small>— по одному в строке</small><textarea class="t" id="e_d" rows="6">${esc(desc.join('\n'))}</textarea></label>
-    <label class="f">Преимущества (RU) <small>— строки в том же порядке</small><textarea class="t" id="e_dr" rows="6">${esc(desc.map(s=>tr('d',s)).join('\n'))}</textarea></label>
+    <label class="f">${T('Подзаголовок (RO)')}<textarea class="t" id="e_s" rows="2" style="min-height:60px">${esc(E.sub)}</textarea></label>
+    <label class="f">${T('Подзаголовок (RU)')}<textarea class="t" id="e_sr" rows="2" style="min-height:60px">${esc(tr('s',E.sub))}</textarea></label>
+    <label class="f">${T('Преимущества (RO)')} <small>${T('— по одному в строке')}</small><textarea class="t" id="e_d" rows="6">${esc(desc.join('\n'))}</textarea></label>
+    <label class="f">${T('Преимущества (RU)')} <small>${T('— строки в том же порядке')}</small><textarea class="t" id="e_dr" rows="6">${esc(desc.map(s=>tr('d',s)).join('\n'))}</textarea></label>
    </div>
   </fieldset>
-  <fieldset><legend>Характеристики</legend><div id="sgs"></div><button class="lnk" id="sga">+ Добавить группу</button></fieldset>
-  ${fx.length?`<fieldset><legend>Фильтры в каталоге</legend><div class="g3">${fx.map(k=>filt(k,E[k],f)).join('')}</div><div class="hint">По этим полям покупатель фильтрует товары в каталоге.</div></fieldset>`:''}
-  <fieldset><legend>Документы (PDF)</legend><div class="g1"><label class="f">Ссылки, по одной в строке<textarea class="t" id="e_pdf" rows="3">${esc((E.pdf||[]).join('\n'))}</textarea></label></div></fieldset>`;
+  <fieldset><legend>${T('Характеристики')}</legend><div id="sgs"></div><button class="lnk" id="sga">${T('+ Добавить группу')}</button></fieldset>
+  ${fx.length?`<fieldset><legend>${T('Фильтры в каталоге')}</legend><div class="g3">${fx.map(k=>filt(k,E[k],f)).join('')}</div><div class="hint">${T('По этим полям покупатель фильтрует товары в каталоге.')}</div></fieldset>`:''}
+  <fieldset><legend>${T('Документы (PDF)')}</legend><div class="g1"><label class="f">${T('Ссылки, по одной в строке')}<textarea class="t" id="e_pdf" rows="3">${esc((E.pdf||[]).join('\n'))}</textarea></label></div></fieldset>`;
   $('eb').querySelectorAll('.chip').forEach(b=>b.onclick=()=>b.classList.toggle('on'));
   $('e_tag').querySelectorAll('.chip').forEach(b=>b.onclick=()=>$('e_tag').querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===b)));
-  $('eb').querySelectorAll('select[data-x]').forEach(sl=>sl.addEventListener('change',()=>{if(sl.value!=='__new')return;const v=(prompt('Новое значение (латиницей, как у других товаров):')||'').trim();
+  $('eb').querySelectorAll('select[data-x]').forEach(sl=>sl.addEventListener('change',()=>{if(sl.value!=='__new')return;const v=(prompt(T('Новое значение (латиницей, как у других товаров):'))||'').trim();
     if(v){const o=new Option(v,v);sl.add(o,sl.options[sl.options.length-1]);sl.value=v}else sl.value=sl.dataset.cur||'';dd(sl)}));
   drawPh();drawSpecs(E.specs||[]);$('eb').querySelectorAll('select').forEach(dd);
   $('sga').onclick=()=>{const s=readSpecs();s.push({t:'',r:[['','']]});drawSpecs(s)};
@@ -483,19 +601,19 @@ addEventListener('keydown',e=>{if(e.key!=='Escape'||document.querySelector('.dd.
 
 /* поле фильтра: варианты берём из товаров этой категории */
 function filt(k,v,f){
-  const L=XL[k]||k,vl=VL[k]||{},seen=new Set();
+  const L=XL[k]?T(XL[k]):k,vl=VL[k]||{},seen=new Set();
   DB[f].items.forEach(y=>{const z=y[k];(Array.isArray(z)?z:[z]).forEach(e=>{if(e!==''&&e!=null)seen.add(String(e))})});
   Object.keys(vl).forEach(e=>{if(Array.isArray(v)||seen.size)seen.add(e)});
-  const vals=[...seen].sort((a,b)=>isNaN(a)||isNaN(b)?(vl[a]||a).localeCompare(vl[b]||b):a-b);
-  const nm=e=>vl[e]?vl[e]:e;
+  const nm=e=>vl[e]?T(vl[e]):e;
+  const vals=[...seen].sort((a,b)=>isNaN(a)||isNaN(b)?nm(a).localeCompare(nm(b)):a-b);
   if(Array.isArray(v))return `<div class="f wide"><span>${esc(L)}</span><div class="chips" data-xa="${esc(k)}">${vals.map(e=>`<button type="button" class="chip ${v.map(String).includes(e)?'on':''}" data-v="${esc(e)}">${esc(nm(e))}</button>`).join('')}</div></div>`;
   if(TXTK.has(k))return `<label class="f">${esc(L)}<input class="t" data-x="${esc(k)}" value="${esc(v)}"></label>`;
   const cur=String(v??'');if(cur&&!vals.includes(cur))vals.push(cur);
-  return `<label class="f">${esc(L)}<select class="t" data-x="${esc(k)}" data-cur="${esc(cur)}"><option value="">—</option>${vals.map(e=>`<option value="${esc(e)}" ${e===cur?'selected':''}>${esc(nm(e))}${NUMK.has(k)&&!vl[e]&&(k==='w'||k==='width')?' см':''}</option>`).join('')}<option value="__new">+ Другое значение…</option></select></label>`}
+  return `<label class="f">${esc(L)}<select class="t" data-x="${esc(k)}" data-cur="${esc(cur)}"><option value="">—</option>${vals.map(e=>`<option value="${esc(e)}" ${e===cur?'selected':''}>${esc(nm(e))}${NUMK.has(k)&&!vl[e]&&(k==='w'||k==='width')?' '+T('см'):''}</option>`).join('')}<option value="__new">${T('+ Другое значение…')}</option></select></label>`}
 
 /* фото */
 function drawPh(){
-  $('phs').innerHTML=ED.ph.map((u,i)=>`<div class="p ${UP[u]&&!UP[u].saved?'new':''}" draggable="true" data-i="${i}">${img(u)}<button data-rm="${i}" title="Убрать фото">×</button></div>`).join('')+'<div class="add" id="pha">+ Добавить фото</div>';
+  $('phs').innerHTML=ED.ph.map((u,i)=>`<div class="p ${UP[u]&&!UP[u].saved?'new':''}" draggable="true" data-i="${i}">${img(u)}<button data-rm="${i}" title="${T('Убрать фото')}">×</button></div>`).join('')+`<div class="add" id="pha">${T('+ Добавить фото')}</div>`;
   $('pha').onclick=()=>$('fi').click();
   let from=null;
   $('phs').querySelectorAll('.p').forEach(el=>{
@@ -516,14 +634,14 @@ async function upImg(file,base){const bm=await createImageBitmap(file);const M=1
 async function addFiles(fl){if(!ED)return;
   for(const file of [...fl].filter(f=>f.type.startsWith('image/'))){
     try{ED.ph.push(await upImg(file,$('e_sku').value||$('e_n').value));ED.phc=true}
-    catch(e){toast('Не удалось прочитать файл '+file.name,true)}}
+    catch(e){toast(T('Не удалось прочитать файл {0}',file.name),true)}}
   drawPh()}
 
 /* характеристики */
 function drawSpecs(S){
-  $('sgs').innerHTML=S.map((g,gi)=>`<div class="sg" data-g="${gi}"><div class="st"><input class="t" data-gt value="${esc(g.t)}" placeholder="Название группы, например: Dimensiuni"><button class="x" data-gx title="Удалить группу">×</button></div>
-    ${(g.r||[]).map(([k,v])=>`<div class="sr"><input class="t" data-rk value="${esc(k)}" placeholder="Параметр"><input class="t" data-rv value="${esc(v)}" placeholder="Значение"><button class="x" data-rx title="Удалить строку">×</button></div>`).join('')}
-    <button class="lnk" data-ra>+ строка</button></div>`).join('');
+  $('sgs').innerHTML=S.map((g,gi)=>`<div class="sg" data-g="${gi}"><div class="st"><input class="t" data-gt value="${esc(g.t)}" placeholder="${T('Название группы, например: Dimensiuni')}"><button class="x" data-gx title="${T('Удалить группу')}">×</button></div>
+    ${(g.r||[]).map(([k,v])=>`<div class="sr"><input class="t" data-rk value="${esc(k)}" placeholder="${T('Параметр')}"><input class="t" data-rv value="${esc(v)}" placeholder="${T('Значение')}"><button class="x" data-rx title="${T('Удалить строку')}">×</button></div>`).join('')}
+    <button class="lnk" data-ra>${T('+ строка')}</button></div>`).join('');
   $('sgs').querySelectorAll('[data-gx]').forEach(b=>b.onclick=()=>{const s=readSpecs();s.splice(+b.closest('.sg').dataset.g,1);drawSpecs(s)});
   $('sgs').querySelectorAll('[data-rx]').forEach(b=>b.onclick=()=>{b.closest('.sr').remove()});
   $('sgs').querySelectorAll('[data-ra]').forEach(b=>b.onclick=()=>{const s=readSpecs();s[+b.closest('.sg').dataset.g].r.push(['','']);drawSpecs(s)})}
@@ -534,9 +652,9 @@ const lines=v=>v.split('\n').map(s=>s.trim()).filter(Boolean);
 function ruSet(c,ro,ru){if(!ro)return;RU.data[c]=RU.data[c]||{};const cur=RU.data[c][ro]||'';if(ru&&ru!==cur){RU.data[c][ro]=ru;RU.dirty=true}}
 $('eo').onclick=()=>{if(!ED)return;const {x,isNew}=ED;let f=ED.f;
   const n=$('e_n').value.trim(),sku=$('e_sku').value.trim();
-  if(!n){toast('Укажите модель',true);$('e_n').focus();return}
+  if(!n){toast(T('Укажите модель'),true);$('e_n').focus();return}
   if(isNew)f=$('e_f').value;
-  if(sku&&DB[f].items.some(y=>y!==x&&String(y.sku)===sku)){toast('Товар с кодом '+sku+' уже есть в этой категории',true);return}
+  if(sku&&DB[f].items.some(y=>y!==x&&String(y.sku)===sku)){toast(T('Товар с кодом {0} уже есть в этой категории',sku),true);return}
   x[K.n(x)]=n;x.sku=sku;x[K.b(x)]=$('e_b').value;
   setPrice(x,num($('e_p').value),num($('e_o').value));
   if($('e_st').value)x.st=$('e_st').value;else delete x.st;
@@ -546,7 +664,7 @@ $('eo').onclick=()=>{if(!ED)return;const {x,isNew}=ED;let f=ED.f;
   x.sub=$('e_s').value.trim();ruSet('s',x.sub,$('e_sr').value.trim());
   const d=lines($('e_d').value),dr=lines($('e_dr').value);x.desc=d;
   if(dr.length===d.length)d.forEach((s,i)=>ruSet('d',s,dr[i]));
-  else if(dr.length)toast('Русских строк преимуществ не столько же, сколько румынских — перевод не сохранён',true);
+  else if(dr.length)toast(T('Русских строк преимуществ не столько же, сколько румынских — перевод не сохранён'),true);
   x.specs=readSpecs().filter(g=>g.t||g.r.length);
   x.pdf=lines($('e_pdf').value);
   $('eb').querySelectorAll('[data-x]').forEach(el=>{const k=el.dataset.x,v=el.value.trim();
@@ -554,12 +672,12 @@ $('eo').onclick=()=>{if(!ED)return;const {x,isNew}=ED;let f=ED.f;
   $('eb').querySelectorAll('[data-xa]').forEach(el=>{x[el.dataset.xa]=[...el.querySelectorAll('.chip.on')].map(b=>b.dataset.v)});
   if(ED.phc)x.u=ED.ph.slice();
   if(isNew)DB[f].items.unshift(x);
-  touch(x,f);closeEd();render();toast(isNew?'Товар добавлен. Не забудьте «Сохранить на сайт».':'Изменения применены. Нажмите «Сохранить на сайт».')};
+  touch(x,f);closeEd();render();toast(isNew?T('Товар добавлен. Не забудьте «Сохранить на сайт».'):T('Изменения применены. Нажмите «Сохранить на сайт».'))};
 $('edl').onclick=()=>{if(!ED)return;const {f,x}=ED;
-  if(!confirm(`Удалить «${nm(x)}» из каталога?\nЕсли нужно лишь временно убрать с сайта — используйте «Скрыть с сайта».`))return;
+  if(!confirm(T('Удалить «{0}» из каталога?\nЕсли нужно лишь временно убрать с сайта — используйте «Скрыть с сайта».',nm(x))))return;
   const L=DB[f].items;L.splice(L.indexOf(x),1);DIRTY.delete(x);SEL.delete(x);CHG.add(f);CHG.add('-'+f+':'+Date.now());closeEd();render();bar()};
 $('edu').onclick=()=>{if(!ED||ED.isNew)return;const {f,x}=ED;$('eo').onclick();if(ED)return;
-  const y=JSON.parse(JSON.stringify(x));y[K.n(y)]=nm(x)+' (копия)';y.sku='';delete y.ord;openEd(f,y,true);toast('Копия: укажите код товара и нажмите «Готово»')};
+  const y=JSON.parse(JSON.stringify(x));y[K.n(y)]=nm(x)+T(' (копия)');y.sku='';delete y.ord;openEd(f,y,true);toast(T('Копия: укажите код товара и нажмите «Готово»'))};
 $('nw').onclick=()=>{const f=$('fc').value||'ovens';const tpl=DB[f].items.find(y=>!('name' in y))||{};
   const x={sku:'',n:'',sub:'',p:0,img:[],draw:'',label:'',desc:[],specs:[],pdf:[],b:'Teka'};
   for(const k of Object.keys(tpl))if(!BASE.has(k))x[k]=typeof tpl[k]==='number'?'':Array.isArray(tpl[k])?[]:'';
@@ -574,19 +692,19 @@ function render(){document.body.className='v-'+VIEW;$('nav').querySelectorAll('b
 $('nav').onclick=e=>{const b=e.target.closest('button');if(!b)return;VIEW=b.dataset.v;try{sessionStorage.setItem('tkV',VIEW)}catch(_){}render();scrollTo(0,0)};
 const today=()=>new Date().toLocaleDateString('sv-SE',{timeZone:'Europe/Chisinau'});
 const dmy=s=>s?s.slice(8,10)+'.'+s.slice(5,7)+'.'+s.slice(0,4):'';
-const tagH=x=>x.tag==='hit'?'<span class="tg hit">ХИТ</span>':x.tag==='new'?'<span class="tg">NEW</span>':'';
+const tagH=x=>x.tag==='hit'?`<span class="tg hit">${T('ХИТ')}</span>`:x.tag==='new'?'<span class="tg">NEW</span>':'';
 const allItems=()=>FILES.flatMap(c=>DB[c.f].items.map(x=>({f:c.f,x})));
 const inScope=(p,x,f)=>p.scope==='all'||p.scope==='cat'&&(p.cats||[]).includes(f)||p.scope==='sku'&&(p.skus||[]).map(String).includes(String(x.sku));
-const pState=p=>{const t=today();return !p.on?['off','Выключена']:p.to&&p.to<t?['off','Завершена']:p.from&&p.from>t?['plan','Запланирована']:['on','Идёт']};
+const pState=p=>{const t=today();return !p.on?['off',T('Выключена')]:p.to&&p.to<t?['off',T('Завершена')]:p.from&&p.from>t?['plan',T('Запланирована')]:['on',T('Идёт')]};
 const pPrice=(p,x)=>{const b=Math.max(pr(x),od(x));return Math.max(0,Math.round(p.kind==='sum'?b-p.v:b*(1-p.v/100)))};
 function promoOf(x,f,st){if(!pr(x))return null;let best=null,bp=pr(x);
   for(const p of PM.data.promos){if(!(+p.v>0)||!inScope(p,x,f))continue;const s=pState(p)[0];if(st?s==='off':s!=='on')continue;const np=pPrice(p,x);if(np<bp){bp=np;best=p}}
   return best&&{p:best,price:bp}}
 function promoHint(x,f){const r=promoOf(x,f,1);if(!r)return '';const [s,l]=pState(r.p);
-  return `<div class="warnb">Акция «${esc(r.p.ro||r.p.ru)}» (${l.toLowerCase()}): на сайте цена будет ${r.price} MDL вместо ${Math.max(pr(x),od(x))} MDL.</div>`}
-const pName=p=>esc(p.ro||p.ru||'Без названия');
+  return `<div class="warnb">${T('Акция «{0}» ({1}): на сайте цена будет {2} MDL вместо {3} MDL.',esc(r.p.ro||r.p.ru),l.toLowerCase(),r.price,Math.max(pr(x),od(x)))}</div>`}
+const pName=p=>esc(p.ro||p.ru||T('Без названия'));
 const pDisc=p=>p.kind==='sum'?`−${p.v} MDL`:`−${p.v}%`;
-const pScope=p=>p.scope==='all'?'Все товары':p.scope==='cat'?(p.cats||[]).map(f=>FN[f]||f).join(', ')||'—':`Товаров: ${(p.skus||[]).length}`;
+const pScope=p=>p.scope==='all'?T('Все товары'):p.scope==='cat'?(p.cats||[]).map(f=>FN[f]||f).join(', ')||'—':T('Товаров: {0}',(p.skus||[]).length);
 
 /* второй drawer: инструменты */
 let TL=null;
@@ -597,48 +715,48 @@ $('tlc').onclick=tlClose;
 $('tlf').onclick=e=>{const b=e.target.closest('[data-a]');if(!b||b.disabled)return;if(b.dataset.a==='x')return tlClose();if(TL&&TL.act[b.dataset.a])TL.act[b.dataset.a](b)};
 ['input','change'].forEach(ev=>$('tlb').addEventListener(ev,e=>{if(TL&&TL.on)TL.on(e)}));
 $('tlb').addEventListener('click',e=>{if(TL&&TL.click)TL.click(e)});
-const FT=(ok,extra='')=>`${extra}<span class="sp"></span><button class="btn" data-a="x">Отмена</button><button class="btn k" data-a="ok">${ok}</button>`;
+const FT=(ok,extra='')=>`${extra}<span class="sp"></span><button class="btn" data-a="x">${T('Отмена')}</button><button class="btn k" data-a="ok">${ok}</button>`;
 
 /* акции */
 function drawPromo(){const L=PM.data.promos;
-  $('sum').textContent=L.length?`Акций: ${L.length}, идёт сейчас: ${L.filter(p=>pState(p)[0]==='on').length}`:'';
-  $('vb').innerHTML='<button class="btn r" id="pnew">+ Новая акция</button>';$('pnew').onclick=()=>openPromo(null);
-  if(!L.length){$('vw').innerHTML='<div class="empty">Акций пока нет. Создайте первую — сайт сам включит её в нужный день и выключит после окончания.</div>';return}
-  $('vw').innerHTML=`<table><thead><tr><th>Акция</th><th>Скидка</th><th>Товары</th><th>Даты</th><th>Статус</th><th></th></tr></thead><tbody>${L.map((p,i)=>{const [s,l]=pState(p),n=allItems().filter(({f,x})=>pr(x)&&inScope(p,x,f)).length;
-    return `<tr data-i="${i}"><td class="nm"><b>${pName(p)}</b><small>${esc(p.ru||'')}${p.img||p.bt&&(p.bt.ro||p.bt.ru)?' · есть баннер':''}</small></td><td><b>${pDisc(p)}</b></td><td class="ct">${esc(pScope(p))}<br><small style="color:var(--mute)">${n} с ценой</small></td>
-    <td class="sk">${p.from?dmy(p.from):'…'} — ${p.to?dmy(p.to):'без срока'}</td><td><span class="pill ${s}">${l}</span></td>
-    <td style="white-space:nowrap"><button class="ebtn" data-k="on">${p.on?'Выключить':'Включить'}</button> <button class="ebtn" data-k="ed">Изменить</button></td></tr>`}).join('')}</tbody></table>
-    <div class="hint" style="margin-top:12px">Акция работает на сайте с даты «с» по дату «по» включительно (время Кишинёва). Если у товара уже есть своя скидка — показывается бо́льшая. Корзина и сообщение в WhatsApp/Viber используют цену со скидкой.</div>`;
+  $('sum').textContent=L.length?T('Акций: {0}, идёт сейчас: {1}',L.length,L.filter(p=>pState(p)[0]==='on').length):'';
+  $('vb').innerHTML=`<button class="btn r" id="pnew">${T('+ Новая акция')}</button>`;$('pnew').onclick=()=>openPromo(null);
+  if(!L.length){$('vw').innerHTML=`<div class="empty">${T('Акций пока нет. Создайте первую — сайт сам включит её в нужный день и выключит после окончания.')}</div>`;return}
+  $('vw').innerHTML=`<table><thead><tr><th>${T('Акция')}</th><th>${T('Скидка')}</th><th>${T('Товары')}</th><th>${T('Даты')}</th><th>${T('Статус')}</th><th></th></tr></thead><tbody>${L.map((p,i)=>{const [s,l]=pState(p),n=allItems().filter(({f,x})=>pr(x)&&inScope(p,x,f)).length;
+    return `<tr data-i="${i}"><td class="nm"><b>${pName(p)}</b><small>${esc(p.ru||'')}${p.img||p.bt&&(p.bt.ro||p.bt.ru)?T(' · есть баннер'):''}</small></td><td><b>${pDisc(p)}</b></td><td class="ct">${esc(pScope(p))}<br><small style="color:var(--mute)">${T('{0} с ценой',n)}</small></td>
+    <td class="sk">${p.from?dmy(p.from):'…'} — ${p.to?dmy(p.to):T('без срока')}</td><td><span class="pill ${s}">${l}</span></td>
+    <td style="white-space:nowrap"><button class="ebtn" data-k="on">${p.on?T('Выключить'):T('Включить')}</button> <button class="ebtn" data-k="ed">${T('Изменить')}</button></td></tr>`}).join('')}</tbody></table>
+    <div class="hint" style="margin-top:12px">${T('Акция работает на сайте с даты «с» по дату «по» включительно (время Кишинёва). Если у товара уже есть своя скидка — показывается бо́льшая. Корзина и сообщение в WhatsApp/Viber используют цену со скидкой.')}</div>`;
   $('vw').querySelectorAll('tr[data-i] button').forEach(b=>b.onclick=()=>{const i=+b.closest('tr').dataset.i,p=PM.data.promos[i];
     if(b.dataset.k==='ed')return openPromo(i);p.on=!p.on;pmDirty();drawPromo()})}
 function pmDirty(){PM.dirty=true;CHG.add('#promo');bar()}
 let PE=null;
 function openPromo(i){const p=i==null?{id:Date.now().toString(36),on:true,ro:'',ru:'',from:today(),to:'',kind:'pct',v:10,scope:'all',cats:[],skus:[],img:'',bt:{ro:'',ru:''}}:JSON.parse(JSON.stringify(PM.data.promos[i]));
   p.cats=p.cats||[];p.skus=(p.skus||[]).map(String);p.bt=p.bt||{ro:'',ru:''};PE=p;
-  tlOpen(i==null?'Новая акция':'Акция: '+(p.ro||p.ru),`
-  <fieldset><legend>Название</legend><div class="g2">
-   <label class="f">Название (RO)<input class="t" id="p_ro" value="${esc(p.ro)}" placeholder="Reduceri de toamnă"></label>
-   <label class="f">Название (RU)<input class="t" id="p_ru" value="${esc(p.ru)}" placeholder="Осенние скидки"></label></div></fieldset>
-  <fieldset><legend>Срок и скидка</legend><div class="g3">
-   <label class="f">С даты<input class="t" type="date" id="p_from" value="${esc(p.from)}"></label>
-   <label class="f">По дату (включительно)<input class="t" type="date" id="p_to" value="${esc(p.to)}"></label>
-   <label class="ck"><input type="checkbox" id="p_on" ${p.on?'checked':''}> Акция включена</label></div>
+  tlOpen(i==null?T('Новая акция'):T('Акция: {0}',p.ro||p.ru),`
+  <fieldset><legend>${T('Название')}</legend><div class="g2">
+   <label class="f">${T('Название (RO)')}<input class="t" id="p_ro" value="${esc(p.ro)}" placeholder="Reduceri de toamnă"></label>
+   <label class="f">${T('Название (RU)')}<input class="t" id="p_ru" value="${esc(p.ru)}" placeholder="Осенние скидки"></label></div></fieldset>
+  <fieldset><legend>${T('Срок и скидка')}</legend><div class="g3">
+   <label class="f">${T('С даты')}<input class="t" type="date" id="p_from" value="${esc(p.from)}"></label>
+   <label class="f">${T('По дату (включительно)')}<input class="t" type="date" id="p_to" value="${esc(p.to)}"></label>
+   <label class="ck"><input type="checkbox" id="p_on" ${p.on?'checked':''}> ${T('Акция включена')}</label></div>
    <div class="g3" style="margin-top:12px">
-   <label class="f">Тип скидки<select class="t" id="p_kind"><option value="pct" ${p.kind!=='sum'?'selected':''}>Процент</option><option value="sum" ${p.kind==='sum'?'selected':''}>Сумма, MDL</option></select></label>
-   <label class="f">Размер скидки<input class="t" id="p_v" value="${p.v||''}" inputmode="numeric"></label></div>
-   <div class="hint">Скидка считается от обычной цены товара. Если у товара уже есть своя (ручная) скидка — на сайте покажется бо́льшая из двух.</div></fieldset>
-  <fieldset><legend>Какие товары участвуют</legend><div class="g2">
-   <label class="f">Охват<select class="t" id="p_sc"><option value="all" ${p.scope==='all'?'selected':''}>Все товары</option><option value="cat" ${p.scope==='cat'?'selected':''}>Выбранные категории</option><option value="sku" ${p.scope==='sku'?'selected':''}>Выбранные товары</option></select></label></div>
-   <div class="chips" id="p_cats" style="margin-top:12px">${FILES.map(c=>`<button type="button" class="chip ${p.cats.includes(c.f)?'on':''}" data-v="${c.f}">${c.n}</button>`).join('')}</div>
-   <div id="p_skw" style="margin-top:12px"><input class="t" id="p_q" type="search" placeholder="Добавить товар: модель или код" autocomplete="off"><div class="res" id="p_res"></div><div class="chips" id="p_sk" style="margin-top:10px"></div></div>
+   <label class="f">${T('Тип скидки')}<select class="t" id="p_kind"><option value="pct" ${p.kind!=='sum'?'selected':''}>${T('Процент')}</option><option value="sum" ${p.kind==='sum'?'selected':''}>${T('Сумма, MDL')}</option></select></label>
+   <label class="f">${T('Размер скидки')}<input class="t" id="p_v" value="${p.v||''}" inputmode="numeric"></label></div>
+   <div class="hint">${T('Скидка считается от обычной цены товара. Если у товара уже есть своя (ручная) скидка — на сайте покажется бо́льшая из двух.')}</div></fieldset>
+  <fieldset><legend>${T('Какие товары участвуют')}</legend><div class="g2">
+   <label class="f">${T('Охват')}<select class="t" id="p_sc"><option value="all" ${p.scope==='all'?'selected':''}>${T('Все товары')}</option><option value="cat" ${p.scope==='cat'?'selected':''}>${T('Выбранные категории')}</option><option value="sku" ${p.scope==='sku'?'selected':''}>${T('Выбранные товары')}</option></select></label></div>
+   <div class="chips" id="p_cats" style="margin-top:12px">${FILES.map(c=>`<button type="button" class="chip ${p.cats.includes(c.f)?'on':''}" data-v="${c.f}">${esc(cn(c))}</button>`).join('')}</div>
+   <div id="p_skw" style="margin-top:12px"><input class="t" id="p_q" type="search" placeholder="${T('Добавить товар: модель или код')}" autocomplete="off"><div class="res" id="p_res"></div><div class="chips" id="p_sk" style="margin-top:10px"></div></div>
    <div class="warnb" id="p_n"></div></fieldset>
-  <fieldset><legend>Баннер на главной (необязательно)</legend>
+  <fieldset><legend>${T('Баннер на главной (необязательно)')}</legend>
    <div class="phs" id="p_img"></div>
    <div class="g2" style="margin-top:12px">
-    <label class="f">Текст баннера (RO)<textarea class="t" id="p_bro" rows="2" style="min-height:60px">${esc(p.bt.ro)}</textarea></label>
-    <label class="f">Текст баннера (RU)<textarea class="t" id="p_bru" rows="2" style="min-height:60px">${esc(p.bt.ru)}</textarea></label></div>
-   <div class="hint">Пока акция идёт, на главной показывается баннер со ссылкой на страницу «Акции». Нет ни картинки, ни текста — баннера не будет. Картинка лучше горизонтальная, примерно 1200×600.</div></fieldset>`,
-  FT('Готово',i==null?'':'<button class="del" data-a="del">Удалить акцию</button>'),{
+    <label class="f">${T('Текст баннера (RO)')}<textarea class="t" id="p_bro" rows="2" style="min-height:60px">${esc(p.bt.ro)}</textarea></label>
+    <label class="f">${T('Текст баннера (RU)')}<textarea class="t" id="p_bru" rows="2" style="min-height:60px">${esc(p.bt.ru)}</textarea></label></div>
+   <div class="hint">${T('Пока акция идёт, на главной показывается баннер со ссылкой на страницу «Акции». Нет ни картинки, ни текста — баннера не будет. Картинка лучше горизонтальная, примерно 1200×600.')}</div></fieldset>`,
+  FT(T('Готово'),i==null?'':`<button class="del" data-a="del">${T('Удалить акцию')}</button>`),{
     on:e=>{if(e.target.id==='p_q')return pSearch();pRead();pUI()},
     click:e=>{const c=e.target.closest('#p_cats .chip');if(c){c.classList.toggle('on');pRead();pUI();return}
       const r=e.target.closest('#p_res button');if(r){if(!PE.skus.includes(r.dataset.s))PE.skus.push(r.dataset.s);$('p_q').value='';$('p_res').innerHTML='';pUI();return}
@@ -646,14 +764,14 @@ function openPromo(i){const p=i==null?{id:Date.now().toString(36),on:true,ro:'',
       if(e.target.closest('#p_img .add'))return $('fi2').click();
       if(e.target.closest('#p_img [data-rm]')){PE.img='';pUI()}},
     act:{ok:()=>{pRead();const p=PE;
-      if(!p.ro&&!p.ru)return toast('Укажите название акции',true);
-      if(!(p.v>0)||p.kind==='pct'&&p.v>=100)return toast('Укажите размер скидки'+(p.kind==='pct'?' от 1 до 99%':''),true);
-      if(p.from&&p.to&&p.from>p.to)return toast('Дата окончания раньше даты начала',true);
-      if(p.scope==='cat'&&!p.cats.length)return toast('Выберите хотя бы одну категорию',true);
-      if(p.scope==='sku'&&!p.skus.length)return toast('Добавьте хотя бы один товар',true);
+      if(!p.ro&&!p.ru)return toast(T('Укажите название акции'),true);
+      if(!(p.v>0)||p.kind==='pct'&&p.v>=100)return toast(p.kind==='pct'?T('Укажите размер скидки от 1 до 99%'):T('Укажите размер скидки'),true);
+      if(p.from&&p.to&&p.from>p.to)return toast(T('Дата окончания раньше даты начала'),true);
+      if(p.scope==='cat'&&!p.cats.length)return toast(T('Выберите хотя бы одну категорию'),true);
+      if(p.scope==='sku'&&!p.skus.length)return toast(T('Добавьте хотя бы один товар'),true);
       if(p.scope!=='cat')p.cats=[];if(p.scope!=='sku')p.skus=[];if(!p.bt.ro&&!p.bt.ru)delete p.bt;if(!p.img)delete p.img;
-      if(i==null)PM.data.promos.unshift(p);else PM.data.promos[i]=p;pmDirty();tlClose();render();toast('Акция сохранена в черновик. Нажмите «Сохранить на сайт».')},
-     del:()=>{if(!confirm('Удалить акцию «'+(PE.ro||PE.ru)+'»?'))return;PM.data.promos.splice(i,1);pmDirty();tlClose();render()}}});
+      if(i==null)PM.data.promos.unshift(p);else PM.data.promos[i]=p;pmDirty();tlClose();render();toast(T('Акция сохранена в черновик. Нажмите «Сохранить на сайт».'))},
+     del:()=>{if(!confirm(T('Удалить акцию «{0}»?',PE.ro||PE.ru)))return;PM.data.promos.splice(i,1);pmDirty();tlClose();render()}}});
   pUI()}
 function pRead(){const p=PE;p.ro=$('p_ro').value.trim();p.ru=$('p_ru').value.trim();p.from=$('p_from').value;p.to=$('p_to').value;p.on=$('p_on').checked;
   p.kind=$('p_kind').value;p.v=+String($('p_v').value).replace(',','.').replace(/[^\d.]/g,'')||0;p.scope=$('p_sc').value;
@@ -663,40 +781,40 @@ function pUI(){const p=PE;$('p_cats').hidden=p.scope!=='cat';$('p_skw').hidden=p
   $('p_sk').innerHTML=p.skus.map(s=>{const r=bySku(s);return `<button type="button" class="chip x2" data-s="${esc(s)}">${esc(r?nm(r.x):s)} · ${esc(s)}</button>`}).join('');
   const L=allItems().filter(({f,x})=>pr(x)&&inScope(p,x,f)),ok=p.v>0&&!(p.kind==='pct'&&p.v>=100);
   const better=ok?L.filter(({x})=>pPrice(p,x)<pr(x)).length:0;
-  $('p_n').innerHTML=ok?`Под акцию попадает товаров с ценой: <b>${L.length}</b>${L.length!==better?`, из них у ${L.length-better} своя скидка больше — у них останется своя`:''}.`+(L.length?` Пример: ${esc(nm(L[0].x))} — ${Math.max(pr(L[0].x),od(L[0].x))} → <b>${Math.min(pr(L[0].x),pPrice(p,L[0].x))} MDL</b>.`:''):'Укажите размер скидки.';
-  $('p_img').innerHTML=(p.img?`<div class="p" style="width:220px">${img(p.img)}<button data-rm="1" title="Убрать картинку">×</button></div>`:'')+(p.img?'':'<div class="add">+ Картинка баннера</div>')}
+  $('p_n').innerHTML=ok?T('Под акцию попадает товаров с ценой: <b>{0}</b>',L.length)+(L.length!==better?T(', из них у {0} своя скидка больше — у них останется своя',L.length-better):'')+'.'+(L.length?T(' Пример: {0} — {1} → <b>{2} MDL</b>.',esc(nm(L[0].x)),Math.max(pr(L[0].x),od(L[0].x)),Math.min(pr(L[0].x),pPrice(p,L[0].x))):''):T('Укажите размер скидки.');
+  $('p_img').innerHTML=(p.img?`<div class="p" style="width:220px">${img(p.img)}<button data-rm="1" title="${T('Убрать картинку')}">×</button></div>`:'')+(p.img?'':`<div class="add">${T('+ Картинка баннера')}</div>`)}
 function pSearch(){const q=$('p_q').value.trim().toLowerCase();if(q.length<2){$('p_res').innerHTML='';return}
   const R=allItems().filter(({x})=>(nm(x)+' '+x.sku).toLowerCase().includes(q)&&!PE.skus.includes(String(x.sku))).slice(0,8);
-  $('p_res').innerHTML=R.map(({f,x})=>`<button type="button" data-s="${esc(x.sku)}">${img(pics(x)[0])}<span><b>${esc(nm(x))}</b> <small>${esc(x.sku)} · ${esc(FN[f])} · ${pr(x)||'без цены'}</small></span></button>`).join('')||'<small style="padding:6px 8px">Не найдено</small>'}
-$('fi2').onchange=async()=>{const f=$('fi2').files[0];$('fi2').value='';if(!f||!PE)return;try{PE.img=await upImg(f,'promo-'+(PE.ro||PE.ru||'banner'));pUI()}catch(e){toast('Не удалось прочитать файл',true)}};
+  $('p_res').innerHTML=R.map(({f,x})=>`<button type="button" data-s="${esc(x.sku)}">${img(pics(x)[0])}<span><b>${esc(nm(x))}</b> <small>${esc(x.sku)} · ${esc(FN[f])} · ${pr(x)||T('без цены')}</small></span></button>`).join('')||`<small style="padding:6px 8px">${T('Не найдено')}</small>`}
+$('fi2').onchange=async()=>{const f=$('fi2').files[0];$('fi2').value='';if(!f||!PE)return;try{PE.img=await upImg(f,'promo-'+(PE.ro||PE.ru||'banner'));pUI()}catch(e){toast(T('Не удалось прочитать файл'),true)}};
 
 /* цены пачкой */
 const calcP=(v,op,n,r)=>{let z=op==='+%'?v*(1+n/100):op==='-%'?v*(1-n/100):op==='+'?v+n:v-n;z=r?Math.round(z/10)*10:Math.round(z);return Math.max(0,z)};
 function openBulk(){const sc=SEL.size?'sel':'list';
-  tlOpen('Изменить цены пачкой',`
-  <fieldset><legend>Какие товары</legend><div class="chips" id="b_sc">
-   <button type="button" class="chip ${sc==='sel'?'on':''}" data-v="sel" ${SEL.size?'':'disabled'}>Отмеченные (${SEL.size})</button>
-   <button type="button" class="chip ${sc==='list'?'on':''}" data-v="list">Показанные в списке (${ROWS.length})</button>
-   <button type="button" class="chip" data-v="cat">Категория целиком</button></div>
-   <div class="g2" id="b_cw" style="margin-top:12px" hidden><label class="f">Категория<select class="t" id="b_cat">${FILES.map(c=>`<option value="${c.f}" ${c.f===$('fc').value?'selected':''}>${c.n} (${DB[c.f].items.length})</option>`).join('')}</select></label></div></fieldset>
-  <fieldset><legend>Как изменить</legend><div class="g3">
-   <label class="f">Действие<select class="t" id="b_op"><option value="+%">Поднять на %</option><option value="-%">Снизить на %</option><option value="+">Поднять на сумму, MDL</option><option value="-">Снизить на сумму, MDL</option></select></label>
-   <label class="f">Значение<input class="t" id="b_v" inputmode="decimal" placeholder="например, 5"></label>
-   <label class="ck"><input type="checkbox" id="b_r" checked> Округлить до 10 MDL</label></div>
-   <label class="ck" style="margin-top:12px"><input type="checkbox" id="b_o" checked> У товаров со скидкой менять и старую цену (размер скидки сохранится)</label></fieldset>
-  <fieldset><legend>Предпросмотр: было → стало</legend><div id="b_pv"><div class="hint">Укажите значение.</div></div></fieldset>`,FT('Применить'),{
+  tlOpen(T('Изменить цены пачкой'),`
+  <fieldset><legend>${T('Какие товары')}</legend><div class="chips" id="b_sc">
+   <button type="button" class="chip ${sc==='sel'?'on':''}" data-v="sel" ${SEL.size?'':'disabled'}>${T('Отмеченные')} (${SEL.size})</button>
+   <button type="button" class="chip ${sc==='list'?'on':''}" data-v="list">${T('Показанные в списке')} (${ROWS.length})</button>
+   <button type="button" class="chip" data-v="cat">${T('Категория целиком')}</button></div>
+   <div class="g2" id="b_cw" style="margin-top:12px" hidden><label class="f">${T('Категория')}<select class="t" id="b_cat">${FILES.map(c=>`<option value="${c.f}" ${c.f===$('fc').value?'selected':''}>${esc(cn(c))} (${DB[c.f].items.length})</option>`).join('')}</select></label></div></fieldset>
+  <fieldset><legend>${T('Как изменить')}</legend><div class="g3">
+   <label class="f">${T('Действие')}<select class="t" id="b_op"><option value="+%">${T('Поднять на %')}</option><option value="-%">${T('Снизить на %')}</option><option value="+">${T('Поднять на сумму, MDL')}</option><option value="-">${T('Снизить на сумму, MDL')}</option></select></label>
+   <label class="f">${T('Значение')}<input class="t" id="b_v" inputmode="decimal" placeholder="${T('например, 5')}"></label>
+   <label class="ck"><input type="checkbox" id="b_r" checked> ${T('Округлить до 10 MDL')}</label></div>
+   <label class="ck" style="margin-top:12px"><input type="checkbox" id="b_o" checked> ${T('У товаров со скидкой менять и старую цену (размер скидки сохранится)')}</label></fieldset>
+  <fieldset><legend>${T('Предпросмотр: было → стало')}</legend><div id="b_pv"><div class="hint">${T('Укажите значение.')}</div></div></fieldset>`,FT(T('Применить')),{
     sc,on:()=>bPrev(),click:e=>{const c=e.target.closest('#b_sc .chip');if(!c||c.disabled)return;TL.sc=c.dataset.v;$('b_sc').querySelectorAll('.chip').forEach(b=>b.classList.toggle('on',b===c));$('b_cw').hidden=TL.sc!=='cat';bPrev()},
-    act:{ok:()=>{const L=bList();if(!L.length)return toast('Нечего менять',true);L.forEach(r=>{setPrice(r.x,r.p1,r.o1);touch(r.x,r.f)});tlClose();render();toast(`Цены изменены у ${L.length} товаров. Проверьте и нажмите «Сохранить на сайт».`)}}});
+    act:{ok:()=>{const L=bList();if(!L.length)return toast(T('Нечего менять'),true);L.forEach(r=>{setPrice(r.x,r.p1,r.o1);touch(r.x,r.f)});tlClose();render();toast(T('Цены изменены у {0} товаров. Проверьте и нажмите «Сохранить на сайт».',L.length))}}});
   $('tlf').querySelector('[data-a=ok]').disabled=true}
 function bList(){const n=+String($('b_v').value).replace(',','.').replace(/[^\d.]/g,'');if(!(n>0))return [];const op=$('b_op').value,r=$('b_r').checked,oo=$('b_o').checked;
   const src=TL.sc==='sel'?allItems().filter(z=>SEL.has(z.x)):TL.sc==='cat'?DB[$('b_cat').value].items.map(x=>({f:$('b_cat').value,x})):ROWS;
   return src.filter(({x})=>pr(x)).map(({f,x})=>{const p0=pr(x),o0=od(x)>p0?od(x):0,p1=calcP(p0,op,n,r),o1=o0&&oo?calcP(o0,op,n,r):o0;return {f,x,p0,o0,p1,o1}}).filter(z=>z.p1>0&&(z.p1!==z.p0||z.o1!==z.o0))}
-function bPrev(){const L=bList(),b=$('tlf').querySelector('[data-a=ok]');b.disabled=!L.length;b.textContent=L.length?`Применить к ${L.length}`:'Применить';
+function bPrev(){const L=bList(),b=$('tlf').querySelector('[data-a=ok]');b.disabled=!L.length;b.textContent=L.length?T('Применить к {0}',L.length):T('Применить');
   const v=(a,z)=>a===z?`${z||'—'}`:`<s>${a||'—'}</s> → <span class="${z>a?'up':'dn'}">${z||'—'}</span>`;
-  $('b_pv').innerHTML=L.length?`<table class="pv"><thead><tr><th>Товар</th><th>Код</th><th style="text-align:right">Цена</th><th style="text-align:right">Старая цена</th></tr></thead><tbody>${L.slice(0,300).map(z=>`<tr><td>${esc(nm(z.x))}</td><td class="sk">${esc(z.x.sku)}</td><td class="n">${v(z.p0,z.p1)}</td><td class="n">${z.o0?v(z.o0,z.o1):'—'}</td></tr>`).join('')}</tbody></table>${L.length>300?`<div class="hint">…и ещё ${L.length-300}</div>`:''}`:'<div class="hint">Нет изменений: укажите значение или выберите товары с ценой.</div>'}
+  $('b_pv').innerHTML=L.length?`<table class="pv"><thead><tr><th>${T('Товар')}</th><th>${T('Код')}</th><th style="text-align:right">${T('Цена')}</th><th style="text-align:right">${T('Старая цена')}</th></tr></thead><tbody>${L.slice(0,300).map(z=>`<tr><td>${esc(nm(z.x))}</td><td class="sk">${esc(z.x.sku)}</td><td class="n">${v(z.p0,z.p1)}</td><td class="n">${z.o0?v(z.o0,z.o1):'—'}</td></tr>`).join('')}</tbody></table>${L.length>300?`<div class="hint">${T('…и ещё {0}',L.length-300)}</div>`:''}`:`<div class="hint">${T('Нет изменений: укажите значение или выберите товары с ценой.')}</div>`}
 
 /* импорт прайса */
-let XLP=null;const xlsx=()=>XLP||(XLP=new Promise((ok,no)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';s.onload=()=>ok(window.XLSX);s.onerror=()=>{XLP=null;no(new Error('не загрузился модуль Excel'))};document.head.appendChild(s)}));
+let XLP=null;const xlsx=()=>XLP||(XLP=new Promise((ok,no)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';s.onload=()=>ok(window.XLSX);s.onerror=()=>{XLP=null;no(new Error(T('не загрузился модуль Excel')))};document.head.appendChild(s)}));
 function csv(t){t=t.replace(/^﻿/,'');const l1=t.split(/\r?\n/)[0],d=[';','\t',','].sort((a,b)=>l1.split(b).length-l1.split(a).length)[0];const R=[];let row=[],c='',q=false;
   for(let i=0;i<t.length;i++){const ch=t[i];if(q){if(ch==='"'){if(t[i+1]==='"'){c+='"';i++}else q=false}else c+=ch}
     else if(ch==='"')q=true;else if(ch===d){row.push(c);c=''}else if(ch==='\n'||ch==='\r'){if(ch==='\r'&&t[i+1]==='\n')i++;row.push(c);R.push(row);row=[];c=''}else c+=ch}
@@ -704,32 +822,32 @@ function csv(t){t=t.replace(/^﻿/,'');const l1=t.split(/\r?\n/)[0],d=[';','\t',
 const nk=v=>String(v??'').trim().toLowerCase().replace(/\s+/g,'');
 const pn=v=>{if(typeof v==='number')return Math.round(v);let s=String(v??'').replace(/[\s ]/g,'').replace(/[^\d,.\-]/g,'');s=s.includes(',')&&!s.includes('.')?s.replace(',','.'):s.replace(/,/g,'');const n=parseFloat(s);return isNaN(n)?0:Math.round(n)};
 let IMP=null;
-function openImp(){IMP=null;tlOpen('Импорт прайса',`
-  <fieldset><legend>Файл</legend><div class="drop" id="i_drop">Перетащите сюда файл CSV или Excel (XLSX)<br><button type="button" class="lnk" id="i_pick">или выберите файл</button></div>
-  <div class="hint">В файле нужны колонки «артикул» (или «модель») и «цена»; первая строка — заголовки. Товары сопоставляются по коду товара или по модели.</div></fieldset><div id="i_cfg"></div>`,FT('Применить'),{
+function openImp(){IMP=null;tlOpen(T('Импорт прайса'),`
+  <fieldset><legend>${T('Файл')}</legend><div class="drop" id="i_drop">${T('Перетащите сюда файл CSV или Excel (XLSX)')}<br><button type="button" class="lnk" id="i_pick">${T('или выберите файл')}</button></div>
+  <div class="hint">${T('В файле нужны колонки «артикул» (или «модель») и «цена»; первая строка — заголовки. Товары сопоставляются по коду товара или по модели.')}</div></fieldset><div id="i_cfg"></div>`,FT(T('Применить')),{
     on:()=>iPrev(),click:e=>{if(e.target.closest('#i_pick'))$('fi3').click()},
-    act:{ok:()=>{const L=iList().ch;L.forEach(r=>{setPrice(r.x,r.p1,r.o1);touch(r.x,r.f)});tlClose();render();toast(`Обновлено цен: ${L.length}. Проверьте и нажмите «Сохранить на сайт».`)}}});
+    act:{ok:()=>{const L=iList().ch;L.forEach(r=>{setPrice(r.x,r.p1,r.o1);touch(r.x,r.f)});tlClose();render();toast(T('Обновлено цен: {0}. Проверьте и нажмите «Сохранить на сайт».',L.length))}}});
   $('tlf').querySelector('[data-a=ok]').disabled=true;
   const d=$('i_drop');d.ondragover=e=>{e.preventDefault();d.classList.add('on')};d.ondragleave=()=>d.classList.remove('on');d.ondrop=e=>{e.preventDefault();d.classList.remove('on');iFile(e.dataTransfer.files[0])}}
 $('fi3').onchange=()=>{const f=$('fi3').files[0];$('fi3').value='';iFile(f)};
-async function iFile(f){if(!f||!TL)return;$('i_cfg').innerHTML='<div class="hint">Читаю файл…</div>';
+async function iFile(f){if(!f||!TL)return;$('i_cfg').innerHTML=`<div class="hint">${T('Читаю файл…')}</div>`;
   try{let R;if(/\.xlsx?$/i.test(f.name)){const X=await xlsx();const wb=X.read(await f.arrayBuffer(),{type:'array'});R=X.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{header:1,raw:true,defval:''})}
     else R=csv(await f.text());
-    const h=R.findIndex(r=>r.filter(c=>String(c).trim()).length>=2);if(h<0)throw new Error('в файле нет таблицы');
+    const h=R.findIndex(r=>r.filter(c=>String(c).trim()).length>=2);if(h<0)throw new Error(T('в файле нет таблицы'));
     const H=R[h].map(c=>String(c).trim()),g=re=>H.findIndex(c=>re.test(c));
     const key=[g(/артик|^код|sku|^cod|art/i),g(/модел|model|denum|наимен/i)].find(i=>i>=0)??0;
     const price=[g(/^(?!.*(стар|old|vech)).*(цен|pre[tț]|price|pret)/i)].find(i=>i>=0)??Math.min(1,H.length-1);
     IMP={name:f.name,H,D:R.slice(h+1).filter(r=>r.some(c=>String(c).trim()))};
-    const opt=(sel,none)=>(none?'<option value="-1">— нет —</option>':'')+H.map((c,i)=>`<option value="${i}" ${i===sel?'selected':''}>${esc(c||'Колонка '+(i+1))}</option>`).join('');
-    $('i_cfg').innerHTML=`<fieldset><legend>Колонки · ${esc(f.name)} · строк: ${IMP.D.length}</legend><div class="g3">
-     <label class="f">Сопоставлять по<select class="t" id="i_k">${opt(key)}</select></label>
-     <label class="f">Новая цена<select class="t" id="i_p">${opt(price)}</select></label>
-     <label class="f">Старая цена (необязательно)<select class="t" id="i_o">${opt(g(/стар|old|vech/i),1)}</select></label></div>
-     <div class="g2" style="margin-top:12px"><label class="f">Что в колонке сопоставления<select class="t" id="i_m"><option value="both">Код или модель (автоматически)</option><option value="sku">Код товара (артикул)</option><option value="n">Модель</option></select></label>
-     <label class="ck"><input type="checkbox" id="i_r"> Округлить до 10 MDL</label></div></fieldset>
-     <fieldset><legend>Предпросмотр</legend><div id="i_pv"></div></fieldset>`;
+    const opt=(sel,none)=>(none?`<option value="-1">${T('— нет —')}</option>`:'')+H.map((c,i)=>`<option value="${i}" ${i===sel?'selected':''}>${esc(c||T('Колонка {0}',i+1))}</option>`).join('');
+    $('i_cfg').innerHTML=`<fieldset><legend>${T('Колонки · {0} · строк: {1}',esc(f.name),IMP.D.length)}</legend><div class="g3">
+     <label class="f">${T('Сопоставлять по')}<select class="t" id="i_k">${opt(key)}</select></label>
+     <label class="f">${T('Новая цена')}<select class="t" id="i_p">${opt(price)}</select></label>
+     <label class="f">${T('Старая цена (необязательно)')}<select class="t" id="i_o">${opt(g(/стар|old|vech/i),1)}</select></label></div>
+     <div class="g2" style="margin-top:12px"><label class="f">${T('Что в колонке сопоставления')}<select class="t" id="i_m"><option value="both">${T('Код или модель (автоматически)')}</option><option value="sku">${T('Код товара (артикул)')}</option><option value="n">${T('Модель')}</option></select></label>
+     <label class="ck"><input type="checkbox" id="i_r"> ${T('Округлить до 10 MDL')}</label></div></fieldset>
+     <fieldset><legend>${T('Предпросмотр')}</legend><div id="i_pv"></div></fieldset>`;
     $('i_cfg').querySelectorAll('select').forEach(dd);iPrev()}
-  catch(e){$('i_cfg').innerHTML=`<div class="warnb">Не удалось прочитать файл: ${esc(e.message)}</div>`}}
+  catch(e){$('i_cfg').innerHTML=`<div class="warnb">${T('Не удалось прочитать файл: {0}',esc(e.message))}</div>`}}
 function iList(){if(!IMP||!$('i_k'))return {ch:[],miss:[],same:0};const k=+$('i_k').value,pc=+$('i_p').value,oc=+$('i_o').value,m=$('i_m').value,rr=$('i_r').checked;
   const S=new Map(),N=new Map();for(const z of allItems()){const a=nk(z.x.sku),b=nk(nm(z.x));if(a)(S.get(a)||S.set(a,[]).get(a)).push(z);if(b)(N.get(b)||N.set(b,[]).get(b)).push(z)}
   const ch=[],miss=[],seen=new Set();let same=0;
@@ -738,11 +856,11 @@ function iList(){if(!IMP||!$('i_k'))return {ch:[],miss:[],same:0};const k=+$('i_
     for(const z of hit){if(seen.has(z.x))continue;seen.add(z.x);const p0=pr(z.x),o0=od(z.x)>p0?od(z.x):0;let o1=oc>=0?pn(r[oc]):o0;if(rr&&oc>=0&&o1)o1=Math.round(o1/10)*10;
       if(p1===p0&&(o1>p1?o1:0)===o0){same++;continue}ch.push({f:z.f,x:z.x,p0,o0,p1,o1})}}
   return {ch,miss,same}}
-function iPrev(){if(!$('i_pv'))return;const {ch,miss,same}=iList(),b=$('tlf').querySelector('[data-a=ok]');b.disabled=!ch.length;b.textContent=ch.length?`Применить ${ch.length} изменений`:'Применить';
+function iPrev(){if(!$('i_pv'))return;const {ch,miss,same}=iList(),b=$('tlf').querySelector('[data-a=ok]');b.disabled=!ch.length;b.textContent=ch.length?T('Применить {0} изменений',ch.length):T('Применить');
   const v=(a,z)=>a===z?`${z||'—'}`:`<s>${a||'—'}</s> → <span class="${z>a?'up':'dn'}">${z||'—'}</span>`;
-  $('i_pv').innerHTML=`<div class="hint" style="margin:0 0 8px">Изменится: <b>${ch.length}</b> · без изменений: ${same} · не найдено в каталоге: ${miss.length}</div>`+
-   (ch.length?`<table class="pv"><thead><tr><th>Товар</th><th>Код</th><th style="text-align:right">Цена</th><th style="text-align:right">Старая цена</th></tr></thead><tbody>${ch.slice(0,300).map(z=>`<tr><td>${esc(nm(z.x))}</td><td class="sk">${esc(z.x.sku)}</td><td class="n">${v(z.p0,z.p1)}</td><td class="n">${v(z.o0,z.o1>z.p1?z.o1:0)}</td></tr>`).join('')}</tbody></table>`:'')+
-   (miss.length?`<div class="warnb">Не найдены: ${miss.slice(0,30).map(esc).join(', ')}${miss.length>30?` и ещё ${miss.length-30}`:''}</div>`:'')}
+  $('i_pv').innerHTML=`<div class="hint" style="margin:0 0 8px">${T('Изменится: <b>{0}</b> · без изменений: {1} · не найдено в каталоге: {2}',ch.length,same,miss.length)}</div>`+
+   (ch.length?`<table class="pv"><thead><tr><th>${T('Товар')}</th><th>${T('Код')}</th><th style="text-align:right">${T('Цена')}</th><th style="text-align:right">${T('Старая цена')}</th></tr></thead><tbody>${ch.slice(0,300).map(z=>`<tr><td>${esc(nm(z.x))}</td><td class="sk">${esc(z.x.sku)}</td><td class="n">${v(z.p0,z.p1)}</td><td class="n">${v(z.o0,z.o1>z.p1?z.o1:0)}</td></tr>`).join('')}</tbody></table>`:'')+
+   (miss.length?`<div class="warnb">${T('Не найдены: {0}',miss.slice(0,30).map(esc).join(', '))}${miss.length>30?T(' и ещё {0}',miss.length-30):''}</div>`:'')}
 
 /* проверка каталога */
 let CK='';
@@ -753,23 +871,23 @@ function drawCheck(){const q=$('q').value.trim().toLowerCase(),fc=$('fc').value;
   const L=allItems().filter(({f,x})=>(!fc||f===fc)&&(!q||(nm(x)+' '+x.sku).toLowerCase().includes(q))).map(z=>Object.assign(z,{pb:PROB.filter(p=>p[2](z.x)).map(p=>p[0])})).filter(z=>z.pb.length);
   const cnt=k=>L.filter(z=>z.pb.includes(k)).length;
   CROWS=L.filter(z=>!CK||z.pb.includes(CK));
-  $('sum').textContent=`Товаров с замечаниями: ${L.length}`;
-  $('vb').innerHTML=`<div class="chips" id="ckc"><button class="chip ${CK?'':'on'}" data-v="">Все (${L.length})</button>${PROB.map(p=>`<button class="chip ${CK===p[0]?'on':''}" data-v="${p[0]}">${p[1]} (${cnt(p[0])})</button>`).join('')}</div>`;
+  $('sum').textContent=T('Товаров с замечаниями: {0}',L.length);
+  $('vb').innerHTML=`<div class="chips" id="ckc"><button class="chip ${CK?'':'on'}" data-v="">${T('Все')} (${L.length})</button>${PROB.map(p=>`<button class="chip ${CK===p[0]?'on':''}" data-v="${p[0]}">${T(p[1])} (${cnt(p[0])})</button>`).join('')}</div>`;
   $('ckc').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;CK=b.dataset.v;drawCheck()};
-  $('vw').innerHTML=CROWS.length?`<table><thead><tr><th></th><th>Товар</th><th class="sk">Код</th><th class="ct">Категория</th><th>Что не так</th><th></th></tr></thead><tbody>${CROWS.map(({f,x,pb},i)=>`<tr data-i="${i}" class="${DIRTY.has(x)?'dz':''} ${x.hid?'hd':''}"><td class="ph">${img(pics(x)[0])}</td><td class="nm"><b>${esc(nm(x))||'<i>без названия</i>'}</b><small>${esc(x.sub)}</small></td><td class="sk">${esc(x.sku)}</td><td class="ct">${esc(FN[f])}</td><td>${pb.map(k=>`<span class="pill bad">${PROB.find(p=>p[0]===k)[1]}</span>`).join('')}</td><td><button class="ebtn">Изменить</button></td></tr>`).join('')}</tbody></table>`:'<div class="empty">Замечаний нет</div>';
+  $('vw').innerHTML=CROWS.length?`<table><thead><tr><th></th><th>${T('Товар')}</th><th class="sk">${T('Код')}</th><th class="ct">${T('Категория')}</th><th>${T('Что не так')}</th><th></th></tr></thead><tbody>${CROWS.map(({f,x,pb},i)=>`<tr data-i="${i}" class="${DIRTY.has(x)?'dz':''} ${x.hid?'hd':''}"><td class="ph">${img(pics(x)[0])}</td><td class="nm"><b>${esc(nm(x))||`<i>${T('без названия')}</i>`}</b><small>${esc(x.sub)}</small></td><td class="sk">${esc(x.sku)}</td><td class="ct">${esc(FN[f])}</td><td>${pb.map(k=>`<span class="pill bad">${T(PROB.find(p=>p[0]===k)[1])}</span>`).join('')}</td><td><button class="ebtn">${T('Изменить')}</button></td></tr>`).join('')}</tbody></table>`:`<div class="empty">${T('Замечаний нет')}</div>`;
   $('vw').querySelectorAll('tr[data-i] .ebtn').forEach(b=>b.onclick=()=>{const r=CROWS[+b.closest('tr').dataset.i];openEd(r.f,r.x)})}
 
 /* контакты и тексты */
 const SF=[['phone','Телефон (как показывать)','+373 68 27 27 02'],['wa','WhatsApp — номер цифрами','37368272702'],['viber','Viber — номер','+37368272702'],['tg','Telegram — ссылка или @имя','https://t.me/+37368272702'],['fb','Facebook — ссылка','https://www.facebook.com/tekamoldova/'],['ig','Instagram — ссылка','https://www.instagram.com/tekamoldova/']];
 const SF2=[['addr','Адрес магазина','Chișinău, str. 31 August 1989, 79/1','Кишинёв, ул. 31 Августа 1989, 79/1',0],['hrs','График работы — по строке на строку','Luni – Vineri 10:00 – 18:00\nSâmbătă 10:00 – 15:00\nDuminică — zi liberă','Пн – Пт 10:00 – 18:00\nСб 10:00 – 15:00\nВс — выходной',3],['deliv','Доставка — текст','Gratuit în municipiul Chișinău. Data și ora livrării le stabilește managerul după comandă.','Бесплатно по муниципию Кишинёв. Дату и время доставки согласует менеджер после заказа.',3],['warr','Гарантия — текст','Pentru toată tehnica Teka și Küppersbusch cumpărată la noi.','На всю технику Teka и Küppersbusch, купленную у нас.',3]];
 function drawSite(){const d=SC.data,v=(k,l)=>esc(l?(d[k]||{})[l]||'':d[k]||'');
-  $('sum').textContent='Контакты и тексты сайта';
+  $('sum').textContent=T('Контакты и тексты сайта');
   const ta=(k,l,ph,r)=>r?`<textarea class="t" data-s="${k}" data-l="${l}" rows="${r}" style="min-height:0" placeholder="${esc(ph)}">${v(k,l)}</textarea>`:`<input class="t" data-s="${k}" data-l="${l}" value="${v(k,l)}" placeholder="${esc(ph)}">`;
   $('vw').innerHTML=`<div class="card">
-   <fieldset><legend>Связь</legend><div class="g3">${SF.map(([k,l,ph])=>`<label class="f">${l}<input class="t" data-s="${k}" value="${v(k)}" placeholder="${esc(ph)}"></label>`).join('')}</div>
-    <div class="hint">Эти номера и ссылки подставляются во все кнопки «Позвонить», WhatsApp, Viber, Telegram и соцсети на ПК-сайте, а также в отправку заказа из корзины.</div></fieldset>
-   ${SF2.map(([k,l,ro,ru,r])=>`<fieldset><legend>${l}</legend><div class="g2"><label class="f">RO${ta(k,'ro',ro,r)}</label><label class="f">RU${ta(k,'ru',ru,r)}</label></div></fieldset>`).join('')}
-   <div class="hint" style="margin:8px 0 16px">Пустое поле — на сайте остаётся текущий текст (он показан серым). Изменения попадут на сайт после «Сохранить на сайт».</div></div>`;
+   <fieldset><legend>${T('Связь')}</legend><div class="g3">${SF.map(([k,l,ph])=>`<label class="f">${T(l)}<input class="t" data-s="${k}" value="${v(k)}" placeholder="${esc(ph)}"></label>`).join('')}</div>
+    <div class="hint">${T('Эти номера и ссылки подставляются во все кнопки «Позвонить», WhatsApp, Viber, Telegram и соцсети на ПК-сайте, а также в отправку заказа из корзины.')}</div></fieldset>
+   ${SF2.map(([k,l,ro,ru,r])=>`<fieldset><legend>${T(l)}</legend><div class="g2"><label class="f">RO${ta(k,'ro',ro,r)}</label><label class="f">RU${ta(k,'ru',ru,r)}</label></div></fieldset>`).join('')}
+   <div class="hint" style="margin:8px 0 16px">${T('Пустое поле — на сайте остаётся текущий текст (он показан серым). Изменения попадут на сайт после «Сохранить на сайт».')}</div></div>`;
   $('vw').querySelectorAll('[data-s]').forEach(el=>el.oninput=()=>{const k=el.dataset.s,l=el.dataset.l,val=el.value.trim();
     if(l){const o=d[k]=d[k]||{};if(val)o[l]=el.value.replace(/\s+$/,'');else delete o[l];if(!Object.keys(o).length)delete d[k]}
     else if(val)d[k]=val;else delete d[k];
@@ -778,113 +896,128 @@ function drawSite(){const d=SC.data,v=(k,l)=>esc(l?(d[k]||{})[l]||'':d[k]||'');
 /* заказы */
 let ORD=null,OST='',OMG='';
 const OS={new:'Новый',work:'В работе',done:'Выдан',cancel:'Отменён'};
-const CHN=c=>c==='wa'?'WhatsApp':c==='vb'?'Viber':c==='mgr'?'Менеджер в магазине':esc(c||'—');
-const dt=t=>new Date(t).toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',year:'2-digit',hour:'2-digit',minute:'2-digit'});
+const CHN=c=>c==='wa'?'WhatsApp':c==='vb'?'Viber':c==='mgr'?T('Менеджер в магазине'):esc(c||'—');
+const LOC=()=>LANG==='ro'?'ro-RO':'ru-RU',OSL=k=>T(OS[k]);
+const dt=t=>new Date(t).toLocaleString(LOC(),{day:'2-digit',month:'2-digit',year:'2-digit',hour:'2-digit',minute:'2-digit'});
 async function loadOrders(q){try{const r=await api('/api/orders');ORD=r.orders||[];ORD.err=''}catch(e){if(e.status===401)return;ORD=[];ORD.err=e.message}
-  const n=ORD.filter(o=>o.st==='new').length;$('nav').querySelector('[data-v=orders]').innerHTML='Заказы'+(n?`<i>${n}</i>`:'');if(VIEW==='orders')drawOrders()}
-function drawOrders(){$('sum').textContent=ORD?`Заказов: ${ORD.length}`:'';
-  $('vb').innerHTML='<button class="btn" id="oref">Обновить</button>';$('oref').onclick=()=>{$('vw').innerHTML='<div class="empty">Загружаю…</div>';loadOrders()};
-  if(!ORD){$('vw').innerHTML='<div class="empty">Загружаю…</div>';return}
-  if(ORD.err){$('vw').innerHTML=`<div class="empty">Журнал заказов недоступен: ${esc(ORD.err)}</div>`;return}
+  navOrders();if(VIEW==='orders')drawOrders()}
+function navOrders(){const n=ORD?ORD.filter(o=>o.st==='new').length:0;$('nav').querySelector('[data-v=orders]').innerHTML=esc(T('Заказы'))+(n?`<i>${n}</i>`:'')}
+function drawOrders(){$('sum').textContent=ORD?T('Заказов: {0}',ORD.length):'';
+  $('vb').innerHTML=`<button class="btn" id="oref">${T('Обновить')}</button>`;$('oref').onclick=()=>{$('vw').innerHTML=LOADING();loadOrders()};
+  if(!ORD){$('vw').innerHTML=LOADING();return}
+  if(ORD.err){$('vw').innerHTML=`<div class="empty">${T('Журнал заказов недоступен: {0}',esc(ORD.err))}</div>`;return}
   const MG=[...new Set(ORD.map(o=>o.mg).filter(Boolean))].sort();
   const L=ORD.filter(o=>(!OST||o.st===OST)&&(!OMG||(OMG==='-'?!o.mg:o.mg===OMG)));
-  $('vb').insertAdjacentHTML('afterbegin',`<select class="t" id="omg"><option value="">Все менеджеры</option>${MG.map(m=>`<option value="${esc(m)}" ${OMG===m?'selected':''}>${esc(m)}</option>`).join('')}<option value="-" ${OMG==='-'?'selected':''}>Сайт (без менеджера)</option></select>`);dd($('omg'));$('omg').onchange=e=>{OMG=e.target.value;drawOrders()};
-  $('vw').innerHTML=`<div class="chips" id="osc" style="margin-bottom:12px"><button class="chip ${OST?'':'on'}" data-v="">Все (${ORD.length})</button>${Object.entries(OS).map(([k,l])=>`<button class="chip ${OST===k?'on':''}" data-v="${k}">${l} (${ORD.filter(o=>o.st===k).length})</button>`).join('')}</div>`+
-   (L.length?`<table><thead><tr><th>Когда</th><th>Заказ</th><th>Сумма</th><th>Канал</th><th>Менеджер</th><th>Статус</th><th></th></tr></thead><tbody>${L.map(o=>`<tr data-id="${esc(o.id)}"><td class="sk">${dt(o.t)}</td><td class="nm"><b>${esc(o.nm||'')}</b><small>${o.n>1?`всего ${o.n} шт.`:'1 шт.'}${o.cl?' · '+esc(o.cl):''}${o.of?' · подборка №'+esc(o.of):''}</small></td><td class="sk"><b>${(o.tot||0).toLocaleString('ru-RU')} MDL</b></td><td class="ct">${CHN(o.ch)}</td><td class="ct">${esc(o.mg||'—')}</td>
-    <td class="st"><select class="t ${o.st==='new'?'order':''}" data-k="st">${Object.entries(OS).map(([k,l])=>`<option value="${k}" ${o.st===k?'selected':''}>${l}</option>`).join('')}</select></td><td><button class="ebtn" data-k="op">Открыть</button></td></tr>`).join('')}</tbody></table>`:'<div class="empty">Заказов нет. Копии заказов из корзины сайта (WhatsApp/Viber) появляются здесь автоматически.</div>');
+  $('vb').insertAdjacentHTML('afterbegin',`<select class="t" id="omg"><option value="">${T('Все менеджеры')}</option>${MG.map(m=>`<option value="${esc(m)}" ${OMG===m?'selected':''}>${esc(m)}</option>`).join('')}<option value="-" ${OMG==='-'?'selected':''}>${T('Сайт (без менеджера)')}</option></select>`);dd($('omg'));$('omg').onchange=e=>{OMG=e.target.value;drawOrders()};
+  $('vw').innerHTML=`<div class="chips" id="osc" style="margin-bottom:12px"><button class="chip ${OST?'':'on'}" data-v="">${T('Все')} (${ORD.length})</button>${Object.keys(OS).map(k=>`<button class="chip ${OST===k?'on':''}" data-v="${k}">${OSL(k)} (${ORD.filter(o=>o.st===k).length})</button>`).join('')}</div>`+
+   (L.length?`<table><thead><tr><th>${T('Когда')}</th><th>${T('Заказ')}</th><th>${T('Сумма')}</th><th>${T('Канал')}</th><th>${T('Менеджер')}</th><th>${T('Статус')}</th><th></th></tr></thead><tbody>${L.map(o=>`<tr data-id="${esc(o.id)}"><td class="sk">${dt(o.t)}</td><td class="nm"><b>${esc(o.nm||'')}</b><small>${o.n>1?T('всего {0} шт.',o.n):T('1 шт.')}${o.cl?' · '+esc(o.cl):''}${o.of?T(' · подборка №')+esc(o.of):''}</small></td><td class="sk"><b>${(o.tot||0).toLocaleString(LOC())} MDL</b></td><td class="ct">${CHN(o.ch)}</td><td class="ct">${esc(o.mg||'—')}</td>
+    <td class="st"><select class="t ${o.st==='new'?'order':''}" data-k="st">${Object.keys(OS).map(k=>`<option value="${k}" ${o.st===k?'selected':''}>${OSL(k)}</option>`).join('')}</select></td><td style="white-space:nowrap"><button class="ebtn" data-k="op">${T('Открыть')}</button><button class="odel" data-k="del" title="${T('Удалить заказ')}" aria-label="${T('Удалить заказ')}"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></svg></button></td></tr>`).join('')}</tbody></table>`:`<div class="empty">${T('Заказов нет. Копии заказов из корзины сайта (WhatsApp/Viber) появляются здесь автоматически.')}</div>`);
   $('osc').onclick=e=>{const b=e.target.closest('.chip');if(b){OST=b.dataset.v;drawOrders()}};
   $('vw').querySelectorAll('td.st select').forEach(dd);
-  $('vw').querySelectorAll('tr[data-id]').forEach(tr=>{tr.querySelector('select').onchange=e=>setOst(tr.dataset.id,e.target.value);tr.querySelector('[data-k=op]').onclick=()=>openOrder(tr.dataset.id)})}
-async function setOst(id,st){try{await api('/api/order-status',{id,st});const o=ORD.find(z=>z.id===id);if(o)o.st=st;toast('Статус: '+OS[st]);loadOrders()}catch(e){toast('Не удалось изменить статус: '+e.message,true)}}
+  $('vw').querySelectorAll('tr[data-id]').forEach(tr=>{tr.querySelector('select').onchange=e=>setOst(tr.dataset.id,e.target.value);tr.querySelector('[data-k=op]').onclick=()=>openOrder(tr.dataset.id);tr.querySelector('[data-k=del]').onclick=()=>delOrder(tr.dataset.id)})}
+async function delOrder(id){if(!confirm(T('Удалить этот заказ? Это нельзя отменить.')))return;
+  try{await api('/api/order-del',{id});ORD=ORD.filter(o=>o.id!==id);CLS=null;toast(T('Заказ удалён'));drawOrders();loadOrders()}catch(e){toast(T('Не удалось удалить: {0}',e.message),true)}}
+async function setOst(id,st){try{await api('/api/order-status',{id,st});const o=ORD.find(z=>z.id===id);if(o)o.st=st;toast(T('Статус: {0}',OSL(st)));loadOrders()}catch(e){toast(T('Не удалось изменить статус: {0}',e.message),true)}}
 async function openOrder(id){let o;try{o=await api('/api/order?id='+encodeURIComponent(id))}catch(e){return toast(e.message,true)}
-  tlOpen('Заказ от '+dt(o.t),`<fieldset><legend>Товары</legend><table class="pv"><thead><tr><th>Товар</th><th>Код</th><th style="text-align:right">Кол-во</th><th style="text-align:right">Цена</th><th style="text-align:right">Сумма</th></tr></thead><tbody>${o.items.map(i=>{const z=allItems().find(({x})=>String(x.sku)===String(i.sku));return `<tr><td class="oi">${z?img(pics(z.x)[0]):'<img alt="">'}<span>${esc(i.n)}</span></td><td class="sk">${esc(i.sku)}</td><td class="n">${i.q}</td><td class="n">${i.o>i.p?`<s>${i.o}</s> `:''}${i.p||'по запросу'}</td><td class="n"><b>${i.p*i.q}</b></td></tr>`}).join('')}<tr><td colspan="4"><b>Итого, MDL</b></td><td class="n"><b>${o.tot}</b></td></tr></tbody></table></fieldset>
-   <fieldset><legend>Детали</legend><div class="kv"><b>Статус</b><span>${Object.entries(OS).map(([k,l])=>`<button type="button" class="chip ${o.st===k?'on':''}" data-st="${k}" style="margin:0 6px 6px 0">${l}</button>`).join('')}</span>
-    <b>Канал</b><span>${CHN(o.ch)}</span><b>Получение</b><span>${o.m==='p'?'Самовывоз':o.m==='d'?'Доставка':'—'}</span>
-    ${o.name?`<b>Имя</b><span>${esc(o.name)}</span>`:''}${o.tel?`<b>Телефон</b><span><a href="tel:${esc(o.tel)}">${esc(o.tel)}</a></span>`:''}
-    ${o.mg?`<b>Менеджер</b><span>${esc(o.mg)}</span>`:''}${o.of?`<b>Подборка</b><span><a href="desk-offer.html?o=${esc(o.of)}&nv=1" target="_blank" rel="noopener">№${esc(o.of)} ↗</a></span>`:''}
-    <b>Комментарий</b><span>${esc(o.cm||'—')}</span><b>Язык сайта</b><span>${esc(o.lang||'—')}</span><b>Страница</b><span style="word-break:break-all">${esc(o.page||'—')}</span></div>
-    <div class="hint">${o.ch==='mgr'?'Заказ оформлен менеджером в режиме менеджера.':'Это копия заказа, которую сайт отправляет параллельно с сообщением в мессенджер. Клиент мог не отправить само сообщение — сверяйтесь с WhatsApp/Viber.'}</div></fieldset>`,
-   '<span class="sp"></span><button class="btn k" data-a="x">Закрыть</button>',{click:async e=>{const b=e.target.closest('[data-st]');if(!b)return;await setOst(id,b.dataset.st);$('tlb').querySelectorAll('[data-st]').forEach(c=>c.classList.toggle('on',c===b))}})}
+  tlOpen(T('Заказ от {0}',dt(o.t)),`<fieldset><legend>${T('Товары')}</legend><table class="pv"><thead><tr><th>${T('Товар')}</th><th>${T('Код')}</th><th style="text-align:right">${T('Кол-во')}</th><th style="text-align:right">${T('Цена')}</th><th style="text-align:right">${T('Сумма')}</th></tr></thead><tbody>${o.items.map(i=>{const z=allItems().find(({x})=>String(x.sku)===String(i.sku));return `<tr><td class="oi">${z?img(pics(z.x)[0]):'<img alt="">'}<span>${esc(i.n)}</span></td><td class="sk">${esc(i.sku)}</td><td class="n">${i.q}</td><td class="n">${i.o>i.p?`<s>${i.o}</s> `:''}${i.p||T('по запросу')}</td><td class="n"><b>${i.p*i.q}</b></td></tr>`}).join('')}<tr><td colspan="4"><b>${T('Итого, MDL')}</b></td><td class="n"><b>${o.tot}</b></td></tr></tbody></table></fieldset>
+   <fieldset><legend>${T('Детали')}</legend><div class="kv"><b>${T('Статус')}</b><span>${Object.keys(OS).map(k=>`<button type="button" class="chip ${o.st===k?'on':''}" data-st="${k}" style="margin:0 6px 6px 0">${OSL(k)}</button>`).join('')}</span>
+    <b>${T('Канал')}</b><span>${CHN(o.ch)}</span><b>${T('Получение')}</b><span>${o.m==='p'?T('Самовывоз'):o.m==='d'?T('Доставка'):'—'}</span>
+    ${o.name?`<b>${T('Имя')}</b><span>${esc(o.name)}</span>`:''}${o.tel?`<b>${T('Телефон')}</b><span><a href="tel:${esc(o.tel)}">${esc(o.tel)}</a></span>`:''}
+    ${o.mg?`<b>${T('Менеджер')}</b><span>${esc(o.mg)}</span>`:''}${o.of?`<b>${T('Подборка')}</b><span><a href="desk-offer.html?o=${esc(o.of)}&nv=1" target="_blank" rel="noopener">№${esc(o.of)} ↗</a></span>`:''}
+    <b>${T('Комментарий')}</b><span>${esc(o.cm||'—')}</span><b>${T('Язык сайта')}</b><span>${esc(o.lang||'—')}</span><b>${T('Страница')}</b><span style="word-break:break-all">${esc(o.page||'—')}</span></div>
+    <div class="hint">${o.ch==='mgr'?T('Заказ оформлен менеджером в режиме менеджера.'):T('Это копия заказа, которую сайт отправляет параллельно с сообщением в мессенджер. Клиент мог не отправить само сообщение — сверяйтесь с WhatsApp/Viber.')}</div></fieldset>`,
+   `<span class="sp"></span><button class="btn k" data-a="x">${T('Закрыть')}</button>`,{click:async e=>{const b=e.target.closest('[data-st]');if(!b)return;await setOst(id,b.dataset.st);$('tlb').querySelectorAll('[data-st]').forEach(c=>c.classList.toggle('on',c===b))}})}
 
 /* подборки менеджеров */
 let OFS=null,OFF='',OFM='';
-async function drawOffers(){$('sum').textContent=OFS?`Подборок: ${OFS.length}`:'';
-  $('vb').innerHTML='<button class="btn" id="ofr">Обновить</button>';$('ofr').onclick=()=>{OFS=null;drawOffers()};
-  if(!OFS){$('vw').innerHTML='<div class="empty">Загружаю…</div>';try{OFS=(await api('/api/offers')).offers.sort((a,b)=>b.t-a.t)}catch(e){if(e.status!==401)$('vw').innerHTML=`<div class="empty">Не удалось загрузить: ${esc(e.message)}</div>`;return}if(VIEW!=='offers')return;$('sum').textContent=`Подборок: ${OFS.length}`}
+async function drawOffers(){$('sum').textContent=OFS?T('Подборок: {0}',OFS.length):'';
+  $('vb').innerHTML=`<button class="btn" id="ofr">${T('Обновить')}</button>`;$('ofr').onclick=()=>{OFS=null;drawOffers()};
+  if(!OFS){$('vw').innerHTML=LOADING();try{OFS=(await api('/api/offers')).offers.sort((a,b)=>b.t-a.t)}catch(e){if(e.status!==401)$('vw').innerHTML=`<div class="empty">${T('Не удалось загрузить: {0}',esc(e.message))}</div>`;return}if(VIEW!=='offers')return;$('sum').textContent=T('Подборок: {0}',OFS.length)}
   const MG=[...new Set(OFS.map(o=>o.mg).filter(Boolean))].sort();
-  $('vb').insertAdjacentHTML('afterbegin',`<select class="t" id="ofm"><option value="">Все менеджеры</option>${MG.map(m=>`<option value="${esc(m)}" ${OFM===m?'selected':''}>${esc(m)}</option>`).join('')}</select>`);dd($('ofm'));$('ofm').onchange=e=>{OFM=e.target.value;drawOffers()};
+  $('vb').insertAdjacentHTML('afterbegin',`<select class="t" id="ofm"><option value="">${T('Все менеджеры')}</option>${MG.map(m=>`<option value="${esc(m)}" ${OFM===m?'selected':''}>${esc(m)}</option>`).join('')}</select>`);dd($('ofm'));$('ofm').onchange=e=>{OFM=e.target.value;drawOffers()};
   const F={'':['Все',()=>1],no:['Не открыты',o=>!o.op],op:['Открыты',o=>o.op&&!o.or],or:['Стали заказом',o=>o.or]};
   const B=OFS.filter(o=>!OFM||o.mg===OFM),L=B.filter(F[OFF][1]);
-  $('vw').innerHTML=`<div class="chips" id="ofc" style="margin-bottom:12px">${Object.entries(F).map(([k,[l,f]])=>`<button class="chip ${OFF===k?'on':''}" data-v="${k}">${l} (${B.filter(f).length})</button>`).join('')}</div>`+
-   (L.length?`<table><thead><tr><th>Когда</th><th>Подборка</th><th>Менеджер</th><th>Клиент</th><th>Сумма</th><th>Клиент открыл</th><th>Заказ</th></tr></thead><tbody>${L.map(o=>`<tr><td class="sk">${dt(o.t)}</td><td class="nm"><b><a href="desk-offer.html?o=${esc(o.id)}&nv=1" target="_blank" rel="noopener">№${esc(o.id)} ↗</a></b><small>${o.n} шт.</small></td><td class="ct">${esc(o.mg||'—')}</td>
-    <td class="nm"><b>${esc(o.nm||'—')}</b><small>${esc(o.tel||'')}</small></td><td class="sk"><b>${(o.tot||0).toLocaleString('ru-RU')} MDL</b></td><td>${o.op?`<span class="pill on">${dt(o.op)}</span>`:'<span class="pill">не открыта</span>'}</td><td>${o.or?'<span class="pill done">да</span>':'—'}</td></tr>`).join('')}</tbody></table>`:'<div class="empty">Подборок нет. Менеджеры создают их на сайте в режиме менеджера (desk-catalog.html#manager).</div>');
+  $('vw').innerHTML=`<div class="chips" id="ofc" style="margin-bottom:12px">${Object.entries(F).map(([k,[l,f]])=>`<button class="chip ${OFF===k?'on':''}" data-v="${k}">${T(l)} (${B.filter(f).length})</button>`).join('')}</div>`+
+   (L.length?`<table><thead><tr><th>${T('Когда')}</th><th>${T('Подборка')}</th><th>${T('Менеджер')}</th><th>${T('Клиент')}</th><th>${T('Сумма')}</th><th>${T('Клиент открыл')}</th><th>${T('Заказ')}</th></tr></thead><tbody>${L.map(o=>`<tr><td class="sk">${dt(o.t)}</td><td class="nm"><b><a href="desk-offer.html?o=${esc(o.id)}&nv=1" target="_blank" rel="noopener">№${esc(o.id)} ↗</a></b><small>${T('{0} шт.',o.n)}</small></td><td class="ct">${esc(o.mg||'—')}</td>
+    <td class="nm"><b>${esc(o.nm||'—')}</b><small>${esc(o.tel||'')}</small></td><td class="sk"><b>${(o.tot||0).toLocaleString(LOC())} MDL</b></td><td>${o.op?`<span class="pill on">${dt(o.op)}</span>`:`<span class="pill">${T('не открыта')}</span>`}</td><td>${o.or?`<span class="pill done">${T('да')}</span>`:'—'}</td></tr>`).join('')}</tbody></table>`:`<div class="empty">${T('Подборок нет. Менеджеры создают их на сайте в режиме менеджера (desk-catalog.html#manager).')}</div>`);
   $('ofc').onclick=e=>{const b=e.target.closest('.chip');if(b){OFF=b.dataset.v;drawOffers()}}}
 
 /* клиенты */
 let CLS=null,CLQ='',CLM='',CLT='',CLO='last';
 const TAGS0=['дизайнер','застройщик','повторный','VIP'];
-const ddate=t=>t?new Date(t).toLocaleDateString('ru-RU'):'—';
+const ddate=t=>t?new Date(t).toLocaleDateString(LOC()):'—';
 async function drawClients(){
-  if(!CLS){$('vw').innerHTML='<div class="empty">Загружаю…</div>';try{CLS=(await api('/api/clients')).clients}catch(e){if(e.status!==401)$('vw').innerHTML=`<div class="empty">Не удалось загрузить: ${esc(e.message)}</div>`;return}if(VIEW!=='clients')return}
+  if(!CLS){$('vw').innerHTML=LOADING();try{CLS=(await api('/api/clients')).clients}catch(e){if(e.status!==401)$('vw').innerHTML=`<div class="empty">${T('Не удалось загрузить: {0}',esc(e.message))}</div>`;return}if(VIEW!=='clients')return}
   const MG=[...new Set(CLS.map(c=>c.mg).filter(Boolean))].sort(),TG=[...new Set(CLS.flatMap(c=>c.tg||[]))].sort();
   const q=CLQ.trim().toLowerCase(),qd=q.replace(/\D/g,'');
   const L=CLS.filter(c=>(!q||(c.n||'').toLowerCase().includes(q)||qd.length>2&&c.tel.replace(/\D/g,'').includes(qd))&&(!CLM||c.mg===CLM)&&(!CLT||(c.tg||[]).includes(CLT)))
     .sort(CLO==='tot'?(a,b)=>(b.tot||0)-(a.tot||0):CLO==='nm'?(a,b)=>(a.n||'').localeCompare(b.n||''):(a,b)=>(b.last||0)-(a.last||0));
-  $('sum').textContent=`Клиентов: ${L.length}${L.length!==CLS.length?' из '+CLS.length:''}`;
-  $('vb').innerHTML=`<input class="t" id="clq" type="search" placeholder="Имя или телефон" value="${esc(CLQ)}" style="width:220px">
-   <select class="t" id="clm"><option value="">Все менеджеры</option>${MG.map(m=>`<option ${CLM===m?'selected':''}>${esc(m)}</option>`).join('')}</select>
-   <select class="t" id="clt"><option value="">Все теги</option>${TG.map(m=>`<option ${CLT===m?'selected':''}>${esc(m)}</option>`).join('')}</select>
-   <select class="t" id="clo"><option value="last" ${CLO==='last'?'selected':''}>Сначала недавние</option><option value="tot" ${CLO==='tot'?'selected':''}>По сумме заказов</option><option value="nm" ${CLO==='nm'?'selected':''}>По имени</option></select>
-   <button class="btn" id="clx">Экспорт CSV</button><button class="btn" id="clr">Обновить</button><button class="btn r" id="cln">+ Новый клиент</button>`;
+  $('sum').textContent=T('Клиентов: {0}',L.length)+(L.length!==CLS.length?T(' из {0}',CLS.length):'');
+  $('vb').innerHTML=`<input class="t" id="clq" type="search" placeholder="${T('Имя или телефон')}" value="${esc(CLQ)}" style="width:220px">
+   <select class="t" id="clm"><option value="">${T('Все менеджеры')}</option>${MG.map(m=>`<option value="${esc(m)}" ${CLM===m?'selected':''}>${esc(m)}</option>`).join('')}</select>
+   <select class="t" id="clt"><option value="">${T('Все теги')}</option>${TG.map(m=>`<option value="${esc(m)}" ${CLT===m?'selected':''}>${esc(T(m))}</option>`).join('')}</select>
+   <select class="t" id="clo"><option value="last" ${CLO==='last'?'selected':''}>${T('Сначала недавние')}</option><option value="tot" ${CLO==='tot'?'selected':''}>${T('По сумме заказов')}</option><option value="nm" ${CLO==='nm'?'selected':''}>${T('По имени')}</option></select>
+   <button class="btn" id="clx">${T('Экспорт CSV')}</button><button class="btn" id="clr">${T('Обновить')}</button><button class="btn r" id="cln">${T('+ Новый клиент')}</button>`;
   ['clm','clt','clo'].forEach(i=>{dd($(i));$(i).onchange=e=>{({clm:v=>CLM=v,clt:v=>CLT=v,clo:v=>CLO=v})[i](e.target.value);drawClients()}});
   let qt2;$('clq').oninput=e=>{clearTimeout(qt2);qt2=setTimeout(()=>{CLQ=e.target.value;drawClients();const i=$('clq');i.focus();i.setSelectionRange(i.value.length,i.value.length)},250)};
   $('clr').onclick=()=>{CLS=null;drawClients()};$('cln').onclick=()=>openClient();$('clx').onclick=()=>csvOut(L);
-  $('vw').innerHTML=L.length?`<table><thead><tr><th>Клиент</th><th>Город</th><th>Менеджер</th><th>Теги</th><th>Заказы</th><th>Подборки</th><th>Сумма заказов</th><th>Последний контакт</th><th></th></tr></thead><tbody>${L.map(c=>`<tr data-t="${esc(c.tel)}"><td class="nm"><b>${esc(c.n||'без имени')}</b><small>${esc(c.tel)}</small></td><td class="ct">${esc(c.c||'—')}</td><td class="ct">${esc(c.mg||'—')}</td>
-    <td>${(c.tg||[]).map(t=>`<span class="pill">${esc(t)}</span>`).join('')||'—'}</td><td class="sk">${c.no||0}</td><td class="sk">${c.nf||0}</td><td class="sk"><b>${(c.tot||0).toLocaleString('ru-RU')} MDL</b></td><td class="sk">${ddate(c.last)}</td><td><button class="ebtn">Открыть</button></td></tr>`).join('')}</tbody></table>
-    <div class="hint" style="margin-top:12px">Клиенты появляются автоматически из заказов и подборок, где указан телефон. Сумма — по заказам без отменённых.</div>`:'<div class="empty">Клиентов пока нет. Добавьте вручную кнопкой «+ Новый клиент» — или они появятся сами из заказов и подборок менеджеров с телефоном.</div>';
+  $('vw').innerHTML=L.length?`<table><thead><tr><th>${T('Клиент')}</th><th>${T('Город')}</th><th>${T('Менеджер')}</th><th>${T('Теги')}</th><th>${T('Заказы')}</th><th>${T('Подборки')}</th><th>${T('Сумма заказов')}</th><th>${T('Последний контакт')}</th><th></th></tr></thead><tbody>${L.map(c=>`<tr data-t="${esc(c.tel)}"><td class="nm"><b>${esc(c.n||T('без имени'))}</b><small>${esc(c.tel)}</small></td><td class="ct">${esc(c.c||'—')}</td><td class="ct">${esc(c.mg||'—')}</td>
+    <td>${(c.tg||[]).map(t=>`<span class="pill">${esc(T(t))}</span>`).join('')||'—'}</td><td class="sk">${c.no||0}</td><td class="sk">${c.nf||0}</td><td class="sk"><b>${(c.tot||0).toLocaleString(LOC())} MDL</b></td><td class="sk">${ddate(c.last)}</td><td><button class="ebtn">${T('Открыть')}</button></td></tr>`).join('')}</tbody></table>
+    <div class="hint" style="margin-top:12px">${T('Клиенты появляются автоматически из заказов и подборок, где указан телефон. Сумма — по заказам без отменённых.')}</div>`:`<div class="empty">${T('Клиентов пока нет. Добавьте вручную кнопкой «+ Новый клиент» — или они появятся сами из заказов и подборок менеджеров с телефоном.')}</div>`;
   $('vw').querySelectorAll('tr[data-t] .ebtn').forEach(b=>b.onclick=()=>openClient(b.closest('tr').dataset.t))}
 function csvOut(L){const c=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
-  const t='﻿'+[['Имя','Телефон','Город','Менеджер','Теги','Заказов','Подборок','Сумма заказов, MDL','Последний контакт'].map(c).join(';')].concat(L.map(k=>[k.n,k.tel,k.c,k.mg,(k.tg||[]).join(', '),k.no||0,k.nf||0,k.tot||0,ddate(k.last)].map(c).join(';'))).join('\r\n');
+  const t='﻿'+[['Имя','Телефон','Город','Менеджер','Теги','Заказов','Подборок','Сумма заказов, MDL','Последний контакт'].map(h=>c(T(h))).join(';')].concat(L.map(k=>[k.n,k.tel,k.c,k.mg,(k.tg||[]).join(', '),k.no||0,k.nf||0,k.tot||0,ddate(k.last)].map(c).join(';'))).join('\r\n');
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'text/csv;charset=utf-8'}));a.download='teka-clients-'+today()+'.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
 async function openClient(tel){let c;const nw=!tel;if(nw)c={tel:'',name:'',city:'',addr:'',mg:'',notes:'',tags:[],orders:[],offers:[]};else try{c=await api('/api/client?tel='+encodeURIComponent(tel))}catch(e){return toast(e.message,true)}
   const MG=[...new Set((CLS||[]).map(k=>k.mg).concat(ORD?ORD.map(o=>o.mg):[]).filter(Boolean))].sort();
   const tags=[...new Set(TAGS0.concat(c.tags||[]))];
-  tlOpen(nw?'Новый клиент':(c.name||'Клиент')+' · '+c.tel,`
-  <fieldset><legend>Карточка</legend>${nw?'<div class="g3" style="margin-bottom:12px"><label class="f">Телефон<input class="t" id="c_t" type="tel" placeholder="+373 6X XXX XXX"></label></div>':''}<div class="g3">
-   <label class="f">Имя<input class="t" id="c_n" value="${esc(c.name)}"></label>
-   <label class="f">Город<input class="t" id="c_c" value="${esc(c.city)}"></label>
-   <label class="f">Кто ведёт<input class="t" id="c_m" value="${esc(c.mg)}" list="c_ml" placeholder="Менеджер"><datalist id="c_ml">${MG.map(m=>`<option value="${esc(m)}">`).join('')}</datalist></label></div>
-   <div class="g1" style="margin-top:12px"><label class="f">Адрес<input class="t" id="c_a" value="${esc(c.addr)}"></label>
-   <label class="f">Заметки<textarea class="t" id="c_no" rows="4">${esc(c.notes)}</textarea></label>
-   <div class="f">Теги<div class="chips" id="c_tg">${tags.map(t=>`<button type="button" class="chip ${(c.tags||[]).includes(t)?'on':''}" data-v="${esc(t)}">${esc(t)}</button>`).join('')}<input class="t" id="c_nt" placeholder="+ свой тег" style="width:140px;height:34px"></div></div></div>
-   <div class="kv" style="margin-top:14px"><b>Сумма заказов</b><span><b>${(c.tot||0).toLocaleString('ru-RU')} MDL</b> (без отменённых)</span><b>Первый контакт</b><span>${ddate(c.first)}</span><b>Последний контакт</b><span>${ddate(c.last)}</span></div></fieldset>
-  <fieldset><legend>Заказы (${c.orders.length})</legend>${c.orders.length?`<table class="pv"><thead><tr><th>Дата</th><th>Статус</th><th>Менеджер</th><th>Подборка</th><th style="text-align:right">Сумма</th></tr></thead><tbody>${c.orders.map(o=>`<tr><td>${dt(o.t)}</td><td><span class="pill ${o.st}">${OS[o.st]||esc(o.st)}</span></td><td>${esc(o.mg||'—')}</td><td>${o.of?`№${esc(o.of)}`:'—'}</td><td class="n"><b>${(o.tot||0).toLocaleString('ru-RU')}</b></td></tr>`).join('')}</tbody></table>`:'<div class="hint">Заказов нет</div>'}</fieldset>
-  <fieldset><legend>Подборки (${c.offers.length})</legend>${c.offers.length?`<table class="pv"><thead><tr><th>Дата</th><th>Подборка</th><th>Менеджер</th><th style="text-align:right">Сумма</th></tr></thead><tbody>${c.offers.map(o=>`<tr><td>${dt(o.t)}</td><td><a href="desk-offer.html?o=${esc(o.id)}&nv=1" target="_blank" rel="noopener">№${esc(o.id)} ↗</a></td><td>${esc(o.mg||'—')}</td><td class="n"><b>${(o.tot||0).toLocaleString('ru-RU')}</b></td></tr>`).join('')}</tbody></table>`:'<div class="hint">Подборок нет</div>'}</fieldset>`,
-  FT('Сохранить'),{click:e=>{const b=e.target.closest('#c_tg .chip');if(b)b.classList.toggle('on')},
+  tlOpen(nw?T('Новый клиент'):(c.name||T('Клиент'))+' · '+c.tel,`
+  <fieldset><legend>${T('Карточка')}</legend>${nw?`<div class="g3" style="margin-bottom:12px"><label class="f">${T('Телефон')}<input class="t" id="c_t" type="tel" placeholder="+373 6X XXX XXX"></label></div>`:''}<div class="g3">
+   <label class="f">${T('Имя')}<input class="t" id="c_n" value="${esc(c.name)}"></label>
+   <label class="f">${T('Город')}<input class="t" id="c_c" value="${esc(c.city)}"></label>
+   <label class="f">${T('Кто ведёт')}<input class="t" id="c_m" value="${esc(c.mg)}" list="c_ml" placeholder="${T('Менеджер')}"><datalist id="c_ml">${MG.map(m=>`<option value="${esc(m)}">`).join('')}</datalist></label></div>
+   <div class="g1" style="margin-top:12px"><label class="f">${T('Адрес')}<input class="t" id="c_a" value="${esc(c.addr)}"></label>
+   <label class="f">${T('Заметки')}<textarea class="t" id="c_no" rows="4">${esc(c.notes)}</textarea></label>
+   <div class="f">${T('Теги')}<div class="chips" id="c_tg">${tags.map(t=>`<button type="button" class="chip ${(c.tags||[]).includes(t)?'on':''}" data-v="${esc(t)}">${esc(T(t))}</button>`).join('')}<input class="t" id="c_nt" placeholder="${T('+ свой тег')}" style="width:140px;height:34px"></div></div></div>
+   <div class="kv" style="margin-top:14px"><b>${T('Сумма заказов')}</b><span><b>${(c.tot||0).toLocaleString(LOC())} MDL</b> ${T('(без отменённых)')}</span><b>${T('Первый контакт')}</b><span>${ddate(c.first)}</span><b>${T('Последний контакт')}</b><span>${ddate(c.last)}</span></div></fieldset>
+  <fieldset><legend>${T('Заказы')} (${c.orders.length})</legend>${c.orders.length?`<table class="pv"><thead><tr><th>${T('Дата')}</th><th>${T('Статус')}</th><th>${T('Менеджер')}</th><th>${T('Подборка')}</th><th style="text-align:right">${T('Сумма')}</th></tr></thead><tbody>${c.orders.map(o=>`<tr><td>${dt(o.t)}</td><td><span class="pill ${o.st}">${OS[o.st]?OSL(o.st):esc(o.st)}</span></td><td>${esc(o.mg||'—')}</td><td>${o.of?`№${esc(o.of)}`:'—'}</td><td class="n"><b>${(o.tot||0).toLocaleString(LOC())}</b></td></tr>`).join('')}</tbody></table>`:`<div class="hint">${T('Заказов нет')}</div>`}</fieldset>
+  <fieldset><legend>${T('Подборки')} (${c.offers.length})</legend>${c.offers.length?`<table class="pv"><thead><tr><th>${T('Дата')}</th><th>${T('Подборка')}</th><th>${T('Менеджер')}</th><th style="text-align:right">${T('Сумма')}</th></tr></thead><tbody>${c.offers.map(o=>`<tr><td>${dt(o.t)}</td><td><a href="desk-offer.html?o=${esc(o.id)}&nv=1" target="_blank" rel="noopener">№${esc(o.id)} ↗</a></td><td>${esc(o.mg||'—')}</td><td class="n"><b>${(o.tot||0).toLocaleString(LOC())}</b></td></tr>`).join('')}</tbody></table>`:`<div class="hint">${T('Подборок нет')}</div>`}</fieldset>`,
+  FT(T('Сохранить')),{click:e=>{const b=e.target.closest('#c_tg .chip');if(b)b.classList.toggle('on')},
    act:{ok:async()=>{const nt=$('c_nt').value.trim();const tg=[...$('c_tg').querySelectorAll('.chip.on')].map(b=>b.dataset.v).concat(nt?[nt]:[]);
-     const tel=nw?$('c_t').value.trim():c.tel;if(nw&&tel.replace(/\D/g,'').length<8){$('c_t').focus();return toast('Укажите телефон клиента',true)}
-     if(nw&&(CLS||[]).some(k=>k.tel.replace(/\D/g,'').endsWith(tel.replace(/\D/g,'').replace(/^0/,'').slice(-8)))&&!confirm('Клиент с таким телефоном уже есть. Обновить его карточку?'))return;
+     const tel=nw?$('c_t').value.trim():c.tel;if(nw&&tel.replace(/\D/g,'').length<8){$('c_t').focus();return toast(T('Укажите телефон клиента'),true)}
+     if(nw&&(CLS||[]).some(k=>k.tel.replace(/\D/g,'').endsWith(tel.replace(/\D/g,'').replace(/^0/,'').slice(-8)))&&!confirm(T('Клиент с таким телефоном уже есть. Обновить его карточку?')))return;
      try{const r=await api('/api/client',{tel,name:$('c_n').value.trim(),city:$('c_c').value.trim(),addr:$('c_a').value.trim(),mg:$('c_m').value.trim(),notes:$('c_no').value,tags:tg});
-       const k=(CLS||[]).find(x=>x.tel===r.tel);if(k)Object.assign(k,{n:r.name,c:r.city,mg:r.mg,tg:r.tags});else if(CLS)CLS.push({tel:r.tel,n:r.name,c:r.city,mg:r.mg,tg:r.tags,tot:0,last:0,no:0,nf:0});tlClose();drawClients();toast(nw?'Клиент добавлен':'Клиент сохранён')}catch(e){toast('Не сохранилось: '+e.message,true)}}}});
-  $('c_nt').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();const v=e.target.value.trim();if(v){e.target.insertAdjacentHTML('beforebegin',`<button type="button" class="chip on" data-v="${esc(v)}">${esc(v)}</button>`);e.target.value=''}}}}
+       const k=(CLS||[]).find(x=>x.tel===r.tel);if(k)Object.assign(k,{n:r.name,c:r.city,mg:r.mg,tg:r.tags});else if(CLS)CLS.push({tel:r.tel,n:r.name,c:r.city,mg:r.mg,tg:r.tags,tot:0,last:0,no:0,nf:0});tlClose();drawClients();toast(nw?T('Клиент добавлен'):T('Клиент сохранён'))}catch(e){toast(T('Не сохранилось: {0}',e.message),true)}}}});
+  $('c_nt').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();const v=e.target.value.trim();if(v){e.target.insertAdjacentHTML('beforebegin',`<button type="button" class="chip on" data-v="${esc(v)}">${esc(T(v))}</button>`);e.target.value=''}}}}
 
 /* история */
 let HIST=null;
-const fname=p=>{const m=p.match(/^data\/(.+)\.json$/);return m?(FN[m[1]]||{ru:'Переводы RU',promo:'Акции',site:'Контакты и тексты'}[m[1]]||m[1]):'фото'};
-async function drawHist(){$('sum').textContent='Последние сохранения каталога';
-  $('vb').innerHTML='<button class="btn" id="href">Обновить</button>';$('href').onclick=()=>{HIST=null;drawHist()};
-  if(!HIST){$('vw').innerHTML='<div class="empty">Загружаю историю…</div>';try{HIST=await api('/api/history')}catch(e){if(e.status!==401)$('vw').innerHTML=`<div class="empty">Не удалось загрузить историю: ${esc(e.message)}</div>`;return}if(VIEW!=='hist')return}
-  if(!HIST.length){$('vw').innerHTML='<div class="empty">Сохранений пока нет</div>';return}
-  $('vw').innerHTML=`<table><thead><tr><th>Когда</th><th>Что сохранили</th><th>Файлы</th><th></th></tr></thead><tbody>${HIST.map((c,i)=>{const g={};c.files.forEach(f=>{const n=fname(f.path);g[n]=(g[n]||0)+1});
-    return `<tr data-i="${i}"><td class="sk">${dt(c.date)}</td><td class="nm"><b>${esc(c.msg.split('\n')[0])}</b><small>${esc(c.author||'')} · ${c.sha.slice(0,7)}</small></td><td class="ct">${Object.entries(g).map(([n,k])=>esc(n)+(k>1?' ×'+k:'')).join(', ')||'—'}</td><td>${c.files.length?'<button class="ebtn">Отменить</button>':''}</td></tr>`}).join('')}</tbody></table>
-    <div class="hint" style="margin-top:12px">«Отменить» возвращает файлы этого сохранения в состояние до него — новым сохранением, поэтому отмену тоже можно отменить. Если эти же файлы меняли позже, более поздние правки в них тоже откатятся.</div>`;
+const fname=p=>{const m=p.match(/^data\/(.+)\.json$/);return m?(FN[m[1]]||T({ru:'Переводы RU',promo:'Акции',site:'Контакты и тексты'}[m[1]]||'')||m[1]):T('фото')};
+async function drawHist(){$('sum').textContent=T('Последние сохранения каталога');
+  $('vb').innerHTML=`<button class="btn" id="href">${T('Обновить')}</button>`;$('href').onclick=()=>{HIST=null;drawHist()};
+  if(!HIST){$('vw').innerHTML=`<div class="empty">${T('Загружаю историю…')}</div>`;try{HIST=await api('/api/history')}catch(e){if(e.status!==401)$('vw').innerHTML=`<div class="empty">${T('Не удалось загрузить историю: {0}',esc(e.message))}</div>`;return}if(VIEW!=='hist')return}
+  if(!HIST.length){$('vw').innerHTML=`<div class="empty">${T('Сохранений пока нет')}</div>`;return}
+  $('vw').innerHTML=`<table><thead><tr><th>${T('Когда')}</th><th>${T('Что сохранили')}</th><th>${T('Файлы')}</th><th></th></tr></thead><tbody>${HIST.map((c,i)=>{const g={};c.files.forEach(f=>{const n=fname(f.path);g[n]=(g[n]||0)+1});
+    return `<tr data-i="${i}"><td class="sk">${dt(c.date)}</td><td class="nm"><b>${esc(c.msg.split('\n')[0])}</b><small>${esc(c.author||'')} · ${c.sha.slice(0,7)}</small></td><td class="ct">${Object.entries(g).map(([n,k])=>esc(n)+(k>1?' ×'+k:'')).join(', ')||'—'}</td><td>${c.files.length?`<button class="ebtn">${T('Отменить')}</button>`:''}</td></tr>`}).join('')}</tbody></table>
+    <div class="hint" style="margin-top:12px">${T('«Отменить» возвращает файлы этого сохранения в состояние до него — новым сохранением, поэтому отмену тоже можно отменить. Если эти же файлы меняли позже, более поздние правки в них тоже откатятся.')}</div>`;
   $('vw').querySelectorAll('tr[data-i] .ebtn').forEach(b=>b.onclick=()=>revert(HIST[+b.closest('tr').dataset.i]))}
-async function revert(c){if(dirtyCount())return toast('Сначала сохраните или отмените несохранённые изменения',true);
+async function revert(c){if(dirtyCount())return toast(T('Сначала сохраните или отмените несохранённые изменения'),true);
   const names=[...new Set(c.files.map(f=>fname(f.path)))].join(', ');
-  if(!confirm(`Отменить «${c.msg.split('\n')[0]}» от ${dt(c.date)}?\n\nФайлы (${names}) вернутся к состоянию до этого сохранения. Более поздние правки этих файлов тоже откатятся.`))return;
+  if(!confirm(T('Отменить «{0}» от {1}?\n\nФайлы ({2}) вернутся к состоянию до этого сохранения. Более поздние правки этих файлов тоже откатятся.',c.msg.split('\n')[0],dt(c.date),names)))return;
   $('busy').classList.add('on');
-  try{await api('/api/revert',{sha:c.sha});HIST=null;toast('Отменено. Сайт обновится примерно через 1–2 минуты.');await load()}
-  catch(e){toast('Не получилось отменить: '+e.message,true)}finally{$('busy').classList.remove('on')}}
+  try{await api('/api/revert',{sha:c.sha});HIST=null;toast(T('Отменено. Сайт обновится примерно через 1–2 минуты.'));await load()}
+  catch(e){toast(T('Не получилось отменить: {0}',e.message),true)}finally{$('busy').classList.remove('on')}}
+/* переключение языка: перерисовать текущий экран, не трогая данные и несохранённые правки */
+function applyStatic(){document.documentElement.lang=LANG;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{if(!el.dataset.i18n)el.dataset.i18n=el.textContent;el.textContent=T(el.dataset.i18n)});
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{if(!el.dataset.i18nPh)el.dataset.i18nPh=el.placeholder;el.placeholder=T(el.dataset.i18nPh)});
+  document.querySelectorAll('[data-i18n-ti]').forEach(el=>{if(!el.dataset.i18nTi)el.dataset.i18nTi=el.title;el.title=T(el.dataset.i18nTi)});
+  document.querySelectorAll('.lsw button').forEach(b=>b.classList.toggle('on',b.dataset.lang===LANG))}
+function setLang(l){if(l===LANG)return;LANG=l;try{localStorage.setItem('tkAdmLang',l)}catch(e){}
+  FILES.forEach(c=>FN[c.f]=cn(c));ddClose();applyStatic();dd($('fs'));navOrders();
+  if(RU){fillFc();render();bar()}}
+document.addEventListener('click',e=>{const b=e.target.closest('.lsw button');if(b)setLang(b.dataset.lang)});
+applyStatic();dd($('fs'));navOrders();
 if(TOK)load();else showLogin();
 </script>
 </body>
