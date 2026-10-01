@@ -449,7 +449,7 @@ function drawCats(){
 let PHO={},GL={lo:{}};const DATA={};
 let RU={k:{},v:{},d:{},s:{}};const tx=(c,v)=>LANG==='ru'&&v&&RU[c]&&RU[c][v]||v;
 const RO1=new Set(["111020005", "111020031", "41560140", "111010079", "111010071", "111010082", "111000076", "111000005", "111010012", "111010010", "111000004", "111010086", "111000094", "111000045", "111000010", "111000012", "111000013", "111000011", "111000046", "111000056", "111000026", "111200001", "111000000", "121010037", "121020000", "121010060", "121010007", "121210000", "121200002", "121000001"]);
-const rd=u=>fetch(u).then(r=>r.ok?r.json():null).catch(()=>null);
+const rd=u=>fetch(u,{cache:'no-cache'}).then(r=>r.ok?r.json():null).catch(()=>null);
 const nm=x=>x.n||x.name||'';const pr=x=>+(x.p||x.price||0);const od=x=>+(x.o||x.old||0);const bnd=x=>x.b||x.brand||'Teka';const stk=x=>x.st==='order'?T('order','La comandă'):x.st==='out'?T('out','Nu este în stoc'):T('instock','În stoc');const blogo=(x,h)=>bnd(x)==='Teka'?`<img src="assets/teka-logo.svg" alt="TEKA"${h?` style="height:${h}px"`:''}>`:`<span class="kbl"${h?` style="height:${h}px"`:''}>${bnd(x).toUpperCase()}</span>`;
 function pics(x){if(x.u&&x.u.length)return x.u.slice(0,2);const k=String(x.sku);if(PHO[k]&&PHO[k].length)return PHO[k].slice(0,2).map(i=>'assets/hi/'+i+'-m.webp');return (GL.lo[k]||x.img||[]).slice(0,2).map(f=>(RO1.has(k)&&!GL.lo[k]?'assets/ro/':'assets/ro2/')+f)}
 const PRM={};function cat(f){return PRM[f]||(PRM[f]=rd('data/'+f+'.json').then(j=>DATA[f]=(j||[]).filter(x=>!x.hid)))}
