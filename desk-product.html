@@ -303,7 +303,7 @@ footer .bot .wrap{display:flex;justify-content:space-between;padding-top:18px;pa
 .qt button{width:44px;height:100%;display:grid;place-items:center;font-size:20px;color:var(--ink2)}
 .qt button:hover{color:var(--ink)}
 .qt input{width:34px;text-align:center;border:0;font:inherit;font-weight:600;font-size:16px;outline:none}
-.add{flex:1;height:52px;border-radius:26px;background:var(--red);color:#fff;font-weight:600;font-size:15.5px;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .2s}
+.add{flex:1;white-space:nowrap;padding:0 18px;height:52px;border-radius:26px;background:var(--red);color:#fff;font-weight:600;font-size:15.5px;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .2s}
 .add:hover{background:var(--red2)}
 .add.ok{background:var(--ink)}
 .wa{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:#1fa855;flex:none;transition:border-color .2s}
@@ -481,7 +481,7 @@ function siteFix(root){if(!SITE)return;
     if(n!==h)a.setAttribute('href',n)});
   if(ph&&ph!==P0){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let t;while(t=w.nextNode())if(t.nodeValue.includes(P0))t.nodeValue=t.nodeValue.split(P0).join(ph)}}
 new MutationObserver(()=>siteFix(document.body)).observe(document.body,{childList:true,subtree:true});
-try{if(localStorage.getItem('tkMgr')||location.hash==='#manager'){window.MGR_LOGIN=location.hash==='#manager';const s=document.createElement('script');s.src='desk-mgr.js?v=25d8738f';document.body.appendChild(s)}}catch(_){}
+try{if(localStorage.getItem('tkMgr')||location.hash==='#manager'){window.MGR_LOGIN=location.hash==='#manager';const s=document.createElement('script');s.src='desk-mgr.js?v=eda9c9ce';document.body.appendChild(s)}}catch(_){}
 const SITEP=fetch('data/site.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).catch(()=>null).then(j=>{if(j&&typeof j==='object'&&!Array.isArray(j)){SITE=j;siteText();langStatic();siteFix(document.body)}});
 
 

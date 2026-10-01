@@ -16,8 +16,8 @@ const st=document.createElement('style');st.textContent=`
 .top .mgp b{padding:0;font-weight:500;gap:6px}.top .mgp b:before{width:6px;height:6px;opacity:.8}
 .top .mgp button{height:auto;padding:0;border-radius:0;background:none;color:var(--mute);font-weight:500;font-size:12.5px}.top .mgp button:hover,.top .mgp button.on{background:none;color:var(--ink)}
 .top .mgp em{background:var(--line);color:var(--ink);margin-left:5px}
-.mgb{position:absolute;right:10px;top:10px;z-index:3;height:30px;padding:0 11px;border-radius:15px;background:rgba(22,22,22,.86);color:#fff;font-size:12px;font-weight:600}
-.mgb.on{background:var(--ok)}
+.mgb{position:absolute;right:10px;top:10px;z-index:3;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.9);border:1px solid var(--line);color:var(--mute);font-size:18px;line-height:1;display:grid;place-items:center;opacity:.6;transition:opacity .15s,color .15s}
+.pc:hover .mgb,.mgb:hover{opacity:1;color:var(--ink)}.mgb.on{opacity:1;background:var(--ok);border-color:var(--ok);color:#fff;font-size:14px}
 .mgw{position:fixed;inset:0;z-index:95;background:rgba(0,0,0,.35);display:none}.mgw.on{display:block}
 .mgd{position:fixed;top:0;right:0;bottom:0;width:min(640px,100vw);background:#fff;z-index:96;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .25s;font-size:14px}
 .mgd.on{transform:none}
@@ -52,7 +52,7 @@ const st=document.createElement('style');st.textContent=`
 .mgc thead th{position:sticky;top:0;background:#fff;z-index:1;font-size:14px}.mgc thead img{width:120px;height:120px;object-fit:contain;display:block;margin-bottom:6px}
 .mgc td:first-child{color:var(--mute);width:22%}.mgc tr.df td:not(:first-child){background:#FFF8E6}.mgc tr.gr td{font-weight:700;color:var(--ink);background:var(--soft);text-transform:uppercase;font-size:12px;letter-spacing:.04em}
 .mgok{display:inline-flex;align-items:center;gap:6px;margin-left:8px;color:var(--mute);font-size:12.5px;font-weight:500}.mgok input{accent-color:var(--red)}
-#mgAdd{height:52px;padding:0 16px;border-radius:26px;border:1px solid var(--ink);font-weight:600;font-size:14px;white-space:nowrap}#mgAdd.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.ac:has(#mgAdd){flex-wrap:wrap}#mgAdd{order:9;flex:1 0 100%;height:48px;padding:0 16px;border-radius:26px;border:1px solid var(--ink);font-weight:600;font-size:14px;white-space:nowrap}#mgAdd.on{background:var(--ok);border-color:var(--ok);color:#fff}
 @media print{.mgp,.mgb,#mgAdd,.mgd,.mgw{display:none!important}}`;
 document.head.appendChild(st);
 
@@ -71,11 +71,12 @@ async function item(f,sku){const L=await cat(f);return L.find(x=>String(x.sku)==
 const has=(f,sku)=>S.items.some(i=>i.f===f&&String(i.sku)===String(sku));
 async function add(f,sku){if(has(f,sku)){toast('Уже в подборке');return}const x=await item(f,sku);if(!x)return;S.items.push({f,sku:String(sku),q:1,dk:'pct',dv:0});sv();mark();toast('Добавлено в подборку')}
 function mark(){document.querySelectorAll('.pc[data-sku]').forEach(a=>{let b=q('.mgb',a);if(!b){b=document.createElement('button');b.className='mgb';b.type='button';const ph=q('.ph',a);if(!ph)return;ph.appendChild(b)}
-    const on=has(a.dataset.f,a.dataset.sku);b.classList.toggle('on',on);b.textContent=on?'✓ В подборке':'+ Подборка'});
-  const ad=q('#add');if(ad&&typeof SKU!=='undefined'&&typeof F!=='undefined'){let b=q('#mgAdd');if(!b){b=document.createElement('button');b.id='mgAdd';b.type='button';ad.after(b)}const on=has(F,SKU);b.classList.toggle('on',on);b.textContent=on?'✓ В подборке':'+ В подборку'}}
+    const on=has(a.dataset.f,a.dataset.sku);b.classList.toggle('on',on);b.textContent=on?'✓':'+';b.title=on?L('În selecție','В подборке'):L('Adaugă în selecție','Добавить в подборку')});
+  const ad=q('#add');if(ad&&typeof SKU!=='undefined'&&typeof F!=='undefined'){let b=q('#mgAdd');if(!b){b=document.createElement('button');b.id='mgAdd';b.type='button';ad.after(b)}const on=has(F,SKU);b.classList.toggle('on',on);b.textContent=on?L('✓ În selecție','✓ В подборке'):L('+ Adaugă în selecție','+ В подборку')}}
 
+const L=(ro,ru)=>LANG==='ru'?ru:ro;
 function bar(){if(!M)return;let p=q('.mgp');if(!p){p=document.createElement('div');p.className='mgp';const t=q('.top .wrap');t?t.insertBefore(p,q('#lng')||null):document.body.appendChild(p)}
-  const n=S.items.reduce((a,i)=>a+i.q,0);p.innerHTML=`<b>${he(M.n)}</b><button data-m="sel" class="${n?'on':''}">Подборка${n?`<em>${n}</em>`:''}</button><button data-m="out" title="Выйти из режима менеджера">Выйти</button>`}
+  const n=S.items.reduce((a,i)=>a+i.q,0);p.innerHTML=`<b>${he(M.n)}</b><button data-m="sel" class="${n?'on':''}">${L('Selecție','Подборка')}${n?`<em>${n}</em>`:''}</button><button data-m="out">${L('Ieșire','Выйти')}</button>`}
 
 /* расчёт как на сервере */
 const unit=(p,k,v)=>Math.max(0,Math.round(k==='pct'?p*(1-Math.min(v,100)/100):k==='sum'?p-v:p));
@@ -153,6 +154,7 @@ function start(){bar();ui();mark();new MutationObserver(()=>{clearTimeout(start.
 document.addEventListener('click',e=>{if(!M)return;const b=e.target.closest('.mgb');if(b){e.preventDefault();e.stopPropagation();const a=b.closest('.pc');add(a.dataset.f,a.dataset.sku);return}
   if(e.target.closest('#mgAdd')){add(F,SKU);return}
   const m=e.target.closest('.mgp [data-m]');if(m){if(m.dataset.m==='sel')open();if(m.dataset.m==='out'&&confirm('Выйти из режима менеджера?'))logout()}},true);
+document.addEventListener('click',e=>{if(e.target.closest('#lng'))setTimeout(()=>{bar();mark()},0)});
 addEventListener('storage',e=>{if(e.key===SK){S=ld();bar();mark()}});
 if(M)start();else if(window.MGR_LOGIN)login();
 })();
