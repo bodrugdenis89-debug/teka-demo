@@ -3,7 +3,7 @@
   "sku": "111020005",
   "n": "HCB 6435",
   "sub": "Cuptor multifuncţional, cu 8 funcţii şi Sistem de curăţare HydroClean PRO",
-  "p": 7650,
+  "p": 7655,
   "img": [
    "111020005-1.webp",
    "111020005-2.webp",
@@ -272,8 +272,7 @@
   "col": "inox",
   "o": 8500,
   "t": "sale",
-  "d": 10,
-  "hid": true
+  "d": 10
  },
  {
   "sku": "111020031",
