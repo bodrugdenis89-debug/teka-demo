@@ -288,6 +288,7 @@ footer .bot .wrap{display:flex;justify-content:space-between;padding-top:18px;pa
 .oct div{border:1px solid var(--line);border-radius:8px;padding:14px 16px}.oct small{display:block;color:var(--mute);font-size:12px;margin-bottom:3px}
 .odone{background:#EEF7F1;border-radius:10px;padding:16px 18px;font-weight:600;color:var(--ok)}
 .ph0{display:none}
+.ot .imc{width:124px;vertical-align:top}.ot .kd{display:block;margin-top:6px;font-size:12px;line-height:1.3;color:var(--mute);text-align:center;max-width:96px}
 @media print{.obk{display:none!important}
  @page{size:A4;margin:14mm}
  body{font-size:12px}
@@ -296,13 +297,14 @@ footer .bot .wrap{display:flex;justify-content:space-between;padding-top:18px;pa
  .ph0{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #000;padding-bottom:10px;margin-bottom:16px}
  .ph0 img{width:64px;height:64px}.ph0 div{text-align:right;font-size:11px;line-height:1.5}
  .ol{grid-template-columns:1fr;gap:16px}.os{position:static;border:0;padding:0;max-width:300px;margin-left:auto}
- .oh h1{font-size:24px}.ot td{padding:8px}.ot .im{width:60px;height:60px;padding:4px}
+ .oh h1{font-size:24px}.ot td{padding:8px}.ot .im{width:96px;height:96px;padding:4px}.ot .imc{width:118px}.ot .kd{font-size:10.5px}
  .oct,.ocm{max-width:none}
  .os{max-width:340px;width:100%}.os .r,.os .tt{display:grid!important;grid-template-columns:1fr auto;column-gap:24px}.os .r>*:last-child,.os .tt>*:last-child{text-align:right;white-space:nowrap}.os .tt{font-size:17px}
  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 
 .obk{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px 0 16px;border-radius:22px;background:var(--ink);color:#fff;font-weight:600;font-size:14.5px;margin-bottom:18px}.obk:hover{background:#333}
+
 </style>
 </head>
 <body>
@@ -506,6 +508,7 @@ function drawMega(){
     +`<div class="pr"><b>${T('promo_t','Cuptoare cu abur și piroliză')}</b><span>${T('promo_s','Noutăți 2026 în magazin')}</span>${cut('oven','b')}<a href="desk-cat.html?c=oven&f=f:aburi">${T('promo_a','Vezi →')}</a></div>`;
   $('fCat').innerHTML=CATS.slice(0,8).map(c=>`<a href="desk-cat.html?c=${c.k}">${cn(c)}</a>`).join('');
 }
+const KIND={ovens:['Cuptor','Духовой шкаф'],hobs:['Plită','Варочная панель'],hoods:['Hotă','Вытяжка'],microwaves:['Cuptor cu microunde','Микроволновая печь'],compact:['Aparat de cafea','Кофемашина'],fridges:['Frigider','Холодильник'],'wine-coolers':['Vitrină pentru vin','Винный шкаф'],dishwashers:['Mașină de spălat vase','Посудомоечная машина'],sinks:['Chiuvetă','Мойка'],faucets:['Baterie de bucătărie','Смеситель'],laundry:['Mașină de spălat / uscat','Стиральная / сушильная машина'],accessories:['Accesoriu','Аксессуар']};
 Object.assign(D.ru,{home:'Главная',of_t:'Коммерческое предложение',of_ld:'Загружаем предложение…'});
 const R2={'Ofertă comercială':'Коммерческое предложение','Oferta nu a fost găsită':'Предложение не найдено','Verificați linkul sau contactați managerul.':'Проверьте ссылку или свяжитесь с менеджером.','Spre catalog':'В каталог',
 'din':'от','Manager':'Менеджер','Client':'Клиент','Produs':'Товар','Cant.':'Кол-во','Preț':'Цена','Sumă':'Сумма','Cod':'Код','buc.':'шт.','Total produse':'Товары','Reducere la poziții':'Скидка на позиции','Reducere suplimentară':'Дополнительная скидка','Total':'Итого',
@@ -542,7 +545,7 @@ function draw(){if(!O){$('ow').innerHTML=`<div class="oload"><h1 style="color:va
   $('ow').innerHTML=`${mgrTok()?`<button class="obk" data-c="back"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>${t('Înapoi la selecție')}</button>`:''}<div class="ph0"><img src="assets/teka-logo-sq.svg" alt="TEKA"><div><b>Teka Moldova</b><br>${he(ph)}<br>${addr}<br>teka.md</div></div>
   <div class="oh"><h1>${t('Ofertă comercială')}${O.id?`<small>${LANG==='ru'?'№':'nr.'} ${he(O.id)}</small>`:`<small>${t('Previzualizare')}</small>`}</h1><div class="mt"><span>${t('din')} ${dt}</span>${O.mg?`<span>${t('Manager')}: <b>${he(O.mg)}</b></span>`:''}${O.name?`<span>${t('Client')}: <b>${he(O.name)}</b></span>`:''}</div></div>
   <div class="ol"><div><table class="ot"><thead><tr><th></th><th>${t('Produs')}</th><th style="text-align:right">${t('Preț')}</th><th style="text-align:right">${t('Cant.')}</th><th style="text-align:right">${t('Sumă')}</th></tr></thead><tbody>${O.items.map(i=>{const h=i.f?`desk-product.html?f=${encodeURIComponent(i.f)}&sku=${encodeURIComponent(i.sku)}`:'#';
-    return `<tr><td style="width:110px"><a class="im" href="${h}">${i.img?`<img src="${he(i.img)}" alt="" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}else this.style.visibility='hidden'">`:''}</a></td>
+    return `<tr><td class="imc"><a class="im" href="${h}">${i.img?`<img src="${he(CP(i.img))}" data-o="${he(i.img)}" alt="" onerror="if(this.src.indexOf('/c/')>0){this.src=this.dataset.o}else if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}else this.style.visibility='hidden'">`:''}</a>${KIND[i.f]?`<span class="kd">${KIND[i.f][LANG==='ru'?1:0]}</span>`:''}</td>
     <td><a href="${h}"><b>${he(i.n)}</b></a><small>${he(i.sub||'')}</small><small>${t('Cod')}: ${he(i.sku)}</small></td>
     <td class="n">${i.p?`${i.u<i.p||i.o>i.p?`<s>${mdl(Math.max(i.p,i.o||0))}</s>`:''}<b>${mdl(i.u)}</b>${i.u<i.p?`<em>${dl(i)}</em>`:''}`:t('Preț la cerere')}</td><td class="n">${i.q} ${t('buc.')}</td><td class="n"><b>${mdl(i.u*i.q)}</b></td></tr>`}).join('')}</tbody></table>
 </div>
