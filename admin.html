@@ -899,7 +899,11 @@ const OS={new:'Новый',work:'В работе',done:'Выдан',cancel:'От
 const CHN=c=>c==='wa'?'WhatsApp':c==='vb'?'Viber':c==='mgr'?T('Менеджер в магазине'):esc(c||'—');
 const LOC=()=>LANG==='ro'?'ro-RO':'ru-RU',OSL=k=>T(OS[k]);
 const dt=t=>new Date(t).toLocaleString(LOC(),{day:'2-digit',month:'2-digit',year:'2-digit',hour:'2-digit',minute:'2-digit'});
-async function loadOrders(q){try{const r=await api('/api/orders');ORD=r.orders||[];ORD.err=''}catch(e){if(e.status===401)return;ORD=[];ORD.err=e.message}
+// список заказов в Cloudflare KV обновляется с задержкой до минуты — свои свежие правки держим поверх него
+let OFIX={};try{OFIX=JSON.parse(localStorage.getItem('tkOFix')||'{}')}catch(_){}
+function oFix(id,v){const now=Date.now();OFIX[id]={...v,u:now+150000};for(const k in OFIX)if(OFIX[k].u<now)delete OFIX[k];try{localStorage.setItem('tkOFix',JSON.stringify(OFIX))}catch(_){}}
+const oApply=L=>L.filter(o=>!(OFIX[o.id]&&OFIX[o.id].del&&OFIX[o.id].u>Date.now())).map(o=>OFIX[o.id]&&OFIX[o.id].st&&OFIX[o.id].u>Date.now()?{...o,st:OFIX[o.id].st}:o);
+async function loadOrders(q){try{const r=await api('/api/orders');ORD=oApply(r.orders||[]);ORD.err=''}catch(e){if(e.status===401)return;ORD=[];ORD.err=e.message}
   navOrders();if(VIEW==='orders')drawOrders()}
 function navOrders(){const n=ORD?ORD.filter(o=>o.st==='new').length:0;$('nav').querySelector('[data-v=orders]').innerHTML=esc(T('Заказы'))+(n?`<i>${n}</i>`:'')}
 function drawOrders(){$('sum').textContent=ORD?T('Заказов: {0}',ORD.length):'';
@@ -916,8 +920,8 @@ function drawOrders(){$('sum').textContent=ORD?T('Заказов: {0}',ORD.lengt
   $('vw').querySelectorAll('td.st select').forEach(dd);
   $('vw').querySelectorAll('tr[data-id]').forEach(tr=>{tr.querySelector('select').onchange=e=>setOst(tr.dataset.id,e.target.value);tr.querySelector('[data-k=op]').onclick=()=>openOrder(tr.dataset.id);tr.querySelector('[data-k=del]').onclick=()=>delOrder(tr.dataset.id)})}
 async function delOrder(id){if(!confirm(T('Удалить этот заказ? Это нельзя отменить.')))return;
-  try{await api('/api/order-del',{id});ORD=ORD.filter(o=>o.id!==id);CLS=null;toast(T('Заказ удалён'));drawOrders();loadOrders()}catch(e){toast(T('Не удалось удалить: {0}',e.message),true)}}
-async function setOst(id,st){try{await api('/api/order-status',{id,st});const o=ORD.find(z=>z.id===id);if(o)o.st=st;toast(T('Статус: {0}',OSL(st)));loadOrders()}catch(e){toast(T('Не удалось изменить статус: {0}',e.message),true)}}
+  try{await api('/api/order-del',{id});oFix(id,{del:1});ORD=ORD.filter(o=>o.id!==id);CLS=null;toast(T('Заказ удалён'));navOrders();drawOrders()}catch(e){toast(T('Не удалось удалить: {0}',e.message),true)}}
+async function setOst(id,st){try{await api('/api/order-status',{id,st});oFix(id,{st});const o=ORD.find(z=>z.id===id);if(o)o.st=st;toast(T('Статус: {0}',OSL(st)));navOrders();drawOrders()}catch(e){toast(T('Не удалось изменить статус: {0}',e.message),true)}}
 async function openOrder(id){let o;try{o=await api('/api/order?id='+encodeURIComponent(id))}catch(e){return toast(e.message,true)}
   tlOpen(T('Заказ от {0}',dt(o.t)),`<fieldset><legend>${T('Товары')}</legend><table class="pv"><thead><tr><th>${T('Товар')}</th><th>${T('Код')}</th><th style="text-align:right">${T('Кол-во')}</th><th style="text-align:right">${T('Цена')}</th><th style="text-align:right">${T('Сумма')}</th></tr></thead><tbody>${o.items.map(i=>{const z=allItems().find(({x})=>String(x.sku)===String(i.sku));return `<tr><td class="oi">${z?img(pics(z.x)[0]):'<img alt="">'}<span>${esc(i.n)}</span></td><td class="sk">${esc(i.sku)}</td><td class="n">${i.q}</td><td class="n">${i.o>i.p?`<s>${i.o}</s> `:''}${i.p||T('по запросу')}</td><td class="n"><b>${i.p*i.q}</b></td></tr>`}).join('')}<tr><td colspan="4"><b>${T('Итого, MDL')}</b></td><td class="n"><b>${o.tot}</b></td></tr></tbody></table></fieldset>
    <fieldset><legend>${T('Детали')}</legend><div class="kv"><b>${T('Статус')}</b><span>${Object.keys(OS).map(k=>`<button type="button" class="chip ${o.st===k?'on':''}" data-st="${k}" style="margin:0 6px 6px 0">${OSL(k)}</button>`).join('')}</span>
