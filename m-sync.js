@@ -118,6 +118,7 @@ async function run(){
  P.length=0;out.forEach(p=>P.push(p));
  hook();lang();counts();cartSync();
  if(typeof render==='function')render(false);
+ const dl=/^#p=(.+)$/.exec(location.hash);if(dl){const i=P.findIndex(p=>p.sku===decodeURIComponent(dl[1]));if(i>=0)setTimeout(()=>{try{openP(i,document.querySelector('.pc[data-i="'+i+'"] .pi'))}catch(e){}},900)}
 }
 run();
 })();

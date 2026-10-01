@@ -4,6 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="google" content="notranslate">
+<script id="tkdev">(function(){try{if(innerWidth>=768||/[?&]desk=1/.test(location.search)||localStorage.getItem('tkMgr'))return}catch(e){return}
+var f=location.pathname.split('/').pop()||'index.html',q=new URLSearchParams(location.search),t=null,
+K={oven:'ovens-light',hob:'hobs',hood:'hoods',micro:'microwaves',coffee:'coffee',fridge:'fridges',wine:'wine-coolers',dish:'dishwashers',sink:'sinks',faucet:'faucets',washer:'laundry',pots:'accessories',promo:'promo'},
+F={ovens:'ovens-light',compact:'coffee',hobs:'hobs',hoods:'hoods',microwaves:'microwaves',fridges:'fridges','wine-coolers':'wine-coolers',dishwashers:'dishwashers',sinks:'sinks',faucets:'faucets',laundry:'laundry',accessories:'accessories'};
+if(f==='index.html'||f==='desk-catalog.html'||f==='desk-cart.html'||f==='desk-info.html')t='home.html';
+else if(f==='desk-cat.html')t=K[q.get('c')]?'category-'+K[q.get('c')]+'.html':'home.html';
+else if(f==='desk-product.html')t=F[q.get('f')]?'category-'+F[q.get('f')]+'.html'+(q.get('sku')?'#p='+encodeURIComponent(q.get('sku')):''):'home.html';
+if(t)location.replace(t)})()</script>
 <meta name="robots" content="noindex,nofollow">
 <title>Informații — Teka Moldova</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -481,7 +489,7 @@ try{if(localStorage.getItem('tkMgr')||location.hash==='#manager'){window.MGR_LOG
 const SITEP=fetch('data/site.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).catch(()=>null).then(j=>{if(j&&typeof j==='object'&&!Array.isArray(j)){SITE=j;siteText();langStatic();siteFix(document.body)}});
 
 
-const CHAT_API='';
+const CHAT_API='https://teka-chat.teka-md.workers.dev';
 const CH=(()=>{let sid;try{sid=localStorage.getItem('tkSid')}catch(_){}if(!sid){sid=Math.random().toString(36).slice(2)+Date.now().toString(36);try{localStorage.setItem('tkSid',sid)}catch(_){}}
   let L=[];try{L=JSON.parse(localStorage.getItem('tkChat')||'[]')}catch(_){}
   const sv=()=>{try{localStorage.setItem('tkChat',JSON.stringify(L.slice(-100)))}catch(_){}};
@@ -497,11 +505,12 @@ const CH=(()=>{let sid;try{sid=localStorage.getItem('tkSid')}catch(_){}if(!sid){
     $('chq').innerHTML=L.some(m=>m.f==='c')?'':Q().map(q=>`<button>${q}</button>`).join('');
     $('chI').placeholder=W('Напишите сообщение…','Scrieți un mesaj…');$('chl').scrollTop=1e6;
     $('chN').textContent=unread;$('chN').classList.toggle('on',unread>0)}
-  async function poll(){if(!CHAT_API)return;try{const r=await (await fetch(`${CHAT_API}/poll?sid=${sid}&after=${last}`)).json();const nw=(r.m||[]).filter(m=>!L.some(z=>z.t===m.t));if(nw.length){nw.forEach(m=>{L.push(m);last=Math.max(last,m.t);if(m.f==='m'&&!$('chw').classList.contains('on'))unread++});sv();draw()}}catch(_){}}
+  async function poll(){if(!CHAT_API||document.hidden||!L.some(m=>m.f==='c'))return;try{const r=await (await fetch(`${CHAT_API}/poll?sid=${sid}&after=${last}`)).json();const nw=(r.m||[]).filter(m=>!L.some(z=>z.t===m.t));if(nw.length){nw.forEach(m=>{L.push(m);last=Math.max(last,m.t);if(m.f==='m'&&!$('chw').classList.contains('on'))unread++});sv();draw()}}catch(_){}}
   function loop(){clearTimeout(tm);poll();tm=setTimeout(loop,$('chw').classList.contains('on')?2500:12000)}
   async function send(tx){tx=tx.trim();if(!tx)return;const m={f:'c',x:tx,t:Date.now()};L.push(m);sv();draw();
     if(!CHAT_API){setTimeout(()=>{L.push({f:'m',x:W('Демо-режим: чат ещё не подключён к Telegram. Пока напишите нам в WhatsApp: +373 68 27 27 02','Mod demo: chatul încă nu e conectat la Telegram. Scrieți-ne în WhatsApp: +373 68 27 27 02'),t:Date.now(),n:'Teka'});sv();draw()},700);return}
-    try{const r=await (await fetch(CHAT_API+'/send',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sid,text:tx,page:location.href,lang:ru()?'RU':'RO'})})).json();if(r.m){m.t=r.m.t;last=Math.max(last,r.m.t);sv()}}catch(_){}
+    let r={};try{r=await (await fetch(CHAT_API+'/send',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sid,text:tx,page:location.href,lang:ru()?'RU':'RO'})})).json()}catch(_){}
+    if(r.m){m.t=r.m.t;last=Math.max(last,r.m.t);sv()}else{L.push({f:'m',x:r.err==='limit'?W('Слишком много сообщений подряд — подождите минуту.','Prea multe mesaje — așteptați un minut.'):W('Сообщение не доставлено. Напишите нам в WhatsApp: +373 68 27 27 02','Mesajul nu a fost trimis. Scrieți-ne în WhatsApp: +373 68 27 27 02'),t:Date.now(),n:'Teka'});sv();draw()}
     loop()}
   document.addEventListener('click',e=>{const g=e.target;
     if(g.closest('#chB')){const w=$('chw');w.classList.toggle('on');if(w.classList.contains('on')){unread=0;draw();setTimeout(()=>$('chI').focus(),200);loop()}return}
@@ -509,7 +518,7 @@ const CH=(()=>{let sid;try{sid=localStorage.getItem('tkSid')}catch(_){}if(!sid){
     if(g.closest('#chG')){send($('chI').value);$('chI').value='';return}
     const q=g.closest('#chq button');if(q)send(q.textContent)});
   document.addEventListener('keydown',e=>{if(e.target.id==='chI'&&e.key==='Enter'&&!e.shiftKey){e.preventDefault();send(e.target.value);e.target.value=''}});
-  addEventListener('load',()=>{draw();loop()});
+  addEventListener('load',()=>{draw();loop()});document.addEventListener('visibilitychange',()=>{if(!document.hidden)loop()});
   document.addEventListener('click',e=>{if(e.target.closest('.lng button'))setTimeout(draw,0)});
   return {draw}})();
 let PHO={},GL={lo:{}};const DATA={};
