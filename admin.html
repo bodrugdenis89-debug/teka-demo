@@ -184,6 +184,7 @@ td.od input{width:64px;height:34px;text-align:center}
 .kv{display:grid;grid-template-columns:150px 1fr;gap:6px 14px;font-size:13.5px;clear:both}.kv b{color:var(--mute);font-weight:600}
 .warnb{background:#FFF8E6;border:1px solid #f0d9b5;border-radius:10px;padding:10px 14px;font-size:13px;margin-top:10px;clear:both}
 @media (max-width:900px){.hb .q{max-width:none;flex-basis:100%;order:5}td.ct,th.ct,td.sk,th.sk{display:none}.g2,.g3{grid-template-columns:1fr}.eh,.eb,.ef{padding-left:16px;padding-right:16px}main{padding:12px 8px 120px}}
+.pv td.oi{display:flex;align-items:center;gap:12px}.pv td.oi img{width:48px;height:48px;flex:none;object-fit:contain;border:1px solid var(--line);border-radius:8px;background:#fff}
 </style>
 </head>
 <body>
@@ -796,7 +797,7 @@ function drawOrders(){$('sum').textContent=ORD?`Заказов: ${ORD.length}`:'
   $('vw').querySelectorAll('tr[data-id]').forEach(tr=>{tr.querySelector('select').onchange=e=>setOst(tr.dataset.id,e.target.value);tr.querySelector('[data-k=op]').onclick=()=>openOrder(tr.dataset.id)})}
 async function setOst(id,st){try{await api('/api/order-status',{id,st});const o=ORD.find(z=>z.id===id);if(o)o.st=st;toast('Статус: '+OS[st]);loadOrders()}catch(e){toast('Не удалось изменить статус: '+e.message,true)}}
 async function openOrder(id){let o;try{o=await api('/api/order?id='+encodeURIComponent(id))}catch(e){return toast(e.message,true)}
-  tlOpen('Заказ от '+dt(o.t),`<fieldset><legend>Товары</legend><table class="pv"><thead><tr><th>Товар</th><th>Код</th><th style="text-align:right">Кол-во</th><th style="text-align:right">Цена</th><th style="text-align:right">Сумма</th></tr></thead><tbody>${o.items.map(i=>`<tr><td>${esc(i.n)}</td><td class="sk">${esc(i.sku)}</td><td class="n">${i.q}</td><td class="n">${i.o>i.p?`<s>${i.o}</s> `:''}${i.p||'по запросу'}</td><td class="n"><b>${i.p*i.q}</b></td></tr>`).join('')}<tr><td colspan="4"><b>Итого, MDL</b></td><td class="n"><b>${o.tot}</b></td></tr></tbody></table></fieldset>
+  tlOpen('Заказ от '+dt(o.t),`<fieldset><legend>Товары</legend><table class="pv"><thead><tr><th>Товар</th><th>Код</th><th style="text-align:right">Кол-во</th><th style="text-align:right">Цена</th><th style="text-align:right">Сумма</th></tr></thead><tbody>${o.items.map(i=>{const z=allItems().find(({x})=>String(x.sku)===String(i.sku));return `<tr><td class="oi">${z?img(pics(z.x)[0]):'<img alt="">'}<span>${esc(i.n)}</span></td><td class="sk">${esc(i.sku)}</td><td class="n">${i.q}</td><td class="n">${i.o>i.p?`<s>${i.o}</s> `:''}${i.p||'по запросу'}</td><td class="n"><b>${i.p*i.q}</b></td></tr>`}).join('')}<tr><td colspan="4"><b>Итого, MDL</b></td><td class="n"><b>${o.tot}</b></td></tr></tbody></table></fieldset>
    <fieldset><legend>Детали</legend><div class="kv"><b>Статус</b><span>${Object.entries(OS).map(([k,l])=>`<button type="button" class="chip ${o.st===k?'on':''}" data-st="${k}" style="margin:0 6px 6px 0">${l}</button>`).join('')}</span>
     <b>Канал</b><span>${CHN(o.ch)}</span><b>Получение</b><span>${o.m==='p'?'Самовывоз':o.m==='d'?'Доставка':'—'}</span>
     ${o.name?`<b>Имя</b><span>${esc(o.name)}</span>`:''}${o.tel?`<b>Телефон</b><span><a href="tel:${esc(o.tel)}">${esc(o.tel)}</a></span>`:''}

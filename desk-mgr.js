@@ -16,8 +16,8 @@ const st=document.createElement('style');st.textContent=`
 .top .mgp b{padding:0;font-weight:500;gap:6px}.top .mgp b:before{width:6px;height:6px;opacity:.8}
 .top .mgp button{height:auto;padding:0;border-radius:0;background:none;color:var(--mute);font-weight:500;font-size:12.5px}.top .mgp button:hover,.top .mgp button.on{background:none;color:var(--ink)}
 .top .mgp em{background:var(--line);color:var(--ink);margin-left:5px}
-.mgb{position:absolute;right:10px;top:10px;z-index:3;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.9);border:1px solid var(--line);color:var(--mute);font-size:18px;line-height:1;display:grid;place-items:center;opacity:.6;transition:opacity .15s,color .15s}
-.pc:hover .mgb,.mgb:hover{opacity:1;color:var(--ink)}.mgb.on{opacity:1;background:var(--ok);border-color:var(--ok);color:#fff;font-size:14px}
+.mgb{flex:none;margin-left:auto;width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--ink2);font-size:22px;font-weight:400;line-height:1;display:grid;place-items:center;transition:border-color .15s,background .15s}
+.mgb:hover{border-color:var(--ink)}.mgb.on{background:var(--ok);border-color:var(--ok);color:#fff;font-size:17px}
 .mgw{position:fixed;inset:0;z-index:95;background:rgba(0,0,0,.35);display:none}.mgw.on{display:block}
 .mgd{position:fixed;top:0;right:0;bottom:0;width:min(640px,100vw);background:#fff;z-index:96;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .25s;font-size:14px}
 .mgd.on{transform:none}
@@ -35,7 +35,7 @@ const st=document.createElement('style');st.textContent=`
 .mgi .rw{display:flex;gap:6px;align-items:center;margin-top:7px;flex-wrap:wrap}
 .mgi .rw input,.mgf input,.mgf select,.mgi select,.mgf textarea{height:32px;border:1px solid var(--line);border-radius:6px;padding:0 8px;font:inherit;font-size:13px;background:#fff}
 .mgi .rw input{width:64px}.mgi .sm{text-align:right;white-space:nowrap}.mgi .sm s{color:var(--mute);font-size:12px;display:block}
-.mgi .rm{color:var(--mute);font-size:12px;margin-top:6px}
+.mgi .rm{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);color:var(--mute);display:inline-grid;place-items:center;margin-top:10px;transition:color .15s,border-color .15s}.mgi .rm:hover{color:var(--red);border-color:var(--red)}
 .mgf{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.mgf label{display:grid;gap:4px;font-size:12px;color:var(--ink2);font-weight:600}
 .mgf .w{grid-column:1/-1}.mgf textarea{height:60px;padding:8px;resize:vertical}
 .mgt{margin-top:14px;background:var(--soft);border-radius:8px;padding:12px 14px;display:grid;gap:4px}.mgt div{display:flex;justify-content:space-between}.mgt .g{font-size:17px;font-weight:700}
@@ -49,7 +49,7 @@ const st=document.createElement('style');st.textContent=`
 .mgc{position:fixed;inset:24px;z-index:98;background:#fff;border-radius:12px;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.3)}
 .mgc .bd{overflow:auto;padding:0 22px 22px}.mgc table{width:100%;border-collapse:collapse;font-size:13.5px}
 .mgc th,.mgc td{padding:8px 10px;border-bottom:1px solid var(--soft);text-align:left;vertical-align:top}
-.mgc thead th{position:sticky;top:0;background:#fff;z-index:1;font-size:14px}.mgc thead img{width:120px;height:120px;object-fit:contain;display:block;margin-bottom:6px}
+.mgc thead th{position:sticky;top:0;background:#fff;z-index:1;font-size:14px}.mgc thead img{width:100%;max-width:240px;aspect-ratio:1;object-fit:contain;display:block;margin-bottom:10px;background:#fff}
 .mgc td:first-child{color:var(--mute);width:22%}.mgc tr.df td:not(:first-child){background:#FFF8E6}.mgc tr.gr td{font-weight:700;color:var(--ink);background:var(--soft);text-transform:uppercase;font-size:12px;letter-spacing:.04em}
 .mgok{display:inline-flex;align-items:center;gap:6px;margin-left:8px;color:var(--mute);font-size:12.5px;font-weight:500}.mgok input{accent-color:var(--red)}
 .ac:has(#mgAdd){flex-wrap:wrap}#mgAdd{order:9;flex:1 0 100%;height:48px;padding:0 16px;border-radius:26px;border:1px solid var(--ink);font-weight:600;font-size:14px;white-space:nowrap}#mgAdd.on{background:var(--ok);border-color:var(--ok);color:#fff}
@@ -70,7 +70,7 @@ const IX={};
 async function item(f,sku){const L=await cat(f);return L.find(x=>String(x.sku)===String(sku))||null}
 const has=(f,sku)=>S.items.some(i=>i.f===f&&String(i.sku)===String(sku));
 async function add(f,sku){if(has(f,sku)){toast('Уже в подборке');return}const x=await item(f,sku);if(!x)return;S.items.push({f,sku:String(sku),q:1,dk:'pct',dv:0});sv();mark();toast('Добавлено в подборку')}
-function mark(){document.querySelectorAll('.pc[data-sku]').forEach(a=>{let b=q('.mgb',a);if(!b){b=document.createElement('button');b.className='mgb';b.type='button';const ph=q('.ph',a);if(!ph)return;ph.appendChild(b)}
+function mark(){document.querySelectorAll('.pc[data-sku]').forEach(a=>{let b=q('.mgb',a);if(!b){b=document.createElement('button');b.className='mgb';b.type='button';const qa=q('.bt .qa',a);if(!qa)return;qa.before(b)}
     const on=has(a.dataset.f,a.dataset.sku);b.classList.toggle('on',on);b.textContent=on?'✓':'+';b.title=on?L('În selecție','В подборке'):L('Adaugă în selecție','Добавить в подборку')});
   const ad=q('#add');if(ad&&typeof SKU!=='undefined'&&typeof F!=='undefined'){let b=q('#mgAdd');if(!b){b=document.createElement('button');b.id='mgAdd';b.type='button';ad.after(b)}const on=has(F,SKU);b.classList.toggle('on',on);b.textContent=on?L('✓ În selecție','✓ В подборке'):L('+ Adaugă în selecție','+ В подборку')}}
 
@@ -93,8 +93,8 @@ async function draw(){const d=q('.mgd');if(!d)return;const R=await lines(),c=cal
   q('.bd',d).innerHTML=(R.length?R.map((r,k)=>`<div class="mgi" data-k="${k}"><input type="checkbox" data-cmp ${r.i.c?'checked':''} title="Сравнить"><img src="${he(pics(r.x)[0]||'')}" alt="" onerror="this.style.visibility='hidden'">
     <div><b>${he(nm(r.x))}</b><small>${he(r.i.sku)} · <span class="${r.x.st?'no':'ok'}">${stk(r.x)}</span></small>
      <div class="rw">Кол-во <input data-q type="number" min="1" max="99" value="${r.i.q}"> Скидка <input data-dv type="number" min="0" value="${+r.i.dv||''}" placeholder="0">${dsel(r.i.dk,0,'data-dk')}</div>
-     <button class="rm" data-rm>Убрать</button></div>
-    <div class="sm">${r.p?`${r.u<r.p?`<s>${mdl(r.p*r.i.q)}</s>`:''}<b>${mdl(r.u*r.i.q)}</b>${r.i.q>1?`<small>${mdl(r.u)} / шт.</small>`:''}`:'<b>по запросу</b>'}</div></div>`).join(''):'<p style="padding:30px 0;color:var(--mute)">Подборка пуста. Добавляйте товары кнопкой «+ Подборка» на карточках.</p>')+
+     </div>
+    <div class="sm">${r.p?`${r.u<r.p?`<s>${mdl(r.p*r.i.q)}</s>`:''}<b>${mdl(r.u*r.i.q)}</b>${r.i.q>1?`<small>${mdl(r.u)} / шт.</small>`:''}`:'<b>по запросу</b>'}<button class="rm" data-rm title="Удалить из подборки" aria-label="Удалить"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></svg></button></div></div>`).join(''):'<p style="padding:30px 0;color:var(--mute)">Подборка пуста. Добавляйте товары кнопкой «+ Подборка» на карточках.</p>')+
    `<div class="mgf"><label>Скидка на всю подборку<span style="display:flex;gap:6px"><input data-adv type="number" min="0" value="${+S.dv||''}" placeholder="0" style="flex:1">${dsel(S.dk,0,'data-adk')}</span></label><span></span>
      <label>Имя клиента<input data-s="name" value="${he(S.name)}"></label><label>Телефон клиента<input data-s="tel" value="${he(S.tel)}" placeholder="+373 …" inputmode="tel"></label>
      <div class="mgcl" id="mgcl" hidden></div>
@@ -127,7 +127,7 @@ async function compare(){const R=await lines();let L=R.filter(r=>r.i.c);if(L.len
   L.forEach((r,j)=>(r.x.specs||[]).forEach(g=>(g.r||[]).forEach(([k,v])=>{const kk=key(g.t,k);if(!G.some(z=>z[0]===kk))G.push([kk,tx('k',g.t),tx('k',k)]);V[j][kk]=tx('v',v)})));
   let h='',last='';for(const [kk,g,k] of G){if(g!==last){h+=`<tr class="gr"><td colspan="${L.length+1}">${he(g)}</td></tr>`;last=g}const vs=V.map(o=>o[kk]||'—');h+=`<tr class="${new Set(vs).size>1?'df':''}"><td>${he(k)}</td>${vs.map(v=>`<td>${he(v)}</td>`).join('')}</tr>`}
   const w=document.createElement('div');w.className='mgw on';w.style.zIndex=97;const m=document.createElement('div');m.className='mgc';
-  m.innerHTML=`<h3 style="font-size:19px;padding:18px 22px;display:flex;align-items:center"><span style="flex:1">Сравнение</span><span class="mgok"><input type="checkbox" id="mgdf"> только различия</span><button class="x" style="margin-left:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line)">✕</button></h3><div class="bd"><table><thead><tr><th></th>${L.map(r=>`<th><img src="${he(pics(r.x)[0]||'')}" alt="">${he(nm(r.x))}<br><small style="color:var(--mute);font-weight:500">${he(r.i.sku)}</small></th>`).join('')}</tr></thead><tbody>
+  m.innerHTML=`<h3 style="font-size:19px;padding:18px 22px;display:flex;align-items:center"><span style="flex:1">Сравнение</span><span class="mgok"><input type="checkbox" id="mgdf"> только различия</span><button class="x" style="margin-left:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line)">✕</button></h3><div class="bd"><table><thead><tr><th></th>${L.map(r=>`<th><img src="${he(CP(pics(r.x)[0]||''))}" data-o="${he(pics(r.x)[0]||'')}" onerror="${OE}" alt="">${he(nm(r.x))}<br><small style="color:var(--mute);font-weight:500">${he(r.i.sku)}</small></th>`).join('')}</tr></thead><tbody>
    <tr class="${new Set(L.map(r=>r.u)).size>1?'df':''}"><td>Цена</td>${L.map(r=>`<td><b>${r.p?mdl(r.u):'по запросу'}</b>${r.u<r.p?` <s style="color:var(--mute)">${mdl(r.p)}</s>`:''}</td>`).join('')}</tr>
    <tr><td>Наличие</td>${L.map(r=>`<td>${stk(r.x)}</td>`).join('')}</tr><tr><td>Бренд</td>${L.map(r=>`<td>${he(bnd(r.x))}</td>`).join('')}</tr>${h}</tbody></table></div>`;
   const rm=()=>{w.remove();m.remove()};w.onclick=rm;q('.x',m).onclick=rm;q('#mgdf',m).onchange=e=>m.querySelectorAll('tbody tr:not(.df):not(.gr)').forEach(t=>t.hidden=e.target.checked);
@@ -149,7 +149,7 @@ function ui(){if(q('.mgd'))return;const w=document.createElement('div');w.classN
     if(t.matches('[data-adv]'))S.dv=Math.max(0,+t.value||0);if(t.matches('[data-adk]'))S.dk=t.value;if(t.matches('[data-adv],[data-adk]')){RES=null;sv();draw()}});
   d.addEventListener('input',e=>{const t=e.target;if(t.dataset.s){S[t.dataset.s]=t.value;RES=null;const r=q('.mgres',d);if(r)r.remove();sv();if(t.dataset.s==='tel'){clearTimeout(ct);ct=setTimeout(findCl,500)}}})}
 
-function start(){bar();ui();mark();new MutationObserver(()=>{clearTimeout(start.t);start.t=setTimeout(mark,50)}).observe(document.body,{childList:true,subtree:true});
+function start(){bar();ui();mark();if(location.hash==='#sel'||window.MGR_SEL){window.MGR_SEL=0;history.replaceState(null,'',location.pathname+location.search);open()}new MutationObserver(()=>{clearTimeout(start.t);start.t=setTimeout(mark,50)}).observe(document.body,{childList:true,subtree:true});
   api('/api/me').catch(e=>toast(e.message));if(S.tel)findCl()}
 document.addEventListener('click',e=>{if(!M)return;const b=e.target.closest('.mgb');if(b){e.preventDefault();e.stopPropagation();const a=b.closest('.pc');add(a.dataset.f,a.dataset.sku);return}
   if(e.target.closest('#mgAdd')){add(F,SKU);return}
