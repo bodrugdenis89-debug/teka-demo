@@ -1,2 +1,5 @@
 User-agent: *
-Disallow: /
+Disallow: /admin.html
+Disallow: /desk-offer.html
+
+Sitemap: https://teka.md/sitemap.xml
