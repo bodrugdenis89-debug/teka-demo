@@ -4286,7 +4286,8 @@
   "b": "Küppersbusch",
   "col": "negru",
   "kind": "gaz",
-  "w": 30
+  "w": 30,
+  "st": "order"
  },
  {
   "sku": "112500025",
