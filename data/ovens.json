@@ -8889,7 +8889,8 @@
   ],
   "w": 60,
   "c": "multi",
-  "col": "negru"
+  "col": "negru",
+  "st": "order"
  },
  {
   "sku": "121000001",
