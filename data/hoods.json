@@ -6006,7 +6006,8 @@
   "b": "Küppersbusch",
   "col": "inox",
   "kind": "perete",
-  "w": 90
+  "w": 90,
+  "st": "order"
  },
  {
   "sku": "112910006",
