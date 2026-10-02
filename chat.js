@@ -22,7 +22,7 @@ const css=`#tkc{--r:#D8232A;--k:#100E0C;font-family:"Montserrat",system-ui,sans-
 .tkc-b i{position:absolute;top:-2px;right:-2px;min-width:20px;height:20px;border-radius:10px;background:var(--k);color:#fff;font:700 11px/20px "Montserrat",sans-serif;font-style:normal;padding:0 5px;display:none;text-align:center}.tkc-b i.on{display:block}
 .tkc-bg{position:fixed;inset:0;z-index:129;background:rgba(16,14,12,.35);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;touch-action:none}
 #tkc.on .tkc-bg{opacity:1;visibility:visible}
-.tkc-p{position:fixed;left:0;right:0;top:0;margin:0 auto;max-width:560px;z-index:130;height:66vh;background:#fff;color:var(--k);display:flex;flex-direction:column;border-radius:20px 20px 0 0;overflow:hidden;box-shadow:0 -14px 40px rgba(0,0,0,.28);visibility:hidden;transform:translateY(110vh);transition:transform .32s cubic-bezier(.2,.8,.2,1),visibility .32s}
+.tkc-p{position:fixed;left:0;right:0;top:0;margin:0 auto;max-width:560px;z-index:130;height:94vh;background:#fff;color:var(--k);display:flex;flex-direction:column;border-radius:20px 20px 0 0;overflow:hidden;box-shadow:0 -14px 40px rgba(0,0,0,.28);visibility:hidden;transform:translateY(110vh);transition:transform .32s cubic-bezier(.2,.8,.2,1),visibility .32s}
 #tkc.on .tkc-p{visibility:visible;transform:translateY(0)}
 .tkc-h{position:relative;background:var(--k);color:#fff;padding:18px 8px 12px 16px;display:flex;gap:12px;align-items:center;touch-action:none}
 .tkc-h:after{content:"";position:absolute;top:7px;left:50%;width:40px;height:4px;margin-left:-20px;border-radius:2px;background:rgba(255,255,255,.35)}
@@ -55,7 +55,7 @@ async function send(tx,k){tx=tx.trim();if(!tx)return;if(!k){const d=dl(tx);if(d)
   if(r.m){m.t=r.m.t;last=Math.max(last,r.m.t);(r.a||[]).forEach(a=>{if(!L.some(z=>z.t===a.t)){L.push(a);last=Math.max(last,a.t)}});sv();draw()}else{L.push({f:'m',x:r.err==='limit'?W('Слишком много сообщений подряд — подождите минуту.','Prea multe mesaje — așteptați un minut.'):W('Сообщение не доставлено. Напишите нам в WhatsApp: +373 68 27 27 02','Mesajul nu a fost trimis. Scrieți-ne în WhatsApp: +373 68 27 27 02'),t:Date.now(),n:'Teka'});sv();draw()}
   loop()}
 const P=$('.tkc-p');
-function fit(){if(!on())return;const v=window.visualViewport,H=v?v.height:innerHeight,T=v?v.offsetTop:0,kb=!!v&&innerHeight-v.height>120,h=Math.round(kb?H-10:Math.min(H*.66,H-60));
+function fit(){if(!on())return;const v=window.visualViewport,H=v?v.height:innerHeight,T=v?v.offsetTop:0,kb=!!v&&innerHeight-v.height>120,h=Math.round(kb?H-10:H-Math.max(12,Math.min(40,H*.04)));
   P.style.height=h+'px';P.style.top=(T+H-h)+'px';root.classList.toggle('kb',kb);$('.tkc-l').scrollTop=1e6}
 function show(v){if(v){root.classList.add('on');fit();unread=0;draw();loop()}else{const a=document.activeElement;if(a&&root.contains(a))a.blur();root.classList.remove('on','kb')}}
 if(window.visualViewport){visualViewport.addEventListener('resize',fit);visualViewport.addEventListener('scroll',fit)}addEventListener('resize',fit);
@@ -65,6 +65,7 @@ hd.addEventListener('touchmove',e=>{if(y0===null)return;dy=Math.max(0,e.touches[
 hd.addEventListener('touchend',()=>{if(y0===null)return;y0=null;P.style.transition='';P.style.transform='';if(dy>70)show(false)});
 $('.tkc-bg').addEventListener('touchmove',e=>e.preventDefault(),{passive:false});
 root.addEventListener('click',e=>{const g=e.target;
+  if(g.closest('.pc')){try{sessionStorage.setItem('tk-nav','1')}catch(_){}return}
   if(g.closest('.tkc-b'))return show(true);
   if(g.closest('.tkc-x')||g.classList.contains('tkc-bg'))return show(false);
   if(g.closest('.tkc-g')){const t=$('textarea');send(t.value);t.value='';t.focus();return}

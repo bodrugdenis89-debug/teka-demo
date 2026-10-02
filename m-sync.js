@@ -97,6 +97,7 @@ async function home(PL){
  if(typeof drawGrid==='function'){const d0=window.drawGrid;window.drawGrid=function(){const r=d0.apply(this,arguments);tile();ban();return r};drawGrid()}else{tile();ban()}
 }
 
+const DLC=/^#p=./.test(location.hash)&&document.body?(()=>{const c=document.createElement('div');c.style.cssText='position:fixed;inset:0;z-index:46;background:var(--cream,#E9E8E6);transition:opacity .35s';document.body.appendChild(c);setTimeout(()=>c.remove(),4000);return c})():null;
 async function run(){
  const st=document.createElement('style');st.textContent=CSS;document.head.appendChild(st);
  const [PL,R]=await Promise.all([rd('data/promo.json').then(j=>{const t=today();return ((j&&j.promos)||[]).filter(p=>p&&p.on&&+p.v>0&&(!p.from||p.from<=t)&&(!p.to||t<=p.to))}),rd('data/ru.json')]);
@@ -118,7 +119,7 @@ async function run(){
  P.length=0;out.forEach(p=>P.push(p));
  hook();lang();counts();cartSync();
  if(typeof render==='function')render(false);
- const dl=/^#p=(.+)$/.exec(location.hash);if(dl){const i=P.findIndex(p=>p.sku===decodeURIComponent(dl[1]));if(i>=0)setTimeout(()=>{try{openP(i,document.querySelector('.pc[data-i="'+i+'"] .pi'))}catch(e){}},900)}
+ const dl=/^#p=(.+)$/.exec(location.hash);if(dl){const i=P.findIndex(p=>p.sku===decodeURIComponent(dl[1]));if(i>=0){try{openP(i)}catch(e){}}if(DLC)setTimeout(()=>{DLC.style.opacity='0';setTimeout(()=>DLC.remove(),400)},i>=0?450:0)}
 }
 run();
 })();
