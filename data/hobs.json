@@ -5837,7 +5837,8 @@
   "b": "Küppersbusch",
   "col": "negru",
   "kind": "inductie",
-  "w": 75
+  "w": 75,
+  "st": "order"
  },
  {
   "sku": "122730000",
