@@ -6513,7 +6513,8 @@
   "b": "Küppersbusch",
   "col": "inox",
   "kind": "perete-inclinat",
-  "w": 90
+  "w": 90,
+  "st": "order"
  },
  {
   "sku": "113160000",
