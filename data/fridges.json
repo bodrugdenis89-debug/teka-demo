@@ -5154,6 +5154,7 @@
   ],
   "b": "Küppersbusch",
   "col": "inox",
-  "kind": "incorporabil"
+  "kind": "incorporabil",
+  "st": "order"
  }
 ]
