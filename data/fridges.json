@@ -4974,7 +4974,8 @@
   ],
   "b": "Teka",
   "col": "negru",
-  "kind": "side-by-side"
+  "kind": "side-by-side",
+  "st": "order"
  },
  {
   "sku": "123560014",
