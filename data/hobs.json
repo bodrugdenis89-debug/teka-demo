@@ -5773,7 +5773,8 @@
   "b": "Teka",
   "col": "negru",
   "kind": "inductie",
-  "w": 90
+  "w": 90,
+  "st": "order"
  },
  {
   "sku": "122510019",
