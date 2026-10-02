@@ -5034,7 +5034,8 @@
   ],
   "b": "Küppersbusch",
   "col": "inox",
-  "kind": "incorporabil"
+  "kind": "incorporabil",
+  "st": "order"
  },
  {
   "sku": "123560011",
