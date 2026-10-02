@@ -434,34 +434,36 @@ const CHAT_API='https://teka-chat.teka-md.workers.dev';
 const CH=(()=>{let sid;try{sid=localStorage.getItem('tkSid')}catch(_){}if(!sid){sid=Math.random().toString(36).slice(2)+Date.now().toString(36);try{localStorage.setItem('tkSid',sid)}catch(_){}}
   let L=[];try{L=JSON.parse(localStorage.getItem('tkChat')||'[]')}catch(_){}
   const sv=()=>{try{localStorage.setItem('tkChat',JSON.stringify(L.slice(-100)))}catch(_){}};
-  const ru=()=>typeof LANG!=='undefined'&&LANG==='ru';
+  const ru=()=>{let c;try{c=localStorage.getItem('tkChatLang')}catch(_){}return c?c==='ru':typeof LANG!=='undefined'&&LANG==='ru'};
   const W=(r,o)=>ru()?r:o;
   const open=()=>{const d=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Chisinau'})),w=d.getDay(),h=d.getHours()+d.getMinutes()/60;return w>=1&&w<=5?h>=10&&h<18:w===6?h>=10&&h<15:false};
-  const hello=()=>open()?W('Здравствуйте! 👋 Я менеджер Teka Moldova. Напишите вопрос — отвечу в течение пары минут.','Bună ziua! 👋 Sunt managerul Teka Moldova. Scrieți întrebarea — vă răspund în câteva minute.'):W('Здравствуйте! Сейчас магазин закрыт. Оставьте вопрос и номер телефона — ответим с 10:00.','Bună ziua! Acum magazinul e închis. Lăsați întrebarea și numărul de telefon — vă răspundem de la 10:00.');
-  const Q=()=>ru()?['Есть в наличии?','Доставка','Помогите выбрать','Перезвоните мне']:['Este în stoc?','Livrare','Ajutați-mă să aleg','Sunați-mă'];
+  const nx=()=>{const d=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Chisinau'})),w=d.getDay();let k=w!==0&&d.getHours()<10?0:1;while((w+k)%7===0)k++;return k===0?W('сегодня с 10:00','astăzi de la 10:00'):k===1?W('завтра с 10:00','mâine de la 10:00'):W('в понедельник с 10:00','luni de la 10:00')};
+  const hello=()=>open()?W('Здравствуйте! 👋 Я менеджер Teka Moldova. Напишите вопрос — отвечу в течение пары минут.','Bună ziua! 👋 Sunt managerul Teka Moldova. Scrieți întrebarea — vă răspund în câteva minute.'):W(`Здравствуйте! Сейчас магазин закрыт. Оставьте вопрос и номер телефона — ответим ${nx()}.`,`Bună ziua! Acum magazinul e închis. Lăsați întrebarea și numărul de telefon — vă răspundem ${nx()}.`);
+  const Q=()=>ru()?['Есть в наличии?','Доставка','Адрес и график','Помогите выбрать','Перезвоните мне']:['Este în stoc?','Livrare','Adresa și programul','Ajutați-mă să aleg','Sunați-mă'],K=['stock','delivery','hours','choose','call'];
+  const dl=t=>/[а-яёіїє]/i.test(t)?'ru':/[ăâîșşțţ]/i.test(t)||/[a-z]{3,}/i.test(t)?'ro':null;
   let unread=0,last=L.reduce((a,m)=>Math.max(a,m.t||0),0),tm=null;
   const esc=t=>t.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
   const lk=u=>String(u||'').replace(/^https:\/\/(www\.)?teka\.md\//,'');
-  function draw(){$('chT').textContent='Teka Moldova';const o=open();$('chS').textContent=o?W('Менеджер онлайн','Manager online'):W('Ответим с 10:00','Răspundem de la 10:00');$('chS').className=o?'':'off';
+  function draw(){$('chT').textContent='Teka Moldova';const o=open();$('chS').textContent=o?W('Менеджер онлайн','Manager online'):W('Ответим '+nx(),'Răspundem '+nx());$('chS').className=o?'':'off';
     $('chl').innerHTML=`<div class="m"><small>Teka</small>${esc(hello())}</div>`+L.map(m=>`<div class="${m.f}">${m.f==='m'&&m.n?`<small>${esc(m.n)}</small>`:''}${m.p?`<a class="pc" href="${lk(m.p.u)}">${m.p.i?`<img src="${lk(m.p.i)}" alt="">`:''}<span>${esc(m.x)}</span><b>${W('Открыть товар','Vezi produsul')}</b></a>`:esc(m.x)}</div>`).join('');
-    $('chq').innerHTML=L.some(m=>m.f==='c')?'':Q().map(q=>`<button>${q}</button>`).join('');
+    const A=L.map(m=>m.k);$('chq').innerHTML=Q().map((q,i)=>A.includes(K[i])?'':`<button data-k="${K[i]}">${q}</button>`).join('');
     $('chI').placeholder=W('Напишите сообщение…','Scrieți un mesaj…');$('chl').scrollTop=1e6;
     $('chN').textContent=unread;$('chN').classList.toggle('on',unread>0)}
   async function poll(){if(!CHAT_API||document.hidden||!L.some(m=>m.f==='c'))return;try{const r=await (await fetch(`${CHAT_API}/poll?sid=${sid}&after=${last}`)).json();const nw=(r.m||[]).filter(m=>!L.some(z=>z.t===m.t));if(nw.length){nw.forEach(m=>{L.push(m);last=Math.max(last,m.t);if(m.f==='m'&&!$('chw').classList.contains('on'))unread++});sv();draw()}}catch(_){}}
   function loop(){clearTimeout(tm);poll();tm=setTimeout(loop,$('chw').classList.contains('on')?2500:12000)}
-  async function send(tx,k){tx=tx.trim();if(!tx)return;const m={f:'c',x:tx,t:Date.now()};L.push(m);sv();draw();
+  async function send(tx,k){tx=tx.trim();if(!tx)return;if(!k){const d=dl(tx);if(d)try{localStorage.setItem('tkChatLang',d)}catch(_){}}const m={f:'c',x:tx,t:Date.now(),k};L.push(m);sv();draw();
     if(!CHAT_API){setTimeout(()=>{L.push({f:'m',x:W('Демо-режим: чат ещё не подключён к Telegram. Пока напишите нам в WhatsApp: +373 68 27 27 02','Mod demo: chatul încă nu e conectat la Telegram. Scrieți-ne în WhatsApp: +373 68 27 27 02'),t:Date.now(),n:'Teka'});sv();draw()},700);return}
     let r={};try{r=await (await fetch(CHAT_API+'/send',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sid,text:tx,q:k,page:location.href,lang:ru()?'RU':'RO'})})).json()}catch(_){}
-    if(r.m){m.t=r.m.t;last=Math.max(last,r.m.t);sv()}else{L.push({f:'m',x:r.err==='limit'?W('Слишком много сообщений подряд — подождите минуту.','Prea multe mesaje — așteptați un minut.'):W('Сообщение не доставлено. Напишите нам в WhatsApp: +373 68 27 27 02','Mesajul nu a fost trimis. Scrieți-ne în WhatsApp: +373 68 27 27 02'),t:Date.now(),n:'Teka'});sv();draw()}
+    if(r.m){m.t=r.m.t;last=Math.max(last,r.m.t);(r.a||[]).forEach(a=>{if(!L.some(z=>z.t===a.t)){L.push(a);last=Math.max(last,a.t)}});sv();draw()}else{L.push({f:'m',x:r.err==='limit'?W('Слишком много сообщений подряд — подождите минуту.','Prea multe mesaje — așteptați un minut.'):W('Сообщение не доставлено. Напишите нам в WhatsApp: +373 68 27 27 02','Mesajul nu a fost trimis. Scrieți-ne în WhatsApp: +373 68 27 27 02'),t:Date.now(),n:'Teka'});sv();draw()}
     loop()}
   document.addEventListener('click',e=>{const g=e.target;
     if(g.closest('#chB')){const w=$('chw');w.classList.toggle('on');if(w.classList.contains('on')){unread=0;draw();setTimeout(()=>$('chI').focus(),200);loop()}return}
     if(g.closest('#chX')){$('chw').classList.remove('on');return}
     if(g.closest('#chG')){send($('chI').value);$('chI').value='';return}
-    const q=g.closest('#chq button');if(q)send(q.textContent,['stock','delivery','choose','call'][[...q.parentNode.children].indexOf(q)])});
+    const q=g.closest('#chq button');if(q)send(q.textContent,q.dataset.k)});
   document.addEventListener('keydown',e=>{if(e.target.id==='chI'&&e.key==='Enter'&&!e.shiftKey){e.preventDefault();send(e.target.value);e.target.value=''}});
   addEventListener('load',()=>{draw();loop()});document.addEventListener('visibilitychange',()=>{if(!document.hidden)loop()});
-  document.addEventListener('click',e=>{if(e.target.closest('.lng button'))setTimeout(draw,0)});
+  document.addEventListener('click',e=>{if(e.target.closest('.lng button')){try{localStorage.removeItem('tkChatLang')}catch(_){}setTimeout(draw,0)}});
   return {draw}})();
 let PHO={},GL={lo:{}};const DATA={};
 let RU={k:{},v:{},d:{},s:{}};const tx=(c,v)=>LANG==='ru'&&v&&RU[c]&&RU[c][v]||v;
