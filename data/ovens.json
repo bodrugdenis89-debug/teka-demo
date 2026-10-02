@@ -8559,7 +8559,8 @@
   ],
   "w": 60,
   "c": "multi",
-  "col": "inox"
+  "col": "inox",
+  "st": "order"
  },
  {
   "sku": "121010007",
