@@ -98,6 +98,18 @@ td.st select.order,td.st select.out{color:var(--warn)}
 #ov.on{opacity:1;pointer-events:auto}
 #ed,#tl{position:fixed;top:0;right:0;bottom:0;width:min(860px,100vw);background:#fff;z-index:31;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column}
 #tl{z-index:32}
+.og{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px}
+.oc{position:relative;border:1px solid var(--line);border-radius:12px;padding:8px;background:#fff;cursor:grab;user-select:none;transition:box-shadow .15s}
+.oc:hover{box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.oc img{width:100%;aspect-ratio:1;object-fit:contain;display:block;pointer-events:none}
+.oc b{display:block;font-size:13px;line-height:1.25;margin-top:6px;overflow-wrap:anywhere}
+.oc small{display:block;color:var(--mute);font-size:12px;margin-top:2px}
+.oc .n{position:absolute;top:6px;left:6px;background:var(--ink);color:#fff;border-radius:10px;font-size:11px;font-weight:700;padding:2px 8px}
+.oc .ob{display:flex;gap:4px;margin-top:8px}
+.oc .ob button{flex:1;border:1px solid var(--line);border-radius:8px;padding:4px 0;font-size:13px;line-height:1}
+.oc .ob button:hover{border-color:var(--ink)}
+.oc .ob button:disabled{opacity:.3;cursor:default}
+.oc.dg{opacity:.35}.oc.ov{outline:2px solid var(--red);outline-offset:2px}.oc.hd{opacity:.55}
 #ed.on,#tl.on{transform:none}
 .eh{display:flex;align-items:center;gap:12px;padding:16px 24px;border-bottom:1px solid var(--line)}
 .eh h2{font-size:18px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -267,7 +279,7 @@ html[lang=ro] .phs .p.new:before{content:"nouă"}
 const API=/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?'':'https://teka-admin.teka-md.workers.dev';
 /* язык интерфейса: T('русская строка',...аргументы) → перевод из RO, {0},{1} — подстановки */
 let LANG='ru';try{if(localStorage.getItem('tkAdmLang')==='ro')LANG='ro'}catch(e){}
-const RO={'скрыт':'ascuns','Снять все':'Debifează tot','Отметить все':'Bifează tot','Фильтр в категории':'Filtru în categorie','Выбрать из каталога: категория…':'Alege din catalog: categorie…','Клиент удалён':'Clientul a fost șters','Удалить клиента {0}? Его заказы останутся в журнале заказов.':'Ștergeți clientul {0}? Comenzile lui rămân în jurnalul de comenzi.','Удалить клиента':'Șterge clientul','Скидка на всю подборку':'Reducere la toată selecția','Удалить заказ':'Șterge comanda','Удалить этот заказ? Это нельзя отменить.':'Ștergeți această comandă? Acțiunea nu poate fi anulată.','Заказ удалён':'Comanda a fost ștearsă','Не удалось удалить: {0}':'Nu s-a putut șterge: {0}',
+const RO={'Упорядочить':'Ordonează','Порядок в каталоге':'Ordinea în catalog','Перетащите карточки мышью или используйте кнопки. Так товары будут стоять на сайте — на ПК и в мобильной версии.':'Trageți cardurile cu mouse-ul sau folosiți butoanele. Așa vor apărea produsele pe site — pe PC și pe mobil.','Сбросить порядок':'Resetează ordinea','Готово':'Gata','В начало':'La început','Выше':'Mai sus','Ниже':'Mai jos','В конец':'La final','Порядок задан для {0} товаров. Нажмите «Сохранить на сайт».':'Ordinea a fost setată pentru {0} produse. Apăsați „Salvează pe site”.','Порядок сброшен. Нажмите «Сохранить на сайт».':'Ordinea a fost resetată. Apăsați „Salvează pe site”.','Порядок не изменился':'Ordinea nu s-a schimbat','скрыт':'ascuns','Снять все':'Debifează tot','Отметить все':'Bifează tot','Фильтр в категории':'Filtru în categorie','Выбрать из каталога: категория…':'Alege din catalog: categorie…','Клиент удалён':'Clientul a fost șters','Удалить клиента {0}? Его заказы останутся в журнале заказов.':'Ștergeți clientul {0}? Comenzile lui rămân în jurnalul de comenzi.','Удалить клиента':'Șterge clientul','Скидка на всю подборку':'Reducere la toată selecția','Удалить заказ':'Șterge comanda','Удалить этот заказ? Это нельзя отменить.':'Ștergeți această comandă? Acțiunea nu poate fi anulată.','Заказ удалён':'Comanda a fost ștearsă','Не удалось удалить: {0}':'Nu s-a putut șterge: {0}',
 'Teka — админка':'Teka — administrare','Вход в админку':'Autentificare','Войти':'Intră','Пароль':'Parolă','Админка':'Administrare',
 'Поиск: модель, код, описание':'Căutare: model, cod, descriere','Сайт ↗':'Site ↗','Выйти':'Ieșire',
 'Товары':'Produse','Акции':'Promoții','Проверка каталога':'Verificare catalog','Контакты и тексты':'Contacte și texte','Заказы':'Comenzi','Подборки':'Selecții','Клиенты':'Clienți','История':'Istoric',
@@ -476,7 +488,7 @@ const EYE='<svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10
 const EYE0='<svg viewBox="0 0 24 24"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3.2 4.1M6.6 6.6C3.7 8.4 2 12 2 12s3.6 7 10 7a10 10 0 0 0 5.4-1.6M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>';
 function pct(x){const p=pr(x),o=od(x);return o>p&&p?'−'+Math.round((1-p/o)*100)+'%':''}
 function selUI(){$('sum').textContent=T('Показано {0} из {1} товаров',ROWS.length,FILES.reduce((s,c)=>s+DB[c.f].items.length,0))+(SEL.size?T(' · отмечено {0}',SEL.size):'');
-  $('vb').innerHTML=`${SEL.size?`<button class="btn" id="b_un">${T('Снять отметки')}</button>`:''}<button class="btn" id="b_bulk">${T('Цены пачкой')}</button><button class="btn" id="b_imp">${T('Импорт прайса')}</button>`}
+  $('vb').innerHTML=`${SEL.size?`<button class="btn" id="b_un">${T('Снять отметки')}</button>`:''}${$('fc').value?`<button class="btn" id="b_ord">${T('Упорядочить')}</button>`:''}<button class="btn" id="b_bulk">${T('Цены пачкой')}</button><button class="btn" id="b_imp">${T('Импорт прайса')}</button>`}
 function draw(){ROWS=rows();const fc=$('fc').value;selUI();
   if(!ROWS.length){$('tw').innerHTML=`<div class="empty">${T('Ничего не найдено')}</div>`;return}
   $('tw').innerHTML=`<table><thead><tr><th class="cb"><input type="checkbox" id="ca" title="${T('Отметить все показанные')}" ${ROWS.every(r=>SEL.has(r.x))?'checked':''}></th><th></th><th>${T('Товар')}</th><th class="sk">${T('Код')}</th><th class="ct">${T('Категория')}</th><th>${T('Цена, MDL')}</th><th>${T('Старая цена')}</th><th>${T('Наличие')}</th>${fc?`<th title="${T('Порядок в категории: меньше — выше')}">${T('Порядок')}</th>`:''}<th title="${T('Показывать на сайте')}">${T('Сайт')}</th><th></th></tr></thead><tbody>${ROWS.map(({f,x},i)=>`
@@ -511,7 +523,7 @@ $('tw').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)re
 $('tw').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('input')){e.target.blur()}});
 let qt;$('q').oninput=()=>{clearTimeout(qt);qt=setTimeout(render,150)};$('fc').onchange=render;$('fs').onchange=render;
 $('vb').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
-  if(b.id==='b_un'){SEL.clear();draw()}if(b.id==='b_bulk')openBulk();if(b.id==='b_imp')openImp()});
+  if(b.id==='b_un'){SEL.clear();draw()}if(b.id==='b_bulk')openBulk();if(b.id==='b_ord')openOrd();if(b.id==='b_imp')openImp()});
 
 /* сохранение */
 const dirtyCount=()=>DIRTY.size+[...CHG].filter(f=>f.startsWith('-')).length+(PM.dirty?1:0)+(SC.dirty?1:0);
@@ -803,6 +815,33 @@ $('fi2').onchange=async()=>{const f=$('fi2').files[0];$('fi2').value='';if(!f||!
 
 /* цены пачкой */
 const calcP=(v,op,n,r)=>{let z=op==='+%'?v*(1+n/100):op==='-%'?v*(1-n/100):op==='+'?v+n:v-n;z=r?Math.round(z/10)*10:Math.round(z);return Math.max(0,z)};
+/* порядок в категории: перетаскивание карточек → x.ord = 1..n */
+const ordv=x=>(x.ord!==''&&x.ord!=null&&!isNaN(x.ord)?+x.ord:1e6)-(x.tag==='hit'?.5:0);
+function openOrd(){const f=$('fc').value;if(!f||!DB[f])return;
+  const L=DB[f].items.map((x,i)=>({x,i})).sort((a,b)=>ordv(a.x)-ordv(b.x)||a.i-b.i).map(a=>a.x);
+  tlOpen(T('Порядок в каталоге')+' — '+FN[f],`<div class="hint" style="margin-bottom:14px">${T('Перетащите карточки мышью или используйте кнопки. Так товары будут стоять на сайте — на ПК и в мобильной версии.')}</div><div class="og" id="o_g"></div>`,
+    FT(T('Готово'),`<button class="btn" data-a="rs">${T('Сбросить порядок')}</button>`),{
+    f,L,click:e=>{const b=e.target.closest('.ob button');if(!b)return;const i=+b.closest('.oc').dataset.i,n=TL.L.length;
+      const to={top:0,up:i-1,dn:i+1,end:n-1}[b.dataset.m];oMove(i,Math.max(0,Math.min(n-1,to)))},
+    act:{ok:()=>{let c=0;TL.L.forEach((x,i)=>{if(x.ord!==i+1){x.ord=i+1;touch(x,f);c++}});tlClose();render();
+        toast(c?T('Порядок задан для {0} товаров. Нажмите «Сохранить на сайт».',c):T('Порядок не изменился'))},
+      rs:()=>{let c=0;TL.L.forEach(x=>{if(x.ord!=null){delete x.ord;touch(x,f);c++}});tlClose();render();
+        toast(c?T('Порядок сброшен. Нажмите «Сохранить на сайт».'):T('Порядок не изменился'))}}});
+  oDraw()}
+function oMove(a,b){if(a===b)return;const L=TL.L,[m]=L.splice(a,1);L.splice(b,0,m);oDraw()}
+function oDraw(){const g=$('o_g'),L=TL.L,n=L.length;
+  g.innerHTML=L.map((x,i)=>`<div class="oc ${x.hid?'hd':''}" data-i="${i}"><span class="n">${i+1}</span>${img(pics(x)[0])}<b>${esc(nm(x))||'—'}${tagH(x)}</b><small>${pr(x)?pr(x).toLocaleString('ru-RU')+' MDL':''}${x.hid?' · '+T('скрыт'):''}</small>
+    <div class="ob"><button data-m="top" title="${T('В начало')}" ${i?'':'disabled'}>⤒</button><button data-m="up" title="${T('Выше')}" ${i?'':'disabled'}>←</button><button data-m="dn" title="${T('Ниже')}" ${i<n-1?'':'disabled'}>→</button><button data-m="end" title="${T('В конец')}" ${i<n-1?'':'disabled'}>⤓</button></div></div>`).join('');
+  g.onpointerdown=e=>{const el=e.target.closest('.oc');if(!el||e.button||e.target.closest('button'))return;e.preventDefault();
+    const from=+el.dataset.i,x0=e.clientX,y0=e.clientY,r=el.getBoundingClientRect();let gh=null,ov=null;
+    const mv=ev=>{if(!gh){if(Math.hypot(ev.clientX-x0,ev.clientY-y0)<6)return;gh=el.cloneNode(true);el.classList.add('dg');
+        gh.style.cssText=`position:fixed;z-index:99;pointer-events:none;width:${r.width}px;left:0;top:0;opacity:.9;box-shadow:0 12px 30px rgba(0,0,0,.25);transform:rotate(2deg)`;document.body.appendChild(gh)}
+      gh.style.left=ev.clientX-(x0-r.left)+'px';gh.style.top=ev.clientY-(y0-r.top)+'px';
+      const t=document.elementFromPoint(ev.clientX,ev.clientY),o=t&&t.closest('#o_g .oc');if(o!==ov){ov&&ov.classList.remove('ov');ov=o;ov&&ov.classList.add('ov')}
+      const b=$('tlb').getBoundingClientRect();if(ev.clientY<b.top+40)$('tlb').scrollTop-=12;else if(ev.clientY>b.bottom-40)$('tlb').scrollTop+=12};
+    const up=()=>{removeEventListener('pointermove',mv);removeEventListener('pointerup',up);if(!gh)return;gh.remove();el.classList.remove('dg');
+      if(ov){ov.classList.remove('ov');oMove(from,+ov.dataset.i)}};
+    addEventListener('pointermove',mv);addEventListener('pointerup',up)}}
 function openBulk(){const sc=SEL.size?'sel':'list';
   tlOpen(T('Изменить цены пачкой'),`
   <fieldset><legend>${T('Какие товары')}</legend><div class="chips" id="b_sc">
