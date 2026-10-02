@@ -23,6 +23,8 @@ function applyPromo(x,f,PL){const base=Math.max(x.p,x.o);if(!x.p)return x;let be
   const np=Math.max(0,Math.round(p.kind==='sum'?base-p.v:base*(1-p.v/100)));if(np<bp){bp=np;best=p}}
  if(best){x._pm=best;x.p=bp;x.o=base}return x}
 
+// в акциях: акция из админки или старая цена выше текущей (как на ПК)
+const isPr=m=>!!(m._pm||m.p>0&&m.o>m.p);
 function merge(x,base,f,dir,PL){
  const m=Object.assign({f:[],fc:{},pdf:[],desc:[],specs:[],img:[]},base||{});
  const set=(k,v)=>{if(v!==undefined&&v!==null)m[k]=v};
@@ -85,11 +87,11 @@ const HCSS=`.tkpb{padding:0 0 10px;display:flex;flex-direction:column;gap:10px}
 const PFILE=h=>{const m=/category-([a-z-]+)\.html/.exec(h||'');if(!m)return '';return m[1]==='ovens-light'?'ovens':m[1]==='coffee'?'compact':m[1]};
 async function home(PL){
  const st=document.createElement('style');st.textContent=HCSS;document.head.appendChild(st);
- const all=await Promise.all(CATS.map(c=>rd('data/'+c[0]+'.json')));let np=0;const cnt={};
- CATS.forEach((c,i)=>{const L0=(all[i]||[]).filter(x=>x&&!x.hid);cnt[c[0]]=L0.length;L0.forEach(x=>{if(merge(x,null,c[0],c[1],PL)._pm)np++})});
+ const all=await Promise.all(CATS.map(c=>rd('data/'+c[0]+'.json')));let np=0;const cnt={},sn=new Set();
+ CATS.forEach((c,i)=>{const L0=(all[i]||[]).filter(x=>x&&!x.hid);cnt[c[0]]=L0.length;L0.forEach(x=>{const m=merge(x,null,c[0],c[1],PL);if(isPr(m)&&!sn.has(m.sku)){sn.add(m.sku);np++}})});
  if(typeof NAV!=='undefined')NAV.forEach(c=>{const f=PFILE(c.h);if(f&&cnt[f])c.n=cnt[f]});
  const dt=s=>s?s.slice(8,10)+'.'+s.slice(5,7):'';
- function ban(){let w=document.getElementById('tkpb');if(!np){if(w)w.remove();return}
+ function ban(){let w=document.getElementById('tkpb');if(!np||!PL.length){if(w)w.remove();return}
   if(!w){w=document.createElement('section');w.id='tkpb';w.className='tkpb';const g=document.getElementById('grid');g.parentNode.insertBefore(w,g)}
   const R=ru();w.innerHTML=PL.slice(0,3).map(p=>`<a href="category-promo.html"><div class="tx"><span class="ey">${R?'Акция':'Ofertă'}${p.to?(R?' до ':' până la ')+dt(p.to):''}</span><h3>${he((R?p.ru:p.ro)||p.ro)}</h3>${p.bt&&(p.bt.ro||p.bt.ru)?`<p>${he((R?p.bt.ru:p.bt.ro)||p.bt.ro)}</p>`:''}<em>${R?'Смотреть товары →':'Vezi produsele →'}</em></div>${p.img?`<img src="${he(p.img)}" alt="" loading="lazy">`:''}<span class="v">−${p.kind==='sum'?p.v+' MDL':p.v+'%'}</span></a>`).join('')}
  function tile(){const g=document.getElementById('grid');if(!g||!np||g.querySelector('.tkpt'))return;
@@ -105,8 +107,8 @@ async function run(){
  if(FILE==='home')return home(PL);
  let out=[];
  if(PROMO_PAGE){
-  const all=await Promise.all(CATS.map(c=>rd('data/'+c[0]+'.json')));
-  CATS.forEach((c,i)=>(all[i]||[]).filter(x=>x&&!x.hid).forEach(x=>{const m=merge(x,null,c[0],c[1],PL);if(m._pm){m.fc={cat:c[0],brand:m.b};out.push(m)}}));
+  const all=await Promise.all(CATS.map(c=>rd('data/'+c[0]+'.json'))),sn=new Set();
+  CATS.forEach((c,i)=>(all[i]||[]).filter(x=>x&&!x.hid).forEach(x=>{const m=merge(x,null,c[0],c[1],PL);if(isPr(m)&&!sn.has(m.sku)){sn.add(m.sku);m.fc={cat:c[0],brand:m.b};out.push(m)}}));
   document.querySelectorAll('.chip[data-k=cat]').forEach(b=>b.hidden=!out.some(p=>p.fc.cat===b.dataset.v));
   const e=document.getElementById('tkpe');if(e)e.hidden=!!out.length;
  }else{
