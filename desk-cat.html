@@ -263,7 +263,7 @@ footer .bot .wrap{display:flex;justify-content:space-between;padding-top:18px;pa
 .chl .m{background:#fff;align-self:flex-start;border-bottom-left-radius:4px}.chl .c{background:var(--red);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
 .chl .pc{display:block;color:inherit;text-decoration:none}.chl .pc img{display:block;width:100%;height:150px;object-fit:contain;background:#fff;border-radius:10px;margin:4px 0 8px}.chl .pc b{display:block;margin-top:8px;color:var(--red);font-weight:700}
 .chl .m small{display:block;font-size:11.5px;color:var(--mute);margin-bottom:2px;font-weight:600}
-.chq{display:flex;gap:6px;flex-wrap:wrap;padding:0 16px 10px;background:var(--soft)}.chq button{border:1px solid var(--line);background:#fff;border-radius:16px;padding:6px 12px;font-size:13px;font-weight:600}.chq button:hover{border-color:var(--ink)}
+.chq{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:0 16px 10px;background:var(--soft)}.chq::-webkit-scrollbar{display:none}.chq button{flex:none;white-space:nowrap}.chq .qt{color:var(--mute,#6B6B6B);font-size:12px}.chq button{border:1px solid var(--line);background:#fff;border-radius:16px;padding:6px 12px;font-size:13px;font-weight:600}.chq button:hover{border-color:var(--ink)}
 .chf{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}.chf textarea{flex:1;resize:none;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font:500 14.5px var(--sans);height:44px;outline:none}.chf textarea:focus{border-color:var(--ink)}
 .chf button{width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;flex:none}.chf button svg{width:20px;height:20px}
 
@@ -512,12 +512,12 @@ const CH=(()=>{let sid;try{sid=localStorage.getItem('tkSid')}catch(_){}if(!sid){
   const hello=()=>open()?W('Здравствуйте! 👋 Я менеджер Teka Moldova. Напишите вопрос — отвечу в течение пары минут.','Bună ziua! 👋 Sunt managerul Teka Moldova. Scrieți întrebarea — vă răspund în câteva minute.'):W(`Здравствуйте! Сейчас магазин закрыт. Оставьте вопрос и номер телефона — ответим ${nx()}.`,`Bună ziua! Acum magazinul e închis. Lăsați întrebarea și numărul de telefon — vă răspundem ${nx()}.`);
   const Q=()=>ru()?['Есть в наличии?','Доставка','Адрес и график','Помогите выбрать','Перезвоните мне']:['Este în stoc?','Livrare','Adresa și programul','Ajutați-mă să aleg','Sunați-mă'],K=['stock','delivery','hours','choose','call'];
   const dl=t=>/[а-яёіїє]/i.test(t)?'ru':/[ăâîșşțţ]/i.test(t)||/[a-z]{3,}/i.test(t)?'ro':null;
-  let unread=0,last=L.reduce((a,m)=>Math.max(a,m.t||0),0),tm=null;
+  let qo=false,unread=0,last=L.reduce((a,m)=>Math.max(a,m.t||0),0),tm=null;
   const esc=t=>t.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
   const lk=u=>String(u||'').replace(/^https:\/\/(www\.)?teka\.md\//,'');
   function draw(){$('chT').textContent='Teka Moldova';const o=open();$('chS').textContent=o?W('Менеджер онлайн','Manager online'):W('Ответим '+nx(),'Răspundem '+nx());$('chS').className=o?'':'off';
     $('chl').innerHTML=`<div class="m"><small>Teka</small>${esc(hello())}</div>`+L.map(m=>`<div class="${m.f}">${m.f==='m'&&m.n?`<small>${esc(m.n)}</small>`:''}${m.p?`<a class="pc" href="${lk(m.p.u)}">${m.p.i?`<img src="${lk(m.p.i)}" alt="">`:''}<span>${esc(m.x)}</span><b>${W('Открыть товар','Vezi produsul')}</b></a>`:esc(m.x)}</div>`).join('');
-    const A=L.map(m=>m.k);$('chq').innerHTML=Q().map((q,i)=>A.includes(K[i])?'':`<button data-k="${K[i]}">${q}</button>`).join('');
+    const A=L.map(m=>m.k),go=L.some(m=>m.f==='c'),B=Q().map((q,i)=>A.includes(K[i])?'':`<button data-k="${K[i]}">${q}</button>`).join('');$('chq').innerHTML=!B?'':go&&!qo?`<button class="qt">${W('⚡ Быстрые вопросы','⚡ Întrebări rapide')}</button>`:B;
     $('chI').placeholder=W('Напишите сообщение…','Scrieți un mesaj…');$('chl').scrollTop=1e6;
     $('chN').textContent=unread;$('chN').classList.toggle('on',unread>0)}
   async function poll(){if(!CHAT_API||document.hidden||!L.some(m=>m.f==='c'))return;try{const r=await (await fetch(`${CHAT_API}/poll?sid=${sid}&after=${last}`)).json();const nw=(r.m||[]).filter(m=>!L.some(z=>z.t===m.t));if(nw.length){nw.forEach(m=>{L.push(m);last=Math.max(last,m.t);if(m.f==='m'&&!$('chw').classList.contains('on'))unread++});sv();draw()}}catch(_){}}
@@ -531,7 +531,7 @@ const CH=(()=>{let sid;try{sid=localStorage.getItem('tkSid')}catch(_){}if(!sid){
     if(g.closest('#chB')){const w=$('chw');w.classList.toggle('on');if(w.classList.contains('on')){unread=0;draw();setTimeout(()=>$('chI').focus(),200);loop()}return}
     if(g.closest('#chX')){$('chw').classList.remove('on');return}
     if(g.closest('#chG')){send($('chI').value);$('chI').value='';return}
-    const q=g.closest('#chq button');if(q)send(q.textContent,q.dataset.k)});
+    const q=g.closest('#chq button');if(q&&q.classList.contains('qt')){qo=true;draw();return}if(q){qo=false;send(q.textContent,q.dataset.k)}});
   document.addEventListener('keydown',e=>{if(e.target.id==='chI'&&e.key==='Enter'&&!e.shiftKey){e.preventDefault();send(e.target.value);e.target.value=''}});
   addEventListener('load',()=>{draw();loop()});document.addEventListener('visibilitychange',()=>{if(!document.hidden)loop()});
   document.addEventListener('click',e=>{if(e.target.closest('.lng button')){try{localStorage.removeItem('tkChatLang')}catch(_){}setTimeout(draw,0)}});

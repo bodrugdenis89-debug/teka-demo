@@ -13,7 +13,7 @@ const Q=()=>ru()?['Есть в наличии?','Доставка','Адрес �
 const dl=t=>/[а-яёіїє]/i.test(t)?'ru':/[ăâîșşțţ]/i.test(t)||/[a-z]{3,}/i.test(t)?'ro':null;
 const lk=u=>String(u||'').replace(/^https:\/\/(www\.)?teka\.md\//,'');
 const esc=t=>String(t).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-let unread=0,last=L.reduce((a,m)=>Math.max(a,m.t||0),0),tm=null;
+let qo=false,unread=0,last=L.reduce((a,m)=>Math.max(a,m.t||0),0),tm=null;
 const css=`#tkc{--r:#D8232A;--k:#100E0C;font-family:"Montserrat",system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
 #tkc *{box-sizing:border-box;margin:0}#tkc button{border:0;background:none;cursor:pointer;font:inherit;color:inherit;padding:0}
 #tkc svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -35,7 +35,7 @@ const css=`#tkc{--r:#D8232A;--k:#100E0C;font-family:"Montserrat",system-ui,sans-
 .tkc-l .pc{display:block;color:inherit;text-decoration:none}.tkc-l .pc img{display:block;width:100%;height:160px;object-fit:contain;background:#fff;border-radius:10px;margin:4px 0 8px}.tkc-l .pc b{display:block;margin-top:8px;color:var(--r);font-weight:700}
 .tkc-l .m small{display:block;font-size:11.5px;color:#6B6B6B;margin-bottom:2px;font-weight:600}
 .tkc-q{display:flex;gap:6px;overflow-x:auto;padding:0 14px 10px;background:#F4F3F1;scrollbar-width:none}.tkc-q::-webkit-scrollbar{display:none}
-.tkc-q button{flex:none;border:1px solid #E2E0DC!important;background:#fff!important;border-radius:18px;padding:8px 13px!important;font-size:13.5px;font-weight:600;white-space:nowrap}
+.tkc-q .qt{color:#6B6B6B;font-size:12.5px;padding:6px 12px!important}.tkc-q button{flex:none;border:1px solid #E2E0DC!important;background:#fff!important;border-radius:18px;padding:8px 13px!important;font-size:13.5px;font-weight:600;white-space:nowrap}
 .tkc-f{display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));border-top:1px solid #E6E6E6;background:#fff}
 #tkc.kb .tkc-f{padding-bottom:10px}
 .tkc-f textarea{flex:1;resize:none;border:1px solid #E2E0DC;border-radius:22px;padding:11px 15px;font:500 16px "Montserrat",sans-serif;height:46px;max-height:120px;outline:none;color:var(--k);background:#fff}.tkc-f textarea:focus{border-color:var(--k)}
@@ -45,7 +45,7 @@ root.innerHTML=`<style>${css}</style><div class="tkc-bg"></div><div class="tkc-p
 const $=s=>root.querySelector(s),on=()=>root.classList.contains('on');
 function draw(){const o=isOpen(),st=$('.tkc-h small');st.textContent=o?W('Менеджер онлайн','Manager online'):W('Ответим '+nx(),'Răspundem '+nx());st.className=o?'':'off';
   const l=$('.tkc-l');l.innerHTML=`<div class="m"><small>Teka</small>${esc(hello())}</div>`+L.map(m=>`<div class="${m.f==='c'?'c':'m'}">${m.f==='m'&&m.n?`<small>${esc(m.n)}</small>`:''}${m.p?`<a class="pc" href="${lk(m.p.u)}">${m.p.i?`<img src="${lk(m.p.i)}" alt="">`:''}<span>${esc(m.x)}</span><b>${W('Открыть товар','Vezi produsul')}</b></a>`:esc(m.x)}</div>`).join('');
-  const A=L.map(m=>m.k);$('.tkc-q').innerHTML=Q().map((q,i)=>A.includes(K[i])?'':`<button data-k="${K[i]}">${esc(q)}</button>`).join('');
+  const A=L.map(m=>m.k),go=L.some(m=>m.f==='c'),B=Q().map((q,i)=>A.includes(K[i])?'':`<button data-k="${K[i]}">${esc(q)}</button>`).join('');$('.tkc-q').innerHTML=!B?'':go&&!qo?`<button class="qt">${W('⚡ Быстрые вопросы','⚡ Întrebări rapide')}</button>`:B;
   $('textarea').placeholder=W('Напишите сообщение…','Scrieți un mesaj…');l.scrollTop=1e6;
   const n=$('.tkc-b i');n.textContent=unread;n.classList.toggle('on',unread>0)}
 async function poll(){if(document.hidden||!L.some(m=>m.f==='c'))return;try{const r=await (await fetch(`${API}/poll?sid=${sid}&after=${last}`)).json();const nw=(r.m||[]).filter(m=>!L.some(z=>z.t===m.t));if(nw.length){nw.forEach(m=>{L.push(m);last=Math.max(last,m.t);if(m.f==='m'&&!on())unread++});sv();draw()}}catch(_){}}
@@ -68,7 +68,7 @@ root.addEventListener('click',e=>{const g=e.target;
   if(g.closest('.tkc-b'))return show(true);
   if(g.closest('.tkc-x')||g.classList.contains('tkc-bg'))return show(false);
   if(g.closest('.tkc-g')){const t=$('textarea');send(t.value);t.value='';t.focus();return}
-  const q=g.closest('.tkc-q button');if(q)send(q.textContent,q.dataset.k)});
+  const q=g.closest('.tkc-q button');if(q&&q.classList.contains('qt')){qo=true;draw();return}if(q){qo=false;send(q.textContent,q.dataset.k)}});
 root.addEventListener('keydown',e=>{if(e.target.tagName==='TEXTAREA'&&e.key==='Enter'&&!e.shiftKey){e.preventDefault();send(e.target.value);e.target.value=''}});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)loop()});
 addEventListener('storage',e=>{if(e.key==='tkChat'){try{L=JSON.parse(e.newValue||'[]')}catch(_){}draw()}});
