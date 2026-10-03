@@ -1,0 +1,49 @@
+#ss{position:fixed;inset:0;z-index:1000;background:#000;overflow:hidden;opacity:0;visibility:hidden;pointer-events:none;cursor:none;
+  }
+#ss.in{visibility:visible;pointer-events:auto;opacity:1;transition:opacity .8s ease}
+#ss .ssv{position:absolute;inset:0;transform-origin:50% 51%}
+#ss.in .ssv{animation:ssBreath 30s ease-in-out infinite alternate}
+#ss video,#ss .ssp{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+#ss video,#ss .ssm{opacity:0;filter:brightness(.05);transition:opacity 1.2s ease,filter 2.2s cubic-bezier(.3,0,.2,1)}
+#ss.lit video,#ss.lit .ssm{opacity:1;filter:brightness(1)}
+#ss.static .ssm{opacity:1;filter:none}
+#ss .ssm{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;pointer-events:none}
+#ss .ssd{position:absolute;left:920px;top:288px;width:84px;height:34px;max-width:none}
+#ss .sst{position:absolute;left:946px;top:297.4px;width:32px;height:13px;overflow:visible;fill:#f2c99a;stroke:#f2c99a;stroke-width:.95;stroke-linecap:round;opacity:.92;filter:drop-shadow(0 0 .7px #ff9c55) drop-shadow(0 0 2.2px rgba(255,120,45,.55))}
+#ss .sst .col{stroke:none}
+#ss .ssp{opacity:0;transition:opacity 1.2s ease}
+#ss.static .ssp{opacity:1}
+#ss .ssl{position:absolute;right:clamp(20px,3vw,48px);bottom:clamp(20px,3vw,48px);width:clamp(36px,3.4vw,60px);opacity:0;transition:opacity 1s ease 1.6s}
+#ss.lit .ssl{opacity:.8}
+#ss .ssc{position:absolute;left:clamp(24px,4vw,72px);bottom:clamp(20px,3.4vw,56px);color:#F1ECE6;font-family:Montserrat,system-ui,sans-serif;opacity:0;transition:opacity 1s ease 1.8s;display:none;text-shadow:0 2px 24px rgba(0,0,0,.5)}
+#ss.clock .ssc{display:block}
+#ss.lit .ssc{opacity:.88}
+#ss .ssc b{display:block;font-weight:200;font-size:clamp(56px,9vw,150px);line-height:.9;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+#ss .ssc i{display:block;font-style:normal;font-weight:500;font-size:clamp(11px,.9vw,14px);letter-spacing:.3em;text-transform:uppercase;color:#cfc6bd;margin-top:14px}
+#ss .ssc i:before{content:"";display:inline-block;width:28px;height:1px;background:#D8232A;vertical-align:middle;margin-right:12px}
+@keyframes ssBreath{from{transform:scale(1)}to{transform:scale(1.045)}}
+body.ss-on>*:not(#ss){filter:blur(6px) brightness(.4);transition:filter .8s ease}
+
+.ssb{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.18);color:inherit;opacity:.75;transition:opacity .25s,border-color .5s,background .25s;cursor:pointer;background:transparent}
+.ssb:hover{opacity:1}
+.ssb svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+body.v2 .ssb{border-color:rgba(16,14,12,.2)}
+@media (prefers-reduced-motion:reduce){#ss.in .ssv{animation:none}#ss video{display:none}}
+.ssb.ssb-c{flex:none;width:46px;height:46px;opacity:1;border-color:var(--line,#e5e5e5);color:var(--ink,#111);margin-right:-24px}
+.ssb.ssb-c:hover{border-color:var(--ink,#111)}
+.ssb.ssb-c svg{width:20px;height:20px;stroke-width:1.6}
+#ss.out{visibility:visible;pointer-events:none;opacity:1}
+#ss.out .ssv{animation:none}
+#ss.out .ssl,#ss.out .ssc{transition:opacity .25s;opacity:0}
+body.ss-back>*:not(#ss){animation:ssSite .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes ssSite{from{filter:brightness(.4) blur(4px)}to{filter:none}}
+#ss.x-fade{opacity:0;transition:opacity .7s ease}
+#ss.x-off{animation:xOff 1.5s ease forwards}
+#ss.x-off.lit video,#ss.x-off.lit .ssm,#ss.x-off.static .ssp,#ss.x-off.static .ssm{animation:xOffV .6s ease forwards}
+@keyframes xOffV{from{filter:brightness(1)}to{filter:brightness(0)}}
+@keyframes xOff{0%,40%{opacity:1;background:#000}100%{opacity:0}}
+body.ss-back-off>*:not(#ss){animation:ssSiteDark 1.5s ease both}
+@keyframes ssSiteDark{0%,40%{filter:brightness(0)}100%{filter:none}}
+#ss .ssz{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity 1.5s ease .8s}
+#ss.lit .ssz,#ss.static .ssz{opacity:1}
+#ss.out .ssz{transition:opacity .4s;opacity:0}

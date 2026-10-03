@@ -56,7 +56,7 @@ const st=document.createElement('style');st.textContent=`
 @media print{.mgp,.mgb,#mgAdd,.mgd,.mgw{display:none!important}}`;
 document.head.appendChild(st);
 
-function logout(){M=null;S={items:[],dk:'pct',dv:0,name:'',tel:'',cm:''};RES=null;try{localStorage.removeItem(MK);localStorage.removeItem(SK)}catch(_){}document.querySelectorAll('.mgp,.mgb,#mgAdd').forEach(e=>e.remove());close()}
+function logout(){M=null;S={items:[],dk:'pct',dv:0,name:'',tel:'',cm:''};RES=null;try{localStorage.removeItem(MK);localStorage.removeItem(SK)}catch(_){}document.querySelectorAll('.mgp,.mgb,#mgAdd').forEach(e=>e.remove());if(window.tekaScreensaver)tekaScreensaver.off();close()}
 function login(){const w=document.createElement('div');w.className='mgl';
   w.innerHTML=`<form><h4>Вход для менеджера</h4><input name="n" placeholder="Имя" autocomplete="username" required><input name="p" type="password" placeholder="Пароль" autocomplete="current-password" required><button>Войти</button><div class="er"></div><button type="button" class="cn">Отмена</button></form>`;
   document.body.appendChild(w);const f=q('form',w);setTimeout(()=>f.n.focus(),50);
@@ -149,7 +149,8 @@ function ui(){if(q('.mgd'))return;const w=document.createElement('div');w.classN
     if(t.matches('[data-adv]'))S.dv=Math.max(0,+t.value||0);if(t.matches('[data-adk]'))S.dk=t.value;if(t.matches('[data-adv],[data-adk]')){RES=null;sv();draw()}});
   d.addEventListener('input',e=>{const t=e.target;if(t.dataset.s){S[t.dataset.s]=t.value;RES=null;const r=q('.mgres',d);if(r)r.remove();sv();if(t.dataset.s==='tel'){clearTimeout(ct);ct=setTimeout(findCl,500)}}})}
 
-function start(){bar();ui();mark();if(location.hash==='#sel'||window.MGR_SEL){window.MGR_SEL=0;history.replaceState(null,'',location.pathname+location.search);open()}new MutationObserver(()=>{clearTimeout(start.t);start.t=setTimeout(mark,50)}).observe(document.body,{childList:true,subtree:true});
+function ss(){if(document.getElementById('tkss')){if(window.tekaScreensaver)tekaScreensaver.on();return}const l=document.createElement('link');l.id='tkss';l.rel='stylesheet';l.href='assets/screensaver/ss.css?v=53af8f75';document.head.appendChild(l);const s=document.createElement('script');s.src='assets/screensaver/ss.js?v=53af8f75';document.body.appendChild(s)}
+function start(){ss();bar();ui();mark();if(location.hash==='#sel'||window.MGR_SEL){window.MGR_SEL=0;history.replaceState(null,'',location.pathname+location.search);open()}new MutationObserver(()=>{clearTimeout(start.t);start.t=setTimeout(mark,50)}).observe(document.body,{childList:true,subtree:true});
   api('/api/me').catch(e=>toast(e.message));if(S.tel)findCl()}
 document.addEventListener('click',e=>{if(!M)return;const b=e.target.closest('.mgb');if(b){e.preventDefault();e.stopPropagation();const a=b.closest('.pc');add(a.dataset.f,a.dataset.sku);return}
   if(e.target.closest('#mgAdd')){add(F,SKU);return}
