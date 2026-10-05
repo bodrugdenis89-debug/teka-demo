@@ -454,7 +454,7 @@ const CATS=[
   {k:'hob',f:'hobs',g:'cook',n:48,ro:'Plite',ru:'Варочные панели'},
   {k:'hood',f:'hoods',g:'cook',n:49,ro:'Hote',ru:'Вытяжки'},
   {k:'micro',f:'microwaves',g:'cook',n:18,ro:'Cuptoare cu microunde',ru:'Микроволновые печи'},
-  {k:'coffee',f:'compact',g:'cook',n:7,ro:'Aparate de cafea',ru:'Кофемашины'},
+  {k:'coffee',f:'compact',g:'cook',n:17,ro:'Aparate de cafea și tehnică compactă',ru:'Кофемашины и компактная техника'},
   {k:'fridge',f:'fridges',g:'cool',n:24,ro:'Aparate frigorifice',ru:'Холодильники'},
   {k:'wine',f:'wine-coolers',g:'cool',n:5,ro:'Refrigeratoare de vinuri',ru:'Винные шкафы'},
   {k:'dish',f:'dishwashers',g:'wash',n:13,ro:'Mașini de spălat vase',ru:'Посудомоечные машины'},
@@ -610,14 +610,14 @@ const FL={
  faucet:[['kind',VV('Tip','Тип'),{standard:VV('Standard','Стандарт'),extractibil:VV('Duș extractibil','Выдвижной душ'),dozator:VV('Dozator','Дозатор'),osmoza:VV('Osmoză','Осмос')}],['col']],
  washer:[['kind',VV('Tip','Тип'),{spalat:VV('Spălat','Стирка'),'spalat-uscat':VV('Spălat + uscat','Стирка + сушка'),uscator:VV('Uscător','Сушилка')}],['install',VV('Instalare','Установка'),{independent:VV('Independentă','Отдельностоящая'),incorporabil:VV('Încorporabilă','Встраиваемая')}]],
  micro:[['kind',VV('Instalare','Установка'),{incorporabil:VV('Încorporabil','Встраиваемая'),independent:VV('Independent','Отдельностоящая')}],['col']],
- coffee:[['col']],pots:[]
+ coffee:[['kind',VV('Tip','Тип'),{espresso:VV('Espressoare','Кофемашины'),'cuptor-compact':VV('Cuptoare compacte','Компактные духовки'),'cuptor-abur':VV('Cuptor cu abur','Паровой шкаф'),'sertar-termic':VV('Sertar termic','Подогрев посуды'),'aparat-de-vidat':VV('Aparat de vidat','Вакууматор')}],['col']],pots:[]
 };
 const INFO={
  oven:VV('Cuptoare încorporabile cu abur, piroliză și funcție microunde. Gătit uniform SurroundTemp și curățare HydroClean.','Встраиваемые духовки с паром, пиролизом и СВЧ. Равномерный нагрев SurroundTemp и очистка HydroClean.'),
  hob:VV('Plite cu inducție, gaz și vitroceramică: de la Domino 30 cm până la 90 cm.','Индукционные, газовые и стеклокерамические панели: от Domino 30 см до 90 см.'),
  hood:VV('Hote încorporabile, telescopice, de perete și insulă. Motoare silențioase EcoPower.','Встраиваемые, телескопические, настенные и островные вытяжки. Тихие моторы EcoPower.'),
  micro:VV('Cuptoare cu microunde încorporabile cu grill și bază ceramică.','Встраиваемые микроволновки с грилем и керамическим дном.'),
- coffee:VV('Espressoare încorporabile cu râșniță, lapte și programe automate.','Встраиваемые кофемашины с кофемолкой, молоком и автопрограммами.'),
+ coffee:VV('Espressoare încorporabile, cuptoare compacte, sertare termice și aparate de vidat — pentru o coloană completă.','Встраиваемые кофемашины, компактные духовки, ящики подогрева и вакууматоры — для единой колонны техники.'),
  fridge:VV('Frigidere încorporabile și independente, No Frost, side-by-side și French door.','Встраиваемые и отдельностоящие холодильники, No Frost, side-by-side и French door.'),
  wine:VV('Refrigeratoare de vin cu control al temperaturii, de la 8 la 46 de sticle.','Винные шкафы с контролем температуры, от 8 до 46 бутылок.'),
  dish:VV('Mașini de spălat vase încorporabile de 45 și 60 cm, motor Inverter.','Встраиваемые посудомойки 45 и 60 см, инверторный мотор.'),
@@ -646,9 +646,9 @@ function pass(x,skip){
   return true}
 const sel=k=>k==='b'?ST.b:(ST.v[k]=ST.v[k]||new Set());
 let PMIN=0,PMAX=0;
-async function load(){if(C===PR0){await Promise.all(CATS.map(c=>cat(c.f)));const seen=new Set();ALL=[];for(const c of CATS){for(const x of await cat(c.f)){if(!(od(x)>pr(x)&&pr(x))||seen.has(x.sku)||(c.k==='coffee'&&x.kind!=='espresso'))continue;seen.add(x.sku);ALL.push(Object.assign({},x,{_c:c.k,_f:c.f}))}}}
-  else if(C===KB){await Promise.all(CATS.map(c=>cat(c.f)));const seen=new Set();ALL=[];for(const c of CATS){for(const x of await cat(c.f)){if(bnd(x)!=='Küppersbusch'||seen.has(x.sku)||(c.k==='coffee'&&x.kind!=='espresso'))continue;seen.add(x.sku);ALL.push(Object.assign({},x,{_c:c.k,_f:c.f}))}}}
-  else{ALL=(await cat(C.f)).slice();if(C.k==='coffee')ALL=ALL.filter(x=>x.kind==='espresso')}
+async function load(){if(C===PR0){await Promise.all(CATS.map(c=>cat(c.f)));const seen=new Set();ALL=[];for(const c of CATS){for(const x of await cat(c.f)){if(!(od(x)>pr(x)&&pr(x))||seen.has(x.sku))continue;seen.add(x.sku);ALL.push(Object.assign({},x,{_c:c.k,_f:c.f}))}}}
+  else if(C===KB){await Promise.all(CATS.map(c=>cat(c.f)));const seen=new Set();ALL=[];for(const c of CATS){for(const x of await cat(c.f)){if(bnd(x)!=='Küppersbusch'||seen.has(x.sku))continue;seen.add(x.sku);ALL.push(Object.assign({},x,{_c:c.k,_f:c.f}))}}}
+  else{ALL=(await cat(C.f)).slice();}
   const ps=ALL.map(pr).filter(Boolean);PMIN=Math.floor(Math.min(...ps,0)/100)*100;PMAX=Math.ceil(Math.max(...ps,1)/100)*100;
   PMIN=ps.length?Math.floor(Math.min(...ps)/100)*100:0;ST.lo=PMIN;ST.hi=PMAX;
   const q=P.get('f');if(q){const[k,v]=q.split(':');sel(k).add(v)}

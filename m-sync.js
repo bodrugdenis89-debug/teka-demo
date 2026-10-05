@@ -3,7 +3,7 @@
 const S=document.currentScript,FILE=S.dataset.f,DIR=S.dataset.img||'assets/ro2/',PROMO_PAGE=FILE==='promo';
 const API=/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?'':'https://teka-admin.teka-md.workers.dev';
 const CATS=[['ovens','assets/ro/','Cuptoare','Духовки'],['hobs','assets/ro2/','Plite','Варочные панели'],['hoods','assets/ro2/','Hote','Вытяжки'],
- ['microwaves','assets/ro2/','Cuptoare cu microunde','Микроволновки'],['compact','assets/ro2/','Espressoare','Кофемашины'],['fridges','assets/ro2/','Frigidere','Холодильники'],
+ ['microwaves','assets/ro2/','Cuptoare cu microunde','Микроволновки'],['compact','assets/ro2/','Cafea și compacte','Кофе и компакт'],['fridges','assets/ro2/','Frigidere','Холодильники'],
  ['wine-coolers','assets/ro2/','Răcitoare de vin','Винные шкафы'],['dishwashers','assets/ro2/','Mașini de spălat vase','Посудомойки'],['sinks','assets/ro2/','Chiuvete','Мойки'],
  ['faucets','assets/ro2/','Baterii','Смесители'],['laundry','assets/ro2/','Spălare și uscare','Стирка и сушка'],['accessories','assets/ro2/','Accesorii','Аксессуары']];
 const rd=u=>fetch(u,{cache:'no-cache'}).then(r=>r.ok?r.json():null).catch(()=>null);
@@ -33,7 +33,7 @@ function merge(x,base,f,dir,PL){
  if(x.u&&x.u.length)m.img=x.u.map(u=>rel(u,DIR));else if(x.img)m.img=x.img.map(i=>img(i,dir));
  if(x.draw!==undefined)m.draw=img(x.draw,dir);if(x.label!==undefined)m.label=img(x.label,dir);
  ['kind','w','col','st','tag','ord'].forEach(k=>{if(x[k]!==undefined)m[k]=x[k]});
- if(!base){m.fc=Object.assign({brand:m.b},x.kind?{kind:x.kind}:{},x.col?{col:x.col}:{})}
+ if(!base){m.fc=Object.assign({brand:m.b},x.kind?{kind:x.kind}:{},x.col?{col:x.col}:{})}else if(x.kind)m.fc=Object.assign({},m.fc,{kind:x.kind});
  m._f=f;applyPromo(m,f,PL);
  const d=m.o>m.p&&m.p?Math.round((1-m.p/m.o)*100):0;
  if(d){m.t='sale';m.d=d}else if(m.t==='sale'){m.t='';m.d=0}
