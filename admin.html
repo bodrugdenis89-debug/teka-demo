@@ -385,7 +385,7 @@ function T(s,...a){const r=LANG==='ro'&&RO[s]!=null?RO[s]:s;return a.length?r.re
 const LOADING=()=>`<div class="empty">${T('Загружаю…')}</div>`;
 const FILES=[
   {f:'ovens',n:'Духовые шкафы',ro:'Cuptoare'},{f:'hobs',n:'Варочные панели',ro:'Plite'},{f:'hoods',n:'Вытяжки',ro:'Hote'},{f:'microwaves',n:'Микроволновые печи',ro:'Cuptoare cu microunde'},
-  {f:'compact',n:'Компактная техника и кофемашины',ro:'Tehnică compactă și aparate de cafea'},{f:'fridges',n:'Холодильники',ro:'Aparate frigorifice'},{f:'wine-coolers',n:'Винные шкафы',ro:'Refrigeratoare de vinuri'},
+  {f:'compact',n:'Кофемашины и компактная техника',ro:'Aparate de cafea și tehnică compactă'},{f:'fridges',n:'Холодильники',ro:'Aparate frigorifice'},{f:'wine-coolers',n:'Винные шкафы',ro:'Refrigeratoare de vinuri'},
   {f:'dishwashers',n:'Посудомоечные машины',ro:'Mașini de spălat vase'},{f:'sinks',n:'Мойки',ro:'Chiuvete'},{f:'faucets',n:'Смесители',ro:'Baterii de bucătărie'},
   {f:'laundry',n:'Стиральные и сушильные машины',ro:'Mașini de spălat / uscat'},{f:'accessories',n:'Аксессуары',ro:'Accesorii bucătărie'}];
 const cn=c=>LANG==='ro'?c.ro:c.n;
