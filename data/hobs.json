@@ -5254,7 +5254,8 @@
   "b": "Teka",
   "col": "negru",
   "kind": "gaz",
-  "w": 90
+  "w": 90,
+  "st": "order"
  },
  {
   "sku": "112500037",
