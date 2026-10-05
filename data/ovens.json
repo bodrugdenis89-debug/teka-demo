@@ -7564,7 +7564,8 @@
   ],
   "w": 60,
   "c": "micro",
-  "col": "negru"
+  "col": "negru",
+  "st": "order"
  },
  {
   "sku": "111200001",
