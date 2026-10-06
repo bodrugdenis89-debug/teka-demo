@@ -119,9 +119,8 @@ async function send(){if(!S.items.length)return toast(Z('Подборка пус
   try{const j=await api('/api/offer',await payload());const url=base()+'desk-offer.html?o='+j.id;
     RES={id:j.id,url,tot:c.tot};draw();toast(Z('Подборка сохранена'));sendBox()}catch(e){toast(e.message)}}
 async function orderNow(){if(!S.items.length)return toast(Z('Подборка пуста'));const R=await lines(),c=calc(R);
-  if(!S.tel.trim()&&!confirm(Z('Телефон клиента не указан — заказ не попадёт в базу клиентов. Оформить?')))return;
   try{await api('/api/order',{items:R.map(r=>({sku:r.i.sku,n:nm(r.x),q:r.i.q,p:r.u,...(r.p>r.u?{o:r.p}:{})})),tot:c.tot,name:S.name.trim(),tel:S.tel.trim(),cm:S.cm.trim(),ch:'mgr',lang:LANG.toUpperCase(),page:location.href.slice(0,300),...(RES?{of:RES.id}:{})});
-    toast(Z('Заказ записан в журнал'));if(confirm(Z('Заказ записан. Очистить подборку?'))){S={items:[],dk:'pct',dv:0,name:'',tel:'',cm:''};RES=null;CL=null;sv();mark();draw()}}catch(e){toast(e.message)}}
+    toast(Z('Заказ записан в журнал'))}catch(e){toast(e.message)}}
 
 async function compare(){const R=await lines();let L=R.filter(r=>r.i.c);if(L.length<2)L=R.slice(0,3);L=L.slice(0,3);if(L.length<2)return toast(Z('Отметьте 2–3 товара для сравнения'));
   const G=[];const key=(g,k)=>tx('k',g)+'|'+tx('k',k);const V=L.map(()=>({}));
