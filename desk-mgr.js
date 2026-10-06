@@ -83,7 +83,10 @@ const unit=(p,k,v)=>Math.max(0,Math.round(k==='pct'?p*(1-Math.min(v,100)/100):k=
 async function lines(){const R=[];for(const i of S.items){const x=await item(i.f,i.sku);if(!x)continue;const p=pr(x),u=unit(p,i.dk,+i.dv||0);R.push({i,x,p,o:od(x)>p?od(x):0,u})}return R}
 function calc(R){const sub=R.reduce((a,r)=>a+r.u*r.i.q,0),full=R.reduce((a,r)=>a+r.p*r.i.q,0),dv=+S.dv||0;
   const disc=Math.min(sub,S.dk==='pct'?Math.round(sub*Math.min(dv,100)/100):S.dk==='sum'?dv:0);return {sub,full,disc,tot:sub-disc}}
-const over=(R,c)=>R.some(r=>r.p&&(r.p-r.u)/r.p>.2)||c.full&&(c.full-c.tot)/c.full>.2;
+const TS='/tk-send.js?v=83615243';let tsP=null;
+const tks=()=>window.tkSend?Promise.resolve(window.tkSend):tsP||(tsP=new Promise((ok,no)=>{const s=document.createElement('script');s.src=TS;s.onload=()=>ok(window.tkSend);s.onerror=()=>{tsP=null;no(new Error('Не загрузился tk-send.js'))};document.head.appendChild(s)}));
+const docUrl=()=>RES?'desk-offer.html?o='+RES.id+'&nv=1':'desk-offer.html?local=1';
+async function sendBox(){if(!RES)return;try{(await tks()).open({url:docUrl(),link:RES.url,no:RES.id,tot:RES.tot,name:S.name,tel:S.tel,lang:LANG,kind:'offer'})}catch(e){toast(e.message)}}
 
 function open(){q('.mgw').classList.add('on');q('.mgd').classList.add('on');draw()}
 function close(){const w=q('.mgw'),d=q('.mgd');if(w)w.classList.remove('on');if(d)d.classList.remove('on')}
@@ -100,8 +103,7 @@ async function draw(){const d=q('.mgd');if(!d)return;const R=await lines(),c=cal
      <div class="mgcl" id="mgcl" hidden></div>
      <label class="w">Комментарий для клиента<textarea data-s="cm">${he(S.cm)}</textarea></label></div>
    <div class="mgt"><div><span>Товары</span><span>${mdl(c.full)}</span></div>${c.full-c.sub?`<div><span>Скидки на позиции</span><span>−${mdl(c.full-c.sub)}</span></div>`:''}${c.disc?`<div><span>Скидка на подборку</span><span>−${mdl(c.disc)}</span></div>`:''}<div class="g"><span>Итого</span><span>${mdl(c.tot)}</span></div></div>
-   ${over(R,c)?'<div class="mgwr">Скидка больше 20% — проверьте, что это согласовано.</div>':''}
-   ${RES?`<div class="mgres"><b>Ссылка для клиента готова · №${he(RES.id)}</b><input readonly value="${he(RES.url)}"><div><button data-a="copy">Скопировать ссылку</button><a href="${he(RES.wa)}" target="_blank" rel="noopener">WhatsApp</a><a href="${he(RES.vb)}">Viber</a><a href="${he(RES.url)}" target="_blank" rel="noopener">Открыть</a></div></div>`:''}`;
+   ${RES?`<div class="mgres"><b>Ссылка для клиента готова · №${he(RES.id)}</b><input readonly value="${he(RES.url)}"><div><button data-a="snd" style="background:var(--red);border-color:var(--red);color:#fff">WhatsApp · Telegram · Viber · Почта</button><button data-a="copy">Скопировать ссылку</button><a href="${he(RES.url)}" target="_blank" rel="noopener">Открыть</a></div></div>`:''}`;
   showCl()}
 function showCl(){const e=q('#mgcl');if(!e)return;if(!CL||!CL.client){e.hidden=true;return}const k=CL.client,os={new:'новый',work:'в работе',done:'выдан',cancel:'отменён'};
   e.hidden=false;e.innerHTML=`<b>Клиент уже есть: ${he(k.name||'без имени')}</b> · ${he(k.tel)}${k.mg?' · ведёт '+he(k.mg):''}${k.tags&&k.tags.length?' · '+k.tags.map(he).join(', '):''}<br>Заказы: ${k.orders.length}, на ${mdl(k.tot||0)} · подборки: ${k.offers.length}${k.last?' · последний контакт '+new Date(k.last).toLocaleDateString('ru-RU'):''}
@@ -111,11 +113,9 @@ let ct=0;async function findCl(){const t=S.tel.replace(/\D/g,'');if(t.length<8){
 async function payload(){const R=await lines();return {items:R.map(r=>({sku:r.i.sku,f:r.i.f,n:nm(r.x),sub:String(tx('s',r.x.sub)||'').slice(0,200),img:pics(r.x)[0]||'',st:r.x.st||'',q:r.i.q,p:r.p,...(r.o?{o:r.o}:{}),dk:r.i.dk,dv:+r.i.dv||0})),dk:S.dk,dv:+S.dv||0,name:S.name.trim(),tel:S.tel.trim(),cm:S.cm.trim(),lang:LANG.toUpperCase()}}
 const base=()=>location.href.replace(/[^/]*$/,'');
 async function send(){if(!S.items.length)return toast('Подборка пуста');const R=await lines(),c=calc(R);
-  if(over(R,c)&&!confirm('Скидка больше 20%. Отправить клиенту?'))return;
+  if(RES)return sendBox();
   try{const j=await api('/api/offer',await payload());const url=base()+'desk-offer.html?o='+j.id;
-    const txt=(LANG==='ru'?'Здравствуйте! Подборка техники Teka для вас: ':'Bună ziua! Selecția de tehnică Teka pentru dvs.: ')+url;
-    const tel=S.tel.replace(/\D/g,'');RES={id:j.id,url,wa:tel?`https://wa.me/${tel.length===8?'373'+tel:tel.replace(/^0/,'373')}?text=${encodeURIComponent(txt)}`:'https://wa.me/?text='+encodeURIComponent(txt),vb:'viber://forward?text='+encodeURIComponent(txt)};
-    draw();toast('Подборка сохранена')}catch(e){toast(e.message)}}
+    RES={id:j.id,url,tot:c.tot};draw();toast('Подборка сохранена');sendBox()}catch(e){toast(e.message)}}
 async function orderNow(){if(!S.items.length)return toast('Подборка пуста');const R=await lines(),c=calc(R);
   if(!S.tel.trim()&&!confirm('Телефон клиента не указан — заказ не попадёт в базу клиентов. Оформить?'))return;
   if(!confirm(`Оформить заказ на ${mdl(c.tot)}?`))return;
@@ -135,13 +135,14 @@ async function compare(){const R=await lines();let L=R.filter(r=>r.i.c);if(L.len
 
 function ui(){if(q('.mgd'))return;const w=document.createElement('div');w.className='mgw';const d=document.createElement('aside');d.className='mgd';
   d.innerHTML=`<h3><span>Подборка для клиента</span><button class="x" data-a="close" aria-label="Закрыть">✕</button></h3><div class="bd"></div>
-   <div class="ft"><button data-a="cmp">Сравнить</button><button data-a="pdf">PDF / Печать</button><button data-a="clr">Очистить</button><span style="flex:1"></span><button class="k" data-a="order">Оформить заказ сейчас</button><button class="r" data-a="send">Отправить клиенту</button></div>`;
+   <div class="ft"><button data-a="cmp">Сравнить</button><button data-a="pdf">Скачать PDF</button><button data-a="prn">Печать</button><button data-a="clr">Очистить</button><span style="flex:1"></span><button class="k" data-a="order">Оформить заказ сейчас</button><button class="r" data-a="send">Отправить клиенту</button></div>`;
   document.body.append(w,d);w.onclick=close;
   d.addEventListener('click',async e=>{const a=e.target.closest('[data-a]'),it=e.target.closest('.mgi');
     if(it&&e.target.closest('[data-rm]')){S.items.splice(+it.dataset.k,1);RES=null;sv();mark();draw();return}
     if(!a)return;const k=a.dataset.a;
     if(k==='close')close();if(k==='send')send();if(k==='order')orderNow();if(k==='cmp')compare();
-    if(k==='pdf'){if(!S.items.length)return toast('Подборка пуста');window.open(RES?RES.url+'&print=1':'desk-offer.html?local=1&print=1','_blank')}
+    if(k==='pdf'||k==='prn'){if(!S.items.length)return toast('Подборка пуста');try{const T=await tks();k==='pdf'?T.pdf(docUrl()):T.print(docUrl())}catch(er){toast(er.message)}}
+    if(k==='snd')sendBox();
     if(k==='clr'&&confirm('Очистить подборку?')){S={items:[],dk:'pct',dv:0,name:'',tel:'',cm:''};RES=null;CL=null;sv();mark();draw()}
     if(k==='copy'){try{await navigator.clipboard.writeText(RES.url);toast('Ссылка скопирована')}catch(_){q('.mgres input',d).select()}}});
   d.addEventListener('change',e=>{const t=e.target,it=t.closest('.mgi');

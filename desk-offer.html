@@ -314,6 +314,16 @@ footer .bot .wrap{display:flex;justify-content:space-between;padding-top:18px;pa
 
 .obk{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px 0 16px;border-radius:22px;background:var(--ink);color:#fff;font-weight:600;font-size:14.5px;margin-bottom:18px}.obk:hover{background:#333}
 
+
+.os .bt2{grid-template-columns:1fr 1fr;margin-top:0}.os .bt+.bt2{margin-top:-2px}
+.pdfm{background:#fff;color:#000;font-size:12px;padding:0}
+.pdfm .ph0{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #000;padding-bottom:10px;margin-bottom:16px}
+.pdfm .ph0 img{width:64px;height:64px}.pdfm .ph0 div{text-align:right;font-size:11px;line-height:1.5}
+.pdfm .oh{margin-bottom:16px}.pdfm .oh h1{font-size:24px}.pdfm .ol{grid-template-columns:1fr;gap:16px}
+.pdfm .ot td{padding:8px}.pdfm .ot .im{width:96px;height:96px;padding:4px}.pdfm .ot .imc{width:118px}.pdfm .ot .kd{font-size:10.5px}.pdfm .ot b{font-size:14px}
+.pdfm .os{position:static;border:0;padding:0;max-width:340px;width:100%;margin-left:auto}
+.pdfm .os .r,.pdfm .os .tt{display:grid;grid-template-columns:1fr auto;column-gap:24px}.pdfm .os .r>*:last-child,.pdfm .os .tt>*:last-child{text-align:right;white-space:nowrap}.pdfm .os .tt{font-size:17px}
+.pdfm .oct,.pdfm .ocm{max-width:none}.pdfm .oct{grid-template-columns:repeat(3,1fr)}
 </style>
 </head>
 <body>
@@ -428,7 +438,7 @@ function siteFix(root){if(!SITE)return;
     if(n!==h)a.setAttribute('href',n)});
   if(ph&&ph!==P0){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let t;while(t=w.nextNode())if(t.nodeValue.includes(P0))t.nodeValue=t.nodeValue.split(P0).join(ph)}}
 new MutationObserver(()=>siteFix(document.body)).observe(document.body,{childList:true,subtree:true});
-try{if(localStorage.getItem('tkMgr')||location.hash==='#manager'){window.MGR_LOGIN=location.hash==='#manager';window.MGR_SEL=location.hash==='#sel';const s=document.createElement('script');s.src='desk-mgr.js?v=242ae3f8';document.body.appendChild(s)}}catch(_){}
+try{if(localStorage.getItem('tkMgr')||location.hash==='#manager'){window.MGR_LOGIN=location.hash==='#manager';window.MGR_SEL=location.hash==='#sel';const s=document.createElement('script');s.src='desk-mgr.js?v=a7cf9ef7';document.body.appendChild(s)}}catch(_){}
 const SITEP=fetch('data/site.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).catch(()=>null).then(j=>{if(j&&typeof j==='object'&&!Array.isArray(j)){SITE=j;siteText();langStatic();siteFix(document.body)}});
 
 
@@ -530,7 +540,7 @@ const R2={'Ofertă comercială':'Коммерческое предложение
 'Confirmă comanda în WhatsApp':'Подтвердить заказ в WhatsApp','Confirmă în Viber':'Подтвердить в Viber','PDF / Tipărire':'PDF / Печать','Preț la cerere':'Цена по запросу',
 'Prețurile sunt valabile la data ofertei. Livrare gratuită în municipiul Chișinău, garanție oficială 2 ani.':'Цены действительны на дату предложения. Бесплатная доставка по муниципию Кишинёв, официальная гарантия 2 года.',
 'Comanda e confirmată — managerul vă va contacta.':'Заказ подтверждён — менеджер свяжется с вами.','Bună! Confirm comanda după oferta nr.':'Здравствуйте! Подтверждаю заказ по предложению №','Telefon':'Телефон','Adresa magazinului':'Адрес магазина','Program':'График работы',
-'Textul comenzii e copiat — lipiți-l în chat':'Текст заказа скопирован — вставьте в чат','Previzualizare':'Предпросмотр','Comentariu':'Комментарий','Înapoi la selecție':'Вернуться к подборке'};
+'Textul comenzii e copiat — lipiți-l în chat':'Текст заказа скопирован — вставьте в чат','Comandă':'Заказ','Descarcă PDF':'Скачать PDF','Tipărire':'Печать','Se pregătește PDF…':'Готовим PDF…','PDF salvat':'PDF сохранён','Nu s-a putut crea PDF':'Не удалось создать PDF','Previzualizare':'Предпросмотр','Comentariu':'Комментарий','Înapoi la selecție':'Вернуться к подборке'};
 const t=s=>LANG==='ru'&&R2[s]||s;
 const WAI='<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>';
 const VBI='<svg viewBox="0 0 24 24"><path d="M12 2.6c5 0 8.1 2.9 8.1 7.7v3.3c0 4.8-3.1 7.7-8.1 7.7-.5 0-.9 0-1.3-.1l-2.9 2.4v-3.1c-2.5-1.3-3.9-3.6-3.9-6.9v-3.3c0-4.8 3.1-7.7 8.1-7.7z"/></svg>';
@@ -548,17 +558,18 @@ async function pageInit(){
   else{const id=(OQ.get('o')||'').toLowerCase().replace(/[^a-z0-9]/g,'');const k=mgrTok();
     try{const r=await fetch(API0+'/api/offer?id='+id+(OQ.get('nv')?'&nv=1':''),{headers:k?{Authorization:'Bearer '+k}:{}});O=r.ok?await r.json():null}catch(_){O=null}
     if(O&&O.lang==='RU'){let s=null;try{s=localStorage.getItem('tk-lang')}catch(_){}if(!s&&LANG!=='ru'){LANG='ru';langStatic();drawMega()}}}
-  await relang();draw();if(O&&OQ.get('print')==='1')setTimeout(()=>print(),600)}
+  await relang();draw();if(O&&OQ.get('print')==='1')setTimeout(()=>print(),600);if(O&&OQ.get('pdf')==='1')setTimeout(()=>pdfSave(),300)}
 async function relang(){if(!O)return;if(LOC){O=await localOffer();return}
   for(const i of O.items){if(!i.f)continue;const x=(await cat(i.f)).find(y=>String(y.sku)===String(i.sku));if(x){i.n=nm(x);i.sub=tx('s',x.sub)||i.sub}}}
 async function pageLang(){await relang();draw()}
 function back(){if(window.opener&&!window.opener.closed){try{window.opener.focus()}catch(_){}window.close()}location.href=(document.referrer&&!/desk-offer/.test(document.referrer)?document.referrer.split('#')[0]:'desk-catalog.html')+'#sel'}
 const dl=i=>i.u<i.p?(i.dk==='pct'?`−${i.dv}%`:`−${mdl(i.p-i.u)}`):'';
 function draw(){if(!O){$('ow').innerHTML=`<div class="oload"><h1 style="color:var(--ink);font-size:28px;margin-bottom:10px">${t('Oferta nu a fost găsită')}</h1><p>${t('Verificați linkul sau contactați managerul.')}</p><br><a class="btn r" href="/">${t('Spre catalog')}</a></div>`;return}
+  const cb=document.querySelector('.crumbs [data-t=of_t]');if(cb&&O.kind==='order')cb.textContent=t('Comandă');
   const dt=new Date(O.t).toLocaleDateString(LANG==='ru'?'ru-RU':'ro-RO'),full=O.items.reduce((a,i)=>a+i.p*i.q,0),pos=full-O.sub;
   const ph=SI('phone')||P0,addr=TD('s_a'),hrs=TD('hrs');
   $('ow').innerHTML=`${mgrTok()?`<button class="obk" data-c="back"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>${t('Înapoi la selecție')}</button>`:''}<div class="ph0"><img src="assets/teka-logo-sq.svg" alt="TEKA"><div><b>Teka Moldova</b><br>${he(ph)}<br>${addr}<br>teka.md</div></div>
-  <div class="oh"><h1>${t('Ofertă comercială')}${O.id?`<small>${LANG==='ru'?'№':'nr.'} ${he(O.id)}</small>`:`<small>${t('Previzualizare')}</small>`}</h1><div class="mt"><span>${t('din')} ${dt}</span>${O.mg?`<span>${t('Manager')}: <b>${he(O.mg)}</b></span>`:''}${O.name?`<span>${t('Client')}: <b>${he(O.name)}</b></span>`:''}</div></div>
+  <div class="oh"><h1>${t(O.kind==='order'?'Comandă':'Ofertă comercială')}${O.id?`<small>${LANG==='ru'?'№':'nr.'} ${he(O.id)}</small>`:`<small>${t('Previzualizare')}</small>`}</h1><div class="mt"><span>${t('din')} ${dt}</span>${O.mg?`<span>${t('Manager')}: <b>${he(O.mg)}</b></span>`:''}${O.name?`<span>${t('Client')}: <b>${he(O.name)}</b></span>`:''}</div></div>
   <div class="ol"><div><table class="ot"><thead><tr><th></th><th>${t('Produs')}</th><th style="text-align:right">${t('Preț')}</th><th style="text-align:right">${t('Cant.')}</th><th style="text-align:right">${t('Sumă')}</th></tr></thead><tbody>${O.items.map(i=>{const h=i.f?`desk-product.html?f=${encodeURIComponent(i.f)}&sku=${encodeURIComponent(i.sku)}`:'#';
     return `<tr><td class="imc"><a class="im" href="${h}">${i.img?`<img src="${he(CP(i.img))}" data-o="${he(i.img)}" alt="" onerror="if(this.src.indexOf('/c/')>0){this.src=this.dataset.o}else if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('/ro2/','/ro/')}else this.style.visibility='hidden'">`:''}</a>${KIND[i.f]?`<span class="kd">${KIND[i.f][LANG==='ru'?1:0]}</span>`:''}</td>
     <td><a href="${h}"><b>${he(i.n)}</b></a><small>${he(i.sub||'')}</small><small>${t('Cod')}: ${he(i.sku)}</small></td>
@@ -566,18 +577,33 @@ function draw(){if(!O){$('ow').innerHTML=`<div class="oload"><h1 style="color:va
 </div>
   <aside class="os"><h3>${t('Total')}</h3><div class="r"><span>${t('Total produse')}</span><b>${mdl(full)}</b></div>${pos?`<div class="r d"><span>${t('Reducere la poziții')}</span><b>−${mdl(pos)}</b></div>`:''}${O.disc?`<div class="r d"><span>${t('Reducere suplimentară')}</span><b>−${mdl(O.disc)}</b></div>`:''}
    <div class="tt"><span>${t('Total')}</span><span>${mdl(O.tot)}</span></div>
-   ${DONE2||O.order?`<div class="odone">${t('Comanda e confirmată — managerul vă va contacta.')}</div>`:`<div class="bt">${O.id?`<button class="wa" data-c="wa">${WAI}${t('Confirmă comanda în WhatsApp')}</button><button class="vb" data-c="vb">${VBI}${t('Confirmă în Viber')}</button>`:''}<button class="pd" data-c="pdf">${t('PDF / Tipărire')}</button></div>`}
+   ${DONE2||O.order?`<div class="odone">${t('Comanda e confirmată — managerul vă va contacta.')}</div>`:O.id?`<div class="bt"><button class="wa" data-c="wa">${WAI}${t('Confirmă comanda în WhatsApp')}</button><button class="vb" data-c="vb">${VBI}${t('Confirmă în Viber')}</button></div>`:''}
+   <div class="bt bt2"><button class="pd" data-c="pdf">${t('Descarcă PDF')}</button><button class="pd" data-c="prn">${t('Tipărire')}</button></div>
    <p class="note">${t('Prețurile sunt valabile la data ofertei. Livrare gratuită în municipiul Chișinău, garanție oficială 2 ani.')}</p></aside></div>
   ${O.cm?`<div class="ocm"><b>${t('Comentariu')}:</b> ${he(O.cm)}</div>`:''}
   <div class="oct"><div><small>${t('Telefon')}</small><a href="tel:${he(ph.replace(/[^\d+]/g,''))}">${he(ph)}</a></div><div><small>${t('Adresa magazinului')}</small>${addr}</div><div><small>${t('Program')}</small>${hrs}</div></div>`}
 function confirmTxt(){return [t('Bună! Confirm comanda după oferta nr.')+' '+O.id,...O.items.map((i,k)=>`${k+1}. ${i.n} (${i.sku}) × ${i.q} — ${mdl(i.u*i.q)}`),`${t('Total')}: ${mdl(O.tot)}`,location.href.split('&print')[0]].join('\n')}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b||!O)return;const c=b.dataset.c;
-  if(c==='pdf'){print();return}
+  if(c==='pdf'){pdfSave();return}
+  if(c==='prn'){print();return}
   if(c==='back'){back();return}
   const tx2=confirmTxt();
   try{fetch(API0+'/api/order',{method:'POST',keepalive:true,headers:{'Content-Type':'text/plain'},body:JSON.stringify({items:O.items.map(i=>({sku:String(i.sku),n:i.n,q:i.q,p:i.u,...(i.p>i.u?{o:i.p}:{})})),tot:O.tot,of:O.id,ch:c,lang:LANG.toUpperCase(),page:location.href.slice(0,300)})}).catch(()=>{})}catch(_){}
   if(c==='wa')window.open(waL(tx2),'_blank','noopener');else{try{navigator.clipboard.writeText(tx2)}catch(_){}toast(t('Textul comenzii e copiat — lipiți-l în chat'));location.href=vbL()}
   DONE2=true;draw()});
+
+/* настоящий PDF-файл (не через диалог печати — он есть не во всех браузерах) */
+const H2P='https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+let h2pP=null;const h2p=()=>h2pP||(h2pP=new Promise((ok,no)=>{if(window.html2pdf)return ok();const s=document.createElement('script');s.src=H2P;s.onload=ok;s.onerror=()=>{h2pP=null;no(new Error('lib'))};document.head.appendChild(s)}));
+const pdfName=()=>'Teka-'+(O&&O.kind==='order'?(LANG==='ru'?'zakaz':'comanda'):(LANG==='ru'?'predlozhenie':'oferta'))+(O&&O.id?'-'+O.id:'')+'.pdf';
+async function tkPdf(){if(!O)throw new Error('no doc');await h2p();
+  const el=document.createElement('div');el.className='pdfm';el.innerHTML=$('ow').innerHTML;el.querySelectorAll('.obk,.bt,.note,.odone').forEach(e=>e.remove());
+  el.querySelectorAll('a').forEach(a=>a.removeAttribute('href'));el.style.width='auto';
+  await Promise.all([...el.querySelectorAll('img[src$=".svg"]')].map(i=>new Promise(r=>{const m=new Image();m.onload=()=>{try{const c=document.createElement('canvas');c.width=c.height=480;c.getContext('2d').drawImage(m,0,0,480,480);i.src=c.toDataURL('image/png')}catch(_){}r()};m.onerror=r;m.src=i.src})));
+  await Promise.all([...el.querySelectorAll('img')].map(i=>i.complete?0:new Promise(r=>{i.onload=i.onerror=r;setTimeout(r,4000)})));
+  return await html2pdf().set({margin:[10,10,12,10],image:{type:'jpeg',quality:.93},html2canvas:{scale:2,useCORS:true,backgroundColor:'#fff',scrollX:0,scrollY:0},jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},pagebreak:{mode:['css','legacy'],avoid:['tr','.os','.oct','.ocm','.oh','.ph0']}}).from(el).outputPdf('blob')}
+window.tkPdf=tkPdf;window.tkPdfName=pdfName;
+async function pdfSave(){toast(t('Se pregătește PDF…'));try{const b=await tkPdf(),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=pdfName();document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),60000);toast(t('PDF salvat'))}catch(e){toast(t('Nu s-a putut crea PDF'));print()}}
 function drawAll(){langStatic();drawMega();pageLang()}
 $('lng').onclick=e=>{const b=e.target.closest('button');if(!b||b.dataset.l===LANG)return;LANG=b.dataset.l;try{localStorage.setItem('tk-lang',LANG)}catch(_){}IDX=null;drawAll()};
 badge();langStatic();drawMega();
