@@ -2,7 +2,7 @@
   var Q=new URLSearchParams(location.search);
   function mgr(){try{return !!localStorage.getItem('tkMgr')}catch(_){return false}}
   if(window.tekaScreensaver||!mgr()||!matchMedia('(pointer: fine)').matches||screen.width<1024)return;
-  var CFG={idle:(+Q.get('idle')||60)*1000,clock:Q.get('clock')!=='0',dust:Q.get('dust')!=='0',base:'assets/screensaver/'};
+  var CFG={idle:(+Q.get('idle')||0)*1000,clock:Q.get('clock')!=='0',dust:Q.get('dust')!=='0',base:'assets/screensaver/'};
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var small=Math.max(screen.width,screen.height)<1100||(navigator.connection&&navigator.connection.saveData);
 
@@ -99,7 +99,7 @@
     },d+80);
     arm();
   }
-  function arm(){clearTimeout(timer);if(off)return;timer=setTimeout(function(){busy()?arm():open()},CFG.idle)}
+  function arm(){clearTimeout(timer);if(off||!CFG.idle)return;timer=setTimeout(function(){busy()?arm():open()},CFG.idle)}
   function wake(e){
     if(on){
       if(e.type==='scroll')return;
