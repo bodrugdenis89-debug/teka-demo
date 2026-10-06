@@ -468,7 +468,7 @@ function siteFix(root){if(!SITE)return;
     if(n!==h)a.setAttribute('href',n)});
   if(ph&&ph!==P0){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let t;while(t=w.nextNode())if(t.nodeValue.includes(P0))t.nodeValue=t.nodeValue.split(P0).join(ph)}}
 new MutationObserver(()=>siteFix(document.body)).observe(document.body,{childList:true,subtree:true});
-try{if(localStorage.getItem('tkMgr')||location.hash==='#manager'){window.MGR_LOGIN=location.hash==='#manager';window.MGR_SEL=location.hash==='#sel';const s=document.createElement('script');s.src='desk-mgr.js?v=b0e65663';document.body.appendChild(s)}}catch(_){}
+try{if(localStorage.getItem('tkMgr')||location.hash==='#manager'){window.MGR_LOGIN=location.hash==='#manager';window.MGR_SEL=location.hash==='#sel';const s=document.createElement('script');s.src='desk-mgr.js?v=80d5e94b';document.body.appendChild(s)}}catch(_){}
 const SITEP=fetch('data/site.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).catch(()=>null).then(j=>{if(j&&typeof j==='object'&&!Array.isArray(j)){SITE=j;siteText();langStatic();siteFix(document.body)}});
 
 

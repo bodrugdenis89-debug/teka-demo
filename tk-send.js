@@ -17,6 +17,7 @@ const st=document.createElement('style');st.textContent=`
 .tks .b.sh{grid-column:1/-1;background:#C8102E;border-color:#C8102E;color:#fff}
 .tks .lk{display:flex;gap:8px;padding:0 20px 14px}.tks .lk input{flex:1;color:#555;font-size:13px}
 .tks .h{font-size:12.5px;color:#777;padding:0 20px 18px;line-height:1.45}
+.tks .st{margin:0 20px 10px;padding:12px 14px;border-radius:12px;background:#eef8f1;font-size:13px;line-height:1.45;color:#14532d}.tks .st b{display:block;font-size:14px;margin-bottom:2px}.tks .st .b{margin-top:10px;width:100%;justify-content:center}.tks .st:empty{display:none}
 .tks .ms{min-height:18px;font-size:13px;font-weight:600;color:#1a7f45;padding:0 20px 8px}
 .tks-t{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#111;color:#fff;padding:12px 18px;border-radius:22px;font:600 14px system-ui;z-index:2147483001}
 @media (max-width:480px){.tks .f{grid-template-columns:1fr}}`;
@@ -62,7 +63,7 @@ function open(o){const ru=(o.lang||'ru').toLowerCase()!=='ro',L=(r,m)=>ru?m:r;
     <button class="b vb" data-a="vb">${I.vb}Viber</button><button class="b em" data-a="em">${I.em}${L('E-mail','Почта')}</button>
     <button class="b" data-a="pdf">${I.pdf}${L('Descarcă PDF','Скачать PDF')}</button><button class="b" data-a="pr">${I.pr}${L('Tipărire','Печать')}</button></div>
    ${o.link?`<div class="lk"><input readonly value="${he(o.link)}"><button class="b" data-a="cp" style="height:38px;padding:0 14px">${L('Copiază','Копировать')}</button></div>`:''}
-   <div class="ms"></div>
+   <div class="st"></div><div class="ms"></div>
    <div class="h">${canFiles()?L('Alegeți messengerul — fișierul PDF se atașează automat.','Выберите мессенджер — PDF-файл приложится сам.'):L('Se descarcă PDF și se deschide chatul clientului — trageți fișierul în chat și apăsați «Trimite».','Скачается PDF и откроется чат клиента — перетащите файл в чат (или «+» → «Документ») и нажмите «Отправить».')}</div></div>`;
   document.body.appendChild(W);const ms=t=>W.querySelector('.ms').textContent=t;
   const close=()=>{W.remove();document.removeEventListener('keydown',esc)},esc=e=>{if(e.key==='Escape')close()};document.addEventListener('keydown',esc);
@@ -70,7 +71,10 @@ function open(o){const ru=(o.lang||'ru').toLowerCase()!=='ro',L=(r,m)=>ru?m:r;
     if(a==='x')return close();
     if(/^(wa|tg|vb)$/.test(a)&&canFiles()){if(!PB){ms(L('PDF se pregătește — apăsați peste câteva secunde','PDF ещё готовится — нажмите через пару секунд'));return}
       try{await navigator.share({files:[new File([PB.b],PB.n,{type:'application/pdf'})],text:tx});ms(L('Trimis','Отправлено'))}catch(er){if(er&&er.name==='AbortError')return;ms(L('Nu s-a reușit: ','Не получилось: ')+(er&&er.message||er))}return}
-    const F=()=>{if(SV)return Promise.resolve(SV);return (PP||(PP=pdfBlob(o.url))).then(r=>{if(!SV){save(r.b,r.n);SV=r.n}return SV})},fm=t=>MOB()?ms(t):F().then(n=>ms(t+' · '+L('PDF descărcat: ','PDF скачан: ')+n)).catch(er=>ms(t+' · '+L('PDF nu s-a creat','PDF не создался — нажмите «Скачать PDF»')));
+    const NM={wa:'WhatsApp',tg:'Telegram',vb:'Viber',em:'Gmail'};
+    if(NM[a]&&!MOB()&&!SV){if(b.disabled)return;b.disabled=true;ms(L('Se pregătește PDF…','Готовим PDF…'));let n;try{n=await (PP||(PP=pdfBlob(o.url))).then(r=>{save(r.b,r.n);return SV=r.n})}catch(er){PP=null;b.disabled=false;return ms(L('PDF nu s-a creat — încercați din nou','PDF не создался — попробуйте ещё раз'))}b.disabled=false;ms('');
+      W.querySelector('.st').innerHTML=`<b>✓ ${L('Pasul 1: PDF salvat','Шаг 1: PDF сохранён')} — ${he(n)}</b>${L('Pasul 2: deschideți chatul și trageți fișierul din «Descărcări» (sau «+» → «Document»).','Шаг 2: откройте чат и перетащите в него файл из «Загрузок» (или «+» → «Документ»).')}<button class="b ${a}" data-a="${a}">${I[a]||''}${L('Deschide ','Открыть ')+NM[a]} →</button>`;return}
+    const fm=t=>{W.querySelector('.st').innerHTML='';ms(t+(SV&&!MOB()?' · '+L('fișier: ','файл: ')+SV:''))};
     if(a==='wa'){if(MOB())location.href='https://wa.me/'+(tel||'')+'?text='+encodeURIComponent(tx);else window.open('https://web.whatsapp.com/send?'+(tel?'phone='+tel+'&':'')+'text='+encodeURIComponent(tx),'tkwa');fm(tel?L('Deschis WhatsApp — trageți PDF în chat și «Trimite»','Открыт WhatsApp — перетащите PDF в чат и «Отправить»'):L('Număr incorect — alegeți chatul în WhatsApp','Номер не распознан — выберите чат в WhatsApp'))}
     if(a==='tg'){try{navigator.clipboard.writeText(tx)}catch(_){}const ok=tel.length>=11;
       window.open(ok?'https://t.me/+'+tel:'https://t.me/share/url?url='+encodeURIComponent('https://teka.md')+'&text='+encodeURIComponent(tx),'_blank','noopener');
@@ -80,7 +84,7 @@ function open(o){const ru=(o.lang||'ru').toLowerCase()!=='ro',L=(r,m)=>ru?m:r;
       if(MOB())location.href='mailto:'+encodeURIComponent(em).replace('%40','@')+'?subject='+encodeURIComponent(su)+'&body='+encodeURIComponent(tx);
       else window.open('https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(em)+'&su='+encodeURIComponent(su)+'&body='+encodeURIComponent(tx),'tkmail');
       fm(L('Deschis Gmail — atașați PDF și «Trimite»','Открыт Gmail — приложите PDF и нажмите «Отправить»'))}
-    if(a==='pdf'){b.disabled=true;ms(L('Se pregătește PDF…','Готовим PDF…'));const r=await pdf(o.url);ms(r?L('PDF salvat: ','PDF скачан: ')+r.n:L('Nu s-a putut crea PDF','Не удалось создать PDF — сообщите менеджеру сайта'));b.disabled=false}
+    if(a==='pdf'){b.disabled=true;ms(L('Se pregătește PDF…','Готовим PDF…'));const r=await pdf(o.url);if(r)SV=r.n;ms(r?L('PDF salvat: ','PDF скачан: ')+r.n:L('Nu s-a putut crea PDF','Не удалось создать PDF — сообщите менеджеру сайта'));b.disabled=false}
     if(a==='pr'){ms(L('Se deschide tipărirea…','Открываем печать…'));print(o.url).then(ok=>ms(ok?'':L('Documentul nu s-a încărcat','Документ не загрузился')))}
     if(a==='cp'){try{await navigator.clipboard.writeText(o.link);ms(L('Link copiat','Ссылка скопирована'))}catch(_){W.querySelector('.lk input').select()}}
     if(a==='sh'){if(!PB){ms(L('PDF se pregătește — apăsați peste câteva secunde','PDF ещё готовится — нажмите через пару секунд'));return}
