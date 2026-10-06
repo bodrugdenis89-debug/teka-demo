@@ -1,5 +1,153 @@
 [
  {
+  "sku": "112070006",
+  "n": "MSEG 620 BK-SS",
+  "sub": "Cuptor cu microunde incorporabil, Microunde + Grill, Touch Control, 3 funcţii, 8 memorii",
+  "p": 9100,
+  "img": [],
+  "draw": "",
+  "label": "",
+  "desc": [
+   "Cuptor cu microunde incorporabil",
+   "Microunde + Grill",
+   "Touch Control",
+   "3 funcţii",
+   "8 memorii",
+   "Microunde 5 nivele de putere, 1250 W",
+   "Buton \"Quick start\" 30‘’",
+   "Cavitate interioară din inox",
+   "Grill Quartz, 1000 W,",
+   "Timer 0-95 min.",
+   "Decongelare automată în funcţie de timp şi greutate",
+   "Sistem de siguranţă copii",
+   "Sistem de deconectare automată la deschiderea uşii",
+   "1 grătar rotund",
+   "Versiune: balama stanga (L- Left)",
+   "Inox anti-pată"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea netă (litri)",
+      "20,0"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Greutatea produsului (Kgs)",
+      "15"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "GS / EMC"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "3"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "1250"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "230"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "20"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Grill (W)",
+      "1000"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Blocarea de siguranță pentru limitarea accesului copiilor",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de curățare",
+    "r": [
+     [
+      "Inox anti-pată",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Tavă din sticlă",
+      "YES"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://teka-assets.b-cdn.net/wp-json/custom/v1/generate-zip?urls=https%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2FCMP1219%2Ffiles%2FMSEG_620_BK-SS_UserManual_ES-PT-FR-EN-DE.pdf%2Chttps%3A%2F%2Fd7rh5s3nxmpy4.cloudfront.net%2FCMP1219%2Ffiles%2FUserManual_MWO.pdf&zipFilename=teka-mseg-620-bk-ss-manuale.zip"
+  ],
+  "b": "Teka",
+  "f": [],
+  "w": "",
+  "c": "",
+  "col": "",
+  "u": [
+   "assets/u/112070006-muwnejbymak.webp",
+   "assets/u/112070006-muwnekz2ym3.webp",
+   "assets/u/112070006-muwneltei4b.webp",
+   "assets/u/112070006-muwneo12o01.webp",
+   "assets/u/112070006-muwneqxd3bv.webp",
+   "assets/u/112070006-muwnetcjcau.webp",
+   "assets/u/112070006-muwnevvrhld.webp",
+   "assets/u/112070006-muwnexsoeqa.webp",
+   "assets/u/112070006-muwnez8v0s9.webp"
+  ]
+ },
+ {
   "sku": "111000081",
   "n": "EasySteam HLB 8408 BK",
   "sub": "Cuptor multifuncţional, cu funcţie specială Easy Steam și 9 funcţii de preparare",
