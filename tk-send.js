@@ -69,7 +69,9 @@ function open(o){const ru=(o.lang||'ru').toLowerCase()!=='ro',L=(r,m)=>ru?m:r;
   W.addEventListener('click',async e=>{if(e.target===W)return close();const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,tx=msg(),tel=telD(W.querySelector('[name=t]').value);
     if(a==='x')return close();
     if(a==='wa'){if(MOB())location.href='https://wa.me/'+(tel||'')+'?text='+encodeURIComponent(tx);else window.open('https://web.whatsapp.com/send?'+(tel?'phone='+tel+'&':'')+'text='+encodeURIComponent(tx),'tkwa');ms(tel?L('Deschis WhatsApp — apăsați «Trimite»','Открыт WhatsApp — нажмите «Отправить» в чате'):L('Număr de telefon incorect — alegeți chatul în WhatsApp','Номер не распознан — выберите чат в WhatsApp'))}
-    if(a==='tg'){window.open('https://t.me/share/url?url='+encodeURIComponent(o.link||'https://teka.md')+'&text='+encodeURIComponent(msg(1)),'_blank','noopener');ms(L('Deschis Telegram — alegeți chatul clientului','Открыт Telegram — выберите чат клиента'))}
+    if(a==='tg'){try{navigator.clipboard.writeText(tx)}catch(_){}const ok=tel.length>=11;
+      window.open(ok?'https://t.me/+'+tel:'https://t.me/share/url?url='+encodeURIComponent(o.link||'https://teka.md')+'&text='+encodeURIComponent(msg(1)),'_blank','noopener');
+      ms(ok?L('Textul cu link e copiat — în chatul clientului apăsați Cmd+V (Ctrl+V) și «Trimite»','Текст со ссылкой скопирован — в чате клиента нажмите Cmd+V (Ctrl+V) и «Отправить»'):L('Număr necunoscut — alegeți chatul; textul cu link e copiat (Cmd+V)','Номер не распознан — выберите чат; текст со ссылкой скопирован (Cmd+V)'))}
     if(a==='vb'){try{navigator.clipboard.writeText(tx)}catch(_){}location.href='viber://forward?text='+encodeURIComponent(tx);ms(L('Deschis Viber (textul e și copiat)','Открыт Viber (текст также скопирован)'))}
     if(a==='em'){const em=W.querySelector('[name=e]').value.trim(),su='Teka — '+kindT+(o.no?' №'+o.no:'');
       if(MOB())location.href='mailto:'+encodeURIComponent(em).replace('%40','@')+'?subject='+encodeURIComponent(su)+'&body='+encodeURIComponent(tx);
