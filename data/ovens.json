@@ -1,5 +1,317 @@
 [
  {
+  "sku": "111000081",
+  "n": "EasySteam HLB 8408 BK",
+  "sub": "Cuptor multifuncţional, cu funcţie specială Easy Steam și 9 funcţii de preparare",
+  "p": 16100,
+  "img": [],
+  "draw": "assets/u/111000081-draw-muwlfrmuxyg.webp",
+  "label": "assets/u/111000081-label-muwlfrtdby6.webp",
+  "desc": [
+   "Cuptor multifuncţional",
+   "Funcţie specială Easy Steam (aer cald + abur)",
+   "Sistem Surround Temp (Turbo) - 9 funcţii de preparare",
+   "Sistem de curăţare Teka HydroClean®",
+   "Touch Control şi butoane fixe din inox",
+   "Timer electronic",
+   "Suporturi cromate (5 nivele de preparare)",
+   "Sistem de siguranţă pentru limitarea accesului copiilor",
+   "Uşă interioară complet din sticlă (2 straturi)",
+   "Tavă adâncă cu protecţie la răsturnare şi grătar",
+   "Clasă energetică: A+",
+   "Capacitate brută/netă: 71/70 l",
+   "Finisaj: cristal negru design Infinity Glass (fără rama)"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "364"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "402"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "70"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "71"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "537+22"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "28"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "N / CE / CCA / CB/"
+     ],
+     [
+      "Numărul de cavități",
+      "1"
+     ],
+     [
+      "Cavitatea emailată",
+      "Da"
+     ],
+     [
+      "Regulator de temperatură Min. (ºC)",
+      "50"
+     ],
+     [
+      "Regulator de temperatură Max. (ºC)",
+      "250"
+     ],
+     [
+      "Selector de funcții",
+      "11+0"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "9"
+     ],
+     [
+      "Încălzire convenţională",
+      "Da"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Funcția MaxiGrill",
+      "Da"
+     ],
+     [
+      "MaxiGrill + Ventilaţie",
+      "Da"
+     ],
+     [
+      "Element inferior de încălzire",
+      "Da"
+     ],
+     [
+      "Element inferior de încălzire + TURBO (Pizza)",
+      "Da"
+     ],
+     [
+      "Funcţia TURBO",
+      "Da"
+     ],
+     [
+      "Funcția ECO",
+      "Da"
+     ],
+     [
+      "Încălzire rapidă mecanică",
+      "Da"
+     ],
+     [
+      "Suporturi cromate detaşabile",
+      "Da"
+     ],
+     [
+      "Numărul ghidajelor",
+      "5"
+     ],
+     [
+      "Ghidaje telescopice Easy Slide",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "3215"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220/240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "25"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Consumul de energie pe ciclu în mod convențional (kWh)",
+      "0.81"
+     ],
+     [
+      "Consumul de energie pe ciclu în modul de convecție forțată de ventilator (kWh)",
+      "0.68"
+     ],
+     [
+      "Element inferior de încălzire (W)",
+      "1150"
+     ],
+     [
+      "Grill (W)",
+      "1400"
+     ],
+     [
+      "Maxi Grill (W)",
+      "2500"
+     ],
+     [
+      "Tradițional (W)",
+      "2550"
+     ],
+     [
+      "Turbo (W)",
+      "2000"
+     ],
+     [
+      "Turbo multifuncțional (W)",
+      "22"
+     ],
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ],
+     [
+      "Tavă cu protecţie la răsturnare",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de curățare",
+    "r": [
+     [
+      "Email Crystal Clean (Slippery)",
+      "Da"
+     ],
+     [
+      "Hydroclean PRO",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Tavă adâncă (50mm)",
+      "1"
+     ],
+     [
+      "Grătare individuale",
+      "1"
+     ],
+     [
+      "Tavă adâncă (cavitate inferioară) (50 mm)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Eficienta energetica",
+    "r": [
+     [
+      "Clasa de eficiență energetică",
+      "A+"
+     ],
+     [
+      "Indicele eficienței energetice (EEI)",
+      "81"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/3/EasySteam_UserManual_ES-PT-EN-FR-DE-NL-EL-P%D0%A3-HU-PL-%D0%91%D0%93-RO-%D0%A3%D0%9A-CS-SK-TR.pdf"
+  ],
+  "b": "Teka",
+  "f": [],
+  "w": "",
+  "c": "",
+  "col": "",
+  "u": [
+   "assets/u/111000081-muwlesyrn00.webp",
+   "assets/u/111000081-muwleue54hy.webp",
+   "assets/u/111000081-muwlevr0ab5.webp",
+   "assets/u/111000081-muwlexttq8t.webp",
+   "assets/u/111000081-muwlf2gqyzb.webp",
+   "assets/u/111000081-muwlf5cj7lb.webp",
+   "assets/u/111000081-muwlf8ye56d.webp",
+   "assets/u/111000081-muwlfa503bq.webp",
+   "assets/u/111000081-muwlfbtxpws.webp",
+   "assets/u/111000081-muwlfdefabg.webp",
+   "assets/u/111000081-muwlfg61kmh.webp",
+   "assets/u/111000081-muwlfixty4c.webp",
+   "assets/u/111000081-muwlflmewvy.webp",
+   "assets/u/111000081-muwlfnvmvde.webp",
+   "assets/u/111000081-muwlfqzoluc.webp"
+  ]
+ },
+ {
   "sku": "hsb-630-white",
   "n": "HSB 630 WHITE",
   "sub": "Cuptor multifuncțional",
