@@ -27,7 +27,7 @@
   "sub": "Cuptor multifuncțional cu 8 funcții de gătit, sistem HydroClean și ghidaje de extensie plus",
   "p": 10400,
   "img": [],
-  "draw": "",
+  "draw": "111010071-draw.webp",
   "label": "",
   "desc": [
    "Seria Neo",
@@ -53,8 +53,260 @@
    "Oțel inoxidabil rezistent la amprente",
    "Capacitate (brută/netă): 71 / 70 litri"
   ],
-  "specs": [],
-  "pdf": [],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "364"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "402"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "70"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "71"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "537+22"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "28,5"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "N / CE / CCA / CB"
+     ],
+     [
+      "Numărul de cavități",
+      "1"
+     ],
+     [
+      "Cavitatea emailată",
+      "Da"
+     ],
+     [
+      "Regulator de temperatură Min. (ºC)",
+      "50"
+     ],
+     [
+      "Regulator de temperatură Max. (ºC)",
+      "250"
+     ],
+     [
+      "Selector de funcții",
+      "10+0"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "8"
+     ],
+     [
+      "Încălzire convenţională",
+      "Da"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Funcția MaxiGrill",
+      "Da"
+     ],
+     [
+      "Convecţie",
+      "Da"
+     ],
+     [
+      "MaxiGrill + Ventilaţie",
+      "Da"
+     ],
+     [
+      "Element inferior de încălzire",
+      "Da"
+     ],
+     [
+      "Funcția ECO",
+      "Da"
+     ],
+     [
+      "Încălzire rapidă mecanică",
+      "Da"
+     ],
+     [
+      "Suporturi cromate detaşabile",
+      "Da"
+     ],
+     [
+      "Numărul ghidajelor",
+      "5"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "2615"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220/240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "25"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Consumul de energie pe ciclu în mod convențional (kWh)",
+      "0.86"
+     ],
+     [
+      "Consumul de energie pe ciclu în modul de convecție forțată de ventilator (kWh)",
+      "0.68"
+     ],
+     [
+      "Element inferior de încălzire (W)",
+      "1150"
+     ],
+     [
+      "Grill (W)",
+      "1400"
+     ],
+     [
+      "Maxi Grill (W)",
+      "2500"
+     ],
+     [
+      "Tradițional (W)",
+      "2550"
+     ],
+     [
+      "Turbo multifuncțional (W)",
+      "22"
+     ],
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ],
+     [
+      "Tavă cu protecţie la răsturnare",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de curățare",
+    "r": [
+     [
+      "Email Crystal Clean (Slippery)",
+      "Da"
+     ],
+     [
+      "Hydroclean PRO",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Tavă adâncă (50mm)",
+      "1"
+     ],
+     [
+      "Grătare individuale",
+      "1"
+     ],
+     [
+      "Tavă adâncă (cavitate inferioară) (50 mm)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Eficienta energetica",
+    "r": [
+     [
+      "Clasa de eficiență energetică",
+      "A+"
+     ],
+     [
+      "Indicele eficienței energetice (EEI)",
+      "81"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/2/HSB-HSB_P-HSC-HSC_P_UserManual_PY-HU-PL-RO-YK-CS-SK.pdf"
+  ],
   "b": "Teka",
   "f": [],
   "w": 60,
@@ -62,9 +314,16 @@
   "col": "alb",
   "tag": "new",
   "u": [
-   "assets/u/neo-hsb-6350-wh-muweg2kth33-sq.webp",
-   "assets/u/neo-hsb-6350-wh-muwej31k7e7-sq.webp",
-   "assets/u/neo-hsb-6350-wh-muwejhf72ty-sq.webp"
+   "assets/u/111010070-1.webp",
+   "assets/u/111010070-2.webp",
+   "assets/u/111010070-3.webp",
+   "assets/u/111010070-4.webp",
+   "assets/u/111010070-5.webp",
+   "assets/u/111010070-6.webp",
+   "assets/u/111010070-7.webp",
+   "assets/u/111010070-8.webp",
+   "assets/u/111010070-9.webp",
+   "assets/u/111010070-10.webp"
   ]
  },
  {
