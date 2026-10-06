@@ -1,5 +1,170 @@
 [
  {
+  "sku": "40584001",
+  "n": "MB 620 BI",
+  "sub": "Cuptor cu microunde încorporabil, cu sistem de control electromecanic, capacitate 20l",
+  "p": 8100,
+  "img": [],
+  "draw": "",
+  "label": "",
+  "desc": [
+   "Cuptor cu microunde",
+   "Sistem de control electromecanic",
+   "1 funcţie",
+   "Microunde 5 nivele de putere, 700 W",
+   "Timer 0-60’",
+   "Capacitate: 20 l",
+   "Decongelare automată în funcţie de timp",
+   "Uşă interioară complet din sticlă (2 straturi)",
+   "Cavitate interioară din inox",
+   "Versiune: balama stânga"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "210"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "305"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "280"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "18"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "20"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "390"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "325"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "16,5"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB"
+     ],
+     [
+      "Numărul de cavități",
+      "1"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "1"
+     ],
+     [
+      "Numărul ghidajelor (cavitatea inferioară)",
+      "0"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "1200"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220 - 240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Eficienta energetica",
+    "r": [
+     [
+      "Indicele eficienței energetice (EEI)",
+      "A"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/3/MB-620-ML-820-BI-UserManual-RO-CS-HU.pdf"
+  ],
+  "b": "Teka",
+  "f": [],
+  "w": "",
+  "c": "",
+  "col": "",
+  "u": [
+   "assets/u/40584001-muwo5qww2sf.webp",
+   "assets/u/40584001-muwo5ssxx1p.webp",
+   "assets/u/40584001-muwo5vml6wk.webp",
+   "assets/u/40584001-muwo5y1hxiq.webp",
+   "assets/u/40584001-muwo61ahlai.webp",
+   "assets/u/40584001-muwo67509kg.webp",
+   "assets/u/40584001-muwo699qeh1.webp",
+   "assets/u/40584001-muwo6at9epa.webp",
+   "assets/u/40584001-muwo6dinwu7.webp",
+   "assets/u/40584001-muwo6fix6qx.webp"
+  ]
+ },
+ {
   "sku": "112070006",
   "n": "MSEG 620 BK-SS",
   "sub": "Cuptor cu microunde incorporabil, Microunde + Grill, Touch Control, 3 funcţii, 8 memorii",
