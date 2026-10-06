@@ -6,7 +6,7 @@ const ld=()=>{let s=null;try{s=JSON.parse(localStorage.getItem(SK)||'null')}catc
 let S=ld();const sv=()=>{try{localStorage.setItem(SK,JSON.stringify(S))}catch(_){}bar()};
 const q=(s,r=document)=>r.querySelector(s);
 const api=async(p,body)=>{const r=await fetch(API0+p,{method:body?'POST':'GET',headers:{'Content-Type':'application/json',Authorization:'Bearer '+(M&&M.t)},body:body?JSON.stringify(body):undefined});
-  const j=await r.json().catch(()=>({error:'Сервер не отвечает'}));if(r.status===401){logout();throw new Error('Вход истёк — войдите заново')}if(!r.ok)throw new Error(j.error||'Ошибка '+r.status);return j};
+  const j=await r.json().catch(()=>({error:Z('Сервер не отвечает')}));if(r.status===401){logout();throw new Error(Z('Вход истёк — войдите заново'))}if(!r.ok)throw new Error(j.error||Z('Ошибка ')+r.status);return j};
 const st=document.createElement('style');st.textContent=`
 .mgp{position:fixed;left:16px;bottom:16px;z-index:90;display:flex;align-items:center;gap:2px;background:var(--ink);color:#fff;border-radius:22px;padding:4px;font-size:13px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
 .mgp b{padding:0 10px 0 12px;font-weight:600;display:flex;align-items:center;gap:7px}.mgp b:before{content:"";width:7px;height:7px;border-radius:50%;background:#3ccf7a}
@@ -58,23 +58,25 @@ document.head.appendChild(st);
 
 function logout(){M=null;S={items:[],dk:'pct',dv:0,name:'',tel:'',cm:''};RES=null;try{localStorage.removeItem(MK);localStorage.removeItem(SK)}catch(_){}document.querySelectorAll('.mgp,.mgb,#mgAdd').forEach(e=>e.remove());if(window.tekaScreensaver)tekaScreensaver.off();close()}
 function login(){const w=document.createElement('div');w.className='mgl';
-  w.innerHTML=`<form><h4>Вход для менеджера</h4><input name="n" placeholder="Имя" autocomplete="username" required><input name="p" type="password" placeholder="Пароль" autocomplete="current-password" required><button>Войти</button><div class="er"></div><button type="button" class="cn">Отмена</button></form>`;
+  w.innerHTML=`<form><h4>${Z('Вход для менеджера')}</h4><input name="n" placeholder="${Z('Имя')}" autocomplete="username" required><input name="p" type="password" placeholder="${Z('Пароль')}" autocomplete="current-password" required><button>${Z('Войти')}</button><div class="er"></div><button type="button" class="cn">${Z('Отмена')}</button></form>`;
   document.body.appendChild(w);const f=q('form',w);setTimeout(()=>f.n.focus(),50);
   q('.cn',w).onclick=()=>w.remove();
   f.onsubmit=async e=>{e.preventDefault();q('.er',w).textContent='';
     try{const r=await fetch(API0+'/api/mlogin',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:f.n.value,pass:f.p.value})});const j=await r.json().catch(()=>({}));
-      if(!r.ok)throw new Error(j.error||'Не удалось войти');M={t:j.token,n:j.name};localStorage.setItem(MK,JSON.stringify(M));w.remove();start()}
+      if(!r.ok)throw new Error(j.error||Z('Не удалось войти'));M={t:j.token,n:j.name};localStorage.setItem(MK,JSON.stringify(M));w.remove();start()}
     catch(er){q('.er',w).textContent=er.message}}}
 
 const IX={};
 async function item(f,sku){const L=await cat(f);return L.find(x=>String(x.sku)===String(sku))||null}
 const has=(f,sku)=>S.items.some(i=>i.f===f&&String(i.sku)===String(sku));
-async function add(f,sku){if(has(f,sku)){toast('Уже в подборке');return}const x=await item(f,sku);if(!x)return;S.items.push({f,sku:String(sku),q:1,dk:'pct',dv:0});sv();mark();toast('Добавлено в подборку')}
+async function add(f,sku){if(has(f,sku)){toast(Z('Уже в подборке'));return}const x=await item(f,sku);if(!x)return;S.items.push({f,sku:String(sku),q:1,dk:'pct',dv:0});sv();mark();toast(Z('Добавлено в подборку'))}
 function mark(){if(!M)return;document.querySelectorAll('.pc[data-sku]').forEach(a=>{let b=q('.mgb',a);if(!b){b=document.createElement('button');b.className='mgb';b.type='button';const qa=q('.bt .qa',a);if(!qa)return;qa.before(b)}
     const on=has(a.dataset.f,a.dataset.sku);b.classList.toggle('on',on);b.textContent=on?'✓':'+';b.title=on?L('În selecție','В подборке'):L('Adaugă în selecție','Добавить в подборку')});
   const ad=q('#add');if(ad&&typeof SKU!=='undefined'&&typeof F!=='undefined'){let b=q('#mgAdd');if(!b){b=document.createElement('button');b.id='mgAdd';b.type='button';ad.after(b)}const on=has(F,SKU);b.classList.toggle('on',on);b.textContent=on?L('✓ În selecție','✓ В подборке'):L('+ Adaugă în selecție','+ В подборку')}}
 
 const L=(ro,ru)=>LANG==='ru'?ru:ro;
+const ZR={"Сервер не отвечает": "Serverul nu răspunde", "Вход истёк — войдите заново": "Sesiunea a expirat — autentificați-vă din nou", "Ошибка ": "Eroare ", "Вход для менеджера": "Autentificare manager", "Имя": "Nume", "Пароль": "Parolă", "Войти": "Intră", "Отмена": "Anulează", "Не удалось войти": "Autentificare eșuată", "Уже в подборке": "Deja în selecție", "Добавлено в подборку": "Adăugat în selecție", "Не загрузился tk-send.js": "Nu s-a încărcat tk-send.js", "Сравнить": "Compară", "Кол-во": "Cant.", "Скидка": "Reducere", "шт.": "buc.", "по запросу": "la cerere", "Удалить из подборки": "Șterge din selecție", "Удалить": "Șterge", "Подборка пуста. Добавляйте товары кнопкой «+ Подборка» на карточках.": "Selecția e goală. Adăugați produse cu butonul «+ Selecție» de pe carduri.", "Скидка на всю подборку": "Reducere la toată selecția", "Имя клиента": "Nume client", "Телефон клиента": "Telefon client", "Комментарий для клиента": "Comentariu pentru client", "Товары": "Produse", "Скидки на позиции": "Reduceri pe poziții", "Скидка на подборку": "Reducere la selecție", "Итого": "Total", "Ссылка для клиента готова": "Linkul pentru client e gata", "WhatsApp · Telegram · Viber · Почта": "WhatsApp · Telegram · Viber · E-mail", "Скопировать ссылку": "Copiază linkul", "Открыть": "Deschide", "новый": "nouă", "в работе": "în lucru", "выдан": "livrată", "отменён": "anulată", "без имени": "fără nume", "Клиент уже есть": "Clientul există deja", "ведёт": "gestionează", "Заказы": "Comenzi", "на": "pe", "подборки": "selecții", "последний контакт": "ultimul contact", "заказ": "comandă", "подборка": "selecție", "Подборка пуста": "Selecția e goală", "Подборка сохранена": "Selecția a fost salvată", "Телефон клиента не указан — заказ не попадёт в базу клиентов. Оформить?": "Telefonul clientului nu e indicat — comanda nu va intra în baza de clienți. Continuați?", "Заказ записан в журнал": "Comanda a fost înregistrată", "Заказ записан. Очистить подборку?": "Comanda a fost înregistrată. Goliți selecția?", "Отметьте 2–3 товара для сравнения": "Bifați 2–3 produse pentru comparare", "Сравнение": "Comparare", "только различия": "doar diferențele", "Цена": "Preț", "Наличие": "Stoc", "Бренд": "Brand", "Подборка для клиента": "Selecție pentru client", "Закрыть": "Închide", "Скачать PDF": "Descarcă PDF", "Печать": "Tipărire", "Очистить": "Golește", "Оформить заказ сейчас": "Plasează comanda acum", "Отправить клиенту": "Trimite clientului", "Очистить подборку?": "Goliți selecția?", "Ссылка скопирована": "Link copiat"},Z=k=>LANG==='ru'?k:ZR[k]||k;
+document.addEventListener('click',e=>{if(e.target.closest('#lng,[data-l]'))setTimeout(()=>{try{document.querySelectorAll('.mgd [data-z]').forEach(x=>x.textContent=Z(x.dataset.z));bar();mark();if(q('.mgd.on'))draw()}catch(_){}},80)});
 function bar(){if(!M)return;let p=q('.mgp');if(!p){p=document.createElement('div');p.className='mgp';const t=q('.top .wrap');t?t.insertBefore(p,q('#lng')||null):document.body.appendChild(p)}
   const n=S.items.reduce((a,i)=>a+i.q,0);p.innerHTML=`<b>${he(M.n)}</b><button data-m="sel" class="${n?'on':''}">${L('Selecție','Подборка')}${n?`<em>${n}</em>`:''}</button><button data-m="out">${L('Ieșire','Выйти')}</button>`}
 
@@ -83,8 +85,8 @@ const unit=(p,k,v)=>Math.max(0,Math.round(k==='pct'?p*(1-Math.min(v,100)/100):k=
 async function lines(){const R=[];for(const i of S.items){const x=await item(i.f,i.sku);if(!x)continue;const p=pr(x),u=unit(p,i.dk,+i.dv||0);R.push({i,x,p,o:od(x)>p?od(x):0,u})}return R}
 function calc(R){const sub=R.reduce((a,r)=>a+r.u*r.i.q,0),full=R.reduce((a,r)=>a+r.p*r.i.q,0),dv=+S.dv||0;
   const disc=Math.min(sub,S.dk==='pct'?Math.round(sub*Math.min(dv,100)/100):S.dk==='sum'?dv:0);return {sub,full,disc,tot:sub-disc}}
-const TS='/tk-send.js?v=001a7983';let tsP=null;
-const tks=()=>window.tkSend?Promise.resolve(window.tkSend):tsP||(tsP=new Promise((ok,no)=>{const s=document.createElement('script');s.src=TS;s.onload=()=>ok(window.tkSend);s.onerror=()=>{tsP=null;no(new Error('Не загрузился tk-send.js'))};document.head.appendChild(s)}));
+const TS='/tk-send.js?v=bd02e343';let tsP=null;
+const tks=()=>window.tkSend?Promise.resolve(window.tkSend):tsP||(tsP=new Promise((ok,no)=>{const s=document.createElement('script');s.src=TS;s.onload=()=>ok(window.tkSend);s.onerror=()=>{tsP=null;no(new Error(Z('Не загрузился tk-send.js')))};document.head.appendChild(s)}));
 const docUrl=()=>(RES?'/desk-offer.html?o='+RES.id+'&nv=1':'/desk-offer.html?local=1')+'&l='+LANG;
 async function sendBox(){if(!RES)return;try{(await tks()).open({url:docUrl(),link:RES.url,no:RES.id,tot:RES.tot,name:S.name,tel:S.tel,lang:LANG,kind:'offer'})}catch(e){toast(e.message)}}
 
@@ -93,57 +95,57 @@ function close(){const w=q('.mgw'),d=q('.mgd');if(w)w.classList.remove('on');if(
 const dsel=(k,v,attr)=>`<select ${attr}><option value="pct" ${k!=='sum'?'selected':''}>%</option><option value="sum" ${k==='sum'?'selected':''}>MDL</option></select>`;
 let RES=null,CL=null;
 async function draw(){const d=q('.mgd');if(!d)return;const R=await lines(),c=calc(R);
-  q('.bd',d).innerHTML=(R.length?R.map((r,k)=>`<div class="mgi" data-k="${k}"><input type="checkbox" data-cmp ${r.i.c?'checked':''} title="Сравнить"><img src="${he(pics(r.x)[0]||'')}" alt="" onerror="this.style.visibility='hidden'">
+  q('.bd',d).innerHTML=(R.length?R.map((r,k)=>`<div class="mgi" data-k="${k}"><input type="checkbox" data-cmp ${r.i.c?'checked':''} title="${Z('Сравнить')}"><img src="${he(pics(r.x)[0]||'')}" alt="" onerror="this.style.visibility='hidden'">
     <div><b>${he(nm(r.x))}</b><small>${he(r.i.sku)} · <span class="${r.x.st?'no':'ok'}">${stk(r.x)}</span></small>
-     <div class="rw">Кол-во <input data-q type="number" min="1" max="99" value="${r.i.q}"> Скидка <input data-dv type="number" min="0" value="${+r.i.dv||''}" placeholder="0">${dsel(r.i.dk,0,'data-dk')}</div>
+     <div class="rw">${Z('Кол-во')} <input data-q type="number" min="1" max="99" value="${r.i.q}"> ${Z('Скидка')} <input data-dv type="number" min="0" value="${+r.i.dv||''}" placeholder="0">${dsel(r.i.dk,0,'data-dk')}</div>
      </div>
-    <div class="sm">${r.p?`${r.u<r.p?`<s>${mdl(r.p*r.i.q)}</s>`:''}<b>${mdl(r.u*r.i.q)}</b>${r.i.q>1?`<small>${mdl(r.u)} / шт.</small>`:''}`:'<b>по запросу</b>'}<button class="rm" data-rm title="Удалить из подборки" aria-label="Удалить"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></svg></button></div></div>`).join(''):'<p style="padding:30px 0;color:var(--mute)">Подборка пуста. Добавляйте товары кнопкой «+ Подборка» на карточках.</p>')+
-   `<div class="mgf"><label>Скидка на всю подборку<span style="display:flex;gap:6px"><input data-adv type="number" min="0" value="${+S.dv||''}" placeholder="0" style="flex:1">${dsel(S.dk,0,'data-adk')}</span></label><span></span>
-     <label>Имя клиента<input data-s="name" value="${he(S.name)}"></label><label>Телефон клиента<input data-s="tel" value="${he(S.tel)}" placeholder="+373 …" inputmode="tel"></label>
+    <div class="sm">${r.p?`${r.u<r.p?`<s>${mdl(r.p*r.i.q)}</s>`:''}<b>${mdl(r.u*r.i.q)}</b>${r.i.q>1?`<small>${mdl(r.u)} / ${Z('шт.')}</small>`:''}`:'<b>'+Z(Z('по запросу'))+'</b>'}<button class="rm" data-rm title="${Z('Удалить из подборки')}" aria-label="${Z('Удалить')}"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></svg></button></div></div>`).join(''):'<p style="padding:30px 0;color:var(--mute)">'+Z('Подборка пуста. Добавляйте товары кнопкой «+ Подборка» на карточках.')+'</p>')+
+   `<div class="mgf"><label>${Z('Скидка на всю подборку')}<span style="display:flex;gap:6px"><input data-adv type="number" min="0" value="${+S.dv||''}" placeholder="0" style="flex:1">${dsel(S.dk,0,'data-adk')}</span></label><span></span>
+     <label>${Z('Имя клиента')}<input data-s="name" value="${he(S.name)}"></label><label>${Z('Телефон клиента')}<input data-s="tel" value="${he(S.tel)}" placeholder="+373 …" inputmode="tel"></label>
      <div class="mgcl" id="mgcl" hidden></div>
-     <label class="w">Комментарий для клиента<textarea data-s="cm">${he(S.cm)}</textarea></label></div>
-   <div class="mgt"><div><span>Товары</span><span>${mdl(c.full)}</span></div>${c.full-c.sub?`<div><span>Скидки на позиции</span><span>−${mdl(c.full-c.sub)}</span></div>`:''}${c.disc?`<div><span>Скидка на подборку</span><span>−${mdl(c.disc)}</span></div>`:''}<div class="g"><span>Итого</span><span>${mdl(c.tot)}</span></div></div>
-   ${RES?`<div class="mgres"><b>Ссылка для клиента готова · №${he(RES.id)}</b><input readonly value="${he(RES.url)}"><div><button data-a="snd" style="background:var(--red);border-color:var(--red);color:#fff">WhatsApp · Telegram · Viber · Почта</button><button data-a="copy">Скопировать ссылку</button><a href="${he(RES.url)}" target="_blank" rel="noopener">Открыть</a></div></div>`:''}`;
+     <label class="w">${Z('Комментарий для клиента')}<textarea data-s="cm">${he(S.cm)}</textarea></label></div>
+   <div class="mgt"><div><span>${Z('Товары')}</span><span>${mdl(c.full)}</span></div>${c.full-c.sub?`<div><span>${Z('Скидки на позиции')}</span><span>−${mdl(c.full-c.sub)}</span></div>`:''}${c.disc?`<div><span>${Z('Скидка на подборку')}</span><span>−${mdl(c.disc)}</span></div>`:''}<div class="g"><span>${Z('Итого')}</span><span>${mdl(c.tot)}</span></div></div>
+   ${RES?`<div class="mgres"><b>${Z('Ссылка для клиента готова')} · №${he(RES.id)}</b><input readonly value="${he(RES.url)}"><div><button data-a="snd" style="background:var(--red);border-color:var(--red);color:#fff">${Z('WhatsApp · Telegram · Viber · Почта')}</button><button data-a="copy">${Z('Скопировать ссылку')}</button><a href="${he(RES.url)}" target="_blank" rel="noopener">${Z('Открыть')}</a></div></div>`:''}`;
   showCl()}
-function showCl(){const e=q('#mgcl');if(!e)return;if(!CL||!CL.client){e.hidden=true;return}const k=CL.client,os={new:'новый',work:'в работе',done:'выдан',cancel:'отменён'};
-  e.hidden=false;e.innerHTML=`<b>Клиент уже есть: ${he(k.name||'без имени')}</b> · ${he(k.tel)}${k.mg?' · ведёт '+he(k.mg):''}${k.tags&&k.tags.length?' · '+k.tags.map(he).join(', '):''}<br>Заказы: ${k.orders.length}, на ${mdl(k.tot||0)} · подборки: ${k.offers.length}${k.last?' · последний контакт '+new Date(k.last).toLocaleDateString('ru-RU'):''}
-   ${k.orders.slice(0,3).map(o=>`<br>— заказ ${new Date(o.t).toLocaleDateString('ru-RU')}: ${mdl(o.tot)} (${os[o.st]||o.st})${o.mg?', '+he(o.mg):''}`).join('')}${k.offers.slice(0,3).map(o=>`<br>— подборка №${he(o.id)} ${new Date(o.t).toLocaleDateString('ru-RU')}: ${mdl(o.tot)}${o.mg?', '+he(o.mg):''}`).join('')}${k.notes?`<br><i>${he(k.notes).slice(0,300)}</i>`:''}`}
+function showCl(){const e=q('#mgcl');if(!e)return;if(!CL||!CL.client){e.hidden=true;return}const k=CL.client,os={new:Z('новый'),work:Z('в работе'),done:Z('выдан'),cancel:Z('отменён')};
+  e.hidden=false;e.innerHTML=`<b>${Z('Клиент уже есть')}: ${he(k.name||Z('без имени'))}</b> · ${he(k.tel)}${k.mg?' · '+Z('ведёт')+' '+he(k.mg):''}${k.tags&&k.tags.length?' · '+k.tags.map(he).join(', '):''}<br>${Z('Заказы')}: ${k.orders.length}, ${Z('на')} ${mdl(k.tot||0)} · ${Z('подборки')}: ${k.offers.length}${k.last?' · '+Z('последний контакт')+' '+new Date(k.last).toLocaleDateString(LANG==='ru'?'ru-RU':'ro-RO'):''}
+   ${k.orders.slice(0,3).map(o=>`<br>— ${Z('заказ')} ${new Date(o.t).toLocaleDateString(LANG==='ru'?'ru-RU':'ro-RO')}: ${mdl(o.tot)} (${os[o.st]||o.st})${o.mg?', '+he(o.mg):''}`).join('')}${k.offers.slice(0,3).map(o=>`<br>— ${Z('подборка')} №${he(o.id)} ${new Date(o.t).toLocaleDateString(LANG==='ru'?'ru-RU':'ro-RO')}: ${mdl(o.tot)}${o.mg?', '+he(o.mg):''}`).join('')}${k.notes?`<br><i>${he(k.notes).slice(0,300)}</i>`:''}`}
 let ct=0;async function findCl(){const t=S.tel.replace(/\D/g,'');if(t.length<8){CL=null;showCl();return}try{CL=await api('/api/client-find?tel='+encodeURIComponent(S.tel))}catch(_){CL=null}showCl()}
 
 async function payload(){const R=await lines();return {items:R.map(r=>({sku:r.i.sku,f:r.i.f,n:nm(r.x),sub:String(tx('s',r.x.sub)||'').slice(0,200),img:pics(r.x)[0]||'',st:r.x.st||'',q:r.i.q,p:r.p,...(r.o?{o:r.o}:{}),dk:r.i.dk,dv:+r.i.dv||0})),dk:S.dk,dv:+S.dv||0,name:S.name.trim(),tel:S.tel.trim(),cm:S.cm.trim(),lang:LANG.toUpperCase()}}
 const base=()=>location.origin+'/';
-async function send(){if(!S.items.length)return toast('Подборка пуста');const R=await lines(),c=calc(R);
+async function send(){if(!S.items.length)return toast(Z('Подборка пуста'));const R=await lines(),c=calc(R);
   if(RES)return sendBox();
   try{const j=await api('/api/offer',await payload());const url=base()+'desk-offer.html?o='+j.id;
-    RES={id:j.id,url,tot:c.tot};draw();toast('Подборка сохранена');sendBox()}catch(e){toast(e.message)}}
-async function orderNow(){if(!S.items.length)return toast('Подборка пуста');const R=await lines(),c=calc(R);
-  if(!S.tel.trim()&&!confirm('Телефон клиента не указан — заказ не попадёт в базу клиентов. Оформить?'))return;
+    RES={id:j.id,url,tot:c.tot};draw();toast(Z('Подборка сохранена'));sendBox()}catch(e){toast(e.message)}}
+async function orderNow(){if(!S.items.length)return toast(Z('Подборка пуста'));const R=await lines(),c=calc(R);
+  if(!S.tel.trim()&&!confirm(Z('Телефон клиента не указан — заказ не попадёт в базу клиентов. Оформить?')))return;
   try{await api('/api/order',{items:R.map(r=>({sku:r.i.sku,n:nm(r.x),q:r.i.q,p:r.u,...(r.p>r.u?{o:r.p}:{})})),tot:c.tot,name:S.name.trim(),tel:S.tel.trim(),cm:S.cm.trim(),ch:'mgr',lang:LANG.toUpperCase(),page:location.href.slice(0,300),...(RES?{of:RES.id}:{})});
-    toast('Заказ записан в журнал');if(confirm('Заказ записан. Очистить подборку?')){S={items:[],dk:'pct',dv:0,name:'',tel:'',cm:''};RES=null;CL=null;sv();mark();draw()}}catch(e){toast(e.message)}}
+    toast(Z('Заказ записан в журнал'));if(confirm(Z('Заказ записан. Очистить подборку?'))){S={items:[],dk:'pct',dv:0,name:'',tel:'',cm:''};RES=null;CL=null;sv();mark();draw()}}catch(e){toast(e.message)}}
 
-async function compare(){const R=await lines();let L=R.filter(r=>r.i.c);if(L.length<2)L=R.slice(0,3);L=L.slice(0,3);if(L.length<2)return toast('Отметьте 2–3 товара для сравнения');
+async function compare(){const R=await lines();let L=R.filter(r=>r.i.c);if(L.length<2)L=R.slice(0,3);L=L.slice(0,3);if(L.length<2)return toast(Z('Отметьте 2–3 товара для сравнения'));
   const G=[];const key=(g,k)=>tx('k',g)+'|'+tx('k',k);const V=L.map(()=>({}));
   L.forEach((r,j)=>(r.x.specs||[]).forEach(g=>(g.r||[]).forEach(([k,v])=>{const kk=key(g.t,k);if(!G.some(z=>z[0]===kk))G.push([kk,tx('k',g.t),tx('k',k)]);V[j][kk]=tx('v',v)})));
   let h='',last='';for(const [kk,g,k] of G){if(g!==last){h+=`<tr class="gr"><td colspan="${L.length+1}">${he(g)}</td></tr>`;last=g}const vs=V.map(o=>o[kk]||'—');h+=`<tr class="${new Set(vs).size>1?'df':''}"><td>${he(k)}</td>${vs.map(v=>`<td>${he(v)}</td>`).join('')}</tr>`}
   const w=document.createElement('div');w.className='mgw on';w.style.zIndex=97;const m=document.createElement('div');m.className='mgc';
-  m.innerHTML=`<h3 style="font-size:19px;padding:18px 22px;display:flex;align-items:center"><span style="flex:1">Сравнение</span><span class="mgok"><input type="checkbox" id="mgdf"> только различия</span><button class="x" style="margin-left:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line)">✕</button></h3><div class="bd"><table><thead><tr><th></th>${L.map(r=>`<th><img src="${he(CP(pics(r.x)[0]||''))}" data-o="${he(pics(r.x)[0]||'')}" onerror="${OE}" alt="">${he(nm(r.x))}<br><small style="color:var(--mute);font-weight:500">${he(r.i.sku)}</small></th>`).join('')}</tr></thead><tbody>
-   <tr class="${new Set(L.map(r=>r.u)).size>1?'df':''}"><td>Цена</td>${L.map(r=>`<td><b>${r.p?mdl(r.u):'по запросу'}</b>${r.u<r.p?` <s style="color:var(--mute)">${mdl(r.p)}</s>`:''}</td>`).join('')}</tr>
-   <tr><td>Наличие</td>${L.map(r=>`<td>${stk(r.x)}</td>`).join('')}</tr><tr><td>Бренд</td>${L.map(r=>`<td>${he(bnd(r.x))}</td>`).join('')}</tr>${h}</tbody></table></div>`;
+  m.innerHTML=`<h3 style="font-size:19px;padding:18px 22px;display:flex;align-items:center"><span style="flex:1">${Z('Сравнение')}</span><span class="mgok"><input type="checkbox" id="mgdf"> ${Z('только различия')}</span><button class="x" style="margin-left:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line)">✕</button></h3><div class="bd"><table><thead><tr><th></th>${L.map(r=>`<th><img src="${he(CP(pics(r.x)[0]||''))}" data-o="${he(pics(r.x)[0]||'')}" onerror="${OE}" alt="">${he(nm(r.x))}<br><small style="color:var(--mute);font-weight:500">${he(r.i.sku)}</small></th>`).join('')}</tr></thead><tbody>
+   <tr class="${new Set(L.map(r=>r.u)).size>1?'df':''}"><td>${Z('Цена')}</td>${L.map(r=>`<td><b>${r.p?mdl(r.u):Z('по запросу')}</b>${r.u<r.p?` <s style="color:var(--mute)">${mdl(r.p)}</s>`:''}</td>`).join('')}</tr>
+   <tr><td>${Z('Наличие')}</td>${L.map(r=>`<td>${stk(r.x)}</td>`).join('')}</tr><tr><td>${Z('Бренд')}</td>${L.map(r=>`<td>${he(bnd(r.x))}</td>`).join('')}</tr>${h}</tbody></table></div>`;
   const rm=()=>{w.remove();m.remove()};w.onclick=rm;q('.x',m).onclick=rm;q('#mgdf',m).onchange=e=>m.querySelectorAll('tbody tr:not(.df):not(.gr)').forEach(t=>t.hidden=e.target.checked);
   document.body.append(w,m)}
 
 function ui(){if(q('.mgd'))return;const w=document.createElement('div');w.className='mgw';const d=document.createElement('aside');d.className='mgd';
-  d.innerHTML=`<h3><span>Подборка для клиента</span><button class="x" data-a="close" aria-label="Закрыть">✕</button></h3><div class="bd"></div>
-   <div class="ft"><button data-a="cmp">Сравнить</button><button data-a="pdf">Скачать PDF</button><button data-a="prn">Печать</button><button data-a="clr">Очистить</button><span style="flex:1"></span><button class="k" data-a="order">Оформить заказ сейчас</button><button class="r" data-a="send">Отправить клиенту</button></div>`;
+  d.innerHTML=`<h3><span data-z="Подборка для клиента">${Z('Подборка для клиента')}</span><button class="x" data-a="close" aria-label="${Z('Закрыть')}">✕</button></h3><div class="bd"></div>
+   <div class="ft"><button data-a="cmp" data-z="Сравнить">${Z('Сравнить')}</button><button data-a="pdf" data-z="Скачать PDF">${Z('Скачать PDF')}</button><button data-a="prn" data-z="Печать">${Z('Печать')}</button><button data-a="clr" data-z="Очистить">${Z('Очистить')}</button><span style="flex:1"></span><button class="k" data-a="order" data-z="Оформить заказ сейчас">${Z('Оформить заказ сейчас')}</button><button class="r" data-a="send" data-z="Отправить клиенту">${Z('Отправить клиенту')}</button></div>`;
   document.body.append(w,d);w.onclick=close;
   d.addEventListener('click',async e=>{const a=e.target.closest('[data-a]'),it=e.target.closest('.mgi');
     if(it&&e.target.closest('[data-rm]')){S.items.splice(+it.dataset.k,1);RES=null;sv();mark();draw();return}
     if(!a)return;const k=a.dataset.a;
     if(k==='close')close();if(k==='send')send();if(k==='order')orderNow();if(k==='cmp')compare();
-    if(k==='pdf'||k==='prn'){if(!S.items.length)return toast('Подборка пуста');try{const T=await tks();k==='pdf'?T.pdf(docUrl()):T.print(docUrl())}catch(er){toast(er.message)}}
+    if(k==='pdf'||k==='prn'){if(!S.items.length)return toast(Z('Подборка пуста'));try{const T=await tks();k==='pdf'?T.pdf(docUrl()):T.print(docUrl())}catch(er){toast(er.message)}}
     if(k==='snd')sendBox();
-    if(k==='clr'&&confirm('Очистить подборку?')){S={items:[],dk:'pct',dv:0,name:'',tel:'',cm:''};RES=null;CL=null;sv();mark();draw()}
-    if(k==='copy'){try{await navigator.clipboard.writeText(RES.url);toast('Ссылка скопирована')}catch(_){q('.mgres input',d).select()}}});
+    if(k==='clr'&&confirm(Z('Очистить подборку?'))){S={items:[],dk:'pct',dv:0,name:'',tel:'',cm:''};RES=null;CL=null;sv();mark();draw()}
+    if(k==='copy'){try{await navigator.clipboard.writeText(RES.url);toast(Z('Ссылка скопирована'))}catch(_){q('.mgres input',d).select()}}});
   d.addEventListener('change',e=>{const t=e.target,it=t.closest('.mgi');
     if(it){const i=S.items[+it.dataset.k];if(t.matches('[data-q]'))i.q=Math.max(1,Math.min(99,+t.value||1));if(t.matches('[data-dv]'))i.dv=Math.max(0,+t.value||0);if(t.matches('[data-dk]'))i.dk=t.value;if(t.matches('[data-cmp]')){i.c=t.checked;sv();return}RES=null;sv();draw();return}
     if(t.matches('[data-adv]'))S.dv=Math.max(0,+t.value||0);if(t.matches('[data-adk]'))S.dk=t.value;if(t.matches('[data-adv],[data-adk]')){RES=null;sv();draw()}});

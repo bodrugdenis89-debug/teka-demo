@@ -64,17 +64,14 @@ function open(o){const ru=(o.lang||'ru').toLowerCase()!=='ro',L=(r,m)=>ru?m:r;
     <button class="b" data-a="pdf">${I.pdf}${L('Descarcă PDF','Скачать PDF')}</button><button class="b" data-a="pr">${I.pr}${L('Tipărire','Печать')}</button></div>
    ${o.link?`<div class="lk"><input readonly value="${he(o.link)}"><button class="b" data-a="cp" style="height:38px;padding:0 14px">${L('Copiază','Копировать')}</button></div>`:''}
    <div class="st"></div><div class="ms"></div>
-   <div class="h">${canFiles()?L('Alegeți messengerul — fișierul PDF se atașează automat.','Выберите мессенджер — PDF-файл приложится сам.'):L('Se descarcă PDF și se deschide chatul clientului — trageți fișierul în chat și apăsați «Trimite».','Скачается PDF и откроется чат клиента — перетащите файл в чат (или «+» → «Документ») и нажмите «Отправить».')}</div></div>`;
+   <div class="h">${canFiles()?L('Alegeți messengerul — fișierul PDF se atașează automat.','Выберите мессенджер — PDF-файл приложится сам.'):L('Messengerul deschide chatul clientului cu text. Fișierul PDF îl atașați manual: «Descarcă PDF» (dacă nu e descărcat deja) și trageți-l în chat.','Мессенджер откроет чат клиента с текстом. PDF прикладываете вручную: «Скачать PDF» (если файла ещё нет) и перетащите его в чат.')}</div></div>`;
   document.body.appendChild(W);const ms=t=>W.querySelector('.ms').textContent=t;
   const close=()=>{W.remove();document.removeEventListener('keydown',esc)},esc=e=>{if(e.key==='Escape')close()};document.addEventListener('keydown',esc);
   W.addEventListener('click',async e=>{if(e.target===W)return close();const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,tx=msg(MOB()),tel=telD(W.querySelector('[name=t]').value);
     if(a==='x')return close();
     if(/^(wa|tg|vb)$/.test(a)&&canFiles()){if(!PB){ms(L('PDF se pregătește — apăsați peste câteva secunde','PDF ещё готовится — нажмите через пару секунд'));return}
       try{await navigator.share({files:[new File([PB.b],PB.n,{type:'application/pdf'})],text:tx});ms(L('Trimis','Отправлено'))}catch(er){if(er&&er.name==='AbortError')return;ms(L('Nu s-a reușit: ','Не получилось: ')+(er&&er.message||er))}return}
-    const NM={wa:'WhatsApp',tg:'Telegram',vb:'Viber',em:'Gmail'};
-    if(NM[a]&&!MOB()&&!SV){if(b.disabled)return;b.disabled=true;ms(L('Se pregătește PDF…','Готовим PDF…'));let n;try{n=await (PP||(PP=pdfBlob(o.url))).then(r=>{save(r.b,r.n);return SV=r.n})}catch(er){PP=null;b.disabled=false;return ms(L('PDF nu s-a creat — încercați din nou','PDF не создался — попробуйте ещё раз'))}b.disabled=false;ms('');
-      W.querySelector('.st').innerHTML=`<b>✓ ${L('Pasul 1: PDF salvat','Шаг 1: PDF сохранён')} — ${he(n)}</b>${L('Pasul 2: deschideți chatul și trageți fișierul din «Descărcări» (sau «+» → «Document»).','Шаг 2: откройте чат и перетащите в него файл из «Загрузок» (или «+» → «Документ»).')}<button class="b ${a}" data-a="${a}">${I[a]||''}${L('Deschide ','Открыть ')+NM[a]} →</button>`;return}
-    const fm=t=>{W.querySelector('.st').innerHTML='';ms(t+(SV&&!MOB()?' · '+L('fișier: ','файл: ')+SV:''))};
+        const fm=t=>ms(t+(MOB()?'':' · '+(SV?L('fișier: ','файл: ')+SV:L('PDF — butonul «Descarcă PDF»','PDF — кнопка «Скачать PDF»'))));
     if(a==='wa'){if(MOB())location.href='https://wa.me/'+(tel||'')+'?text='+encodeURIComponent(tx);else window.open('https://web.whatsapp.com/send?'+(tel?'phone='+tel+'&':'')+'text='+encodeURIComponent(tx),'tkwa');fm(tel?L('Deschis WhatsApp — trageți PDF în chat și «Trimite»','Открыт WhatsApp — перетащите PDF в чат и «Отправить»'):L('Număr incorect — alegeți chatul în WhatsApp','Номер не распознан — выберите чат в WhatsApp'))}
     if(a==='tg'){try{navigator.clipboard.writeText(tx)}catch(_){}const ok=tel.length>=11;
       window.open(ok?'https://t.me/+'+tel:'https://t.me/share/url?url='+encodeURIComponent('https://teka.md')+'&text='+encodeURIComponent(tx),'_blank','noopener');
