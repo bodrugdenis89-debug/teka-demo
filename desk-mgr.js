@@ -143,7 +143,7 @@ function ui(){if(q('.mgd'))return;const w=document.createElement('div');w.classN
     if(k==='close')close();if(k==='send')send();if(k==='order')orderNow();if(k==='cmp')compare();
     if(k==='pdf'||k==='prn'){if(!S.items.length)return toast(Z('Подборка пуста'));try{const T=await tks();k==='pdf'?T.pdf(docUrl()):T.print(docUrl())}catch(er){toast(er.message)}}
     if(k==='snd')sendBox();
-    if(k==='clr'&&confirm(Z('Очистить подборку?'))){S={items:[],dk:'pct',dv:0,name:'',tel:'',cm:''};RES=null;CL=null;sv();mark();draw()}
+    if(k==='clr'){S={items:[],dk:'pct',dv:0,name:'',tel:'',cm:''};RES=null;CL=null;sv();mark();draw()}
     if(k==='copy'){try{await navigator.clipboard.writeText(RES.url);toast(Z('Ссылка скопирована'))}catch(_){q('.mgres input',d).select()}}});
   d.addEventListener('change',e=>{const t=e.target,it=t.closest('.mgi');
     if(it){const i=S.items[+it.dataset.k];if(t.matches('[data-q]'))i.q=Math.max(1,Math.min(99,+t.value||1));if(t.matches('[data-dv]'))i.dv=Math.max(0,+t.value||0);if(t.matches('[data-dk]'))i.dk=t.value;if(t.matches('[data-cmp]')){i.c=t.checked;sv();return}RES=null;sv();draw();return}
