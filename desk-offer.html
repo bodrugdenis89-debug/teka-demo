@@ -324,6 +324,11 @@ footer .bot .wrap{display:flex;justify-content:space-between;padding-top:18px;pa
 .pdfm .os{position:static;border:0;padding:0;max-width:340px;width:100%;margin-left:auto}
 .pdfm .os .r,.pdfm .os .tt{display:grid;grid-template-columns:1fr auto;column-gap:24px}.pdfm .os .r>*:last-child,.pdfm .os .tt>*:last-child{text-align:right;white-space:nowrap}.pdfm .os .tt{font-size:17px}
 .pdfm .oct,.pdfm .ocm{max-width:none}.pdfm .oct{grid-template-columns:repeat(3,1fr)}
+
+.oct .oqr{grid-column:1/-1;display:flex;align-items:center;gap:16px}.oqr img{width:108px;height:108px;image-rendering:pixelated;flex:none}.oqr b{display:block;font-size:16px;margin:2px 0 4px}.oqr span{color:var(--mute);font-size:13px}
+@media print{.oct .oqr{break-inside:avoid}.oqr img{width:92px;height:92px}}
+.pdfm .oqr img{width:92px;height:92px}
+.oct .oqr>div{border:0;padding:0;border-radius:0}
 </style>
 </head>
 <body>
@@ -438,7 +443,7 @@ function siteFix(root){if(!SITE)return;
     if(n!==h)a.setAttribute('href',n)});
   if(ph&&ph!==P0){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let t;while(t=w.nextNode())if(t.nodeValue.includes(P0))t.nodeValue=t.nodeValue.split(P0).join(ph)}}
 new MutationObserver(()=>siteFix(document.body)).observe(document.body,{childList:true,subtree:true});
-try{if(localStorage.getItem('tkMgr')||location.hash==='#manager'){window.MGR_LOGIN=location.hash==='#manager';window.MGR_SEL=location.hash==='#sel';const s=document.createElement('script');s.src='desk-mgr.js?v=a7cf9ef7';document.body.appendChild(s)}}catch(_){}
+try{if(localStorage.getItem('tkMgr')||location.hash==='#manager'){window.MGR_LOGIN=location.hash==='#manager';window.MGR_SEL=location.hash==='#sel';const s=document.createElement('script');s.src='desk-mgr.js?v=d9b1ac07';document.body.appendChild(s)}}catch(_){}
 const SITEP=fetch('data/site.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).catch(()=>null).then(j=>{if(j&&typeof j==='object'&&!Array.isArray(j)){SITE=j;siteText();langStatic();siteFix(document.body)}});
 
 
@@ -540,7 +545,7 @@ const R2={'Ofertă comercială':'Коммерческое предложение
 'Confirmă comanda în WhatsApp':'Подтвердить заказ в WhatsApp','Confirmă în Viber':'Подтвердить в Viber','PDF / Tipărire':'PDF / Печать','Preț la cerere':'Цена по запросу',
 'Prețurile sunt valabile la data ofertei. Livrare gratuită în municipiul Chișinău, garanție oficială 2 ani.':'Цены действительны на дату предложения. Бесплатная доставка по муниципию Кишинёв, официальная гарантия 2 года.',
 'Comanda e confirmată — managerul vă va contacta.':'Заказ подтверждён — менеджер свяжется с вами.','Bună! Confirm comanda după oferta nr.':'Здравствуйте! Подтверждаю заказ по предложению №','Telefon':'Телефон','Adresa magazinului':'Адрес магазина','Program':'График работы',
-'Textul comenzii e copiat — lipiți-l în chat':'Текст заказа скопирован — вставьте в чат','Comandă':'Заказ','Descarcă PDF':'Скачать PDF','Tipărire':'Печать','Se pregătește PDF…':'Готовим PDF…','PDF salvat':'PDF сохранён','Nu s-a putut crea PDF':'Не удалось создать PDF','Previzualizare':'Предпросмотр','Comentariu':'Комментарий','Înapoi la selecție':'Вернуться к подборке'};
+'Textul comenzii e copiat — lipiți-l în chat':'Текст заказа скопирован — вставьте в чат','Comandă':'Заказ','Scanați codul cu camera telefonului — se deschide chatul cu managerul.':'Наведите камеру телефона на код — откроется чат с менеджером.','Descarcă PDF':'Скачать PDF','Tipărire':'Печать','Se pregătește PDF…':'Готовим PDF…','PDF salvat':'PDF сохранён','Nu s-a putut crea PDF':'Не удалось создать PDF','Previzualizare':'Предпросмотр','Comentariu':'Комментарий','Înapoi la selecție':'Вернуться к подборке'};
 const t=s=>LANG==='ru'&&R2[s]||s;
 const WAI='<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>';
 const VBI='<svg viewBox="0 0 24 24"><path d="M12 2.6c5 0 8.1 2.9 8.1 7.7v3.3c0 4.8-3.1 7.7-8.1 7.7-.5 0-.9 0-1.3-.1l-2.9 2.4v-3.1c-2.5-1.3-3.9-3.6-3.9-6.9v-3.3c0-4.8 3.1-7.7 8.1-7.7z"/></svg>';
@@ -581,7 +586,7 @@ function draw(){if(!O){$('ow').innerHTML=`<div class="oload"><h1 style="color:va
    <div class="bt bt2"><button class="pd" data-c="pdf">${t('Descarcă PDF')}</button><button class="pd" data-c="prn">${t('Tipărire')}</button></div>
    <p class="note">${t('Prețurile sunt valabile la data ofertei. Livrare gratuită în municipiul Chișinău, garanție oficială 2 ani.')}</p></aside></div>
   ${O.cm?`<div class="ocm"><b>${t('Comentariu')}:</b> ${he(O.cm)}</div>`:''}
-  <div class="oct"><div><small>${t('Telefon')}</small><a href="tel:${he(ph.replace(/[^\d+]/g,''))}">${he(ph)}</a></div><div><small>${t('Adresa magazinului')}</small>${addr}</div><div><small>${t('Program')}</small>${hrs}</div></div>`}
+  <div class="oct"><div><small>${t('Telefon')}</small><a href="tel:${he(ph.replace(/[^\d+]/g,''))}">${he(ph)}</a></div><div><small>${t('Adresa magazinului')}</small>${addr}</div><div><small>${t('Program')}</small>${hrs}</div><div class="oqr"><img data-qr alt="QR WhatsApp"><div><small>WhatsApp</small><b>${he(waFmt())}</b><span>${t('Scanați codul cu camera telefonului — se deschide chatul cu managerul.')}</span></div></div></div>`;qrFill()}
 function confirmTxt(){return [t('Bună! Confirm comanda după oferta nr.')+' '+O.id,...O.items.map((i,k)=>`${k+1}. ${i.n} (${i.sku}) × ${i.q} — ${mdl(i.u*i.q)}`),`${t('Total')}: ${mdl(O.tot)}`,location.href.split('&print')[0]].join('\n')}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b||!O)return;const c=b.dataset.c;
   if(c==='pdf'){pdfSave();return}
@@ -596,7 +601,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b
 const H2P='https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
 let h2pP=null;const h2p=()=>h2pP||(h2pP=new Promise((ok,no)=>{if(window.html2pdf)return ok();const s=document.createElement('script');s.src=H2P;s.onload=ok;s.onerror=()=>{h2pP=null;no(new Error('lib'))};document.head.appendChild(s)}));
 const pdfName=()=>'Teka-'+(O&&O.kind==='order'?(LANG==='ru'?'zakaz':'comanda'):(LANG==='ru'?'predlozhenie':'oferta'))+(O&&O.id?'-'+O.id:'')+'.pdf';
-async function tkPdf(){if(!O)throw new Error('no doc');await h2p();
+async function tkPdf(){if(!O)throw new Error('no doc');await h2p();await QRP;
   const el=document.createElement('div');el.className='pdfm';el.innerHTML=$('ow').innerHTML;el.querySelectorAll('.obk,.bt,.note,.odone').forEach(e=>e.remove());
   el.querySelectorAll('a').forEach(a=>a.removeAttribute('href'));el.style.width='auto';
   await Promise.all([...el.querySelectorAll('img[src$=".svg"]')].map(i=>new Promise(r=>{const m=new Image();m.onload=()=>{try{const c=document.createElement('canvas');c.width=c.height=480;c.getContext('2d').drawImage(m,0,0,480,480);i.src=c.toDataURL('image/png')}catch(_){}r()};m.onerror=r;m.src=i.src})));
@@ -604,6 +609,13 @@ async function tkPdf(){if(!O)throw new Error('no doc');await h2p();
   return await html2pdf().set({margin:[10,10,12,10],image:{type:'jpeg',quality:.93},html2canvas:{scale:2,useCORS:true,backgroundColor:'#fff',scrollX:0,scrollY:0},jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},pagebreak:{mode:['css','legacy'],avoid:['tr','.os','.oct','.ocm','.oh','.ph0']}}).from(el).outputPdf('blob')}
 window.tkPdf=tkPdf;window.tkPdfName=pdfName;
 async function pdfSave(){toast(t('Se pregătește PDF…'));try{const b=await tkPdf(),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=pdfName();document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),60000);toast(t('PDF salvat'))}catch(e){toast(t('Nu s-a putut crea PDF'));print()}}
+
+/* QR на WhatsApp магазина (номер — «Контакты и тексты» в админке) */
+const waNum=()=>(SITE&&SITE.wa||'').replace(/\D/g,'')||N0;
+const waFmt=()=>{const d=waNum();return d.length===11&&d.startsWith('373')?'+373 '+d.slice(3,5)+' '+d.slice(5,7)+' '+d.slice(7,9)+' '+d.slice(9):'+'+d};
+let qrL=null,QRP=Promise.resolve();
+function qrFill(){QRP=(qrL||(qrL=new Promise((ok,no)=>{if(window.qrcode)return ok();const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js';s.onload=ok;s.onerror=()=>{qrL=null;no()};document.head.appendChild(s)}))).then(()=>{
+  const q=qrcode(0,'M');q.addData('https://wa.me/'+waNum());q.make();const u=q.createDataURL(6,2);document.querySelectorAll('img[data-qr]').forEach(i=>i.src=u)}).catch(()=>{document.querySelectorAll('.oqr').forEach(e=>e.remove())})}
 function drawAll(){langStatic();drawMega();pageLang()}
 $('lng').onclick=e=>{const b=e.target.closest('button');if(!b||b.dataset.l===LANG)return;LANG=b.dataset.l;try{localStorage.setItem('tk-lang',LANG)}catch(_){}IDX=null;drawAll()};
 badge();langStatic();drawMega();
