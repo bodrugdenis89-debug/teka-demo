@@ -1,5 +1,153 @@
 [
  {
+  "sku": "112620020",
+  "n": "HLX 640 KB",
+  "sub": "Plită pe gaz, 60 cm",
+  "p": 4600,
+  "img": [],
+  "draw": "assets/u/112620029-draw-muwtd09fnfp.webp",
+  "label": "",
+  "desc": [
+   "Plită pe gaz, 60 cm",
+   "4 zone de preparare:",
+   "- 1 arzător rapid, 3 kW",
+   "- 2 arzătoare semi-rapide, 1.75 kW",
+   "- 1 arzător auxiliar, 1 kW",
+   "Control cu butoane laterale cu design ergonomic",
+   "Sigurantă pentru supravegherea flăcării",
+   "Aprindere electrică integrată în buton",
+   "Grătare metal",
+   "Email negru"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "35"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "580"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "500"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "7,2"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "553"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "473"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "52"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Puterea nominală maximă (W) (gaz)",
+      "7500"
+     ],
+     [
+      "Aprindere electrică integrată în buton",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ]
+    ]
+   },
+   {
+    "t": "Zone de gătit",
+    "r": [
+     [
+      "Zonele de gătit",
+      "4"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată de siguranță (Blocare automată) (gaz)",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Finisaje",
+    "r": [
+     [
+      "Finisaj suprafață",
+      "Brushed stainless steel"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Tip grătar",
+      "Full Grid"
+     ],
+     [
+      "Suport Wok",
+      "NO"
+     ],
+     [
+      "Kit de prindere şi fixare",
+      "NO"
+     ],
+     [
+      "Grătare din fontă",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/16/HLX_series-UserManual_02.pdf"
+  ],
+  "b": "Teka",
+  "f": [],
+  "w": "",
+  "c": "",
+  "col": "",
+  "u": [
+   "assets/u/112620029-muwtdrpn66u.webp",
+   "assets/u/112620029-muwtdrs0nsq.webp",
+   "assets/u/112620029-muwtdru2vkj.webp"
+  ]
+ },
+ {
   "sku": "112620029",
   "n": "HLX 640 KBCOE BK",
   "sub": "Plită pe gaz, 60 cm",
