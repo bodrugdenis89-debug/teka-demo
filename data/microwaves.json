@@ -1,5 +1,221 @@
 [
  {
+  "sku": "112030001",
+  "n": "ML 8220 BIS L",
+  "sub": "Cuptor încorporabil, Microunde+ Grill cu bază ceramică şi capacitate 22l",
+  "p": 15500,
+  "img": [],
+  "draw": "",
+  "label": "",
+  "desc": [
+   "Colecţia Urban Colours",
+   "Microunde + Grill",
+   "Panou de control electronic din sticlă, cu timer digital",
+   "9 meniuri directe (reţete presetate)",
+   "Decongelare (5 programe)",
+   "Microunde 5 nivele de putere, 850 W",
+   "Buton “Quick start” 30’’",
+   "Cavitate interioară din inox",
+   "Bază ceramică + grill",
+   "Grill rabatabil, 1200 W",
+   "Bază ceramică cu încălzire uniformă",
+   "Selector de programe și funcții electronice",
+   "Platou pentru rumenire & Grătar ranforsat",
+   "Sistem de ventilaţie tangenţialVersiune: balama stânga (L - Left)",
+   "Finisaj: Cristal negru / Design: Infinity Glass (fără ramă)"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "220"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "350"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "280"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "21,56"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "22"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "390"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "334"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "23,2"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "CE/CB/Gmark"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "3"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Grill rabatabil",
+      "Da"
+     ],
+     [
+      "Numărul ghidajelor (cavitatea inferioară)",
+      "0"
+     ],
+     [
+      "Refrigerare tangențială forțată (1 viteză)",
+      "Da"
+     ],
+     [
+      "Funcția Microunde",
+      "Da"
+     ],
+     [
+      "Funcța Microunde + grill",
+      "Da"
+     ],
+     [
+      "Numărul de niveluri de putere",
+      "5"
+     ],
+     [
+      "Pornire rapidă (minute)",
+      "Da"
+     ],
+     [
+      "Ventilație tangențială",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "2700"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "110"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "20"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Grill (W)",
+      "1200"
+     ],
+     [
+      "Maxi Grill (W)",
+      "1200"
+     ],
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Deconectare automată la deschiderea ușii",
+      "Da"
+     ],
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Platou rotativ",
+      "YES"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/6/ML-822-8220-BIS-UserManual-RO-UK.pdf"
+  ],
+  "b": "Teka",
+  "f": [],
+  "w": "",
+  "c": "",
+  "col": "",
+  "u": [
+   "assets/u/112030001-muwt9cngf54.webp",
+   "assets/u/112030001-muwt9dpqvnb.webp",
+   "assets/u/112030001-muwt9fxdr4q.webp",
+   "assets/u/112030001-muwt9goebnx.webp",
+   "assets/u/112030001-muwt9hr7bka.webp",
+   "assets/u/112030001-muwt9o3r9nk.webp",
+   "assets/u/112030001-muwt9ozux9e.webp"
+  ]
+ },
+ {
   "sku": "40584001",
   "n": "MB 6200 BI WH",
   "sub": "Cuptor cu microunde încorporabil, cu sistem de control electromecanic, capacitate 20l",
