@@ -70,20 +70,20 @@ function cardKey(c){if(c.dataset.sku&&c.dataset.f)return[c.dataset.f,c.dataset.s
 function deco(){
  document.querySelectorAll('.pc:not(.sk)').forEach(c=>{const k=cardKey(c);if(!k)return;const box=c.querySelector('.inf,.pb');if(!box)return;
   let b=box.querySelector('.tcmp-b');if(!b){b=document.createElement('button');b.type='button';b.className='tcmp-b';const ln=box.querySelector(':scope>.ln');ln?box.insertBefore(b,ln):box.appendChild(b)}
-  b.dataset.f=k[0];b.dataset.s=k[1];const on=has(k[1]);b.classList.toggle('on',on);const h=on?CK+'<span>'+t('inCmp')+'</span>':IC+'<span>'+t('cmp')+'</span>';if(b.innerHTML!==h)b.innerHTML=h});
+  b.dataset.f=k[0];b.dataset.s=k[1];const on=has(k[1]);b.classList.toggle('on',on);const h=on?CK+'<span>'+t('inCmp')+'</span>':IC+'<span>'+t('cmp')+'</span>';if(b._h!==h){b._h=h;b.innerHTML=h}});
  // ПК: страница товара
  try{if(typeof SKU!=='undefined'&&typeof F!=='undefined'&&SKU){const ac=document.querySelector('#add')&&document.querySelector('#add').closest('.ac');
   if(ac){let b=ac.parentElement.querySelector('.tcmp-p');if(!b){b=document.createElement('button');b.type='button';b.className='tcmp-p';ac.insertAdjacentElement('afterend',b)}pbtn(b,F,SKU)}}}catch(_){}
  // мобилка: карточка товара в шторке
  try{if(typeof curP!=='undefined'&&curP&&document.getElementById('pvb')){const pv=document.getElementById('pvb');let b=pv.querySelector('.tcmp-p');
   if(!b){b=document.createElement('button');b.type='button';b.className='tcmp-p';const pr=pv.querySelector('.prc');if(pr)pr.insertAdjacentElement('afterend',b);else pv.prepend(b)}pbtn(b,curP._f||mfile(),curP.sku)}}catch(_){}}
-function pbtn(b,f,sku){const on=has(sku);b.dataset.f=f;b.dataset.s=String(sku);b.classList.toggle('on',on);const h=on?CK+t('inCmp'):IC+t('addCmp');if(b.innerHTML!==h)b.innerHTML=h}
+function pbtn(b,f,sku){const on=has(sku);b.dataset.f=f;b.dataset.s=String(sku);b.classList.toggle('on',on);const h=on?CK+t('inCmp'):IC+t('addCmp');if(b._h!==h){b._h=h;b.innerHTML=h}}
 
 function bar(){let b=document.querySelector('.tcmp-bar');
  if(!b){b=document.createElement('div');b.className='tcmp-bar';b.hidden=true;document.body.appendChild(b)}
  const n=S.items.length;b.hidden=!n||!!document.querySelector('.tcmp-w,#pv.on');if(!n)return;
  const h=`${IC}<span class="${n<2?'m':'k'}">${n<2?t('more'):t('bar')}</span><button class="go" data-tcmp-open ${n<2?'disabled':''}>${t('open')} (${n})</button><button class="x" data-tcmp-clear aria-label="${t('clear')}">✕</button>`;
- if(b.innerHTML!==h)b.innerHTML=h}
+ if(b._h!==h){b._h=h;b.innerHTML=h}}
 function refresh(){deco();bar()}
 
 const rd=u=>fetch(u,{cache:'no-cache'}).then(r=>r.ok?r.json():null).catch(()=>null);
