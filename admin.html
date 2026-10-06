@@ -281,7 +281,7 @@ const API=/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?'':'https://teka-
 let LANG='ru';try{if(localStorage.getItem('tkAdmLang')==='ro')LANG='ro'}catch(e){}
 const RO={'Упорядочить':'Ordonează','Порядок в каталоге':'Ordinea în catalog','Перетащите карточки мышью или используйте кнопки. Так товары будут стоять на сайте — на ПК и в мобильной версии.':'Trageți cardurile cu mouse-ul sau folosiți butoanele. Așa vor apărea produsele pe site — pe PC și pe mobil.','Сбросить порядок':'Resetează ordinea','Готово':'Gata','В начало':'La început','Выше':'Mai sus','Ниже':'Mai jos','В конец':'La final','Порядок задан для {0} товаров. Нажмите «Сохранить на сайт».':'Ordinea a fost setată pentru {0} produse. Apăsați „Salvează pe site”.','Порядок сброшен. Нажмите «Сохранить на сайт».':'Ordinea a fost resetată. Apăsați „Salvează pe site”.','Порядок не изменился':'Ordinea nu s-a schimbat','скрыт':'ascuns','Снять все':'Debifează tot','Отметить все':'Bifează tot','Фильтр в категории':'Filtru în categorie','Выбрать из каталога: категория…':'Alege din catalog: categorie…','Клиент удалён':'Clientul a fost șters','Удалить клиента {0}? Его заказы останутся в журнале заказов.':'Ștergeți clientul {0}? Comenzile lui rămân în jurnalul de comenzi.','Удалить клиента':'Șterge clientul','Скидка на всю подборку':'Reducere la toată selecția','Удалить заказ':'Șterge comanda','Удалить этот заказ? Это нельзя отменить.':'Ștergeți această comandă? Acțiunea nu poate fi anulată.','Заказ удалён':'Comanda a fost ștearsă','Не удалось удалить: {0}':'Nu s-a putut șterge: {0}',
 'Teka — админка':'Teka — administrare','Вход в админку':'Autentificare','Войти':'Intră','Пароль':'Parolă','Админка':'Administrare',
-'Поиск: модель, код, описание':'Căutare: model, cod, descriere','Сайт ↗':'Site ↗','Выйти':'Ieșire',
+'Поиск: модель, код, описание':'Căutare: model, cod, descriere','Перевести пустые RU-строки с румынского':'Tradu rândurile RU goale din română','Если RU не заполнить, перевод сделается автоматически при «Готово». Проверьте его.':'Dacă RU rămâne gol, traducerea se face automat la «Gata». Verificați-o.','Переведено строк: {0}. Проверьте текст.':'Rânduri traduse: {0}. Verificați textul.','Все строки уже переведены':'Toate rândurile sunt deja traduse','Не удалось перевести — проверьте интернет':'Traducerea a eșuat — verificați internetul','Автоперевод не удался — заполните RU вручную':'Traducerea automată a eșuat — completați RU manual','RU переведён автоматически.':'RU tradus automat.','Фото маленькое ({0} px) — на сайте может быть нечётким. Лучше скачать крупное фото.':'Fotografie mică ({0} px) — pe site poate fi neclară. Mai bine descărcați o fotografie mare.','Сайт ↗':'Site ↗','Выйти':'Ieșire',
 'Товары':'Produse','Акции':'Promoții','Проверка каталога':'Verificare catalog','Контакты и тексты':'Contacte și texte','Заказы':'Comenzi','Подборки':'Selecții','Клиенты':'Clienți','История':'Istoric',
 'Все товары':'Toate produsele','Со скидкой':'Cu reducere','Без цены':'Fără preț','Под заказ':'La comandă','Нет в наличии':'Nu este în stoc','В наличии':'În stoc','Скрытые':'Ascunse','Хит или новинка':'Hit sau noutate','В акции':'În promoție','Изменённые':'Modificate',
 '+ Новый товар':'+ Produs nou','Отменить':'Anulează','Сохранить на сайт':'Salvează pe site','Закрыть':'Închide','Удалить товар':'Șterge produsul',
@@ -598,6 +598,8 @@ function openEd(f,x,isNew){
     <label class="f">${T('Преимущества (RO)')} <small>${T('— по одному в строке')}</small><textarea class="t" id="e_d" rows="6">${esc(desc.join('\n'))}</textarea></label>
     <label class="f">${T('Преимущества (RU)')} <small>${T('— строки в том же порядке')}</small><textarea class="t" id="e_dr" rows="6">${esc(desc.map(s=>tr('d',s)).join('\n'))}</textarea></label>
    </div>
+   <button class="lnk" id="e_tr">${T('Перевести пустые RU-строки с румынского')}</button>
+   <div class="hint">${T('Если RU не заполнить, перевод сделается автоматически при «Готово». Проверьте его.')}</div>
   </fieldset>
   <fieldset><legend>${T('Характеристики')}</legend><div id="sgs"></div><button class="lnk" id="sga">${T('+ Добавить группу')}</button></fieldset>
   ${fx.length?`<fieldset><legend>${T('Фильтры в каталоге')}</legend><div class="g3">${fx.map(k=>filt(k,E[k],f)).join('')}</div><div class="hint">${T('По этим полям покупатель фильтрует товары в каталоге.')}</div></fieldset>`:''}
@@ -608,6 +610,7 @@ function openEd(f,x,isNew){
     if(v){const o=new Option(v,v);sl.add(o,sl.options[sl.options.length-1]);sl.value=v}else sl.value=sl.dataset.cur||'';dd(sl)}));
   drawPh();drawSpecs(E.specs||[]);$('eb').querySelectorAll('select').forEach(dd);
   $('sga').onclick=()=>{const s=readSpecs();s.push({t:'',r:[['','']]});drawSpecs(s)};
+  $('e_tr').onclick=async()=>{const b=$('e_tr');b.disabled=true;try{const n=await autoRu();toast(n?T('Переведено строк: {0}. Проверьте текст.',n):T('Все строки уже переведены'))}catch(e){toast(T('Не удалось перевести — проверьте интернет'),true)}b.disabled=false};
   $('edl').hidden=!!isNew;$('edu').hidden=!!isNew;
   $('ov').classList.add('on');$('ed').classList.add('on');$('ed').setAttribute('aria-hidden','false');$('eb').scrollTop=0}
 function closeEd(){ED=null;if(!TL)$('ov').classList.remove('on');$('ed').classList.remove('on');$('ed').setAttribute('aria-hidden','true')}
@@ -642,8 +645,13 @@ function drawPh(){
 $('fi').onchange=()=>{addFiles($('fi').files);$('fi').value=''};
 const slug=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40)||'p';
 async function upImg(file,base){const bm=await createImageBitmap(file);const M=1600,s=Math.min(1,M/Math.max(bm.width,bm.height));
-  const c=document.createElement('canvas');c.width=Math.round(bm.width*s);c.height=Math.round(bm.height*s);
+  let c=document.createElement('canvas');c.width=Math.round(bm.width*s);c.height=Math.round(bm.height*s);
   const g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,c.width,c.height);g.drawImage(bm,0,0,c.width,c.height);
+  const W=c.width,H=c.height,px=g.getImageData(0,0,W,H).data;let x0=W,y0=H,x1=-1,y1=-1;
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){const i=(y*W+x)*4;if(px[i]<240||px[i+1]<240||px[i+2]<240){if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y}}
+  if(x1>=0&&(x0>2||y0>2||x1<W-3||y1<H-3)){const bw=x1-x0+1,bh=y1-y0+1,sd=Math.round(Math.max(bw,bh)*1.08),q=document.createElement('canvas');q.width=q.height=sd;
+    const k=q.getContext('2d');k.fillStyle='#fff';k.fillRect(0,0,sd,sd);k.drawImage(c,x0,y0,bw,bh,Math.round((sd-bw)/2),Math.round((sd-bh)/2),bw,bh);c=q;
+    if(Math.max(bw,bh)<600)toast(T('Фото маленькое ({0} px) — на сайте может быть нечётким. Лучше скачать крупное фото.',Math.max(bw,bh)),true)}
   let url=c.toDataURL('image/webp',.86),ext='webp';if(!url.startsWith('data:image/webp')){url=c.toDataURL('image/jpeg',.88);ext='jpg'}
   const path=`assets/u/${slug(base)}-${Date.now().toString(36)}${Math.random().toString(36).slice(2,5)}.${ext}`;
   UP[path]={url,b64:url.split(',')[1]};return path}
@@ -665,11 +673,20 @@ function readSpecs(){return [...$('sgs').querySelectorAll('.sg')].map(g=>({t:g.q
 
 /* применить */
 const lines=v=>v.split('\n').map(s=>s.trim()).filter(Boolean);
+async function gtr(a){if(!a.length)return [];const r=await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=ro&tl=ru&dt=t',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:'q='+encodeURIComponent(a.join('\n'))});
+  const j=await r.json(),o=(j[0]||[]).map(z=>z[0]).join('').split('\n').map(s=>s.trim());if(o.length!==a.length)throw 0;return o.map((z,i)=>/[.!?]$/.test(a[i])?z:z.replace(/\.$/,''))}
+async function autoRu(){const d=lines($('e_d').value),dr0=lines($('e_dr').value);if(dr0.length&&dr0.length!==d.length)return 0;const dr=d.map((s,i)=>dr0.length===d.length&&dr0[i]||(RU.data.d||{})[s]||'');
+  const sub=$('e_s').value.trim(),sr=$('e_sr').value.trim()||(RU.data.s||{})[sub]||'';
+  const miss=d.map((s,i)=>dr[i]?-1:i).filter(i=>i>=0),src=miss.map(i=>d[i]);if(sub&&!sr)src.push(sub);
+  if(!src.length){$('e_dr').value=dr.join('\n');$('e_sr').value=sr;return 0}
+  const o=await gtr(src);miss.forEach((i,j)=>dr[i]=o[j]);$('e_dr').value=dr.join('\n');$('e_sr').value=sub&&!sr?o[o.length-1]:sr;return src.length}
 function ruSet(c,ro,ru){if(!ro)return;RU.data[c]=RU.data[c]||{};const cur=RU.data[c][ro]||'';if(ru&&ru!==cur){RU.data[c][ro]=ru;RU.dirty=true}}
-$('eo').onclick=()=>{if(!ED)return;const {x,isNew}=ED;let f=ED.f;
-  const n=$('e_n').value.trim(),sku=$('e_sku').value.trim();
+$('eo').onclick=async()=>{if(!ED)return;const {x,isNew}=ED;let f=ED.f;
+  const n=$('e_n').value.trim();let sku=$('e_sku').value.trim();
   if(!n){toast(T('Укажите модель'),true);$('e_n').focus();return}
   if(isNew)f=$('e_f').value;
+  if(!sku){const b=slug(n);sku=b;for(let i=2;DB[f].items.some(y=>y!==x&&String(y.sku)===sku);i++)sku=b+'-'+i;$('e_sku').value=sku}
+  let ar=0;if($('eo').disabled)return;$('eo').disabled=true;try{ar=await autoRu()}catch(e){toast(T('Автоперевод не удался — заполните RU вручную'),true)}$('eo').disabled=false;if(!ED)return;
   if(sku&&DB[f].items.some(y=>y!==x&&String(y.sku)===sku)){toast(T('Товар с кодом {0} уже есть в этой категории',sku),true);return}
   x[K.n(x)]=n;x.sku=sku;x[K.b(x)]=$('e_b').value;
   setPrice(x,num($('e_p').value),num($('e_o').value));
@@ -688,11 +705,11 @@ $('eo').onclick=()=>{if(!ED)return;const {x,isNew}=ED;let f=ED.f;
   $('eb').querySelectorAll('[data-xa]').forEach(el=>{x[el.dataset.xa]=[...el.querySelectorAll('.chip.on')].map(b=>b.dataset.v)});
   if(ED.phc)x.u=ED.ph.slice();
   if(isNew)DB[f].items.unshift(x);
-  touch(x,f);closeEd();render();toast(isNew?T('Товар добавлен. Не забудьте «Сохранить на сайт».'):T('Изменения применены. Нажмите «Сохранить на сайт».'))};
+  touch(x,f);closeEd();render();toast((isNew?T('Товар добавлен. Не забудьте «Сохранить на сайт».'):T('Изменения применены. Нажмите «Сохранить на сайт».'))+(ar?' '+T('RU переведён автоматически.'):''))};
 $('edl').onclick=()=>{if(!ED)return;const {f,x}=ED;
   if(!confirm(T('Удалить «{0}» из каталога?\nЕсли нужно лишь временно убрать с сайта — используйте «Скрыть с сайта».',nm(x))))return;
   const L=DB[f].items;L.splice(L.indexOf(x),1);DIRTY.delete(x);SEL.delete(x);CHG.add(f);CHG.add('-'+f+':'+Date.now());closeEd();render();bar()};
-$('edu').onclick=()=>{if(!ED||ED.isNew)return;const {f,x}=ED;$('eo').onclick();if(ED)return;
+$('edu').onclick=async()=>{if(!ED||ED.isNew)return;const {f,x}=ED;await $('eo').onclick();if(ED)return;
   const y=JSON.parse(JSON.stringify(x));y[K.n(y)]=nm(x)+T(' (копия)');y.sku='';delete y.ord;openEd(f,y,true);toast(T('Копия: укажите код товара и нажмите «Готово»'))};
 $('nw').onclick=()=>{const f=$('fc').value||'ovens';const tpl=DB[f].items.find(y=>!('name' in y))||{};
   const x={sku:'',n:'',sub:'',p:0,img:[],draw:'',label:'',desc:[],specs:[],pdf:[],b:'Teka'};
