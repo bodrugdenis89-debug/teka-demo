@@ -359,7 +359,7 @@ const RO={'Упорядочить':'Ordonează','Порядок в катало�
 'Статус: {0}':'Status: {0}','Не удалось изменить статус: {0}':'Statusul nu a putut fi modificat: {0}','Заказ от {0}':'Comanda din {0}','Кол-во':'Cant.','по запросу':'la cerere','Итого, MDL':'Total, MDL','Детали':'Detalii','Получение':'Primire',
 'Самовывоз':'Ridicare din magazin','Доставка':'Livrare','Имя':'Nume','Телефон':'Telefon','Подборка':'Selecție','Комментарий':'Comentariu','Язык сайта':'Limba site-ului','Страница':'Pagina',
 'Заказ оформлен менеджером в режиме менеджера.':'Comanda a fost plasată de manager în modul manager.',
-'Это копия заказа, которую сайт отправляет параллельно с сообщением в мессенджер. Клиент мог не отправить само сообщение — сверяйтесь с WhatsApp/Viber.':'Aceasta este o copie a comenzii, pe care site-ul o trimite în paralel cu mesajul în messenger. Este posibil ca clientul să nu fi trimis mesajul propriu-zis — verificați în WhatsApp/Viber.',
+'Обратный звонок':'Apel invers','Клиент просит перезвонить — имя и телефон в карточке заказа.':'Clientul cere să fie sunat — numele și telefonul sunt în fișa comenzii.','Это копия заказа, которую сайт отправляет параллельно с сообщением в мессенджер. Клиент мог не отправить само сообщение — сверяйтесь с WhatsApp/Viber.':'Aceasta este o copie a comenzii, pe care site-ul o trimite în paralel cu mesajul în messenger. Este posibil ca clientul să nu fi trimis mesajul propriu-zis — verificați în WhatsApp/Viber.',
 'Подборок: {0}':'Selecții: {0}','Клиент':'Client','Клиент открыл':'Deschisă de client','{0} шт.':'{0} buc.','не открыта':'nedeschisă','да':'da',
 'Не открыты':'Nedeschise','Открыты':'Deschise','Стали заказом':'Transformate în comenzi',
 'Подборок нет. Менеджеры создают их на сайте в режиме менеджера (desk-catalog.html#manager).':'Nu există selecții. Managerii le creează pe site în modul manager (desk-catalog.html#manager).',
@@ -1045,7 +1045,7 @@ function drawSite(){const d=SC.data,v=(k,l)=>esc(l?(d[k]||{})[l]||'':d[k]||'');
 /* заказы */
 let ORD=null,OST='',OMG='';
 const OS={new:'Новый',work:'В работе',done:'Выдан',cancel:'Отменён'};
-const CHN=c=>c==='wa'?'WhatsApp':c==='vb'?'Viber':c==='mgr'?T('Менеджер в магазине'):esc(c||'—');
+const CHN=c=>c==='wa'?'WhatsApp':c==='vb'?'Viber':c==='tg'?'Telegram':c==='cb'?T('Обратный звонок'):c==='mgr'?T('Менеджер в магазине'):esc(c||'—');
 const LOC=()=>LANG==='ro'?'ro-RO':'ru-RU',OSL=k=>T(OS[k]);
 const dt=t=>new Date(t).toLocaleString(LOC(),{day:'2-digit',month:'2-digit',year:'2-digit',hour:'2-digit',minute:'2-digit'});
 // список заказов в Cloudflare KV обновляется с задержкой до минуты — свои свежие правки держим поверх него
@@ -1079,7 +1079,7 @@ async function openOrder(id){let o;try{o=await api('/api/order?id='+encodeURICom
     ${o.name?`<b>${T('Имя')}</b><span>${esc(o.name)}</span>`:''}${o.tel?`<b>${T('Телефон')}</b><span><a href="tel:${esc(o.tel)}">${esc(o.tel)}</a></span>`:''}
     ${o.mg?`<b>${T('Менеджер')}</b><span>${esc(o.mg)}</span>`:''}${o.of?`<b>${T('Подборка')}</b><span><a href="desk-offer.html?o=${esc(o.of)}&nv=1" target="_blank" rel="noopener">№${esc(o.of)} ↗</a></span>`:''}
     <b>${T('Комментарий')}</b><span>${esc(o.cm||'—')}</span><b>${T('Язык сайта')}</b><span>${esc(o.lang||'—')}</span><b>${T('Страница')}</b><span style="word-break:break-all">${esc(o.page||'—')}</span></div>
-    <div class="hint">${o.ch==='mgr'?T('Заказ оформлен менеджером в режиме менеджера.'):T('Это копия заказа, которую сайт отправляет параллельно с сообщением в мессенджер. Клиент мог не отправить само сообщение — сверяйтесь с WhatsApp/Viber.')}</div></fieldset>`,
+    <div class="hint">${o.ch==='mgr'?T('Заказ оформлен менеджером в режиме менеджера.'):o.ch==='cb'?T('Клиент просит перезвонить — имя и телефон в карточке заказа.'):T('Это копия заказа, которую сайт отправляет параллельно с сообщением в мессенджер. Клиент мог не отправить само сообщение — сверяйтесь с WhatsApp/Viber.')}</div></fieldset>`,
    `<span class="sp"></span><button class="btn k" data-a="x">${T('Закрыть')}</button>`,{click:async e=>{const b=e.target.closest('[data-st]');if(!b||b.classList.contains('on'))return;const L=[...$('tlb').querySelectorAll('[data-st]')],was=L.find(c=>c.classList.contains('on'));L.forEach(c=>c.classList.toggle('on',c===b));if(!await setOst(id,b.dataset.st))L.forEach(c=>c.classList.toggle('on',c===was))}})}
 
 /* подборки менеджеров */

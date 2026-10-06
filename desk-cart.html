@@ -335,6 +335,21 @@ footer .bot .wrap{display:flex;justify-content:space-between;padding-top:18px;pa
 .done .ord{max-width:480px;margin:24px auto 0;text-align:left;background:#fff;border-radius:10px;padding:18px 22px;font-size:14px;white-space:pre-line;color:var(--ink2)}
 .bl2{margin-top:72px}
 @media (max-width:1100px){.cl{grid-template-columns:1fr}.sum{position:static}.it{grid-template-columns:90px 1fr auto 40px}.it .im{width:90px;height:90px}.it .sm{grid-column:2/4;text-align:left}}
+.send .tgb{background:#229ed9;color:#fff}
+.send .ph.on{border-color:var(--ink)}
+.send .rd{background:var(--red);color:#fff}
+.cbf,.phn{display:grid;gap:12px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--soft)}
+.cbf p{font-size:13.5px;color:var(--ink2);margin:0}
+.cbf .fl input{background:#fff}
+.phn{text-align:center;gap:4px}
+.phn b{font-size:24px;letter-spacing:.3px;color:var(--ink)}
+.phn small{color:var(--ink2);font-size:13px}
+.phn .lk{height:auto;background:none;color:var(--red);font-size:13.5px;text-decoration:underline;margin-top:6px}
+.done .alt{max-width:480px;margin:28px auto 0}
+.done .alt>p{font-size:14px;margin:0 0 12px}
+.done .alt .send{margin-top:0}
+.done .alt .phn{margin-top:12px;background:#fff}
+.done .alt .send svg{width:22px;height:22px;color:inherit;stroke-width:0}
 </style>
 </head>
 <body>
@@ -450,7 +465,7 @@ function siteFix(root){if(!SITE)return;
     if(n!==h)a.setAttribute('href',n)});
   if(ph&&ph!==P0){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let t;while(t=w.nextNode())if(t.nodeValue.includes(P0))t.nodeValue=t.nodeValue.split(P0).join(ph)}}
 new MutationObserver(()=>siteFix(document.body)).observe(document.body,{childList:true,subtree:true});
-try{if(localStorage.getItem('tkMgr')||location.hash==='#manager'){window.MGR_LOGIN=location.hash==='#manager';window.MGR_SEL=location.hash==='#sel';const s=document.createElement('script');s.src='desk-mgr.js?v=242ae3f8';document.body.appendChild(s)}}catch(_){}
+try{if(localStorage.getItem('tkMgr')||location.hash==='#manager'){window.MGR_LOGIN=location.hash==='#manager';window.MGR_SEL=location.hash==='#sel';const s=document.createElement('script');s.src='desk-mgr.js?v=52d475b2';document.body.appendChild(s)}}catch(_){}
 const SITEP=fetch('data/site.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).catch(()=>null).then(j=>{if(j&&typeof j==='object'&&!Array.isArray(j)){SITE=j;siteText();langStatic();siteFix(document.body)}});
 
 
@@ -558,16 +573,23 @@ const R2={'Coșul tău':'Ваша корзина','produse':'товаров','Co
 'Garanție oficială 2 ani':'Официальная гарантия 2 года','Dealer oficial Teka și Küppersbusch':'Официальный дилер Teka и Küppersbusch','Service propriu în Chișinău':'Собственный сервис в Кишинёве',
 'Comanda e pregătită!':'Заказ сформирован!','Managerul vă va contacta în curând pentru confirmare.':'Менеджер свяжется с вами в ближайшее время для подтверждения.','Înapoi la magazin':'Вернуться в магазин',
 'Bună! Vreau să comand:':'Здравствуйте! Хочу заказать:','Nume:':'Имя:','Telefon:':'Телефон:','Livrare:':'Доставка:','Adresă:':'Адрес:','Comentariu:':'Комментарий:','Total:':'Итого:','cod':'код',
-'Textul comenzii e copiat — lipiți-l în chat':'Текст заказа скопирован — вставьте в чат','Preț la cerere':'Цена по запросу'};
+'Textul comenzii e copiat — lipiți-l în chat':'Текст заказа скопирован — вставьте в чат','Trimite prin Telegram':'Отправить в Telegram','Sunați-mă înapoi':'Перезвоните мне','Lăsați numele și telefonul — managerul vă sună în timpul programului.':'Оставьте имя и телефон — менеджер перезвонит в рабочее время.','Trimite comanda':'Отправить заказ','Numele dvs.':'Ваше имя','Sunați-ne:':'Позвоните нам:','Copiază numărul':'Скопировать номер','Numărul e copiat':'Номер скопирован','Lu–Vi 10:00–18:00, Sâ 10:00–15:00':'Пн–Пт 10:00–18:00, Сб 10:00–15:00','Mulțumim! Comanda e primită':'Спасибо! Заказ принят','Managerul vă sună în curând la numărul indicat.':'Менеджер скоро перезвонит вам по указанному номеру.','Mesajul nu s-a deschis? Alegeți altă cale:':'Мессенджер не открылся? Выберите другой способ:','Copiază textul comenzii':'Скопировать текст заказа','Textul e copiat':'Текст скопирован','Apăsați „Start” în Telegram — comanda ajunge la manager.':'Нажмите «Старт» в Telegram — заказ придёт менеджеру.','Comandă cu apel invers':'Заказ с обратным звонком','Preț la cerere':'Цена по запросу'};
 const t=s=>LANG==='ru'&&R2[s]||s;
 const WAI='<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>';
 const VBI='<svg viewBox="0 0 24 24"><path d="M12 2.6c5 0 8.1 2.9 8.1 7.7v3.3c0 4.8-3.1 7.7-8.1 7.7-.5 0-.9 0-1.3-.1l-2.9 2.4v-3.1c-2.5-1.3-3.9-3.6-3.9-6.9v-3.3c0-4.8 3.1-7.7 8.1-7.7z"/></svg>';
-let INFO={},FORM={name:'',tel:'',m:'d',adr:'',cm:''},DONE='';
+let INFO={},FORM={name:'',tel:'',m:'d',adr:'',cm:''},DONE='',DCH='',CB=0,PH=0;
+const TEL='+373 68 27 27 02',BOT='teka_md_chat_bot';
+const TGI='<svg viewBox="0 0 24 24"><path d="M21.4 4.6 2.9 11.7c-1.2.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.1.9.8.9.5 0 .7-.2 1-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.8-1.4-1.5z"/></svg>';
+const PHI='<svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>';
+const MOB=matchMedia('(pointer:coarse)').matches;
+const tgL=()=>{let s='o'+(LANG==='ru'?'r':'o')+(FORM.m==='p'?'p':'d');for(const y of cart){const k=String(y.sku);if(!/^[A-Za-z0-9-]+$/.test(k))continue;const a='_'+k+'x'+(+y.q||1);if((s+a).length>64)break;s+=a}return 'https://t.me/'+BOT+'?start='+s};
+const cpy=(x,m)=>{try{navigator.clipboard.writeText(x)}catch(_){}toast(t(m))};
 try{Object.assign(FORM,JSON.parse(sessionStorage.getItem('tkForm')||'{}'))}catch(e){}
 const svf=()=>{try{sessionStorage.setItem('tkForm',JSON.stringify(FORM))}catch(e){}};
 async function pageInit(){await Promise.all(CATS.map(c=>cat(c.f)));for(const c of CATS){const L=await cat(c.f);L.forEach(x=>{const k=String(x.sku);if(!INFO[k])INFO[k]={x,f:c.f}})}
   let ch=0;cart.forEach(y=>{const i=INFO[String(y.sku)];if(i&&pr(i.x)&&pr(i.x)!==+y.p){y.p=pr(i.x);ch=1}});if(ch)save();draw();drawRec()}
-function sendCopy(ch){try{fetch(API0+'/api/order',{method:'POST',keepalive:true,headers:{'Content-Type':'text/plain'},body:JSON.stringify({items:cart.map(y=>{const i=INFO[String(y.sku)];return {sku:String(y.sku),n:String(y.n||'').slice(0,200),q:+y.q||1,p:+y.p||0,o:i?od(i.x):0}}),cm:(FORM.cm||'').slice(0,1000),m:FORM.m,ch,lang:LANG.toUpperCase(),page:location.href.slice(0,300)})}).catch(()=>{})}catch(_){}}
+function sendCopy(ch){const cb=ch==='cb';try{fetch(API0+'/api/order',{method:'POST',keepalive:true,headers:{'Content-Type':'text/plain'},body:JSON.stringify({...(cb?{name:FORM.name.trim().slice(0,100),tel:FORM.tel.trim().slice(0,40)}:{}),items:cart.map(y=>{const i=INFO[String(y.sku)];return {sku:String(y.sku),n:String(y.n||'').slice(0,200),q:+y.q||1,p:+y.p||0,o:i?od(i.x):0}}),cm:(FORM.cm||'').slice(0,1000),m:FORM.m,ch,lang:LANG.toUpperCase(),page:location.href.slice(0,300)})}).catch(()=>{})}catch(_){}
+  if(ch!=='tg'&&typeof CHAT_API!=='undefined'&&CHAT_API)try{fetch(CHAT_API+'/order',{method:'POST',keepalive:true,headers:{'Content-Type':'text/plain'},body:JSON.stringify({items:cart.map(y=>({sku:String(y.sku),q:+y.q||1})),name:cb?FORM.name.trim().slice(0,100):'',tel:cb?FORM.tel.trim().slice(0,40):'',m:FORM.m,cm:(FORM.cm||'').slice(0,1000),ch,lang:LANG.toUpperCase()})}).catch(()=>{})}catch(_){}}
 function pageLang(){draw();drawRec()}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(cart))}catch(_){}badge()};
 function row(y){const i=INFO[String(y.sku)]||{},x=i.x,f=y.f||i.f,o=x?od(x):0,p=+y.p||0;
@@ -580,7 +602,8 @@ function row(y){const i=INFO[String(y.sku)]||{},x=i.x,f=y.f||i.f,o=x?od(x):0,p=+
 function totals(){let s=0,d=0,n=0;cart.forEach(y=>{const i=INFO[String(y.sku)],p=+y.p||0,o=i?od(i.x):0;s+=p*y.q;n+=y.q;if(o>p&&p)d+=(o-p)*y.q});return {s,d,n}}
 function fld(k,l,ph,w,type){return `<label class="fl${w?' w':''}" data-k="${k}">${t(l)}${type==='ta'?`<textarea data-k="${k}" placeholder="${t(ph)}">${FORM[k]||''}</textarea>`:`<input data-k="${k}" ${type?`type="${type}"`:''} placeholder="${t(ph)}" value="${(FORM[k]||'').replace(/"/g,'&quot;')}">`}<em></em></label>`}
 function draw(){
-  if(DONE){$('cw').innerHTML=`<div class="done"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7 12l3.5 3.5L17 9"/></svg><h1>${t('Comanda e pregătită!')}</h1><p>${t('Managerul vă va contacta în curând pentru confirmare.')}</p><div class="ord">${DONE}</div><a class="btn r" href="/">${t('Înapoi la magazin')}</a></div>`;$('recS').hidden=true;return}
+  if(DONE){const cb=DCH==='cb';$('cw').innerHTML=`<div class="done"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7 12l3.5 3.5L17 9"/></svg><h1>${t(cb?'Mulțumim! Comanda e primită':'Comanda e pregătită!')}</h1><p>${t(cb?'Managerul vă sună în curând la numărul indicat.':DCH==='tg'?'Apăsați „Start” în Telegram — comanda ajunge la manager.':'Managerul vă va contacta în curând pentru confirmare.')}</p>
+   ${cb?'':`<div class="alt"><p>${t('Mesajul nu s-a deschis? Alegeți altă cale:')}</p><div class="send"><button class="wa" data-alt="wa">${WAI}WhatsApp Web</button><button class="tgb" data-alt="tg">${TGI}Telegram</button></div><div class="phn">${t('Sunați-ne:')} <b>${TEL}</b><small>${t('Lu–Vi 10:00–18:00, Sâ 10:00–15:00')}</small></div></div>`}<a class="btn r" href="/">${t('Înapoi la magazin')}</a></div>`;$('recS').hidden=true;return}
   if(!cart.length){$('cw').innerHTML=`<div class="emp"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11h11l2-8H6.3"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg><h1>${t('Coșul e gol')}</h1><p>${t('Adăugați produse din catalog — le puteți vedea și în magazinul din Chișinău.')}</p><a class="btn r" href="/cuptoare/">${t('Spre catalog')}</a></div>`;return}
   const {s,d,n}=totals();
   $('cw').innerHTML=`<h1 class="ch1">${t('Coșul tău')}<small>${n} ${t('produse')}</small></h1><div class="cl"><div>
@@ -596,7 +619,10 @@ function draw(){
    ${d?`<div class="r d"><span>${t('Reducere')}</span><b>−${mdl(d)}</b></div>`:''}
    <div class="r g"><span>${t(FORM.m==='d'?'Livrare':'Ridicare')}</span><b>${t('Gratuit')}</b></div>
    <div class="tt"><span>${t('Total')}</span><b>${mdl(s)}</b></div>
-   <div class="send"><button class="wa" data-send="wa">${WAI}${t('Trimite prin WhatsApp')}</button><button class="vb" data-send="vb">${VBI}${t('Trimite prin Viber')}</button><a class="btn o ph" href="tel:+37368272702" style="justify-content:center"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>${t('Comandă telefonic')}</a></div>
+   <div class="send"><button class="wa" data-send="wa">${WAI}${t('Trimite prin WhatsApp')}</button><button class="vb" data-send="vb">${VBI}${t('Trimite prin Viber')}</button><button class="tgb" data-send="tg">${TGI}${t('Trimite prin Telegram')}</button>
+    <button class="ph${CB?' on':''}" data-cbo>${PHI}${t('Sunați-mă înapoi')}</button>
+    ${CB?`<div class="cbf"><p>${t('Lăsați numele și telefonul — managerul vă sună în timpul programului.')}</p>${fld('name','Nume','Numele dvs.')}${fld('tel','Telefon','+373 __ ___ ___',0,'tel')}<button class="rd" data-send="cb">${t('Trimite comanda')}</button></div>`:''}
+    ${MOB?`<a class="btn o ph" href="tel:+37368272702" style="justify-content:center">${PHI}${t('Comandă telefonic')}</a>`:`<button class="ph${PH?' on':''}" data-pho>${PHI}${t('Comandă telefonic')}</button>${PH?`<div class="phn"><b>${TEL}</b><small>${t('Lu–Vi 10:00–18:00, Sâ 10:00–15:00')}</small><button class="lk" data-cpn>${t('Copiază numărul')}</button></div>`:''}`}</div>
    <p class="note">${t('Comanda se trimite managerului în messenger. Adresa și ora le stabilim în chat. Plata — la primire: numerar, card în magazin sau transfer pe factură.')}</p>
    <div class="trs"><div><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>${t('Garanție oficială 2 ani')}</div><div><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M8.5 11.5 7 21l5-3 5 3-1.5-9.5"/></svg>${t('Dealer oficial Teka și Küppersbusch')}</div><div><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.1-.4-.4-2.1z"/></svg>${t('Service propriu în Chișinău')}</div></div>
   </aside></div>`;
@@ -611,18 +637,24 @@ function check(){return true;let ok=true;const tel=FORM.tel.replace(/[^\d+]/g,''
   if(FORM.m==='d')need.push(['adr',FORM.adr.trim().length>3,'Câmp obligatoriu']);
   let first=null;need.forEach(([k,v,m])=>{const l=document.querySelector(`.fl[data-k="${k}"]`);if(!l)return;l.classList.toggle('er',!v);l.querySelector('em').textContent=v?'':t(m);if(!v){ok=false;first=first||l}});
   if(first){first.scrollIntoView({behavior:'smooth',block:'center'});first.querySelector('input,textarea').focus({preventScroll:true})}return ok}
-function text(){const {s}=totals();return [t('Bună! Vreau să comand:'),...cart.map((y,i)=>`${i+1}. ${y.n} (${t('cod')} ${y.sku}) × ${y.q}${+y.p?' — '+mdl(y.p*y.q):''}`),`${t('Total:')} ${mdl(s)}`,'',`${t('Livrare:')} ${t(FORM.m==='d'?'Livrare la domiciliu':'Ridicare din magazin')}`,FORM.cm.trim()?`${t('Comentariu:')} ${FORM.cm.trim()}`:''].filter((l,i,a)=>l||a[i-1]).join('\n')}
+function chkCb(){const tel=FORM.tel.replace(/[^\d+]/g,'');let ok=true,first=null;[['name',FORM.name.trim().length>1,'Câmp obligatoriu'],['tel',tel.replace('+','').length>=8,FORM.tel.trim()?'Număr de telefon incorect':'Câmp obligatoriu']].forEach(([k,v,m])=>{const l=document.querySelector(`.cbf .fl[data-k="${k}"]`);if(!l)return;l.classList.toggle('er',!v);l.querySelector('em').textContent=v?'':t(m);if(!v){ok=false;first=first||l}});if(first)first.querySelector('input').focus();return ok}
+function text(ch){const {s}=totals();return [t(ch==='cb'?'Comandă cu apel invers':'Bună! Vreau să comand:'),...cart.map((y,i)=>`${i+1}. ${y.n} (${t('cod')} ${y.sku}) × ${y.q}${+y.p?' — '+mdl(y.p*y.q):''}`),`${t('Total:')} ${mdl(s)}`,'',`${t('Livrare:')} ${t(FORM.m==='d'?'Livrare la domiciliu':'Ridicare din magazin')}`,...(ch==='cb'?[`${t('Nume:')} ${FORM.name.trim()}`,`${t('Telefon:')} ${FORM.tel.trim()}`]:[]),FORM.cm.trim()?`${t('Comentariu:')} ${FORM.cm.trim()}`:''].filter((l,i,a)=>l||a[i-1]).join('\n')}
 document.addEventListener('input',e=>{const k=e.target.dataset&&e.target.dataset.k;if(!k)return;FORM[k]=e.target.value;svf();const l=e.target.closest('.fl');if(l&&l.classList.contains('er')){l.classList.remove('er')}});
 document.addEventListener('change',e=>{if(e.target.name==='m'){FORM.m=e.target.value;svf();draw()}});
 document.addEventListener('click',e=>{const g=e.target;const it=g.closest('.it');
   if(it){const y=cart.find(z=>String(z.sku)===it.dataset.s);if(!y)return;const q=g.closest('[data-q]');
     if(q){y.q=Math.max(1,Math.min(99,y.q+ +q.dataset.q));save();draw();return}
     if(g.closest('[data-rm]')){cart=cart.filter(z=>z!==y);save();draw();drawRec();return}}
-  const sd=g.closest('[data-send]');if(sd){if(!check())return;const tx=text();
-    if(sd.dataset.send==='wa')window.open(waL(tx),'_blank','noopener');
-    else{try{navigator.clipboard.writeText(tx)}catch(_){}toast(t('Textul comenzii e copiat — lipiți-l în chat'));location.href=vbL()}
-    sendCopy(sd.dataset.send);
-    DONE=tx;cart=[];save();draw();scrollTo({top:0,behavior:'smooth'})}});
+  if(g.closest('[data-cbo]')){CB=!CB;draw();if(CB){const i=document.querySelector('.cbf input');i&&i.focus()}return}
+  if(g.closest('[data-pho]')){PH=!PH;draw();return}
+  if(g.closest('[data-cpn]')){cpy(TEL,'Numărul e copiat');return}
+  const al=g.closest('[data-alt]');if(al){const a=al.dataset.alt;if(a==='wa')window.open('https://web.whatsapp.com/send?phone='+((SITE&&SITE.wa||'').replace(/\D/g,'')||N0)+'&text='+encodeURIComponent(DONE),'_blank','noopener');else if(a==='tg'){cpy(DONE,'Textul e copiat');window.open('https://t.me/'+BOT,'_blank','noopener')}else cpy(DONE,'Textul e copiat');return}
+  const sd=g.closest('[data-send]');if(sd){const ch=sd.dataset.send;if(ch==='cb'?!chkCb():!check())return;const tx=text(ch);
+    if(ch==='wa')window.open(waL(tx),'_blank','noopener');
+    else if(ch==='tg'){const u=tgL();try{navigator.clipboard.writeText(tx)}catch(_){}window.open(u,'_blank','noopener')}
+    else if(ch==='vb'){try{navigator.clipboard.writeText(tx)}catch(_){}toast(t('Textul comenzii e copiat — lipiți-l în chat'));location.href=vbL()+'&draft='+encodeURIComponent(tx)}
+    sendCopy(ch);
+    DONE=tx;DCH=ch;CB=0;PH=0;cart=[];save();draw();scrollTo({top:0,behavior:'smooth'})}});
 addEventListener('storage',e=>{if(e.key===KEY&&!DONE)draw()});
 document.addEventListener('click',e=>{if(e.target.closest('#rec .qa'))setTimeout(()=>{draw();drawRec()},0)});
 function drawAll(){langStatic();drawMega();pageLang()}
