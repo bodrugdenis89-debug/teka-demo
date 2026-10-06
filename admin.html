@@ -1089,9 +1089,9 @@ async function orderDoc(id,act){if(!window.tkSend)return toast(T('Не удал�
     const ex=o.items.map(i=>{const z=allItems().find(({x})=>String(x.sku)===String(i.sku));return z?{sku:String(i.sku),f:z.f,img:pics(z.x)[0]||'',sub:typeof z.x.sub==='string'?z.x.sub.slice(0,200):''}:{sku:String(i.sku)}});
     d=await api('/api/order-doc',{id,items:ex})}catch(e){return toast(e.message,true)}
   docAct(d.id,act,{tot:o.tot,name:o.name,tel:o.tel,lang:o.lang,kind:'order'})}
-function docAct(did,act,o){const url='desk-offer.html?o='+did+'&nv=1',link=location.href.replace(/[^/]*$/,'')+'desk-offer.html?o='+did;
+function docAct(did,act,o){const url='desk-offer.html?o='+did+'&nv=1&l='+LANG,link=location.href.replace(/[^/]*$/,'')+'desk-offer.html?o='+did+'&l='+LANG;
   if(act==='print')return tkSend.print(url);if(act==='pdf')return tkSend.pdf(url);
-  tkSend.open({url,link,no:did,tot:o.tot,name:o.name||'',tel:o.tel||'',lang:String(o.lang||'').toLowerCase()==='ro'?'ro':'ru',kind:o.kind})}
+  tkSend.open({url,link,no:did,tot:o.tot,name:o.name||'',tel:o.tel||'',lang:LANG,kind:o.kind})}
 
 /* подборки менеджеров */
 let OFS=null,OFF='',OFM='';
@@ -1192,6 +1192,6 @@ document.addEventListener('click',e=>{const b=e.target.closest('.lsw button');if
 applyStatic();dd($('fs'));navOrders();
 if(TOK)load();else showLogin();
 </script>
-<script src="tk-send.js?v=82c039a9"></script>
+<script src="tk-send.js?v=7cd6cec9"></script>
 </body>
 </html>

@@ -49,9 +49,9 @@ const canFiles=()=>{if(!MOB())return false;try{return !!(navigator.canShare&&nav
 /* o: {url (страница документа), link (ссылка для клиента, если есть), title, no, tot, name, tel, email, lang:'ru'|'ro', kind:'offer'|'order'} */
 function open(o){const ru=(o.lang||'ru').toLowerCase()!=='ro',L=(r,m)=>ru?m:r;
   const kindT=o.kind==='order'?L('comanda','заказ'):L('oferta comercială','коммерческое предложение');
-  const msg=(nl)=>{const nm=W.querySelector('[name=n]').value.trim();return [L('Bună ziua','Здравствуйте')+(nm?', '+nm:'')+'!',
+  const msg=(lk)=>{const nm=W.querySelector('[name=n]').value.trim();return [L('Bună ziua','Здравствуйте')+(nm?', '+nm:'')+'!',
     (o.kind==='order'?L('Comanda dvs. Teka','Ваш заказ Teka'):L('Oferta comercială Teka pentru dvs.','Коммерческое предложение Teka для вас'))+(o.no?' №'+o.no:'')+(o.tot!=null?' — '+L('total','итого')+' '+(+o.tot).toLocaleString('ru-RU').replace(/,/g,' ')+' MDL':'')+'.',
-    o.link&&!nl?L('Vizualizați și descărcați PDF: ','Посмотреть и скачать PDF: ')+o.link:'','',L('Teka Moldova · +373 68 27 27 02 · teka.md','Teka Moldova · +373 68 27 27 02 · teka.md')].filter((x,i)=>x||i===3).join('\n')};
+    lk&&o.link?L('Vizualizați și descărcați PDF: ','Посмотреть и скачать PDF: ')+o.link:L('Documentul PDF este atașat.','Документ PDF — во вложении.'),'',L('Teka Moldova · +373 68 27 27 02 · teka.md','Teka Moldova · +373 68 27 27 02 · teka.md')].filter((x,i)=>x||i===3).join('\n')};
   const W=document.createElement('div');W.className='tks-w';
   W.innerHTML=`<div class="tks" role="dialog" aria-modal="true"><h4><span>${L('Trimite clientului','Отправить клиенту')}</span><button class="x" data-a="x" aria-label="Закрыть">✕</button></h4>
    <div class="sb">${he(o.title||kindT.charAt(0).toUpperCase()+kindT.slice(1))}${o.no?' №'+he(o.no):''}</div>
@@ -63,25 +63,28 @@ function open(o){const ru=(o.lang||'ru').toLowerCase()!=='ro',L=(r,m)=>ru?m:r;
     <button class="b" data-a="pdf">${I.pdf}${L('Descarcă PDF','Скачать PDF')}</button><button class="b" data-a="pr">${I.pr}${L('Tipărire','Печать')}</button></div>
    ${o.link?`<div class="lk"><input readonly value="${he(o.link)}"><button class="b" data-a="cp" style="height:38px;padding:0 14px">${L('Copiază','Копировать')}</button></div>`:''}
    <div class="ms"></div>
-   <div class="h">${o.link?L('Mesajul conține linkul către document — clientul îl deschide și descarcă PDF.','В сообщении — ссылка на документ: клиент откроет его и скачает PDF.'):''} ${canFiles()?'':L('Pentru a atașa fișierul: «Descarcă PDF» și trageți-l în chat/e-mail.','Чтобы приложить сам файл: «Скачать PDF» и перетащите его в чат или письмо.')}</div></div>`;
+   <div class="h">${canFiles()?L('Alegeți messengerul — fișierul PDF se atașează automat.','Выберите мессенджер — PDF-файл приложится сам.'):L('Se descarcă PDF și se deschide chatul clientului — trageți fișierul în chat și apăsați «Trimite».','Скачается PDF и откроется чат клиента — перетащите файл в чат (или «+» → «Документ») и нажмите «Отправить».')}</div></div>`;
   document.body.appendChild(W);const ms=t=>W.querySelector('.ms').textContent=t;
   const close=()=>{W.remove();document.removeEventListener('keydown',esc)},esc=e=>{if(e.key==='Escape')close()};document.addEventListener('keydown',esc);
-  W.addEventListener('click',async e=>{if(e.target===W)return close();const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,tx=msg(),tel=telD(W.querySelector('[name=t]').value);
+  W.addEventListener('click',async e=>{if(e.target===W)return close();const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,tx=msg(MOB()),tel=telD(W.querySelector('[name=t]').value);
     if(a==='x')return close();
-    if(a==='wa'){if(MOB())location.href='https://wa.me/'+(tel||'')+'?text='+encodeURIComponent(tx);else window.open('https://web.whatsapp.com/send?'+(tel?'phone='+tel+'&':'')+'text='+encodeURIComponent(tx),'tkwa');ms(tel?L('Deschis WhatsApp — apăsați «Trimite»','Открыт WhatsApp — нажмите «Отправить» в чате'):L('Număr de telefon incorect — alegeți chatul în WhatsApp','Номер не распознан — выберите чат в WhatsApp'))}
+    if(/^(wa|tg|vb)$/.test(a)&&canFiles()){if(!PB){ms(L('PDF se pregătește — apăsați peste câteva secunde','PDF ещё готовится — нажмите через пару секунд'));return}
+      try{await navigator.share({files:[new File([PB.b],PB.n,{type:'application/pdf'})],text:tx});ms(L('Trimis','Отправлено'))}catch(er){if(er&&er.name==='AbortError')return;ms(L('Nu s-a reușit: ','Не получилось: ')+(er&&er.message||er))}return}
+    const F=()=>{if(SV)return Promise.resolve(SV);return (PP||(PP=pdfBlob(o.url))).then(r=>{if(!SV){save(r.b,r.n);SV=r.n}return SV})},fm=t=>MOB()?ms(t):F().then(n=>ms(t+' · '+L('PDF descărcat: ','PDF скачан: ')+n)).catch(er=>ms(t+' · '+L('PDF nu s-a creat','PDF не создался — нажмите «Скачать PDF»')));
+    if(a==='wa'){if(MOB())location.href='https://wa.me/'+(tel||'')+'?text='+encodeURIComponent(tx);else window.open('https://web.whatsapp.com/send?'+(tel?'phone='+tel+'&':'')+'text='+encodeURIComponent(tx),'tkwa');fm(tel?L('Deschis WhatsApp — trageți PDF în chat și «Trimite»','Открыт WhatsApp — перетащите PDF в чат и «Отправить»'):L('Număr incorect — alegeți chatul în WhatsApp','Номер не распознан — выберите чат в WhatsApp'))}
     if(a==='tg'){try{navigator.clipboard.writeText(tx)}catch(_){}const ok=tel.length>=11;
-      window.open(ok?'https://t.me/+'+tel:'https://t.me/share/url?url='+encodeURIComponent(o.link||'https://teka.md')+'&text='+encodeURIComponent(msg(1)),'_blank','noopener');
-      ms(ok?L('Textul cu link e copiat — în chatul clientului apăsați Cmd+V (Ctrl+V) și «Trimite»','Текст со ссылкой скопирован — в чате клиента нажмите Cmd+V (Ctrl+V) и «Отправить»'):L('Număr necunoscut — alegeți chatul; textul cu link e copiat (Cmd+V)','Номер не распознан — выберите чат; текст со ссылкой скопирован (Cmd+V)'))}
-    if(a==='vb'){try{navigator.clipboard.writeText(tx)}catch(_){}location.href='viber://forward?text='+encodeURIComponent(tx);ms(L('Deschis Viber (textul e și copiat)','Открыт Viber (текст также скопирован)'))}
+      window.open(ok?'https://t.me/+'+tel:'https://t.me/share/url?url='+encodeURIComponent('https://teka.md')+'&text='+encodeURIComponent(tx),'_blank','noopener');
+      fm(ok?L('Textul e copiat — în chatul clientului Cmd+V, trageți PDF și «Trimite»','Текст скопирован — в чате клиента Cmd+V, перетащите PDF и «Отправить»'):L('Număr necunoscut — alegeți chatul; textul e copiat (Cmd+V)','Номер не распознан — выберите чат; текст скопирован (Cmd+V)'))}
+    if(a==='vb'){try{navigator.clipboard.writeText(tx)}catch(_){}location.href='viber://forward?text='+encodeURIComponent(tx);fm(L('Deschis Viber (textul e și copiat)','Открыт Viber (текст также скопирован)'))}
     if(a==='em'){const em=W.querySelector('[name=e]').value.trim(),su='Teka — '+kindT+(o.no?' №'+o.no:'');
       if(MOB())location.href='mailto:'+encodeURIComponent(em).replace('%40','@')+'?subject='+encodeURIComponent(su)+'&body='+encodeURIComponent(tx);
       else window.open('https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(em)+'&su='+encodeURIComponent(su)+'&body='+encodeURIComponent(tx),'tkmail');
-      ms(L('Deschis Gmail — atașați PDF dacă e nevoie și apăsați «Trimite»','Открыт Gmail — при желании приложите PDF и нажмите «Отправить»'))}
+      fm(L('Deschis Gmail — atașați PDF și «Trimite»','Открыт Gmail — приложите PDF и нажмите «Отправить»'))}
     if(a==='pdf'){b.disabled=true;ms(L('Se pregătește PDF…','Готовим PDF…'));const r=await pdf(o.url);ms(r?L('PDF salvat: ','PDF скачан: ')+r.n:L('Nu s-a putut crea PDF','Не удалось создать PDF — сообщите менеджеру сайта'));b.disabled=false}
     if(a==='pr'){ms(L('Se deschide tipărirea…','Открываем печать…'));print(o.url).then(ok=>ms(ok?'':L('Documentul nu s-a încărcat','Документ не загрузился')))}
     if(a==='cp'){try{await navigator.clipboard.writeText(o.link);ms(L('Link copiat','Ссылка скопирована'))}catch(_){W.querySelector('.lk input').select()}}
     if(a==='sh'){if(!PB){ms(L('PDF se pregătește — apăsați peste câteva secunde','PDF ещё готовится — нажмите через пару секунд'));return}
       try{await navigator.share({files:[new File([PB.b],PB.n,{type:'application/pdf'})],title:'Teka — '+kindT,text:tx});ms(L('Trimis','Отправлено'))}catch(er){ms(er&&er.name==='AbortError'?'':L('Nu s-a reușit: ','Не получилось: ')+(er&&er.message||er))}}});
-  let PB=null;if(canFiles())pdfBlob(o.url).then(r=>{PB=r}).catch(()=>{});else frame(o.url).catch(()=>{});return W}
+  let PB=null,SV=null,PP=pdfBlob(o.url);PP.then(r=>{PB=r}).catch(()=>{PP=null});return W}
 window.tkSend={open,pdf,print};
 })();

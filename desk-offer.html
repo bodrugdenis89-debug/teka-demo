@@ -443,7 +443,7 @@ function siteFix(root){if(!SITE)return;
     if(n!==h)a.setAttribute('href',n)});
   if(ph&&ph!==P0){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let t;while(t=w.nextNode())if(t.nodeValue.includes(P0))t.nodeValue=t.nodeValue.split(P0).join(ph)}}
 new MutationObserver(()=>siteFix(document.body)).observe(document.body,{childList:true,subtree:true});
-try{if(localStorage.getItem('tkMgr')||location.hash==='#manager'){window.MGR_LOGIN=location.hash==='#manager';window.MGR_SEL=location.hash==='#sel';const s=document.createElement('script');s.src='desk-mgr.js?v=2e4f8dbd';document.body.appendChild(s)}}catch(_){}
+try{if(localStorage.getItem('tkMgr')||location.hash==='#manager'){window.MGR_LOGIN=location.hash==='#manager';window.MGR_SEL=location.hash==='#sel';const s=document.createElement('script');s.src='desk-mgr.js?v=b0e65663';document.body.appendChild(s)}}catch(_){}
 const SITEP=fetch('data/site.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).catch(()=>null).then(j=>{if(j&&typeof j==='object'&&!Array.isArray(j)){SITE=j;siteText();langStatic();siteFix(document.body)}});
 
 
@@ -558,11 +558,11 @@ async function localOffer(){let S=null,M=null;try{S=JSON.parse(localStorage.getI
     items.push({sku:i.sku,f:i.f,n:nm(x),sub:tx('s',x.sub)||'',img:pics(x)[0]||'',st:x.st||'',q:i.q,p,...(od(x)>p?{o:od(x)}:{}),...(u<p?{dk:i.dk,dv:+i.dv,u}:{u:p})})}
   const sub=items.reduce((a,i)=>a+i.u*i.q,0),dv=+S.dv||0,disc=Math.min(sub,S.dk==='pct'?Math.round(sub*Math.min(dv,100)/100):S.dk==='sum'?dv:0);
   return {id:'',t:Date.now(),mg:M&&M.n||'',items,dk:S.dk,dv,sub,disc,tot:sub-disc,name:S.name||'',cm:S.cm||''}}
-async function pageInit(){
+async function pageInit(){const QL=OQ.get('l');if((QL==='ro'||QL==='ru')&&QL!==LANG){LANG=QL;langStatic();drawMega()}
   if(LOC)O=await localOffer();
   else{const id=(OQ.get('o')||'').toLowerCase().replace(/[^a-z0-9]/g,'');const k=mgrTok();
     try{const r=await fetch(API0+'/api/offer?id='+id+(OQ.get('nv')?'&nv=1':''),{headers:k?{Authorization:'Bearer '+k}:{}});O=r.ok?await r.json():null}catch(_){O=null}
-    if(O&&O.lang==='RU'){let s=null;try{s=localStorage.getItem('tk-lang')}catch(_){}if(!s&&LANG!=='ru'){LANG='ru';langStatic();drawMega()}}}
+    if(O&&O.lang==='RU'&&!QL){let s=null;try{s=localStorage.getItem('tk-lang')}catch(_){}if(!s&&LANG!=='ru'){LANG='ru';langStatic();drawMega()}}}
   await relang();draw();if(O&&OQ.get('print')==='1')setTimeout(()=>print(),600);if(O&&OQ.get('pdf')==='1')setTimeout(()=>pdfSave(),300)}
 async function relang(){if(!O)return;if(LOC){O=await localOffer();return}
   for(const i of O.items){if(!i.f)continue;const x=(await cat(i.f)).find(y=>String(y.sku)===String(i.sku));if(x){i.n=nm(x);i.sub=tx('s',x.sub)||i.sub}}}
