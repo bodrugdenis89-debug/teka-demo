@@ -1568,7 +1568,13 @@
 "Min.: 223 m3/h": "Мин.: 223 м3/ч",
 "Nivel zgomot conform UE 65/2014:": "Уровень шума согласно ЕС 65/2014:",
 "Max.: 69 dB": "Макс.: 69 дБ",
-"Min.: 62 dB": "Мин.: 62 дБ"
+"Min.: 62 dB": "Мин.: 62 дБ",
+"Motor EcoPower (2 turbine)": "Двигатель EcoPower (2 турбины)",
+"Sistem intern, detasabil, de colectare a picăturilor de ulei": "Внутренняя съемная система сбора капель масла",
+"1 filtru de aluminiu": "1 алюминиевый фильтр",
+"Capacitate de evacuare:": "Вытяжная мощность:",
+"Min.232 m3/h - Max.725 m3/h": "Мин. 232 м3/ч - Макс. 725 м3/ч",
+"Min.49 dBA - Max.65 dBA": "Мин. 49 дБА – Макс. 65 дБА"
 },
 "s": {
 "Cuptor multifuncţional, cu 8 funcţii şi Sistem de curăţare HydroClean PRO": "Многофункциональный духовой шкаф с 8 функциями и системой очистки HydroClean PRO",
@@ -1812,6 +1818,7 @@
 "Cuptor cu microunde incorporabil, Microunde + Grill, Touch Control, 3 funcţii, 8 memorii": "Встроенная микроволновая печь, микроволновая печь + гриль, сенсорное управление, 3 функции, 8 ячеек памяти",
 "Cuptor cu microunde încorporabil, cu sistem de control electromecanic, capacitate 20l": "Встраиваемая микроволновая печь с электромеханической системой управления, объём 20л",
 "Ediție specială Van Gogh Museum. Hotă 90 cm, cu design vertical si sistem de extracţie perimetral": "Специальное издание Музея Ван Гога. Вытяжка 90 см, вертикального исполнения и системой вытяжки по периметру",
-"Hotă încorporabilă, motor cu turbină dublă, 73 cm": "Встроенный капот, двухтурбинный двигатель, 73 см"
+"Hotă încorporabilă, motor cu turbină dublă, 73 cm": "Встроенный капот, двухтурбинный двигатель, 73 см",
+"Hotă cu design vertical, sistem de extracţie perimetrală, 60 cm": "Вытяжка вертикального исполнения, система вытяжки по периметру, 60 см"
 }
 }
