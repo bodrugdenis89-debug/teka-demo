@@ -42,10 +42,21 @@ function frame(url){const u=abs(url);if(FR&&FR.u===u)return FR.p;if(FR)FR.el.rem
   el.src=u;document.body.appendChild(el);FR={u,el,p};p.catch(()=>{if(FR&&FR.el===el){el.remove();FR=null}});return p}
 async function pdfBlob(url){const w=await frame(url);return {b:await w.tkPdf(),n:w.tkPdfName()}}
 function save(b,n){const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=n;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),60000)}
-async function pdf(url){toast('Готовим PDF…');try{const {b,n}=await pdfBlob(url);save(b,n);toast('PDF сохранён: '+n);return {b,n}}catch(e){toast('Не удалось создать PDF: '+e.message)}}
-async function print(url){try{const w=await frame(url);w.focus();w.print();return true}catch(e){toast('Документ не загрузился: '+e.message);return false}}
+const isRo=()=>{try{return (document.documentElement.lang||localStorage.getItem('tk-lang')||'')==='ro'}catch(_){return false}},LL=(ro,ru)=>isRo()?ro:ru;
+/* телефон: после подготовки файла — окно с кнопками (нужно новое нажатие, иначе браузер не даст поделиться/открыть) */
+async function shareFile(r,tx){const f=new File([r.b],r.n,{type:'application/pdf'});if(!navigator.share)throw new Error('share');if(navigator.canShare&&!navigator.canShare({files:[f]}))throw new Error('share');await navigator.share(tx?{files:[f],text:tx}:{files:[f]})}
+function openFile(r){const u=URL.createObjectURL(r.b);const w=window.open(u,'_blank');if(!w){const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()}setTimeout(()=>URL.revokeObjectURL(u),600000)}
+function ready(r,tx){const W=document.createElement('div');W.className='tks-w';W.style.zIndex=2147483001;
+  W.innerHTML=`<div class="tks" role="dialog"><h4><span>${LL('PDF este gata','PDF готов')}</span><button class="x" data-a="x">✕</button></h4><div class="sb">${he(r.n)}</div>
+   <div class="g" style="grid-template-columns:1fr">${navigator.share?`<button class="b sh" data-a="sh">${I.sh}${tx?LL('Trimite fișierul PDF','Отправить PDF-файл'):LL('Trimite / salvează fișierul','Отправить / сохранить файл')}</button>`:''}<button class="b" data-a="op">${I.pdf}${LL('Deschide PDF (vizualizare, tipărire)','Открыть PDF (просмотр, печать)')}</button></div><div class="ms"></div></div>`;
+  document.body.appendChild(W);const ms=t=>W.querySelector('.ms').textContent=t;
+  W.addEventListener('click',async e=>{if(e.target===W)return W.remove();const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a;if(a==='x')return W.remove();
+    if(a==='op'){openFile(r);return}
+    if(a==='sh'){try{await shareFile(r,tx);W.remove()}catch(er){if(er&&er.name==='AbortError')return;ms(LL('Nu se poate trimite fișierul din acest browser — deschideți PDF și apăsați «Partajare»','Этот браузер не умеет отправлять файл — откройте PDF и нажмите «Поделиться»'))}}})}
+async function pdf(url){toast(LL('Se pregătește PDF…','Готовим PDF…'));try{const r=await pdfBlob(url);if(MOB())ready(r);else{save(r.b,r.n);toast(LL('PDF salvat: ','PDF сохранён: ')+r.n)}return r}catch(e){toast(LL('Nu s-a putut crea PDF: ','Не удалось создать PDF: ')+e.message)}}
+async function print(url){if(MOB()){const r=await pdf(url);return !!r}try{const w=await frame(url);w.focus();w.print();return true}catch(e){toast('Документ не загрузился: '+e.message);return false}}
 const MOB=()=>matchMedia('(pointer:coarse)').matches&&innerWidth<1024;
-const canFiles=()=>{if(!MOB())return false;try{return !!(navigator.canShare&&navigator.canShare({files:[new File(['x'],'x.pdf',{type:'application/pdf'})]}))}catch(_){return false}};
+const canFiles=()=>{if(!MOB()||!navigator.share)return false;try{return !navigator.canShare||navigator.canShare({files:[new File(['x'],'x.pdf',{type:'application/pdf'})]})}catch(_){return false}};
 
 /* o: {url (страница документа), link (ссылка для клиента, если есть), title, no, tot, name, tel, email, lang:'ru'|'ro', kind:'offer'|'order'} */
 function open(o){const ru=(o.lang||'ru').toLowerCase()!=='ro',L=(r,m)=>ru?m:r;
@@ -69,8 +80,9 @@ function open(o){const ru=(o.lang||'ru').toLowerCase()!=='ro',L=(r,m)=>ru?m:r;
   const close=()=>{W.remove();document.removeEventListener('keydown',esc)},esc=e=>{if(e.key==='Escape')close()};document.addEventListener('keydown',esc);
   W.addEventListener('click',async e=>{if(e.target===W)return close();const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,tx=msg(MOB()),tel=telD(W.querySelector('[name=t]').value);
     if(a==='x')return close();
-    if(/^(wa|tg|vb)$/.test(a)&&canFiles()){if(!PB){ms(L('PDF se pregătește — apăsați peste câteva secunde','PDF ещё готовится — нажмите через пару секунд'));return}
-      try{await navigator.share({files:[new File([PB.b],PB.n,{type:'application/pdf'})],text:tx});ms(L('Trimis','Отправлено'))}catch(er){if(er&&er.name==='AbortError')return;ms(L('Nu s-a reușit: ','Не получилось: ')+(er&&er.message||er))}return}
+    if(/^(wa|tg|vb|sh)$/.test(a)&&canFiles()){const t2=msg(false);
+      if(!PB){ms(L('Se pregătește PDF…','Готовим PDF…'));try{const r=PP?await PP:await pdfBlob(o.url);PB=r;ms('');ready(r,t2)}catch(er){ms(L('Nu s-a putut crea PDF: ','Не удалось создать PDF: ')+(er&&er.message||er))}return}
+      try{await shareFile(PB,t2);ms(L('Trimis','Отправлено'))}catch(er){if(er&&er.name==='AbortError')return;ready(PB,t2)}return}
         const fm=t=>ms(t+(MOB()?'':' · '+(SV?L('fișier: ','файл: ')+SV:L('PDF — butonul «Descarcă PDF»','PDF — кнопка «Скачать PDF»'))));
     if(a==='wa'){if(MOB())location.href='https://wa.me/'+(tel||'')+'?text='+encodeURIComponent(tx);else window.open('https://web.whatsapp.com/send?'+(tel?'phone='+tel+'&':'')+'text='+encodeURIComponent(tx),'tkwa');fm(tel?L('Deschis WhatsApp — trageți PDF în chat și «Trimite»','Открыт WhatsApp — перетащите PDF в чат и «Отправить»'):L('Număr incorect — alegeți chatul în WhatsApp','Номер не распознан — выберите чат в WhatsApp'))}
     if(a==='tg'){try{navigator.clipboard.writeText(tx)}catch(_){}const ok=tel.length>=11;
@@ -81,6 +93,7 @@ function open(o){const ru=(o.lang||'ru').toLowerCase()!=='ro',L=(r,m)=>ru?m:r;
       if(MOB())location.href='mailto:'+encodeURIComponent(em).replace('%40','@')+'?subject='+encodeURIComponent(su)+'&body='+encodeURIComponent(tx);
       else window.open('https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(em)+'&su='+encodeURIComponent(su)+'&body='+encodeURIComponent(tx),'tkmail');
       fm(L('Deschis Gmail — atașați PDF și «Trimite»','Открыт Gmail — приложите PDF и нажмите «Отправить»'))}
+    if((a==='pdf'||a==='pr')&&MOB()){if(PB){ready(PB);return}ms(L('Se pregătește PDF…','Готовим PDF…'));try{const r=PP?await PP:await pdfBlob(o.url);PB=r;ms('');ready(r)}catch(er){ms(L('Nu s-a putut crea PDF','Не удалось создать PDF'))}return}
     if(a==='pdf'){b.disabled=true;ms(L('Se pregătește PDF…','Готовим PDF…'));const r=await pdf(o.url);if(r)SV=r.n;ms(r?L('PDF salvat: ','PDF скачан: ')+r.n:L('Nu s-a putut crea PDF','Не удалось создать PDF — сообщите менеджеру сайта'));b.disabled=false}
     if(a==='pr'){ms(L('Se deschide tipărirea…','Открываем печать…'));print(o.url).then(ok=>ms(ok?'':L('Documentul nu s-a încărcat','Документ не загрузился')))}
     if(a==='cp'){try{await navigator.clipboard.writeText(o.link);ms(L('Link copiat','Ссылка скопирована'))}catch(_){W.querySelector('.lk input').select()}}
