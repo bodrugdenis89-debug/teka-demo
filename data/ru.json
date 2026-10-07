@@ -1600,7 +1600,16 @@
 "Randamentul cel mai mare al presiunii aerului Pa: 440": "Самый высокий выход давления воздуха Па: 440",
 "Randamentul cel mai mare al puterii electrice de intrare W: 153,1": "Максимальная входная электрическая мощность, Вт: 153,1",
 "Randamentul cel mai mare al puterii nominale a sistemului de iluminat W: 6": "Наивысший КПД номинальной мощности системы освещения Вт: 6",
-"Iluminarea medie a sistemului de iluminare suprafața de gătit (Emiddle) Lux 331/331/296": "Средняя освещенность системы освещения варочной поверхности (Emiddle) Люкс 331/331/296"
+"Iluminarea medie a sistemului de iluminare suprafața de gătit (Emiddle) Lux 331/331/296": "Средняя освещенность системы освещения варочной поверхности (Emiddle) Люкс 331/331/296",
+"Funcţie Fresh AIR (10 min ON / 50 min OFF)": "Функция свежего воздуха (10 мин ВКЛ / 50 мин ВЫКЛ)",
+"Turbină dublă (EcoPower)": "Двойная турбина (EcoPower)",
+"Sistem intern, detaşabil, de colectare a picăturilorde ulei": "Внутренняя съемная система сбора капель масла",
+"-Min.307 m3/h": "- Мин. 307 м3/ч",
+"-Max.584 m3/h": "-Макс. 584 м3/ч",
+"Nivel zgomot conformUE 65/2014:": "Уровень шума согласно ЕС 65/2014:",
+"-Min.61 dBA": "- Мин. 61 дБА",
+"-Max.72 dBA": "- Макс. 72 дБА",
+"Funcție de recirculare opțională cu/fără ornament decorativ sau cu noul Kit standard de recirculare+ Filtru opțional regenerativ": "Опциональная функция рециркуляции с/без декоративной отделки или с новым стандартным комплектом рециркуляции + дополнительным регенеративным фильтром"
 },
 "s": {
 "Cuptor multifuncţional, cu 8 funcţii şi Sistem de curăţare HydroClean PRO": "Многофункциональный духовой шкаф с 8 функциями и системой очистки HydroClean PRO",
@@ -1846,6 +1855,7 @@
 "Ediție specială Van Gogh Museum. Hotă 90 cm, cu design vertical si sistem de extracţie perimetral": "Специальное издание Музея Ван Гога. Вытяжка 90 см, вертикального исполнения и системой вытяжки по периметру",
 "Hotă încorporabilă, motor cu turbină dublă, 73 cm": "Встроенный капот, двухтурбинный двигатель, 73 см",
 "Hotă cu design vertical, sistem de extracţie perimetrală, 60 cm": "Вытяжка вертикального исполнения, система вытяжки по периметру, 60 см",
-"Hotă şemineu cu 4 viteze şi motor EcoPower, 60 cm": "Каминная вытяжка с 4 скоростями и двигателем EcoPower, 60 см"
+"Hotă şemineu cu 4 viteze şi motor EcoPower, 60 cm": "Каминная вытяжка с 4 скоростями и двигателем EcoPower, 60 см",
+"Hotă şemineu cu design vertical, paravan din sticlă de culoare albă, Funcţie Fresh AIR, 60 cm": "Каминная вытяжка вертикального дизайна, экран из белого стекла, функция Fresh AIR, 60 см"
 }
 }
