@@ -1,5 +1,173 @@
 [
  {
+  "sku": "112930073",
+  "n": "Van Gogh DVT 68660 TOS VG",
+  "sub": "Ediție specială Van Gogh Museum. Hotă 60 cm, cu design vertical si sistem de extracţie perimetral",
+  "p": 17800,
+  "img": [],
+  "draw": "assets/u/112930073-draw-muxzxk69izh.webp",
+  "label": "assets/u/112930073-label-muxzxkeatmk.webp",
+  "desc": [
+   "Ediție specială Van Gogh Museum",
+   "Hotă 60 cm cu design vertical",
+   "Sistem de extracţie perimetral",
+   "Motor EcoPower",
+   "Touch Control",
+   "Timer",
+   "2 spoturi LED",
+   "2 filtre de aluminiu",
+   "3 trepte putere + 1 Turbo",
+   "Functie Fresh AIR (10 min ON / 50 min OFF)",
+   "Indicator pentru saturarea filtrelor",
+   "Capacitate de evacuare (m3/h):",
+   "- Min.: 307 - Max.: 584 – Turbo.: 698",
+   "Nivel zgomot conform UE 65/2014 (dBA): - Min.: 61 - Max.: 72 – Turbo: 74",
+   "Funcție de recirculare opțională cu/fără ornament decorativ sau cu noul Kit standard de recirculare + Filtru opțional regenerativ",
+   "Finisaj: Cristal gri inchis & negru cu detalii in culoarea sampaniei"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "800-1100"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "600"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "412"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "15,3"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Ø Reducție (mm)",
+      "150"
+     ],
+     [
+      "Colector detaşabil de ulei",
+      "Da"
+     ],
+     [
+      "Sistem dublu de aspirație",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "4"
+     ],
+     [
+      "Conexiune",
+      "Schuko plug"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "100"
+     ],
+     [
+      "Putere (V)",
+      "220-240"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Puterea totală a hotei (W)",
+      "286"
+     ],
+     [
+      "Numărul de motoare",
+      "1"
+     ],
+     [
+      "Puterea motorului (W)",
+      "280"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Supapă anti-retur",
+      "Da"
+     ],
+     [
+      "Reducţie 150/120 mm",
+      "Da"
+     ],
+     [
+      "Extensie",
+      "Nu"
+     ],
+     [
+      "Filtrul de cărbune opţional",
+      "D4C"
+     ]
+    ]
+   },
+   {
+    "t": "Modele",
+    "r": [
+     [
+      "Număr de filtre",
+      "2"
+     ],
+     [
+      "Sistem de deschidere",
+      "Piston"
+     ],
+     [
+      "Oprire programabilă",
+      "Da"
+     ],
+     [
+      "Indicator de saturație a filtrului",
+      "Da"
+     ],
+     [
+      "Numărul de viteze",
+      "3 + 1"
+     ],
+     [
+      "Funcția pentru aer proaspăt",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/112930073_DVT_PRO_VR01.pdf"
+  ],
+  "b": "Teka",
+  "f": [],
+  "w": "",
+  "c": "",
+  "col": "",
+  "u": [
+   "assets/u/112930073-muxzxedb6qu.webp",
+   "assets/u/112930073-muxzxewx7o3.webp",
+   "assets/u/112930073-muxzxfbbvjp.webp",
+   "assets/u/112930073-muxzxfzgq10.webp",
+   "assets/u/112930073-muxzxgfj3cm.webp",
+   "assets/u/112930073-muxzxh1afb0.webp",
+   "assets/u/112930073-muxzxhxb9am.webp",
+   "assets/u/112930073-muxzxitsda0.webp",
+   "assets/u/112930073-muxzxjr5m7k.webp"
+  ]
+ },
+ {
   "sku": "112930027",
   "n": "DLV 68660 SM",
   "sub": "Hotă cu design vertical, sistem de extracţie perimetrală, 60 cm",
