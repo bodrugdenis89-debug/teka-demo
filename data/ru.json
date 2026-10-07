@@ -1574,7 +1574,33 @@
 "1 filtru de aluminiu": "1 алюминиевый фильтр",
 "Capacitate de evacuare:": "Вытяжная мощность:",
 "Min.232 m3/h - Max.725 m3/h": "Мин. 232 м3/ч - Макс. 725 м3/ч",
-"Min.49 dBA - Max.65 dBA": "Мин. 49 дБА – Макс. 65 дБА"
+"Min.49 dBA - Max.65 dBA": "Мин. 49 дБА – Макс. 65 дБА",
+"Lățime: 60 cm": "Ширина: 60 см",
+"Motor cu turbină dublă": "Двухтурбинный двигатель",
+"Conector european inclus": "Европейская вилка в комплекте",
+"Mod opțional de recirculare (SET 1 / N1)": "Дополнительный режим рециркуляции (SET 1 / N1)",
+"Consumul anual de energie (AEC) kWh / a 54,7": "Годовое потребление энергии (AEC) кВтч/год 54,7",
+"Clasa de eficiență energetică A": "Класс энергоэффективности А",
+"Eficiența fluido- dinamică (FDEhood) 31": "Гидродинамический КПД (FDEhood) 31",
+"Clasa de eficiență fluido- dinamica: A": "Класс гидродинамической эффективности: A",
+"Eficiență iluminării (Lehood) lux / Watt 55,2 / 55,2 / 49,3": "Светоотдача (Lehood) люкс/Ватт 55,2/55,2/49,3",
+"Clasa de eficiență a iluminării: A": "Класс эффективности освещения: А",
+"Eficiența de filtrare a grăsimilor (GFEhood)%: 82": "Эффективность фильтрации жира (GFEhood)%: 82",
+"Clasa de eficiență a filtrării grăsimilor: C": "Класс эффективности фильтрации жира: C",
+"Debitul de aer la turaţie minimă în condiţii normale de utilizare (Qmin) m3 / h: 305": "Расход воздуха при минимальной скорости при нормальных условиях эксплуатации (Qmin), м3/ч: 305",
+"Debitul de aer la turaţie maximă în condiţii normale de utilizare (Qmax) m3 / h: 586": "Расход воздуха на максимальной скорости при нормальных условиях эксплуатации (Qmax), м3/ч: 586",
+"Debit de aer în mod intensiv să accelerat (Qboost) m3 / h: 735": "Расход воздуха интенсивно ускоренный (Qboost) м3/ч: 735",
+"Puterea acustică ponderată A a emisiilor sonore transmise prin aer, la turaţia minimă disponibilă în condiţii normale de utilizare dB: 54": "Акустическая мощность звуковых излучений, передаваемых по воздуху, на минимальной скорости, доступной при нормальных условиях использования, дБ: 54",
+"Puterea acustică ponderată A a emisiilor sonore transmise prin aer, la turaţia maximă disponibilă în condiţii normale de utilizare dB: 68": "Акустическая мощность звукового излучения, передаваемого по воздуху, на максимальной скорости, доступной в нормальных условиях использования, дБ: 68",
+"Puterea acustică ponderată A a emisiilor sonore transmise prin aer, în modul intensiv sau accelerat dB: 72": "Акустическая мощность звуковых излучений, передаваемых по воздуху, в интенсивном или ускоренном режиме, дБ: 72",
+"Consumul de putere în modul oprit (Po) W: 0,32": "Потребляемая мощность в выключенном состоянии (Po) Вт: 0,32",
+"Consumul de putere în modul standby (Ps) W: N / A": "Потребляемая мощность в режиме ожидания (Ps) Вт: Н/Д",
+"Index de eficiență energetică (EEI): 53,2": "Индекс энергоэффективности (EEI): 53,2",
+"Randamentul cel mai mare al fluxului de aer m3/h : 388": "Высочайшая эффективность расхода воздуха м3/ч: 388",
+"Randamentul cel mai mare al presiunii aerului Pa: 440": "Самый высокий выход давления воздуха Па: 440",
+"Randamentul cel mai mare al puterii electrice de intrare W: 153,1": "Максимальная входная электрическая мощность, Вт: 153,1",
+"Randamentul cel mai mare al puterii nominale a sistemului de iluminat W: 6": "Наивысший КПД номинальной мощности системы освещения Вт: 6",
+"Iluminarea medie a sistemului de iluminare suprafața de gătit (Emiddle) Lux 331/331/296": "Средняя освещенность системы освещения варочной поверхности (Emiddle) Люкс 331/331/296"
 },
 "s": {
 "Cuptor multifuncţional, cu 8 funcţii şi Sistem de curăţare HydroClean PRO": "Многофункциональный духовой шкаф с 8 функциями и системой очистки HydroClean PRO",
@@ -1819,6 +1845,7 @@
 "Cuptor cu microunde încorporabil, cu sistem de control electromecanic, capacitate 20l": "Встраиваемая микроволновая печь с электромеханической системой управления, объём 20л",
 "Ediție specială Van Gogh Museum. Hotă 90 cm, cu design vertical si sistem de extracţie perimetral": "Специальное издание Музея Ван Гога. Вытяжка 90 см, вертикального исполнения и системой вытяжки по периметру",
 "Hotă încorporabilă, motor cu turbină dublă, 73 cm": "Встроенный капот, двухтурбинный двигатель, 73 см",
-"Hotă cu design vertical, sistem de extracţie perimetrală, 60 cm": "Вытяжка вертикального исполнения, система вытяжки по периметру, 60 см"
+"Hotă cu design vertical, sistem de extracţie perimetrală, 60 cm": "Вытяжка вертикального исполнения, система вытяжки по периметру, 60 см",
+"Hotă şemineu cu 4 viteze şi motor EcoPower, 60 cm": "Каминная вытяжка с 4 скоростями и двигателем EcoPower, 60 см"
 }
 }
