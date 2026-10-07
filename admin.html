@@ -6,6 +6,12 @@
 <meta name="robots" content="noindex,nofollow">
 <title data-i18n>Teka — админка</title>
 <link rel="icon" href="assets/teka-logo-sq.svg">
+<link rel="manifest" href="/manifest-admin.webmanifest">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="TEKA админ">
+<meta name="theme-color" content="#C8102E">
 <style>
 :root{--red:#E30613;--ink:#141414;--ink2:#3a3a3a;--mute:#767676;--line:#E6E6E6;--soft:#F5F5F5;--ok:#1A7F37;--warn:#B26B00;--bg:#fff}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -34,7 +40,7 @@ input.t:focus,select.t:focus,textarea.t:focus{outline:2px solid #111;outline-off
 /* шапка */
 header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
 header{display:grid;grid-template-columns:auto minmax(0,1fr)}
-.hlg{grid-row:1/3;display:block;width:88px;background:#C8102E}.hlg img{display:block;width:100%;height:100%;object-fit:cover}
+.hlg{grid-row:1/3;display:block;width:88px;background:#C8102E}.hlg img{display:block;width:100%;height:100%;object-fit:contain}
 .hb{display:flex;align-items:center;gap:12px;padding:12px 20px 8px 24px;flex-wrap:wrap}
 .hb .lg{font-weight:700;font-size:18px;margin-right:8px}
 .hb .q{flex:1 1 260px;max-width:420px}
@@ -413,6 +419,7 @@ let RAW='',DB={},RU=null,PHO={},GL={lo:{}},ROWS=[],DIRTY=new Set(),CHG=new Set()
 function toast(m,er){const t=$('toast');t.textContent=m;t.className='on'+(er?' er':'');clearTimeout(t._t);t._t=setTimeout(()=>t.className=er?'er':'',er?6000:3500)}
 async function api(p,body){
   const r=await fetch(API+p,{method:body?'POST':'GET',headers:{'Content-Type':'application/json',...(TOK?{Authorization:'Bearer '+TOK}:{})},body:body?JSON.stringify(body):undefined});
+  const nt=r.headers.get('X-Token');if(nt&&TOK){TOK=nt;try{localStorage.setItem('tkAdm',TOK)}catch(e){}}
   const j=await r.json().catch(()=>({error:'Сервер не отвечает'}));
   if(r.status===401&&p!=='/api/login'){showLogin();throw new Error(T(j.error))}
   if(!r.ok){const e=new Error(j.error?T(j.error):T('Ошибка {0}',r.status));e.status=r.status;e.j=j;throw e}

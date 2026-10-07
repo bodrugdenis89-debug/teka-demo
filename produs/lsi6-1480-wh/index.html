@@ -8,7 +8,7 @@
 <meta name="description" content="Mașini de spălat / uscat LSI6 1480 WH: preț, caracteristici, livrare în Moldova. Teka Moldova.">
 <meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="assets/teka-logo-sq.svg" type="image/svg+xml" data-tk="fav"><link rel="icon" href="favicon.ico" sizes="any" data-tk="fav"><link rel="apple-touch-icon" href="apple-touch-icon.png" data-tk="fav"><meta name="theme-color" content="#C8102E" data-tk="fav">
 <meta name="google" content="notranslate">
-<script id="tkdev">(function(){try{if(innerWidth>=768||/[?&]desk=1/.test(location.search)||localStorage.getItem('tkMgr'))return}catch(e){return}
+<script id="tkdev">(function(){try{if(innerWidth>=768||/[?&](desk=1|app=mgr)/.test(location.search)||localStorage.getItem('tkMgr')||sessionStorage.getItem('tkApp'))return}catch(e){return}
 var f=window.TKF||location.pathname.split('/').pop()||'index.html',q=new URLSearchParams(window.TKQ||location.search),t=null,
 K={oven:'ovens-light',hob:'hobs',hood:'hoods',micro:'microwaves',coffee:'coffee',fridge:'fridges',wine:'wine-coolers',dish:'dishwashers',sink:'sinks',faucet:'faucets',washer:'laundry',pots:'accessories',promo:'promo'},
 F={ovens:'ovens-light',compact:'coffee',hobs:'hobs',hoods:'hoods',microwaves:'microwaves',fridges:'fridges','wine-coolers':'wine-coolers',dishwashers:'dishwashers',sinks:'sinks',faucets:'faucets',laundry:'laundry',accessories:'accessories'};
@@ -496,7 +496,9 @@ function siteFix(root){if(!SITE)return;
     if(n!==h)a.setAttribute('href',n)});
   if(ph&&ph!==P0){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let t;while(t=w.nextNode())if(t.nodeValue.includes(P0))t.nodeValue=t.nodeValue.split(P0).join(ph)}}
 new MutationObserver(()=>siteFix(document.body)).observe(document.body,{childList:true,subtree:true});
-try{if(localStorage.getItem('tkMgr')||location.hash==='#manager'){window.MGR_LOGIN=location.hash==='#manager';window.MGR_SEL=location.hash==='#sel';const s=document.createElement('script');s.src='desk-mgr.js?v=861dde9a';document.body.appendChild(s)}}catch(_){}
+try{const A=/[?&]app=mgr/.test(location.search)||sessionStorage.getItem('tkApp');if(A){sessionStorage.setItem('tkApp','1');window.MGR_APP=1}
+if(A||localStorage.getItem('tkMgr')){const hd=document.head,mf=hd.querySelector('link[rel=manifest]')||hd.appendChild(document.createElement('link'));mf.rel='manifest';mf.href='/manifest-mgr.webmanifest';[['apple-mobile-web-app-capable','yes'],['mobile-web-app-capable','yes'],['apple-mobile-web-app-title','TEKA'],['theme-color','#C8102E']].forEach(([n,c])=>{const m=document.createElement('meta');m.name=n;m.content=c;hd.appendChild(m)})}}catch(_){}
+try{if(localStorage.getItem('tkMgr')||location.hash==='#manager'||window.MGR_APP){window.MGR_LOGIN=location.hash==='#manager'||!!window.MGR_APP;window.MGR_SEL=location.hash==='#sel';const s=document.createElement('script');s.src='desk-mgr.js?v=a5e37d16';document.body.appendChild(s)}}catch(_){}
 const SITEP=fetch('data/site.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).catch(()=>null).then(j=>{if(j&&typeof j==='object'&&!Array.isArray(j)){SITE=j;siteText();langStatic();siteFix(document.body)}});
 
 

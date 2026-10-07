@@ -6,6 +6,7 @@ const ld=()=>{let s=null;try{s=JSON.parse(localStorage.getItem(SK)||'null')}catc
 let S=ld();const sv=()=>{try{localStorage.setItem(SK,JSON.stringify(S))}catch(_){}bar()};
 const q=(s,r=document)=>r.querySelector(s);
 const api=async(p,body)=>{const r=await fetch(API0+p,{method:body?'POST':'GET',headers:{'Content-Type':'application/json',Authorization:'Bearer '+(M&&M.t)},body:body?JSON.stringify(body):undefined});
+  const nt=r.headers.get('X-Token');if(nt&&M){M.t=nt;try{localStorage.setItem(MK,JSON.stringify(M))}catch(_){}}
   const j=await r.json().catch(()=>({error:Z('Сервер не отвечает')}));if(r.status===401){logout();throw new Error(Z('Вход истёк — войдите заново'))}if(!r.ok)throw new Error(j.error||Z('Ошибка ')+r.status);return j};
 const st=document.createElement('style');st.textContent=`
 .mgp{position:fixed;left:16px;bottom:16px;z-index:90;display:flex;align-items:center;gap:2px;background:var(--ink);color:#fff;border-radius:22px;padding:4px;font-size:13px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
@@ -46,7 +47,8 @@ const st=document.createElement('style');st.textContent=`
 .mgres div{display:flex;gap:8px;flex-wrap:wrap}.mgres button,.mgres a{height:34px;padding:0 14px;border-radius:17px;border:1px solid var(--line);font-weight:600;font-size:13px;display:inline-flex;align-items:center}
 .mgl{position:fixed;inset:0;z-index:99;background:rgba(0,0,0,.4);display:grid;place-items:center}
 .mgl form{background:#fff;border-radius:14px;padding:28px;width:min(340px,92vw);display:grid;gap:12px}.mgl h4{font-size:18px}.mgl input{height:42px;border:1px solid var(--line);border-radius:8px;padding:0 12px;font:inherit}
-.mgl button{height:42px;border-radius:21px;background:var(--red);color:#fff;font-weight:600}.mgl .er{color:var(--red);font-size:13px;min-height:18px}.mgl .cn{background:none;color:var(--mute);height:auto}
+.mgl form button{height:42px;border-radius:21px;background:var(--red);color:#fff;font-weight:600;border:0}.mgl .er{color:var(--red);font-size:13px;min-height:18px}.mgl form .cn{background:none;color:var(--mute);height:auto}
+.mgc.mgl{display:flex;place-items:initial}
 .mgc{position:fixed;inset:24px;z-index:98;background:#fff;border-radius:12px;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.3)}
 .mgc .bd{overflow:auto;padding:0 22px 22px}.mgc table{width:100%;border-collapse:collapse;font-size:13.5px}
 .mgc th,.mgc td{padding:8px 10px;border-bottom:1px solid var(--soft);text-align:left;vertical-align:top}
@@ -54,10 +56,20 @@ const st=document.createElement('style');st.textContent=`
 .mgc td:first-child{color:var(--mute);width:22%}.mgc tr.df td:not(:first-child){background:#FFF8E6}.mgc tr.gr td{font-weight:700;color:var(--ink);background:var(--soft);text-transform:uppercase;font-size:12px;letter-spacing:.04em}
 .mgok{display:inline-flex;align-items:center;gap:6px;margin-left:8px;color:var(--mute);font-size:12.5px;font-weight:500}.mgok input{accent-color:var(--red)}
 .ac:has(#mgAdd){flex-wrap:wrap}#mgAdd{order:9;flex:1 0 100%;height:48px;padding:0 16px;border-radius:26px;border:1px solid var(--ink);font-weight:600;font-size:14px;white-space:nowrap}#mgAdd.on{background:var(--ok);border-color:var(--ok);color:#fff}
+@media (max-width:600px){
+html,body{overflow-x:clip}footer .wrap{grid-template-columns:1fr}.top .wrap>a[href^="tel"]{display:none}.top .wrap{gap:12px}.top .mgp{position:fixed;left:12px;bottom:calc(16px + env(safe-area-inset-bottom));background:var(--ink);color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.25);padding:4px;border-radius:24px;gap:2px;font-size:14px;z-index:90}.top .mgp b{padding:0 8px 0 10px;color:#fff;font-weight:600}.top .mgp button{height:38px;padding:0 14px;border-radius:19px;color:#fff;font-weight:600;font-size:14px}.top .mgp button.on{background:var(--red);color:#fff}.top .mgp em{background:#fff;color:var(--ink)}
+.pc .bt{flex-wrap:wrap;gap:8px}.pc .bt .pr{flex:1 0 100%}.tx{padding:0 16px!important}.tx h1{font-size:28px!important}#sb .fg .fb{display:none}#sb .fg.cl .fb{display:block}#sb .fg h5 svg{transform:rotate(-90deg)}#sb .fg.cl h5 svg{transform:none}
+.mgd{width:100vw}.mgd h3{padding:12px 14px;font-size:17px}.mgd .bd{padding:4px 14px 16px}.mgd .ft{padding:10px 14px calc(10px + env(safe-area-inset-bottom))}.mgd .ft{gap:6px}.mgd .ft button,.mgd .ft a{flex:1 1 auto;justify-content:center;height:34px;padding:0 10px;font-size:12.5px}.mgd .ft>span{flex:1 0 100%!important;height:0}.mgd .ft .k,.mgd .ft .r{height:44px;flex:1 1 40%;font-size:13px;padding:0 6px;white-space:nowrap}
+.mgi{grid-template-columns:18px 48px 1fr;gap:8px}.mgi img{width:48px;height:48px}.mgi .sm{grid-column:3;text-align:left}.mgi .rm{grid-column:3;justify-self:end;margin-top:-40px}.mgi .rw input{width:56px}
+.mgf{grid-template-columns:1fr}.mgf input,.mgf select,.mgi .rw input,.mgi select{height:40px;font-size:16px}.mgf textarea{font-size:16px}
+.mgc{inset:0;border-radius:0}.mgc .bd{padding:0 12px 16px}
+.mgl thead{display:none}.mgl table,.mgl tbody,.mgl tr,.mgl td{display:block}.mgl tr{border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin-bottom:8px}.mgl td{border:0;padding:3px 0}.mgl td:last-child{display:flex;gap:8px;padding-top:8px}.mgl td:last-child button{flex:1;height:38px}.mgl input{font-size:16px}
+.mgl form input{font-size:16px}
+}
 @media print{.mgp,.mgb,#mgAdd,.mgd,.mgw{display:none!important}}`;
 document.head.appendChild(st);
 
-function logout(){M=null;S={items:[],dk:'pct',dv:0,name:'',tel:'',cm:'',ttl:''};RES=null;try{localStorage.removeItem(MK);localStorage.removeItem(SK)}catch(_){}document.querySelectorAll('.mgp,.mgb,#mgAdd').forEach(e=>e.remove());if(window.tekaScreensaver)tekaScreensaver.off();close()}
+function logout(){M=null;S={items:[],dk:'pct',dv:0,name:'',tel:'',cm:'',ttl:''};RES=null;try{localStorage.removeItem(MK);localStorage.removeItem(SK)}catch(_){}document.querySelectorAll('.mgp,.mgb,#mgAdd').forEach(e=>e.remove());if(window.tekaScreensaver)tekaScreensaver.off();close();if(window.MGR_APP)login()}
 function login(){const w=document.createElement('div');w.className='mgl';
   w.innerHTML=`<form><h4>${Z('Вход для менеджера')}</h4><input name="n" placeholder="${Z('Имя')}" autocomplete="username" required><input name="p" type="password" placeholder="${Z('Пароль')}" autocomplete="current-password" required><button>${Z('Войти')}</button><div class="er"></div><button type="button" class="cn">${Z('Отмена')}</button></form>`;
   document.body.appendChild(w);const f=q('form',w);setTimeout(()=>f.n.focus(),50);
