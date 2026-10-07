@@ -33,10 +33,10 @@ input.t:focus,select.t:focus,textarea.t:focus{outline:2px solid #111;outline-off
 #login .er{color:var(--red);min-height:20px;font-size:13px}
 /* шапка */
 header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
-.hb{display:flex;align-items:center;gap:12px;padding:12px 20px;flex-wrap:wrap}
-.hb .lg{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-right:8px}
-.hb .lg img{width:64px;height:64px;margin:-12px 0 -12px -20px;align-self:flex-start}
-.hb .lg{align-self:stretch;align-items:center}
+header{display:grid;grid-template-columns:auto minmax(0,1fr)}
+.hlg{grid-row:1/3;display:block;width:88px;background:#C8102E}.hlg img{display:block;width:100%;height:100%;object-fit:cover}
+.hb{display:flex;align-items:center;gap:12px;padding:12px 20px 8px 24px;flex-wrap:wrap}
+.hb .lg{font-weight:700;font-size:18px;margin-right:8px}
 .hb .q{flex:1 1 260px;max-width:420px}
 .hb .sp{flex:1}
 .hb select.t{width:auto;min-width:150px}
@@ -168,7 +168,7 @@ html[lang=ro] .phs .p:first-child:after{content:"Principală"}
 #busy{position:fixed;inset:0;background:rgba(255,255,255,.6);display:none;place-items:center;z-index:70;font-weight:700}
 #busy.on{display:grid}
 /* разделы */
-.tabs{display:flex;gap:2px;padding:0 20px;overflow-x:auto;margin-top:-4px}
+.tabs{display:flex;gap:2px;padding:0 20px 0 10px;overflow-x:auto}
 .tabs button{padding:9px 14px 11px;font-weight:600;color:var(--mute);border-bottom:2px solid transparent;white-space:nowrap}
 .tabs button:hover{color:var(--ink)}
 .tabs button.on{color:var(--ink);border-bottom-color:var(--red)}
@@ -203,7 +203,7 @@ td.od input{width:64px;height:34px;text-align:center}
 .drop.on{border-color:var(--ink);color:var(--ink)}
 .kv{display:grid;grid-template-columns:150px 1fr;gap:6px 14px;font-size:13.5px;clear:both}.kv b{color:var(--mute);font-weight:600}
 .warnb{background:#FFF8E6;border:1px solid #f0d9b5;border-radius:10px;padding:10px 14px;font-size:13px;margin-top:10px;clear:both}
-@media (max-width:900px){.hb .q{max-width:none;flex-basis:100%;order:5}td.ct,th.ct,td.sk,th.sk{display:none}.g2,.g3{grid-template-columns:1fr}.eh,.eb,.ef{padding-left:16px;padding-right:16px}main{padding:12px 8px 120px}}
+@media (max-width:900px){.hlg{width:60px}.hb{padding-left:14px}.tabs{padding-left:0}.hb .q{max-width:none;flex-basis:100%;order:5}td.ct,th.ct,td.sk,th.sk{display:none}.g2,.g3{grid-template-columns:1fr}.eh,.eb,.ef{padding-left:16px;padding-right:16px}main{padding:12px 8px 120px}}
 html[lang=ro] .phs .p.new:before{content:"nouă"}
 .lsw{display:inline-flex;height:38px;border:1px solid var(--line);border-radius:8px;background:#fff;overflow:hidden;flex:none}
 .lsw button{padding:0 12px;font-weight:700;font-size:13px;color:var(--mute)}
@@ -230,8 +230,9 @@ html[lang=ro] .phs .p.new:before{content:"nouă"}
 </div>
 
 <header>
+  <a class="hlg" href="desk-catalog.html" target="_blank" rel="noopener"><img src="assets/teka-logo-sq.svg" alt="TEKA"></a>
   <div class="hb">
-    <div class="lg"><img src="assets/teka-logo-sq.svg" alt="TEKA"><span data-i18n>Админка</span></div>
+    <div class="lg"><span data-i18n>Админка</span></div>
     <div class="iv"><input class="t q" id="q" type="search" placeholder="Поиск: модель, код, описание" data-i18n-ph>
     <select class="t" id="fc"></select>
     <select class="t" id="fs">
@@ -284,7 +285,7 @@ html[lang=ro] .phs .p.new:before{content:"nouă"}
 const API=/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?'':'https://teka-admin.teka-md.workers.dev';
 /* язык интерфейса: T('русская строка',...аргументы) → перевод из RO, {0},{1} — подстановки */
 let LANG='ru';try{if(localStorage.getItem('tkAdmLang')==='ro')LANG='ro'}catch(e){}
-const RO={'изм.':'modif.','Печать':'Tipărire','Отправить':'Trimite','Скачать PDF':'Descarcă PDF','Отправить клиенту':'Trimite clientului','Готовим документ…':'Se pregătește documentul…','Упорядочить':'Ordonează','Порядок в каталоге':'Ordinea în catalog','Перетащите карточки мышью или используйте кнопки. Так товары будут стоять на сайте — на ПК и в мобильной версии.':'Trageți cardurile cu mouse-ul sau folosiți butoanele. Așa vor apărea produsele pe site — pe PC și pe mobil.','Сбросить порядок':'Resetează ordinea','Готово':'Gata','В начало':'La început','Выше':'Mai sus','Ниже':'Mai jos','В конец':'La final','Порядок задан для {0} товаров. Нажмите «Сохранить на сайт».':'Ordinea a fost setată pentru {0} produse. Apăsați „Salvează pe site”.','Порядок сброшен. Нажмите «Сохранить на сайт».':'Ordinea a fost resetată. Apăsați „Salvează pe site”.','Порядок не изменился':'Ordinea nu s-a schimbat','скрыт':'ascuns','Снять все':'Debifează tot','Отметить все':'Bifează tot','Фильтр в категории':'Filtru în categorie','Выбрать из каталога: категория…':'Alege din catalog: categorie…','Клиент удалён':'Clientul a fost șters','Удалить клиента {0}? Его заказы останутся в журнале заказов.':'Ștergeți clientul {0}? Comenzile lui rămân în jurnalul de comenzi.','Удалить клиента':'Șterge clientul','Скидка на всю подборку':'Reducere la toată selecția','Удалить заказ':'Șterge comanda','Удалить этот заказ? Это нельзя отменить.':'Ștergeți această comandă? Acțiunea nu poate fi anulată.','Заказ удалён':'Comanda a fost ștearsă','Не удалось удалить: {0}':'Nu s-a putut șterge: {0}',
+const RO={'изм.':'modif.','Удалить':'Șterge','Точно удалить?':'Sigur ștergeți?','Подборка удалена':'Selecția a fost ștearsă','Печать':'Tipărire','Отправить':'Trimite','Скачать PDF':'Descarcă PDF','Отправить клиенту':'Trimite clientului','Готовим документ…':'Se pregătește documentul…','Упорядочить':'Ordonează','Порядок в каталоге':'Ordinea în catalog','Перетащите карточки мышью или используйте кнопки. Так товары будут стоять на сайте — на ПК и в мобильной версии.':'Trageți cardurile cu mouse-ul sau folosiți butoanele. Așa vor apărea produsele pe site — pe PC și pe mobil.','Сбросить порядок':'Resetează ordinea','Готово':'Gata','В начало':'La început','Выше':'Mai sus','Ниже':'Mai jos','В конец':'La final','Порядок задан для {0} товаров. Нажмите «Сохранить на сайт».':'Ordinea a fost setată pentru {0} produse. Apăsați „Salvează pe site”.','Порядок сброшен. Нажмите «Сохранить на сайт».':'Ordinea a fost resetată. Apăsați „Salvează pe site”.','Порядок не изменился':'Ordinea nu s-a schimbat','скрыт':'ascuns','Снять все':'Debifează tot','Отметить все':'Bifează tot','Фильтр в категории':'Filtru în categorie','Выбрать из каталога: категория…':'Alege din catalog: categorie…','Клиент удалён':'Clientul a fost șters','Удалить клиента {0}? Его заказы останутся в журнале заказов.':'Ștergeți clientul {0}? Comenzile lui rămân în jurnalul de comenzi.','Удалить клиента':'Șterge clientul','Скидка на всю подборку':'Reducere la toată selecția','Удалить заказ':'Șterge comanda','Удалить этот заказ? Это нельзя отменить.':'Ștergeți această comandă? Acțiunea nu poate fi anulată.','Заказ удалён':'Comanda a fost ștearsă','Не удалось удалить: {0}':'Nu s-a putut șterge: {0}',
 'Teka — админка':'Teka — administrare','Вход в админку':'Autentificare','Войти':'Intră','Пароль':'Parolă','Админка':'Administrare',
 'Поиск: модель, код, описание':'Căutare: model, cod, descriere','Перевести пустые RU-строки с румынского':'Tradu rândurile RU goale din română','Если RU не заполнить, перевод сделается автоматически при «Готово». Проверьте его.':'Dacă RU rămâne gol, traducerea se face automat la «Gata». Verificați-o.','Переведено строк: {0}. Проверьте текст.':'Rânduri traduse: {0}. Verificați textul.','Все строки уже переведены':'Toate rândurile sunt deja traduse','Не удалось перевести — проверьте интернет':'Traducerea a eșuat — verificați internetul','Автоперевод не удался — заполните RU вручную':'Traducerea automată a eșuat — completați RU manual','RU переведён автоматически.':'RU tradus automat.','Фото маленькое ({0} px) — на сайте может быть нечётким. Лучше скачать крупное фото.':'Fotografie mică ({0} px) — pe site poate fi neclară. Mai bine descărcați o fotografie mare.','Сайт ↗':'Site ↗','Выйти':'Ieșire',
 'Товары':'Produse','Акции':'Promoții','Проверка каталога':'Verificare catalog','Контакты и тексты':'Contacte și texte','Заказы':'Comenzi','Подборки':'Selecții','Клиенты':'Clienți','История':'Istoric',
@@ -1104,9 +1105,11 @@ async function drawOffers(){$('sum').textContent=OFS?T('Подборок: {0}',O
   const B=OFS.filter(o=>!OFM||o.mg===OFM),L=B.filter(F[OFF][1]);
   $('vw').innerHTML=`<div class="chips" id="ofc" style="margin-bottom:12px">${Object.entries(F).map(([k,[l,f]])=>`<button class="chip ${OFF===k?'on':''}" data-v="${k}">${T(l)} (${B.filter(f).length})</button>`).join('')}</div>`+
    (L.length?`<table><thead><tr><th>${T('Когда')}</th><th>${T('Подборка')}</th><th>${T('Менеджер')}</th><th>${T('Клиент')}</th><th>${T('Сумма')}</th><th>${T('Клиент открыл')}</th><th>${T('Заказ')}</th><th></th></tr></thead><tbody>${L.map(o=>`<tr><td class="sk">${dt(o.t)}</td><td class="nm"><b><a href="desk-offer.html?o=${esc(o.id)}&nv=1" target="_blank" rel="noopener">№${esc(o.id)} ↗</a></b>${o.tl?`<small style="color:var(--ink);font-weight:600">${esc(o.tl)}</small>`:''}<small>${T('{0} шт.',o.n)}${o.ed?' · '+T('изм.')+' '+dt(o.ed):''}</small></td><td class="ct">${esc(o.mg||'—')}</td>
-    <td class="nm"><b>${esc(o.nm||'—')}</b><small>${esc(o.tel||'')}</small></td><td class="sk"><b>${(o.tot||0).toLocaleString(LOC())} MDL</b></td><td>${o.op?`<span class="pill on">${dt(o.op)}</span>`:`<span class="pill">${T('не открыта')}</span>`}</td><td>${o.or?`<span class="pill done">${T('да')}</span>`:'—'}</td><td style="white-space:nowrap" data-of="${esc(o.id)}"><button class="dbtn" data-d="edit">${T('Изменить')}</button><button class="dbtn" data-d="print">${T('Печать')}</button><button class="dbtn" data-d="send">${T('Отправить')}</button></td></tr>`).join('')}</tbody></table>`:`<div class="empty">${T('Подборок нет. Менеджеры создают их на сайте в режиме менеджера (desk-catalog.html#manager).')}</div>`);
+    <td class="nm"><b>${esc(o.nm||'—')}</b><small>${esc(o.tel||'')}</small></td><td class="sk"><b>${(o.tot||0).toLocaleString(LOC())} MDL</b></td><td>${o.op?`<span class="pill on">${dt(o.op)}</span>`:`<span class="pill">${T('не открыта')}</span>`}</td><td>${o.or?`<span class="pill done">${T('да')}</span>`:'—'}</td><td style="white-space:nowrap" data-of="${esc(o.id)}"><button class="dbtn" data-d="edit">${T('Изменить')}</button><button class="dbtn" data-d="print">${T('Печать')}</button><button class="dbtn" data-d="send">${T('Отправить')}</button><button class="dbtn" data-d="del" style="color:var(--red)">${T('Удалить')}</button></td></tr>`).join('')}</tbody></table>`:`<div class="empty">${T('Подборок нет. Менеджеры создают их на сайте в режиме менеджера (desk-catalog.html#manager).')}</div>`);
   $('ofc').onclick=e=>{const b=e.target.closest('.chip');if(b){OFF=b.dataset.v;drawOffers()}};
-  $('vw').querySelectorAll('[data-of] [data-d]').forEach(b=>b.onclick=()=>{const id=b.parentNode.dataset.of;if(b.dataset.d==='edit'){let m=null;try{localStorage.setItem('tkEdit',id);m=localStorage.getItem('tkMgr')}catch(_){}window.open('desk-catalog.html'+(m?'':'#manager'),'_blank');return}if(!window.tkSend)return;const o=OFS.find(z=>z.id===id)||{};docAct(id,b.dataset.d,{tot:o.tot,name:o.nm,tel:o.tel,lang:'ru',kind:'offer'})})}
+  $('vw').querySelectorAll('[data-of] [data-d]').forEach(b=>b.onclick=()=>{const id=b.parentNode.dataset.of;if(b.dataset.d==='del'){if(!b._a){b._a=1;b.textContent=T('Точно удалить?');b.style.background='var(--red)';b.style.color='#fff';setTimeout(()=>{if(b.isConnected){b._a=0;b.textContent=T('Удалить');b.style.background='';b.style.color='var(--red)'}},3000);return}
+    api('/api/offer-del',{id}).then(()=>{OFS=OFS.filter(o=>o.id!==id);CLS=null;drawOffers();toast(T('Подборка удалена'))}).catch(e=>toast(e.message,1));return}
+    if(b.dataset.d==='edit'){let m=null;try{localStorage.setItem('tkEdit',id);m=localStorage.getItem('tkMgr')}catch(_){}window.open('desk-catalog.html'+(m?'':'#manager'),'_blank');return}if(!window.tkSend)return;const o=OFS.find(z=>z.id===id)||{};docAct(id,b.dataset.d,{tot:o.tot,name:o.nm,tel:o.tel,lang:'ru',kind:'offer'})})}
 
 /* клиенты */
 let CLS=null,CLQ='',CLM='',CLT='',CLO='last';
