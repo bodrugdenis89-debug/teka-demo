@@ -217,7 +217,7 @@ function ui(){if(q('.mgd'))return;const w=document.createElement('div');w.classN
     if(k==='save')try{await save()}catch(er){toast(er.message)}
     if(k==='list')offers();
     if(k==='new'){S={items:[],dk:'pct',dv:0,name:'',tel:'',cm:'',ttl:''};RES=null;CL=null;sv();mark();draw()}
-    if(k==='pdf'||k==='prn'){if(!S.items.length)return toast(Z('Подборка пуста'));try{if(RES&&S.dirty)await save();const T=await tks();k==='pdf'?T.pdf(docUrl()):T.print(docUrl())}catch(er){toast(er.message)}}
+    if(k==='pdf'||k==='prn'){if(!S.items.length)return toast(Z('Подборка пуста'));try{if(!RES||S.dirty||RES.tot==null)await save();const T=await tks();k==='pdf'?T.pdf(docUrl()):T.print(docUrl())}catch(er){toast(er.message)}}
     if(k==='snd')sendBox();
     if(k==='clr'){S={items:[],dk:'pct',dv:0,name:'',tel:'',cm:'',ttl:''};RES=null;CL=null;sv();mark();draw()}
     if(k==='copy'){try{await navigator.clipboard.writeText(RES.url);toast(Z('Ссылка скопирована'))}catch(_){q('.mgres input',d).select()}}});
