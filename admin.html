@@ -1036,7 +1036,7 @@ function drawCheck(){const q=$('q').value.trim().toLowerCase(),fc=$('fc').value;
   $('vw').querySelectorAll('tr[data-i] .ebtn').forEach(b=>b.onclick=()=>{const r=CROWS[+b.closest('tr').dataset.i];openEd(r.f,r.x)})}
 
 /* контакты и тексты */
-const SF=[['phone','Телефон (как показывать)','+373 68 27 27 02'],['wa','WhatsApp — номер цифрами','37368272702'],['viber','Viber — номер','+37368272702'],['tg','Telegram — ссылка или @имя','https://t.me/+37368272702'],['fb','Facebook — ссылка','https://www.facebook.com/tekamoldova/'],['ig','Instagram — ссылка','https://www.instagram.com/tekamoldova/']];
+const SF=[['phone','Телефон (как показывать)','+373 68 27 27 02'],['wa','WhatsApp — номер цифрами','37378272702'],['viber','Viber — номер','+37368272702'],['tg','Telegram — ссылка или @имя','https://t.me/+37368272702'],['fb','Facebook — ссылка','https://www.facebook.com/tekamoldova/'],['ig','Instagram — ссылка','https://www.instagram.com/tekamoldova/']];
 const SF2=[['addr','Адрес магазина','Chișinău, str. 31 August 1989, 79/1','Кишинёв, ул. 31 Августа 1989, 79/1',0],['hrs','График работы — по строке на строку','Luni – Vineri 10:00 – 18:00\nSâmbătă 10:00 – 15:00\nDuminică — zi liberă','Пн – Пт 10:00 – 18:00\nСб 10:00 – 15:00\nВс — выходной',3],['deliv','Доставка — текст','Gratuit în municipiul Chișinău. Data și ora livrării le stabilește managerul după comandă.','Бесплатно по муниципию Кишинёв. Дату и время доставки согласует менеджер после заказа.',3],['warr','Гарантия — текст','Pentru toată tehnica Teka și Küppersbusch cumpărată la noi.','На всю технику Teka и Küppersbusch, купленную у нас.',3]];
 function drawSite(){const d=SC.data,v=(k,l)=>esc(l?(d[k]||{})[l]||'':d[k]||'');
   $('sum').textContent=T('Контакты и тексты сайта');
