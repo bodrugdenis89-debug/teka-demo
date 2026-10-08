@@ -1155,7 +1155,7 @@ function buyModal(){
       if(j.no)document.getElementById('bn').value=j.no;if(/^\d{4}-\d\d-\d\d$/.test(j.date||''))document.getElementById('bd').value=j.date;if(j.total)document.getElementById('bt').value=j.total;
       sync();rows=rows.filter(r=>r.s||r.m).concat(it.map(x=>pick({s:String(x.sku||'').replace(/\D/g,''),m:String(x.model).trim(),q:Math.round(x.qty),p:Math.round((x.sum&&x.qty?x.sum/x.qty:x.price)*100)/100})));
       draw();st.textContent='Распознано строк: '+it.length+' — проверьте';
-    }catch(er){st.textContent='';toast(er.message||'Не удалось распознать')}};
+    }catch(er){st.innerHTML='<b style="color:var(--red)">'+esc(er.message||'Не удалось распознать')+'</b>'}};
   draw();
 }
 /* файл → base64; фото уменьшаем до 2000px */
