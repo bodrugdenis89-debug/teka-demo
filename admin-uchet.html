@@ -374,6 +374,11 @@ tr.u.out{animation:tkOut .17s ease-in forwards}
 @keyframes slIn{from{opacity:0;transform:translateY(-4px)}}
 @media (max-width:700px){.slu li{padding:13px 16px;white-space:normal}}
 .tw td small.tl{display:block;font-size:14px;color:var(--mute);font-weight:500;margin-top:1px}
+/* окна-формы на ПК: шире, поля в две колонки */
+@media (min-width:900px){
+.mb:has(>label:nth-of-type(3)){width:min(820px,100%);grid-template-columns:1fr 1fr;column-gap:22px;padding:26px 28px}
+.mb:has(>label:nth-of-type(3))>*:not(label){grid-column:1/-1}
+}
 </style>
 </head>
 <body>
@@ -495,7 +500,7 @@ function drawer(id){
   <h2>Заказ ${esc(o.no||'без номера')}</h2><div>${stat(o)} <span class="mu">от ${dt(o.date)}${o.close&&o.st==='closed'?' · закрыт '+dt(o.close):''}</span></div>
   <dl class="dl"><dt>Мебельщик</dt><dd>${esc(o.partner||'—')}</dd><dt>Клиент</dt><dd>${esc(o.client)}</dd><dt>Телефон</dt><dd>${o.tel?`<a href="tel:${esc(o.tel)}">${esc(o.tel)}</a> <button class="btn s" data-a="tel">✎</button>`:'<button class="btn s" data-a="tel">+ Добавить</button>'}</dd>${o.site?`<dt>С сайта</dt><dd>${o.site.map(i=>esc(i.n)+(i.q>1?' × '+i.q:'')).join('<br>')}</dd>`:''}
   <dt>Дизайнер</dt><dd>${o.designer?esc(o.designer)+' · '+L(o.com):'—'}</dd>
-  <dt>Сумма</dt><dd>${L(o.total)}</dd><dt>Оплачено</dt><dd>${L(o.paid)}${o.method?' <span class="mu">· '+esc(o.method)+'</span>':''}</dd>
+  <dt>Сумма</dt><dd>${L(o.total)}</dd><dt>Оплачено</dt><dd>${L(o.paid)}${o.method?' <span class="mu">· '+esc(PML(o.method))+'</span>':''}</dd>
   <dt>Долг</dt><dd style="color:${o.debt>0?'var(--red)':'inherit'}">${L(o.debt)}</dd>
   <dt>Отгрузка</dt><dd>${o.shipped?'отгружен':'ещё нет'}</dd>
   ${o.profit!=null?`<dt>Прибыль</dt><dd>${L(o.profit)}</dd>`:''}</dl>
@@ -512,7 +517,7 @@ function drawer(id){
     if(a.dataset.a==='ret'){const u=+a.dataset.u,x=U_(u);ask('Вернуть «'+x.model+'» на склад ('+loc(x.loc)+')? Он снова будет в брони под этот заказ.',()=>{setU(u,{out:null});save();build();render();ov.remove();drawer(id);toast('Возвращено на склад')});return}
     const ch=ST.o[id]=ST.o[id]||{};
     if(a.dataset.a==='pay'){
-      modal('Оплата по '+esc(o.no),`<label>Сумма, лей<input class="t" id="mv" type="number" value="${o.debt||''}"></label><label>Способ<select class="t" id="mm"><option>terminal</option><option>transfer</option><option>наличные</option></select></label>`,()=>{
+      modal('Оплата по '+esc(o.no),`<label>Сумма, лей<input class="t" id="mv" type="number" value="${o.debt||''}"></label><label>Способ<select class="t" id="mm">${PM.slice(1,4).map(([v,t])=>`<option value="${v}">${t}</option>`).join('')}</select></label>`,()=>{
         const v=+document.getElementById('mv').value||0;if(!v)return;
         ch.paid=(o.paid||0)+v;ch.debt=Math.max(0,(o.debt||0)-v);ch.method=document.getElementById('mm').value;fin('Оплата внесена')});
       return;
@@ -638,6 +643,8 @@ function vPar(){
 /* ---------- редактирование ---------- */
 const V=id=>document.getElementById(id).value.trim(),VN=id=>+document.getElementById(id).value||0;
 const inp=(lb,id,v,ty='text',ex='')=>`<label>${lb}<input class="t" id="${id}" type="${ty}" value="${esc(v??'')}" ${ex}></label>`;
+const PM=[['','— не указан'],['terminal','Терминал'],['transfer','Перевод на счёт'],['наличные','Наличные'],['achitat','Оплачено']];
+const PML=m=>(PM.find(x=>x[0]===m)||[0,m])[1];
 function nextNo(){const y=new Date().getFullYear().toString().slice(2);const n=O.map(o=>(o.no||'').match(new RegExp('^N(\\d+)/'+y))).filter(Boolean).map(m=>+m[1]);return 'N'+String((n.length?Math.max(...n):0)+1).padStart(3,'0')+'/'+y}
 function orderModal(id,pre){
   const o=id==null?Object.assign({no:nextNo(),date:new Date().toISOString().slice(0,10),st:'open',total:0,paid:0,shipped:false},pre||{}):O[id];
@@ -651,7 +658,7 @@ function orderModal(id,pre){
   ${inp('Комиссия дизайнеру, лей','eco',o.com,'number')}
   ${inp('Сумма заказа, лей','eto',o.total,'number')}
   ${inp('Оплачено, лей','epd',o.paid,'number')}
-  <label>Способ оплаты<select class="t" id="emt">${['','terminal','transfer','наличные','achitat'].map(m=>`<option${m===(o.method||'')?' selected':''}>${m}</option>`).join('')}</select></label>
+  <label>Способ оплаты<select class="t" id="emt">${PM.concat(o.method&&!PM.some(x=>x[0]===o.method)?[[o.method,o.method]]:[]).map(([v,t])=>`<option value="${esc(v)}"${v===(o.method||'')?' selected':''}>${t}</option>`).join('')}</select></label>
   <label>Статус<select class="t" id="est"><option value="open"${o.st==='open'?' selected':''}>Открыт</option><option value="closed"${o.st==='closed'?' selected':''}>Закрыт</option><option value="cancel"${o.st==='cancel'?' selected':''}>Отменён</option></select></label>
   <label style="display:flex;align-items:center;gap:10px;color:var(--ink)"><input type="checkbox" id="esh" ${o.shipped?'checked':''} style="width:22px;height:22px">Отгружен</label>
   ${inp('Дата закрытия','ecd',o.close&&o.close<'2100'?o.close:'','date')}
@@ -788,7 +795,7 @@ const RO={'Сводка':'Rezumat','Нам должны':'Ni se datorează','Д�
 'все места':'toate locațiile','все категории':'toate categoriile','только в брони':'doar rezervate','поиск':'căutare','прочее':'altele',
 'Акт сверки':'Act de verificare','дизайнер':'designer','Комиссия':'Comision','Выплата':'Plată','Выплачено':'Achitat','К выплате':'De achitat','Ожидается':'Așteptat',
 'отменён':'anulat','закрыт':'închis','долг':'datorie','не отгружен':'nelivrat','открыт':'deschis','выплачено':'achitat','к выплате':'de achitat','ожидается':'așteptat',
-'Задолженность на':'Datorie la data de','курс':'curs','Склад':'Depozit','Салон':'Salon','Шоурум':'Showroom','наличные':'numerar','перевод':'transfer',
+'Задолженность на':'Datorie la data de','курс':'curs','Склад':'Depozit','Салон':'Salon','Шоурум':'Showroom','наличные':'numerar','перевод':'transfer','Наличные':'Numerar','Терминал':'Terminal','Перевод на счёт':'Transfer bancar',
 'Духовки':'Cuptoare','Микроволновки и компакт':'Microunde și compacte','Варочные панели':'Plite','Вытяжки':'Hote','Посудомойки и стиральные':'Mașini de spălat','Холодильники':'Frigidere','Мойки':'Chiuvete','Смесители':'Baterii','Аксессуары':'Accesorii','Прочее':'Altele'};
 const MRO=['','ianuarie','februarie','martie','aprilie','mai','iunie','iulie','august','septembrie','octombrie','noiembrie','decembrie'];
 const PL=()=>ST.pl||'ru';
@@ -824,7 +831,7 @@ function mk(k){
     const o=O[+arg],it=o.items.map(s=>({m:s.model,f:Ploc(s.loc),c:s.cost,st:'бронь'})).concat(o.sold.map(s=>({m:s.model,f:Ploc(s.from_),c:s.cost,st:'выдан'})));
     const cost=it.reduce((a,s)=>a+(s.c||0),0),row=(a,b)=>`<tr><td class="mu" style="width:30%">${T(a)}</td><td>${b}</td></tr>`;
     return pdoc(T('Заказ')+' '+(o.no||''),`<table><tbody>${row('Дата',dt(o.date))}${row('Мебельщик',esc(o.partner||'—'))}${row('Клиент','<b>'+esc(o.client)+'</b>')}${o.tel?row('Телефон',esc(o.tel)):''}
-      ${row('Дизайнер',o.designer?esc(o.designer)+' · '+T('комиссия')+' '+Lm(o.com):'—')}${row('Сумма','<b>'+Lm(o.total)+'</b>')}${row('Оплачено',Lm(o.paid)+(o.method?' · '+esc(T(o.method)):''))}
+      ${row('Дизайнер',o.designer?esc(o.designer)+' · '+T('комиссия')+' '+Lm(o.com):'—')}${row('Сумма','<b>'+Lm(o.total)+'</b>')}${row('Оплачено',Lm(o.paid)+(o.method?' · '+esc(T(PML(o.method))):''))}
       ${row('Долг','<b>'+Lm(o.debt)+'</b>')}${row('Статус',STN(o))}</tbody></table>
       <h2>${T('Товары')}</h2>${it.length?ptab([['Модель'],['Откуда'],['Себестоимость',1],['']],it.map(s=>`<tr><td>${esc(s.m)}</td><td>${esc(s.f)}</td><td class="n">${E(s.c,2)}</td><td>${T(s.st)}</td></tr>`),`<tr class="tot"><td colspan="2">${T('Итого себестоимость')}</td><td class="n">${E(cost,2)} ≈ ${PLe(cost)}</td><td></td></tr>`):`<p class="mu">${T('Товары по складу не найдены.')}</p>`}
       <div class="sg"><div>${T('Выдал')}</div><div>${T('Получил')}</div></div>`);
