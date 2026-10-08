@@ -508,7 +508,7 @@ const RO={'изм.':'modif.','Удалить':'Șterge','Точно удалит
 'Подборок: {0}':'Selecții: {0}','Клиент':'Client','Клиент открыл':'Deschisă de client','{0} шт.':'{0} buc.','не открыта':'nedeschisă','да':'da',
 'Не открыты':'Nedeschise','Открыты':'Deschise','Стали заказом':'Transformate în comenzi',
 'Подборок нет. Менеджеры создают их на сайте в режиме менеджера (desk-catalog.html#manager).':'Nu există selecții. Managerii le creează pe site în modul manager (desk-catalog.html#manager).',
-'Клиентов: {0}':'Clienți: {0}',' из {0}':' din {0}','Имя или телефон':'Nume sau telefon','Все теги':'Toate etichetele','Сначала недавние':'Cele mai recente întâi','По сумме заказов':'După suma comenzilor','По имени':'După nume',
+'Клиентов: {0}':'Clienți: {0}',' из {0}':' din {0}','Имя или телефон':'Nume sau telefon','Телефон, имя или модель':'Telefon, nume sau model','Телефон, имя или №':'Telefon, nume sau nr.','Все теги':'Toate etichetele','Сначала недавние':'Cele mai recente întâi','По сумме заказов':'După suma comenzilor','По имени':'După nume',
 'Экспорт CSV':'Export CSV','+ Новый клиент':'+ Client nou','Город':'Oraș','Теги':'Etichete','Сумма заказов':'Suma comenzilor','Последний контакт':'Ultimul contact','без имени':'fără nume',
 'Клиенты появляются автоматически из заказов и подборок, где указан телефон. Сумма — по заказам без отменённых.':'Clienții apar automat din comenzile și selecțiile în care este indicat telefonul. Suma include comenzile, fără cele anulate.',
 'Клиентов пока нет. Добавьте вручную кнопкой «+ Новый клиент» — или они появятся сами из заказов и подборок менеджеров с телефоном.':'Încă nu există clienți. Adăugați-i manual cu butonul „+ Client nou” sau vor apărea singuri din comenzile și selecțiile managerilor care au telefon.',
@@ -1189,7 +1189,7 @@ function drawSite(){const d=SC.data,v=(k,l)=>esc(l?(d[k]||{})[l]||'':d[k]||'');
     SC.dirty=true;CHG.add('#site');bar()})}
 
 /* заказы */
-let ORD=null,OST='',OMG='';
+let ORD=null,OST='',OMG='',OQ='';
 const OS={new:'Новый',work:'В работе',done:'Выдан',cancel:'Отменён'};
 const CHN=c=>c==='wa'?'WhatsApp':c==='vb'?'Viber':c==='tg'?'Telegram':c==='cb'?T('Обратный звонок'):c==='mgr'?T('Менеджер в магазине'):esc(c||'—');
 const LOC=()=>LANG==='ro'?'ro-RO':'ru-RU',OSL=k=>T(OS[k]);
@@ -1206,10 +1206,13 @@ function drawOrders(){$('sum').textContent=ORD?T('Заказов: {0}',ORD.lengt
   if(!ORD){$('vw').innerHTML=LOADING();return}
   if(ORD.err){$('vw').innerHTML=`<div class="empty">${T('Журнал заказов недоступен: {0}',esc(ORD.err))}</div>`;return}
   const MG=[...new Set(ORD.map(o=>o.mg).filter(Boolean))].sort();
-  const L=ORD.filter(o=>(!OST||o.st===OST)&&(!OMG||(OMG==='-'?!o.mg:o.mg===OMG)));
+  const q=OQ.trim().toLowerCase(),qd=q.replace(/\D/g,'').replace(/^0+/,'');
+  const L=ORD.filter(o=>(!OST||o.st===OST)&&(!OMG||(OMG==='-'?!o.mg:o.mg===OMG))&&(!q||((o.cl||'')+' '+(o.nm||'')+' '+o.id).toLowerCase().includes(q)||qd.length>2&&String(o.tl||'').replace(/\D/g,'').includes(qd)));
+  $('vb').insertAdjacentHTML('afterbegin',`<input class="t" id="oq" type="search" placeholder="${T('Телефон, имя или модель')}" value="${esc(OQ)}" style="width:230px">`);
+  let qt;$('oq').oninput=e=>{clearTimeout(qt);qt=setTimeout(()=>{OQ=e.target.value;drawOrders();const i=$('oq');i.focus();i.setSelectionRange(i.value.length,i.value.length)},250)};
   $('vb').insertAdjacentHTML('afterbegin',`<select class="t" id="omg"><option value="">${T('Все менеджеры')}</option>${MG.map(m=>`<option value="${esc(m)}" ${OMG===m?'selected':''}>${esc(MGN(m))}</option>`).join('')}<option value="-" ${OMG==='-'?'selected':''}>${T('Сайт (без менеджера)')}</option></select>`);dd($('omg'));$('omg').onchange=e=>{OMG=e.target.value;drawOrders()};
   $('vw').innerHTML=`<div class="chips" id="osc" style="margin-bottom:12px"><button class="chip ${OST?'':'on'}" data-v="">${T('Все')} (${ORD.length})</button>${Object.keys(OS).map(k=>`<button class="chip ${OST===k?'on':''}" data-v="${k}">${OSL(k)} (${ORD.filter(o=>o.st===k).length})</button>`).join('')}</div>`+
-   (L.length?`<table><thead><tr><th>${T('Когда')}</th><th>${T('Заказ')}</th><th>${T('Сумма')}</th><th>${T('Канал')}</th><th>${T('Менеджер')}</th><th>${T('Статус')}</th><th></th></tr></thead><tbody>${L.map(o=>`<tr data-id="${esc(o.id)}"><td class="sk">${dt(o.t)}</td><td class="nm"><b>${esc(o.nm||'')}</b><small>${o.n>1?T('всего {0} шт.',o.n):T('1 шт.')}${o.cl?' · '+esc(o.cl):''}${o.of?T(' · подборка №')+esc(o.of):''}</small></td><td class="sk"><b>${(o.tot||0).toLocaleString(LOC())} MDL</b></td><td class="ct">${CHN(o.ch)}</td><td class="ct">${esc(MGN(o.mg)||'—')}</td>
+   (L.length?`<table><thead><tr><th>${T('Когда')}</th><th>${T('Заказ')}</th><th>${T('Сумма')}</th><th>${T('Канал')}</th><th>${T('Менеджер')}</th><th>${T('Статус')}</th><th></th></tr></thead><tbody>${L.map(o=>`<tr data-id="${esc(o.id)}"><td class="sk">${dt(o.t)}</td><td class="nm"><b>${esc(o.nm||'')}</b><small>${o.n>1?T('всего {0} шт.',o.n):T('1 шт.')}${o.cl?' · '+esc(o.cl):''}${o.tl?' · '+esc(o.tl):''}${o.of?T(' · подборка №')+esc(o.of):''}</small></td><td class="sk"><b>${(o.tot||0).toLocaleString(LOC())} MDL</b></td><td class="ct">${CHN(o.ch)}</td><td class="ct">${esc(MGN(o.mg)||'—')}</td>
     <td class="st"><select class="t ${o.st==='new'?'order':''}" data-k="st">${Object.keys(OS).map(k=>`<option value="${k}" ${o.st===k?'selected':''}>${OSL(k)}</option>`).join('')}</select></td><td style="white-space:nowrap"><button class="ebtn" data-k="op">${T('Открыть')}</button><button class="dbtn" data-k="pr">${T('Печать')}</button><button class="dbtn" data-k="snd">${T('Отправить')}</button><button class="odel" data-k="del" title="${T('Удалить заказ')}" aria-label="${T('Удалить заказ')}"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></svg></button></td></tr>`).join('')}</tbody></table>`:`<div class="empty">${T('Заказов нет. Копии заказов из корзины сайта (WhatsApp/Viber) появляются здесь автоматически.')}</div>`);
   $('osc').onclick=e=>{const b=e.target.closest('.chip');if(b){OST=b.dataset.v;drawOrders()}};
   $('vw').querySelectorAll('td.st select').forEach(dd);
@@ -1239,14 +1242,17 @@ function docAct(did,act,o){const url='desk-offer.html?o='+did+'&nv=1&l='+LANG,li
   tkSend.open({url,link,no:did,tot:o.tot,name:o.name||'',tel:o.tel||'',lang:LANG,kind:o.kind})}
 
 /* подборки менеджеров */
-let OFS=null,OFF='',OFM='';
+let OFS=null,OFF='',OFM='',OFQ='';
 async function drawOffers(){$('sum').textContent=OFS?T('Подборок: {0}',OFS.length):'';
   $('vb').innerHTML=`<button class="btn" id="ofr">${T('Обновить')}</button>`;$('ofr').onclick=()=>{OFS=null;drawOffers()};
   if(!OFS){$('vw').innerHTML=LOADING();try{OFS=(await api('/api/offers')).offers.filter(o=>o.k!=='order').sort((a,b)=>b.t-a.t)}catch(e){if(e.status!==401)$('vw').innerHTML=`<div class="empty">${T('Не удалось загрузить: {0}',esc(e.message))}</div>`;return}if(VIEW!=='offers')return;$('sum').textContent=T('Подборок: {0}',OFS.length)}
   const MG=[...new Set(OFS.map(o=>o.mg).filter(Boolean))].sort();
   $('vb').insertAdjacentHTML('afterbegin',`<select class="t" id="ofm"><option value="">${T('Все менеджеры')}</option>${MG.map(m=>`<option value="${esc(m)}" ${OFM===m?'selected':''}>${esc(MGN(m))}</option>`).join('')}</select>`);dd($('ofm'));$('ofm').onchange=e=>{OFM=e.target.value;drawOffers()};
   const F={'':['Все',()=>1],no:['Не открыты',o=>!o.op],op:['Открыты',o=>o.op&&!o.or],or:['Стали заказом',o=>o.or]};
-  const B=OFS.filter(o=>!OFM||o.mg===OFM),L=B.filter(F[OFF][1]);
+  const q=OFQ.trim().toLowerCase(),qd=q.replace(/\D/g,'').replace(/^0+/,'');
+  $('vb').insertAdjacentHTML('afterbegin',`<input class="t" id="ofq" type="search" placeholder="${T('Телефон, имя или №')}" value="${esc(OFQ)}" style="width:230px">`);
+  let qt;$('ofq').oninput=e=>{clearTimeout(qt);qt=setTimeout(()=>{OFQ=e.target.value;drawOffers();const i=$('ofq');i.focus();i.setSelectionRange(i.value.length,i.value.length)},250)};
+  const B=OFS.filter(o=>(!OFM||o.mg===OFM)&&(!q||((o.nm||'')+' '+(o.tl||'')+' №'+o.id+' '+o.id).toLowerCase().includes(q.replace(/^№\s*/,''))||qd.length>2&&String(o.tel||'').replace(/\D/g,'').includes(qd))),L=B.filter(F[OFF][1]);
   $('vw').innerHTML=`<div class="chips" id="ofc" style="margin-bottom:12px">${Object.entries(F).map(([k,[l,f]])=>`<button class="chip ${OFF===k?'on':''}" data-v="${k}">${T(l)} (${B.filter(f).length})</button>`).join('')}</div>`+
    (L.length?`<table><thead><tr><th>${T('Когда')}</th><th>${T('Подборка')}</th><th>${T('Менеджер')}</th><th>${T('Клиент')}</th><th>${T('Сумма')}</th><th>${T('Клиент открыл')}</th><th>${T('Заказ')}</th><th></th></tr></thead><tbody>${L.map(o=>`<tr><td class="sk">${dt(o.t)}</td><td class="nm"><b><a href="desk-offer.html?o=${esc(o.id)}&nv=1" target="_blank" rel="noopener">№${esc(o.id)} ↗</a></b>${o.tl?`<small style="color:var(--ink);font-weight:600">${esc(o.tl)}</small>`:''}<small>${T('{0} шт.',o.n)}${o.ed?' · '+T('изм.')+' '+dt(o.ed):''}</small></td><td class="ct">${esc(MGN(o.mg)||'—')}</td>
     <td class="nm"><b>${esc(o.nm||'—')}</b><small>${esc(o.tel||'')}</small></td><td class="sk"><b>${(o.tot||0).toLocaleString(LOC())} MDL</b></td><td>${o.op?`<span class="pill on">${dt(o.op)}</span>`:`<span class="pill">${T('не открыта')}</span>`}</td><td>${o.or?`<span class="pill done">${T('да')}</span>`:'—'}</td><td style="white-space:nowrap" data-of="${esc(o.id)}"><button class="dbtn" data-d="edit">${T('Изменить')}</button><button class="dbtn" data-d="print">${T('Печать')}</button><button class="dbtn" data-d="send">${T('Отправить')}</button><button class="dbtn" data-d="del" style="color:var(--red)">${T('Удалить')}</button></td></tr>`).join('')}</tbody></table>`:`<div class="empty">${T('Подборок нет. Менеджеры создают их на сайте в режиме менеджера (desk-catalog.html#manager).')}</div>`);
