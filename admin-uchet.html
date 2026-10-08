@@ -87,11 +87,15 @@ tr.sub td{background:#fbfbfb;padding:0}
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:14px 20px;border-radius:12px;z-index:40;font-size:17px;font-weight:600}
 @media(max-width:900px){.kp{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}}
 @media(max-width:560px){.hb,.tabs,main{padding-left:16px;padding-right:16px}.note{margin:12px 16px 0}.kp{grid-template-columns:1fr}.hide-m{display:none}}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .back{height:42px;display:inline-flex;align-items:center;padding:0 14px 0 10px;border:1px solid var(--line);border-radius:8px;font-weight:700;text-decoration:none;color:var(--ink);background:#fff}
 .back:hover{border-color:#bbb}
 .sync{font-size:14px;font-weight:600;color:var(--mute);white-space:nowrap}
 .sync.ok{color:var(--ok)}.sync.w{color:var(--warn)}.sync.er{color:var(--red)}
 .sync.ok:before{content:"✓ "}
+.tabs .ti{display:none}
+header{position:static}
+.tbar{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
 .imp{max-width:560px;margin:40px auto;display:grid;gap:14px;justify-items:start}
 @media(max-width:700px){
 body{font-size:16px}
@@ -104,12 +108,13 @@ header{position:static}
 .plg,.rate{flex:1 1 auto}
 .plg button{height:40px;flex:1}
 .rate{justify-content:flex-end;font-size:15px}.rate input{width:84px;height:40px}
-.tabs{position:fixed;left:0;right:0;bottom:0;z-index:15;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(0,0,0,.06);display:flex;gap:0;padding:0 0 env(safe-area-inset-bottom,0px);max-width:none;overflow:visible}
-.tabs button{flex:1 1 auto;font-size:12.5px;letter-spacing:-.02em;padding:12px 0 14px;border-bottom:0;border-top:3px solid transparent;position:relative;overflow:hidden;text-overflow:ellipsis}
-.tabs button.on{border-top-color:var(--red);color:var(--red)}
+.tbar{top:env(safe-area-inset-top,0px);box-shadow:0 4px 14px rgba(0,0,0,.06)}
+.tabs{display:flex;gap:0;padding:0;max-width:none;overflow:visible}
+.tabs button{flex:1 1 auto;padding:8px 2px 9px;border-bottom:3px solid transparent;position:relative;min-width:0}
+.tabs button.on{border-bottom-color:var(--red);color:var(--red);background:#FFF5F5}
 .tabs button i{position:absolute;top:2px;right:4px;font-size:11px;padding:0 6px;margin:0}
 main{padding:14px 12px 110px}
-.toast{bottom:calc(84px + env(safe-area-inset-bottom,0px));max-width:calc(100vw - 32px);text-align:center}
+.toast{max-width:calc(100vw - 32px);text-align:center}
 .row{gap:8px}
 .row input.t{width:100%!important;flex:1 1 100%}
 .row select.t{flex:1 1 auto;min-width:0;max-width:100%}
@@ -148,14 +153,16 @@ main{padding:14px 12px 110px}
 .to td:nth-child(6):before{content:"Сумма"}.to td:nth-child(7):before{content:"Оплачено"}.to td:nth-child(8):before{content:"Долг"}
 .to td:nth-child(8) b{color:var(--red)}
 /* склад */
-.ts tr{grid-template-columns:repeat(3,minmax(0,.75fr)) minmax(0,1.5fr)}
+.ts tr{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ts td:nth-child(6){grid-column:1/-1!important}
+.mt td.spr{white-space:normal}
 .mt td{white-space:normal}
 .ts thead{display:block;margin-bottom:10px}
 .ts thead tr{display:flex;flex-wrap:wrap;gap:6px;padding:0;background:none;border:0;margin:0}
 .ts th{position:static;display:block;border:1px solid var(--line);border-radius:18px;background:#fff;padding:7px 12px;font-size:14px}
 .ts th.hide-m{display:none}
 .ts thead:before{content:"Сортировка:";display:block;color:var(--mute);font-size:14px;font-weight:600;margin-bottom:6px}
-.ts td:nth-child(3):before{content:"Всего"}.ts td:nth-child(4):before{content:"Свободно"}.ts td:nth-child(5):before{content:"В брони"}.ts td:nth-child(6):before{content:"Себест."}
+.ts td:nth-child(3):before{content:"Всего"}.ts td:nth-child(4):before{content:"Свободно"}.ts td:nth-child(5):before{content:"В брони"}.ts td:nth-child(6):before{content:"Себестоимость"}
 .ts td:nth-child(6){grid-column:span 1}
 .ts tr:has(td[colspan]){background:none;border:0;padding:14px 2px 4px;margin:0}
 .ts td[colspan]{background:none!important;padding:0!important;font-size:18px}
@@ -169,14 +176,43 @@ main{padding:14px 12px 110px}
 .tp tr{grid-template-columns:minmax(0,.6fr) minmax(0,1fr) minmax(0,1fr)}
 .tp td:nth-child(2):before{content:"Заказов"}.tp td:nth-child(3):before{content:"Оборот"}.tp td:nth-child(4):before{content:"Должен"}
 .tp tr.u td:nth-child(2):before{content:"Статус"}.tp tr.u td:nth-child(3):before{content:"Сумма"}.tp tr.u td:nth-child(4):before{content:"Долг"}
+
+/* крупнее для Лилиана */
+body{font-size:18px}
+.tabs .ti{display:block;width:30px;height:30px;margin:0 auto 4px}
+.tabs button{font-size:15px;letter-spacing:-.02em;line-height:1.15;font-weight:700}
+.tabs button span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tabs button i{top:3px;right:calc(50% - 30px);font-size:12px;padding:1px 6px}
+main{padding-bottom:60px}
+.toast{bottom:calc(30px + env(safe-area-inset-bottom,0px));font-size:18px}
+.back{height:46px;font-size:17px}.lg{font-size:20px}.sync{font-size:15px}
+.plg button{height:46px;font-size:17px}.rate{font-size:17px}.rate input{height:46px;font-size:18px;width:92px}
+.btn{height:50px;font-size:17px}.btn.s{height:44px;font-size:16px}
+input.t,select.t{height:50px;font-size:18px}
+.chip{height:46px;font-size:17px;padding:0 15px}
+.k small{font-size:15px}.k strong{font-size:34px}.k span{font-size:16px}
+h3{font-size:21px}
+.mt tr{padding:14px 16px;gap:6px 12px}
+.mt td{font-size:18px}
+.mt td.n{font-size:18px}
+.mt td:before{font-size:14.5px}
+.b{font-size:16px;padding:3px 10px}
+.to td:nth-child(1){font-size:20px}
+.to td:nth-child(4){font-size:19px}
+.ts td[colspan]{font-size:21px}
+.ts th{font-size:16px;padding:9px 14px}
+.ts td.spr{font-size:17px}
+.li{font-size:18px;padding:13px 0}
+.dr{font-size:18px}.dr h2{font-size:25px}.dl{grid-template-columns:130px minmax(0,1fr)}
+.mb label{font-size:17px}
 }
 </style>
 </head>
 <body>
 <header>
   <div class="hb"><a class="back" href="admin.html" title="Вернуться в админку">‹ Админка</a><div class="lg"><b>TEKA</b> Учёт</div><span class="sync" id="sync"></span><span class="sp"></span><div class="plg" title="На каком языке печатать документы и PDF"><span>Документы:</span><button data-pl="ru">RU</button><button data-pl="ro">RO</button><button data-pl="both">RO+RU</button></div><label class="rate" title="Курс, по которому себестоимость в евро пересчитывается в леи">Курс 1 € = <input class="t" id="rate" type="number" step="0.01" min="1"> лей</label></div>
-  <nav class="tabs" id="tabs"></nav>
 </header>
+<div class="tbar"><nav class="tabs" id="tabs"></nav></div>
 
 <main id="main"></main>
 <script>
@@ -212,9 +248,10 @@ const rc=o=>o.st==='closed'?'cl':o.st==='cancel'?'cx':'';
 const TABS=[['sum','Сводка'],['ord','Заказы'],['stk','Склад'],['des','Дизайнеры'],['par','Мебельщики']];
 let tab='sum';try{tab=localStorage.getItem(LS+'t')||'sum'}catch(e){}
 const F={of:'open',om:'',oq:'',sl:'',sr:false,sq:'',sc:'',so:'name',sd:1,open:{},pm:''};
+const TI=(()=>{const P={sum:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',ord:'<path d="M7 3h10l3 3v15H4V3h3"/><path d="M8 9h8M8 13h8M8 17h5"/>',stk:'<path d="M3 8l9-5 9 5v10l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v10"/>',des:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>',par:'<path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-7h6v7"/>'};const o={};for(const k in P)o[k]='<svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+P[k]+'</svg>';return o})();
 function tabs(){
   const n=O.filter(o=>o.st==='open').length;
-  document.getElementById('tabs').innerHTML=TABS.map(([k,t])=>`<button data-t="${k}" class="${k===tab?'on':''}">${t}${k==='ord'?`<i>${n}</i>`:''}</button>`).join('');
+  document.getElementById('tabs').innerHTML=TABS.map(([k,t])=>`<button data-t="${k}" class="${k===tab?'on':''}">${TI[k]||''}<span>${t}</span>${k==='ord'?`<i>${n}</i>`:''}</button>`).join('');
 }
 function go(t){tab=t;try{localStorage.setItem(LS+'t',t)}catch(e){};render();scrollTo(0,0)}
 document.getElementById('tabs').onclick=e=>{const b=e.target.closest('button');if(b)go(b.dataset.t)};
