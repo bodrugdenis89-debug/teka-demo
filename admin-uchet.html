@@ -395,6 +395,8 @@ tr.u.out{animation:tkOut .17s ease-in forwards}
 .byt small.up{color:var(--ok);font-weight:700}.byt small.dn{color:var(--red);font-weight:700}
 .bys{font-size:16px}
 @media (max-width:700px){.byh{grid-template-columns:1fr 1fr}}
+.bup{margin:4px 0 2px}.bup label.btn{cursor:pointer}
+.byt small.bm{display:block;font-size:12px;color:var(--mute);margin-top:3px}.byt small.bm.w{color:#B25E00;font-weight:600}
 </style>
 </head>
 <body>
@@ -539,9 +541,9 @@ function drawer(id){
         ch.paid=(o.paid||0)+v;ch.debt=Math.max(0,(o.debt||0)-v);ch.method=document.getElementById('mm').value;fin('Оплата внесена')});
       return;
     }
-    if(a.dataset.a==='ship')ch.shipped=true;
+    if(a.dataset.a==='ship'){ch.shipped=true;fin('Отмечено: отгружен');orderStock(o,'ship');return}
     if(a.dataset.a==='close'){const go2=()=>{ch.st='closed';ch.close=new Date().toISOString().slice(0,10);ch.debt=0;fin('Заказ закрыт');orderStock(o,'closed')};if(o.debt>0)ask('По заказу остался долг '+L(o.debt)+'. Всё равно закрыть?',go2);else go2();return}
-    fin(a.dataset.a==='ship'?'Отмечено: отгружен':'Заказ закрыт');
+    fin('Заказ закрыт');
     function fin(t){save();build();render();ov.remove();drawer(id);toast(t)}
   };
   document.body.appendChild(ov);
@@ -687,7 +689,7 @@ function orderModal(id,pre){
     x.debt=st==='open'?Math.max(0,total-paid):0;
     if(st==='closed'&&!x.close)x.close=new Date().toISOString().slice(0,10);
     if(id==null){if(pre&&pre.src){x.src=pre.src;x.site=pre.site}ST.newO.push(x);save();build();F.of='all';F.oq='';render();drawer(O.length-1);toast('Заказ создан');if(x.src)siteLink(O[O.length-1])}
-    else{const was=O[id].st;ST.o[id]=Object.assign(ST.o[id]||{},x);save();build();render();drawer(id);toast('Заказ сохранён');if(was==='open'&&st!=='open')orderStock(O[id],st)}
+    else{const was=O[id].st,wsh=O[id].shipped;ST.o[id]=Object.assign(ST.o[id]||{},x);save();build();render();drawer(id);toast('Заказ сохранён');if(was==='open'&&st!=='open')orderStock(O[id],st);else if(st==='open'&&x.shipped&&!wsh)orderStock(O[id],'ship')}
   },
   id==null?null:()=>{ask('Отметить заказ '+o.no+' как отменённый?',()=>{ST.o[id]=Object.assign(ST.o[id]||{},{st:'cancel',debt:0});save();build();render();toast('Заказ отменён');orderStock(O[id],'cancel')})});
 }
@@ -775,8 +777,9 @@ function addToOrder(oid){
 const reDr=id=>{const v=document.querySelector('.ov');if(v){v.remove();drawer(id)}};
 /* закрытие/отмена заказа — что делать с его бронями */
 function orderStock(o,st){
-  if(o.src)api('/api/order-status',{id:o.src,st:st==='closed'?'done':'cancel',acc:o.no}).catch(()=>toast('Статус на сайте не обновился'));
+  if(o.src&&st!=='ship')api('/api/order-status',{id:o.src,st:st==='closed'?'done':'cancel',acc:o.no}).catch(()=>toast('Статус на сайте не обновился'));
   build();const it=S.filter(s=>s.res&&o.k&&key(s.res)===o.k);if(!it.length)return;const n=it.reduce((a,s)=>a+s.qty,0);
+  if(st==='ship')ask(`Заказ ${o.no} отгружен. Списать со склада ${n} шт из брони? Заказ останется открытым до полной оплаты.`,()=>{it.forEach(s=>setU(s.id,{out:{o:o.no,d:isoNow()}}));done('Списано со склада: '+n+' шт');reDr(o.id)});
   if(st==='closed')ask(`У заказа ${o.no} в брони ${n} шт. Отметить их выданными клиенту (списать со склада)?`,()=>{it.forEach(s=>setU(s.id,{out:{o:o.no,d:isoNow()}}));done('Списано со склада: '+n+' шт');reDr(o.id)});
   if(st==='cancel')ask(`Заказ ${o.no} отменён. Снять бронь с ${n} шт — товар снова станет свободным?`,()=>{it.forEach(s=>setU(s.id,{res:null}));done('Бронь снята: '+n+' шт');reDr(o.id)});
 }
@@ -1106,6 +1109,7 @@ function buyModal(){
   let rows=[{}];
   modal('Закупка по инвойсу',`<div class="by">
   <div class="byh"><label>Номер инвойса<input class="t" id="bn" placeholder="TKA0206724"></label><label>Дата<input class="t" id="bd" type="date" value="${isoNow()}"></label><label>Итог по инвойсу, €<input class="t" id="bt" type="number" step="0.01" placeholder="для сверки"></label><label>Коэффициент<input class="t" id="bk" type="number" step="0.01" value="${KF()}"></label></div>
+  <div class="row bup"><label class="btn r"><input type="file" id="bf" accept=".pdf,image/*" hidden>Загрузить инвойс (PDF или фото)</label><span id="bfs" class="mu"></span></div>
   <details class="bpa"><summary>Вставить строки из инвойса (PDF или Excel)</summary><textarea class="t" id="bp" rows="5" placeholder="Скопируйте строки таблицы инвойса и вставьте сюда"></textarea><button class="btn s" type="button" id="bpg">Разобрать</button></details>
   <div class="tw"><table class="byt"><thead><tr><th>Код</th><th>Модель</th><th class="n">Кол-во</th><th class="n">Цена инв., €</th><th class="n">Себест., €</th><th class="n">Себест., лей</th><th class="n">На сайте</th><th>Куда</th><th></th></tr></thead><tbody id="bb"></tbody></table></div>
   <div class="row"><button class="btn s" type="button" id="bad">+ Строка</button><span class="sp"></span><span id="bs" class="bys"></span></div></div>`,()=>{
@@ -1118,16 +1122,23 @@ function buyModal(){
   const md=[...document.querySelectorAll('.md')].pop();md.querySelector('.mb').classList.add('mbw');
   const B=document.getElementById('bb'),K=()=>+document.getElementById('bk').value||KF();
   const look=r=>{const x=BY[r.s];if(x){if(!r.mm)r.m=x.m;r.c=x.cat;r.site=x.p}else{r.site=0}};
+  const z=t=>String(t||'').toUpperCase().replace(/[^A-Z0-9]/g,''),ALL=[...S,...OUT];
+  const code=t=>{const m=String(t||'').toUpperCase().match(/([A-Z]{1,6})[\s-]?(\d[\d.]*)/);return m?m[1]+m[2].replace(/\./g,''):''};
+  function pick(g){const ex=ALL.find(x=>x.sku&&x.sku===g.s)||ALL.find(x=>z(x.model)===z(g.m));const r={s:g.s,m:ex?ex.model:g.m,q:g.q,p:g.p,mm:1};look(r);if(ex&&!r.c)r.c=ex.cat;return r}
+  function tag(r){if(!r.m)return'';const x=BY[r.s],ex=ALL.find(y=>z(y.model)===z(r.m));
+    if(x&&code(x.m)&&!z(r.m).includes(code(x.m)))return`<small class="bm w">⚠ по коду это ${esc(x.m)}</small>`;
+    return`<small class="bm">${ex?'есть на складе':x?'новая, есть на сайте':'новая модель'}</small>`}
   function sync(){[...B.querySelectorAll('tr')].forEach((tr,i)=>{const r=rows[i],g=n=>tr.querySelector(`[data-f="${n}"]`).value.trim();r.s=g('s');r.m=g('m');r.q=+g('q')||0;r.p=+String(g('p')).replace(',','.')||0;r.l=g('l')})}
   function sum(){const k=K(),t=rows.reduce((a,r)=>a+(r.q||0)*(r.p||0),0),bt=+document.getElementById('bt').value||0;
     document.getElementById('bs').innerHTML=`Инвойс: <b>${E(t,2)}</b>${bt?(Math.abs(bt-t)<0.05?' <span class="b o">сходится</span>':` <span class="b d">разница ${E(bt-t,2)}</span>`):''} · с коэф. ×${k}: <b>${E(t*k,2)}</b> ≈ ${LE(t*k)}`;
     [...B.querySelectorAll('tr')].forEach((tr,i)=>{const r=rows[i],c=(r.p||0)*k;tr.querySelector('.bc').textContent=r.p?E(c,2):'';tr.querySelector('.bl').textContent=r.p?L(c*R()):'';tr.querySelector('.bw').innerHTML=r.site?L(r.site)+(r.p?` <small class="${r.site>c*R()?'up':'dn'}">${Math.round((r.site/(c*R())-1)*100)}%</small>`:''):''})}
   function draw(){
-    B.innerHTML=rows.map((r,i)=>`<tr><td><input class="t" data-f="s" value="${esc(r.s||'')}" inputmode="numeric" placeholder="111000010"></td><td><input class="t" data-f="m" value="${esc(r.m||'')}" placeholder="модель"></td><td><input class="t n" data-f="q" type="number" min="1" value="${r.q||''}"></td><td><input class="t n" data-f="p" type="number" step="0.01" value="${r.p||''}"></td><td class="n bc"></td><td class="n bl"></td><td class="n bw"></td><td><select class="t" data-f="l">${LOCS.map(([k,t])=>`<option value="${k}"${k===(r.l||'dep')?' selected':''}>${t}</option>`).join('')}</select></td><td><button class="btn s" type="button" data-x="${i}" title="Убрать строку">✕</button></td></tr>`).join('');
+    B.innerHTML=rows.map((r,i)=>`<tr><td><input class="t" data-f="s" value="${esc(r.s||'')}" inputmode="numeric" placeholder="111000010"></td><td><input class="t" data-f="m" value="${esc(r.m||'')}" placeholder="модель">${tag(r)}</td><td><input class="t n" data-f="q" type="number" min="1" value="${r.q||''}"></td><td><input class="t n" data-f="p" type="number" step="0.01" value="${r.p||''}"></td><td class="n bc"></td><td class="n bl"></td><td class="n bw"></td><td><select class="t" data-f="l">${LOCS.map(([k,t])=>`<option value="${k}"${k===(r.l||'dep')?' selected':''}>${t}</option>`).join('')}</select></td><td><button class="btn s" type="button" data-x="${i}" title="Убрать строку">✕</button></td></tr>`).join('');
     sum()}
   B.addEventListener('input',e=>{const f=e.target.dataset.f;if(!f)return;sync();const i=[...B.children].indexOf(e.target.closest('tr')),r=rows[i];
     if(f==='m')r.mm=1;
     if(f==='s'){look(r);e.target.closest('tr').querySelector('[data-f="m"]').value=r.m||''}
+    if(f==='s'||f==='m'){const td=e.target.closest('tr').querySelector('[data-f="m"]').parentNode,o=td.querySelector('.bm');if(o)o.remove();td.insertAdjacentHTML('beforeend',tag(r))}
     sum()});
   B.addEventListener('change',()=>{sync();sum()});
   B.addEventListener('click',e=>{const x=e.target.closest('[data-x]');if(!x)return;sync();rows.splice(+x.dataset.x,1);if(!rows.length)rows=[{}];draw()});
@@ -1135,9 +1146,23 @@ function buyModal(){
   document.getElementById('bk').oninput=sum;document.getElementById('bt').oninput=sum;
   document.getElementById('bpg').onclick=()=>{
     const got=parseInv(document.getElementById('bp').value);if(!got.length){toast('Не нашёл строк с кодом, количеством и ценой');return}
-    sync();rows=rows.filter(r=>r.s||r.m).concat(got.map(g=>{const z=t=>String(t).toUpperCase().replace(/[^A-Z0-9]/g,''),ex=S.find(x=>z(x.model)===z(g.m));const r={s:g.s,m:ex?ex.model:g.m,q:g.q,p:g.p,mm:1};look(r);return r}));
+    sync();rows=rows.filter(r=>r.s||r.m).concat(got.map(pick));
     document.getElementById('bp').value='';md.querySelector('.bpa').open=false;draw();toast('Строк: '+got.length)};
+  document.getElementById('bf').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;const st=document.getElementById('bfs');
+    st.textContent='Читаю документ… 10–30 сек';
+    try{const d=await fileB64(f),j=await api('/api/acc-parse',d);const it=(j.items||[]).filter(x=>x.model&&x.qty>0);
+      if(!it.length){st.textContent='';toast('В документе не нашёл товарных строк');return}
+      if(j.no)document.getElementById('bn').value=j.no;if(/^\d{4}-\d\d-\d\d$/.test(j.date||''))document.getElementById('bd').value=j.date;if(j.total)document.getElementById('bt').value=j.total;
+      sync();rows=rows.filter(r=>r.s||r.m).concat(it.map(x=>pick({s:String(x.sku||'').replace(/\D/g,''),m:String(x.model).trim(),q:Math.round(x.qty),p:Math.round((x.sum&&x.qty?x.sum/x.qty:x.price)*100)/100})));
+      draw();st.textContent='Распознано строк: '+it.length+' — проверьте';
+    }catch(er){st.textContent='';toast(er.message||'Не удалось распознать')}};
   draw();
+}
+/* файл → base64; фото уменьшаем до 2000px */
+function fileB64(f){
+  const rd=b=>new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(String(r.result).split(',')[1]);r.onerror=no;r.readAsDataURL(b)});
+  if(!/^image\//.test(f.type))return rd(f).then(data=>({data,type:'application/pdf'}));
+  return new Promise((ok,no)=>{const u=URL.createObjectURL(f),im=new Image();im.onload=()=>{const k=Math.min(1,2000/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);c.toBlob(b=>rd(b).then(data=>ok({data,type:'image/jpeg'}),no),'image/jpeg',0.85)};im.onerror=()=>no(new Error('Не удалось открыть фото'));im.src=u})
 }
 /* строка инвойса: «1 111000010 HLB 8600 BK Pcs 3 Spania 378.00 1,134.00 0.00» или из Excel через табуляцию */
 function parseInv(t){
