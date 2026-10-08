@@ -422,6 +422,10 @@ tr.u.out{animation:tkOut .17s ease-in forwards}
 @keyframes brin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes brbg{0%,40%{background:var(--cl)}100%{background:transparent}}
 @media (prefers-reduced-motion:reduce){.bscan,.bdoc,.bdoc i,.bdoc b,.bbar u,.byt tr.bin,.byt tr.bin td{animation:none}}
+.byt.pl{min-width:900px}.byt.pl td:nth-child(1){width:auto;min-width:130px}.byt.pl td:nth-child(2){min-width:96px}
+.pld>td{background:var(--soft);padding:6px 12px 10px}
+.pli{width:100%;border-collapse:collapse}.pli td{padding:6px 8px;border-bottom:1px solid var(--line);font-size:14px}.pli tr:last-child td{border-bottom:0}
+.byt .pli td{min-width:0!important;width:auto!important}
 </style>
 </head>
 <body>
@@ -609,7 +613,7 @@ function vStk(){
     rows+=`<tr class="c${op?' op':''} ${x.qty-x.res<=0?'k-off':x.res?'k-res':'k-ok'}" data-g="${esc(k)}"><td><b><span class="cv${op?' o':''}">▸</span> ${esc(x.name)}</b>${byCat?'':`<div class="mu" style="font-size:14px;font-weight:500;margin-left:18px">${esc(x.cat)}</div>`}</td><td class="hide-m mu">${x.locs}</td><td class="n">${x.qty}</td><td class="n">${x.qty-x.res}</td><td class="cn">${x.res?'<span class="b y">'+x.res+'</span>':''}</td><td class="n${x.spread?' spr':''}">${x.spread?E(x.min,2)+' – '+E(x.max,2):E(x.min,2)}</td><td class="n hide-m">${E(x.avg,2)}</td><td class="n hide-m mu">${LE(x.avg)}</td></tr>`;
     if(op||F.sr)rows+=x.u.filter(s=>!F.sr||s.res).slice().sort((a,b)=>(a.cost||0)-(b.cost||0)).map(s=>`<tr class="c u ${s.res?'rs':''}" data-u="${s.id}" title="Нажмите, чтобы изменить"><td class="ui"><span class="pe">✎</span> ${s.res?`<a href="#" data-ro="${esc(s.res)}">${esc(s.res)}</a> ${esc(s.note)}`:s.used?`<span class="b w">б/у</span> ${esc(s.note)}`:(esc(s.note)||'<span class="mu pn0">партия</span>')}</td><td class="hide-m ploc l-${esc(s.loc)}">${loc(s.loc)}</td><td class="n">${s.qty}</td><td class="n">${s.res?0:s.qty}</td><td class="cn">${s.res?'<span class="b y">'+s.qty+'</span>':''}</td><td class="n">${E(s.cost,2)}</td><td class="n hide-m"></td><td class="n hide-m mu">${LE(s.cost)}</td></tr>`).join('');
   });
-  return `<div class="row">${[['','Все'],['dep','Склад'],['salon','Салон'],['showroom','Шоурум'],['etc','Прочее']].map(([k,t])=>`<button class="chip${F.sl===k?' on':''}" data-sl="${k}">${t}<i>${cnt(k)}</i></button>`).join('')}<span class="sp"></span>${pbtn('stk','Печать остатков')}<button class="btn r" id="buy">+ Закупка</button><button class="btn" id="add">+ Приход</button></div>
+  return `<div class="row">${[['','Все'],['dep','Склад'],['salon','Салон'],['showroom','Шоурум'],['etc','Прочее']].map(([k,t])=>`<button class="chip${F.sl===k?' on':''}" data-sl="${k}">${t}<i>${cnt(k)}</i></button>`).join('')}<span class="sp"></span>${pbtn('stk','Печать остатков')}<button class="btn" id="plist">Закупки</button><button class="btn r" id="buy">+ Закупка</button><button class="btn" id="add">+ Приход</button></div>
   <div class="row"><input class="t" id="sq" placeholder="Поиск: модель или № заказа" value="${esc(F.sq)}" style="width:280px">
   <select class="t" id="sc"><option value="">Все категории</option>${CATS.map(c=>{const n=ccnt(c);return n?`<option value="${esc(c)}"${F.sc===c?' selected':''}>${esc(c)} — ${n} шт</option>`:''}).join('')}</select>
   <button class="chip${F.sr?' on':''}" id="srb">Только в брони<i>${rcnt}</i></button>
@@ -757,7 +761,7 @@ function delPurchase(s){
 function splitU(id,k){
   const s=U_(id);if(!s||k>=s.qty)return id;
   setU(id,{qty:s.qty-k});
-  const c={};['loc','cat','model','cost','res','note','used','invn','sku'].forEach(f=>c[f]=s[f]??null);c.qty=k;
+  const c={};['loc','cat','model','cost','res','note','used','invn','invd','sku'].forEach(f=>c[f]=s[f]??null);c.qty=k;
   ST.add.push(c);return RAW.stock.length+ST.add.length-1}
 const U_=id=>RAW.stock.concat(ST.add).map((s,i)=>Object.assign({id:i},s,ST.s[i]||{}))[id];
 const setU=(id,v)=>{ST.s[id]=Object.assign(ST.s[id]||{},v)};
@@ -978,6 +982,7 @@ M.addEventListener('click',e=>{
   if(x=t.closest('[data-g]')){const k=x.dataset.g;F.open[k]=!F.open[k];TKJ=F.open[k]?k:null;let r=x.nextElementSibling,n=0;if(!F.open[k])while(r&&r.classList.contains('u')){r.classList.add('out');r=r.nextElementSibling;n++}if(n){x.classList.add('cls');setTimeout(render,170)}else render();return}
   if(t.closest('#add')){addModal();return}
   if(t.closest('#buy')){buyModal();return}
+  if(t.closest('#plist')){purchasesModal();return}
   if(t.closest('#srb')){F.sr=!F.sr;if(F.sr){F.so='res';F.sd=-1}else{F.so='name';F.sd=1}render();return}
   if(t.closest('#sclr')){F.sq='';F.sc='';F.sr=false;F.sl='';F.so='name';F.sd=1;render();return}
   if(x=t.closest('[data-so]')){const k=x.dataset.so;if(F.so===k)F.sd=-F.sd;else{F.so=k;F.sd=SO[k][1]}render();return}
@@ -1150,7 +1155,7 @@ function buyModal(){
     sync();const ok=rows.filter(r=>r.m&&r.q>0&&r.p>0);if(!ok.length){toast('Нет заполненных строк');return false}
     const no=V('bn'),d=V('bd'),k=+V('bk')||KF();
     if(k!==KF()){ST.k=k;KI.value=k}
-    ok.forEach(r=>ST.add.push({loc:r.l||'dep',cat:r.c||guessCat(r.m),model:r.m,qty:r.q,cost:r.p,res:null,note:'инвойс'+(no?' '+no:'')+' от '+dt(d),used:false,invn:no||null,sku:r.s||null}));
+    ok.forEach(r=>ST.add.push({loc:r.l||'dep',cat:r.c||guessCat(r.m),model:r.m,qty:r.q,cost:r.p,res:null,note:'инвойс'+(no?' '+no:'')+' от '+dt(d),used:false,invn:no||null,invd:d||null,sku:r.s||null}));
     save();build();F.sq='';render();toast('Закупка добавлена: '+ok.reduce((a,r)=>a+r.q,0)+' шт');
   });
   const md=[...document.querySelectorAll('.md')].pop();md.querySelector('.mb').classList.add('mbw');
@@ -1218,6 +1223,24 @@ function parseInv(t){
     const ns=c.slice(i+1).filter(x=>/^[\d\s.,]+$/.test(x)&&x);if(ns.length<2)return null;
     const q=+ns.find(x=>/^\d+$/.test(x)),p=num(ns.find(x=>/[.,]\d{2}$/.test(x))||ns[1]);
     return q&&p?{s:c[i],m:(c[i+1]||'').trim(),q,p}:null}).filter(Boolean);
+}
+/* список закупок: группы позиций по номеру инвойса */
+function purchasesModal(){
+  const g=x=>x.invn?'#'+x.invn:x.note,P={};
+  [...S,...OUT].filter(x=>x.invn||/^инвойс/.test(x.note||'')).forEach(x=>{const k=g(x);(P[k]=P[k]||{k,no:x.invn||'',note:x.note||'',L:[]}).L.push(x)});
+  const A=Object.values(P).sort((a,b)=>Math.max(...b.L.map(x=>x.id))-Math.max(...a.L.map(x=>x.id)));
+  const st=x=>x.out?'<span class="b z">выдан</span>':x.res?`<span class="b y">бронь ${esc(x.res)}</span>`:'<span class="b o">на складе</span>';
+  const body=A.length?`<div class="tw"><table class="byt pl"><thead><tr><th>Инвойс</th><th>Дата</th><th class="n">Позиций</th><th class="n">Шт</th><th class="n">По инвойсу, €</th><th class="n">Себест., €</th><th>Состояние</th><th></th></tr></thead><tbody>${A.map((p,i)=>{
+    const q=p.L.reduce((a,x)=>a+x.qty,0),inv=p.L.reduce((a,x)=>a+x.qty*(x.inv||0),0),c=p.L.reduce((a,x)=>a+x.qty*(x.cost||0),0),o=p.L.filter(x=>x.out).length,r=p.L.filter(x=>!x.out&&x.res).length,f=p.L.length-o-r;
+    const x0=p.L.find(x=>x.invd),m=x0?dt(x0.invd):(p.note.match(/ от (.+)$/)||[])[1]||'';
+    return `<tr class="plr" data-pi="${i}"><td><b>${esc(p.no||'без номера')}</b></td><td>${esc(m)}</td><td class="n">${p.L.length}</td><td class="n">${q}</td><td class="n">${E(inv,2)}</td><td class="n">${E(c,2)}</td><td>${f?`<span class="b o">${f} на складе</span> `:''}${r?`<span class="b y">${r} в брони</span> `:''}${o?`<span class="b z">${o} выдано</span>`:''}</td><td style="white-space:nowrap"><button class="btn s" type="button" data-po="${i}">Состав</button> <button class="btn s" type="button" data-pd="${i}" style="color:var(--red)">Удалить</button></td></tr>
+    <tr class="pld" data-pl="${i}" hidden><td colspan="8"><table class="pli">${p.L.map(x=>`<tr><td>${esc(x.model)}</td><td>${loc(x.loc)}</td><td class="n">${x.qty} шт</td><td class="n">${E(x.inv,2)} → ${E(x.cost,2)}</td><td>${st(x)}</td></tr>`).join('')}</table></td></tr>`}).join('')}</tbody></table></div>`:'<p class="mu">Закупок по инвойсам пока нет. Их добавляет кнопка «+ Закупка».</p>';
+  modal('Закупки',body,()=>{});
+  const md=[...document.querySelectorAll('.md')].pop();md.querySelector('.mb').classList.add('mbw');
+  md.querySelector('[data-c]').remove();md.querySelector('[data-k]').textContent='Закрыть';
+  md.querySelector('.mb').addEventListener('click',e=>{const o=e.target.closest('[data-po]'),d=e.target.closest('[data-pd]');
+    if(o){const r=md.querySelector(`[data-pl="${o.dataset.po}"]`);r.hidden=!r.hidden;o.textContent=r.hidden?'Состав':'Скрыть'}
+    if(d){md.remove();delPurchase(A[+d.dataset.pd].L[0])}});
 }
 
 </script>
