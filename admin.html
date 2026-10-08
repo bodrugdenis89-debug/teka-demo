@@ -209,7 +209,7 @@ td.od input{width:64px;height:34px;text-align:center}
 .drop.on{border-color:var(--ink);color:var(--ink)}
 .kv{display:grid;grid-template-columns:150px 1fr;gap:6px 14px;font-size:13.5px;clear:both}.kv b{color:var(--mute);font-weight:600}
 .warnb{background:#FFF8E6;border:1px solid #f0d9b5;border-radius:10px;padding:10px 14px;font-size:13px;margin-top:10px;clear:both}
-@media (max-width:900px){.hlg{width:60px}.hb{padding-left:14px}.tabs{padding-left:0}.hb .q{max-width:none;flex-basis:100%;order:5}td.ct,th.ct,td.sk,th.sk{display:none}.g2,.g3{grid-template-columns:1fr}.eh,.eb,.ef{padding-left:16px;padding-right:16px}main{padding:12px 8px 120px}}
+@media (max-width:900px){.hlg{width:60px}.hb{padding-left:14px}.tabs{padding-left:0}.hb .q{max-width:none;flex-basis:100%;order:5}.v-items td.ct,.v-items th.ct,.v-items td.sk,.v-items th.sk,.v-check td.ct,.v-check th.ct,.v-check td.sk,.v-check th.sk{display:none}#vw{overflow-x:auto}.g2,.g3{grid-template-columns:1fr}.eh,.eb,.ef{padding-left:16px;padding-right:16px}main{padding:12px 8px 120px}}
 html[lang=ro] .phs .p.new:before{content:"nouă"}
 .lsw{display:inline-flex;height:38px;border:1px solid var(--line);border-radius:8px;background:#fff;overflow:hidden;flex:none}
 .lsw button{padding:0 12px;font-weight:700;font-size:13px;color:var(--mute)}
@@ -220,6 +220,100 @@ html[lang=ro] .phs .p.new:before{content:"nouă"}
 .dbtn{height:34px;padding:0 11px;margin-left:6px;border-radius:8px;border:1px solid var(--line);background:#fff;font-weight:600;cursor:pointer}.dbtn:hover{border-color:var(--ink)}
 .odel{width:36px;height:36px;margin-left:8px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--mute);display:inline-grid;place-items:center;vertical-align:middle;cursor:pointer;transition:color .15s,border-color .15s}.odel:hover{color:var(--red);border-color:var(--red)}
 .tg.ref{background:#2F6F4F;color:#fff}
+
+/* вкладка-ссылка «Учёт» */
+.tabs a.tabl{padding:9px 14px 11px;font-weight:700;color:var(--red);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;margin-left:auto}
+.tabs a.tabl:hover{border-bottom-color:var(--red)}
+/* телефон */
+@media (max-width:700px){
+header{position:static;display:block}
+.hlg{display:none}
+.hb{padding:10px 12px 6px;gap:8px}
+.hb .lg{order:0;flex:1 1 auto;font-size:19px;margin:0}
+.hb>a.btn{order:1}.hb .lsw{order:2}.hb #lo{order:3}
+.hb>a.btn,.hb .lsw,.hb #lo,.hb .lsw button{height:36px}.hb>a.btn,.hb #lo{padding:0 11px}
+.hb .sp{display:none}
+.hb .q{order:5;flex:1 1 150px}
+.hb #nw{order:6;padding:0 12px}
+.hb .dd,.hb select.t{order:7;flex:1 1 40%;min-width:0}
+.hb .dd>button{min-width:0}
+.tabs{padding:0 4px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs button,.tabs a.tabl{padding:10px 11px 12px;font-size:14.5px}
+.tabs a.tabl{margin-left:0;order:-1}
+main{padding:10px 10px 130px}
+.vh{gap:8px}.vh .sum{flex:1 1 100%;margin:0 0 0 2px}
+#vb{width:100%}#vb>*{flex:1 1 auto}#vb .dd{min-width:0}#vb .dd>button{min-width:0}
+.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-left:-10px!important;margin-right:-10px!important;padding:0 10px}.chips::-webkit-scrollbar{display:none}.chip{flex:none}
+#ed .chips,#tl .chips{flex-wrap:wrap;overflow:visible;margin:0!important;padding:0}
+#tw,#vw{overflow:visible;border-radius:0}
+#tw>table,#vw>table{display:block;border:0;background:none;border-radius:0;overflow:visible}
+#tw>table>thead,#vw>table>thead{display:none}
+#tw>table>tbody,#vw>table>tbody{display:block}
+#tw>table>tbody>tr,#vw>table>tbody>tr{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:8px}
+#tw>table>tbody>tr>td,#vw>table>tbody>tr>td{display:block;padding:0;border:0;background:none;min-width:0}
+#tw tr.dz,#vw tr.dz{background:#FFF8E6}
+td.nm{flex:1 1 100%}
+td.nm b{font-size:15.5px;overflow-wrap:anywhere}
+td.nm small{max-width:none;white-space:normal;display:-webkit-box!important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#tw td.sk,#tw td.ct{font-size:13px;color:var(--mute);max-width:none}
+#vw td.sk,#vw td.ct{font-size:13px;color:var(--mute);max-width:none}
+#vw td.sk b{font-size:15px;color:var(--ink)}
+#vw td[style*="nowrap"]{white-space:normal!important;flex:1 1 100%;display:flex!important;flex-wrap:wrap;gap:6px}
+#vw td[style*="nowrap"] .dbtn,#vw td[style*="nowrap"] .ebtn{margin:0;height:38px;flex:1 1 auto}
+#vw td[style*="nowrap"] .odel{margin:0}
+.ebtn,.dbtn{height:38px}
+/* товары */
+.v-items td.ph,.v-check td.ph{width:auto}
+.v-items td.nm,.v-check td.nm{flex:1 1 calc(100% - 110px)}
+.v-check td.nm{flex-basis:calc(100% - 80px)}
+.v-items td.pr{flex:1 1 40%}
+.v-items td.pr input{width:100%;height:40px;font-size:16px}
+.v-items td.pr:before{content:"Цена, MDL";display:block;font-size:12px;font-weight:600;color:var(--mute);margin-bottom:3px}
+.v-items td.pr+td.pr:before{content:"Старая цена"}
+html[lang=ro] .v-items td.pr:before{content:"Preț, MDL"}html[lang=ro] .v-items td.pr+td.pr:before{content:"Preț vechi"}
+.v-items td.st{flex:1 1 auto}
+.v-items td.st .dd>button{width:100%;height:40px}
+.v-items td:last-child .ebtn{height:40px}
+.eye{width:40px;height:40px}
+.v-items td.pr .pc{text-align:left;min-height:0}
+.v-check td:nth-child(5){flex:1 1 auto}
+/* заказы, подборки, клиенты, акции, история */
+.v-orders #vw td:first-child,.v-offers #vw td:first-child,.v-hist #vw td:first-child{flex:1 1 100%;order:-1}
+.v-orders #vw td.st{flex:none}
+.v-offers #vw td.nm{flex:1 1 45%}
+.v-clients #vw>table>tbody>tr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.v-clients #vw td.nm,.v-clients #vw td:nth-child(4){grid-column:1/-1}
+.v-clients #vw td:nth-child(2),.v-clients #vw td:nth-child(3){grid-column:span 2}
+.v-clients #vw td:before{display:block;font-size:12px;font-weight:600;color:var(--mute)}
+.v-clients #vw td:nth-child(2):before{content:"Город"}.v-clients #vw td:nth-child(3):before{content:"Менеджер"}.v-clients #vw td:nth-child(4):before{content:"Теги"}
+html[lang=ro] .v-clients #vw td:nth-child(2):before{content:"Oraș"}html[lang=ro] .v-clients #vw td:nth-child(3):before{content:"Manager"}html[lang=ro] .v-clients #vw td:nth-child(4):before{content:"Etichete"}
+.v-clients #vw td:nth-child(n+2){color:var(--ink);font-size:14.5px}
+.v-clients #vw td:last-child{grid-column:1/-1}
+.v-clients #vw td:nth-child(5):before{content:"Заказы"}.v-clients #vw td:nth-child(6):before{content:"Подборки"}.v-clients #vw td:nth-child(7):before{content:"Сумма"}.v-clients #vw td:nth-child(8):before{content:"Контакт"}
+html[lang=ro] .v-clients #vw td:nth-child(5):before{content:"Comenzi"}html[lang=ro] .v-clients #vw td:nth-child(6):before{content:"Selecții"}html[lang=ro] .v-clients #vw td:nth-child(7):before{content:"Suma"}html[lang=ro] .v-clients #vw td:nth-child(8):before{content:"Contact"}
+.v-clients #vw td:last-child{flex:1 1 100%;display:flex;gap:8px}.v-clients #vw td:last-child .ebtn{flex:1}
+.v-promo #vw td:last-child{flex:1 1 100%;display:flex;gap:8px}.v-promo #vw td:last-child .ebtn{flex:1}
+.card{padding:4px 14px 8px}
+/* панели */
+#bar{left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));transform:translateY(160%);max-width:none;padding:10px;gap:8px;flex-wrap:wrap}
+#bar.on{transform:none}
+#bar #bt{flex:1 1 100%;padding:0 4px}
+#bar .btn{flex:1 1 auto;justify-content:center;height:44px}
+#ed,#tl{width:100vw}
+.eh{padding:10px 12px 10px 16px}.eh h2{font-size:17px}
+.eb{padding:4px 14px 30px}
+.ef{flex-wrap:wrap;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));gap:8px}
+.ef .sp{display:none}
+.ef .btn{flex:1 1 auto;justify-content:center;height:44px}
+.kv{grid-template-columns:110px minmax(0,1fr)}
+fieldset{min-width:0}
+.pv{display:block;overflow-x:auto;font-size:12.5px}.pv td,.pv th{padding:6px 7px}.pv td.oi{gap:8px;min-width:150px}.pv td.oi img{width:36px;height:36px}
+.phs .p,.phs .add{width:96px;height:96px}
+.imp{flex-wrap:wrap}.imp .t{flex:1 1 100%}.imp .btn{flex:1 1 auto;justify-content:center}
+input.t,select.t,textarea.t{font-size:16px}
+#toast{top:calc(10px + env(safe-area-inset-top,0px));text-align:center}
+#login form{padding:28px 22px}
+}
 </style>
 </head>
 <body>
@@ -258,7 +352,7 @@ html[lang=ro] .phs .p.new:before{content:"nouă"}
     <div class="lsw" id="lsw"><button type="button" data-lang="ru">RU</button><button type="button" data-lang="ro">RO</button></div>
     <button class="btn" id="lo" title="Выйти" data-i18n-ti data-i18n>Выйти</button>
   </div>
-  <nav class="tabs" id="nav"><button data-v="items" data-i18n>Товары</button><button data-v="promo" data-i18n>Акции</button><button data-v="check" data-i18n>Проверка каталога</button><button data-v="site" data-i18n>Контакты и тексты</button><button data-v="orders">Заказы</button><button data-v="offers" data-i18n>Подборки</button><button data-v="clients" data-i18n>Клиенты</button><button data-v="hist" data-i18n>История</button></nav>
+  <nav class="tabs" id="nav"><button data-v="items" data-i18n>Товары</button><button data-v="promo" data-i18n>Акции</button><button data-v="check" data-i18n>Проверка каталога</button><button data-v="site" data-i18n>Контакты и тексты</button><button data-v="orders">Заказы</button><button data-v="offers" data-i18n>Подборки</button><button data-v="clients" data-i18n>Клиенты</button><button data-v="hist" data-i18n>История</button><a class="tabl" href="admin-uchet.html" data-i18n>Учёт</a></nav>
 </header>
 
 <main>
@@ -294,7 +388,7 @@ let LANG='ru';try{if(localStorage.getItem('tkAdmLang')==='ro')LANG='ro'}catch(e)
 const RO={'изм.':'modif.','Удалить':'Șterge','Точно удалить?':'Sigur ștergeți?','Подборка удалена':'Selecția a fost ștearsă','Печать':'Tipărire','Отправить':'Trimite','Скачать PDF':'Descarcă PDF','Отправить клиенту':'Trimite clientului','Готовим документ…':'Se pregătește documentul…','Упорядочить':'Ordonează','Порядок в каталоге':'Ordinea în catalog','Перетащите карточки мышью или используйте кнопки. Так товары будут стоять на сайте — на ПК и в мобильной версии.':'Trageți cardurile cu mouse-ul sau folosiți butoanele. Așa vor apărea produsele pe site — pe PC și pe mobil.','Сбросить порядок':'Resetează ordinea','Готово':'Gata','В начало':'La început','Выше':'Mai sus','Ниже':'Mai jos','В конец':'La final','Порядок задан для {0} товаров. Нажмите «Сохранить на сайт».':'Ordinea a fost setată pentru {0} produse. Apăsați „Salvează pe site”.','Порядок сброшен. Нажмите «Сохранить на сайт».':'Ordinea a fost resetată. Apăsați „Salvează pe site”.','Порядок не изменился':'Ordinea nu s-a schimbat','скрыт':'ascuns','Снять все':'Debifează tot','Отметить все':'Bifează tot','Фильтр в категории':'Filtru în categorie','Выбрать из каталога: категория…':'Alege din catalog: categorie…','Клиент удалён':'Clientul a fost șters','Удалить клиента {0}? Его заказы останутся в журнале заказов.':'Ștergeți clientul {0}? Comenzile lui rămân în jurnalul de comenzi.','Удалить клиента':'Șterge clientul','Скидка на всю подборку':'Reducere la toată selecția','Удалить заказ':'Șterge comanda','Удалить этот заказ? Это нельзя отменить.':'Ștergeți această comandă? Acțiunea nu poate fi anulată.','Заказ удалён':'Comanda a fost ștearsă','Не удалось удалить: {0}':'Nu s-a putut șterge: {0}',
 'Teka — админка':'Teka — administrare','Вход в админку':'Autentificare','Войти':'Intră','Пароль':'Parolă','Админка':'Administrare',
 'Поиск: модель, код, описание':'Căutare: model, cod, descriere','Перевести пустые RU-строки с румынского':'Tradu rândurile RU goale din română','Если RU не заполнить, перевод сделается автоматически при «Готово». Проверьте его.':'Dacă RU rămâne gol, traducerea se face automat la «Gata». Verificați-o.','Переведено строк: {0}. Проверьте текст.':'Rânduri traduse: {0}. Verificați textul.','Все строки уже переведены':'Toate rândurile sunt deja traduse','Не удалось перевести — проверьте интернет':'Traducerea a eșuat — verificați internetul','Автоперевод не удался — заполните RU вручную':'Traducerea automată a eșuat — completați RU manual','RU переведён автоматически.':'RU tradus automat.','Фото маленькое ({0} px) — на сайте может быть нечётким. Лучше скачать крупное фото.':'Fotografie mică ({0} px) — pe site poate fi neclară. Mai bine descărcați o fotografie mare.','Сайт ↗':'Site ↗','Выйти':'Ieșire',
-'Товары':'Produse','Акции':'Promoții','Проверка каталога':'Verificare catalog','Контакты и тексты':'Contacte și texte','Заказы':'Comenzi','Подборки':'Selecții','Клиенты':'Clienți','История':'Istoric',
+'Товары':'Produse','Учёт':'Contabilitate','Акции':'Promoții','Проверка каталога':'Verificare catalog','Контакты и тексты':'Contacte și texte','Заказы':'Comenzi','Подборки':'Selecții','Клиенты':'Clienți','История':'Istoric',
 'Все товары':'Toate produsele','Со скидкой':'Cu reducere','Без цены':'Fără preț','Под заказ':'La comandă','Нет в наличии':'Nu este în stoc','В наличии':'În stoc','Скрытые':'Ascunse','Хит или новинка':'Hit sau noutate','В акции':'În promoție','Изменённые':'Modificate',
 '+ Новый товар':'+ Produs nou','Отменить':'Anulează','Сохранить на сайт':'Salvează pe site','Закрыть':'Închide','Удалить товар':'Șterge produsul',
 'Применить правки и создать копию товара':'Aplică modificările și creează o copie a produsului','Дублировать':'Duplică','Отмена':'Anulează','Готово':'Gata','Сохраняю…':'Se salvează…',
