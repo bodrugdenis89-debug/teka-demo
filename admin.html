@@ -349,6 +349,13 @@ legend{font-size:14px}
 .hint{font-size:14px}
 #toast{font-size:16px}
 }
+/* кнопка «Учёт» в шапке */
+.hb a.ubtn{gap:8px;border:2px solid var(--red);color:var(--red);font-weight:700;background:#fff}
+.hb a.ubtn:hover{background:var(--red);color:#fff}
+@media (max-width:700px){
+.hb a.ubtn{order:4;flex:1 1 55%;justify-content:center;height:48px;font-size:17px}
+.hb>a.btn:not(.ubtn){order:4;flex:1 1 30%;justify-content:center;height:48px}
+}
 </style>
 </head>
 <body>
@@ -383,11 +390,12 @@ legend{font-size:14px}
     </select></div>
     <span class="sp"></span>
     <div class="iv"><button class="btn r" id="nw" data-i18n>+ Новый товар</button></div>
+    <a class="btn ubtn" href="admin-uchet.html" title="Склад, заказы, дизайнеры, мебельщики"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18M21 3v18M3 12h18M3 21h18"/><rect x="6" y="6" width="5" height="6"/><rect x="13" y="8" width="5" height="4"/><rect x="6" y="15" width="7" height="6"/></svg><span data-i18n>Учёт</span></a>
     <a class="btn" href="desk-catalog.html" target="_blank" rel="noopener" data-i18n>Сайт ↗</a>
     <div class="lsw" id="lsw"><button type="button" data-lang="ru">RU</button><button type="button" data-lang="ro">RO</button></div>
     <button class="btn" id="lo" title="Выйти" data-i18n-ti data-i18n>Выйти</button>
   </div>
-  <nav class="tabs" id="nav"><button data-v="items" data-i18n>Товары</button><button data-v="promo" data-i18n>Акции</button><button data-v="check" data-i18n>Проверка каталога</button><button data-v="site" data-i18n>Контакты и тексты</button><button data-v="orders">Заказы</button><button data-v="offers" data-i18n>Подборки</button><button data-v="clients" data-i18n>Клиенты</button><button data-v="hist" data-i18n>История</button><a class="tabl" href="admin-uchet.html" data-i18n>Учёт</a></nav>
+  <nav class="tabs" id="nav"><button data-v="items" data-i18n>Товары</button><button data-v="promo" data-i18n>Акции</button><button data-v="check" data-i18n>Проверка каталога</button><button data-v="site" data-i18n>Контакты и тексты</button><button data-v="orders">Заказы</button><button data-v="offers" data-i18n>Подборки</button><button data-v="clients" data-i18n>Клиенты</button><button data-v="hist" data-i18n>История</button></nav>
 </header>
 
 <main>

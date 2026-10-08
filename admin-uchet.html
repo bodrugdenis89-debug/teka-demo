@@ -351,6 +351,28 @@ tr.u.out{animation:tkOut .17s ease-in forwards}
 .ued summary{cursor:pointer;font-weight:700;color:var(--mute);padding:6px 0;font-size:16px}
 .ued[open]{display:grid;gap:12px}
 .pki em.site{font-style:normal;font-size:12px;font-weight:700;background:#E8F0FB;color:#1F4E8C;border-radius:10px;padding:1px 7px}
+.pki small.like{display:block;font-size:13px;color:#9A7400;margin-top:2px}
+/* свои выпадающие списки */
+.sl{position:relative;display:inline-flex;min-width:0;max-width:100%;vertical-align:middle}
+.sl>select{display:none}
+.sl>button{font:inherit;color:inherit;background:none;border:0;padding:0 18px 0 0;cursor:pointer;position:relative;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;text-align:left}
+.sl>button:after{content:"";position:absolute;right:3px;top:50%;width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.sl.on>button:after{transform:translateY(-20%) rotate(-135deg)}
+.sl.t{display:flex}
+.sl.t>button{width:100%;height:46px;border:1px solid var(--line);border-radius:8px;background:#fff;padding:0 40px 0 14px;font-weight:600}
+.sl.t>button:after{right:16px;width:7px;height:7px}
+.sl.t>button:hover{border-color:#bbb}
+.sl.t.on>button{border-color:var(--ink)}
+.sl.t>button{color:var(--ink)}
+@media (max-width:700px){.sl.t>button{height:50px;font-size:18px}}
+.row .sl.t{flex:1 1 auto}
+.slu{position:fixed;z-index:100;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 36px rgba(0,0,0,.14);padding:6px;margin:0;list-style:none;overflow:auto;max-width:calc(100vw - 16px);animation:slIn .14s ease-out}
+.slu li{padding:10px 14px;border-radius:8px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:10px;font-weight:500}
+.slu li:hover{background:var(--soft)}
+.slu li.sel{color:var(--red);font-weight:700}
+.slu li.sel:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);flex:none;margin-left:-10px}
+@keyframes slIn{from{opacity:0;transform:translateY(-4px)}}
+@media (max-width:700px){.slu li{padding:13px 16px;white-space:normal}}
 </style>
 </head>
 <body>
@@ -549,7 +571,9 @@ function addModal(){
   const mm={};S.forEach(s=>{const k=nm(s.model),x=mm[k]||(mm[k]={m:s.model,cat:catOf(s),q:0,c:0});x.q+=s.qty||1;if(s.cost)x.c=s.cost});
   const sig=t=>{t=String(t).toUpperCase();return [...t.replace(/[^A-Z0-9]/g,'')].sort().join('')+'|'+(t.match(/\d+/g)||[]).join('.')};
   const have=new Set(Object.values(mm).map(x=>sig(x.m)));
-  (CATL||[]).forEach(c=>{const k=nm(c.m),g=sig(c.m);if(!mm[k]&&!have.has(g)){mm[k]={m:c.m,cat:c.cat,q:0,c:0,p:c.p,site:1};have.add(g)}});
+  const code=t=>{const m=String(t).match(/([A-Za-z]{1,5})\s*-?\s*(\d{2,5})/);return m?m[1].toUpperCase()+m[2]:''};
+  const byCode={};Object.values(mm).forEach(x=>{const c=code(x.m);if(c)(byCode[c]=byCode[c]||[]).push(x.m)});
+  (CATL||[]).forEach(c=>{const k=nm(c.m),g=sig(c.m);if(!mm[k]&&!have.has(g)){mm[k]={m:c.m,cat:c.cat,q:0,c:0,p:c.p,site:1,like:byCode[code(c.m)]||null};have.add(g)}});
   const all=Object.values(mm).sort((a,b)=>CATS.indexOf(a.cat)-CATS.indexOf(b.cat)||(a.site||0)-(b.site||0)||a.m.localeCompare(b.m));
   if(!CATL)loadCat().then(()=>{const I=document.getElementById('am');if(I&&!I.value){[...document.querySelectorAll('.md')].pop().remove();addModal()}});
   const cats=CATS.filter(c=>all.some(x=>x.cat===c));
@@ -572,7 +596,7 @@ function addModal(){
     const n=r.length;r=r.slice(0,80);let last='';
     const nw=q&&!all.some(x=>nm(x.m)===nm(I.value))?`<button class="pki new" data-new>+ Новая модель: <b>${esc(I.value.trim())}</b></button>`:'';
     PL.innerHTML=
-      r.map(x=>{const h=!pc&&!q&&x.cat!==last?`<div class="pkh">${esc(x.cat)}</div>`:'';last=x.cat;return h+`<button class="pki${pick===x?' on':''}" data-m="${esc(x.m)}"><b>${esc(x.m)}</b><span>${esc(pc?'':x.cat)}${x.site?`${pc?'':' · '}<em class="site">с сайта</em>${x.p?' · '+L(x.p):''}`:''}${x.c?' · '+x.c.toFixed(2)+' €':''}${x.q?' · '+x.q+' шт на складе':''}</span></button>`}).join('')+
+      r.map(x=>{const h=!pc&&!q&&x.cat!==last?`<div class="pkh">${esc(x.cat)}</div>`:'';last=x.cat;return h+`<button class="pki${pick===x?' on':''}" data-m="${esc(x.m)}"><b>${esc(x.m)}</b><span>${[pc?'':esc(x.cat),x.site?'<em class="site">с сайта</em>'+(x.p?' '+L(x.p):''):'',x.c?x.c.toFixed(2)+' €':'',x.q?x.q+' шт на складе':''].filter(Boolean).join(' · ')}</span>${x.like?`<small class="like">похожие на складе: ${x.like.slice(0,3).map(esc).join(', ')}</small>`:''}</button>`}).join('')+
       (n>r.length?`<div class="pkh">ещё ${n-r.length} — уточните поиск</div>`:'')+(!n&&!q?'<div class="pkh">Нет моделей</div>':'')+nw;
   }
   I.oninput=()=>{pick=null;PL.hidden=false;draw()};
@@ -980,6 +1004,45 @@ async function boot(){
     syncMark('Нет связи','er');M.innerHTML=`<div class="card"><h3>Не удалось загрузить учёт</h3><p class="mu">${esc(e.message)}</p><button class="btn" onclick="boot()">Повторить</button></div>`}
 }
 boot();
+
+/* свои выпадающие списки вместо системных select */
+(()=>{
+const P=HTMLSelectElement.prototype,DV=Object.getOwnPropertyDescriptor(P,'value'),DI=Object.getOwnPropertyDescriptor(P,'selectedIndex');
+let OPEN=null;
+const close=()=>{if(!OPEN)return;OPEN.d.classList.remove('on');OPEN.u.remove();OPEN=null};
+function enh(s){
+  if(s.dataset.sl)return;s.dataset.sl=1;
+  const d=document.createElement('span');d.className='sl'+(s.classList.contains('t')?' t':'');
+  const b=document.createElement('button');b.type='button';
+  s.parentNode.insertBefore(d,s);d.append(s,b);
+  const lab=()=>{const o=s.options[s.selectedIndex];b.textContent=o?o.textContent:''};lab();
+  Object.defineProperty(s,'value',{get(){return DV.get.call(s)},set(v){DV.set.call(s,v);lab()}});
+  Object.defineProperty(s,'selectedIndex',{get(){return DI.get.call(s)},set(v){DI.set.call(s,v);lab()}});
+  b.addEventListener('click',e=>{
+    e.preventDefault();e.stopPropagation();
+    const was=OPEN&&OPEN.s===s;close();if(was)return;
+    const u=document.createElement('ul');u.className='slu';
+    u.innerHTML=[...s.options].map((o,i)=>`<li data-i="${i}"${i===s.selectedIndex?' class="sel"':''}>${esc(o.textContent)}</li>`).join('');
+    document.body.append(u);d.classList.add('on');OPEN={s,d,u};
+    const r=b.getBoundingClientRect(),W=innerWidth,H=innerHeight;
+    u.style.minWidth=r.width+'px';
+    u.style.left=Math.max(8,Math.min(r.left,W-u.offsetWidth-8))+'px';
+    const dn=H-r.bottom-12,up=r.top-12;
+    if(u.offsetHeight>dn&&up>dn){u.style.maxHeight=Math.min(up,H*.7)+'px';u.style.bottom=(H-r.top+4)+'px'}
+    else{u.style.maxHeight=Math.min(dn,H*.7)+'px';u.style.top=(r.bottom+4)+'px'}
+    const sel=u.querySelector('.sel');if(sel)sel.scrollIntoView({block:'nearest'});
+    u.addEventListener('click',e=>{const li=e.target.closest('li');if(!li)return;e.stopPropagation();
+      const i=+li.dataset.i,ch=i!==s.selectedIndex;DI.set.call(s,i);lab();close();
+      if(ch)s.dispatchEvent(new Event('change',{bubbles:true}))});
+  });
+}
+const scan=()=>document.querySelectorAll('select:not([data-sl])').forEach(enh);
+new MutationObserver(scan).observe(document.body,{childList:true,subtree:true});scan();
+document.addEventListener('click',e=>{if(OPEN&&!OPEN.u.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&OPEN){e.stopPropagation();close()}},true);
+addEventListener('resize',close);
+document.addEventListener('scroll',e=>{if(OPEN&&!OPEN.u.contains(e.target))close()},true);
+})();
 
 </script>
 </body>
