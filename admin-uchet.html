@@ -426,6 +426,7 @@ tr.u.out{animation:tkOut .17s ease-in forwards}
 .pld>td{background:var(--soft);padding:6px 12px 10px}
 .pli{width:100%;border-collapse:collapse}.pli td{padding:6px 8px;border-bottom:1px solid var(--line);font-size:14px}.pli tr:last-child td{border-bottom:0}
 .byt .pli td{min-width:0!important;width:auto!important}
+.bup[hidden],.bpa[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -1140,13 +1141,14 @@ document.addEventListener('scroll',e=>{if(OPEN&&!OPEN.u.contains(e.target))close
 })();
 
 /* закупка по инвойсу: строки → партии на склад, себестоимость = цена инвойса × коэффициент */
-function buyModal(){
-  if(!CATL){loadCat().then(buyModal);toast('Загружаю каталог…');return}
+function buyModal(ed){
+  if(!CATL){loadCat().then(()=>buyModal(ed));toast('Загружаю каталог…');return}
   const BY={};CATL.forEach(x=>{if(x.sku&&!BY[x.sku])BY[x.sku]=x});
   const LOCS=[['dep','Склад'],['salon','Салон'],['showroom','Шоурум']];
-  let rows=[{}];
-  modal('Закупка по инвойсу',`<div class="by">
-  <div class="byh"><label>Номер инвойса<input class="t" id="bn" placeholder="TKA0206724"></label><label>Дата<input class="t" id="bd" type="date" value="${isoNow()}"></label><label>Итог по инвойсу, €<input class="t" id="bt" type="number" step="0.01" placeholder="для сверки"></label><label>Коэффициент<input class="t" id="bk" type="number" step="0.01" value="${KF()}"></label></div>
+  let rows=ed?ed.free.map(x=>({id:x.id,s:x.sku||'',m:x.model,q:x.qty,p:x.inv,l:x.loc,c:x.cat,mm:1})):[{}];
+  const ids=ed?ed.free.map(x=>x.id):[];
+  modal(ed?'Закупка '+esc(ed.no||'без номера'):'Закупка по инвойсу',`<div class="by">
+  <div class="byh"><label>Номер инвойса<input class="t" id="bn" placeholder="TKA0206724" value="${esc(ed?ed.no:'')}"></label><label>Дата<input class="t" id="bd" type="date" value="${ed?ed.d:isoNow()}"></label><label>Итог по инвойсу, €<input class="t" id="bt" type="number" step="0.01" placeholder="для сверки"></label><label>Коэффициент<input class="t" id="bk" type="number" step="0.01" value="${KF()}"></label></div>
   <div class="row bup"><label class="btn r"><input type="file" id="bf" accept=".pdf,image/*" hidden>Загрузить инвойс (PDF или фото)</label><span id="bfs" class="mu"></span></div>
   <div class="bscan" id="bsc" hidden><div class="bdoc"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div><div class="bst"><b id="bsp"></b><span id="bse"></span><div class="bbar"><u></u></div></div></div>
   <details class="bpa"><summary>Вставить строки из инвойса (PDF или Excel)</summary><textarea class="t" id="bp" rows="5" placeholder="Скопируйте строки таблицы инвойса и вставьте сюда"></textarea><button class="btn s" type="button" id="bpg">Разобрать</button></details>
@@ -1155,10 +1157,16 @@ function buyModal(){
     sync();const ok=rows.filter(r=>r.m&&r.q>0&&r.p>0);if(!ok.length){toast('Нет заполненных строк');return false}
     const no=V('bn'),d=V('bd'),k=+V('bk')||KF();
     if(k!==KF()){ST.k=k;KI.value=k}
+    if(ed){const nt='инвойс'+(no?' '+no:'')+' от '+dt(d),keep=new Set(ok.filter(r=>r.id!=null).map(r=>r.id));
+      ids.forEach(id=>{if(!keep.has(id))setU(id,{del:true})});
+      ed.lock.forEach(x=>setU(x.id,{invn:no||null,invd:d||null,note:nt}));
+      ok.forEach(r=>{const v={loc:r.l||'dep',cat:r.c||guessCat(r.m),model:r.m,qty:r.q,cost:r.p,note:nt,invn:no||null,invd:d||null,sku:r.s||null};if(r.id!=null)setU(r.id,v);else ST.add.push(Object.assign(v,{res:null,used:false}))});
+      save();build();render();toast('Закупка сохранена');return}
     ok.forEach(r=>ST.add.push({loc:r.l||'dep',cat:r.c||guessCat(r.m),model:r.m,qty:r.q,cost:r.p,res:null,note:'инвойс'+(no?' '+no:'')+' от '+dt(d),used:false,invn:no||null,invd:d||null,sku:r.s||null}));
     save();build();F.sq='';render();toast('Закупка добавлена: '+ok.reduce((a,r)=>a+r.q,0)+' шт');
   });
   const md=[...document.querySelectorAll('.md')].pop();md.querySelector('.mb').classList.add('mbw');
+  if(ed){md.querySelector('.bup').hidden=true;md.querySelector('.bpa').hidden=true;if(ed.lock.length)md.querySelector('.byh').insertAdjacentHTML('afterend',`<p class="mu">Не редактируются (в брони или выданы): ${ed.lock.map(x=>esc(x.model)+' · '+x.qty+' шт').join(', ')}</p>`)}
   const B=document.getElementById('bb'),K=()=>+document.getElementById('bk').value||KF();
   const look=r=>{const x=BY[r.s];if(x){if(!r.mm)r.m=x.m;r.c=x.cat;r.site=x.p}else{r.site=0}};
   const z=t=>String(t||'').toUpperCase().replace(/[^A-Z0-9]/g,''),ALL=[...S,...OUT];
@@ -1205,6 +1213,7 @@ function buyModal(){
       draw();[...B.children].slice(n0).forEach((tr,i)=>{tr.classList.add('bin');tr.style.animationDelay=i*70+'ms'});
       st.innerHTML='<b style="color:var(--ok)">✓ Распознано строк: '+it.length+' за '+Math.round((Date.now()-t0)/1000)+' с</b> — проверьте';
     }catch(er){end();st.innerHTML='<b style="color:var(--red)">'+esc(er.message||'Не удалось распознать')+'</b>'}};
+  if(ed)rows.forEach(look);
   draw();
 }
 /* файл → base64; фото уменьшаем до 2000px */
@@ -1233,7 +1242,7 @@ function purchasesModal(){
   const body=A.length?`<div class="tw"><table class="byt pl"><thead><tr><th>Инвойс</th><th>Дата</th><th class="n">Позиций</th><th class="n">Шт</th><th class="n">По инвойсу, €</th><th class="n">Себест., €</th><th>Состояние</th><th></th></tr></thead><tbody>${A.map((p,i)=>{
     const q=p.L.reduce((a,x)=>a+x.qty,0),inv=p.L.reduce((a,x)=>a+x.qty*(x.inv||0),0),c=p.L.reduce((a,x)=>a+x.qty*(x.cost||0),0),o=p.L.filter(x=>x.out).length,r=p.L.filter(x=>!x.out&&x.res).length,f=p.L.length-o-r;
     const x0=p.L.find(x=>x.invd),m=x0?dt(x0.invd):(p.note.match(/ от (.+)$/)||p.note.match(/^приход (.+)$/)||[])[1]||'';
-    return `<tr class="plr" data-pi="${i}"><td><b>${esc(p.no||(/^приход/.test(p.note)?'вручную':'без номера'))}</b></td><td>${esc(m)}</td><td class="n">${p.L.length}</td><td class="n">${q}</td><td class="n">${E(inv,2)}</td><td class="n">${E(c,2)}</td><td>${f?`<span class="b o">${f} на складе</span> `:''}${r?`<span class="b y">${r} в брони</span> `:''}${o?`<span class="b z">${o} выдано</span>`:''}</td><td style="white-space:nowrap"><button class="btn s" type="button" data-po="${i}">Состав</button> <button class="btn s" type="button" data-pd="${i}" style="color:var(--red)">Удалить</button></td></tr>
+    return `<tr class="plr" data-pi="${i}"><td><b>${esc(p.no||(/^приход/.test(p.note)?'вручную':'без номера'))}</b></td><td>${esc(m)}</td><td class="n">${p.L.length}</td><td class="n">${q}</td><td class="n">${E(inv,2)}</td><td class="n">${E(c,2)}</td><td>${f?`<span class="b o">${f} на складе</span> `:''}${r?`<span class="b y">${r} в брони</span> `:''}${o?`<span class="b z">${o} выдано</span>`:''}</td><td style="white-space:nowrap"><button class="btn s" type="button" data-po="${i}">Состав</button> <button class="btn s" type="button" data-pe="${i}">Изменить</button> <button class="btn s" type="button" data-pd="${i}" style="color:var(--red)">Удалить</button></td></tr>
     <tr class="pld" data-pl="${i}" hidden><td colspan="8"><table class="pli">${p.L.map(x=>`<tr><td>${esc(x.model)}</td><td>${loc(x.loc)}</td><td class="n">${x.qty} шт</td><td class="n">${E(x.inv,2)} → ${E(x.cost,2)}</td><td>${st(x)}</td></tr>`).join('')}</table></td></tr>`}).join('')}</tbody></table></div>`:'<p class="mu">Закупок пока нет.</p>';
   modal('Закупки','<div class="row" style="margin:0 0 10px"><button class="btn r" type="button" data-pn>+ Новая закупка</button></div>'+body,()=>{});
   const md=[...document.querySelectorAll('.md')].pop();md.querySelector('.mb').classList.add('mbw');
@@ -1241,7 +1250,10 @@ function purchasesModal(){
   md.querySelector('.mb').addEventListener('click',e=>{const o=e.target.closest('[data-po]'),d=e.target.closest('[data-pd]');
     if(o){const r=md.querySelector(`[data-pl="${o.dataset.po}"]`);r.hidden=!r.hidden;o.textContent=r.hidden?'Состав':'Скрыть'}
     if(d){md.remove();delPurchase(A[+d.dataset.pd].L[0])}
-    if(e.target.closest('[data-pn]')){md.remove();buyModal()}});
+    if(e.target.closest('[data-pn]')){md.remove();buyModal()}
+    const ee=e.target.closest('[data-pe]');if(ee){const p=A[+ee.dataset.pe],x0=p.L.find(x=>x.invd),m=(p.note.match(/(\d\d)\.(\d\d)\.(\d{2,4})/)||[]);
+      const d=x0?x0.invd:m[3]?(m[3].length===2?'20'+m[3]:m[3])+'-'+m[2]+'-'+m[1]:isoNow();
+      md.remove();buyModal({no:p.no,d,free:p.L.filter(x=>!x.out&&!x.res),lock:p.L.filter(x=>x.out||x.res)})}});
 }
 
 </script>
