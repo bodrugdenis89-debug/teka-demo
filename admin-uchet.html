@@ -373,6 +373,7 @@ tr.u.out{animation:tkOut .17s ease-in forwards}
 .slu li.sel:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);flex:none;margin-left:-10px}
 @keyframes slIn{from{opacity:0;transform:translateY(-4px)}}
 @media (max-width:700px){.slu li{padding:13px 16px;white-space:normal}}
+.tw td small.tl{display:block;font-size:14px;color:var(--mute);font-weight:500;margin-top:1px}
 </style>
 </head>
 <body>
@@ -482,7 +483,7 @@ function vOrd(){
   <select class="t" id="om"><option value="">Все месяцы</option>${months.map(m=>`<option value="${m}"${m===F.om?' selected':''}>${mon(m)}</option>`).join('')}</select>
   <button class="btn r" id="newo">+ Новый заказ</button>${pbtn('ord','Печать списка')}<span class="sp"></span><span class="mu">${L1.length} заказов · сумма ${L(sum)} · долг ${L(db)}</span></div>
   <div class="tw mt to"><table><thead><tr><th>№</th><th>Дата</th><th>Мебельщик</th><th>Клиент</th><th class="hide-m">Дизайнер</th><th class="n">Сумма</th><th class="n">Оплачено</th><th class="n">Долг</th><th>Статус</th></tr></thead><tbody>
-  ${L1.map(o=>`<tr class="c ${rc(o)}" data-o="${o.id}"><td><b>${esc(o.no||'—')}</b></td><td>${dt(o.date)}</td><td>${esc(o.partner||'')}</td><td>${esc(o.client)}</td><td class="hide-m">${esc(o.designer||'')}</td><td class="n">${L(o.total)}</td><td class="n">${o.paid?L(o.paid):''}</td><td class="n">${o.debt>0?'<b>'+L(o.debt)+'</b>':''}</td><td>${stat(o)}</td></tr>`).join('')}
+  ${L1.map(o=>`<tr class="c ${rc(o)}" data-o="${o.id}"><td><b>${esc(o.no||'—')}</b></td><td>${dt(o.date)}</td><td>${esc(o.partner||'')}</td><td>${esc(o.client)}${o.tel?`<small class="tl">${esc(o.tel)}</small>`:''}</td><td class="hide-m">${esc(o.designer||'')}</td><td class="n">${L(o.total)}</td><td class="n">${o.paid?L(o.paid):''}</td><td class="n">${o.debt>0?'<b>'+L(o.debt)+'</b>':''}</td><td>${stat(o)}</td></tr>`).join('')}
   </tbody></table></div>`;
 }
 function drawer(id){
@@ -492,7 +493,7 @@ function drawer(id){
   const cost=o.items.concat(o.sold).reduce((a,s)=>a+(s.cost||0),0);
   ov.innerHTML=`<div class="dr"><div class="row"><button class="btn k s" data-a="edit">✎ Изменить заказ</button>${pbtn('order|'+id)}<span class="sp"></span><button class="btn s" data-x>Закрыть ✕</button></div>
   <h2>Заказ ${esc(o.no||'без номера')}</h2><div>${stat(o)} <span class="mu">от ${dt(o.date)}${o.close&&o.st==='closed'?' · закрыт '+dt(o.close):''}</span></div>
-  <dl class="dl"><dt>Мебельщик</dt><dd>${esc(o.partner||'—')}</dd><dt>Клиент</dt><dd>${esc(o.client)}</dd>${o.tel?`<dt>Телефон</dt><dd><a href="tel:${esc(o.tel)}">${esc(o.tel)}</a></dd>`:''}${o.site?`<dt>С сайта</dt><dd>${o.site.map(i=>esc(i.n)+(i.q>1?' × '+i.q:'')).join('<br>')}</dd>`:''}
+  <dl class="dl"><dt>Мебельщик</dt><dd>${esc(o.partner||'—')}</dd><dt>Клиент</dt><dd>${esc(o.client)}</dd><dt>Телефон</dt><dd>${o.tel?`<a href="tel:${esc(o.tel)}">${esc(o.tel)}</a> <button class="btn s" data-a="tel">✎</button>`:'<button class="btn s" data-a="tel">+ Добавить</button>'}</dd>${o.site?`<dt>С сайта</dt><dd>${o.site.map(i=>esc(i.n)+(i.q>1?' × '+i.q:'')).join('<br>')}</dd>`:''}
   <dt>Дизайнер</dt><dd>${o.designer?esc(o.designer)+' · '+L(o.com):'—'}</dd>
   <dt>Сумма</dt><dd>${L(o.total)}</dd><dt>Оплачено</dt><dd>${L(o.paid)}${o.method?' <span class="mu">· '+esc(o.method)+'</span>':''}</dd>
   <dt>Долг</dt><dd style="color:${o.debt>0?'var(--red)':'inherit'}">${L(o.debt)}</dd>
@@ -507,6 +508,7 @@ function drawer(id){
     const a=e.target.closest('[data-a]');if(!a)return;
     if(a.dataset.a==='edit'){ov.remove();orderModal(id);return}
     if(a.dataset.a==='addit'){addToOrder(id);return}
+    if(a.dataset.a==='tel'){modal('Телефон клиента',inp('Телефон','ntl',o.tel||'','tel'),()=>{ST.o[id]=Object.assign(ST.o[id]||{},{tel:V('ntl')||null});save();build();render();ov.remove();drawer(id);toast('Телефон сохранён')});return}
     if(a.dataset.a==='ret'){const u=+a.dataset.u,x=U_(u);ask('Вернуть «'+x.model+'» на склад ('+loc(x.loc)+')? Он снова будет в брони под этот заказ.',()=>{setU(u,{out:null});save();build();render();ov.remove();drawer(id);toast('Возвращено на склад')});return}
     const ch=ST.o[id]=ST.o[id]||{};
     if(a.dataset.a==='pay'){
@@ -780,7 +782,7 @@ const PCSS=`.pd{font:13px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto
 const RO={'Сводка':'Rezumat','Нам должны':'Ni se datorează','Дизайнерам':'Designerilor','Склад по себестоимости':'Stoc la cost','Открытых заказов':'Comenzi deschise','Кто должен':'Cine datorează',
 '№':'Nr.','Дата':'Data','Мебельщик / клиент':'Producător / client','Сумма':'Suma','Оплачено':'Achitat','Долг':'Datorie','Отгрузка':'Livrare','отгружен':'livrat','нет':'nu','Итого':'Total',
 'Заказы':'Comenzi','Открытые':'deschise','С долгом':'cu datorie','Не отгружены':'nelivrate','Закрытые':'închise','Отменённые':'anulate','Все':'toate',
-'Мебельщик':'Producător','Клиент':'Client','Дизайнер':'Designer','Статус':'Statut','заказов':'comenzi','Заказ':'Comanda','комиссия':'comision',
+'Мебельщик':'Producător','Клиент':'Client','Телефон':'Telefon','Дизайнер':'Designer','Статус':'Statut','заказов':'comenzi','Заказ':'Comanda','комиссия':'comision',
 'Товары':'Produse','Модель':'Model','Откуда':'De unde','Себестоимость':'Cost','бронь':'rezervat','выдан':'eliberat','Итого себестоимость':'Cost total','Товары по складу не найдены.':'Produsele nu au fost găsite în stoc.',
 'Выдал':'A eliberat','Получил':'A primit','Остатки склада':'Stoc depozit','Где лежит':'Locație','Шт':'Buc.','Бронь':'Rezervat','Себест. за шт':'Cost / buc.','Сумма заказа':'Suma comenzii',
 'все места':'toate locațiile','все категории':'toate categoriile','только в брони':'doar rezervate','поиск':'căutare','прочее':'altele',
@@ -821,7 +823,7 @@ function mk(k){
   if(kind==='order'){
     const o=O[+arg],it=o.items.map(s=>({m:s.model,f:Ploc(s.loc),c:s.cost,st:'бронь'})).concat(o.sold.map(s=>({m:s.model,f:Ploc(s.from_),c:s.cost,st:'выдан'})));
     const cost=it.reduce((a,s)=>a+(s.c||0),0),row=(a,b)=>`<tr><td class="mu" style="width:30%">${T(a)}</td><td>${b}</td></tr>`;
-    return pdoc(T('Заказ')+' '+(o.no||''),`<table><tbody>${row('Дата',dt(o.date))}${row('Мебельщик',esc(o.partner||'—'))}${row('Клиент','<b>'+esc(o.client)+'</b>')}
+    return pdoc(T('Заказ')+' '+(o.no||''),`<table><tbody>${row('Дата',dt(o.date))}${row('Мебельщик',esc(o.partner||'—'))}${row('Клиент','<b>'+esc(o.client)+'</b>')}${o.tel?row('Телефон',esc(o.tel)):''}
       ${row('Дизайнер',o.designer?esc(o.designer)+' · '+T('комиссия')+' '+Lm(o.com):'—')}${row('Сумма','<b>'+Lm(o.total)+'</b>')}${row('Оплачено',Lm(o.paid)+(o.method?' · '+esc(T(o.method)):''))}
       ${row('Долг','<b>'+Lm(o.debt)+'</b>')}${row('Статус',STN(o))}</tbody></table>
       <h2>${T('Товары')}</h2>${it.length?ptab([['Модель'],['Откуда'],['Себестоимость',1],['']],it.map(s=>`<tr><td>${esc(s.m)}</td><td>${esc(s.f)}</td><td class="n">${E(s.c,2)}</td><td>${T(s.st)}</td></tr>`),`<tr class="tot"><td colspan="2">${T('Итого себестоимость')}</td><td class="n">${E(cost,2)} ≈ ${PLe(cost)}</td><td></td></tr>`):`<p class="mu">${T('Товары по складу не найдены.')}</p>`}
