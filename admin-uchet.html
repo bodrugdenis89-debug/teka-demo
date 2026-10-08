@@ -379,11 +379,27 @@ tr.u.out{animation:tkOut .17s ease-in forwards}
 .mb:has(>label:nth-of-type(3)){width:min(820px,100%);grid-template-columns:1fr 1fr;column-gap:22px;padding:26px 28px}
 .mb:has(>label:nth-of-type(3))>*:not(label){grid-column:1/-1}
 }
+/* закупка по инвойсу */
+.mb.mbw{width:min(1180px,100%)}
+.by{display:grid;gap:14px;min-width:0}
+.byh{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.byh label{display:grid;gap:6px;font-size:15px;color:var(--mute);font-weight:600}
+.bpa summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.bpa textarea{width:100%;height:auto;padding:10px 12px;margin:10px 0 8px;font:14px/1.4 ui-monospace,Menlo,monospace}
+.byt{min-width:1040px}.byt td:nth-child(2){min-width:230px}
+.byt td{padding:6px 6px;vertical-align:middle}
+.byt input.t{height:40px;width:100%;font-size:16px;padding:0 8px}
+.byt input.n{text-align:right}
+.byt td:nth-child(1){width:120px;min-width:118px}.byt td:nth-child(3){width:74px}.byt td:nth-child(4){width:100px}
+.byt .sl.t>button{height:40px;font-size:15px}
+.byt small.up{color:var(--ok);font-weight:700}.byt small.dn{color:var(--red);font-weight:700}
+.bys{font-size:16px}
+@media (max-width:700px){.byh{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 <header>
-  <div class="hb"><a class="back" href="admin.html" title="Вернуться в админку">‹ Админка</a><div class="lg"><b>TEKA</b> Учёт</div><span class="sync" id="sync"></span><span class="sp"></span><div class="plg" title="На каком языке печатать документы и PDF"><span>Документы:</span><button data-pl="ru">RU</button><button data-pl="ro">RO</button><button data-pl="both">RO+RU</button></div><label class="rate" title="Курс, по которому себестоимость в евро пересчитывается в леи">Курс 1 € = <input class="t" id="rate" type="number" step="0.01" min="1"> лей</label></div>
+  <div class="hb"><a class="back" href="admin.html" title="Вернуться в админку">‹ Админка</a><div class="lg"><b>TEKA</b> Учёт</div><span class="sync" id="sync"></span><span class="sp"></span><div class="plg" title="На каком языке печатать документы и PDF"><span>Документы:</span><button data-pl="ru">RU</button><button data-pl="ro">RO</button><button data-pl="both">RO+RU</button></div><label class="rate" title="Курс, по которому себестоимость в евро пересчитывается в леи">Курс 1 € = <input class="t" id="rate" type="number" step="0.01" min="1"> лей</label><label class="rate kf" title="Коэффициент к цене инвойса: логистика, таможня, НДС. Себестоимость = цена инвойса × коэффициент">Закупка × <input class="t" id="kf" type="number" step="0.01" min="1"></label></div>
 </header>
 <div class="tbar"><nav class="tabs" id="tabs"></nav></div>
 
@@ -391,7 +407,8 @@ tr.u.out{animation:tkOut .17s ease-in forwards}
 <script>
 let RAW={orders:[],stock:[],sold:[]};
 const LS='tkAcc';let ST={};
-ST.o=ST.o||{};ST.com=ST.com||{};ST.add=ST.add||[];ST.s=ST.s||{};ST.newO=ST.newO||[];ST.rate=ST.rate||19.8;
+ST.o=ST.o||{};ST.com=ST.com||{};ST.add=ST.add||[];ST.s=ST.s||{};ST.newO=ST.newO||[];ST.rate=ST.rate||19.8;ST.k=ST.k||1.35;
+const KF=()=>ST.k||1.35,KC=v=>v==null?v:Math.round(v*KF()*100)/100;
 const R=()=>ST.rate,LE=v=>L((v||0)*R());
 
 const key=s=>(s||'').replace(/\s+/g,'').toUpperCase();
@@ -408,11 +425,11 @@ const loc=l=>LOC[l]||l;
 let O,S,OUT=[];
 function build(){
   O=RAW.orders.concat(ST.newO).map((o,i)=>{const x=Object.assign({id:i},o,ST.o[i]||{});x.who=x.partner?x.partner+' & '+x.client:x.client;x.k=key(x.no);return x});
-  const U=RAW.stock.concat(ST.add).map((s,i)=>Object.assign({id:i},s,ST.s[i]||{})).filter(s=>!s.del);
+  const U=RAW.stock.concat(ST.add).map((s,i)=>{const x=Object.assign({id:i},s,ST.s[i]||{});x.inv=x.cost;x.cost=KC(x.cost);return x}).filter(s=>!s.del);
   S=U.filter(s=>!s.out);OUT=U.filter(s=>s.out);
   O.forEach(o=>{
     o.items=S.filter(s=>s.res&&key(s.res)===o.k&&o.k);
-    o.sold=o.k?RAW.sold.filter(s=>key(s.order)===o.k).concat(OUT.filter(s=>key(s.out.o)===o.k).flatMap(s=>Array.from({length:s.qty||1},()=>({model:s.model,from_:s.loc,cost:s.cost,uid:s.id,d:s.out.d})))):[];
+    o.sold=o.k?RAW.sold.filter(s=>key(s.order)===o.k).map(s=>Object.assign({},s,{cost:KC(s.cost)})).concat(OUT.filter(s=>key(s.out.o)===o.k).flatMap(s=>Array.from({length:s.qty||1},()=>({model:s.model,from_:s.loc,cost:s.cost,uid:s.id,d:s.out.d})))):[];
     if(o.designer){o.cp=ST.com[o.id]||null;o.cs=o.cp?'paid':(o.st==='closed'?'paid':o.st==='cancel'?'none':(o.paid>=o.total&&o.total?'due':'wait'))}
   });
 }
@@ -533,7 +550,7 @@ function drawer(id){
 /* ---------- Склад ---------- */
 let CATL=null,CATP=null;
 const CMAP={ovens:'Духовки',microwaves:'Микроволновки и компакт',compact:'Микроволновки и компакт',hobs:'Варочные панели',hoods:'Вытяжки',dishwashers:'Посудомойки и стиральные',laundry:'Посудомойки и стиральные',fridges:'Холодильники','wine-coolers':'Холодильники',sinks:'Мойки',faucets:'Смесители',accessories:'Аксессуары'};
-function loadCat(){return CATP||(CATP=Promise.all(Object.keys(CMAP).map(f=>fetch('data/'+f+'.json',{cache:'no-cache'}).then(r=>r.ok?r.json():[]).catch(()=>[]).then(a=>(Array.isArray(a)?a:[]).map(x=>({m:String(x.n||x.name||'').trim(),p:x.p||x.price||0,cat:CMAP[f]})).filter(x=>x.m)))).then(a=>{CATL=a.flat();return CATL}))}
+function loadCat(){return CATP||(CATP=Promise.all(Object.keys(CMAP).map(f=>fetch('data/'+f+'.json',{cache:'no-cache'}).then(r=>r.ok?r.json():[]).catch(()=>[]).then(a=>(Array.isArray(a)?a:[]).map(x=>({m:String(x.n||x.name||'').trim(),p:x.p||x.price||0,cat:CMAP[f],sku:String(x.sku||'')})).filter(x=>x.m)))).then(a=>{CATL=a.flat();return CATL}))}
 const CATS=['Духовки','Микроволновки и компакт','Варочные панели','Вытяжки','Посудомойки и стиральные','Холодильники','Мойки','Смесители','Аксессуары','Прочее'];
 const catOf=s=>s.cat||'Прочее';
 function guessCat(model){const w=(model||'').split(/\s+/)[0].toUpperCase(),c={};S.forEach(s=>{if(s.model.split(/\s+/)[0].toUpperCase()===w)c[catOf(s)]=(c[catOf(s)]||0)+1});const e=Object.entries(c).sort((a,b)=>b[1]-a[1])[0];return e?e[0]:'Прочее'}
@@ -565,7 +582,7 @@ function vStk(){
     rows+=`<tr class="c${op?' op':''} ${x.qty-x.res<=0?'k-off':x.res?'k-res':'k-ok'}" data-g="${esc(k)}"><td><b><span class="cv${op?' o':''}">▸</span> ${esc(x.name)}</b>${byCat?'':`<div class="mu" style="font-size:14px;font-weight:500;margin-left:18px">${esc(x.cat)}</div>`}</td><td class="hide-m mu">${x.locs}</td><td class="n">${x.qty}</td><td class="n">${x.qty-x.res}</td><td class="cn">${x.res?'<span class="b y">'+x.res+'</span>':''}</td><td class="n${x.spread?' spr':''}">${x.spread?E(x.min,2)+' – '+E(x.max,2):E(x.min,2)}</td><td class="n hide-m">${E(x.avg,2)}</td><td class="n hide-m mu">${LE(x.avg)}</td></tr>`;
     if(op||F.sr)rows+=x.u.filter(s=>!F.sr||s.res).slice().sort((a,b)=>(a.cost||0)-(b.cost||0)).map(s=>`<tr class="c u ${s.res?'rs':''}" data-u="${s.id}" title="Нажмите, чтобы изменить"><td class="ui"><span class="pe">✎</span> ${s.res?`<a href="#" data-ro="${esc(s.res)}">${esc(s.res)}</a> ${esc(s.note)}`:s.used?`<span class="b w">б/у</span> ${esc(s.note)}`:(esc(s.note)||'<span class="mu pn0">партия</span>')}</td><td class="hide-m ploc l-${esc(s.loc)}">${loc(s.loc)}</td><td class="n">${s.qty}</td><td class="n">${s.res?0:s.qty}</td><td class="cn">${s.res?'<span class="b y">'+s.qty+'</span>':''}</td><td class="n">${E(s.cost,2)}</td><td class="n hide-m"></td><td class="n hide-m mu">${LE(s.cost)}</td></tr>`).join('');
   });
-  return `<div class="row">${[['','Все'],['dep','Склад'],['salon','Салон'],['showroom','Шоурум'],['etc','Прочее']].map(([k,t])=>`<button class="chip${F.sl===k?' on':''}" data-sl="${k}">${t}<i>${cnt(k)}</i></button>`).join('')}<span class="sp"></span>${pbtn('stk','Печать остатков')}<button class="btn r" id="add">+ Приход</button></div>
+  return `<div class="row">${[['','Все'],['dep','Склад'],['salon','Салон'],['showroom','Шоурум'],['etc','Прочее']].map(([k,t])=>`<button class="chip${F.sl===k?' on':''}" data-sl="${k}">${t}<i>${cnt(k)}</i></button>`).join('')}<span class="sp"></span>${pbtn('stk','Печать остатков')}<button class="btn r" id="buy">+ Закупка</button><button class="btn" id="add">+ Приход</button></div>
   <div class="row"><input class="t" id="sq" placeholder="Поиск: модель или № заказа" value="${esc(F.sq)}" style="width:280px">
   <select class="t" id="sc"><option value="">Все категории</option>${CATS.map(c=>{const n=ccnt(c);return n?`<option value="${esc(c)}"${F.sc===c?' selected':''}>${esc(c)} — ${n} шт</option>`:''}).join('')}</select>
   <button class="chip${F.sr?' on':''}" id="srb">Только в брони<i>${rcnt}</i></button>
@@ -576,7 +593,7 @@ function vStk(){
   </tbody></table></div>`;
 }
 function addModal(){
-  const mm={};S.forEach(s=>{const k=nm(s.model),x=mm[k]||(mm[k]={m:s.model,cat:catOf(s),q:0,c:0});x.q+=s.qty||1;if(s.cost)x.c=s.cost});
+  const mm={};S.forEach(s=>{const k=nm(s.model),x=mm[k]||(mm[k]={m:s.model,cat:catOf(s),q:0,c:0});x.q+=s.qty||1;if(s.inv)x.c=s.inv});
   const sig=t=>{t=String(t).toUpperCase();return [...t.replace(/[^A-Z0-9]/g,'')].sort().join('')+'|'+(t.match(/\d+/g)||[]).join('.')};
   const have=new Set(Object.values(mm).map(x=>sig(x.m)));
   const code=t=>{const m=String(t).match(/([A-Za-z]{1,5})\s*-?\s*(\d{2,5})/);return m?m[1].toUpperCase()+m[2]:''};
@@ -589,7 +606,7 @@ function addModal(){
   <div class="pkc" id="pkc"><button class="chip on" data-pc="">Все</button>${cats.map(c=>`<button class="chip" data-pc="${esc(c)}">${esc(c)}</button>`).join('')}</div>
   <div class="pkl" id="pkl"></div></div>
   <label>Количество<input class="t" id="aq" type="number" inputmode="numeric" value="1" min="1"></label>
-  <label>Себестоимость за штуку, €<input class="t" id="ac" type="number" inputmode="decimal" step="0.01"></label>
+  <label>Цена из инвойса за штуку, € <small>(себестоимость = ×${KF()})</small><input class="t" id="ac" type="number" inputmode="decimal" step="0.01"></label>
   <label>Категория<select class="t" id="acat"><option value="">Определить по модели</option>${CATS.map(c=>`<option>${c}</option>`).join('')}</select></label>
   <label>Куда<select class="t" id="al"><option value="dep">Склад</option><option value="salon">Салон</option><option value="showroom">Шоурум</option></select></label>`,()=>{
     const m=document.getElementById('am').value.trim(),q=+document.getElementById('aq').value||1,c=+document.getElementById('ac').value||0;
@@ -679,19 +696,19 @@ function unitModal(id){
   const locs=[['dep','Склад'],['salon','Салон'],['showroom','Шоурум']];if(!LOC[s.loc])locs.push([s.loc,s.loc]);
   const ro=s.res&&O.find(o=>o.k===key(s.res));
   modal('Позиция на складе',
-  `<div class="uhd"><b>${esc(s.model)}</b><span>${loc(s.loc)} · ${s.qty} шт · ${E(s.cost,2)}</span>${s.res?`<span class="b y">бронь ${esc(s.res)}${ro?' · '+esc(ro.who):''}</span>`:''}</div>
+  `<div class="uhd"><b>${esc(s.model)}</b><span>${loc(s.loc)} · ${s.qty} шт · ${E(s.cost,2)} <small class="mu">(инвойс ${E(s.inv,2)} × ${KF()})</small>${s.invn?' · '+esc(s.invn):''}</span>${s.res?`<span class="b y">бронь ${esc(s.res)}${ro?' · '+esc(ro.who):''}</span>`:''}</div>
   <div class="uact">${s.res?'<button class="btn" data-ua="unres">Снять бронь</button>':'<button class="btn" data-ua="res">Забронировать</button>'}<button class="btn r" data-ua="out">Выдать клиенту</button><button class="btn" data-ua="mv">Переместить</button></div>
   <details class="ued"><summary>Изменить данные позиции</summary>
   ${inp('Модель','um',s.model)}
   <label>Где лежит<select class="t" id="ul">${locs.map(([k,t])=>`<option value="${esc(k)}"${k===s.loc?' selected':''}>${t}</option>`).join('')}</select></label>
   <label>Категория<select class="t" id="ucat">${CATS.map(c=>`<option${c===catOf(s)?' selected':''}>${c}</option>`).join('')}</select></label>
   ${inp('Количество, шт','uq',s.qty,'number','min="1" inputmode="numeric"')}
-  ${inp('Себестоимость за штуку, €','uc',s.cost,'number','step="0.01" inputmode="decimal"')}
+  ${inp('Цена из инвойса за штуку, €','uc',s.inv,'number','step="0.01" inputmode="decimal"')}
   ${inp('Пометка','un',s.note)}
   <label style="display:flex;align-items:center;gap:10px;color:var(--ink)"><input type="checkbox" id="uu" ${s.used?'checked':''} style="width:22px;height:22px">Б/у или уценка</label></details>`,
   ()=>{
     const m=V('um');if(!m){toast('Укажите модель');return false}
-    const c=VN('uc');if(!c&&s.cost){toast('Себестоимость не может быть пустой');return false}
+    const c=VN('uc');if(!c&&s.inv){toast('Цена не может быть пустой');return false}
     ST.s[id]=Object.assign(ST.s[id]||{},{model:m,cat:V('ucat'),loc:V('ul'),qty:Math.max(1,Math.round(VN('uq'))),cost:c,note:V('un'),used:document.getElementById('uu').checked});
     save();build();F.open[nm(m)]=1;render();toast('Сохранено');
   },
@@ -924,6 +941,7 @@ M.addEventListener('click',e=>{
   if(x=t.closest('[data-sl]')){F.sl=x.dataset.sl;render();return}
   if(x=t.closest('[data-g]')){const k=x.dataset.g;F.open[k]=!F.open[k];TKJ=F.open[k]?k:null;let r=x.nextElementSibling,n=0;if(!F.open[k])while(r&&r.classList.contains('u')){r.classList.add('out');r=r.nextElementSibling;n++}if(n){x.classList.add('cls');setTimeout(render,170)}else render();return}
   if(t.closest('#add')){addModal();return}
+  if(t.closest('#buy')){buyModal();return}
   if(t.closest('#srb')){F.sr=!F.sr;if(F.sr){F.so='res';F.sd=-1}else{F.so='name';F.sd=1}render();return}
   if(t.closest('#sclr')){F.sq='';F.sc='';F.sr=false;F.sl='';F.so='name';F.sd=1;render();return}
   if(x=t.closest('[data-so]')){const k=x.dataset.so;if(F.so===k)F.sd=-F.sd;else{F.so=k;F.sd=SO[k][1]}render();return}
@@ -939,6 +957,7 @@ M.addEventListener('input',e=>{
 });
 const plSync=()=>document.querySelectorAll('[data-pl]').forEach(b=>b.classList.toggle('on',b.dataset.pl===(ST.pl||'ru')));plSync();
 document.querySelector('.plg').onclick=e=>{const b=e.target.closest('[data-pl]');if(!b)return;ST.pl=b.dataset.pl;save();plSync();toast({ru:'Документы печатаются на русском',ro:'Documentele se tipăresc în română',both:'Документы на двух языках: RO + RU'}[ST.pl])};
+const KI=document.getElementById('kf');KI.value=KF();KI.addEventListener('change',()=>{const v=+KI.value;if(v>=1&&v<5){ST.k=v;save();build();render();toast('Коэффициент закупки: ×'+v)}else KI.value=KF()});
 const RI=document.getElementById('rate');RI.value=ST.rate;RI.addEventListener('change',()=>{const v=+RI.value;if(v>1){ST.rate=v;save();render();toast('Курс сохранён: 1 € = '+v+' лей')}else RI.value=ST.rate});
 document.addEventListener('click',e=>{const x=e.target.closest('[data-pr]');if(!x)return;e.preventDefault();e.stopPropagation();const d=mk(x.dataset.pr);if(window.TK_ART){previewDoc(d);return}x.dataset.pm==='pdf'?pdfDoc(d):printDoc(d)},true);
 /* хранение на сервере: GET /api/acc → {base, st}; POST /api/acc {patch} — только изменённое */
@@ -955,17 +974,18 @@ let SY=null,PEND=false,BUSY=false,TM=0;
 const SK=['o','s','com'];
 function setST(st){
   const pl=ST.pl;ST=JSON.parse(JSON.stringify(st||{}));delete ST.v;
-  ST.o=ST.o||{};ST.com=ST.com||{};ST.add=ST.add||[];ST.s=ST.s||{};ST.newO=ST.newO||[];ST.rate=ST.rate||19.8;
+  ST.o=ST.o||{};ST.com=ST.com||{};ST.add=ST.add||[];ST.s=ST.s||{};ST.newO=ST.newO||[];ST.rate=ST.rate||19.8;ST.k=ST.k||1.35;
   try{ST.pl=localStorage.getItem('tkAccPl')||pl||'ru'}catch(e){ST.pl=pl||'ru'}
   SY=snap();
 }
-function snap(){const y={rate:ST.rate,add:ST.add.length,newO:ST.newO.length};SK.forEach(k=>{y[k]={};for(const id in ST[k])y[k][id]=JSON.stringify(ST[k][id])});return y}
-const cur=()=>JSON.stringify([ST.o,ST.s,ST.com,ST.add,ST.newO,ST.rate]);
+function snap(){const y={rate:ST.rate,k:ST.k,add:ST.add.length,newO:ST.newO.length};SK.forEach(k=>{y[k]={};for(const id in ST[k])y[k][id]=JSON.stringify(ST[k][id])});return y}
+const cur=()=>JSON.stringify([ST.o,ST.s,ST.com,ST.add,ST.newO,ST.rate,ST.k]);
 function diff(y=SY){
   const p={};let n=0;
   SK.forEach(k=>{const ids=new Set([...Object.keys(ST[k]),...Object.keys(y[k])]);ids.forEach(id=>{const c=ST[k][id],j=c===undefined?undefined:JSON.stringify(c);if(j!==y[k][id]){(p[k]=p[k]||{})[id]=c===undefined?null:c;n++}})});
   ['add','newO'].forEach(k=>{if(ST[k].length>y[k]){p[k]=ST[k].slice(y[k]);n++}});
   if(ST.rate!==y.rate){p.rate=ST.rate;n++}
+  if(ST.k!==y.k){p.k=ST.k;n++}
   return n?p:null}
 const SYN=document.getElementById('sync');
 const LG=document.querySelector('.lg');
@@ -978,8 +998,8 @@ async function flush(){
   try{
     const j=await api('/api/acc',{patch:p});
     const mine=cur(),later=diff(at);setST(j.st);
-    if(later){['add','newO'].forEach(k=>{if(later[k])ST[k]=ST[k].concat(later[k])});SK.forEach(k=>{if(later[k])for(const id in later[k]){if(later[k][id]===null)delete ST[k][id];else ST[k][id]=later[k][id]}});if(later.rate)ST.rate=later.rate}
-    if(cur()!==mine){RI.value=ST.rate;build();render()}
+    if(later){['add','newO'].forEach(k=>{if(later[k])ST[k]=ST[k].concat(later[k])});SK.forEach(k=>{if(later[k])for(const id in later[k]){if(later[k][id]===null)delete ST[k][id];else ST[k][id]=later[k][id]}});if(later.rate)ST.rate=later.rate;if(later.k)ST.k=later.k}
+    if(cur()!==mine){RI.value=ST.rate;KI.value=KF();build();render()}
     BUSY=false;
     if(diff())flush();else{PEND=false;syncMark('Сохранено','ok')}
   }catch(e){
@@ -992,7 +1012,7 @@ async function refresh(){
   if(PEND||BUSY||!SY)return;
   try{const j=await api('/api/acc');if(PEND||BUSY)return;
     const was=cur(),bt=RAW.t;setST(j.st);if(j.base&&j.base.t!==bt)RAW=j.base;
-    if(cur()!==was||RAW.t!==bt){RI.value=ST.rate;build();render()}}catch(e){}
+    if(cur()!==was||RAW.t!==bt){RI.value=ST.rate;KI.value=KF();build();render()}}catch(e){}
 }
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')refresh()});
 setInterval(()=>{if(document.visibilityState==='visible'&&!document.querySelector('.md,.ov'))refresh()},60000);
@@ -1010,7 +1030,7 @@ async function boot(){
   try{
     const j=await api('/api/acc');
     if(!j.base){syncMark('');importView();return}
-    RAW=j.base;setST(j.st);RI.value=ST.rate;plSync();syncMark('Сохранено','ok');build();render();setTimeout(loadCat,1200);fromSite();
+    RAW=j.base;setST(j.st);RI.value=ST.rate;KI.value=KF();plSync();syncMark('Сохранено','ok');build();render();setTimeout(loadCat,1200);fromSite();
   }catch(e){
     if(e.status===401||e.status===403){toAdmin();return}
     syncMark('Нет связи','er');M.innerHTML=`<div class="card"><h3>Не удалось загрузить учёт</h3><p class="mu">${esc(e.message)}</p><button class="btn" onclick="boot()">Повторить</button></div>`}
@@ -1077,6 +1097,59 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&OPEN){e.stopPropaga
 addEventListener('resize',close);
 document.addEventListener('scroll',e=>{if(OPEN&&!OPEN.u.contains(e.target))close()},true);
 })();
+
+/* закупка по инвойсу: строки → партии на склад, себестоимость = цена инвойса × коэффициент */
+function buyModal(){
+  if(!CATL){loadCat().then(buyModal);toast('Загружаю каталог…');return}
+  const BY={};CATL.forEach(x=>{if(x.sku&&!BY[x.sku])BY[x.sku]=x});
+  const LOCS=[['dep','Склад'],['salon','Салон'],['showroom','Шоурум']];
+  let rows=[{}];
+  modal('Закупка по инвойсу',`<div class="by">
+  <div class="byh"><label>Номер инвойса<input class="t" id="bn" placeholder="TKA0206724"></label><label>Дата<input class="t" id="bd" type="date" value="${isoNow()}"></label><label>Итог по инвойсу, €<input class="t" id="bt" type="number" step="0.01" placeholder="для сверки"></label><label>Коэффициент<input class="t" id="bk" type="number" step="0.01" value="${KF()}"></label></div>
+  <details class="bpa"><summary>Вставить строки из инвойса (PDF или Excel)</summary><textarea class="t" id="bp" rows="5" placeholder="Скопируйте строки таблицы инвойса и вставьте сюда"></textarea><button class="btn s" type="button" id="bpg">Разобрать</button></details>
+  <div class="tw"><table class="byt"><thead><tr><th>Код</th><th>Модель</th><th class="n">Кол-во</th><th class="n">Цена инв., €</th><th class="n">Себест., €</th><th class="n">Себест., лей</th><th class="n">На сайте</th><th>Куда</th><th></th></tr></thead><tbody id="bb"></tbody></table></div>
+  <div class="row"><button class="btn s" type="button" id="bad">+ Строка</button><span class="sp"></span><span id="bs" class="bys"></span></div></div>`,()=>{
+    sync();const ok=rows.filter(r=>r.m&&r.q>0&&r.p>0);if(!ok.length){toast('Нет заполненных строк');return false}
+    const no=V('bn'),d=V('bd'),k=+V('bk')||KF();
+    if(k!==KF()){ST.k=k;KI.value=k}
+    ok.forEach(r=>ST.add.push({loc:r.l||'dep',cat:r.c||guessCat(r.m),model:r.m,qty:r.q,cost:r.p,res:null,note:'инвойс'+(no?' '+no:'')+' от '+dt(d),used:false,invn:no||null,sku:r.s||null}));
+    save();build();F.sq='';render();toast('Закупка добавлена: '+ok.reduce((a,r)=>a+r.q,0)+' шт');
+  });
+  const md=[...document.querySelectorAll('.md')].pop();md.querySelector('.mb').classList.add('mbw');
+  const B=document.getElementById('bb'),K=()=>+document.getElementById('bk').value||KF();
+  const look=r=>{const x=BY[r.s];if(x){if(!r.mm)r.m=x.m;r.c=x.cat;r.site=x.p}else{r.site=0}};
+  function sync(){[...B.querySelectorAll('tr')].forEach((tr,i)=>{const r=rows[i],g=n=>tr.querySelector(`[data-f="${n}"]`).value.trim();r.s=g('s');r.m=g('m');r.q=+g('q')||0;r.p=+String(g('p')).replace(',','.')||0;r.l=g('l')})}
+  function sum(){const k=K(),t=rows.reduce((a,r)=>a+(r.q||0)*(r.p||0),0),bt=+document.getElementById('bt').value||0;
+    document.getElementById('bs').innerHTML=`Инвойс: <b>${E(t,2)}</b>${bt?(Math.abs(bt-t)<0.05?' <span class="b o">сходится</span>':` <span class="b d">разница ${E(bt-t,2)}</span>`):''} · с коэф. ×${k}: <b>${E(t*k,2)}</b> ≈ ${LE(t*k)}`;
+    [...B.querySelectorAll('tr')].forEach((tr,i)=>{const r=rows[i],c=(r.p||0)*k;tr.querySelector('.bc').textContent=r.p?E(c,2):'';tr.querySelector('.bl').textContent=r.p?L(c*R()):'';tr.querySelector('.bw').innerHTML=r.site?L(r.site)+(r.p?` <small class="${r.site>c*R()?'up':'dn'}">${Math.round((r.site/(c*R())-1)*100)}%</small>`:''):''})}
+  function draw(){
+    B.innerHTML=rows.map((r,i)=>`<tr><td><input class="t" data-f="s" value="${esc(r.s||'')}" inputmode="numeric" placeholder="111000010"></td><td><input class="t" data-f="m" value="${esc(r.m||'')}" placeholder="модель"></td><td><input class="t n" data-f="q" type="number" min="1" value="${r.q||''}"></td><td><input class="t n" data-f="p" type="number" step="0.01" value="${r.p||''}"></td><td class="n bc"></td><td class="n bl"></td><td class="n bw"></td><td><select class="t" data-f="l">${LOCS.map(([k,t])=>`<option value="${k}"${k===(r.l||'dep')?' selected':''}>${t}</option>`).join('')}</select></td><td><button class="btn s" type="button" data-x="${i}" title="Убрать строку">✕</button></td></tr>`).join('');
+    sum()}
+  B.addEventListener('input',e=>{const f=e.target.dataset.f;if(!f)return;sync();const i=[...B.children].indexOf(e.target.closest('tr')),r=rows[i];
+    if(f==='m')r.mm=1;
+    if(f==='s'){look(r);e.target.closest('tr').querySelector('[data-f="m"]').value=r.m||''}
+    sum()});
+  B.addEventListener('change',()=>{sync();sum()});
+  B.addEventListener('click',e=>{const x=e.target.closest('[data-x]');if(!x)return;sync();rows.splice(+x.dataset.x,1);if(!rows.length)rows=[{}];draw()});
+  document.getElementById('bad').onclick=()=>{sync();rows.push({l:(rows[rows.length-1]||{}).l});draw();B.lastElementChild.querySelector('input').focus()};
+  document.getElementById('bk').oninput=sum;document.getElementById('bt').oninput=sum;
+  document.getElementById('bpg').onclick=()=>{
+    const got=parseInv(document.getElementById('bp').value);if(!got.length){toast('Не нашёл строк с кодом, количеством и ценой');return}
+    sync();rows=rows.filter(r=>r.s||r.m).concat(got.map(g=>{const z=t=>String(t).toUpperCase().replace(/[^A-Z0-9]/g,''),ex=S.find(x=>z(x.model)===z(g.m));const r={s:g.s,m:ex?ex.model:g.m,q:g.q,p:g.p,mm:1};look(r);return r}));
+    document.getElementById('bp').value='';md.querySelector('.bpa').open=false;draw();toast('Строк: '+got.length)};
+  draw();
+}
+/* строка инвойса: «1 111000010 HLB 8600 BK Pcs 3 Spania 378.00 1,134.00 0.00» или из Excel через табуляцию */
+function parseInv(t){
+  const num=v=>+String(v).replace(/\s/g,'').replace(/,(?=\d{3}\b)/g,'').replace(',','.');
+  return String(t).split(/\r?\n/).map(l=>l.trim()).filter(Boolean).map(l=>{
+    const m=l.match(/(?:^|\s)(\d{8,9})\s+(.+?)\s+(?:pcs|buc|шт)\.?\s+(\d+)\s+(?:[A-Za-zА-Яа-яăâîșțĂÂÎȘȚ]+\s+)?([\d.,]+)\s+([\d.,]+)(?:\s+[\d.,]+)?$/i);
+    if(m)return {s:m[1],m:m[2].trim(),q:+m[3],p:num(m[4])};
+    const c=l.split('\t').map(x=>x.trim());const i=c.findIndex(x=>/^\d{8,9}$/.test(x));if(i<0)return null;
+    const ns=c.slice(i+1).filter(x=>/^[\d\s.,]+$/.test(x)&&x);if(ns.length<2)return null;
+    const q=+ns.find(x=>/^\d+$/.test(x)),p=num(ns.find(x=>/[.,]\d{2}$/.test(x))||ns[1]);
+    return q&&p?{s:c[i],m:(c[i+1]||'').trim(),q,p}:null}).filter(Boolean);
+}
 
 </script>
 </body>
