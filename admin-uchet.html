@@ -345,6 +345,12 @@ tr.u.out{animation:tkOut .17s ease-in forwards}
 .mt tr.k-res,.mt tr.k-off{border-left-width:6px}
 }
 @media (prefers-reduced-motion:reduce){tr.u.out{animation:none!important}}
+/* позиция склада: действия */
+.uhd{display:grid;gap:4px}.uhd b{font-size:20px}.uhd span{color:var(--mute)}.uhd .b{justify-self:start;color:inherit}
+.uact{display:grid;grid-template-columns:1fr 1fr;gap:8px}.uact .btn{justify-content:center;height:50px}.uact .btn.r{grid-column:1/-1;order:-1}
+.ued summary{cursor:pointer;font-weight:700;color:var(--mute);padding:6px 0;font-size:16px}
+.ued[open]{display:grid;gap:12px}
+.pki em.site{font-style:normal;font-size:12px;font-weight:700;background:#E8F0FB;color:#1F4E8C;border-radius:10px;padding:1px 7px}
 </style>
 </head>
 <body>
@@ -371,13 +377,14 @@ const mon=m=>MON[+m.slice(5,7)]+' '+m.slice(0,4);
 const LOC={dep:'Склад',salon:'Салон',showroom:'Шоурум'};
 const loc=l=>LOC[l]||l;
 
-let O,S;
+let O,S,OUT=[];
 function build(){
   O=RAW.orders.concat(ST.newO).map((o,i)=>{const x=Object.assign({id:i},o,ST.o[i]||{});x.who=x.partner?x.partner+' & '+x.client:x.client;x.k=key(x.no);return x});
-  S=RAW.stock.concat(ST.add).map((s,i)=>Object.assign({id:i},s,ST.s[i]||{})).filter(s=>!s.del);
+  const U=RAW.stock.concat(ST.add).map((s,i)=>Object.assign({id:i},s,ST.s[i]||{})).filter(s=>!s.del);
+  S=U.filter(s=>!s.out);OUT=U.filter(s=>s.out);
   O.forEach(o=>{
     o.items=S.filter(s=>s.res&&key(s.res)===o.k&&o.k);
-    o.sold=o.k?RAW.sold.filter(s=>key(s.order)===o.k):[];
+    o.sold=o.k?RAW.sold.filter(s=>key(s.order)===o.k).concat(OUT.filter(s=>key(s.out.o)===o.k).flatMap(s=>Array.from({length:s.qty||1},()=>({model:s.model,from_:s.loc,cost:s.cost,uid:s.id,d:s.out.d})))):[];
     if(o.designer){o.cp=ST.com[o.id]||null;o.cs=o.cp?'paid':(o.st==='closed'?'paid':o.st==='cancel'?'none':(o.paid>=o.total&&o.total?'due':'wait'))}
   });
 }
@@ -458,7 +465,7 @@ function vOrd(){
 function drawer(id){
   const o=O[id];
   const ov=document.createElement('div');ov.className='ov';
-  const it=o.items.map(s=>`<tr class="rs"><td>${esc(s.model)}</td><td>${loc(s.loc)}</td><td class="n">${E(s.cost,2)}</td><td><span class="b y">бронь</span></td></tr>`).join('')+o.sold.map(s=>`<tr><td>${esc(s.model)}</td><td>${esc(loc(s.from_))}</td><td class="n">${E(s.cost,2)}</td><td><span class="b z">выдан</span></td></tr>`).join('');
+  const it=o.items.map(s=>`<tr class="rs"><td>${esc(s.model)}</td><td>${loc(s.loc)}</td><td class="n">${E(s.cost,2)}</td><td><span class="b y">бронь</span></td></tr>`).join('')+o.sold.map(s=>`<tr><td>${esc(s.model)}</td><td>${esc(loc(s.from_))}</td><td class="n">${E(s.cost,2)}</td><td><span class="b z">выдан${s.d?' '+dt(s.d):''}</span>${s.uid!=null?` <button class="btn s" data-a="ret" data-u="${s.uid}" title="Вернуть на склад">↩</button>`:''}</td></tr>`).join('');
   const cost=o.items.concat(o.sold).reduce((a,s)=>a+(s.cost||0),0);
   ov.innerHTML=`<div class="dr"><div class="row"><button class="btn k s" data-a="edit">✎ Изменить заказ</button>${pbtn('order|'+id)}<span class="sp"></span><button class="btn s" data-x>Закрыть ✕</button></div>
   <h2>Заказ ${esc(o.no||'без номера')}</h2><div>${stat(o)} <span class="mu">от ${dt(o.date)}${o.close&&o.st==='closed'?' · закрыт '+dt(o.close):''}</span></div>
@@ -469,13 +476,15 @@ function drawer(id){
   <dt>Отгрузка</dt><dd>${o.shipped?'отгружен':'ещё нет'}</dd>
   ${o.profit!=null?`<dt>Прибыль</dt><dd>${L(o.profit)}</dd>`:''}</dl>
   ${o.st==='open'?`<div class="row"><button class="btn r" data-a="pay">Внести оплату</button>${!o.shipped?'<button class="btn" data-a="ship">Отгружено</button>':''}<button class="btn k" data-a="close">Закрыть заказ</button></div>`:''}
-  <h3 style="margin-top:18px">Товары со склада</h3>
+  <div class="row" style="margin-top:18px;align-items:center"><h3 style="margin:0">Товары со склада</h3><span class="sp"></span>${o.st==='open'?'<button class="btn s" data-a="addit">+ Товар со склада</button>':''}</div>
   ${it?`<div class="tw"><table><thead><tr><th>Модель</th><th>Откуда</th><th class="n">Себест.</th><th></th></tr></thead><tbody>${it}</tbody></table></div><dl class="dl"><dt>Себестоимость</dt><dd>${E(cost,2)} <span class="mu">≈ ${LE(cost)}</span></dd><dt>Прибыль (расчёт)</dt><dd>${L(o.total/1.2-cost*R())} <span class="mu">· без НДС 20%, по курсу ${R()}</span></dd></dl>`:'<p class="mu">В складских таблицах этот заказ не найден.</p>'}
   </div>`;
   ov.onclick=e=>{
     if(e.target===ov||e.target.closest('[data-x]')){ov.remove();return}
     const a=e.target.closest('[data-a]');if(!a)return;
     if(a.dataset.a==='edit'){ov.remove();orderModal(id);return}
+    if(a.dataset.a==='addit'){addToOrder(id);return}
+    if(a.dataset.a==='ret'){const u=+a.dataset.u,x=U_(u);ask('Вернуть «'+x.model+'» на склад ('+loc(x.loc)+')? Он снова будет в брони под этот заказ.',()=>{setU(u,{out:null});save();build();render();ov.remove();drawer(id);toast('Возвращено на склад')});return}
     const ch=ST.o[id]=ST.o[id]||{};
     if(a.dataset.a==='pay'){
       modal('Оплата по '+esc(o.no),`<label>Сумма, лей<input class="t" id="mv" type="number" value="${o.debt||''}"></label><label>Способ<select class="t" id="mm"><option>terminal</option><option>transfer</option><option>наличные</option></select></label>`,()=>{
@@ -484,7 +493,7 @@ function drawer(id){
       return;
     }
     if(a.dataset.a==='ship')ch.shipped=true;
-    if(a.dataset.a==='close'){const go2=()=>{ch.st='closed';ch.close=new Date().toISOString().slice(0,10);ch.debt=0;fin('Заказ закрыт')};if(o.debt>0)ask('По заказу остался долг '+L(o.debt)+'. Всё равно закрыть?',go2);else go2();return}
+    if(a.dataset.a==='close'){const go2=()=>{ch.st='closed';ch.close=new Date().toISOString().slice(0,10);ch.debt=0;fin('Заказ закрыт');orderStock(o,'closed')};if(o.debt>0)ask('По заказу остался долг '+L(o.debt)+'. Всё равно закрыть?',go2);else go2();return}
     fin(a.dataset.a==='ship'?'Отмечено: отгружен':'Заказ закрыт');
     function fin(t){save();build();render();ov.remove();drawer(id);toast(t)}
   };
@@ -492,6 +501,9 @@ function drawer(id){
 }
 
 /* ---------- Склад ---------- */
+let CATL=null,CATP=null;
+const CMAP={ovens:'Духовки',microwaves:'Микроволновки и компакт',compact:'Микроволновки и компакт',hobs:'Варочные панели',hoods:'Вытяжки',dishwashers:'Посудомойки и стиральные',laundry:'Посудомойки и стиральные',fridges:'Холодильники','wine-coolers':'Холодильники',sinks:'Мойки',faucets:'Смесители',accessories:'Аксессуары'};
+function loadCat(){return CATP||(CATP=Promise.all(Object.keys(CMAP).map(f=>fetch('data/'+f+'.json',{cache:'no-cache'}).then(r=>r.ok?r.json():[]).catch(()=>[]).then(a=>(Array.isArray(a)?a:[]).map(x=>({m:String(x.n||x.name||'').trim(),p:x.p||x.price||0,cat:CMAP[f]})).filter(x=>x.m)))).then(a=>{CATL=a.flat();return CATL}))}
 const CATS=['Духовки','Микроволновки и компакт','Варочные панели','Вытяжки','Посудомойки и стиральные','Холодильники','Мойки','Смесители','Аксессуары','Прочее'];
 const catOf=s=>s.cat||'Прочее';
 function guessCat(model){const w=(model||'').split(/\s+/)[0].toUpperCase(),c={};S.forEach(s=>{if(s.model.split(/\s+/)[0].toUpperCase()===w)c[catOf(s)]=(c[catOf(s)]||0)+1});const e=Object.entries(c).sort((a,b)=>b[1]-a[1])[0];return e?e[0]:'Прочее'}
@@ -535,7 +547,11 @@ function vStk(){
 }
 function addModal(){
   const mm={};S.forEach(s=>{const k=nm(s.model),x=mm[k]||(mm[k]={m:s.model,cat:catOf(s),q:0,c:0});x.q+=s.qty||1;if(s.cost)x.c=s.cost});
-  const all=Object.values(mm).sort((a,b)=>CATS.indexOf(a.cat)-CATS.indexOf(b.cat)||a.m.localeCompare(b.m));
+  const sig=t=>{t=String(t).toUpperCase();return [...t.replace(/[^A-Z0-9]/g,'')].sort().join('')+'|'+(t.match(/\d+/g)||[]).join('.')};
+  const have=new Set(Object.values(mm).map(x=>sig(x.m)));
+  (CATL||[]).forEach(c=>{const k=nm(c.m),g=sig(c.m);if(!mm[k]&&!have.has(g)){mm[k]={m:c.m,cat:c.cat,q:0,c:0,p:c.p,site:1};have.add(g)}});
+  const all=Object.values(mm).sort((a,b)=>CATS.indexOf(a.cat)-CATS.indexOf(b.cat)||(a.site||0)-(b.site||0)||a.m.localeCompare(b.m));
+  if(!CATL)loadCat().then(()=>{const I=document.getElementById('am');if(I&&!I.value){[...document.querySelectorAll('.md')].pop().remove();addModal()}});
   const cats=CATS.filter(c=>all.some(x=>x.cat===c));
   modal('Приход товара',`<div class="pk"><label>Модель<input class="t" id="am" placeholder="Поиск или новая модель" autocomplete="off" autocapitalize="characters"></label>
   <div class="pkc" id="pkc"><button class="chip on" data-pc="">Все</button>${cats.map(c=>`<button class="chip" data-pc="${esc(c)}">${esc(c)}</button>`).join('')}</div>
@@ -556,7 +572,7 @@ function addModal(){
     const n=r.length;r=r.slice(0,80);let last='';
     const nw=q&&!all.some(x=>nm(x.m)===nm(I.value))?`<button class="pki new" data-new>+ Новая модель: <b>${esc(I.value.trim())}</b></button>`:'';
     PL.innerHTML=
-      r.map(x=>{const h=!pc&&!q&&x.cat!==last?`<div class="pkh">${esc(x.cat)}</div>`:'';last=x.cat;return h+`<button class="pki${pick===x?' on':''}" data-m="${esc(x.m)}"><b>${esc(x.m)}</b><span>${q||pc?'':''}${esc(pc?'':x.cat)}${x.c?' · '+x.c.toFixed(2)+' €':''}${x.q?' · '+x.q+' шт':''}</span></button>`}).join('')+
+      r.map(x=>{const h=!pc&&!q&&x.cat!==last?`<div class="pkh">${esc(x.cat)}</div>`:'';last=x.cat;return h+`<button class="pki${pick===x?' on':''}" data-m="${esc(x.m)}"><b>${esc(x.m)}</b><span>${esc(pc?'':x.cat)}${x.site?`${pc?'':' · '}<em class="site">с сайта</em>${x.p?' · '+L(x.p):''}`:''}${x.c?' · '+x.c.toFixed(2)+' €':''}${x.q?' · '+x.q+' шт на складе':''}</span></button>`}).join('')+
       (n>r.length?`<div class="pkh">ещё ${n-r.length} — уточните поиск</div>`:'')+(!n&&!q?'<div class="pkh">Нет моделей</div>':'')+nw;
   }
   I.oninput=()=>{pick=null;PL.hidden=false;draw()};
@@ -619,28 +635,97 @@ function orderModal(id){
     x.debt=st==='open'?Math.max(0,total-paid):0;
     if(st==='closed'&&!x.close)x.close=new Date().toISOString().slice(0,10);
     if(id==null){ST.newO.push(x);save();build();F.of='all';F.oq='';render();drawer(O.length-1);toast('Заказ создан')}
-    else{ST.o[id]=Object.assign(ST.o[id]||{},x);save();build();render();drawer(id);toast('Заказ сохранён')}
+    else{const was=O[id].st;ST.o[id]=Object.assign(ST.o[id]||{},x);save();build();render();drawer(id);toast('Заказ сохранён');if(was==='open'&&st!=='open')orderStock(O[id],st)}
   },
-  id==null?null:()=>{ask('Отметить заказ '+o.no+' как отменённый?',()=>{ST.o[id]=Object.assign(ST.o[id]||{},{st:'cancel',debt:0});save();build();render();toast('Заказ отменён')})});
+  id==null?null:()=>{ask('Отметить заказ '+o.no+' как отменённый?',()=>{ST.o[id]=Object.assign(ST.o[id]||{},{st:'cancel',debt:0});save();build();render();toast('Заказ отменён');orderStock(O[id],'cancel')})});
 }
 function unitModal(id){
   const s=S.find(u=>u.id===id);if(!s)return;
   const locs=[['dep','Склад'],['salon','Салон'],['showroom','Шоурум']];if(!LOC[s.loc])locs.push([s.loc,s.loc]);
+  const ro=s.res&&O.find(o=>o.k===key(s.res));
   modal('Позиция на складе',
-  `${inp('Модель','um',s.model)}
+  `<div class="uhd"><b>${esc(s.model)}</b><span>${loc(s.loc)} · ${s.qty} шт · ${E(s.cost,2)}</span>${s.res?`<span class="b y">бронь ${esc(s.res)}${ro?' · '+esc(ro.who):''}</span>`:''}</div>
+  <div class="uact">${s.res?'<button class="btn" data-ua="unres">Снять бронь</button>':'<button class="btn" data-ua="res">Забронировать</button>'}<button class="btn r" data-ua="out">Выдать клиенту</button><button class="btn" data-ua="mv">Переместить</button></div>
+  <details class="ued"><summary>Изменить данные позиции</summary>
+  ${inp('Модель','um',s.model)}
   <label>Где лежит<select class="t" id="ul">${locs.map(([k,t])=>`<option value="${esc(k)}"${k===s.loc?' selected':''}>${t}</option>`).join('')}</select></label>
   <label>Категория<select class="t" id="ucat">${CATS.map(c=>`<option${c===catOf(s)?' selected':''}>${c}</option>`).join('')}</select></label>
-  ${inp('Количество, шт','uq',s.qty,'number','min="1"')}
-  ${inp('Себестоимость за штуку, €','uc',s.cost,'number','step="0.01"')}
-  ${inp('Бронь под заказ (номер, пусто — свободен)','ur',s.res||'','text','placeholder="например N225/26"')}
+  ${inp('Количество, шт','uq',s.qty,'number','min="1" inputmode="numeric"')}
+  ${inp('Себестоимость за штуку, €','uc',s.cost,'number','step="0.01" inputmode="decimal"')}
   ${inp('Пометка','un',s.note)}
-  <label style="display:flex;align-items:center;gap:10px;color:var(--ink)"><input type="checkbox" id="uu" ${s.used?'checked':''} style="width:22px;height:22px">Б/у или уценка</label>`,
+  <label style="display:flex;align-items:center;gap:10px;color:var(--ink)"><input type="checkbox" id="uu" ${s.used?'checked':''} style="width:22px;height:22px">Б/у или уценка</label></details>`,
   ()=>{
     const m=V('um');if(!m){toast('Укажите модель');return false}
-    ST.s[id]=Object.assign(ST.s[id]||{},{model:m,cat:V('ucat'),loc:V('ul'),qty:Math.max(1,VN('uq')),cost:VN('uc'),res:V('ur')||null,note:V('un'),used:document.getElementById('uu').checked});
+    const c=VN('uc');if(!c&&s.cost){toast('Себестоимость не может быть пустой');return false}
+    ST.s[id]=Object.assign(ST.s[id]||{},{model:m,cat:V('ucat'),loc:V('ul'),qty:Math.max(1,Math.round(VN('uq'))),cost:c,note:V('un'),used:document.getElementById('uu').checked});
     save();build();F.open[nm(m)]=1;render();toast('Сохранено');
   },
-  ()=>{ask('Удалить «'+s.model+'» ('+loc(s.loc)+', '+E(s.cost,2)+') со склада?',()=>{ST.s[id]=Object.assign(ST.s[id]||{},{del:true});save();build();render();toast('Удалено')})});
+  ()=>{ask('Удалить «'+s.model+'» ('+loc(s.loc)+', '+s.qty+' шт, '+E(s.cost,2)+') со склада? Если товар продан — лучше «Выдать клиенту».',()=>{ST.s[id]=Object.assign(ST.s[id]||{},{del:true});save();build();render();toast('Удалено')})});
+  const md=[...document.querySelectorAll('.md')].pop();
+  md.querySelector('.uact').onclick=e=>{const b=e.target.closest('[data-ua]');if(!b)return;const a=b.dataset.ua;
+    if(a==='unres'){md.remove();ask('Снять бронь '+s.res+' с «'+s.model+'»? Товар станет свободным.',()=>{setU(id,{res:null});done('Бронь снята',s.model)});return}
+    md.remove();stockAct(a,id)};
+}
+/* разделить партию: k штук уходят в новую позицию, возвращает её id */
+function splitU(id,k){
+  const s=U_(id);if(!s||k>=s.qty)return id;
+  setU(id,{qty:s.qty-k});
+  const c={};['loc','cat','model','cost','res','note','used'].forEach(f=>c[f]=s[f]??null);c.qty=k;
+  ST.add.push(c);return RAW.stock.length+ST.add.length-1}
+const U_=id=>RAW.stock.concat(ST.add).map((s,i)=>Object.assign({id:i},s,ST.s[i]||{}))[id];
+const setU=(id,v)=>{ST.s[id]=Object.assign(ST.s[id]||{},v)};
+function done(t,m){save();build();if(m)F.open[nm(m)]=1;render();toast(t)}
+const isoNow=()=>new Date().toISOString().slice(0,10);
+/* выбор заказа: поиск по номеру и клиенту, открытые сверху */
+function orderPick(sel){
+  const L0=O.filter(o=>o.st==='open'&&o.no).sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  return {html:`<div class="pk"><label>Заказ<input class="t" id="opq" placeholder="Номер или клиент" autocomplete="off"></label><div class="pkl" id="opl"></div><input type="hidden" id="opv" value="${esc(sel||'')}"></div>`,
+  init(){const I=document.getElementById('opq'),PL=document.getElementById('opl'),H=document.getElementById('opv');
+    const draw=()=>{const q=I.value.trim().toLowerCase();const r=L0.filter(o=>!q||(o.no+' '+o.who).toLowerCase().includes(q)).slice(0,60);
+      PL.innerHTML=r.map(o=>`<button class="pki${key(H.value)===o.k?' on':''}" data-no="${esc(o.no)}"><b>${esc(o.no)} · ${esc(o.who)}</b><span>${dt(o.date)} · ${L(o.total)}${o.items.length?' · в брони '+o.items.length+' шт':''}</span></button>`).join('')||'<div class="pkh">Открытых заказов не найдено</div>'};
+    I.oninput=draw;PL.onclick=e=>{const b=e.target.closest('[data-no]');if(!b)return;H.value=b.dataset.no;I.value=b.dataset.no;draw()};
+    if(sel)I.value=sel;draw();if(sel)I.value='';}}
+}
+function qtyField(s,def){return s.qty>1?inp('Сколько штук (из '+s.qty+')','aqn',def,'number',`min="1" max="${s.qty}" inputmode="numeric"`):''}
+const qtyVal=s=>s.qty>1?Math.min(s.qty,Math.max(1,Math.round(VN('aqn')))):1;
+function stockAct(a,id){
+  const s=S.find(u=>u.id===id);if(!s)return;
+  if(a==='res'||a==='out'){
+    const op=orderPick(s.res);
+    modal((a==='res'?'Забронировать ':'Выдать клиенту ')+esc(s.model),
+      `<p class="mu" style="margin:0">${loc(s.loc)} · ${s.qty} шт · ${E(s.cost,2)}</p>${qtyField(s,a==='out'&&s.res?s.qty:1)}${op.html}`,
+      ()=>{const no=V('opv');if(!no){toast('Выберите заказ');return false}
+        const k=qtyVal(s),nid=splitU(id,k);
+        if(a==='res'){setU(nid,{res:no});done('Забронировано под '+no,s.model)}
+        else{setU(nid,{res:no,out:{o:no,d:isoNow()}});done('Выдано по заказу '+no,s.model)}});
+    op.init();return}
+  if(a==='mv'){
+    modal('Переместить '+esc(s.model),`<p class="mu" style="margin:0">Сейчас: ${loc(s.loc)} · ${s.qty} шт</p>${qtyField(s,s.qty)}<label>Куда<select class="t" id="mvl">${[['dep','Склад'],['salon','Салон'],['showroom','Шоурум']].filter(([k])=>k!==s.loc).map(([k,t])=>`<option value="${k}">${t}</option>`).join('')}</select></label>`,
+      ()=>{const k=qtyVal(s),to=V('mvl'),nid=splitU(id,k);setU(nid,{loc:to});done('Перемещено: '+k+' шт → '+loc(to),s.model)})}
+}
+/* товар со склада в заказ (из карточки заказа) */
+function addToOrder(oid){
+  const o=O[oid];const free=S.filter(s=>!s.res);
+  modal('Товар со склада в заказ '+esc(o.no),`<div class="pk"><label>Модель<input class="t" id="aoq" placeholder="Поиск по модели" autocomplete="off"></label><div class="pkl" id="aol"></div></div><div id="aox"></div>`,
+    ()=>{const id=+document.getElementById('aol').dataset.sel;const s=S.find(u=>u.id===id);if(!s){toast('Выберите позицию');return false}
+      const k=qtyVal(s),nid=splitU(id,k),out=document.getElementById('aoo').checked;setU(nid,out?{res:o.no,out:{o:o.no,d:isoNow()}}:{res:o.no});
+      save();build();render();document.querySelector('.ov')?.remove();drawer(oid);toast(out?'Выдано по заказу':'Забронировано')});
+  const I=document.getElementById('aoq'),PL=document.getElementById('aol'),X=document.getElementById('aox');
+  const norm=t=>String(t).toLowerCase().replace(/[\s\-_.\/]+/g,'');
+  const draw=()=>{const ws=I.value.trim().toLowerCase().split(/\s+/).filter(Boolean).map(norm);
+    const r=free.filter(s=>ws.every(w=>norm(s.model).includes(w))).sort((a,b)=>a.model.localeCompare(b.model)||(a.cost||0)-(b.cost||0)).slice(0,60);
+    PL.innerHTML=r.map(s=>`<button class="pki${+PL.dataset.sel===s.id?' on':''}" data-id="${s.id}"><b>${esc(s.model)}</b><span>${loc(s.loc)} · ${s.qty} шт · ${E(s.cost,2)}</span></button>`).join('')||'<div class="pkh">Свободных позиций не найдено</div>'};
+  I.oninput=draw;
+  PL.onclick=e=>{const b=e.target.closest('[data-id]');if(!b)return;PL.dataset.sel=b.dataset.id;const s=S.find(u=>u.id===+b.dataset.id);
+    X.innerHTML=`<p style="margin:0"><b>${esc(s.model)}</b> · ${loc(s.loc)} · ${E(s.cost,2)}</p>${qtyField(s,1)}<label style="display:flex;align-items:center;gap:10px;color:var(--ink)"><input type="checkbox" id="aoo" style="width:22px;height:22px">Сразу выдать клиенту (иначе — бронь)</label>`;draw()};
+  draw();
+}
+const reDr=id=>{const v=document.querySelector('.ov');if(v){v.remove();drawer(id)}};
+/* закрытие/отмена заказа — что делать с его бронями */
+function orderStock(o,st){
+  build();const it=S.filter(s=>s.res&&o.k&&key(s.res)===o.k);if(!it.length)return;const n=it.reduce((a,s)=>a+s.qty,0);
+  if(st==='closed')ask(`У заказа ${o.no} в брони ${n} шт. Отметить их выданными клиенту (списать со склада)?`,()=>{it.forEach(s=>setU(s.id,{out:{o:o.no,d:isoNow()}}));done('Списано со склада: '+n+' шт');reDr(o.id)});
+  if(st==='cancel')ask(`Заказ ${o.no} отменён. Снять бронь с ${n} шт — товар снова станет свободным?`,()=>{it.forEach(s=>setU(s.id,{res:null}));done('Бронь снята: '+n+' шт');reDr(o.id)});
 }
 function renameModal(field,old){
   modal(field==='designer'?'Переименовать дизайнера':'Переименовать мебельщика',inp('Новое имя','rn',old)+`<p class="mu" style="font-size:15px">Имя поменяется во всех его заказах. Если ввести имя, которое уже есть, заказы объединятся.</p>`,()=>{
@@ -889,7 +974,7 @@ async function boot(){
   try{
     const j=await api('/api/acc');
     if(!j.base){syncMark('');importView();return}
-    RAW=j.base;setST(j.st);RI.value=ST.rate;plSync();syncMark('Сохранено','ok');build();render();
+    RAW=j.base;setST(j.st);RI.value=ST.rate;plSync();syncMark('Сохранено','ok');build();render();setTimeout(loadCat,1200);
   }catch(e){
     if(e.status===401||e.status===403){toAdmin();return}
     syncMark('Нет связи','er');M.innerHTML=`<div class="card"><h3>Не удалось загрузить учёт</h3><p class="mu">${esc(e.message)}</p><button class="btn" onclick="boot()">Повторить</button></div>`}
