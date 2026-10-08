@@ -206,6 +206,15 @@ h3{font-size:21px}
 .dr{font-size:18px}.dr h2{font-size:25px}.dl{grid-template-columns:130px minmax(0,1fr)}
 .mb label{font-size:17px}
 }
+/* выбор модели в приходе */
+.pk{display:grid;gap:8px}
+.pkc{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.pkc::-webkit-scrollbar{display:none}.pkc .chip{flex:none}
+.pkl{max-height:min(44vh,360px);overflow-y:auto;border:1px solid var(--line);border-radius:12px;-webkit-overflow-scrolling:touch}
+.pkl[hidden]{display:none}
+.pkh{padding:8px 12px 4px;font-size:14px;font-weight:700;color:var(--mute);background:#f6f6f6;position:sticky;top:0}
+.pki{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);background:#fff;padding:11px 12px;font:inherit;cursor:pointer}
+.pki b{display:block;font-size:17px;color:var(--ink)}.pki span{font-size:14px;color:var(--mute)}
+.pki:active,.pki.on{background:#FFF5F5}.pki.new{color:var(--red)}.pki.new b{display:inline}
 </style>
 </head>
 <body>
@@ -379,16 +388,39 @@ function vStk(){
   </tbody></table></div>`;
 }
 function addModal(){
-  const models=[...new Set(S.map(s=>s.model))].sort();
-  modal('Приход товара',`<label>Модель<input class="t" id="am" list="aml" placeholder="Начните вводить"><datalist id="aml">${models.map(m=>`<option value="${esc(m)}">`).join('')}</datalist></label>
-  <label>Количество<input class="t" id="aq" type="number" value="1" min="1"></label>
-  <label>Себестоимость за штуку, €<input class="t" id="ac" type="number" step="0.01"></label>
+  const mm={};S.forEach(s=>{const k=nm(s.model),x=mm[k]||(mm[k]={m:s.model,cat:catOf(s),q:0,c:0});x.q+=s.qty||1;if(s.cost)x.c=s.cost});
+  const all=Object.values(mm).sort((a,b)=>CATS.indexOf(a.cat)-CATS.indexOf(b.cat)||a.m.localeCompare(b.m));
+  const cats=CATS.filter(c=>all.some(x=>x.cat===c));
+  modal('Приход товара',`<div class="pk"><label>Модель<input class="t" id="am" placeholder="Поиск или новая модель" autocomplete="off" autocapitalize="characters"></label>
+  <div class="pkc" id="pkc"><button class="chip on" data-pc="">Все</button>${cats.map(c=>`<button class="chip" data-pc="${esc(c)}">${esc(c)}</button>`).join('')}</div>
+  <div class="pkl" id="pkl"></div></div>
+  <label>Количество<input class="t" id="aq" type="number" inputmode="numeric" value="1" min="1"></label>
+  <label>Себестоимость за штуку, €<input class="t" id="ac" type="number" inputmode="decimal" step="0.01"></label>
   <label>Категория<select class="t" id="acat"><option value="">Определить по модели</option>${CATS.map(c=>`<option>${c}</option>`).join('')}</select></label>
   <label>Куда<select class="t" id="al"><option value="dep">Склад</option><option value="salon">Салон</option><option value="showroom">Шоурум</option></select></label>`,()=>{
     const m=document.getElementById('am').value.trim(),q=+document.getElementById('aq').value||1,c=+document.getElementById('ac').value||0;
     if(!m||!c){toast('Укажите модель и цену');return false}
     ST.add.push({loc:document.getElementById('al').value,cat:document.getElementById('acat').value||guessCat(m),model:m,qty:q,cost:c,res:null,note:'приход '+new Date().toLocaleDateString('ru-RU'),used:false});
     save();build();F.sq=m;F.open[nm(m)]=1;render();toast('Партия добавлена')});
+  const I=document.getElementById('am'),PL=document.getElementById('pkl'),PC=document.getElementById('pkc');let pc='',pick=null;
+  const norm=t=>String(t).toLowerCase().replace(/[\s\-_.\/]+/g,'');
+  function draw(){
+    const q=I.value.trim().toLowerCase(),ws=q.split(/\s+/).filter(Boolean).map(norm);
+    let r=all.filter(x=>(!pc||x.cat===pc)&&ws.every(w=>norm(x.m).includes(w)));
+    const n=r.length;r=r.slice(0,80);let last='';
+    const nw=q&&!all.some(x=>nm(x.m)===nm(I.value))?`<button class="pki new" data-new>+ Новая модель: <b>${esc(I.value.trim())}</b></button>`:'';
+    PL.innerHTML=
+      r.map(x=>{const h=!pc&&!q&&x.cat!==last?`<div class="pkh">${esc(x.cat)}</div>`:'';last=x.cat;return h+`<button class="pki${pick===x?' on':''}" data-m="${esc(x.m)}"><b>${esc(x.m)}</b><span>${q||pc?'':''}${esc(pc?'':x.cat)}${x.c?' · '+x.c.toFixed(2)+' €':''}${x.q?' · '+x.q+' шт':''}</span></button>`}).join('')+
+      (n>r.length?`<div class="pkh">ещё ${n-r.length} — уточните поиск</div>`:'')+(!n&&!q?'<div class="pkh">Нет моделей</div>':'')+nw;
+  }
+  I.oninput=()=>{pick=null;PL.hidden=false;draw()};
+  PC.onclick=e=>{const b=e.target.closest('[data-pc]');if(!b)return;pc=b.dataset.pc;PC.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===b));PL.hidden=false;draw()};
+  PL.onclick=e=>{const b=e.target.closest('.pki');if(!b)return;
+    if(b.dataset.new!==undefined){pick=null;PL.hidden=true;document.getElementById('aq').focus();return}
+    pick=all.find(x=>x.m===b.dataset.m);I.value=pick.m;document.getElementById('acat').value=pick.cat;if(pick.c&&!document.getElementById('ac').value)document.getElementById('ac').value=pick.c;
+    PL.hidden=true;I.blur();toast('Выбрано: '+pick.m)};
+  I.onfocus=()=>{PL.hidden=false;draw()};
+  draw();
 }
 
 /* ---------- Дизайнеры ---------- */
@@ -606,7 +638,7 @@ function modal(t,body,ok,del){
   const m=document.createElement('div');m.className='md';
   m.innerHTML=`<div class="mb"><h3>${t}</h3>${body}<div class="row" style="margin:6px 0 0">${del?'<button class="btn" data-del style="color:var(--red)">Удалить</button>':''}<span class="sp"></span><button class="btn" data-c>Отмена</button><button class="btn r" data-k>Сохранить</button></div></div>`;
   m.onclick=e=>{if(e.target===m||e.target.closest('[data-c]'))m.remove();if(del&&e.target.closest('[data-del]')&&del()!==false)m.remove();if(e.target.closest('[data-k]')&&ok()!==false)m.remove()};
-  document.body.appendChild(m);const f=m.querySelector('input');f&&f.focus();
+  document.body.appendChild(m);const f=m.querySelector('input');f&&!matchMedia('(max-width:700px)').matches&&f.focus();
 }
 function ask(q,yes){const m=document.createElement('div');m.className='md';m.innerHTML=`<div class="mb"><h3>${esc(q)}</h3><div class="row" style="margin:6px 0 0"><span class="sp"></span><button class="btn" data-n>Нет</button><button class="btn r" data-y>Да</button></div></div>`;m.onclick=e=>{if(e.target===m||e.target.closest('[data-n]'))m.remove();if(e.target.closest('[data-y]')){m.remove();yes()}};document.body.appendChild(m)}
 function previewDoc(d){const v=document.createElement('div');v.className='md';v.style.alignItems='flex-start';v.style.overflow='auto';v.innerHTML=`<div style="width:min(${d.land?1080:800}px,100%);display:grid;gap:12px"><div class="mb" style="width:100%;max-height:none"><b>Так будет выглядеть документ.</b><span style="color:var(--mute)">В этой демо-ссылке браузер не даёт печатать и скачивать файлы. В рабочей админке кнопки «Печать» и «PDF» сразу открывают окно печати или сохраняют файл.</span><div class="row" style="margin:0"><span class="sp"></span><button class="btn k" data-c>Закрыть</button></div></div><div style="background:#fff;border-radius:8px;padding:28px;overflow-x:auto"><style>${PCSS}</style>${d.html}</div></div>`;v.onclick=e=>{if(e.target===v||e.target.closest('[data-c]'))v.remove()};document.body.appendChild(v)}
