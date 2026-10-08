@@ -470,14 +470,15 @@ function vSum(){
 
 /* ---------- Заказы ---------- */
 const OF=[['open','Открытые',o=>o.st==='open'],['debt','С долгом',o=>o.st==='open'&&o.debt>0],['ship','Не отгружены',o=>o.st==='open'&&!o.shipped],['closed','Закрытые',o=>o.st==='closed'],['cancel','Отменённые',o=>o.st==='cancel'],['all','Все',o=>true]];
+const oMatch=(o,q)=>{if(!q)return true;if((o.no+' '+o.who+' '+(o.designer||'')+' '+(o.tel||'')).toLowerCase().includes(q))return true;const d=q.replace(/\D/g,'').replace(/^0+/,'');return d.length>2&&String(o.tel||'').replace(/\D/g,'').includes(d)};
 function vOrd(){
   const f=OF.find(x=>x[0]===F.of)[2],q=F.oq.toLowerCase();
   const months=[...new Set(O.map(o=>(o.date||'').slice(0,7)).filter(Boolean))].sort().reverse();
-  let L1=O.filter(f).filter(o=>!F.om||(o.date||'').startsWith(F.om)).filter(o=>!q||(o.no+' '+o.who+' '+(o.designer||'')).toLowerCase().includes(q));
+  let L1=O.filter(f).filter(o=>!F.om||(o.date||'').startsWith(F.om)).filter(o=>oMatch(o,q));
   L1.sort((a,b)=>(b.date||'').localeCompare(a.date||''));
   const sum=L1.reduce((a,o)=>a+o.total,0),db=L1.reduce((a,o)=>a+(o.debt||0),0);
   return `<div class="row">${OF.map(([k,t,fn])=>`<button class="chip${F.of===k?' on':''}" data-of="${k}">${t}<i>${O.filter(fn).length}</i></button>`).join('')}</div>
-  <div class="row"><input class="t" id="oq" placeholder="Поиск: номер, клиент, мебельщик" value="${esc(F.oq)}" style="width:280px">
+  <div class="row"><input class="t" id="oq" placeholder="Поиск: номер, клиент, телефон" value="${esc(F.oq)}" style="width:280px">
   <select class="t" id="om"><option value="">Все месяцы</option>${months.map(m=>`<option value="${m}"${m===F.om?' selected':''}>${mon(m)}</option>`).join('')}</select>
   <button class="btn r" id="newo">+ Новый заказ</button>${pbtn('ord','Печать списка')}<span class="sp"></span><span class="mu">${L1.length} заказов · сумма ${L(sum)} · долг ${L(db)}</span></div>
   <div class="tw mt to"><table><thead><tr><th>№</th><th>Дата</th><th>Мебельщик</th><th>Клиент</th><th class="hide-m">Дизайнер</th><th class="n">Сумма</th><th class="n">Оплачено</th><th class="n">Долг</th><th>Статус</th></tr></thead><tbody>
@@ -491,7 +492,7 @@ function drawer(id){
   const cost=o.items.concat(o.sold).reduce((a,s)=>a+(s.cost||0),0);
   ov.innerHTML=`<div class="dr"><div class="row"><button class="btn k s" data-a="edit">✎ Изменить заказ</button>${pbtn('order|'+id)}<span class="sp"></span><button class="btn s" data-x>Закрыть ✕</button></div>
   <h2>Заказ ${esc(o.no||'без номера')}</h2><div>${stat(o)} <span class="mu">от ${dt(o.date)}${o.close&&o.st==='closed'?' · закрыт '+dt(o.close):''}</span></div>
-  <dl class="dl"><dt>Мебельщик</dt><dd>${esc(o.partner||'—')}</dd><dt>Клиент</dt><dd>${esc(o.client)}</dd>
+  <dl class="dl"><dt>Мебельщик</dt><dd>${esc(o.partner||'—')}</dd><dt>Клиент</dt><dd>${esc(o.client)}</dd>${o.tel?`<dt>Телефон</dt><dd><a href="tel:${esc(o.tel)}">${esc(o.tel)}</a></dd>`:''}${o.site?`<dt>С сайта</dt><dd>${o.site.map(i=>esc(i.n)+(i.q>1?' × '+i.q:'')).join('<br>')}</dd>`:''}
   <dt>Дизайнер</dt><dd>${o.designer?esc(o.designer)+' · '+L(o.com):'—'}</dd>
   <dt>Сумма</dt><dd>${L(o.total)}</dd><dt>Оплачено</dt><dd>${L(o.paid)}${o.method?' <span class="mu">· '+esc(o.method)+'</span>':''}</dd>
   <dt>Долг</dt><dd style="color:${o.debt>0?'var(--red)':'inherit'}">${L(o.debt)}</dd>
@@ -636,13 +637,14 @@ function vPar(){
 const V=id=>document.getElementById(id).value.trim(),VN=id=>+document.getElementById(id).value||0;
 const inp=(lb,id,v,ty='text',ex='')=>`<label>${lb}<input class="t" id="${id}" type="${ty}" value="${esc(v??'')}" ${ex}></label>`;
 function nextNo(){const y=new Date().getFullYear().toString().slice(2);const n=O.map(o=>(o.no||'').match(new RegExp('^N(\\d+)/'+y))).filter(Boolean).map(m=>+m[1]);return 'N'+String((n.length?Math.max(...n):0)+1).padStart(3,'0')+'/'+y}
-function orderModal(id){
-  const o=id==null?{no:nextNo(),date:new Date().toISOString().slice(0,10),st:'open',total:0,paid:0,shipped:false}:O[id];
+function orderModal(id,pre){
+  const o=id==null?Object.assign({no:nextNo(),date:new Date().toISOString().slice(0,10),st:'open',total:0,paid:0,shipped:false},pre||{}):O[id];
   const names=k=>[...new Set(O.map(x=>x[k]).filter(Boolean))].sort().map(n=>`<option value="${esc(n)}">`).join('');
   modal(id==null?'Новый заказ':'Изменить заказ '+esc(o.no),
   `${inp('Номер заказа','eno',o.no)}${inp('Дата','edt',o.date,'date')}
   <label>Мебельщик<input class="t" id="epa" list="epl" value="${esc(o.partner||'')}" placeholder="если через мебельщика"><datalist id="epl">${names('partner')}</datalist></label>
   ${inp('Клиент','ecl',o.client)}
+  ${inp('Телефон','etl',o.tel,'tel')}
   <label>Дизайнер<input class="t" id="eds" list="edl" value="${esc(o.designer||'')}"><datalist id="edl">${names('designer')}</datalist></label>
   ${inp('Комиссия дизайнеру, лей','eco',o.com,'number')}
   ${inp('Сумма заказа, лей','eto',o.total,'number')}
@@ -655,10 +657,10 @@ function orderModal(id){
   ()=>{
     const p=V('epa'),total=VN('eto'),paid=VN('epd'),st=V('est');
     if(!V('ecl')&&!p){toast('Укажите клиента');return false}
-    const x={no:V('eno'),date:V('edt'),partner:p||null,client:V('ecl'),designer:V('eds')||null,com:VN('eco')||null,total,paid,method:V('emt')||null,st,shipped:document.getElementById('esh').checked,close:V('ecd')||null,profit:document.getElementById('epr').value===''?null:VN('epr')};
+    const x={tel:V('etl')||null,no:V('eno'),date:V('edt'),partner:p||null,client:V('ecl'),designer:V('eds')||null,com:VN('eco')||null,total,paid,method:V('emt')||null,st,shipped:document.getElementById('esh').checked,close:V('ecd')||null,profit:document.getElementById('epr').value===''?null:VN('epr')};
     x.debt=st==='open'?Math.max(0,total-paid):0;
     if(st==='closed'&&!x.close)x.close=new Date().toISOString().slice(0,10);
-    if(id==null){ST.newO.push(x);save();build();F.of='all';F.oq='';render();drawer(O.length-1);toast('Заказ создан')}
+    if(id==null){if(pre&&pre.src){x.src=pre.src;x.site=pre.site}ST.newO.push(x);save();build();F.of='all';F.oq='';render();drawer(O.length-1);toast('Заказ создан');if(x.src)siteLink(O[O.length-1])}
     else{const was=O[id].st;ST.o[id]=Object.assign(ST.o[id]||{},x);save();build();render();drawer(id);toast('Заказ сохранён');if(was==='open'&&st!=='open')orderStock(O[id],st)}
   },
   id==null?null:()=>{ask('Отметить заказ '+o.no+' как отменённый?',()=>{ST.o[id]=Object.assign(ST.o[id]||{},{st:'cancel',debt:0});save();build();render();toast('Заказ отменён');orderStock(O[id],'cancel')})});
@@ -747,6 +749,7 @@ function addToOrder(oid){
 const reDr=id=>{const v=document.querySelector('.ov');if(v){v.remove();drawer(id)}};
 /* закрытие/отмена заказа — что делать с его бронями */
 function orderStock(o,st){
+  if(o.src)api('/api/order-status',{id:o.src,st:st==='closed'?'done':'cancel',acc:o.no}).catch(()=>toast('Статус на сайте не обновился'));
   build();const it=S.filter(s=>s.res&&o.k&&key(s.res)===o.k);if(!it.length)return;const n=it.reduce((a,s)=>a+s.qty,0);
   if(st==='closed')ask(`У заказа ${o.no} в брони ${n} шт. Отметить их выданными клиенту (списать со склада)?`,()=>{it.forEach(s=>setU(s.id,{out:{o:o.no,d:isoNow()}}));done('Списано со склада: '+n+' шт');reDr(o.id)});
   if(st==='cancel')ask(`Заказ ${o.no} отменён. Снять бронь с ${n} шт — товар снова станет свободным?`,()=>{it.forEach(s=>setU(s.id,{res:null}));done('Бронь снята: '+n+' шт');reDr(o.id)});
@@ -809,7 +812,7 @@ function mk(k){
   }
   if(kind==='ord'){
     const f=OF.find(x=>x[0]===F.of),q=F.oq.toLowerCase();
-    const l=O.filter(f[2]).filter(o=>!F.om||(o.date||'').startsWith(F.om)).filter(o=>!q||(o.no+' '+o.who+' '+(o.designer||'')).toLowerCase().includes(q)).sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+    const l=O.filter(f[2]).filter(o=>!F.om||(o.date||'').startsWith(F.om)).filter(o=>oMatch(o,q)).sort((a,b)=>(b.date||'').localeCompare(a.date||''));
     const s=l.reduce((a,o)=>a+o.total,0),p=l.reduce((a,o)=>a+(o.paid||0),0),d=l.reduce((a,o)=>a+(o.debt||0),0);
     return pdoc(T('Заказы')+' — '+T(f[1]).replace(/[А-ЯЁ]/,c=>c.toLowerCase())+(F.om?', '+Pmon(F.om):''),ptab([['№'],['Дата'],['Мебельщик'],['Клиент'],['Дизайнер'],['Сумма',1],['Оплачено',1],['Долг',1],['Статус']],
       l.map(o=>`<tr><td>${esc(o.no)}</td><td>${dt(o.date)}</td><td>${esc(o.partner||'')}</td><td>${esc(o.client)}</td><td>${esc(o.designer||'')}</td><td class="n">${Lm(o.total)}</td><td class="n">${o.paid?Lm(o.paid):''}</td><td class="n">${o.debt>0?Lm(o.debt):''}</td><td>${STN(o)}</td></tr>`),
@@ -998,10 +1001,32 @@ async function boot(){
   try{
     const j=await api('/api/acc');
     if(!j.base){syncMark('');importView();return}
-    RAW=j.base;setST(j.st);RI.value=ST.rate;plSync();syncMark('Сохранено','ok');build();render();setTimeout(loadCat,1200);
+    RAW=j.base;setST(j.st);RI.value=ST.rate;plSync();syncMark('Сохранено','ok');build();render();setTimeout(loadCat,1200);fromSite();
   }catch(e){
     if(e.status===401||e.status===403){toAdmin();return}
     syncMark('Нет связи','er');M.innerHTML=`<div class="card"><h3>Не удалось загрузить учёт</h3><p class="mu">${esc(e.message)}</p><button class="btn" onclick="boot()">Повторить</button></div>`}
+}
+/* заказ с сайта → учёт (кнопка «Передать в учёт» в админке) */
+async function fromSite(){
+  const id=new URLSearchParams(location.search).get('from');if(!id)return;
+  history.replaceState(null,'',location.pathname);
+  const ex=O.find(o=>o.src===id);if(ex){go('ord');drawer(ex.id);return}
+  let v;try{v=await api('/api/order?id='+encodeURIComponent(id))}catch(e){toast('Заказ с сайта не найден');return}
+  go('ord');
+  orderModal(null,{client:v.name||'',tel:v.tel||'',total:v.tot||0,src:id,site:(v.items||[]).map(i=>({n:i.n,q:i.q,p:i.p}))});
+}
+function siteLink(o){
+  api('/api/order-status',{id:o.src,st:'work',acc:o.no}).catch(()=>toast('Метка на сайте не обновилась'));
+  const cd=t=>String(t).toUpperCase().replace(/[^A-Z0-9]/g,'');
+  const P=[];
+  (o.site||[]).forEach(i=>{const m=String(i.n).toUpperCase().match(/\b([A-Z]{1,6})[\s-]?(\d[\d.]*)/);if(!m)return;const c=cd(m[1]+m[2]);if(c.length<5)return;
+    const N=' '+String(i.n).toUpperCase().replace(/[^A-Z0-9]+/g,' ')+' ',ex=s=>String(s.model).toUpperCase().replace(/[^A-Z0-9]+/g,' ').trim().split(' ').filter(w=>w&&!N.includes(' '+w+' ')&&!c.includes(w)).length;
+    const s=S.filter(s=>!s.res&&cd(s.model).includes(c)).sort((a,b)=>ex(a)-ex(b)||(a.cost||0)-(b.cost||0))[0];if(s)P.push({i,s,k:Math.min(i.q||1,s.qty),ok:!ex(s)})});
+  if(!P.length)return;
+  modal('Забронировать со склада?',P.map((p,j)=>`<label style="display:flex;gap:12px;align-items:flex-start;color:var(--ink)"><input type="checkbox"${p.ok?' checked':''} data-j="${j}" style="width:22px;height:22px;flex:none;margin-top:3px"><span><b>${esc(p.s.model)}</b> · ${p.k} шт${p.ok?'':' <span class="b y">проверьте модель</span>'}<br><small class="mu">${loc(p.s.loc)} · ${E(p.s.cost,2)} · на сайте: ${esc(p.i.n)}</small></span></label>`).join(''),
+    ()=>{const md=[...document.querySelectorAll('.md')].pop();let n=0;
+      P.forEach((p,j)=>{if(!md.querySelector(`[data-j="${j}"]`).checked)return;const nid=splitU(p.s.id,p.k);setU(nid,{res:o.no});n+=p.k});
+      if(n){done('Забронировано: '+n+' шт');reDr(o.id)}});
 }
 boot();
 
