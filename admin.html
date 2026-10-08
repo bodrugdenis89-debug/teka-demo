@@ -1190,7 +1190,14 @@ function drawSite(){const d=SC.data,v=(k,l)=>esc(l?(d[k]||{})[l]||'':d[k]||'');
     SC.dirty=true;CHG.add('#site');bar()})}
 
 /* заказы */
-let ORD=null,OST='',OMG='',OQ='';
+let ORD=null,OST='',OMG='',OQ='',OPR='',OP1='',OP2='';
+Object.assign(RO,{'Всё время':'Toată perioada','Сегодня':'Azi','Последние 7 дней':'Ultimele 7 zile','Этот месяц':'Luna aceasta','Прошлый месяц':'Luna trecută','Этот год':'Anul acesta','Прошлый год':'Anul trecut','Свой период…':'Altă perioadă…','Месяц':'Luna','Заказов: {0} · сумма {1}':'Comenzi: {0} · suma {1}'});
+const OPER=[['','Всё время'],['d','Сегодня'],['w','Последние 7 дней'],['m','Этот месяц'],['pm','Прошлый месяц'],['y','Этот год'],['py','Прошлый год']];
+function oPerR(v){if(!v)return null;const t=new Date(),I=d=>new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10),Y=t.getFullYear(),M=t.getMonth(),td=I(t);
+  if(v==='d')return[td,td];if(v==='w')return[I(new Date(Y,M,t.getDate()-6)),td];if(v==='m')return[I(new Date(Y,M,1)),td];
+  if(v==='pm')return[I(new Date(Y,M-1,1)),I(new Date(Y,M,0))];if(v==='y')return[Y+'-01-01',td];if(v==='py')return[(Y-1)+'-01-01',(Y-1)+'-12-31'];
+  if(v==='c')return[OP1||'',OP2||'9999'];return[v+'-01',v+'-31']}
+const oDay=t=>{const d=new Date(t);return isNaN(d)?'':new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)};
 const OS={new:'Новый',work:'В работе',done:'Выдан',cancel:'Отменён'};
 const CHN=c=>c==='wa'?'WhatsApp':c==='vb'?'Viber':c==='tg'?'Telegram':c==='cb'?T('Обратный звонок'):c==='mgr'?T('Менеджер в магазине'):esc(c||'—');
 const LOC=()=>LANG==='ro'?'ro-RO':'ru-RU',OSL=k=>T(OS[k]);
@@ -1208,9 +1215,13 @@ function drawOrders(){$('sum').textContent=ORD?T('Заказов: {0}',ORD.lengt
   if(ORD.err){$('vw').innerHTML=`<div class="empty">${T('Журнал заказов недоступен: {0}',esc(ORD.err))}</div>`;return}
   const MG=[...new Set(ORD.map(o=>o.mg).filter(Boolean))].sort();
   const q=OQ.trim().toLowerCase(),qd=q.replace(/\D/g,'').replace(/^0+/,'');
-  const L=ORD.filter(o=>(!OST||o.st===OST)&&(!OMG||(OMG==='-'?!o.mg:o.mg===OMG))&&(!q||((o.cl||'')+' '+(o.nm||'')+' '+o.id).toLowerCase().includes(q)||qd.length>2&&String(o.tl||'').replace(/\D/g,'').includes(qd)));
+  const pr=oPerR(OPR),months=[...new Set(ORD.map(o=>oDay(o.t).slice(0,7)).filter(Boolean))].sort().reverse();
+  const L=ORD.filter(o=>!pr||(d=>d>=pr[0]&&d<=pr[1])(oDay(o.t))).filter(o=>(!OST||o.st===OST)&&(!OMG||(OMG==='-'?!o.mg:o.mg===OMG))&&(!q||((o.cl||'')+' '+(o.nm||'')+' '+o.id).toLowerCase().includes(q)||qd.length>2&&String(o.tl||'').replace(/\D/g,'').includes(qd)));
   $('vb').insertAdjacentHTML('afterbegin',`<input class="t" id="oq" type="search" placeholder="${T('Телефон, имя или модель')}" value="${esc(OQ)}" style="width:230px">`);
   let qt;$('oq').oninput=e=>{clearTimeout(qt);qt=setTimeout(()=>{OQ=e.target.value;drawOrders();const i=$('oq');i.focus();i.setSelectionRange(i.value.length,i.value.length)},250)};
+  $('vb').insertAdjacentHTML('afterbegin',`<select class="t" id="opr">${OPER.map(([k,t])=>`<option value="${k}" ${OPR===k?'selected':''}>${T(t)}</option>`).join('')}${months.map(m=>`<option value="${m}" ${OPR===m?'selected':''}>${new Date(m+'-15').toLocaleString(LOC(),{month:'long',year:'numeric'})}</option>`).join('')}<option value="c" ${OPR==='c'?'selected':''}>${T('Свой период…')}</option></select>${OPR==='c'?`<span style="display:inline-flex;gap:6px;align-items:center"><input class="t" type="date" id="op1" value="${OP1}" style="width:auto">—<input class="t" type="date" id="op2" value="${OP2}" style="width:auto"></span>`:''}`);dd($('opr'));$('opr').onchange=e=>{OPR=e.target.value;drawOrders()};
+  if(OPR==='c'){$('op1').onchange=e=>{OP1=e.target.value;drawOrders()};$('op2').onchange=e=>{OP2=e.target.value;drawOrders()}}
+  if(pr||OST||OMG||q)$('sum').textContent=T('Заказов: {0} · сумма {1}',L.length+' / '+ORD.length,L.reduce((a,o)=>a+(o.tot||0),0).toLocaleString(LOC())+' MDL');
   $('vb').insertAdjacentHTML('afterbegin',`<select class="t" id="omg"><option value="">${T('Все менеджеры')}</option>${MG.map(m=>`<option value="${esc(m)}" ${OMG===m?'selected':''}>${esc(MGN(m))}</option>`).join('')}<option value="-" ${OMG==='-'?'selected':''}>${T('Сайт (без менеджера)')}</option></select>`);dd($('omg'));$('omg').onchange=e=>{OMG=e.target.value;drawOrders()};
   $('vw').innerHTML=`<div class="chips" id="osc" style="margin-bottom:12px"><button class="chip ${OST?'':'on'}" data-v="">${T('Все')} (${ORD.length})</button>${Object.keys(OS).map(k=>`<button class="chip ${OST===k?'on':''}" data-v="${k}">${OSL(k)} (${ORD.filter(o=>o.st===k).length})</button>`).join('')}</div>`+
    (L.length?`<table><thead><tr><th>${T('Когда')}</th><th>${T('Заказ')}</th><th>${T('Сумма')}</th><th>${T('Канал')}</th><th>${T('Менеджер')}</th><th>${T('Статус')}</th><th></th></tr></thead><tbody>${L.map(o=>`<tr data-id="${esc(o.id)}"><td class="sk">${dt(o.t)}</td><td class="nm"><b>${esc(o.nm||'')}</b><small>${o.n>1?T('всего {0} шт.',o.n):T('1 шт.')}${o.cl?' · '+esc(o.cl):''}${o.tl?' · '+esc(o.tl):''}${o.acc?' · <b style="color:var(--ok,#1A7F37)">'+T('в учёте')+' '+esc(o.acc)+'</b>':''}${o.of?T(' · подборка №')+esc(o.of):''}</small></td><td class="sk"><b>${(o.tot||0).toLocaleString(LOC())} MDL</b></td><td class="ct">${CHN(o.ch)}</td><td class="ct">${esc(MGN(o.mg)||'—')}</td>
