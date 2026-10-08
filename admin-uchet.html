@@ -427,6 +427,8 @@ tr.u.out{animation:tkOut .17s ease-in forwards}
 .pli{width:100%;border-collapse:collapse}.pli td{padding:6px 8px;border-bottom:1px solid var(--line);font-size:14px}.pli tr:last-child td{border-bottom:0}
 .byt .pli td{min-width:0!important;width:auto!important}
 .bup[hidden],.bpa[hidden]{display:none}
+.skw{background:#FFF4E0;border:1px solid #F0C36D;border-radius:10px;padding:10px 14px;margin:0 0 10px;font-size:15px;display:grid;gap:3px}
+.skw b{color:#8A5A00}
 </style>
 </head>
 <body>
@@ -600,6 +602,9 @@ function groups(){
   const [fn]=SO[F.so]||SO.name,dir=F.sd;
   return arr.sort((a,b)=>(F.so==='name'?CATS.indexOf(a.cat)-CATS.indexOf(b.cat):0)||fn(a,b)*dir||a.name.localeCompare(b.name));
 }
+function skuWarn(){const m={};S.forEach(s=>{if(s.sku){const k=nm(s.model);(m[s.sku]=m[s.sku]||{})[k]=s.model}});
+  const bad=Object.entries(m).filter(([,v])=>Object.keys(v).length>1);if(!bad.length)return'';
+  return`<div class="skw"><b>⚠ Нестыковки в названиях (${bad.length})</b> — один код записан под разными названиями, товар разбит на несколько строк:${bad.map(([k,v])=>`<div>код ${esc(k)}: ${Object.values(v).map(t=>'«'+esc(t)+'»').join(' и ')}</div>`).join('')}<div class="mu">Исправьте название в партии (нажмите на неё → Модель), чтобы строки склеились.</div></div>`}
 function vStk(){
   const arr=groups(),inLoc=s=>!F.sl||(F.sl==='etc'?!LOC[s.loc]:s.loc===F.sl);
   const cnt=l=>S.filter(s=>l==='etc'?!LOC[s.loc]:!l||s.loc===l).filter(s=>!F.sc||catOf(s)===F.sc).reduce((a,s)=>a+s.qty,0);
@@ -620,6 +625,7 @@ function vStk(){
   <button class="chip${F.sr?' on':''}" id="srb">Только в брони<i>${rcnt}</i></button>
   ${F.sq||F.sc||F.sr||F.sl?'<button class="btn s" id="sclr">Сбросить фильтры</button>':''}
   </div>
+  ${skuWarn()}
   <div class="tw mt ts"><table><thead><tr>${th('name','Модель','')}<th class="hide-m">Где лежит</th>${th('qty','Всего')}${th('free','Свободно')}${th('res','В брони','cn')}${th('cost','Себестоимость')}${th('avg','Средняя','n hide-m')}<th class="n hide-m">В леях</th></tr></thead><tbody>
   ${rows||'<tr><td colspan="8" class="mu" style="padding:24px">Ничего не найдено</td></tr>'}
   </tbody></table></div>`;
@@ -1155,6 +1161,8 @@ function buyModal(ed){
   <div class="tw"><table class="byt"><thead><tr><th>Код</th><th>Модель</th><th class="n">Кол-во</th><th class="n">Цена инв., €</th><th class="n">Себест., €</th><th class="n">Себест., лей</th><th class="n">На сайте</th><th>Куда</th><th></th></tr></thead><tbody id="bb"></tbody></table></div>
   <div class="row"><button class="btn s" type="button" id="bad">+ Строка</button><span class="sp"></span><span id="bs" class="bys"></span></div></div>`,()=>{
     sync();const ok=rows.filter(r=>r.m&&r.q>0&&r.p>0);if(!ok.length){toast('Нет заполненных строк');return false}
+    const wr=ok.map(r=>warn(r)).filter(Boolean);
+    if(wr.length&&!md.dataset.wok){ask('Нестыковки ('+wr.length+'): '+wr.join('; ')+'. Всё равно сохранить?',()=>{md.dataset.wok=1;md.querySelector('[data-k]').click()});return false}
     const no=V('bn'),d=V('bd'),k=+V('bk')||KF();
     if(k!==KF()){ST.k=k;KI.value=k}
     if(ed){const nt='инвойс'+(no?' '+no:'')+' от '+dt(d),keep=new Set(ok.filter(r=>r.id!=null).map(r=>r.id));
@@ -1172,8 +1180,12 @@ function buyModal(ed){
   const z=t=>String(t||'').toUpperCase().replace(/[^A-Z0-9]/g,''),ALL=[...S,...OUT];
   const code=t=>{const m=String(t||'').toUpperCase().match(/([A-Z]{1,6})[\s-]?(\d[\d.]*)/);return m?m[1]+m[2].replace(/\./g,''):''};
   function pick(g){const ex=ALL.find(x=>x.sku&&x.sku===g.s)||ALL.find(x=>z(x.model)===z(g.m));const r={s:g.s,m:ex?ex.model:g.m,q:g.q,p:g.p,mm:1};look(r);if(ex&&!r.c)r.c=ex.cat;return r}
-  function tag(r){if(!r.m)return'';const x=BY[r.s],ex=ALL.find(y=>z(y.model)===z(r.m));
-    if(x&&code(x.m)&&!z(r.m).includes(code(x.m)))return`<small class="bm w">⚠ по коду это ${esc(x.m)}</small>`;
+  function warn(r){if(!r.m)return'';const x=BY[r.s],bs=r.s&&ALL.find(y=>y.sku===r.s),bn=ALL.find(y=>z(y.model)===z(r.m));
+    if(bs&&z(bs.model)!==z(r.m))return`на складе код ${r.s} записан как «${bs.model}» — будет отдельная строка`;
+    if(r.s&&bn&&bn.sku&&bn.sku!==r.s)return`«${bn.model}» на складе с кодом ${bn.sku}, а здесь ${r.s}`;
+    if(x&&code(x.m)&&!z(r.m).includes(code(x.m)))return`по коду ${r.s} это ${x.m}`;return''}
+  function tag(r){if(!r.m)return'';const ex=ALL.find(y=>z(y.model)===z(r.m)),w=warn(r);
+    if(w)return`<small class="bm w">⚠ ${esc(w)}</small>`;const x=BY[r.s];
     return`<small class="bm">${ex?'есть на складе':x?'новая, есть на сайте':'новая модель'}</small>`}
   function sync(){[...B.querySelectorAll('tr')].forEach((tr,i)=>{const r=rows[i],g=n=>tr.querySelector(`[data-f="${n}"]`).value.trim();r.s=g('s');r.m=g('m');r.q=+g('q')||0;r.p=+String(g('p')).replace(',','.')||0;r.l=g('l')})}
   function sum(){const k=K(),t=rows.reduce((a,r)=>a+(r.q||0)*(r.p||0),0),bt=+document.getElementById('bt').value||0;
