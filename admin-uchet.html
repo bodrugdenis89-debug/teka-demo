@@ -724,7 +724,7 @@ function unitModal(id){
   const ro=s.res&&O.find(o=>o.k===key(s.res));
   modal('Позиция на складе',
   `<div class="uhd"><b>${esc(s.model)}</b><span>${loc(s.loc)} · ${s.qty} шт · ${E(s.cost,2)} <small class="mu">(инвойс ${E(s.inv,2)} × ${KF()})</small>${s.invn?' · '+esc(s.invn):''}</span>${s.res?`<span class="b y">бронь ${esc(s.res)}${ro?' · '+esc(ro.who):''}</span>`:''}</div>
-  <div class="uact">${s.res?'<button class="btn" data-ua="unres">Снять бронь</button>':'<button class="btn" data-ua="res">Забронировать</button>'}<button class="btn r" data-ua="out">Выдать клиенту</button><button class="btn" data-ua="mv">Переместить</button></div>
+  <div class="uact">${s.res?'<button class="btn" data-ua="unres">Снять бронь</button>':'<button class="btn" data-ua="res">Забронировать</button>'}<button class="btn r" data-ua="out">Выдать клиенту</button><button class="btn" data-ua="mv">Переместить</button>${s.invn||/^инвойс/.test(s.note||'')?'<button class="btn" data-ua="delinv">Удалить закупку</button>':''}</div>
   <details class="ued"><summary>Изменить данные позиции</summary>
   ${inp('Модель','um',s.model)}
   <label>Где лежит<select class="t" id="ul">${locs.map(([k,t])=>`<option value="${esc(k)}"${k===s.loc?' selected':''}>${t}</option>`).join('')}</select></label>
@@ -742,14 +742,22 @@ function unitModal(id){
   ()=>{ask('Удалить «'+s.model+'» ('+loc(s.loc)+', '+s.qty+' шт, '+E(s.cost,2)+') со склада? Если товар продан — лучше «Выдать клиенту».',()=>{ST.s[id]=Object.assign(ST.s[id]||{},{del:true});save();build();render();toast('Удалено')})});
   const md=[...document.querySelectorAll('.md')].pop();
   md.querySelector('.uact').onclick=e=>{const b=e.target.closest('[data-ua]');if(!b)return;const a=b.dataset.ua;
+    if(a==='delinv'){md.remove();delPurchase(s);return}
     if(a==='unres'){md.remove();ask('Снять бронь '+s.res+' с «'+s.model+'»? Товар станет свободным.',()=>{setU(id,{res:null});done('Бронь снята',s.model)});return}
     md.remove();stockAct(a,id)};
+}
+/* удалить всю закупку (инвойс): свободные позиции удаляются, бронь и выданное не трогаем */
+function delPurchase(s){
+  const g=x=>x.invn?'#'+x.invn:x.note,k=g(s),L=[...S,...OUT].filter(x=>g(x)===k);
+  const fr=L.filter(x=>!x.out&&!x.res),bz=L.length-fr.length,n=fr.reduce((a,x)=>a+x.qty,0);
+  if(!fr.length){toast('Все позиции закупки в брони или выданы — удалить нельзя');return}
+  ask(`Удалить закупку ${s.invn||s.note}: ${fr.length} поз., ${n} шт?`+(bz?` ${bz} поз. в брони или выданы — их не трогаю.`:''),()=>{fr.forEach(x=>{ST.s[x.id]=Object.assign(ST.s[x.id]||{},{del:true})});save();build();render();toast('Закупка удалена: '+n+' шт')});
 }
 /* разделить партию: k штук уходят в новую позицию, возвращает её id */
 function splitU(id,k){
   const s=U_(id);if(!s||k>=s.qty)return id;
   setU(id,{qty:s.qty-k});
-  const c={};['loc','cat','model','cost','res','note','used'].forEach(f=>c[f]=s[f]??null);c.qty=k;
+  const c={};['loc','cat','model','cost','res','note','used','invn','sku'].forEach(f=>c[f]=s[f]??null);c.qty=k;
   ST.add.push(c);return RAW.stock.length+ST.add.length-1}
 const U_=id=>RAW.stock.concat(ST.add).map((s,i)=>Object.assign({id:i},s,ST.s[i]||{}))[id];
 const setU=(id,v)=>{ST.s[id]=Object.assign(ST.s[id]||{},v)};
