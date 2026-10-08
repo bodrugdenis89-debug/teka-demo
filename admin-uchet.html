@@ -613,7 +613,7 @@ function vStk(){
     rows+=`<tr class="c${op?' op':''} ${x.qty-x.res<=0?'k-off':x.res?'k-res':'k-ok'}" data-g="${esc(k)}"><td><b><span class="cv${op?' o':''}">▸</span> ${esc(x.name)}</b>${byCat?'':`<div class="mu" style="font-size:14px;font-weight:500;margin-left:18px">${esc(x.cat)}</div>`}</td><td class="hide-m mu">${x.locs}</td><td class="n">${x.qty}</td><td class="n">${x.qty-x.res}</td><td class="cn">${x.res?'<span class="b y">'+x.res+'</span>':''}</td><td class="n${x.spread?' spr':''}">${x.spread?E(x.min,2)+' – '+E(x.max,2):E(x.min,2)}</td><td class="n hide-m">${E(x.avg,2)}</td><td class="n hide-m mu">${LE(x.avg)}</td></tr>`;
     if(op||F.sr)rows+=x.u.filter(s=>!F.sr||s.res).slice().sort((a,b)=>(a.cost||0)-(b.cost||0)).map(s=>`<tr class="c u ${s.res?'rs':''}" data-u="${s.id}" title="Нажмите, чтобы изменить"><td class="ui"><span class="pe">✎</span> ${s.res?`<a href="#" data-ro="${esc(s.res)}">${esc(s.res)}</a> ${esc(s.note)}`:s.used?`<span class="b w">б/у</span> ${esc(s.note)}`:(esc(s.note)||'<span class="mu pn0">партия</span>')}</td><td class="hide-m ploc l-${esc(s.loc)}">${loc(s.loc)}</td><td class="n">${s.qty}</td><td class="n">${s.res?0:s.qty}</td><td class="cn">${s.res?'<span class="b y">'+s.qty+'</span>':''}</td><td class="n">${E(s.cost,2)}</td><td class="n hide-m"></td><td class="n hide-m mu">${LE(s.cost)}</td></tr>`).join('');
   });
-  return `<div class="row">${[['','Все'],['dep','Склад'],['salon','Салон'],['showroom','Шоурум'],['etc','Прочее']].map(([k,t])=>`<button class="chip${F.sl===k?' on':''}" data-sl="${k}">${t}<i>${cnt(k)}</i></button>`).join('')}<span class="sp"></span>${pbtn('stk','Печать остатков')}<button class="btn" id="plist">Закупки</button><button class="btn r" id="buy">+ Закупка</button></div>
+  return `<div class="row">${[['','Все'],['dep','Склад'],['salon','Салон'],['showroom','Шоурум'],['etc','Прочее']].map(([k,t])=>`<button class="chip${F.sl===k?' on':''}" data-sl="${k}">${t}<i>${cnt(k)}</i></button>`).join('')}<span class="sp"></span>${pbtn('stk','Печать остатков')}<button class="btn r" id="plist">Закупки</button></div>
   <div class="row"><input class="t" id="sq" placeholder="Поиск: модель или № заказа" value="${esc(F.sq)}" style="width:280px">
   <select class="t" id="sc"><option value="">Все категории</option>${CATS.map(c=>{const n=ccnt(c);return n?`<option value="${esc(c)}"${F.sc===c?' selected':''}>${esc(c)} — ${n} шт</option>`:''}).join('')}</select>
   <button class="chip${F.sr?' on':''}" id="srb">Только в брони<i>${rcnt}</i></button>
@@ -1234,13 +1234,14 @@ function purchasesModal(){
     const q=p.L.reduce((a,x)=>a+x.qty,0),inv=p.L.reduce((a,x)=>a+x.qty*(x.inv||0),0),c=p.L.reduce((a,x)=>a+x.qty*(x.cost||0),0),o=p.L.filter(x=>x.out).length,r=p.L.filter(x=>!x.out&&x.res).length,f=p.L.length-o-r;
     const x0=p.L.find(x=>x.invd),m=x0?dt(x0.invd):(p.note.match(/ от (.+)$/)||p.note.match(/^приход (.+)$/)||[])[1]||'';
     return `<tr class="plr" data-pi="${i}"><td><b>${esc(p.no||(/^приход/.test(p.note)?'вручную':'без номера'))}</b></td><td>${esc(m)}</td><td class="n">${p.L.length}</td><td class="n">${q}</td><td class="n">${E(inv,2)}</td><td class="n">${E(c,2)}</td><td>${f?`<span class="b o">${f} на складе</span> `:''}${r?`<span class="b y">${r} в брони</span> `:''}${o?`<span class="b z">${o} выдано</span>`:''}</td><td style="white-space:nowrap"><button class="btn s" type="button" data-po="${i}">Состав</button> <button class="btn s" type="button" data-pd="${i}" style="color:var(--red)">Удалить</button></td></tr>
-    <tr class="pld" data-pl="${i}" hidden><td colspan="8"><table class="pli">${p.L.map(x=>`<tr><td>${esc(x.model)}</td><td>${loc(x.loc)}</td><td class="n">${x.qty} шт</td><td class="n">${E(x.inv,2)} → ${E(x.cost,2)}</td><td>${st(x)}</td></tr>`).join('')}</table></td></tr>`}).join('')}</tbody></table></div>`:'<p class="mu">Закупок по инвойсам пока нет. Их добавляет кнопка «+ Закупка».</p>';
-  modal('Закупки',body,()=>{});
+    <tr class="pld" data-pl="${i}" hidden><td colspan="8"><table class="pli">${p.L.map(x=>`<tr><td>${esc(x.model)}</td><td>${loc(x.loc)}</td><td class="n">${x.qty} шт</td><td class="n">${E(x.inv,2)} → ${E(x.cost,2)}</td><td>${st(x)}</td></tr>`).join('')}</table></td></tr>`}).join('')}</tbody></table></div>`:'<p class="mu">Закупок пока нет.</p>';
+  modal('Закупки','<div class="row" style="margin:0 0 10px"><button class="btn r" type="button" data-pn>+ Новая закупка</button></div>'+body,()=>{});
   const md=[...document.querySelectorAll('.md')].pop();md.querySelector('.mb').classList.add('mbw');
   md.querySelector('[data-c]').remove();md.querySelector('[data-k]').textContent='Закрыть';
   md.querySelector('.mb').addEventListener('click',e=>{const o=e.target.closest('[data-po]'),d=e.target.closest('[data-pd]');
     if(o){const r=md.querySelector(`[data-pl="${o.dataset.po}"]`);r.hidden=!r.hidden;o.textContent=r.hidden?'Состав':'Скрыть'}
-    if(d){md.remove();delPurchase(A[+d.dataset.pd].L[0])}});
+    if(d){md.remove();delPurchase(A[+d.dataset.pd].L[0])}
+    if(e.target.closest('[data-pn]')){md.remove();buyModal()}});
 }
 
 </script>
