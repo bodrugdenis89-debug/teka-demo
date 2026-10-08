@@ -232,6 +232,119 @@ tr.k-due{background:#FFF1F1}tr.k-wait{background:#FFF8EB}tr.k-ok{background:#F1F
 .mt tr.k-due{border-left-color:var(--red)}.mt tr.k-wait{border-left-color:var(--warn)}.mt tr.k-ok{border-left-color:var(--ok)}
 .mt tr.k-due>td:first-child,.mt tr.k-wait>td:first-child,.mt tr.k-ok>td:first-child{box-shadow:none}
 }
+/* вкладки: переезжающая плашка + анимация иконок */
+.tabs{position:relative}
+.tabs .tind{position:absolute;left:0;bottom:0;height:100%;width:0;pointer-events:none;background:#FFF5F5;border-bottom:3px solid var(--red);transition:transform .38s cubic-bezier(.3,1.3,.5,1),width .38s cubic-bezier(.3,1.3,.5,1);z-index:0}
+.tabs button{position:relative;z-index:1;background:none!important;border-bottom-color:transparent!important;transition:color .25s}
+.tabs .ti .f{fill:transparent;transition:fill .3s}
+.tabs button.on .ti .f{fill:rgba(227,6,19,.12)}
+.tabs button:active .ti{transform:scale(.88)}
+.tabs .ti{transition:transform .15s;overflow:visible}
+.tabs .ti *{transform-box:fill-box}
+.go .ti-sum .ln{stroke-dasharray:24;animation:tkDraw .6s ease-out}
+@keyframes tkDraw{from{stroke-dashoffset:24}to{stroke-dashoffset:0}}
+.go .ti-ord{animation:tkHop .5s cubic-bezier(.3,1.5,.5,1)}
+@keyframes tkHop{0%{transform:translateY(0)}35%{transform:translateY(-5px) rotate(-4deg)}70%{transform:translateY(1px)}100%{transform:none}}
+.go .ti-stk .bx{animation:tkDrop .45s cubic-bezier(.3,1.4,.5,1) backwards}
+.go .ti-stk .bx:nth-of-type(2){animation-delay:.08s}.go .ti-stk .bx:nth-of-type(3){animation-delay:.16s}
+@keyframes tkDrop{from{transform:translateY(-6px);opacity:0}to{transform:none;opacity:1}}
+.go .ti-des .pn{transform-origin:0 100%;animation:tkWrite .6s ease-in-out}
+@keyframes tkWrite{0%,100%{transform:none}25%{transform:rotate(-10deg)}50%{transform:rotate(6deg)}75%{transform:rotate(-4deg)}}
+.go .ti-par .d1{transform-origin:0 50%;animation:tkDoor .6s ease-in-out}
+.go .ti-par .d2{transform-origin:100% 50%;animation:tkDoor .6s ease-in-out .05s}
+@keyframes tkDoor{0%,100%{transform:none}40%{transform:scaleX(.35)}}
+.tabs button i.bmp{animation:tkPulse .5s ease-out}
+@keyframes tkPulse{40%{transform:scale(1.35)}}
+.sync.flash{animation:tkFlash .7s ease-out}
+@keyframes tkFlash{0%{background:rgba(26,127,55,.18);transform:scale(1.06)}100%{background:transparent;transform:none}}
+.sync{border-radius:8px;padding:2px 6px}
+@media (prefers-reduced-motion:reduce){.tabs .tind,.go .ti *,.go .ti,.bmp,.sync.flash{animation:none!important;transition:none!important}}
+/* логотип: бегущая полоска = сохранение */
+@property --tka{syntax:'<angle>';inherits:false;initial-value:0deg}
+.lg b{position:relative;isolation:isolate;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%) var(--red) no-repeat;background-size:250% 100%;background-position:150% 0}
+.lg b:before{content:"";position:absolute;inset:-4px;border-radius:10px;padding:2.5px;background:conic-gradient(from var(--tka),transparent 0deg 200deg,rgba(227,6,19,.25) 250deg,#ff3b47 320deg,#ffd0d3 352deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s;pointer-events:none}
+@keyframes tkSpin{to{--tka:360deg}}
+.lg.w b:before{opacity:1;animation:tkSpin .9s linear infinite}
+.lg.ok b:before{animation:tkSpin 1.4s cubic-bezier(.4,0,.2,1) 1,tkFade 1.4s ease-in 1 forwards}
+@keyframes tkFade{0%,60%{opacity:1}100%{opacity:0}}
+.lg.ok b{animation:tkShine .9s ease-out 1.1s 1 both}
+@keyframes tkShine{from{background-position:150% 0}to{background-position:-60% 0}}
+.lg.er b:before{background:var(--red);animation:tkErr 1.2s ease-in-out infinite}
+@keyframes tkErr{0%,100%{opacity:.15}50%{opacity:.9}}
+/* стрелка раскрытия */
+.cv{display:inline-block;font-style:normal;transition:transform .25s;margin-right:2px}
+.cv.o{transform:rotate(90deg)}
+.jo .cv.o{animation:tkCv .28s ease-out}
+@keyframes tkCv{from{transform:rotate(0)}to{transform:rotate(90deg)}}
+tr.u.in{animation:tkIn .28s ease-out backwards}
+@keyframes tkIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+/* телефон: раскрытая карточка = одна «папка» */
+@media (max-width:700px){
+.mt tr.op{border-radius:12px 12px 0 0;margin-bottom:0;border-bottom-color:transparent}
+.mt tr.u{margin:0!important;border-radius:0;border-top:1px dashed #e3e3e3;border-bottom:0;background:#fff;padding:10px 14px 10px 26px;position:relative}
+.mt tr.u:before{content:"";position:absolute;left:12px;top:0;bottom:0;width:2px;background:#ececec}
+.mt tr.op+tr.u{border-top:1px solid #eee}
+.mt tr.u:has(+tr:not(.u)),.mt tr.u:last-child{border-radius:0 0 12px 12px;border-bottom:1px solid var(--line);margin-bottom:10px!important}
+.mt tr.u.rs{background:var(--rs)}.mt tr.u.cl{background:var(--cl)}
+.mt tr.u td.ui[colspan]{display:flex;gap:8px;flex-wrap:wrap}
+.mt tr.u td.ui[colspan] .btn{height:38px;font-size:15px;padding:0 12px}
+.mt tr.u:has(td[colspan]){padding:8px 14px 8px 26px!important;background:#fafafa}
+.mt tr.u.k-dueu,.mt tr.u.k-waitu,.mt tr.u.k-oku{border-left-width:6px}
+.mt tr.u.k-dueu{border-left-color:var(--red)}.mt tr.u.k-waitu{border-left-color:var(--warn)}.mt tr.u.k-oku{border-left-color:var(--ok)}
+/* склад: партия одной строкой */
+.ts tr.u{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px}
+.ts tr.u td:before{display:none}
+.ts tr.u td{font-size:16px}
+.ts tr.u td.ploc{display:block!important;order:1;font-weight:600}
+.ts tr.u td:nth-child(3){order:2}.ts tr.u td:nth-child(3):after{content:" шт"}
+.ts tr.u td:nth-child(4){display:none}
+.ts tr.u td:nth-child(5){order:3}.ts tr.u td:nth-child(5):empty{display:none}
+.ts tr.u td:nth-child(6){order:4;margin-left:auto;font-weight:700;grid-column:auto!important}
+.ts tr.u td.ui{order:9;flex:1 1 100%;font-size:14.5px;color:var(--mute)}
+.ts tr.u td.ui:has(.pn0){flex:0 0 auto;order:5}
+.ts tr.u td.ui .pn0{display:none}
+.ts tr.u .pe{display:inline-grid;place-items:center;width:34px;height:34px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);font-size:15px}
+/* дизайнеры и мебельщики: заказ в две строки */
+.tdz tr.u:not(:has(td[colspan])),.tp tr.u:not(:has(td[colspan])){display:flex;flex-wrap:wrap;align-items:center;gap:8px 8px}
+.tdz tr.u td:before,.tp tr.u td:before{display:none}
+.tdz tr.u td.ui,.tp tr.u td.ui{flex:1 1 100%;font-size:16px}
+.tdz tr.u td.n:not(.hide-m):not(:empty),.tp tr.u td.n:not(.hide-m):not(:empty){display:flex;align-items:center;gap:8px;font-weight:700}
+.tdz tr.u td:empty,.tp tr.u td:empty{display:none}
+.tdz tr.u td.n .btn{height:38px;font-size:14.5px;font-weight:600;padding:0 10px}
+.tdz tr.u td.n:has(.btn),.tp tr.u td:last-of-type{margin-left:auto}
+.tp tr.u td:nth-child(3):before{display:inline;content:"Сумма ";font-weight:500;color:var(--mute);font-size:14px}
+.tp tr.u td:nth-child(4):not(:empty):before{display:inline;content:"Долг ";font-weight:500;color:var(--mute);font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){.lg b,.lg b:before,tr.u.in,.cv{animation:none!important;transition:none!important}}
+@media (max-width:700px){.tdz tr.u .b,.tp tr.u .b{font-size:14px;padding:3px 8px}.tdz tr.u td.n,.tp tr.u td.n{font-size:16px}.mt tr.u{padding-left:22px;padding-right:12px}.mt tr.u:before{left:10px}}
+/* склад: цвет по наличию */
+tr.k-res>td:first-child{box-shadow:inset 5px 0 0 #E2B100}
+tr.k-off>td:first-child{box-shadow:inset 5px 0 0 #A3A8B0}
+.ts tr.k-ok,.ts tr.k-res{background:#fff}
+.ts tr.k-off{background:#F6F7F8}
+.ts tr.c:not(.u).k-ok>td:nth-child(4){color:var(--ok);font-weight:700}
+.ts tr.c:not(.u).k-res>td:nth-child(4){color:#9A7400;font-weight:700}
+.ts tr.c:not(.u).k-off>td:nth-child(4){color:var(--mute)}
+.ts tr.c:not(.u).k-off>td:first-child b{color:#5d6168}
+tr.u.out{animation:tkOut .17s ease-in forwards}
+@keyframes tkOut{to{opacity:0;transform:translateY(-6px)}}
+.cls .cv.o{transform:rotate(0)}
+.ploc{white-space:nowrap}
+@media (max-width:700px){
+.mt tr.k-res{border-left-color:#E2B100}.mt tr.k-off{border-left-color:#A3A8B0}
+.mt tr.k-res>td:first-child,.mt tr.k-off>td:first-child{box-shadow:none}
+.mt tr.u.k-resu,.mt tr.u.k-offu{border-left-width:6px}
+.mt tr.u.k-resu{border-left-color:#E2B100}.mt tr.u.k-offu{border-left-color:#A3A8B0}
+.mt tr.c:not(.u){transition:transform .15s,box-shadow .2s}
+.mt tr.c:not(.u):active{transform:scale(.985)}
+.mt tr.op{box-shadow:0 6px 18px rgba(0,0,0,.07)}
+.ts tr.u td.ploc{font-size:14px;font-weight:700;padding:4px 10px;border-radius:20px;background:#EEF1F5!important;color:#3E4A5C}
+.ts tr.u td.ploc.l-dep{background:#E8F0FB!important;color:#1F4E8C}
+.ts tr.u td.ploc.l-salon{background:#F3EAFB!important;color:#6B2FA0}
+.ts tr.u td.ploc.l-showroom{background:#E3F6F1!important;color:#0E6B57}
+.mt tr.k-res,.mt tr.k-off{border-left-width:6px}
+}
+@media (prefers-reduced-motion:reduce){tr.u.out{animation:none!important}}
 </style>
 </head>
 <body>
@@ -274,15 +387,32 @@ const rc=o=>o.st==='closed'?'cl':o.st==='cancel'?'cx':'';
 const TABS=[['sum','Сводка'],['ord','Заказы'],['stk','Склад'],['des','Дизайнеры'],['par','Мебельщики']];
 let tab='sum';try{tab=localStorage.getItem(LS+'t')||'sum'}catch(e){}
 const F={of:'open',om:'',oq:'',sl:'',sr:false,sq:'',sc:'',so:'name',sd:1,open:{},pm:''};
-const TI=(()=>{const P={sum:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',ord:'<path d="M7 3h10l3 3v15H4V3h3"/><path d="M8 9h8M8 13h8M8 17h5"/>',stk:'<path d="M3 8l9-5 9 5v10l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v10"/>',des:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>',par:'<path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-7h6v7"/>'};const o={};for(const k in P)o[k]='<svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+P[k]+'</svg>';return o})();
+const TI=(()=>{const P={
+sum:'<path d="M3 3v18h18"/><path class="ln" d="M7 15l4-4 3 3 6-7"/><path class="ln" d="M16 7h4v4"/>',
+ord:'<path class="f" d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h4"/>',
+stk:'<path d="M3 3v18M21 3v18M3 12h18M3 21h18"/><rect class="bx f" x="6" y="6" width="5" height="6"/><rect class="bx f" x="13" y="8" width="5" height="4"/><rect class="bx f" x="6" y="15" width="7" height="6"/>',
+des:'<g class="pn"><path class="f" d="M16 3l5 5L9 20H4v-5z"/><path d="M14 5l5 5"/></g>',
+par:'<rect x="3" y="3" width="18" height="18" rx="1.5"/><path d="M3 8h18M10 5.5h4"/><g class="d1"><path class="f" d="M3 8h9v13H3z"/><path d="M9.5 13v3"/></g><g class="d2"><path class="f" d="M12 8h9v13h-9z"/><path d="M14.5 13v3"/></g>'};
+const o={};for(const k in P)o[k]='<svg class="ti ti-'+k+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+P[k]+'</svg>';return o})();
+let TPrev=null,TN=null,TBox=null;
 function tabs(){
-  const n=O.filter(o=>o.st==='open').length;
-  document.getElementById('tabs').innerHTML=TABS.map(([k,t])=>`<button data-t="${k}" class="${k===tab?'on':''}">${TI[k]||''}<span>${t}</span>${k==='ord'?`<i>${n}</i>`:''}</button>`).join('');
+  const n=O.filter(o=>o.st==='open').length,el=document.getElementById('tabs');
+  const chg=TPrev!==tab,bump=TN!==null&&TN!==n;
+  el.innerHTML=TABS.map(([k,t])=>`<button data-t="${k}" class="${k===tab?'on'+(chg&&TPrev!==null?' go':''):''}">${TI[k]||''}<span>${t}</span>${k==='ord'?`<i class="${bump?'bmp':''}">${n}</i>`:''}</button>`).join('')+'<b class="tind"></b>';
+  const ind=el.querySelector('.tind'),on=el.querySelector('button.on');
+  const put=()=>{if(!on)return;ind.style.transform=`translateX(${on.offsetLeft}px)`;ind.style.width=on.offsetWidth+'px'};
+  if(TBox&&chg){ind.style.transition='none';ind.style.transform=`translateX(${TBox[0]}px)`;ind.style.width=TBox[1]+'px';ind.offsetWidth;ind.style.transition=''}
+  else ind.style.transition='none';
+  put();if(!chg||!TBox)requestAnimationFrame(()=>{ind.style.transition=''});
+  if(on)TBox=[on.offsetLeft,on.offsetWidth];TPrev=tab;TN=n;
 }
+addEventListener('resize',()=>{const el=document.getElementById('tabs'),on=el&&el.querySelector('button.on'),ind=el&&el.querySelector('.tind');if(on&&ind){ind.style.transition='none';ind.style.transform=`translateX(${on.offsetLeft}px)`;ind.style.width=on.offsetWidth+'px';TBox=[on.offsetLeft,on.offsetWidth]}});
 function go(t){tab=t;try{localStorage.setItem(LS+'t',t)}catch(e){};render();scrollTo(0,0)}
 document.getElementById('tabs').onclick=e=>{const b=e.target.closest('button');if(b)go(b.dataset.t)};
 
-function render(){tabs();document.getElementById('main').innerHTML=({sum:vSum,ord:vOrd,stk:vStk,des:vDes,par:vPar})[tab]()}
+let TKJ=null;
+function tkOpened(){document.querySelectorAll('tr.op').forEach(p=>{const k=[...p.classList].find(c=>c.startsWith('k-'));let r=p.nextElementSibling;while(k&&r&&r.classList.contains('u')){r.classList.add(k+'u');r=r.nextElementSibling}});if(!TKJ)return;const k=TKJ;TKJ=null;const p=[...document.querySelectorAll('tr[data-g]')].find(r=>r.dataset.g===k);if(!p)return;p.classList.add('jo');let r=p.nextElementSibling,n=0;while(r&&r.classList.contains('u')){r.classList.add('in');r.style.animationDelay=Math.min(n++,8)*35+'ms';r=r.nextElementSibling}}
+function render(){tabs();document.getElementById('main').innerHTML=({sum:vSum,ord:vOrd,stk:vStk,des:vDes,par:vPar})[tab]();tkOpened()}
 
 /* ---------- Сводка ---------- */
 function vSum(){
@@ -390,8 +520,8 @@ function vStk(){
   arr.forEach(x=>{
     if(byCat&&x.cat!==last){last=x.cat;const n=arr.filter(y=>y.cat===x.cat).reduce((a,y)=>a+y.qty,0);rows+=`<tr><td colspan="8" style="background:#f3f3f3;font-weight:700;font-size:18px;padding:14px 12px">${esc(x.cat)} <span class="mu" style="font-weight:600">· ${n} шт</span></td></tr>`}
     const k=nm(x.name),op=F.open[k];
-    rows+=`<tr class="c" data-g="${esc(k)}"><td><b>${op?'▾':'▸'} ${esc(x.name)}</b>${byCat?'':`<div class="mu" style="font-size:14px;font-weight:500;margin-left:18px">${esc(x.cat)}</div>`}</td><td class="hide-m mu">${x.locs}</td><td class="n">${x.qty}</td><td class="n">${x.qty-x.res}</td><td class="cn">${x.res?'<span class="b y">'+x.res+'</span>':''}</td><td class="n${x.spread?' spr':''}">${x.spread?E(x.min,2)+' – '+E(x.max,2):E(x.min,2)}</td><td class="n hide-m">${E(x.avg,2)}</td><td class="n hide-m mu">${LE(x.avg)}</td></tr>`;
-    if(op||F.sr)rows+=x.u.filter(s=>!F.sr||s.res).slice().sort((a,b)=>(a.cost||0)-(b.cost||0)).map(s=>`<tr class="c u ${s.res?'rs':''}" data-u="${s.id}" title="Нажмите, чтобы изменить"><td class="ui">✎ ${s.res?`<a href="#" data-ro="${esc(s.res)}">${esc(s.res)}</a> ${esc(s.note)}`:s.used?`<span class="b w">б/у</span> ${esc(s.note)}`:(esc(s.note)||'<span class="mu">партия</span>')}</td><td class="hide-m">${loc(s.loc)}</td><td class="n">${s.qty}</td><td class="n">${s.res?0:s.qty}</td><td class="cn">${s.res?'<span class="b y">'+s.qty+'</span>':''}</td><td class="n">${E(s.cost,2)}</td><td class="n hide-m"></td><td class="n hide-m mu">${LE(s.cost)}</td></tr>`).join('');
+    rows+=`<tr class="c${op?' op':''} ${x.qty-x.res<=0?'k-off':x.res?'k-res':'k-ok'}" data-g="${esc(k)}"><td><b><span class="cv${op?' o':''}">▸</span> ${esc(x.name)}</b>${byCat?'':`<div class="mu" style="font-size:14px;font-weight:500;margin-left:18px">${esc(x.cat)}</div>`}</td><td class="hide-m mu">${x.locs}</td><td class="n">${x.qty}</td><td class="n">${x.qty-x.res}</td><td class="cn">${x.res?'<span class="b y">'+x.res+'</span>':''}</td><td class="n${x.spread?' spr':''}">${x.spread?E(x.min,2)+' – '+E(x.max,2):E(x.min,2)}</td><td class="n hide-m">${E(x.avg,2)}</td><td class="n hide-m mu">${LE(x.avg)}</td></tr>`;
+    if(op||F.sr)rows+=x.u.filter(s=>!F.sr||s.res).slice().sort((a,b)=>(a.cost||0)-(b.cost||0)).map(s=>`<tr class="c u ${s.res?'rs':''}" data-u="${s.id}" title="Нажмите, чтобы изменить"><td class="ui"><span class="pe">✎</span> ${s.res?`<a href="#" data-ro="${esc(s.res)}">${esc(s.res)}</a> ${esc(s.note)}`:s.used?`<span class="b w">б/у</span> ${esc(s.note)}`:(esc(s.note)||'<span class="mu pn0">партия</span>')}</td><td class="hide-m ploc l-${esc(s.loc)}">${loc(s.loc)}</td><td class="n">${s.qty}</td><td class="n">${s.res?0:s.qty}</td><td class="cn">${s.res?'<span class="b y">'+s.qty+'</span>':''}</td><td class="n">${E(s.cost,2)}</td><td class="n hide-m"></td><td class="n hide-m mu">${LE(s.cost)}</td></tr>`).join('');
   });
   return `<div class="row">${[['','Все'],['dep','Склад'],['salon','Салон'],['showroom','Шоурум'],['etc','Прочее']].map(([k,t])=>`<button class="chip${F.sl===k?' on':''}" data-sl="${k}">${t}<i>${cnt(k)}</i></button>`).join('')}<span class="sp"></span>${pbtn('stk','Печать остатков')}<button class="btn r" id="add">+ Приход</button></div>
   <div class="row"><input class="t" id="sq" placeholder="Поиск: модель или № заказа" value="${esc(F.sq)}" style="width:280px">
@@ -446,7 +576,7 @@ function vDes(){
   const arr=Object.entries(g).map(([n,os])=>{const s=c=>os.filter(o=>o.cs===c).reduce((a,o)=>a+(o.com||0),0);return{n,os,sales:os.reduce((a,o)=>a+o.total,0),paid:s('paid'),due:s('due'),wait:s('wait')}}).sort((a,b)=>(b.due+b.wait)-(a.due+a.wait)||b.sales-a.sales);
   return `
   <div class="tw mt tdz"><table><thead><tr><th>Дизайнер</th><th class="n">Заказов</th><th class="n hide-m">Продажи</th><th class="n">Выплачено</th><th class="n">К выплате</th><th class="n">Ожидается</th></tr></thead><tbody>
-  ${arr.map(x=>{const op=F.open['d'+x.n];return `<tr class="c ${x.due?'k-due':x.wait?'k-wait':'k-ok'}" data-g="${esc('d'+x.n)}"><td><b>${op?'▾':'▸'} ${esc(x.n)}</b> <button class="btn s" data-rn="designer" data-nm="${esc(x.n)}" title="Переименовать">✎</button></td><td class="n">${x.os.length}</td><td class="n hide-m">${L(x.sales)}</td><td class="n">${x.paid?L(x.paid):''}</td><td class="n">${x.due?'<b style="color:var(--red)">'+L(x.due)+'</b>':''}</td><td class="n">${x.wait?L(x.wait):''}</td></tr>`+
+  ${arr.map(x=>{const op=F.open['d'+x.n];return `<tr class="c${op?' op':''} ${x.due?'k-due':x.wait?'k-wait':'k-ok'}" data-g="${esc('d'+x.n)}"><td><b><span class="cv${op?' o':''}">▸</span> ${esc(x.n)}</b> <button class="btn s" data-rn="designer" data-nm="${esc(x.n)}" title="Переименовать">✎</button></td><td class="n">${x.os.length}</td><td class="n hide-m">${L(x.sales)}</td><td class="n">${x.paid?L(x.paid):''}</td><td class="n">${x.due?'<b style="color:var(--red)">'+L(x.due)+'</b>':''}</td><td class="n">${x.wait?L(x.wait):''}</td></tr>`+
   (op?`<tr class="u"><td colspan="6" class="ui">${pbtn('des|'+x.n,'Акт сверки')}</td></tr>`+x.os.map(o=>{const c=L(o.com),act=o.cs==='due'||o.cs==='wait'?`<button class="btn s" data-pc="${o.id}">Выплачено</button>`:'';return `<tr class="u"><td class="ui"><a href="#" data-ro="${esc(o.no)}">${esc(o.no)}</a> ${esc(o.client)} <span class="mu">· ${dt(o.date)}</span> <button class="btn s" data-o="${o.id}" title="Изменить заказ">✎</button></td><td class="n">${CS[o.cs]}</td><td class="n hide-m">${L(o.total)}</td><td class="n">${o.cs==='paid'?c+(o.cp&&o.cp.d?`<div class="mu" style="font-size:14px">${dt(o.cp.d)} · ${esc(o.cp.m)}</div>`:'')+(o.cp?`<button class="btn s" data-uc="${o.id}" style="margin-top:4px">Отменить</button>`:''):''}</td><td class="n">${o.cs==='due'?'<b style="color:var(--red)">'+c+'</b><div style="margin-top:4px">'+act+'</div>':''}</td><td class="n">${o.cs==='wait'?c+'<div style="margin-top:4px">'+act+'</div>':''}</td></tr>`}).join(''):'')}).join('')}
   </tbody></table></div>`;
 }
@@ -456,7 +586,7 @@ function vPar(){
   const g={};O.filter(o=>o.partner&&o.st!=='cancel').forEach(o=>{const k=nm(o.partner);(g[k]=g[k]||{n:o.partner,os:[]}).os.push(o)});
   const arr=Object.values(g).map(x=>Object.assign(x,{sum:x.os.reduce((a,o)=>a+o.total,0),debt:x.os.reduce((a,o)=>a+(o.st==='open'?o.debt||0:0),0),last:x.os.map(o=>o.date||'').sort().pop()})).sort((a,b)=>b.debt-a.debt||b.sum-a.sum);
   return `<div class="tw mt tp"><table><thead><tr><th>Мебельщик</th><th class="n">Заказов</th><th class="n">Оборот</th><th class="n">Должен</th><th class="hide-m">Последний заказ</th></tr></thead><tbody>
-  ${arr.map(x=>{const k='p'+nm(x.n),op=F.open[k];return `<tr class="c ${x.debt?'k-due':'k-ok'}" data-g="${esc(k)}"><td><b>${op?'▾':'▸'} ${esc(x.n)}</b> <button class="btn s" data-rn="partner" data-nm="${esc(x.n)}" title="Переименовать">✎</button></td><td class="n">${x.os.length}</td><td class="n">${L(x.sum)}</td><td class="n">${x.debt?'<b style="color:var(--red)">'+L(x.debt)+'</b>':''}</td><td class="hide-m">${dt(x.last)}</td></tr>`+
+  ${arr.map(x=>{const k='p'+nm(x.n),op=F.open[k];return `<tr class="c${op?' op':''} ${x.debt?'k-due':'k-ok'}" data-g="${esc(k)}"><td><b><span class="cv${op?' o':''}">▸</span> ${esc(x.n)}</b> <button class="btn s" data-rn="partner" data-nm="${esc(x.n)}" title="Переименовать">✎</button></td><td class="n">${x.os.length}</td><td class="n">${L(x.sum)}</td><td class="n">${x.debt?'<b style="color:var(--red)">'+L(x.debt)+'</b>':''}</td><td class="hide-m">${dt(x.last)}</td></tr>`+
   (op?`<tr class="u"><td colspan="5" class="ui">${pbtn('par|'+x.n,'Акт сверки')}</td></tr>`+x.os.sort((a,b)=>(b.date||'').localeCompare(a.date||'')).map(o=>`<tr class="c u ${rc(o)}" data-o="${o.id}"><td class="ui"><b>${esc(o.no)}</b> ${esc(o.client)}</td><td class="n">${stat(o)}</td><td class="n">${L(o.total)}</td><td class="n">${o.st==='open'&&o.debt>0?'<b style="color:var(--red)">'+L(o.debt)+'</b>':''}</td><td class="hide-m">${dt(o.date)}</td></tr>`).join(''):'')}).join('')}
   </tbody></table></div>`;
 }
@@ -671,7 +801,7 @@ M.addEventListener('click',e=>{
   if(x=t.closest('[data-o]')){drawer(+x.dataset.o);return}
   if(x=t.closest('[data-of]')){F.of=x.dataset.of;render();return}
   if(x=t.closest('[data-sl]')){F.sl=x.dataset.sl;render();return}
-  if(x=t.closest('[data-g]')){const k=x.dataset.g;F.open[k]=!F.open[k];render();return}
+  if(x=t.closest('[data-g]')){const k=x.dataset.g;F.open[k]=!F.open[k];TKJ=F.open[k]?k:null;let r=x.nextElementSibling,n=0;if(!F.open[k])while(r&&r.classList.contains('u')){r.classList.add('out');r=r.nextElementSibling;n++}if(n){x.classList.add('cls');setTimeout(render,170)}else render();return}
   if(t.closest('#add')){addModal();return}
   if(t.closest('#srb')){F.sr=!F.sr;if(F.sr){F.so='res';F.sd=-1}else{F.so='name';F.sd=1}render();return}
   if(t.closest('#sclr')){F.sq='';F.sc='';F.sr=false;F.sl='';F.so='name';F.sd=1;render();return}
@@ -717,7 +847,8 @@ function diff(y=SY){
   if(ST.rate!==y.rate){p.rate=ST.rate;n++}
   return n?p:null}
 const SYN=document.getElementById('sync');
-function syncMark(t,c){SYN.textContent=t;SYN.className='sync '+(c||'')}
+const LG=document.querySelector('.lg');
+function syncMark(t,c){const was=SYN.className;if(LG&&!LG.classList.contains(c||'-')){LG.classList.remove('w','ok','er');if(c){LG.offsetWidth;LG.classList.add(c)}}SYN.textContent=t;SYN.className='sync '+(c||'');if(c==='ok'&&was.indexOf('ok')<0){SYN.offsetWidth;SYN.classList.add('flash')}}
 function save(){try{localStorage.setItem('tkAccPl',ST.pl||'ru')}catch(e){}if(!SY)return;PEND=true;syncMark('Сохраняю…','w');clearTimeout(TM);TM=setTimeout(flush,400)}
 async function flush(){
   if(BUSY){TM=setTimeout(flush,300);return}
