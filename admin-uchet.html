@@ -220,6 +220,18 @@ h3{font-size:21px}
 .pki{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);background:#fff;padding:11px 12px;font:inherit;cursor:pointer}
 .pki b{display:block;font-size:17px;color:var(--ink)}.pki span{font-size:14px;color:var(--mute)}
 .pki:active,.pki.on{background:#FFF5F5}.pki.new{color:var(--red)}.pki.new b{display:inline}
+/* цвет статуса у дизайнеров и мебельщиков */
+tr.k-due>td:first-child{box-shadow:inset 5px 0 0 var(--red)}
+tr.k-wait>td:first-child{box-shadow:inset 5px 0 0 var(--warn)}
+tr.k-ok>td:first-child{box-shadow:inset 5px 0 0 var(--ok)}
+tr.k-due{background:#FFF1F1}tr.k-wait{background:#FFF8EB}tr.k-ok{background:#F1F9F3}
+.tdz tr.c:not(.u)>td:nth-child(4){color:var(--ok);font-weight:700}
+.tdz tr.c:not(.u)>td:nth-child(6){color:var(--warn);font-weight:700}
+@media (max-width:700px){
+.mt tr.k-due,.mt tr.k-wait,.mt tr.k-ok{border-left-width:6px}
+.mt tr.k-due{border-left-color:var(--red)}.mt tr.k-wait{border-left-color:var(--warn)}.mt tr.k-ok{border-left-color:var(--ok)}
+.mt tr.k-due>td:first-child,.mt tr.k-wait>td:first-child,.mt tr.k-ok>td:first-child{box-shadow:none}
+}
 </style>
 </head>
 <body>
@@ -434,7 +446,7 @@ function vDes(){
   const arr=Object.entries(g).map(([n,os])=>{const s=c=>os.filter(o=>o.cs===c).reduce((a,o)=>a+(o.com||0),0);return{n,os,sales:os.reduce((a,o)=>a+o.total,0),paid:s('paid'),due:s('due'),wait:s('wait')}}).sort((a,b)=>(b.due+b.wait)-(a.due+a.wait)||b.sales-a.sales);
   return `
   <div class="tw mt tdz"><table><thead><tr><th>Дизайнер</th><th class="n">Заказов</th><th class="n hide-m">Продажи</th><th class="n">Выплачено</th><th class="n">К выплате</th><th class="n">Ожидается</th></tr></thead><tbody>
-  ${arr.map(x=>{const op=F.open['d'+x.n];return `<tr class="c" data-g="${esc('d'+x.n)}"><td><b>${op?'▾':'▸'} ${esc(x.n)}</b> <button class="btn s" data-rn="designer" data-nm="${esc(x.n)}" title="Переименовать">✎</button></td><td class="n">${x.os.length}</td><td class="n hide-m">${L(x.sales)}</td><td class="n">${x.paid?L(x.paid):''}</td><td class="n">${x.due?'<b style="color:var(--red)">'+L(x.due)+'</b>':''}</td><td class="n">${x.wait?L(x.wait):''}</td></tr>`+
+  ${arr.map(x=>{const op=F.open['d'+x.n];return `<tr class="c ${x.due?'k-due':x.wait?'k-wait':'k-ok'}" data-g="${esc('d'+x.n)}"><td><b>${op?'▾':'▸'} ${esc(x.n)}</b> <button class="btn s" data-rn="designer" data-nm="${esc(x.n)}" title="Переименовать">✎</button></td><td class="n">${x.os.length}</td><td class="n hide-m">${L(x.sales)}</td><td class="n">${x.paid?L(x.paid):''}</td><td class="n">${x.due?'<b style="color:var(--red)">'+L(x.due)+'</b>':''}</td><td class="n">${x.wait?L(x.wait):''}</td></tr>`+
   (op?`<tr class="u"><td colspan="6" class="ui">${pbtn('des|'+x.n,'Акт сверки')}</td></tr>`+x.os.map(o=>{const c=L(o.com),act=o.cs==='due'||o.cs==='wait'?`<button class="btn s" data-pc="${o.id}">Выплачено</button>`:'';return `<tr class="u"><td class="ui"><a href="#" data-ro="${esc(o.no)}">${esc(o.no)}</a> ${esc(o.client)} <span class="mu">· ${dt(o.date)}</span> <button class="btn s" data-o="${o.id}" title="Изменить заказ">✎</button></td><td class="n">${CS[o.cs]}</td><td class="n hide-m">${L(o.total)}</td><td class="n">${o.cs==='paid'?c+(o.cp&&o.cp.d?`<div class="mu" style="font-size:14px">${dt(o.cp.d)} · ${esc(o.cp.m)}</div>`:'')+(o.cp?`<button class="btn s" data-uc="${o.id}" style="margin-top:4px">Отменить</button>`:''):''}</td><td class="n">${o.cs==='due'?'<b style="color:var(--red)">'+c+'</b><div style="margin-top:4px">'+act+'</div>':''}</td><td class="n">${o.cs==='wait'?c+'<div style="margin-top:4px">'+act+'</div>':''}</td></tr>`}).join(''):'')}).join('')}
   </tbody></table></div>`;
 }
@@ -444,7 +456,7 @@ function vPar(){
   const g={};O.filter(o=>o.partner&&o.st!=='cancel').forEach(o=>{const k=nm(o.partner);(g[k]=g[k]||{n:o.partner,os:[]}).os.push(o)});
   const arr=Object.values(g).map(x=>Object.assign(x,{sum:x.os.reduce((a,o)=>a+o.total,0),debt:x.os.reduce((a,o)=>a+(o.st==='open'?o.debt||0:0),0),last:x.os.map(o=>o.date||'').sort().pop()})).sort((a,b)=>b.debt-a.debt||b.sum-a.sum);
   return `<div class="tw mt tp"><table><thead><tr><th>Мебельщик</th><th class="n">Заказов</th><th class="n">Оборот</th><th class="n">Должен</th><th class="hide-m">Последний заказ</th></tr></thead><tbody>
-  ${arr.map(x=>{const k='p'+nm(x.n),op=F.open[k];return `<tr class="c" data-g="${esc(k)}"><td><b>${op?'▾':'▸'} ${esc(x.n)}</b> <button class="btn s" data-rn="partner" data-nm="${esc(x.n)}" title="Переименовать">✎</button></td><td class="n">${x.os.length}</td><td class="n">${L(x.sum)}</td><td class="n">${x.debt?'<b style="color:var(--red)">'+L(x.debt)+'</b>':''}</td><td class="hide-m">${dt(x.last)}</td></tr>`+
+  ${arr.map(x=>{const k='p'+nm(x.n),op=F.open[k];return `<tr class="c ${x.debt?'k-due':'k-ok'}" data-g="${esc(k)}"><td><b>${op?'▾':'▸'} ${esc(x.n)}</b> <button class="btn s" data-rn="partner" data-nm="${esc(x.n)}" title="Переименовать">✎</button></td><td class="n">${x.os.length}</td><td class="n">${L(x.sum)}</td><td class="n">${x.debt?'<b style="color:var(--red)">'+L(x.debt)+'</b>':''}</td><td class="hide-m">${dt(x.last)}</td></tr>`+
   (op?`<tr class="u"><td colspan="5" class="ui">${pbtn('par|'+x.n,'Акт сверки')}</td></tr>`+x.os.sort((a,b)=>(b.date||'').localeCompare(a.date||'')).map(o=>`<tr class="c u ${rc(o)}" data-o="${o.id}"><td class="ui"><b>${esc(o.no)}</b> ${esc(o.client)}</td><td class="n">${stat(o)}</td><td class="n">${L(o.total)}</td><td class="n">${o.st==='open'&&o.debt>0?'<b style="color:var(--red)">'+L(o.debt)+'</b>':''}</td><td class="hide-m">${dt(o.date)}</td></tr>`).join(''):'')}).join('')}
   </tbody></table></div>`;
 }
