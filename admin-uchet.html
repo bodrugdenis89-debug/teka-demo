@@ -1150,7 +1150,10 @@ function buyModal(){
     document.getElementById('bp').value='';md.querySelector('.bpa').open=false;draw();toast('Строк: '+got.length)};
   document.getElementById('bf').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;const st=document.getElementById('bfs');
     st.textContent='Читаю документ… 10–30 сек';
-    try{const d=await fileB64(f),j=await api('/api/acc-parse',d);const it=(j.items||[]).filter(x=>x.model&&x.qty>0);
+    try{const d=await fileB64(f);let j=await api('/api/acc-parse',Object.assign({fast:true},d));
+      const ok=j=>{const it=(j.items||[]).filter(x=>x.model&&x.qty>0);if(!it.length)return false;const t=it.reduce((a,x)=>a+(x.sum||x.qty*x.price),0);return !j.total||Math.abs(t-j.total)<0.05};
+      if(!ok(j)){st.textContent='Проверяю точнее…';const j2=await api('/api/acc-parse',d).catch(()=>null);if(j2&&(ok(j2)||!(j.items||[]).length))j=j2}
+      const it=(j.items||[]).filter(x=>x.model&&x.qty>0);
       if(!it.length){st.textContent='';toast('В документе не нашёл товарных строк');return}
       if(j.no)document.getElementById('bn').value=j.no;if(/^\d{4}-\d\d-\d\d$/.test(j.date||''))document.getElementById('bd').value=j.date;if(j.total)document.getElementById('bt').value=j.total;
       sync();rows=rows.filter(r=>r.s||r.m).concat(it.map(x=>pick({s:String(x.sku||'').replace(/\D/g,''),m:String(x.model).trim(),q:Math.round(x.qty),p:Math.round((x.sum&&x.qty?x.sum/x.qty:x.price)*100)/100})));
