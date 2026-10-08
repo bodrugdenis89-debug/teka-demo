@@ -387,7 +387,6 @@ function vStk(){
   <button class="chip${F.sr?' on':''}" id="srb">Только в брони<i>${rcnt}</i></button>
   ${F.sq||F.sc||F.sr||F.sl?'<button class="btn s" id="sclr">Сбросить фильтры</button>':''}
   </div>
-  <p class="mu" style="margin:-4px 0 10px">${F.sr?'Показаны только забронированные товары — сразу видно, под какой заказ. ':''}У ${sp} моделей разная себестоимость по партиям — отмечены <span class="spr">оранжевым</span>. Нажмите на заголовок колонки, чтобы отсортировать.</p>
   <div class="tw mt ts"><table><thead><tr>${th('name','Модель','')}<th class="hide-m">Где лежит</th>${th('qty','Всего')}${th('free','Свободно')}${th('res','В брони','cn')}${th('cost','Себестоимость')}${th('avg','Средняя','n hide-m')}<th class="n hide-m">В леях</th></tr></thead><tbody>
   ${rows||'<tr><td colspan="8" class="mu" style="padding:24px">Ничего не найдено</td></tr>'}
   </tbody></table></div>`;
@@ -433,7 +432,7 @@ const CS={paid:'<span class="b z">выплачено</span>',due:'<span class="b
 function vDes(){
   const g={};O.filter(o=>o.designer).forEach(o=>{(g[o.designer]=g[o.designer]||[]).push(o)});
   const arr=Object.entries(g).map(([n,os])=>{const s=c=>os.filter(o=>o.cs===c).reduce((a,o)=>a+(o.com||0),0);return{n,os,sales:os.reduce((a,o)=>a+o.total,0),paid:s('paid'),due:s('due'),wait:s('wait')}}).sort((a,b)=>(b.due+b.wait)-(a.due+a.wait)||b.sales-a.sales);
-  return `<p class="mu" style="margin-bottom:10px">Комиссия становится «к выплате», когда клиент оплатил заказ полностью. Когда отдали деньги дизайнеру — нажмите «Выплачено» и укажите дату и способ: всё останется в истории. Старые закрытые заказы считаются выплаченными.</p>
+  return `
   <div class="tw mt tdz"><table><thead><tr><th>Дизайнер</th><th class="n">Заказов</th><th class="n hide-m">Продажи</th><th class="n">Выплачено</th><th class="n">К выплате</th><th class="n">Ожидается</th></tr></thead><tbody>
   ${arr.map(x=>{const op=F.open['d'+x.n];return `<tr class="c" data-g="${esc('d'+x.n)}"><td><b>${op?'▾':'▸'} ${esc(x.n)}</b> <button class="btn s" data-rn="designer" data-nm="${esc(x.n)}" title="Переименовать">✎</button></td><td class="n">${x.os.length}</td><td class="n hide-m">${L(x.sales)}</td><td class="n">${x.paid?L(x.paid):''}</td><td class="n">${x.due?'<b style="color:var(--red)">'+L(x.due)+'</b>':''}</td><td class="n">${x.wait?L(x.wait):''}</td></tr>`+
   (op?`<tr class="u"><td colspan="6" class="ui">${pbtn('des|'+x.n,'Акт сверки')}</td></tr>`+x.os.map(o=>{const c=L(o.com),act=o.cs==='due'||o.cs==='wait'?`<button class="btn s" data-pc="${o.id}">Выплачено</button>`:'';return `<tr class="u"><td class="ui"><a href="#" data-ro="${esc(o.no)}">${esc(o.no)}</a> ${esc(o.client)} <span class="mu">· ${dt(o.date)}</span> <button class="btn s" data-o="${o.id}" title="Изменить заказ">✎</button></td><td class="n">${CS[o.cs]}</td><td class="n hide-m">${L(o.total)}</td><td class="n">${o.cs==='paid'?c+(o.cp&&o.cp.d?`<div class="mu" style="font-size:14px">${dt(o.cp.d)} · ${esc(o.cp.m)}</div>`:'')+(o.cp?`<button class="btn s" data-uc="${o.id}" style="margin-top:4px">Отменить</button>`:''):''}</td><td class="n">${o.cs==='due'?'<b style="color:var(--red)">'+c+'</b><div style="margin-top:4px">'+act+'</div>':''}</td><td class="n">${o.cs==='wait'?c+'<div style="margin-top:4px">'+act+'</div>':''}</td></tr>`}).join(''):'')}).join('')}
@@ -466,7 +465,6 @@ function orderModal(id){
   ${inp('Комиссия дизайнеру, лей','eco',o.com,'number')}
   ${inp('Сумма заказа, лей','eto',o.total,'number')}
   ${inp('Оплачено, лей','epd',o.paid,'number')}
-  <p class="mu" style="font-size:15px">Долг считается сам: сумма минус оплачено.</p>
   <label>Способ оплаты<select class="t" id="emt">${['','terminal','transfer','наличные','achitat'].map(m=>`<option${m===(o.method||'')?' selected':''}>${m}</option>`).join('')}</select></label>
   <label>Статус<select class="t" id="est"><option value="open"${o.st==='open'?' selected':''}>Открыт</option><option value="closed"${o.st==='closed'?' selected':''}>Закрыт</option><option value="cancel"${o.st==='cancel'?' selected':''}>Отменён</option></select></label>
   <label style="display:flex;align-items:center;gap:10px;color:var(--ink)"><input type="checkbox" id="esh" ${o.shipped?'checked':''} style="width:22px;height:22px">Отгружен</label>
