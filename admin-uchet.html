@@ -431,11 +431,19 @@ tr.u.out{animation:tkOut .17s ease-in forwards}
 .skw b{color:#8A5A00}
 .per{display:inline-flex;align-items:center;gap:6px}.per input.t{width:auto}
 .plf{flex-wrap:wrap;gap:8px;margin:0 0 10px}.plf select.t{width:auto}
+.hbx{position:relative}.cfgb{height:42px;width:46px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:22px;line-height:1;display:inline-flex;align-items:center;justify-content:center;color:var(--ink)}.cfgb:hover,.cfgb.on{border-color:var(--ink)}
+.cfg{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:360px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.16);padding:16px 18px 18px;display:grid;gap:14px}
+.cfg[hidden]{display:none}.cfh{display:flex;align-items:center;justify-content:space-between;font-weight:800;font-size:18px}.cfx{border:0;background:none;font-size:26px;line-height:1;color:var(--mute);padding:0 4px}
+.cfr{display:grid;gap:6px}.cfr>small{color:var(--mute);font-size:13px;line-height:1.35}.cfr>b{font-size:15px}
+.cfg .plg,.cfg .rate{flex:none;display:flex;align-items:center;gap:8px;justify-content:flex-start;font-size:16px}.cfg .plg span{display:none}.cfg .plg button{flex:1;height:42px}.cfg .rate input{width:100px;height:42px}
+.cfl{display:flex;align-items:center;gap:8px;font-size:15px}.cfl i{width:22px;height:16px;border-radius:4px;border:1px solid rgba(0,0,0,.08)}
+@media(max-width:700px){.cfg{position:fixed;left:0;right:0;top:auto;bottom:0;width:auto;border-radius:16px 16px 0 0;padding:16px 16px calc(18px + env(safe-area-inset-bottom,0px))}.cfgb{height:40px;width:44px}.hb{flex-wrap:nowrap}.back{font-size:0;padding:0;width:44px;justify-content:center;flex:none}.back:before{content:"‹";font-size:28px;line-height:1;margin-top:-3px}.sync{font-size:13px}.hbx{flex:none}}
 </style>
+<script src="tk-per.js?v=2c5e3500"></script>
 </head>
 <body>
 <header>
-  <div class="hb"><a class="back" href="admin.html" title="Вернуться в админку">‹ Админка</a><div class="lg"><b>TEKA</b> Учёт</div><span class="sync" id="sync"></span><span class="sp"></span><div class="plg" title="На каком языке печатать документы и PDF"><span>Документы:</span><button data-pl="ru">RU</button><button data-pl="ro">RO</button><button data-pl="both">RO+RU</button></div><label class="rate" title="Курс, по которому себестоимость в евро пересчитывается в леи">Курс 1 € = <input class="t" id="rate" type="number" step="0.01" min="1"> лей</label><label class="rate kf" title="Коэффициент к цене инвойса: логистика, таможня, НДС. Себестоимость = цена инвойса × коэффициент">Закупка × <input class="t" id="kf" type="number" step="0.01" min="1"></label></div>
+  <div class="hb"><a class="back" href="admin.html" title="Вернуться в админку">‹ Админка</a><div class="lg"><b>TEKA</b> Учёт</div><span class="sync" id="sync"></span><span class="sp"></span><div class="hbx"><button class="cfgb" id="cfgb" title="Настройки" aria-label="Настройки" aria-expanded="false">⚙</button><div class="cfg" id="cfg" hidden><div class="cfh">Настройки<button class="cfx" aria-label="Закрыть">×</button></div><div class="cfr"><b>Язык документов и PDF</b><div class="plg" title="На каком языке печатать документы и PDF"><span>Документы:</span><button data-pl="ru">RU</button><button data-pl="ro">RO</button><button data-pl="both">RO+RU</button></div></div><div class="cfr"><b>Курс евро</b><label class="rate" title="Курс, по которому себестоимость в евро пересчитывается в леи">Курс 1 € = <input class="t" id="rate" type="number" step="0.01" min="1"> лей</label><small>По нему себестоимость в евро пересчитывается в леи.</small></div><div class="cfr"><b>Коэффициент закупки</b><label class="rate kf" title="Коэффициент к цене инвойса: логистика, таможня, НДС. Себестоимость = цена инвойса × коэффициент">Закупка × <input class="t" id="kf" type="number" step="0.01" min="1"></label><small>Цена инвойса × коэффициент = себестоимость (логистика, таможня, НДС).</small></div><div class="cfr"><b>Цвета строк</b><div class="cfl"><i style="background:var(--cl)"></i>заказ закрыт</div><div class="cfl"><i style="background:var(--rs)"></i>товар в брони</div></div></div></div></div>
 </header>
 <div class="tbar"><nav class="tabs" id="tabs"></nav></div>
 
@@ -486,7 +494,7 @@ let TPrev=null,TN=null,TBox=null;
 function tabs(){
   const n=O.filter(o=>o.st==='open').length,el=document.getElementById('tabs');
   const chg=TPrev!==tab,bump=TN!==null&&TN!==n;
-  el.innerHTML=TABS.map(([k,t])=>`<button data-t="${k}" class="${k===tab?'on'+(chg&&TPrev!==null?' go':''):''}">${TI[k]||''}<span>${t}</span>${k==='ord'?`<i class="${bump?'bmp':''}">${n}</i>`:''}</button>`).join('')+'<b class="tind"></b>';
+  el.innerHTML=TABS.map(([k,t])=>`<button data-t="${k}" class="${k===tab?'on'+(chg&&TPrev!==null?' go':''):''}">${TI[k]||''}<span>${t}</span></button>`).join('')+'<b class="tind"></b>';
   const ind=el.querySelector('.tind'),on=el.querySelector('button.on');
   const put=()=>{if(!on)return;ind.style.transform=`translateX(${on.offsetLeft}px)`;ind.style.width=on.offsetWidth+'px'};
   if(TBox&&chg){ind.style.transition='none';ind.style.transform=`translateX(${TBox[0]}px)`;ind.style.width=TBox[1]+'px';ind.offsetWidth;ind.style.transition=''}
@@ -534,10 +542,10 @@ const PER=[['','Всё время'],['d','Сегодня'],['w','Последн�
 function perR(v,a,b){if(!v)return null;const t=new Date(),I=d=>new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10),Y=t.getFullYear(),M=t.getMonth(),td=I(t);
   if(v==='d')return[td,td];if(v==='w')return[I(new Date(Y,M,t.getDate()-6)),td];if(v==='m')return[I(new Date(Y,M,1)),td];
   if(v==='pm')return[I(new Date(Y,M-1,1)),I(new Date(Y,M,0))];if(v==='y')return[Y+'-01-01',td];if(v==='py')return[(Y-1)+'-01-01',(Y-1)+'-12-31'];
-  if(v==='c')return[a||'',b||'9999'];return[v+'-01',v+'-31']}
+  if(v==='c')return[a||'',b||'9999'];if(/^\d{4}$/.test(v))return[v+'-01-01',v+'-12-31'];return[v+'-01',v+'-31']}
 const inPer=(d,r)=>!r||!!d&&d.slice(0,10)>=r[0]&&d.slice(0,10)<=r[1];
-function perSel(id,v,months,a,b){return`<select class="t" id="${id}">${PER.map(([k,t])=>`<option value="${k}"${k===v?' selected':''}>${t}</option>`).join('')}${months.length?'<optgroup label="Месяц">'+months.map(m=>`<option value="${m}"${m===v?' selected':''}>${mon(m)}</option>`).join('')+'</optgroup>':''}<option value="c"${v==='c'?' selected':''}>Свой период…</option></select>${v==='c'?`<span class="per"><input class="t" type="date" id="${id}1" value="${a||''}"> — <input class="t" type="date" id="${id}2" value="${b||''}"></span>`:''}`}
-function perName(v,a,b){if(!v)return'';if(v==='c')return(a?'с '+dt(a):'')+(b?' по '+dt(b):'');const p=PER.find(x=>x[0]===v);return p?p[1].toLowerCase():Pmon(v)}
+function perSel(id,v,months,a,b){return tkPer.button(id,v,a,b,'ru')}
+function perName(v,a,b){return v?tkPer.label(v,a,b,'ru'):''}
 function vOrd(){
   const f=OF.find(x=>x[0]===F.of)[2],q=F.oq.toLowerCase();
   const months=[...new Set(O.map(o=>(o.date||'').slice(0,7)).filter(Boolean))].sort().reverse();
@@ -1004,6 +1012,7 @@ M.addEventListener('click',e=>{
   if(t.closest('#sclr')){F.sq='';F.sc='';F.sr=false;F.sl='';F.so='name';F.sd=1;render();return}
   if(x=t.closest('[data-so]')){const k=x.dataset.so;if(F.so===k)F.sd=-F.sd;else{F.so=k;F.sd=SO[k][1]}render();return}
 });
+M.addEventListener('tkper',e=>{const d=e.detail;if(d.id==='om'){F.om=d.v;F.o1=d.a;F.o2=d.b;render()}});
 M.addEventListener('change',e=>{
   if(e.target.id==='om'){F.om=e.target.value;render()}
   if(e.target.id==='om1'||e.target.id==='om2'){F[e.target.id==='om1'?'o1':'o2']=e.target.value;render()}
@@ -1279,6 +1288,7 @@ function purchasesModal(){
     <tr class="pld" data-pl="${i}" hidden><td colspan="8"><table class="pli">${p.L.map(x=>`<tr><td>${esc(x.model)}</td><td>${loc(x.loc)}</td><td class="n">${x.qty} шт</td><td class="n">${E(x.inv,2)} → ${E(x.cost,2)}</td><td>${st(x)}</td></tr>`).join('')}</table></td></tr>`).join('')}</tbody></table></div>`:`<p class="mu">${A.length?'По этим фильтрам закупок нет.':'Закупок пока нет.'}</p>`)}
   bar();draw();
   let qt;FB.addEventListener('input',e=>{if(e.target.id==='plq'){clearTimeout(qt);qt=setTimeout(()=>{PF.q=e.target.value;draw()},200)}});
+  FB.addEventListener('tkper',e=>{const d=e.detail;if(d.id==='plp'){PF.p=d.v;PF.a=d.a;PF.b=d.b;bar();draw()}});
   FB.addEventListener('change',e=>{const id=e.target.id;if(id==='plp'){PF.p=e.target.value;bar();draw()}if(id==='plp1'){PF.a=e.target.value;draw()}if(id==='plp2'){PF.b=e.target.value;draw()}});
   FB.addEventListener('click',e=>{const c=e.target.closest('[data-ps]');if(c){PF.s=c.dataset.ps;bar();draw()}});
   PB.addEventListener('click',e=>{const o=e.target.closest('[data-po]'),d=e.target.closest('[data-pd]');
@@ -1289,6 +1299,13 @@ function purchasesModal(){
   md.querySelector('[data-pn]').onclick=()=>{md.remove();buyModal()};
 }
 
+
+(function(){const B=document.getElementById('cfgb'),P=document.getElementById('cfg');
+const set=o=>{P.hidden=!o;B.classList.toggle('on',o);B.setAttribute('aria-expanded',o)};
+B.addEventListener('click',e=>{e.stopPropagation();set(P.hidden)});
+P.querySelector('.cfx').addEventListener('click',()=>set(false));
+document.addEventListener('click',e=>{if(!P.hidden&&!P.contains(e.target))set(false)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!P.hidden)set(false)});})();
 
 </script>
 </body>
