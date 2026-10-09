@@ -3670,7 +3670,8 @@
   "b": "Teka",
   "col": "inox",
   "kind": "perete",
-  "w": 60
+  "w": 60,
+  "st": "order"
  },
  {
   "sku": "40484202",
