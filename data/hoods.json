@@ -5290,7 +5290,8 @@
   "b": "Teka",
   "col": "alb",
   "kind": "insula",
-  "w": 90
+  "w": 90,
+  "st": "order"
  },
  {
   "sku": "112930043",
