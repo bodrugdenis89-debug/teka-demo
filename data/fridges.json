@@ -4653,7 +4653,8 @@
   ],
   "b": "Teka",
   "col": "alb",
-  "kind": "incorporabil"
+  "kind": "incorporabil",
+  "st": "order"
  },
  {
   "sku": "113430074",
