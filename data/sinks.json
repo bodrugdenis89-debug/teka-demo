@@ -4625,7 +4625,8 @@
   "b": "Teka",
   "mat": "inox",
   "bowls": 1,
-  "col": "inox"
+  "col": "inox",
+  "st": "order"
  },
  {
   "sku": "115000011",
