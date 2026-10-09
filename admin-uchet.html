@@ -1323,11 +1323,11 @@ function outList(){
 const wEnd=d=>{if(!d)return'';const p=d.slice(0,10).split('-');return new Date(Date.UTC(+p[0],+p[1]-1+WM,+p[2])).toISOString().slice(0,10)};
 function vOut(head){
   const q=F.sq.toLowerCase(),pr=perR(F.op,F.p1,F.p2),A=outList();
-  const L=A.filter(x=>!F.sc||x.cat===F.sc).filter(x=>!q||(x.model+' '+(x.no||'')+' '+(x.o?x.o.client+' '+(x.o.partner||''):'')).toLowerCase().includes(q)).filter(x=>inPer(x.d,pr)).sort((a,b)=>(b.d||'').localeCompare(a.d||''));
+  const L=A.filter(x=>!F.sc||x.cat===F.sc).filter(x=>!q||(x.model+' '+(x.no||'')).toLowerCase().includes(q)||(x.o&&oMatch(x.o,q))).filter(x=>inPer(x.d,pr)).sort((a,b)=>(b.d||'').localeCompare(a.d||''));
   const cc={};A.forEach(x=>cc[x.cat]=(cc[x.cat]||0)+1);const td=isoNow(),soon=new Date(Date.now()+30*864e5).toISOString().slice(0,10);
   const rows=L.map(x=>{const w=wEnd(x.d),ws=!w?'<span class="mu">—</span>':w<td?`<span class="mu">истекла ${dt(w)}</span>`:`<b style="color:${w<=soon?'var(--warn)':'var(--ok)'}">до ${dt(w)}</b>`;
     return`<tr><td><b>${esc(x.model)}</b><div class="mu" style="font-size:14px">${esc(x.cat)}</div></td><td>${x.d?(x.ap?'<span class="mu" title="Точная дата выдачи неизвестна — дата заказа">≈ </span>':'')+dt(x.d):'—'}</td><td>${x.no?`<a href="#" data-ro="${esc(x.no)}">${esc(x.no)}</a>`:'—'}${x.o?`<div class="mu" style="font-size:14px">${esc(x.o.client||'')}</div>`:''}</td><td class="mu">${esc(loc(x.from_))}</td><td class="n">${E(x.cost,2)}</td><td>${ws}</td><td class="n"><button class="btn s" data-rt="${x.k}" title="Клиент вернул товар — вернуть на склад">↩ Возврат</button></td></tr>`}).join('');
-  return head+`<div class="row"><input class="t" id="sq" placeholder="Поиск: модель, № заказа, клиент" value="${esc(F.sq)}" style="width:300px">
+  return head+`<div class="row"><input class="t" id="sq" placeholder="Поиск: модель, № заказа, клиент, телефон" value="${esc(F.sq)}" style="width:300px">
   <select class="t" id="sc"><option value="">Все категории</option>${CATS.map(c=>cc[c]?`<option value="${esc(c)}"${F.sc===c?' selected':''}>${esc(c)} — ${cc[c]} шт</option>`:'').join('')}</select>
   ${tkPer.button('sop',F.op,F.p1,F.p2,'ru')}
   ${F.sq||F.sc||F.op?'<button class="btn s" id="oclr">Сбросить фильтры</button>':''}</div>
