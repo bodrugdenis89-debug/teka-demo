@@ -6068,7 +6068,8 @@
   "b": "Teka",
   "col": "inox",
   "kind": "insula",
-  "w": 80
+  "w": 80,
+  "st": "order"
  },
  {
   "sku": "123100006",
