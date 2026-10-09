@@ -5607,7 +5607,8 @@
   "b": "Teka",
   "col": "gri",
   "kind": "perete-inclinat",
-  "w": 90
+  "w": 90,
+  "st": "order"
  },
  {
   "sku": "112930033",
