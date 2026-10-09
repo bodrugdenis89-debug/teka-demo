@@ -6216,7 +6216,8 @@
   "b": "Küppersbusch",
   "col": "inox",
   "kind": "incorporabila",
-  "w": 80
+  "w": 80,
+  "st": "order"
  },
  {
   "sku": "112930071",
