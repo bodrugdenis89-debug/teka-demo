@@ -4076,7 +4076,8 @@
   "b": "Teka",
   "mat": "granit",
   "bowls": 2,
-  "col": "negru"
+  "col": "negru",
+  "st": "order"
  },
  {
   "sku": "115260010",
