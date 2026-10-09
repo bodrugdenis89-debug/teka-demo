@@ -1313,7 +1313,7 @@ document.addEventListener('click',e=>{if(!P.hidden&&!P.contains(e.target))set(fa
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!P.hidden)set(false)});})();
 
 /* ---------- Склад: отгружено ---------- */
-const WM=24,WEL=['Духовки','Микроволновки и компакт','Варочные панели','Вытяжки','Посудомойки и стиральные','Холодильники'],hasW=x=>WEL.includes(x.cat)||/^(OS|TRS?)\s?\d|tocator|osmo/i.test(x.model);
+const WM=24,WEL=['Духовки','Микроволновки и компакт','Варочные панели','Вытяжки','Посудомойки и стиральные','Холодильники'],hasW=x=>WEL.includes(x.cat)||/^TRS?\s?\d|tocator|tocător/i.test(x.model);
 const RETS=()=>new Set(ST.add.filter(a=>a.retOf&&!(ST.s[RAW.stock.length+ST.add.indexOf(a)]||{}).del).map(a=>a.retOf));
 function outList(){
   const OK={},R=RETS(),L=[];O.forEach(o=>{if(o.k)OK[o.k]=o});
@@ -1331,7 +1331,7 @@ function vOut(head){
   <select class="t" id="sc"><option value="">Все категории</option>${CATS.map(c=>cc[c]?`<option value="${esc(c)}"${F.sc===c?' selected':''}>${esc(c)} — ${cc[c]} шт</option>`:'').join('')}</select>
   ${tkPer.button('sop',F.op,F.p1,F.p2,'ru')}
   ${F.sq||F.sc||F.op?'<button class="btn s" id="oclr">Сбросить фильтры</button>':''}</div>
-  <p class="mu" style="margin:0 0 8px">${L.length} шт · себест. ${E(L.reduce((a,x)=>a+(x.cost||0),0),2)} · гарантия ${WM} мес. с даты выдачи на электротехнику и очистители воды · «≈» — старые записи из Excel, дата выдачи неизвестна, взята дата заказа</p>
+  <p class="mu" style="margin:0 0 8px">${L.length} шт · себест. ${E(L.reduce((a,x)=>a+(x.cost||0),0),2)} · гарантия ${WM} мес. с даты выдачи на электротехнику и измельчители · «≈» — старые записи из Excel, дата выдачи неизвестна, взята дата заказа</p>
   <div class="tw mt tout"><table><thead><tr><th>Модель</th><th>Выдан</th><th>Заказ</th><th>Откуда</th><th class="n">Себест.</th><th>Гарантия</th><th></th></tr></thead><tbody>
   ${rows||'<tr><td colspan="7" class="mu" style="padding:24px">Ничего не найдено</td></tr>'}</tbody></table></div>`}
 function outRet(k){
