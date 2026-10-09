@@ -1311,6 +1311,7 @@ B.addEventListener('click',e=>{e.stopPropagation();set(P.hidden)});
 P.querySelector('.cfx').addEventListener('click',()=>set(false));
 document.addEventListener('click',e=>{if(!P.hidden&&!P.contains(e.target))set(false)});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!P.hidden)set(false)});})();
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="tel:"]');if(!a||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;e.preventDefault();const t=a.textContent.trim();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('Номер скопирован: '+t),()=>toast(t))},true);
 
 /* ---------- Склад: отгружено ---------- */
 const WM=24,WEL=['Духовки','Микроволновки и компакт','Варочные панели','Вытяжки','Посудомойки и стиральные','Холодильники'],hasW=x=>WEL.includes(x.cat)||/^TRS?\s?\d|tocator|tocător/i.test(x.model);
