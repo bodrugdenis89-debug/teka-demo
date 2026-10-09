@@ -477,7 +477,7 @@ function build(){
   O.forEach(o=>{
     o.ret=o.k?S.concat(OUT).filter(s=>s.ret&&key(s.ret.o)===o.k):[];
     o.items=S.filter(s=>s.res&&key(s.res)===o.k&&o.k);
-    o.sold=o.k?RAW.sold.filter((s,i)=>key(s.order)===o.k&&!RS.has('s'+i)).map(s=>Object.assign({},s,{cost:KC(s.cost)})).concat(OUT.filter(s=>key(s.out.o)===o.k).flatMap(s=>Array.from({length:s.qty||1},()=>({model:s.model,from_:s.loc,cost:s.cost,uid:s.id,d:s.out.d})))):[];
+    o.sold=o.k?RAW.sold.map((s,i)=>Object.assign({},s,{cost:KC(s.cost),sk:'s'+i})).filter(s=>key(s.order)===o.k&&!RS.has(s.sk)).concat(OUT.filter(s=>key(s.out.o)===o.k).flatMap(s=>Array.from({length:s.qty||1},()=>({model:s.model,from_:s.loc,cost:s.cost,uid:s.id,d:s.out.d})))):[];
     if(o.designer){o.cp=ST.com[o.id]||null;o.cs=o.cp?'paid':(o.st==='closed'?'paid':o.st==='cancel'?'none':(o.paid>=o.total&&o.total?'due':'wait'))}
   });
 }
@@ -567,7 +567,7 @@ function vOrd(){
 function drawer(id){
   const o=O[id];
   const ov=document.createElement('div');ov.className='ov';
-  const it=o.items.map(s=>`<tr class="rs"><td>${esc(s.model)}</td><td>${loc(s.loc)}</td><td class="n">${E(s.cost,2)}</td><td><span class="b y">бронь</span></td></tr>`).join('')+o.sold.map(s=>`<tr><td>${esc(s.model)}</td><td>${esc(loc(s.from_))}</td><td class="n">${E(s.cost,2)}</td><td><span class="b z">выдан${s.d?' '+dt(s.d):''}</span>${s.uid!=null?` <button class="btn s" data-a="ret" data-u="${s.uid}" title="Вернуть на склад">↩</button>`:''}</td></tr>`).join('')+o.ret.map(s=>`<tr><td class="mu"><s>${esc(s.model)}</s>${s.qty>1?' × '+s.qty:''}</td><td class="mu">${loc(s.loc)}</td><td class="n mu">${E(s.cost,2)}</td><td><span class="b x">возврат ${dt(s.ret.d)}</span></td></tr>`).join('');
+  const it=o.items.map(s=>`<tr class="rs"><td>${esc(s.model)}</td><td>${loc(s.loc)}</td><td class="n">${E(s.cost,2)}</td><td><span class="b y">бронь</span></td></tr>`).join('')+o.sold.map(s=>`<tr><td>${esc(s.model)}</td><td>${esc(loc(s.from_))}</td><td class="n">${E(s.cost,2)}</td><td><span class="b z">выдан${s.d?' '+dt(s.d):''}</span> <button class="btn s" data-rt="${s.uid!=null?'u'+s.uid:s.sk}" title="Клиент вернул товар — вернуть на склад свободным">↩ Возврат</button>${s.uid!=null?` <button class="btn s" data-a="ret" data-u="${s.uid}" title="Ошибочно отметили выданным — вернуть в бронь этого заказа">Отменить выдачу</button>`:''}</td></tr>`).join('')+o.ret.map(s=>`<tr><td class="mu"><s>${esc(s.model)}</s>${s.qty>1?' × '+s.qty:''}</td><td class="mu">${loc(s.loc)}</td><td class="n mu">${E(s.cost,2)}</td><td><span class="b x">возврат ${dt(s.ret.d)}</span></td></tr>`).join('');
   const cost=o.items.concat(o.sold).reduce((a,s)=>a+(s.cost||0),0);
   ov.innerHTML=`<div class="dr"><div class="row"><button class="btn k s" data-a="edit">✎ Изменить заказ</button>${pbtn('order|'+id)}<span class="sp"></span><button class="btn s" data-x>Закрыть ✕</button></div>
   <h2>Заказ ${esc(o.no||'без номера')}</h2><div>${stat(o)} <span class="mu">от ${dt(o.date)}${o.close&&o.st==='closed'?' · закрыт '+dt(o.close):''}</span></div>
@@ -1313,7 +1313,7 @@ document.addEventListener('click',e=>{if(!P.hidden&&!P.contains(e.target))set(fa
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!P.hidden)set(false)});})();
 
 /* ---------- Склад: отгружено ---------- */
-const WM=24;
+const WM=24,WEL=['Духовки','Микроволновки и компакт','Варочные панели','Вытяжки','Посудомойки и стиральные','Холодильники'],hasW=x=>WEL.includes(x.cat)||/^(OS|TRS?)\s?\d|tocator|osmo/i.test(x.model);
 const RETS=()=>new Set(ST.add.filter(a=>a.retOf&&!(ST.s[RAW.stock.length+ST.add.indexOf(a)]||{}).del).map(a=>a.retOf));
 function outList(){
   const OK={},R=RETS(),L=[];O.forEach(o=>{if(o.k)OK[o.k]=o});
@@ -1325,13 +1325,13 @@ function vOut(head){
   const q=F.sq.toLowerCase(),pr=perR(F.op,F.p1,F.p2),A=outList();
   const L=A.filter(x=>!F.sc||x.cat===F.sc).filter(x=>!q||(x.model+' '+(x.no||'')).toLowerCase().includes(q)||(x.o&&oMatch(x.o,q))).filter(x=>inPer(x.d,pr)).sort((a,b)=>(b.d||'').localeCompare(a.d||''));
   const cc={};A.forEach(x=>cc[x.cat]=(cc[x.cat]||0)+1);const td=isoNow(),soon=new Date(Date.now()+30*864e5).toISOString().slice(0,10);
-  const rows=L.map(x=>{const w=wEnd(x.d),ws=!w?'<span class="mu">—</span>':w<td?`<span class="mu">истекла ${dt(w)}</span>`:`<b style="color:${w<=soon?'var(--warn)':'var(--ok)'}">до ${dt(w)}</b>`;
+  const rows=L.map(x=>{const w=hasW(x)?wEnd(x.d):'',ws=!hasW(x)?'<span class="mu">—</span>':!w?'<span class="mu">—</span>':w<td?`<span class="mu">истекла ${dt(w)}</span>`:`<b style="color:${w<=soon?'var(--warn)':'var(--ok)'}">до ${dt(w)}</b>`;
     return`<tr><td><b>${esc(x.model)}</b><div class="mu" style="font-size:14px">${esc(x.cat)}</div></td><td>${x.d?(x.ap?'<span class="mu" title="Точная дата выдачи неизвестна — дата заказа">≈ </span>':'')+dt(x.d):'—'}</td><td>${x.no?`<a href="#" data-ro="${esc(x.no)}">${esc(x.no)}</a>`:'—'}${x.o?`<div class="mu" style="font-size:14px">${esc(x.o.client||'')}</div>`:''}</td><td class="mu">${esc(loc(x.from_))}</td><td class="n">${E(x.cost,2)}</td><td>${ws}</td><td class="n"><button class="btn s" data-rt="${x.k}" title="Клиент вернул товар — вернуть на склад">↩ Возврат</button></td></tr>`}).join('');
   return head+`<div class="row"><input class="t" id="sq" placeholder="Поиск: модель, № заказа, клиент, телефон" value="${esc(F.sq)}" style="width:300px">
   <select class="t" id="sc"><option value="">Все категории</option>${CATS.map(c=>cc[c]?`<option value="${esc(c)}"${F.sc===c?' selected':''}>${esc(c)} — ${cc[c]} шт</option>`:'').join('')}</select>
   ${tkPer.button('sop',F.op,F.p1,F.p2,'ru')}
   ${F.sq||F.sc||F.op?'<button class="btn s" id="oclr">Сбросить фильтры</button>':''}</div>
-  <p class="mu" style="margin:0 0 8px">${L.length} шт · себест. ${E(L.reduce((a,x)=>a+(x.cost||0),0),2)} · гарантия ${WM} мес. с даты выдачи · «≈» — старые записи из Excel, дата выдачи неизвестна, взята дата заказа</p>
+  <p class="mu" style="margin:0 0 8px">${L.length} шт · себест. ${E(L.reduce((a,x)=>a+(x.cost||0),0),2)} · гарантия ${WM} мес. с даты выдачи на электротехнику и очистители воды · «≈» — старые записи из Excel, дата выдачи неизвестна, взята дата заказа</p>
   <div class="tw mt tout"><table><thead><tr><th>Модель</th><th>Выдан</th><th>Заказ</th><th>Откуда</th><th class="n">Себест.</th><th>Гарантия</th><th></th></tr></thead><tbody>
   ${rows||'<tr><td colspan="7" class="mu" style="padding:24px">Ничего не найдено</td></tr>'}</tbody></table></div>`}
 function outRet(k){
@@ -1340,7 +1340,7 @@ function outRet(k){
     const r={o:x.no||null,d:isoNow()};
     if(k[0]==='u'){const id=splitU(+k.slice(1),1);setU(id,{out:null,res:null,ret:r})}
     else{const s=RAW.sold[+k.slice(1)];ST.add.push({loc:s.from_||'dep',cat:x.cat,model:s.model,cost:s.cost,res:null,note:s.order?'из заказа '+s.order:'',used:false,qty:1,retOf:k,ret:r})}
-    done('Возврат принят: '+x.model)})}
+    done('Возврат принят: '+x.model);const ov=document.querySelector('.ov');if(ov&&ov.querySelector('.dr')&&x.o){ov.remove();drawer(x.o.id)}})}
 F.op=F.op||'';F.p1=F.p1||'';F.p2=F.p2||'';
 document.addEventListener('click',e=>{const b=e.target.closest('[data-rt]');if(b){e.preventDefault();outRet(b.dataset.rt);return}
   if(e.target.closest('#oclr')){F.sq='';F.sc='';F.op='';F.p1='';F.p2='';render()}});
