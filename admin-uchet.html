@@ -425,6 +425,7 @@ tr.u.out{animation:tkOut .17s ease-in forwards}
 .byt.pl{min-width:900px}.byt.pl td:nth-child(1){width:auto;min-width:130px}.byt.pl td:nth-child(2){min-width:96px}
 .pld>td{background:var(--soft);padding:6px 12px 10px}
 .pli{width:100%;border-collapse:collapse}.pli td{padding:6px 8px;border-bottom:1px solid var(--line);font-size:14px}.pli tr:last-child td{border-bottom:0}
+.dl .sw{grid-column:1/-1}.dl dd.sw{margin-top:-6px;font-weight:400}.sit{border:1px solid var(--line);border-radius:10px;border-collapse:separate;border-spacing:0}.sit th{font-size:12.5px;font-weight:600;color:var(--mute);text-align:left;padding:7px 8px;background:var(--soft);border-bottom:1px solid var(--line)}.sit th.n{text-align:right}.sit td:first-child{font-weight:600}.sit td.n{font-size:14px}
 .byt .pli td{min-width:0!important;width:auto!important}
 .bup[hidden],.bpa[hidden]{display:none}
 .skw{background:#FFF4E0;border:1px solid #F0C36D;border-radius:10px;padding:10px 14px;margin:0 0 10px;font-size:15px;display:grid;gap:3px}
@@ -571,7 +572,7 @@ function drawer(id){
   const cost=o.items.concat(o.sold).reduce((a,s)=>a+(s.cost||0),0);
   ov.innerHTML=`<div class="dr"><div class="row"><button class="btn k s" data-a="edit">✎ Изменить заказ</button>${pbtn('order|'+id)}<span class="sp"></span><button class="btn s" data-x>Закрыть ✕</button></div>
   <h2>Заказ ${esc(o.no||'без номера')}</h2><div>${stat(o)} <span class="mu">от ${dt(o.date)}${o.close&&o.st==='closed'?' · закрыт '+dt(o.close):''}</span></div>
-  <dl class="dl"><dt>Мебельщик</dt><dd>${esc(o.partner||'—')}</dd><dt>Клиент</dt><dd>${esc(o.client)}</dd><dt>Телефон</dt><dd>${o.tel?`<a href="tel:${esc(o.tel)}">${esc(o.tel)}</a> <button class="btn s" data-a="tel">✎</button>`:'<button class="btn s" data-a="tel">+ Добавить</button>'}</dd>${o.site?`<dt>С сайта</dt><dd>${o.site.map(i=>esc(i.n)+(i.q>1?' × '+i.q:'')).join('<br>')}</dd>`:''}
+  <dl class="dl"><dt>Мебельщик</dt><dd>${esc(o.partner||'—')}</dd><dt>Клиент</dt><dd>${esc(o.client)}</dd><dt>Телефон</dt><dd>${o.tel?`<a href="tel:${esc(o.tel)}">${esc(o.tel)}</a> <button class="btn s" data-a="tel">✎</button>`:'<button class="btn s" data-a="tel">+ Добавить</button>'}</dd>${o.site?`<dt class="sw">С сайта · ${o.site.reduce((a,i)=>a+(+i.q||1),0)} шт</dt><dd class="sw"><table class="pli sit"><tr><th>Товар</th><th class="n">Кол-во</th><th class="n">Цена</th><th class="n">Сумма</th></tr>${o.site.map(i=>`<tr><td>${esc(i.n)}</td><td class="n">${+i.q||1}</td><td class="n">${i.p?L(i.p):'—'}</td><td class="n">${i.p?L(i.p*(+i.q||1)):'—'}</td></tr>`).join('')}</table></dd>`:''}
   <dt>Дизайнер</dt><dd>${o.designer?esc(o.designer)+' · '+L(o.com):'—'}</dd>
   <dt>Сумма</dt><dd>${L(o.total)}</dd><dt>Оплачено</dt><dd>${L(o.paid)}${o.method?' <span class="mu">· '+esc(PML(o.method))+'</span>':''}</dd>
   <dt>Долг</dt><dd style="color:${o.debt>0?'var(--red)':'inherit'}">${L(o.debt)}</dd>
