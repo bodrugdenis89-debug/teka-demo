@@ -610,7 +610,7 @@
   "sku": "111020031",
   "n": "HCB 6535 BK",
   "sub": "Cuptor multifuncţional, cu sistem de curăţare HydroClean şi butoane Pop in/out",
-  "p": 8190,
+  "p": 9100,
   "img": [
    "111020031-1.webp",
    "111020031-2.webp",
@@ -876,10 +876,7 @@
   "f": [],
   "w": 60,
   "c": "multi",
-  "col": "negru",
-  "o": 9100,
-  "t": "sale",
-  "d": 10
+  "col": "negru"
  },
  {
   "sku": "41560140",
