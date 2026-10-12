@@ -128,7 +128,8 @@ let ct=0;async function findCl(){const t=S.tel.replace(/\D/g,'');if(t.length<8){
 
 async function payload(){const R=await lines();return {items:R.map(r=>({sku:r.i.sku,f:r.i.f,n:nm(r.x),sub:String(tx('s',r.x.sub)||'').slice(0,200),img:pics(r.x)[0]||'',st:r.x.st||'',q:r.i.q,p:r.p,...(r.o?{o:r.o}:{}),dk:r.i.dk,dv:+r.i.dv||0})),dk:S.dk,dv:+S.dv||0,name:S.name.trim(),tel:S.tel.trim(),cm:S.cm.trim(),ttl:(S.ttl||'').trim(),...(S.eid?{id:S.eid}:{}),lang:LANG.toUpperCase()}}
 const base=()=>location.origin+'/';
-async function save(){const R=await lines(),c=calc(R),ed=!!S.eid;const j=await api('/api/offer',await payload());
+async function save(){const R=await lines(),c=calc(R),P=await payload();let ed=!!S.eid,j;
+  try{j=await api('/api/offer',P)}catch(e){if(!ed||e.message!=='Подборка не найдена')throw e;delete P.id;S.eid=null;ed=false;j=await api('/api/offer',P)}
   RES={id:j.id,url:base()+'desk-offer.html?o='+j.id,tot:c.tot};S.eid=j.id;S.dirty=0;sv();draw();toast(Z(ed?'Изменения сохранены — ссылка та же':'Подборка сохранена'));OFL=null}
 async function send(){if(!S.items.length)return toast(Z('Подборка пуста'));
   try{if(!RES||S.dirty||RES.tot==null)await save();sendBox()}catch(e){toast(e.message)}}
