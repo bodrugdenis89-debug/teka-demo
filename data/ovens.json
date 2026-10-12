@@ -888,7 +888,7 @@
   "sku": "41560140",
   "n": "HSB 635 S",
   "sub": "Cuptor multifuncţional cu sistem de curăţare HydroClean PRO, 60 cm",
-  "p": 8910,
+  "p": 9900,
   "img": [
    "41560140-1.webp",
    "41560140-2.webp",
@@ -1170,10 +1170,7 @@
   "f": [],
   "w": 60,
   "c": "multi",
-  "col": "inox",
-  "o": 9900,
-  "t": "sale",
-  "d": 10
+  "col": "inox"
  },
  {
   "sku": "111010079",
