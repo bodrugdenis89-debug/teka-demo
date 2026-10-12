@@ -1121,7 +1121,7 @@ function siteLink(o){
   api('/api/order-status',{id:o.src,st:'work',acc:o.no}).catch(()=>toast('Метка на сайте не обновилась'));
   const cd=t=>String(t).toUpperCase().replace(/[^A-Z0-9]/g,'');
   const P=[];
-  (o.site||[]).forEach(i=>{const m=String(i.n).toUpperCase().match(/\b([A-Z]{1,6})[\s-]?(\d[\d.]*)/);if(!m)return;const c=cd(m[1]+m[2]);if(c.length<5)return;
+  (o.site||[]).forEach(i=>{const m=String(i.n).toUpperCase().match(/\b([A-Z]{1,12})[\s-]?(\d[\d.]*)/);if(!m)return;const c=cd(m[1]+m[2]);if(c.length<4)return;
     const N=' '+String(i.n).toUpperCase().replace(/[^A-Z0-9]+/g,' ')+' ',ex=s=>String(s.model).toUpperCase().replace(/[^A-Z0-9]+/g,' ').trim().split(' ').filter(w=>w&&!N.includes(' '+w+' ')&&!c.includes(w)).length;
     const s=S.filter(s=>!s.res&&cd(s.model).includes(c)).sort((a,b)=>ex(a)-ex(b)||(a.cost||0)-(b.cost||0))[0];if(s)P.push({i,s,k:Math.min(i.q||1,s.qty),ok:!ex(s)})});
   if(!P.length)return;
