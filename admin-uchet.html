@@ -219,7 +219,7 @@ h3{font-size:21px}
 .pkh{padding:8px 12px 4px;font-size:14px;font-weight:700;color:var(--mute);background:#f6f6f6;position:sticky;top:0}
 .pki{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);background:#fff;padding:11px 12px;font:inherit;cursor:pointer}
 .pki b{display:block;font-size:17px;color:var(--ink)}.pki span{font-size:14px;color:var(--mute)}
-.pki:active,.pki.on{background:#FFF5F5}.pki.new{color:var(--red)}.pki.new b{display:inline}
+.pki:active{background:#FFF5F5}.pki.on{background:#FFE9E9;box-shadow:inset 5px 0 0 var(--red)}.pki.on b:after{content:' ✓';color:var(--red)}.pki.new{color:var(--red)}.pki.new b{display:inline}
 /* цвет статуса у дизайнеров и мебельщиков */
 tr.k-due>td:first-child{box-shadow:inset 5px 0 0 var(--red)}
 tr.k-wait>td:first-child{box-shadow:inset 5px 0 0 var(--warn)}
@@ -567,7 +567,7 @@ function vOrd(){
 function drawer(id){
   const o=O[id];
   const ov=document.createElement('div');ov.className='ov';
-  const it=o.items.map(s=>`<tr class="rs"><td>${esc(s.model)}</td><td>${loc(s.loc)}</td><td class="n">${E(s.cost,2)}</td><td><span class="b y">бронь</span></td></tr>`).join('')+o.sold.map(s=>`<tr><td>${esc(s.model)}</td><td>${esc(loc(s.from_))}</td><td class="n">${E(s.cost,2)}</td><td><span class="b z">выдан${s.d?' '+dt(s.d):''}</span> <button class="btn s" data-rt="${s.uid!=null?'u'+s.uid:s.sk}" title="Клиент вернул товар — вернуть на склад свободным">↩ Возврат</button>${s.uid!=null?` <button class="btn s" data-a="ret" data-u="${s.uid}" title="Ошибочно отметили выданным — вернуть в бронь этого заказа">Отменить выдачу</button>`:''}</td></tr>`).join('')+o.ret.map(s=>`<tr><td class="mu"><s>${esc(s.model)}</s>${s.qty>1?' × '+s.qty:''}</td><td class="mu">${loc(s.loc)}</td><td class="n mu">${E(s.cost,2)}</td><td><span class="b x">возврат ${dt(s.ret.d)}</span></td></tr>`).join('');
+  const it=o.items.map(s=>`<tr class="rs"><td>${esc(s.model)}</td><td>${loc(s.loc)}</td><td class="n">${E(s.cost,2)}<br><small class="mu">≈ ${LE(s.cost)}</small></td><td><span class="b y">бронь</span></td></tr>`).join('')+o.sold.map(s=>`<tr><td>${esc(s.model)}</td><td>${esc(loc(s.from_))}</td><td class="n">${E(s.cost,2)}<br><small class="mu">≈ ${LE(s.cost)}</small></td><td><span class="b z">выдан${s.d?' '+dt(s.d):''}</span> <button class="btn s" data-rt="${s.uid!=null?'u'+s.uid:s.sk}" title="Клиент вернул товар — вернуть на склад свободным">↩ Возврат</button>${s.uid!=null?` <button class="btn s" data-a="ret" data-u="${s.uid}" title="Ошибочно отметили выданным — вернуть в бронь этого заказа">Отменить выдачу</button>`:''}</td></tr>`).join('')+o.ret.map(s=>`<tr><td class="mu"><s>${esc(s.model)}</s>${s.qty>1?' × '+s.qty:''}</td><td class="mu">${loc(s.loc)}</td><td class="n mu">${E(s.cost,2)}</td><td><span class="b x">возврат ${dt(s.ret.d)}</span></td></tr>`).join('');
   const cost=o.items.concat(o.sold).reduce((a,s)=>a+(s.cost||0),0);
   ov.innerHTML=`<div class="dr"><div class="row"><button class="btn k s" data-a="edit">✎ Изменить заказ</button>${pbtn('order|'+id)}<span class="sp"></span><button class="btn s" data-x>Закрыть ✕</button></div>
   <h2>Заказ ${esc(o.no||'без номера')}</h2><div>${stat(o)} <span class="mu">от ${dt(o.date)}${o.close&&o.st==='closed'?' · закрыт '+dt(o.close):''}</span></div>
@@ -838,7 +838,7 @@ function addToOrder(oid){
     PL.innerHTML=r.map(s=>`<button class="pki${+PL.dataset.sel===s.id?' on':''}" data-id="${s.id}"><b>${esc(s.model)}</b><span>${loc(s.loc)} · ${s.qty} шт · ${E(s.cost,2)}</span></button>`).join('')||'<div class="pkh">Свободных позиций не найдено</div>'};
   I.oninput=draw;
   PL.onclick=e=>{const b=e.target.closest('[data-id]');if(!b)return;PL.dataset.sel=b.dataset.id;const s=S.find(u=>u.id===+b.dataset.id);
-    X.innerHTML=`<p style="margin:0"><b>${esc(s.model)}</b> · ${loc(s.loc)} · ${E(s.cost,2)}</p>${qtyField(s,1)}<label style="display:flex;align-items:center;gap:10px;color:var(--ink)"><input type="checkbox" id="aoo" style="width:22px;height:22px">Сразу выдать клиенту (иначе — бронь)</label>`;draw()};
+    X.innerHTML=`<p style="margin:0">Выбрано: <b>${esc(s.model)}</b> · ${loc(s.loc)} · ${E(s.cost,2)}</p>${qtyField(s,1)}<label style="display:flex;align-items:center;gap:10px;color:var(--ink)"><input type="checkbox" id="aoo" style="width:22px;height:22px">Сразу выдать клиенту (иначе — бронь)</label>`;draw();X.scrollIntoView({block:'nearest'})};
   draw();
 }
 const reDr=id=>{const v=document.querySelector('.ov');if(v){v.remove();drawer(id)}};
