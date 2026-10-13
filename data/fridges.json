@@ -1,5 +1,331 @@
 [
  {
+  "sku": "113400045",
+  "n": "Van Gogh RBF 88670 VG",
+  "sub": "Ediţie specială Van Gogh Museum. Combina frigorifica free-standing, Total No Frost, Control Multi Air Flow",
+  "p": 35300,
+  "img": [],
+  "draw": "assets/u/113400045-draw-mv6qsv3d0ez.webp",
+  "label": "",
+  "desc": [
+   "Ediţie specială Van Gogh Museum",
+   "Combina frigorifica free-standing",
+   "Total No Frost",
+   "Control Multi Air Flow",
+   "Metal Cooling",
+   "Control DualTemp",
+   "1 sertar Vita CareBox, 1 Fresh Box",
+   "Usi reversibile",
+   "Panou de control electronic",
+   "Sistem de iluminare LED",
+   "Motor Inverter",
+   "Functie Racire Rapida/ Congelare rapid",
+   "Rafturi din sticla securizata (frigider & congelator)",
+   "Functie Vacanta",
+   "Functie ECO",
+   "Alarma Acustica",
+   "2 sertare pentru legume- fructi",
+   "Clasa energetica: C",
+   "Clasa climatica: SN/N/ST/T",
+   "Volum total: 378l; Volum frigider: 256l; Volum congelator: 122l",
+   "Congelator 4*",
+   "Finisaj: Cristal gri închis & negru cu detalii în culoarea şampaniei",
+   "Dimensiuni (lxaxah): 60 x 70 x 201 cm"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "378"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "2010"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "700"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "88"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "795"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "800"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "2310"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "Total No frost"
+     ],
+     [
+      "No Frost în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (chiller)",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (congelator)",
+      "Da"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "216"
+     ],
+     [
+      "Capacitatea compartimentului de răcire (litri)",
+      "40"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "122"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "7.5"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "177"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "13"
+     ],
+     [
+      "Clasa climatică",
+      "SN/N/ST/T"
+     ],
+     [
+      "Zgomot (dB)",
+      "38"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220V-240V"
+     ],
+     [
+      "Puterea elementului de dezghețare (W)",
+      "170"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0.484"
+     ],
+     [
+      "Conexiune",
+      "VDE"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "≥160"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "4.5"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ușă",
+      "Da"
+     ],
+     [
+      "Afișaj pe ornamente",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Congelarea rapidă",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Funcția În Vacanţă",
+      "Da"
+     ],
+     [
+      "Funcția ECO",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ],
+     [
+      "Mâner integrat",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ],
+     [
+      "Afișare temperatură pentru compartimentul congelator",
+      "Da"
+     ],
+     [
+      "Indicator de congelare rapidă",
+      "Da"
+     ],
+     [
+      "Alarmă acustică",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Compartiment polivalent",
+      "YES"
+     ],
+     [
+      "Zonă pentru congelare rapidă",
+      "Da"
+     ],
+     [
+      "Tavă pentru cuburi de gheață",
+      "1"
+     ],
+     [
+      "Suport pentru sticle (Număr de sticle)",
+      "5"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Rolă (spate)",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "4"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "1"
+     ]
+    ]
+   }
+  ],
+  "pdf": [],
+  "b": "Teka",
+  "f": [],
+  "w": "",
+  "c": "",
+  "col": "",
+  "u": [
+   "assets/u/113400045-mv6qs05e3gu.webp",
+   "assets/u/113400045-mv6qs0tdnct.webp",
+   "assets/u/113400045-mv6qs1m59gl.webp",
+   "assets/u/113400045-mv6qs5lptf0.webp",
+   "assets/u/113400045-mv6qs6b0aub.webp",
+   "assets/u/113400045-mv6qs7xlx0k.webp",
+   "assets/u/113400045-mv6qs9s7szn.webp",
+   "assets/u/113400045-mv6qsc3budm.webp",
+   "assets/u/113400045-mv6qse7xic5.webp",
+   "assets/u/113400045-mv6qsgs3ebu.webp",
+   "assets/u/113400045-mv6qsjm65ld.webp",
+   "assets/u/113400045-mv6qsntoryt.webp",
+   "assets/u/113400045-mv6qsqyteop.webp",
+   "assets/u/113400045-mv6qsui16qp.webp"
+  ]
+ },
+ {
   "sku": "113510000",
   "n": "RSF 41160 BU EU",
   "sub": "Congelator încorporabil cu montare sub blat",
