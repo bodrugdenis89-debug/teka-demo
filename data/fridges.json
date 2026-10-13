@@ -1,5 +1,322 @@
 [
  {
+  "sku": "113400037",
+  "n": "RBF 68670 WH",
+  "sub": "Combina frigorifica free-standing, finisaj Alb, Total No Frost, Control Air Flow, Metal Cooling",
+  "p": 19700,
+  "img": [],
+  "draw": "assets/u/113400037-draw-mv6rkh7i17n.webp",
+  "label": "",
+  "desc": [
+   "Combina frigorifica free-standing, finisaj Alb",
+   "Total No Frost",
+   "Control Air Flow",
+   "Metal Cooling",
+   "Control DualTemp",
+   "1 sertar ZeroBox, 1 Fresh Box",
+   "Usi reversibile",
+   "Panou de control electronic;",
+   "Sistem de iluminare LED",
+   "Motor Inverter",
+   "Functie Racire Rapida/ Congelare rapida",
+   "Rafturi din sticla securizata (frigider & congelator)",
+   "Functie Vacanta",
+   "Functie ECO",
+   "Alarma acustica",
+   "2 sertare pentru legume- fructi",
+   "Clasa energetica: C",
+   "Clasa climatica: SN/N/ST/T",
+   "Volum total: 378l; Volum frigider: 215l; Volum congelator: 122l; Volum zona Chilling: 40 l",
+   "Congelator 4*",
+   "Dimensiuni (lxaxah): 60 x 70 x 201 cm"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Capacitatea (litri)",
+      "373"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "2010"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "700"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "83"
+     ]
+    ]
+   },
+   {
+    "t": "Măsuri de montare",
+    "r": [
+     [
+      "Lățime încorporată (mm)",
+      "795"
+     ],
+     [
+      "Adâncime încorporată (mm)",
+      "800"
+     ],
+     [
+      "Înălțime încorporată (mm)",
+      "2310"
+     ]
+    ]
+   },
+   {
+    "t": "Fișa produsului",
+    "r": [
+     [
+      "Sistem de răcire",
+      "Total No frost"
+     ],
+     [
+      "No Frost în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (chiller)",
+      "Da"
+     ],
+     [
+      "Compartiment No Frost (congelator)",
+      "Da"
+     ],
+     [
+      "Capacitate frigider (litri)",
+      "215"
+     ],
+     [
+      "Capacitatea compartimentului de răcire (litri)",
+      "40"
+     ],
+     [
+      "Capacitate congelator (litri)",
+      "118"
+     ],
+     [
+      "Clasificarea congelatorului",
+      "4"
+     ],
+     [
+      "Capacitate de congelare",
+      "7.5"
+     ],
+     [
+      "Consum anual (kWh / an)",
+      "175"
+     ],
+     [
+      "Timp de creștere a temperaturii (h)",
+      "13"
+     ],
+     [
+      "Clasa climatică",
+      "SN/N/ST/T"
+     ],
+     [
+      "Zgomot (dB)",
+      "38"
+     ]
+    ]
+   },
+   {
+    "t": "Alimentare electrică",
+    "r": [
+     [
+      "Frecvență (Hz)",
+      "50Hz"
+     ],
+     [
+      "Putere (V)",
+      "220V-240V"
+     ],
+     [
+      "Puterea elementului de dezghețare (W)",
+      "170"
+     ],
+     [
+      "Consumul de energie (kw / zi)",
+      "0.479"
+     ],
+     [
+      "Conexiune",
+      "VDE"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "≥160"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "4.5"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ],
+     [
+      "Decongelarea automată în compartimentul frigorific",
+      "Da"
+     ],
+     [
+      "Decongelarea automată în compartimentul congelatorului",
+      "Da"
+     ],
+     [
+      "Control electronic",
+      "Da"
+     ],
+     [
+      "Termostat electronic reglabil",
+      "Da"
+     ],
+     [
+      "Afișaj pe ornamente",
+      "Da"
+     ],
+     [
+      "Tratament antibacterian",
+      "NO"
+     ],
+     [
+      "Buton pentru setare grad de răcire",
+      "Da"
+     ],
+     [
+      "Congelarea rapidă",
+      "Da"
+     ],
+     [
+      "Funcţie Fast Cooling",
+      "Da"
+     ],
+     [
+      "Funcția În Vacanţă",
+      "Da"
+     ],
+     [
+      "Funcția ECO",
+      "Da"
+     ],
+     [
+      "Iluminare interioară",
+      "Da"
+     ],
+     [
+      "Ușă reversibilă",
+      "Da"
+     ],
+     [
+      "Mâner integrat",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Indicator luminos de funcționare",
+    "r": [
+     [
+      "Sistem de iluminare interioară (frigider)",
+      "Da"
+     ],
+     [
+      "Afișare temperatură pentru compartimentul congelator",
+      "Da"
+     ],
+     [
+      "Indicator de congelare rapidă",
+      "Da"
+     ],
+     [
+      "Alarmă acustică",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Echipament",
+    "r": [
+     [
+      "Compartiment polivalent",
+      "YES"
+     ],
+     [
+      "Zonă pentru congelare rapidă",
+      "Da"
+     ],
+     [
+      "Tavă pentru cuburi de gheață",
+      "1"
+     ],
+     [
+      "Picioarele din față reglabile",
+      "Da"
+     ],
+     [
+      "Rolă (spate)",
+      "Da"
+     ],
+     [
+      "Număr de rafturi",
+      "4"
+     ],
+     [
+      "Rafturi ajustabile",
+      "Da"
+     ],
+     [
+      "Sertare pentru legume",
+      "1"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/RBF_64660_RBF_68670-UserManual-EN-ES-FR-PT.pdf"
+  ],
+  "b": "Teka",
+  "f": [],
+  "w": "",
+  "c": "",
+  "col": "",
+  "st": "order",
+  "u": [
+   "assets/u/113400037-mv6rk8e7bl1.webp",
+   "assets/u/113400037-mv6rk8yk4it.webp",
+   "assets/u/113400037-mv6rk9jykxx.webp",
+   "assets/u/113400037-mv6rka0efpk.webp",
+   "assets/u/113400037-mv6rkanjjwy.webp",
+   "assets/u/113400037-mv6rkb7bc6i.webp",
+   "assets/u/113400037-mv6rkcawgct.webp",
+   "assets/u/113400037-mv6rkd3a0j2.webp",
+   "assets/u/113400037-mv6rkdvefik.webp",
+   "assets/u/113400037-mv6rkeiu03z.webp",
+   "assets/u/113400037-mv6rkf907y0.webp",
+   "assets/u/113400037-mv6rkgqsgro.webp"
+  ]
+ },
+ {
   "sku": "113400043",
   "n": "RBF 84680 SS",
   "sub": "Combina frigorifica free-standing, finisaj Inox, Total No Frost, Control Air Flow, Metal Cooling",

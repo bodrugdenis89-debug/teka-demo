@@ -1639,7 +1639,12 @@
 "Control Air Flow": "Контроль воздушного потока",
 "1 sertar ZeroBox, 1 FlipBox": "1 ящик ZeroBox, 1 флипбокс",
 "Clasa energetica: A;": "Класс энергопотребления: А;",
-"Volum total: 338l; Volum frigider: 176l; Volum congelator: 122l; Volum zona Chilling: 40 l": "Общий объем: 338л; Объем холодильника: 176л; Объем морозильной камеры: 122л; Объем зоны охлаждения: 40 л"
+"Volum total: 338l; Volum frigider: 176l; Volum congelator: 122l; Volum zona Chilling: 40 l": "Общий объем: 338л; Объем холодильника: 176л; Объем морозильной камеры: 122л; Объем зоны охлаждения: 40 л",
+"Combina frigorifica free-standing, finisaj Alb": "Отдельностоящая холодильная комбинация, белая отделка",
+"1 sertar ZeroBox, 1 Fresh Box": "1 ящик ZeroBox, 1 ящик Fresh Box",
+"Panou de control electronic;": "Электронная панель управления;",
+"Alarma acustica": "Акустическая сигнализация",
+"Volum total: 378l; Volum frigider: 215l; Volum congelator: 122l; Volum zona Chilling: 40 l": "Общий объем: 378л; Объем холодильника: 215л; Объем морозильной камеры: 122л; Объем зоны охлаждения: 40 л"
 },
 "s": {
 "Cuptor multifuncţional, cu 8 funcţii şi Sistem de curăţare HydroClean PRO": "Многофункциональный духовой шкаф с 8 функциями и системой очистки HydroClean PRO",
@@ -1891,6 +1896,7 @@
 "Ediţie specială Van Gogh Museum. Combina frigorifica free-standing, Total No Frost, Control Multi Air Flow": "Специальное издание Музея Ван Гога. Отдельно стоящий холодильник с морозильной камерой, Total No Frost, Multi Air Flow Control",
 "Combina frigorifica free-standing, Total No Frost, Control Multi Air Flow, Metal Cooling , Control DualTemp": "Отдельно стоящий холодильник, Total No Frost, Multi Air Flow Control, Металлическое охлаждение, DualTemp Control",
 "Combina frigorifica free-standing, finisaj inox, Total No Frost, Multi Air Flow, Control DualTemp": "Отдельно стоящий холодильник с морозильной камерой, отделка из нержавеющей стали, Total No Frost, Multi Air Flow, DualTemp Control",
-"Combina frigorifica free-standing, finisaj Inox, Total No Frost, Control Air Flow, Metal Cooling": "Отдельностоящая холодильная комбинация, отделка Inox, Total No Frost, Контроль воздушного потока, Металлическое охлаждение"
+"Combina frigorifica free-standing, finisaj Inox, Total No Frost, Control Air Flow, Metal Cooling": "Отдельностоящая холодильная комбинация, отделка Inox, Total No Frost, Контроль воздушного потока, Металлическое охлаждение",
+"Combina frigorifica free-standing, finisaj Alb, Total No Frost, Control Air Flow, Metal Cooling": "Отдельностоящая холодильная комбинация, белая отделка, Total No Frost, регулировка воздушного потока, металлическое охлаждение"
 }
 }
