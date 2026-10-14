@@ -425,6 +425,8 @@ tr.u.out{animation:tkOut .17s ease-in forwards}
 .byt.pl{min-width:900px}.byt.pl td:nth-child(1){width:auto;min-width:130px}.byt.pl td:nth-child(2){min-width:96px}
 .pld>td{background:var(--soft);padding:6px 12px 10px}
 .pli{width:100%;border-collapse:collapse}.pli td{padding:6px 8px;border-bottom:1px solid var(--line);font-size:14px}.pli tr:last-child td{border-bottom:0}
+.slk{display:inline-block;margin-left:10px;font-size:13px;font-weight:600;color:#1B7A3D;background:#E6F4EA;border-radius:10px;padding:2px 9px;text-decoration:none;vertical-align:2px}.slk span{font-weight:500;color:#2E6B44}.slk:hover{background:#D2EEDB}.lnw{display:inline-flex;gap:6px;align-items:center;margin-left:8px;vertical-align:2px;flex-wrap:wrap}.lnb{font:600 13px inherit;color:#1F4E8C;background:#E8F0FB;border:0;border-radius:10px;padding:3px 10px;cursor:pointer}.lnb:hover{background:#D5E4F7}.lni{height:34px!important;width:340px;max-width:60vw;font-size:14px!important}.lne{color:var(--red);font-size:13px;font-weight:600}.lnx{border:0;background:none;color:var(--mute);cursor:pointer;font-size:13px;padding:2px 4px}.lnx:hover{color:var(--red)}
+.snl{display:inline-block;margin-left:10px;font-size:13px;font-weight:600;color:#B3261E;background:#FDECEA;border-radius:10px;padding:2px 9px;vertical-align:2px}
 .dl .sw{grid-column:1/-1}.dl dd.sw{margin-top:-6px;font-weight:400}.sit{border:1px solid var(--line);border-radius:10px;border-collapse:separate;border-spacing:0}.sit th{font-size:12.5px;font-weight:600;color:var(--mute);text-align:left;padding:7px 8px;background:var(--soft);border-bottom:1px solid var(--line)}.sit th.n{text-align:right}.sit td:first-child{font-weight:600}.sit td.n{font-size:14px}.sit tr.sf td{font-weight:700;background:var(--soft)}.sit tr.sf td:first-child{text-align:right;font-weight:600;color:var(--mute)}
 .byt .pli td{min-width:0!important;width:auto!important}
 .bup[hidden],.bpa[hidden]{display:none}
@@ -607,7 +609,13 @@ function drawer(id){
 /* ---------- Склад ---------- */
 let CATL=null,CATP=null;
 const CMAP={ovens:'Духовки',microwaves:'Микроволновки и компакт',compact:'Микроволновки и компакт',hobs:'Варочные панели',hoods:'Вытяжки',dishwashers:'Посудомойки и стиральные',laundry:'Посудомойки и стиральные',fridges:'Холодильники','wine-coolers':'Холодильники',sinks:'Мойки',faucets:'Смесители',accessories:'Аксессуары'};
-function loadCat(){return CATP||(CATP=Promise.all(Object.keys(CMAP).map(f=>fetch('data/'+f+'.json',{cache:'no-cache'}).then(r=>r.ok?r.json():[]).catch(()=>[]).then(a=>(Array.isArray(a)?a:[]).map(x=>({m:String(x.n||x.name||'').trim(),p:x.p||x.price||0,cat:CMAP[f],sku:String(x.sku||'')})).filter(x=>x.m)))).then(a=>{CATL=a.flat();return CATL}))}
+function loadCat(){return CATP||(CATP=Promise.all(Object.keys(CMAP).map(f=>fetch('data/'+f+'.json',{cache:'no-cache'}).then(r=>r.ok?r.json():[]).catch(()=>[]).then(a=>(Array.isArray(a)?a:[]).map(x=>({m:String(x.n||x.name||'').trim(),p:x.p||x.price||0,cat:CMAP[f],sku:String(x.sku||''),f})).filter(x=>x.m)))).then(a=>{CATL=a.flat();CBY=null;return CATL}))}
+let CBY=null;const zk=t=>String(t||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+function siteOf(x){const l=(ST.lnk||{})[zk(x.name)];if(l&&l.u)return {man:l.u};if(!CATL)return undefined;if(!CBY){CBY={};CATL.forEach(c=>{CBY[zk(c.m)]=CBY[zk(c.m)]||c;if(c.sku)CBY[c.sku]=CBY[c.sku]||c})}
+  return CBY[zk(x.name)]||x.u.map(s=>CBY[String(s.sku||'')]).find(Boolean)||(x.name.match(/\d{8,9}/g)||[]).map(k=>CBY[k]).find(Boolean)||null}
+function lnkAdd(b,k){const w=b.parentNode;w.innerHTML=`<input class="t lni" placeholder="Вставьте ссылку на карточку с teka.md"><button class="btn s">Сохранить</button><small class="lne"></small>`;const I=w.querySelector('input'),E=w.querySelector('.lne'),go=()=>{const u=I.value.trim();if(!/^https?:\/\/(www\.)?teka\.md\/\S+/i.test(u)){E.textContent='Нужна ссылка вида https://teka.md/produs/…';I.focus();return}ST.lnk[k]={u:u.slice(0,300),t:Date.now()};save();render()};I.oninput=()=>E.textContent='';I.onkeydown=e=>{if(e.key==='Enter')go()};w.querySelector('button').onclick=go;I.focus()}
+function lnkDel(k){delete ST.lnk[k];save();render()}
+const siteUrl=c=>'https://teka.md/desk-product.html?f='+encodeURIComponent(c.f)+'&sku='+encodeURIComponent(c.sku);
 const CATS=['Духовки','Микроволновки и компакт','Варочные панели','Вытяжки','Посудомойки и стиральные','Холодильники','Мойки','Смесители','Аксессуары','Прочее'];
 const catOf=s=>s.cat||'Прочее';
 function guessCat(model){const w=(model||'').split(/\s+/)[0].toUpperCase(),c={};S.forEach(s=>{if(s.model.split(/\s+/)[0].toUpperCase()===w)c[catOf(s)]=(c[catOf(s)]||0)+1});const e=Object.entries(c).sort((a,b)=>b[1]-a[1])[0];return e?e[0]:'Прочее'}
@@ -621,7 +629,9 @@ function groups(){
     x.qty=x.u.reduce((a,s)=>a+s.qty,0);x.res=x.u.filter(s=>s.res).reduce((a,s)=>a+s.qty,0);
     x.min=c.length?Math.min(...c):0;x.max=c.length?Math.max(...c):0;x.avg=x.u.reduce((a,s)=>a+s.qty*(s.cost||0),0)/x.qty;
     x.spread=c.length>1&&x.max-x.min>=1;x.locs=[...new Set(x.u.map(s=>loc(s.loc)))].join(', ');x.cat=catOf(x.u[0]);return x});
+  arr.forEach(x=>x.site=siteOf(x));
   if(F.sr)arr=arr.filter(x=>x.res);
+  if(F.nl&&CATL)arr=arr.filter(x=>!x.site);
   const [fn]=SO[F.so]||SO.name,dir=F.sd;
   return arr.sort((a,b)=>(F.so==='name'?CATS.indexOf(a.cat)-CATS.indexOf(b.cat):0)||fn(a,b)*dir||a.name.localeCompare(b.name));
 }
@@ -634,12 +644,14 @@ function vStk(){
   const ccnt=c=>S.filter(inLoc).filter(s=>catOf(s)===c).reduce((a,s)=>a+s.qty,0);
   const rcnt=S.filter(inLoc).filter(s=>!F.sc||catOf(s)===F.sc).filter(s=>s.res).reduce((a,s)=>a+s.qty,0);
   const sp=arr.filter(x=>x.spread).length,byCat=F.so==='name';
+  if(!CATL)loadCat().then(()=>{if(document.getElementById('snl'))render()});
+  const nlc=CATL?(()=>{const f=F.nl;F.nl=false;const n=groups().filter(x=>!x.site).length;F.nl=f;return n})():0;
   const th=(k,t,c='n')=>`<th class="${c}" data-so="${k}" style="cursor:pointer;user-select:none">${t}${F.so===k?(F.sd>0?' ▲':' ▼'):''}</th>`;
   let last='',rows='';
   arr.forEach(x=>{
     if(byCat&&x.cat!==last){last=x.cat;const n=arr.filter(y=>y.cat===x.cat).reduce((a,y)=>a+y.qty,0);rows+=`<tr><td colspan="8" style="background:#f3f3f3;font-weight:700;font-size:18px;padding:14px 12px">${esc(x.cat)} <span class="mu" style="font-weight:600">· ${n} шт</span></td></tr>`}
     const k=nm(x.name),op=F.open[k];
-    rows+=`<tr class="c${op?' op':''} ${x.qty-x.res<=0?'k-off':x.res?'k-res':'k-ok'}" data-g="${esc(k)}"><td><b><span class="cv${op?' o':''}">▸</span> ${esc(x.name)}</b>${byCat?'':`<div class="mu" style="font-size:14px;font-weight:500;margin-left:18px">${esc(x.cat)}</div>`}</td><td class="hide-m mu">${x.locs}</td><td class="n">${x.qty}</td><td class="n">${x.qty-x.res}</td><td class="cn">${x.res?'<span class="b y">'+x.res+'</span>':''}</td><td class="n${x.spread?' spr':''}">${x.spread?E(x.min,2)+' – '+E(x.max,2):E(x.min,2)}</td><td class="n hide-m">${E(x.avg,2)}</td><td class="n hide-m mu">${LE(x.avg)}</td></tr>`;
+    rows+=`<tr class="c${op?' op':''} ${x.qty-x.res<=0?'k-off':x.res?'k-res':'k-ok'}" data-g="${esc(k)}"><td><b><span class="cv${op?' o':''}">▸</span> ${esc(x.name)}</b>${x.site&&x.site.man?`<span class="lnw" onclick="event.stopPropagation()"><a class="slk" href="${esc(x.site.man)}" target="_blank" rel="noopener">ссылка ↗</a><button class="lnx" title="Убрать ссылку" onclick="lnkDel('${zk(x.name)}')">✕</button></span>`:x.site?`<a class="slk" href="${siteUrl(x.site)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Карточка на сайте: ${esc(x.site.m)}">на сайте ↗${zk(x.site.m)!==zk(x.name)?` <span>${esc(x.site.m)}</span>`:''}</a>`:x.site===null?`<span class="snl">нет ссылки на сайт</span><span class="lnw" onclick="event.stopPropagation()"><button class="lnb" onclick="lnkAdd(this,'${zk(x.name)}')">+ вставить ссылку</button></span>`:''}${byCat?'':`<div class="mu" style="font-size:14px;font-weight:500;margin-left:18px">${esc(x.cat)}</div>`}</td><td class="hide-m mu">${x.locs}</td><td class="n">${x.qty}</td><td class="n">${x.qty-x.res}</td><td class="cn">${x.res?'<span class="b y">'+x.res+'</span>':''}</td><td class="n${x.spread?' spr':''}">${x.spread?E(x.min,2)+' – '+E(x.max,2):E(x.min,2)}</td><td class="n hide-m">${E(x.avg,2)}</td><td class="n hide-m mu">${LE(x.avg)}</td></tr>`;
     if(op||F.sr)rows+=x.u.filter(s=>!F.sr||s.res).slice().sort((a,b)=>(a.cost||0)-(b.cost||0)).map(s=>`<tr class="c u ${s.res?'rs':''}" data-u="${s.id}" title="Нажмите, чтобы изменить"><td class="ui"><span class="pe">✎</span> ${s.ret?`<span class="b o" title="Возврат от клиента ${dt(s.ret.d)}">возврат</span> `:''}${s.res?`<a href="#" data-ro="${esc(s.res)}">${esc(s.res)}</a> ${esc(s.note)}`:s.used?`<span class="b w">б/у</span> ${esc(s.note)}`:(esc(s.note)||'<span class="mu pn0">партия</span>')}</td><td class="hide-m ploc l-${esc(s.loc)}">${loc(s.loc)}</td><td class="n">${s.qty}</td><td class="n">${s.res?0:s.qty}</td><td class="cn">${s.res?'<span class="b y">'+s.qty+'</span>':''}</td><td class="n">${E(s.cost,2)}</td><td class="n hide-m"></td><td class="n hide-m mu">${LE(s.cost)}</td></tr>`).join('');
   });
   const hd=`<div class="row">${[['','Все'],['dep','Склад'],['salon','Салон'],['showroom','Шоурум'],['etc','Прочее'],['out','Отгружено']].map(([k,t])=>`<button class="chip${F.sl===k?' on':''}${k==='out'?' cout':''}" data-sl="${k}">${t}<i>${k==='out'?outList().length:cnt(k)}</i></button>`).join('')}<span class="sp"></span>${pbtn('stk','Печать остатков')}<button class="btn r" id="plist">Закупки</button></div>`;
@@ -647,7 +659,8 @@ function vStk(){
   return hd+`<div class="row"><input class="t" id="sq" placeholder="Поиск: модель или № заказа" value="${esc(F.sq)}" style="width:280px">
   <select class="t" id="sc"><option value="">Все категории</option>${CATS.map(c=>{const n=ccnt(c);return n?`<option value="${esc(c)}"${F.sc===c?' selected':''}>${esc(c)} — ${n} шт</option>`:''}).join('')}</select>
   <button class="chip${F.sr?' on':''}" id="srb">Только в брони<i>${rcnt}</i></button>
-  ${F.sq||F.sc||F.sr||F.sl?'<button class="btn s" id="sclr">Сбросить фильтры</button>':''}
+  <button class="chip${F.nl?' on':''}" id="snl">Нет ссылки на сайт<i>${CATL?nlc:'…'}</i></button>
+  ${F.sq||F.sc||F.sr||F.sl||F.nl?'<button class="btn s" id="sclr">Сбросить фильтры</button>':''}
   </div>
   ${skuWarn()}
   <div class="tw mt ts"><table><thead><tr>${th('name','Модель','')}<th class="hide-m">Где лежит</th>${th('qty','Всего')}${th('free','Свободно')}${th('res','В брони','cn')}${th('cost','Себестоимость')}${th('avg','Средняя','n hide-m')}<th class="n hide-m">В леях</th></tr></thead><tbody>
@@ -1015,7 +1028,8 @@ M.addEventListener('click',e=>{
   if(t.closest('#buy')){buyModal();return}
   if(t.closest('#plist')){purchasesModal();return}
   if(t.closest('#srb')){F.sr=!F.sr;if(F.sr){F.so='res';F.sd=-1}else{F.so='name';F.sd=1}render();return}
-  if(t.closest('#sclr')){F.sq='';F.sc='';F.sr=false;F.sl='';F.so='name';F.sd=1;render();return}
+  if(t.closest('#snl')){F.nl=!F.nl;render();return}
+  if(t.closest('#sclr')){F.nl=false;F.sq='';F.sc='';F.sr=false;F.sl='';F.so='name';F.sd=1;render();return}
   if(x=t.closest('[data-so]')){const k=x.dataset.so;if(F.so===k)F.sd=-F.sd;else{F.so=k;F.sd=SO[k][1]}render();return}
 });
 M.addEventListener('tkper',e=>{const d=e.detail;if(d.id==='om'){F.om=d.v;F.o1=d.a;F.o2=d.b;render()}});
@@ -1045,10 +1059,10 @@ async function api(p,body){
   return j}
 const toAdmin=()=>{location.href='admin.html'};
 let SY=null,PEND=false,BUSY=false,TM=0;
-const SK=['o','s','com'];
+const SK=['o','s','com','lnk'];
 function setST(st){
   const pl=ST.pl;ST=JSON.parse(JSON.stringify(st||{}));delete ST.v;
-  ST.o=ST.o||{};ST.com=ST.com||{};ST.add=ST.add||[];ST.s=ST.s||{};ST.newO=ST.newO||[];ST.rate=ST.rate||19.8;ST.k=ST.k||1.35;
+  ST.o=ST.o||{};ST.com=ST.com||{};ST.add=ST.add||[];ST.s=ST.s||{};ST.newO=ST.newO||[];ST.rate=ST.rate||19.8;ST.k=ST.k||1.35;ST.lnk=ST.lnk||{};
   try{ST.pl=localStorage.getItem('tkAccPl')||pl||'ru'}catch(e){ST.pl=pl||'ru'}
   SY=snap();
 }
