@@ -1,5 +1,141 @@
 [
  {
+  "sku": "115000014",
+  "n": "FlexLinea RS15 40.40",
+  "sub": "Chiuvetă \"PureLine” din inox, 1 cuvă, instalare Undermount, Top & Flush",
+  "p": 8000,
+  "img": [],
+  "draw": "assets/u/115000014-draw-mv9j6szdbo6.webp",
+  "label": "",
+  "desc": [
+   "Chiuvetă “PureLine” din inox",
+   "1 cuvă",
+   "Instalare Undermount, Top & Flush",
+   "Inox 18/10",
+   "Colțuri cu rază R15, ușor de curățat",
+   "Sistem SilentSmart, cu 50% mai puțin zgomot",
+   "Cuvă cu adâncimea de 200 mm",
+   "Gol de încastrare de 50 cm",
+   "Accesorii incluse:",
+   "Set de scurgere 3 ½ SQ cu preaplin",
+   "Capac decorativ SQ (pătrat)"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Lățimea produsului (mm)",
+      "440"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "200"
+     ],
+     [
+      "Lungimea produsului (mm)",
+      "440"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "3,48"
+     ]
+    ]
+   },
+   {
+    "t": "Cuvă principală",
+    "r": [
+     [
+      "Lungimea cuvei principale (mm)",
+      "400"
+     ],
+     [
+      "Lățimea cuvei principale (mm)",
+      "400"
+     ],
+     [
+      "Adâncimea cuvei principale (mm)",
+      "200"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Inox"
+     ],
+     [
+      "Modalitate de instalare",
+      "Top,Flush,Undermount"
+     ],
+     [
+      "Tip orificiu pentru ţeavă",
+      "3½\" SQUARED"
+     ]
+    ]
+   },
+   {
+    "t": "Alții",
+    "r": [
+     [
+      "Bază (cm)",
+      "50"
+     ]
+    ]
+   },
+   {
+    "t": "Chiuvetă Lay out",
+    "r": [
+     [
+      "Numărul de cuve",
+      "1"
+     ],
+     [
+      "Numărul de picurătoare",
+      "0"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Izolat fonic",
+      "Da"
+     ],
+     [
+      "SilentSmart",
+      "Da"
+     ],
+     [
+      "Clipuri pentru instalare",
+      "Da"
+     ],
+     [
+      "Sifon",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [],
+  "b": "Teka",
+  "mat": "",
+  "bowls": "",
+  "col": "",
+  "u": [
+   "assets/u/115000014-mv9j6ge8oyl.webp",
+   "assets/u/115000014-mv9j6ir7w0i.webp",
+   "assets/u/115000014-mv9j6kuxn3k.webp",
+   "assets/u/115000014-mv9j6o91tz6.webp",
+   "assets/u/115000014-mv9j6pohrxb.webp",
+   "assets/u/115000014-mv9j6r25zqu.webp",
+   "assets/u/115000014-mv9j6sdrcvv.webp"
+  ]
+ },
+ {
   "sku": "40109616",
   "n": "E 50 1C 580 x 500 CN MAT",
   "sub": "Chiuvetă din inox, 1 cuvă, modalitate de instalare: Inset",

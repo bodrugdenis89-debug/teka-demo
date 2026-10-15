@@ -1656,7 +1656,11 @@
 "Material: Inox mat": "Материал: матовая нержавеющая сталь",
 "Dimensiuni (mm): Corp (l x h) 580 x 500": "Размеры (мм): Корпус (Ш х В) 580 х 500",
 "Cuvă (a) 150": "Ванна (а) 150",
-"Accesorii incluse: Set de scurgere 3 ½ cu preapli": "Аксессуары в комплекте: Сливной комплект 3 ½ с переливом"
+"Accesorii incluse: Set de scurgere 3 ½ cu preapli": "Аксессуары в комплекте: Сливной комплект 3 ½ с переливом",
+"Cuvă cu adâncimea de 200 mm": "Ванна глубиной 200 мм",
+"Gol de încastrare de 50 cm": "Монтажный зазор 50 см",
+"Accesorii incluse:": "Аксессуары в комплекте:",
+"Set de scurgere 3 ½ SQ cu preaplin": "Сливной комплект 3 ½ кв.м с переливом"
 },
 "s": {
 "Cuptor multifuncţional, cu 8 funcţii şi Sistem de curăţare HydroClean PRO": "Многофункциональный духовой шкаф с 8 функциями и системой очистки HydroClean PRO",
@@ -1911,6 +1915,7 @@
 "Combina frigorifica free-standing, finisaj Inox, Total No Frost, Control Air Flow, Metal Cooling": "Отдельностоящая холодильная комбинация, отделка Inox, Total No Frost, Контроль воздушного потока, Металлическое охлаждение",
 "Combina frigorifica free-standing, finisaj Alb, Total No Frost, Control Air Flow, Metal Cooling": "Отдельностоящая холодильная комбинация, белая отделка, Total No Frost, регулировка воздушного потока, металлическое охлаждение",
 "Chiuvetă din inox (Microtexturat), 2 cuve, instalare Inset": "Мойка из нержавеющей стали (микротекстурированная), 2 чаши, встраиваемый монтаж",
-"Chiuvetă din inox (Microtexturat), 1 cuvă și 1 picurător, instalare Inset": "Мойка из нержавеющей стали (микротекстурированная), 1 чаша и 1 капельница, врезной монтаж"
+"Chiuvetă din inox (Microtexturat), 1 cuvă și 1 picurător, instalare Inset": "Мойка из нержавеющей стали (микротекстурированная), 1 чаша и 1 капельница, врезной монтаж",
+"Chiuvetă \"PureLine” din inox, 1 cuvă, instalare Undermount, Top & Flush": "Мойка из нержавеющей стали \"PureLine\", 1 чаша, монтаж снизу, сверху и заподлицо"
 }
 }
