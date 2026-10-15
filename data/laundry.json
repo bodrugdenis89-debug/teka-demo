@@ -2285,8 +2285,8 @@
   "sku": "114080008",
   "name": "D 208D W EU",
   "sub": "Uscător free-standing prin condensare cu pompă de căldură, Capacitate de uscare: 8 kg, 16 programe",
-  "price": 12200,
-  "old": null,
+  "price": 14200,
+  "old": 0,
   "kind": "uscator",
   "install": "independent",
   "cap": "8 kg",
@@ -2433,6 +2433,7 @@
    "114080008-4.webp",
    "114080008-5.webp",
    "114080008-6.webp"
-  ]
+  ],
+  "b": "Teka"
  }
 ]
