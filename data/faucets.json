@@ -2282,7 +2282,8 @@
   ],
   "b": "Teka",
   "col": "crom",
-  "kind": "extractibil"
+  "kind": "extractibil",
+  "st": "order"
  },
  {
   "sku": "116030006",
