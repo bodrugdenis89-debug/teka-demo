@@ -1,5 +1,124 @@
 [
  {
+  "sku": "10132001",
+  "n": "Universal E/280.405 1B",
+  "sub": "Chiuvetă din inox, 1 cuvă, modalitate de instalare: Inset",
+  "p": 2050,
+  "img": [],
+  "draw": "",
+  "label": "",
+  "desc": [
+   "Material: Inox",
+   "Dimensiuni (mm): Corp (l x h) 280 x 405",
+   "Cuvă (a) 150",
+   "Modalitate de instalare: Inset",
+   "Gol de încastrare min. 30 cm",
+   "Versiune reversibilă",
+   "Accesorii incluse: Set de scurgere 1 ½ cu preaplin"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Lățimea produsului (mm)",
+      "405"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "150"
+     ],
+     [
+      "Lungimea produsului (mm)",
+      "280"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "1,08"
+     ]
+    ]
+   },
+   {
+    "t": "Cuvă principală",
+    "r": [
+     [
+      "Lungimea cuvei principale (mm)",
+      "240"
+     ],
+     [
+      "Lățimea cuvei principale (mm)",
+      "370"
+     ],
+     [
+      "Adâncimea cuvei principale (mm)",
+      "150"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Inox"
+     ],
+     [
+      "Modalitate de instalare",
+      "Inset"
+     ],
+     [
+      "Tip orificiu pentru ţeavă",
+      "1½\""
+     ]
+    ]
+   },
+   {
+    "t": "Alții",
+    "r": [
+     [
+      "Bază (cm)",
+      "30"
+     ]
+    ]
+   },
+   {
+    "t": "Chiuvetă Lay out",
+    "r": [
+     [
+      "Numărul de cuve",
+      "1"
+     ],
+     [
+      "Numărul de picurătoare",
+      "0"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Izolat fonic",
+      "Da"
+     ],
+     [
+      "Clipuri pentru instalare",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [],
+  "b": "Teka",
+  "mat": "",
+  "bowls": "",
+  "col": "",
+  "u": [
+   "assets/u/10132001-mv9jadeqkm3.webp",
+   "assets/u/10132001-mv9jaechsck.webp"
+  ]
+ },
+ {
   "sku": "115000015",
   "n": "FlexLinea RS15 34.40",
   "sub": "Chiuvetă \"PureLine” din inox, 1 cuvă, instalare Undermount, Top & Flush",
