@@ -667,7 +667,7 @@ function poModal(){
   modal('Заказ поставщику','<div id="pob"></div>',()=>{});
   const md=[...document.querySelectorAll('.md')].pop();md.querySelector('.mb').classList.add('mbw');
   md.querySelector('[data-c]').remove();md.querySelector('[data-k]').textContent='Закрыть';
-  const B=md.querySelector('#pob');let tab=poModal.tab||'way';
+  const B=md.querySelector('#pob');let tab=poModal.tab||'way',ed=null,E=null;
   const fin=()=>{save();build();render();draw()};
   function draw(){const C=poCart(),W=poWay(),A=POL().sort((a,b)=>(b.t||0)-(a.t||0)),n=C.it.reduce((a,i)=>a+i.q,0);
     const cnt=k=>A.filter(p=>!k||p.st===k).length;
@@ -678,12 +678,26 @@ function poModal(){
     :'<p class="mu">Пусто. На складе нажмите «+ заказать» у нужной модели — она появится здесь, количество можно поменять.</p>'}
     <h4 class="poh">Оформленные заказы</h4>
     <div class="row">${[['way','В пути'],['got','Получены'],['cancel','Отменены'],['','Все']].map(([k,t])=>`<button class="chip${tab===k?' on':''}" data-pt="${k}">${t}<i>${cnt(k)}</i></button>`).join('')}</div>
-    ${A.filter(p=>!tab||p.st===tab).map(p=>{const q=(p.it||[]).reduce((a,i)=>a+i.q,0);return`<div class="poc"><div class="row" style="margin:0"><b>${esc(p.no)}</b><span class="mu">от ${dt(p.d)}${p.sup?' · '+esc(p.sup):''} · ${(p.it||[]).length} мод., ${q} шт</span>${p.st==='way'?'<span class="b y">в пути</span>':p.st==='got'?'<span class="b o">получен '+dt(p.gd)+'</span>':'<span class="b x">отменён</span>'}<span class="sp"></span>${pbtn('po|'+p.id)}</div>
+    ${A.filter(p=>!tab||p.st===tab).map(p=>{const q=(p.it||[]).reduce((a,i)=>a+i.q,0);if(p.id===ed)return`<div class="poc poe"><div class="row" style="margin:0"><b>${esc(p.no)}</b><span class="mu">от ${dt(p.d)} · изменение</span></div>
+      <div class="tw"><table class="pot"><tbody>${E.it.map((i,j)=>`<tr><td><b>${esc(i.m)}</b></td><td class="cn"><span class="poq"><button data-eq="${j}" data-d="-1">−</button><input class="t" type="number" min="1" value="${i.q}" data-ei="${j}"><button data-eq="${j}" data-d="1">+</button></span></td><td><button class="lnx" data-ex="${j}" title="Убрать">✕</button></td></tr>`).join('')||'<tr><td class="mu">Нет моделей</td></tr>'}</tbody></table></div>
+      <div class="row poF"><label style="flex:2">Добавить модель<input class="t" id="pea" list="pedl" placeholder="Начните вводить модель и нажмите Enter"></label><datalist id="pedl">${[...new Set(S.map(s=>s.model).concat((CATL||[]).map(c=>c.m)))].sort().map(m=>`<option value="${esc(m)}">`).join('')}</datalist><button class="btn s" data-eadd style="align-self:end">Добавить</button></div>
+      <div class="row poF"><label>Поставщик<input class="t" id="pes" value="${esc(E.sup||'')}"></label><label style="flex:2">Комментарий<input class="t" id="pen" value="${esc(E.note||'')}"></label></div>
+      <div class="row" style="margin:0"><span class="sp"></span><button class="btn" data-ecx>Отмена</button><button class="btn r" data-esv>Сохранить изменения</button></div></div>`;
+      return`<div class="poc"><div class="row" style="margin:0"><b>${esc(p.no)}</b><span class="mu">от ${dt(p.d)}${p.sup?' · '+esc(p.sup):''} · ${(p.it||[]).length} мод., ${q} шт</span>${p.st==='way'?'<span class="b y">в пути</span>':p.st==='got'?'<span class="b o">получен '+dt(p.gd)+'</span>':'<span class="b x">отменён</span>'}<span class="sp"></span>${pbtn('po|'+p.id)}</div>
       ${p.note?`<div class="mu">${esc(p.note)}</div>`:''}<div class="pol">${(p.it||[]).map(i=>`<span>${esc(i.m)} — <b>${i.q} шт</b></span>`).join('')}</div>
-      ${p.st==='way'?`<div class="row" style="margin:8px 0 0"><button class="btn s" data-pgot="${p.id}">Получен — оприходовать</button><button class="btn s" data-pcx="${p.id}" style="color:var(--red)">Отменить</button></div>`:p.st==='cancel'?`<div class="row" style="margin:8px 0 0"><button class="btn s" data-pdel="${p.id}" style="color:var(--red)">Удалить</button></div>`:''}</div>`}).join('')||'<p class="mu">Нет заказов.</p>'}`}
+      ${p.st==='way'?`<div class="row" style="margin:8px 0 0"><button class="btn s" data-ped="${p.id}">✎ Изменить</button><button class="btn s" data-pgot="${p.id}">Получен — оприходовать</button><button class="btn s" data-pcx="${p.id}" style="color:var(--red)">Отменить</button></div>`:p.st==='cancel'?`<div class="row" style="margin:8px 0 0"><button class="btn s" data-pdel="${p.id}" style="color:var(--red)">Удалить</button></div>`:''}</div>`}).join('')||'<p class="mu">Нет заказов.</p>'}`}
   const C=()=>poCart(),rd=()=>{const s=B.querySelector('#pos'),n=B.querySelector('#pon');if(s){C().sup=s.value.trim();C().note=n.value.trim()}};
-  B.oninput=e=>{const x=e.target;if(x.dataset.pi!=null){const v=Math.max(1,parseInt(x.value)||1);C().it[+x.dataset.pi].q=v;save();render()}else if(x.id==='pos'||x.id==='pon'){rd();save()}};
+  const eAdd=()=>{const I=B.querySelector('#pea'),m=I.value.trim();if(!m)return;const i=E.it.find(i=>zk(i.m)===zk(m));if(i)i.q++;else{const c=(CATL||[]).find(c=>zk(c.m)===zk(m));E.it.push({m,q:1,sku:c?c.sku:''})}E.sup=B.querySelector('#pes').value.trim();E.note=B.querySelector('#pen').value.trim();draw();B.querySelector('#pea').focus()};
+  B.onkeydown=e=>{if(e.target.id==='pea'&&e.key==='Enter'){e.preventDefault();eAdd()}};
+  B.oninput=e=>{const x=e.target;if(x.dataset.ei!=null){E.it[+x.dataset.ei].q=Math.max(1,parseInt(x.value)||1);return}if(x.dataset.pi!=null){const v=Math.max(1,parseInt(x.value)||1);C().it[+x.dataset.pi].q=v;save();render()}else if(x.id==='pos'||x.id==='pon'){rd();save()}};
   B.onclick=e=>{const t=e.target;let x;
+    if(x=t.closest('[data-ped]')){const p=ST.po[x.dataset.ped];ed=x.dataset.ped;E={it:p.it.map(i=>Object.assign({},i)),sup:p.sup||'',note:p.note||''};draw();return}
+    if(ed){const rdE=()=>{const a=B.querySelector('#pes'),b=B.querySelector('#pen');if(a){E.sup=a.value.trim();E.note=b.value.trim()}};
+      if(x=t.closest('[data-eq]')){rdE();const i=E.it[+x.dataset.eq];i.q=Math.max(1,i.q+ +x.dataset.d);draw();return}
+      if(x=t.closest('[data-ex]')){rdE();E.it.splice(+x.dataset.ex,1);draw();return}
+      if(t.closest('[data-eadd]')){eAdd();return}
+      if(t.closest('[data-ecx]')){ed=E=null;draw();return}
+      if(t.closest('[data-esv]')){rdE();if(!E.it.length){toast('В заказе нет моделей — лучше отменить его');return}const p=ST.po[ed];p.it=E.it;p.sup=E.sup;p.note=E.note;p.e=Date.now();const no=p.no;ed=E=null;fin();toast('Заказ '+no+' изменён');return}}
     if(x=t.closest('[data-pq]')){const i=C().it[+x.dataset.pq];i.q=Math.max(1,i.q+ +x.dataset.d);fin();return}
     if(x=t.closest('[data-px]')){C().it.splice(+x.dataset.px,1);fin();return}
     if(t.closest('[data-pclr]')){ask('Очистить черновик заказа?',()=>{ST.po.cart={it:[],sup:'',note:''};fin()});return}
