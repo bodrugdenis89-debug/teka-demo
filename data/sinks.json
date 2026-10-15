@@ -1,5 +1,126 @@
 [
  {
+  "sku": "40109616",
+  "n": "E 50 1C 580 x 500 CN MAT",
+  "sub": "Chiuvetă din inox, 1 cuvă, modalitate de instalare: Inset",
+  "p": 1900,
+  "img": [],
+  "draw": "",
+  "label": "",
+  "desc": [
+   "Material: Inox mat",
+   "Dimensiuni (mm): Corp (l x h) 580 x 500",
+   "Cuvă (a) 150",
+   "Modalitate de instalare: Inset",
+   "Gol de încastrare min. 45 cm",
+   "Accesorii incluse: Set de scurgere 3 ½ cu preapli"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Lățimea produsului (mm)",
+      "500"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "150"
+     ],
+     [
+      "Lungimea produsului (mm)",
+      "580"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "2,22"
+     ]
+    ]
+   },
+   {
+    "t": "Cuvă principală",
+    "r": [
+     [
+      "Lungimea cuvei principale (mm)",
+      "340"
+     ],
+     [
+      "Lățimea cuvei principale (mm)",
+      "400"
+     ],
+     [
+      "Adâncimea cuvei principale (mm)",
+      "150"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Chrome"
+     ],
+     [
+      "Modalitate de instalare",
+      "Inset"
+     ],
+     [
+      "Tip orificiu pentru ţeavă",
+      "3½\""
+     ]
+    ]
+   },
+   {
+    "t": "Alții",
+    "r": [
+     [
+      "Bază (cm)",
+      "45"
+     ]
+    ]
+   },
+   {
+    "t": "Chiuvetă Lay out",
+    "r": [
+     [
+      "Numărul de cuve",
+      "1"
+     ],
+     [
+      "Numărul de picurătoare",
+      "½"
+     ],
+     [
+      "Poziţia picurătorului",
+      "Reversibil"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Izolat fonic",
+      "Da"
+     ],
+     [
+      "Clipuri pentru instalare",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [],
+  "b": "Teka",
+  "mat": "",
+  "bowls": "",
+  "col": "",
+  "u": [
+   "assets/u/40109616-mv9j2vfxzye.webp"
+  ]
+ },
+ {
   "sku": "115110029",
   "n": "Universe 45 T-XM 1B 1D",
   "sub": "Chiuvetă din inox (Microtexturat), 1 cuvă și 1 picurător, instalare Inset",
