@@ -1,5 +1,141 @@
 [
  {
+  "sku": "115000015",
+  "n": "FlexLinea RS15 34.40",
+  "sub": "Chiuvetă \"PureLine” din inox, 1 cuvă, instalare Undermount, Top & Flush",
+  "p": 7000,
+  "img": [],
+  "draw": "",
+  "label": "",
+  "desc": [
+   "Chiuvetă “PureLine” din inox",
+   "1 cuvă",
+   "Instalare Undermount, Top & Flush",
+   "Inox 18/10",
+   "Colțuri cu rază R15, ușor de curățat",
+   "Sistem SilentSmart, cu 50% mai puțin zgomot",
+   "Cuvă cu adâncimea de 200 mm",
+   "Gol de încastrare de 45 cm",
+   "Accesorii incluse:",
+   "Set de scurgere 3 ½ SQ cu preaplin",
+   "Capac decorativ SQ (pătrat)"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Lățimea produsului (mm)",
+      "440"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "200"
+     ],
+     [
+      "Lungimea produsului (mm)",
+      "380"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "3,02"
+     ]
+    ]
+   },
+   {
+    "t": "Cuvă principală",
+    "r": [
+     [
+      "Lungimea cuvei principale (mm)",
+      "340"
+     ],
+     [
+      "Lățimea cuvei principale (mm)",
+      "400"
+     ],
+     [
+      "Adâncimea cuvei principale (mm)",
+      "200"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Inox"
+     ],
+     [
+      "Modalitate de instalare",
+      "Top,Flush,Undermount"
+     ],
+     [
+      "Tip orificiu pentru ţeavă",
+      "3½\" SQUARED"
+     ]
+    ]
+   },
+   {
+    "t": "Alții",
+    "r": [
+     [
+      "Bază (cm)",
+      "45"
+     ]
+    ]
+   },
+   {
+    "t": "Chiuvetă Lay out",
+    "r": [
+     [
+      "Numărul de cuve",
+      "1"
+     ],
+     [
+      "Numărul de picurătoare",
+      "0"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Izolat fonic",
+      "Da"
+     ],
+     [
+      "SilentSmart",
+      "Da"
+     ],
+     [
+      "Clipuri pentru instalare",
+      "Da"
+     ],
+     [
+      "Sifon",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [],
+  "b": "Teka",
+  "mat": "",
+  "bowls": "",
+  "col": "",
+  "u": [
+   "assets/u/115000015-mv9j7jwc5fz.webp",
+   "assets/u/115000015-mv9j7luie27.webp",
+   "assets/u/115000015-mv9j7oe1z5h.webp",
+   "assets/u/115000015-mv9j7sknjg5.webp",
+   "assets/u/115000015-mv9j7usibog.webp",
+   "assets/u/115000015-mv9j7ws6f6g.webp",
+   "assets/u/115000015-mv9j7ym2hz7.webp"
+  ]
+ },
+ {
   "sku": "115000014",
   "n": "FlexLinea RS15 40.40",
   "sub": "Chiuvetă \"PureLine” din inox, 1 cuvă, instalare Undermount, Top & Flush",
