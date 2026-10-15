@@ -1,5 +1,64 @@
 [
  {
+  "sku": "8191362",
+  "n": "ML",
+  "sub": "Baterie de bucătărie cu ţeavă joasă şi aerator anticalcar",
+  "p": 1550,
+  "img": [],
+  "draw": "assets/u/8191362-draw-mv9jp93i4co.webp",
+  "label": "",
+  "desc": [
+   "Baterie de bucătărie cu ţeavă joasă",
+   "Aerator anticalcar"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "140"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "227"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "167"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Modele",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/HI302P-UserManual_ED-02.pdf"
+  ],
+  "b": "Teka",
+  "col": "",
+  "kind": "",
+  "u": [
+   "assets/u/8191362-mv9jpma2p1z.webp"
+  ]
+ },
+ {
   "sku": "8191462",
   "n": "MN",
   "sub": "Baterie de bucătărie cu ţeavă înaltă şi aerator anticalcar",
