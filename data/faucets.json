@@ -768,67 +768,6 @@
   "kind": "extractibil"
  },
  {
-  "sku": "469780200",
-  "n": "MTP 978",
-  "sub": "Baterie de bucătărie cu ţeavă joasă şi\nsistem extractibil cu 2 funcţii de jet aerat",
-  "p": 3850,
-  "img": [
-   "469780200-1.webp"
-  ],
-  "draw": "469780200-draw.webp",
-  "label": "",
-  "desc": [
-   "Baterie de bucătărie cu ţeavă joasă",
-   "Sistem extractibil cu 2 funcţii de jet aerat",
-   "Aerator anticalcar",
-   "Cartuș de 40 mm"
-  ],
-  "specs": [
-   {
-    "t": "Dimensiuni interioare",
-    "r": [
-     [
-      "Înălțimea interioară (mm)",
-      "110"
-     ],
-     [
-      "Adâncime interioară (mm)",
-      "200"
-     ]
-    ]
-   },
-   {
-    "t": "Dimensiuni exterioare",
-    "r": [
-     [
-      "Înălțimea produsului (mm)",
-      "161"
-     ],
-     [
-      "Greutatea produsului (Kgs)",
-      "1,81"
-     ]
-    ]
-   },
-   {
-    "t": "Modele",
-    "r": [
-     [
-      "Modalitate de instalare",
-      "Free standing"
-     ]
-    ]
-   }
-  ],
-  "pdf": [
-   "https://www.teka.com/ro-ro/wp-content/uploads/sites/17/2023/04/Catalog-Master-A4-19.04.pdf",
-   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/HI302P-UserManual_ED-02.pdf"
-  ],
-  "b": "Teka",
-  "col": "crom",
-  "kind": "extractibil"
- },
- {
   "sku": "116030023",
   "n": "FOT 995 BLACK",
   "sub": "Baterie de bucătărie cu ţeavă înaltă şi aerator anticalcar",
