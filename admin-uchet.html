@@ -431,6 +431,7 @@ tr.u.out{animation:tkOut .17s ease-in forwards}
 .pobn{font-style:normal;background:#fff;color:var(--red);border-radius:10px;padding:0 7px;margin-left:8px;font-size:14px}
 .poh{margin:6px 0 8px;font-size:18px}.pot td{vertical-align:middle}.pom{font-size:13px;display:none}.poq{display:inline-flex;gap:4px;align-items:center}.poq button{width:34px;height:34px;border:1px solid var(--line);background:#fff;border-radius:8px;font-size:18px;cursor:pointer}.poq input{width:64px!important;height:34px!important;text-align:center;padding:0 4px!important}
 .poF{gap:10px;margin:10px 0}.poF label{flex:1;display:grid;gap:4px;font-size:14px;color:var(--mute);min-width:160px}
+.nog{grid-column:1/-1;display:grid;gap:8px;border:1px solid var(--line);border-radius:12px;padding:12px}.nog>b{font-size:17px}.ngp{width:110px!important;text-align:right}.ngd{gap:10px;align-items:center;margin:4px 0 0}.ngd label{display:flex!important;align-items:center;gap:6px}.ngd #ngdv{width:90px!important}.ngd #ngdk{width:84px!important;flex:none}@media(max-width:700px){.nog{padding:10px}.nog .tw{margin:0!important;width:100%!important;overflow:visible!important;border:0}.ngt thead{display:none}.ngt,.ngt tbody{display:block}.ngt tr{display:grid!important;grid-template-columns:auto 1fr auto;gap:6px 8px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);background:none!important}.ngt td{display:block!important;padding:0!important;border:0!important;width:auto!important}.ngt td:first-child{grid-column:1/-1}.ngt td.hide-m{display:none!important}.ngt td.n{text-align:right}.ngp{width:100%!important;max-width:130px}.ngd{flex-wrap:wrap}.ngd span:last-child{margin-left:0;flex:1 1 100%}.ngd span:first-child{flex:1 1 100%}}.ngd span:last-child{margin-left:auto;font-size:18px}
 .pocat td{background:#f3f3f3;font-weight:700;font-size:15px;padding:8px 10px!important}.polg{display:grid;gap:2px}.poc{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 10px;display:grid;gap:6px}.pol{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:15px}
 @media(max-width:700px){.pom{display:block}.pot th:nth-child(4){text-align:right}#pob .tw{margin:0!important;width:100%!important;box-sizing:border-box}#pob .pot td,#pob .pot th{padding:8px 6px!important}.poF label{min-width:0;flex:1 1 100%!important}.poq button{width:30px;height:30px}.poq input{width:44px!important}}
 .snl{display:inline-block;margin-left:10px;font-size:13px;font-weight:600;color:#B3261E;background:#FDECEA;border-radius:10px;padding:2px 9px;vertical-align:2px}
@@ -581,7 +582,7 @@ function drawer(id){
   const cost=o.items.concat(o.sold).reduce((a,s)=>a+(s.cost||0),0);
   ov.innerHTML=`<div class="dr"><div class="row"><button class="btn k s" data-a="edit">✎ Изменить заказ</button>${pbtn('order|'+id)}<span class="sp"></span><button class="btn s" data-x>Закрыть ✕</button></div>
   <h2>Заказ ${esc(o.no||'без номера')}</h2><div>${stat(o)} <span class="mu">от ${dt(o.date)}${o.close&&o.st==='closed'?' · закрыт '+dt(o.close):''}</span></div>
-  <dl class="dl"><dt>Мебельщик</dt><dd>${esc(o.partner||'—')}</dd><dt>Клиент</dt><dd>${esc(o.client)}</dd><dt>Телефон</dt><dd>${o.tel?`<a href="tel:${esc(o.tel)}">${esc(o.tel)}</a> <button class="btn s" data-a="tel">✎</button>`:'<button class="btn s" data-a="tel">+ Добавить</button>'}</dd>${o.site?`<dt class="sw">С сайта · ${o.site.reduce((a,i)=>a+(+i.q||1),0)} шт</dt><dd class="sw"><table class="pli sit"><tr><th>Товар</th><th class="n">Кол-во</th><th class="n">Цена</th><th class="n">Сумма</th></tr>${o.site.map(i=>`<tr><td>${esc(i.n)}</td><td class="n">${+i.q||1}</td><td class="n">${i.p?L(i.p):'—'}</td><td class="n">${i.p?L(i.p*(+i.q||1)):'—'}</td></tr>`).join('')}${(()=>{const g=o.site.reduce((a,i)=>a+(+i.p||0)*(+i.q||1),0),d=g-(+o.total||0);return g?`<tr class="sf"><td colspan="3">Итого без скидки</td><td class="n">${L(g)}</td></tr>`+(d>0?`<tr class="sf"><td colspan="3">Скидка ${Math.round(d/g*1000)/10}%</td><td class="n" style="color:var(--red)">−${L(d)}</td></tr><tr class="sf"><td colspan="3">Со скидкой</td><td class="n">${L(o.total)}</td></tr>`:''):''})()}</table></dd>`:''}
+  <dl class="dl"><dt>Мебельщик</dt><dd>${esc(o.partner||'—')}</dd><dt>Клиент</dt><dd>${esc(o.client)}</dd><dt>Телефон</dt><dd>${o.tel?`<a href="tel:${esc(o.tel)}">${esc(o.tel)}</a> <button class="btn s" data-a="tel">✎</button>`:'<button class="btn s" data-a="tel">+ Добавить</button>'}</dd>${o.site?`<dt class="sw">${o.src?'С сайта':'Товары'} · ${o.site.reduce((a,i)=>a+(+i.q||1),0)} шт</dt><dd class="sw"><table class="pli sit"><tr><th>Товар</th><th class="n">Кол-во</th><th class="n">Цена</th><th class="n">Сумма</th></tr>${o.site.map(i=>`<tr><td>${esc(i.n)}${i.po?' <span class="b w">под заказ</span>':''}</td><td class="n">${+i.q||1}</td><td class="n">${i.p?L(i.p):'—'}</td><td class="n">${i.p?L(i.p*(+i.q||1)):'—'}</td></tr>`).join('')}${(()=>{const g=o.site.reduce((a,i)=>a+(+i.p||0)*(+i.q||1),0),d=g-(+o.total||0);return g?`<tr class="sf"><td colspan="3">Итого без скидки</td><td class="n">${L(g)}</td></tr>`+(d>0?`<tr class="sf"><td colspan="3">Скидка ${Math.round(d/g*1000)/10}%</td><td class="n" style="color:var(--red)">−${L(d)}</td></tr><tr class="sf"><td colspan="3">Со скидкой</td><td class="n">${L(o.total)}</td></tr>`:''):''})()}</table></dd>`:''}
   <dt>Дизайнер</dt><dd>${o.designer?esc(o.designer)+' · '+L(o.com):'—'}</dd>
   <dt>Сумма</dt><dd>${L(o.total)}</dd><dt>Оплачено</dt><dd>${L(o.paid)}${o.method?' <span class="mu">· '+esc(PML(o.method))+'</span>':''}</dd>
   <dt>Долг</dt><dd style="color:${o.debt>0?'var(--red)':'inherit'}">${L(o.debt)}</dd>
@@ -823,8 +824,10 @@ function nextNo(){const y=new Date().getFullYear().toString().slice(2);const n=O
 function orderModal(id,pre){
   const o=id==null?Object.assign({no:nextNo(),date:new Date().toISOString().slice(0,10),st:'open',total:0,paid:0,shipped:false},pre||{}):O[id];
   const names=k=>[...new Set(O.map(x=>x[k]).filter(Boolean))].sort().map(n=>`<option value="${esc(n)}">`).join('');
+  if(id==null&&!CATL){loadCat().then(()=>orderModal(id,pre));toast('Загружаю каталог…');return}
+  const NG=id==null&&!(pre&&pre.src);
   modal(id==null?'Новый заказ':'Изменить заказ '+esc(o.no),
-  `${inp('Номер заказа','eno',o.no)}${inp('Дата','edt',o.date,'date')}
+  `${NG?`<div class="nog"><b>Товары</b><div class="pk"><input class="t" id="ngq" placeholder="Найти модель: склад и сайт" autocomplete="off"><div class="pkl" id="ngl" hidden></div></div><div id="ngt"></div></div>`:''}${inp('Номер заказа','eno',o.no)}${inp('Дата','edt',o.date,'date')}
   <label>Мебельщик<input class="t" id="epa" list="epl" value="${esc(o.partner||'')}" placeholder="если через мебельщика"><datalist id="epl">${names('partner')}</datalist></label>
   ${inp('Клиент','ecl',o.client)}
   ${inp('Телефон','etl',o.tel,'tel')}
@@ -843,11 +846,48 @@ function orderModal(id,pre){
     const x={tel:V('etl')||null,no:V('eno'),date:V('edt'),partner:p||null,client:V('ecl'),designer:V('eds')||null,com:VN('eco')||null,total,paid,method:V('emt')||null,st,shipped:document.getElementById('esh').checked,close:V('ecd')||null,profit:document.getElementById('epr').value===''?null:VN('epr')};
     x.debt=st==='open'?Math.max(0,total-paid):0;
     if(st==='closed'&&!x.close)x.close=new Date().toISOString().slice(0,10);
-    if(id==null){if(pre&&pre.src){x.src=pre.src;x.site=pre.site}ST.newO.push(x);save();build();F.of='all';F.oq='';render();drawer(O.length-1);toast('Заказ создан');if(x.src)siteLink(O[O.length-1])}
+    if(id==null&&NG&&NGI.length)x.site=NGI.map(i=>({n:i.m,q:i.q,p:i.p,sku:i.sku||'',po:i.q>i.free}));
+    if(id==null){if(pre&&pre.src){x.src=pre.src;x.site=pre.site}ST.newO.push(x);const miss=NG?ngReserve(NGI,x.no):[];save();build();F.of='all';F.oq='';render();drawer(O.length-1);toast('Заказ создан'+(NG&&NGI.length?' · товары в брони':''));if(x.src)siteLink(O[O.length-1]);
+      if(miss.length)ask('Нет на складе: '+miss.map(i=>i.m+' — '+i.q+' шт').join(', ')+'. Добавить в черновик заказа поставщику?',()=>{const C=poCart();miss.forEach(i=>{const c=C.it.find(c=>zk(c.m)===zk(i.m));if(c)c.q+=i.q;else C.it.push({m:i.m,q:i.q,sku:i.sku||''})});save();render();toast('Добавлено в заказ поставщику')})}
     else{const was=O[id].st,wsh=O[id].shipped;ST.o[id]=Object.assign(ST.o[id]||{},x);save();build();render();drawer(id);toast('Заказ сохранён');if(was==='open'&&st!=='open')orderStock(O[id],st);else if(st==='open'&&x.shipped&&!wsh)orderStock(O[id],'ship')}
   },
   id==null?null:()=>{ask('Отметить заказ '+o.no+' как отменённый?',()=>{ST.o[id]=Object.assign(ST.o[id]||{},{st:'cancel',debt:0});save();build();render();toast('Заказ отменён');orderStock(O[id],'cancel')})});
+  if(NG)ngInit();
 }
+/* новый заказ: товары со склада и с сайта, сумма считается сама */
+let NGI=[];
+function ngList(){const E={};const add=(k,v)=>{E[k]=Object.assign(E[k]||{m:v.m,sku:'',p:0,free:0,cat:'',st:''},v,{free:(E[k]?E[k].free:0)+(v.free||0)})};
+  (CATL||[]).filter(c=>!c.h).forEach(c=>{if(!E[zk(c.m)])add(zk(c.m),{m:c.m,sku:c.sku,p:+c.p||0,cat:c.cat,st:c.st})});
+  const g={};S.forEach(s=>{const k=nm(s.model);(g[k]=g[k]||{name:s.model,u:[]}).u.push(s)});
+  Object.values(g).forEach(x=>{const c=siteOf(x),f=x.u.filter(s=>!s.res).reduce((a,s)=>a+s.qty,0),k=c&&c.m?zk(c.m):zk(x.name);
+    if(E[k]){E[k].free+=f;E[k].sm=x.name}else add(k,{m:x.name,free:f,cat:catOf(x.u[0]),sm:x.name})});
+  return Object.values(E)}
+function ngInit(){NGI=[];const L=ngList(),I=document.getElementById('ngq'),PL=document.getElementById('ngl'),T_=document.getElementById('ngt');
+  [...document.querySelectorAll('.md')].pop().querySelector('.mb').classList.add('mbw');
+  const norm=t=>String(t).toLowerCase().replace(/[\s\-_.\/]+/g,'');
+  const drawL=()=>{const ws=I.value.trim().toLowerCase().split(/\s+/).filter(Boolean).map(norm);if(!ws.length){PL.hidden=true;return}
+    const r=L.filter(e=>ws.every(w=>norm(e.m+' '+(e.sm||'')+' '+e.sku).includes(w))).sort((a,b)=>(b.free>0)-(a.free>0)||a.m.localeCompare(b.m)).slice(0,40);
+    PL.hidden=false;PL.innerHTML=r.map((e,i)=>`<button type="button" class="pki" data-ni="${L.indexOf(e)}"><b>${esc(e.m)}</b><span>${e.free>0?'<b style="color:var(--ok)">свободно '+e.free+'</b>':'нет на складе'+(e.st==='order'?' · под заказ':'')} · ${e.p?L_(e.p):'цены нет'}${e.cat?' · '+esc(e.cat):''}</span></button>`).join('')||'<div class="pkh">Не найдено</div>'};
+  const sum=()=>NGI.reduce((a,i)=>a+i.p*i.q,0);
+  const drawT=()=>{const g=sum();
+    T_.innerHTML=NGI.length?`<div class="tw"><table class="pot ngt"><thead><tr><th>Модель</th><th class="cn">Кол-во</th><th class="n">Цена, лей</th><th class="n hide-m">Сумма</th><th></th></tr></thead><tbody>${NGI.map((i,j)=>`<tr><td><b>${esc(i.m)}</b><div class="mu" style="font-size:13px">${i.free>=i.q?'на складе — встанет в бронь':i.free>0?'на складе '+i.free+', остальное под заказ':'нет на складе — под заказ'}</div></td><td class="cn"><span class="poq"><button type="button" data-nq="${j}" data-d="-1">−</button><input class="t" type="number" min="1" value="${i.q}" data-nqi="${j}"><button type="button" data-nq="${j}" data-d="1">+</button></span></td><td class="n"><input class="t ngp" type="number" min="0" value="${i.p||''}" data-npi="${j}"></td><td class="n hide-m" data-ns="${j}">${L_(i.p*i.q)}</td><td><button type="button" class="lnx" data-nx="${j}">✕</button></td></tr>`).join('')}</tbody></table></div>
+    <div class="row ngd"><span>Без скидки: <b id="ngg">${L_(g)}</b></span><label>Скидка<input class="t" id="ngdv" type="number" min="0" value="${NGI.d||''}" placeholder="0"></label><select class="t" id="ngdk"><option value="pct"${NGI.k!=='sum'?' selected':''}>%</option><option value="sum"${NGI.k==='sum'?' selected':''}>лей</option></select><span>Итого: <b id="ngf"></b></span></div>`:'<p class="mu" style="margin:0">Найдите модель и нажмите на неё. Сумма заказа посчитается сама. Можно и без товаров — тогда впишите сумму вручную, как раньше.</p>';
+    upd()};
+  const upd=()=>{if(!NGI.length)return;const g=sum(),dv=+(document.getElementById('ngdv')||{}).value||0,dk=(document.getElementById('ngdk')||{}).value;NGI.d=dv;NGI.k=dk;
+    const t=Math.max(0,Math.round(dk==='sum'?g-dv:g*(1-Math.min(dv,100)/100)));document.getElementById('ngg').textContent=L_(g);document.getElementById('ngf').textContent=L_(t);document.getElementById('eto').value=t;
+    NGI.forEach((i,j)=>{const c=T_.querySelector(`[data-ns="${j}"]`);if(c)c.textContent=L_(i.p*i.q)})};
+  I.oninput=drawL;I.onfocus=drawL;
+  PL.onclick=e=>{const b=e.target.closest('[data-ni]');if(!b)return;const en=L[+b.dataset.ni],i=NGI.find(i=>zk(i.m)===zk(en.m));if(i)i.q++;else NGI.push({m:en.m,sm:en.sm||'',sku:en.sku||'',p:en.p||0,q:1,free:en.free});I.value='';PL.hidden=true;drawT();I.focus()};
+  T_.onclick=e=>{let x;if(x=e.target.closest('[data-nq]')){const i=NGI[+x.dataset.nq];i.q=Math.max(1,i.q+ +x.dataset.d);drawT()}else if(x=e.target.closest('[data-nx]')){NGI.splice(+x.dataset.nx,1);drawT()}};
+  T_.oninput=e=>{const x=e.target;if(x.dataset.nqi!=null){NGI[+x.dataset.nqi].q=Math.max(1,parseInt(x.value)||1);upd()}else if(x.dataset.npi!=null){NGI[+x.dataset.npi].p=Math.max(0,+x.value||0);upd()}else if(x.id==='ngdv'||x.id==='ngdk')upd()};
+  T_.onchange=e=>{if(e.target.id==='ngdk')upd();if(e.target.dataset.nqi!=null)drawT()};
+  drawT()}
+const L_=v=>Math.round(v||0).toLocaleString('ru-RU')+' лей';
+function ngReserve(items,no){const miss=[];
+  items.forEach(i=>{let need=i.q;const ks=new Set([zk(i.m),zk(i.sm||'')].filter(Boolean));
+    S.filter(s=>!s.res&&ks.has(zk(s.model))).sort((a,b)=>(a.loc==='dep'?0:1)-(b.loc==='dep'?0:1)||a.id-b.id).forEach(s=>{if(need<=0)return;const k=Math.min(need,s.qty),nid=splitU(s.id,k);setU(nid,{res:no});need-=k});
+    if(need>0)miss.push({m:i.m,q:need,sku:i.sku})});
+  return miss}
 function unitModal(id){
   const s=S.find(u=>u.id===id);if(!s)return;
   const locs=[['dep','Склад'],['salon','Салон'],['showroom','Шоурум']];if(!LOC[s.loc])locs.push([s.loc,s.loc]);
