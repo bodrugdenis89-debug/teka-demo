@@ -1,5 +1,140 @@
 [
  {
+  "sku": "115040011",
+  "n": "Universe 2B 80",
+  "sub": "Chiuvetă din inox (Microtexturat), 2 cuve, instalare Inset",
+  "p": 4200,
+  "img": [],
+  "draw": "",
+  "label": "",
+  "desc": [
+   "Chiuvetă din inox (Microtexturat), 2 cuve",
+   "Dimensiuni exterioare: L 790 mm x l 500 mm",
+   "Dimensiuni Cuve (mm): L 340 mm l 400 mm H 170 mm",
+   "Modalitate de instalare: Inset",
+   "Gol de încastrare min. 80 cm",
+   "Accesorii incluse: Set de scurgere 3 ½ cu preaplin"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Lățimea produsului (mm)",
+      "500"
+     ],
+     [
+      "Lungimea produsului (mm)",
+      "790"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "3,72"
+     ]
+    ]
+   },
+   {
+    "t": "Cuvă principală",
+    "r": [
+     [
+      "Lungimea cuvei principale (mm)",
+      "340"
+     ],
+     [
+      "Lățimea cuvei principale (mm)",
+      "400"
+     ],
+     [
+      "Adâncimea cuvei principale (mm)",
+      "170"
+     ]
+    ]
+   },
+   {
+    "t": "Alte caracteristici",
+    "r": [
+     [
+      "Material",
+      "Inox"
+     ],
+     [
+      "Modalitate de instalare",
+      "Inset"
+     ],
+     [
+      "Tip orificiu pentru ţeavă",
+      "3½\""
+     ]
+    ]
+   },
+   {
+    "t": "Alții",
+    "r": [
+     [
+      "Bază (cm)",
+      "80"
+     ]
+    ]
+   },
+   {
+    "t": "Cuvă secundară",
+    "r": [
+     [
+      "Lungimea cuvei auxiliare (mm)",
+      "340"
+     ],
+     [
+      "Lățimea cuvei auxiliare (mm)",
+      "400"
+     ],
+     [
+      "Adâncimea cuvei auxiliare (mm)",
+      "170"
+     ]
+    ]
+   },
+   {
+    "t": "Chiuvetă Lay out",
+    "r": [
+     [
+      "Numărul de cuve",
+      "2"
+     ],
+     [
+      "Numărul de picurătoare",
+      "0"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Izolat fonic",
+      "Da"
+     ],
+     [
+      "Clipuri pentru instalare",
+      "Da"
+     ]
+    ]
+   }
+  ],
+  "pdf": [],
+  "b": "Teka",
+  "mat": "",
+  "bowls": "",
+  "col": "",
+  "u": [
+   "assets/u/115040011-mv9iqhpjzxu.webp",
+   "assets/u/115040011-mv9iqolahnm.webp",
+   "assets/u/115040011-mv9iqvtll6q.webp",
+   "assets/u/115040011-mv9ir5i12u4.webp",
+   "assets/u/115040011-mv9ir7ao7ia.webp",
+   "assets/u/115040011-mv9ircycx01.webp"
+  ]
+ },
+ {
   "sku": "40109611",
   "n": "Classico 1B",
   "sub": "Chiuvetă din inox, 1 cuvă, modalitate de instalare: Inset",

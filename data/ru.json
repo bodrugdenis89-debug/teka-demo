@@ -1644,7 +1644,11 @@
 "1 sertar ZeroBox, 1 Fresh Box": "1 ящик ZeroBox, 1 ящик Fresh Box",
 "Panou de control electronic;": "Электронная панель управления;",
 "Alarma acustica": "Акустическая сигнализация",
-"Volum total: 378l; Volum frigider: 215l; Volum congelator: 122l; Volum zona Chilling: 40 l": "Общий объем: 378л; Объем холодильника: 215л; Объем морозильной камеры: 122л; Объем зоны охлаждения: 40 л"
+"Volum total: 378l; Volum frigider: 215l; Volum congelator: 122l; Volum zona Chilling: 40 l": "Общий объем: 378л; Объем холодильника: 215л; Объем морозильной камеры: 122л; Объем зоны охлаждения: 40 л",
+"Chiuvetă din inox (Microtexturat), 2 cuve": "Мойка из нержавеющей стали (микротекстурированная), 2 чаши",
+"Dimensiuni exterioare: L 790 mm x l 500 mm": "Внешние размеры: Д 790 мм x Ш 500 мм",
+"Dimensiuni Cuve (mm): L 340 mm l 400 mm H 170 mm": "Размеры бака (мм): Д 340 мм Д 400 мм В 170 мм",
+"Gol de încastrare min. 80 cm": "Монтажный зазор мин. 80 см"
 },
 "s": {
 "Cuptor multifuncţional, cu 8 funcţii şi Sistem de curăţare HydroClean PRO": "Многофункциональный духовой шкаф с 8 функциями и системой очистки HydroClean PRO",
@@ -1897,6 +1901,7 @@
 "Combina frigorifica free-standing, Total No Frost, Control Multi Air Flow, Metal Cooling , Control DualTemp": "Отдельно стоящий холодильник, Total No Frost, Multi Air Flow Control, Металлическое охлаждение, DualTemp Control",
 "Combina frigorifica free-standing, finisaj inox, Total No Frost, Multi Air Flow, Control DualTemp": "Отдельно стоящий холодильник с морозильной камерой, отделка из нержавеющей стали, Total No Frost, Multi Air Flow, DualTemp Control",
 "Combina frigorifica free-standing, finisaj Inox, Total No Frost, Control Air Flow, Metal Cooling": "Отдельностоящая холодильная комбинация, отделка Inox, Total No Frost, Контроль воздушного потока, Металлическое охлаждение",
-"Combina frigorifica free-standing, finisaj Alb, Total No Frost, Control Air Flow, Metal Cooling": "Отдельностоящая холодильная комбинация, белая отделка, Total No Frost, регулировка воздушного потока, металлическое охлаждение"
+"Combina frigorifica free-standing, finisaj Alb, Total No Frost, Control Air Flow, Metal Cooling": "Отдельностоящая холодильная комбинация, белая отделка, Total No Frost, регулировка воздушного потока, металлическое охлаждение",
+"Chiuvetă din inox (Microtexturat), 2 cuve, instalare Inset": "Мойка из нержавеющей стали (микротекстурированная), 2 чаши, встраиваемый монтаж"
 }
 }
