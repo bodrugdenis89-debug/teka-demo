@@ -1,5 +1,71 @@
 [
  {
+  "sku": "539341200",
+  "n": "IN 934",
+  "sub": "Baterie profesională de bucătărie cu gura flexibilă",
+  "p": 2800,
+  "img": [],
+  "draw": "assets/u/539341200-draw-mv9jsthwx4q.webp",
+  "label": "",
+  "desc": [
+   "Robinet de bucatarie profesional",
+   "Duza pivotanta si flexibila",
+   "Aerator anticalcar",
+   "cartus de 35 mm",
+   "Cartuș cu discuri ceramice de înaltă rezistență",
+   "Control extrem de precis al temperaturii",
+   "Sensibilitate mai mare la manipulare cu mișcări mai fine",
+   "Sistem de fixare Easy-Quick",
+   "Țevi de admisie flexibile certificate de 3/8\""
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "260"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "192"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "386"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "2,08"
+     ]
+    ]
+   },
+   {
+    "t": "Modele",
+    "r": [
+     [
+      "Modalitate de instalare",
+      "Free standing"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/HI302P-User-Manual.pdf"
+  ],
+  "b": "Teka",
+  "col": "",
+  "kind": "",
+  "u": [
+   "assets/u/539341200-mv9jt6c27xh.webp"
+  ]
+ },
+ {
   "sku": "8191362",
   "n": "ML",
   "sub": "Baterie de bucătărie cu ţeavă joasă şi aerator anticalcar",
