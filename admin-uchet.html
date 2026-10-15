@@ -580,7 +580,7 @@ function drawer(id){
   const ov=document.createElement('div');ov.className='ov';
   const it=o.items.map(s=>`<tr class="rs"><td>${esc(s.model)}</td><td>${loc(s.loc)}</td><td class="n">${E(s.cost,2)}<br><small class="mu">≈ ${LE(s.cost)}</small></td><td><span class="b y">бронь</span></td></tr>`).join('')+o.sold.map(s=>`<tr><td>${esc(s.model)}</td><td>${esc(loc(s.from_))}</td><td class="n">${E(s.cost,2)}<br><small class="mu">≈ ${LE(s.cost)}</small></td><td><span class="b z">выдан${s.d?' '+dt(s.d):''}</span> <button class="btn s" data-rt="${s.uid!=null?'u'+s.uid:s.sk}" title="Клиент вернул товар — вернуть на склад свободным">↩ Возврат</button>${s.uid!=null?` <button class="btn s" data-a="ret" data-u="${s.uid}" title="Ошибочно отметили выданным — вернуть в бронь этого заказа">Отменить выдачу</button>`:''}</td></tr>`).join('')+o.ret.map(s=>`<tr><td class="mu"><s>${esc(s.model)}</s>${s.qty>1?' × '+s.qty:''}</td><td class="mu">${loc(s.loc)}</td><td class="n mu">${E(s.cost,2)}</td><td><span class="b x">возврат ${dt(s.ret.d)}</span></td></tr>`).join('');
   const cost=o.items.concat(o.sold).reduce((a,s)=>a+(s.cost||0),0);
-  ov.innerHTML=`<div class="dr"><div class="row"><button class="btn k s" data-a="edit">✎ Изменить заказ</button>${pbtn('order|'+id)}<span class="sp"></span><button class="btn s" data-x>Закрыть ✕</button></div>
+  ov.innerHTML=`<div class="dr"><div class="row"><button class="btn k s" data-a="edit">✎ Изменить заказ</button>${pbtn('order|'+id,'Печать для салона')}<span class="pbx"><button class="btn s r" data-pr="kp|${id}" data-pm="pdf" title="PDF для клиента: товары, цены, скидка — без себестоимости">📄 Предложение клиенту</button><button class="btn s" data-pr="kp|${id}" data-pm="print" title="Печать предложения">🖨</button></span><span class="sp"></span><button class="btn s" data-x>Закрыть ✕</button></div>
   <h2>Заказ ${esc(o.no||'без номера')}</h2><div>${stat(o)} <span class="mu">от ${dt(o.date)}${o.close&&o.st==='closed'?' · закрыт '+dt(o.close):''}</span></div>
   <dl class="dl"><dt>Мебельщик</dt><dd>${esc(o.partner||'—')}</dd><dt>Клиент</dt><dd>${esc(o.client)}</dd><dt>Телефон</dt><dd>${o.tel?`<a href="tel:${esc(o.tel)}">${esc(o.tel)}</a> <button class="btn s" data-a="tel">✎</button>`:'<button class="btn s" data-a="tel">+ Добавить</button>'}</dd>${o.site?`<dt class="sw">${o.src?'С сайта':'Товары'} · ${o.site.reduce((a,i)=>a+(+i.q||1),0)} шт</dt><dd class="sw"><table class="pli sit"><tr><th>Товар</th><th class="n">Кол-во</th><th class="n">Цена</th><th class="n">Сумма</th></tr>${o.site.map(i=>`<tr><td>${esc(i.n)}${i.po?' <span class="b w">под заказ</span>':''}</td><td class="n">${+i.q||1}</td><td class="n">${i.p?L(i.p):'—'}</td><td class="n">${i.p?L(i.p*(+i.q||1)):'—'}</td></tr>`).join('')}${(()=>{const g=o.site.reduce((a,i)=>a+(+i.p||0)*(+i.q||1),0),d=g-(+o.total||0);return g?`<tr class="sf"><td colspan="3">Итого без скидки</td><td class="n">${L(g)}</td></tr>`+(d>0?`<tr class="sf"><td colspan="3">Скидка ${Math.round(d/g*1000)/10}%</td><td class="n" style="color:var(--red)">−${L(d)}</td></tr><tr class="sf"><td colspan="3">Со скидкой</td><td class="n">${L(o.total)}</td></tr>`:''):''})()}</table></dd>`:''}
   <dt>Дизайнер</dt><dd>${o.designer?esc(o.designer)+' · '+L(o.com):'—'}</dd>
@@ -617,7 +617,7 @@ function drawer(id){
 /* ---------- Склад ---------- */
 let CATL=null,CATP=null;
 const CMAP={ovens:'Духовки',microwaves:'Микроволновки и компакт',compact:'Микроволновки и компакт',hobs:'Варочные панели',hoods:'Вытяжки',dishwashers:'Посудомойки и стиральные',laundry:'Посудомойки и стиральные',fridges:'Холодильники','wine-coolers':'Холодильники',sinks:'Мойки',faucets:'Смесители',accessories:'Аксессуары'};
-function loadCat(){return CATP||(CATP=Promise.all(Object.keys(CMAP).map(f=>fetch('data/'+f+'.json',{cache:'no-cache'}).then(r=>r.ok?r.json():[]).catch(()=>[]).then(a=>(Array.isArray(a)?a:[]).map(x=>({m:String(x.n||x.name||'').trim(),p:x.p||x.price||0,cat:CMAP[f],sku:String(x.sku||''),f,st:x.st||'',h:!!x.hid})).filter(x=>x.m)))).then(a=>{CATL=a.flat();CBY=null;return CATL}))}
+function loadCat(){return CATP||(CATP=Promise.all(Object.keys(CMAP).map(f=>fetch('data/'+f+'.json',{cache:'no-cache'}).then(r=>r.ok?r.json():[]).catch(()=>[]).then(a=>(Array.isArray(a)?a:[]).map(x=>({m:String(x.n||x.name||'').trim(),p:x.p||x.price||0,cat:CMAP[f],sku:String(x.sku||''),f,st:x.st||'',h:!!x.hid,i:String((Array.isArray(x.img)?x.img[0]:x.img)||'')})).filter(x=>x.m)))).then(a=>{CATL=a.flat();CBY=null;return CATL}))}
 let CBY=null;const zk=t=>String(t||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
 function siteOf(x){const l=(ST.lnk||{})[zk(x.name)];if(l&&l.u)return {man:l.u};if(!CATL)return undefined;if(!CBY){CBY={};CATL.forEach(c=>{CBY[zk(c.m)]=CBY[zk(c.m)]||c;if(c.sku)CBY[c.sku]=CBY[c.sku]||c})}
   return CBY[zk(x.name)]||x.u.map(s=>CBY[String(s.sku||'')]).find(Boolean)||(x.name.match(/\d{8,9}/g)||[]).map(k=>CBY[k]).find(Boolean)||null}
@@ -1007,6 +1007,7 @@ const PCSS=`.pd{font:13px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto
 .pd .cat td{background:#eee;font-weight:700}.pd .tot td{border-top:2px solid #111;font-weight:700;border-bottom:0}
 .pd .kp{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0 6px}.pd .kp div{border:1px solid #ccc;border-radius:6px;padding:8px}
 .pd .kp small{display:block;color:#555;font-size:11px}.pd .kp strong{font-size:17px}
+.pd .ki{width:74px}.pd .ki img{width:64px;height:64px;object-fit:contain;display:block}.pd .ks{font-size:11px;color:#1a7f37}.pd .kw{font-size:11px;color:#b45309}.pd .mu{color:#666;font-size:11px}.pd .kt td{border-bottom:0;padding:3px 6px}.pd .kc{margin-top:22px;padding-top:8px;border-top:1px solid #ccc;font-size:11px;color:#444}
 .pd .sg{display:flex;justify-content:space-between;gap:40px;margin-top:40px}.pd .sg div{flex:1;border-top:1px solid #111;padding-top:4px;font-size:11px;color:#444}
 .pd .mu{color:#666}`;
 const RO={'Сводка':'Rezumat','Нам должны':'Ni se datorează','Дизайнерам':'Designerilor','Склад по себестоимости':'Stoc la cost','Открытых заказов':'Comenzi deschise','Кто должен':'Cine datorează',
@@ -1019,7 +1020,7 @@ const RO={'Сводка':'Rezumat','Нам должны':'Ni se datorează','Д�
 'Акт сверки':'Act de verificare','дизайнер':'designer','Комиссия':'Comision','Выплата':'Plată','Выплачено':'Achitat','К выплате':'De achitat','Ожидается':'Așteptat',
 'отменён':'anulat','закрыт':'închis','долг':'datorie','не отгружен':'nelivrat','открыт':'deschis','выплачено':'achitat','к выплате':'de achitat','ожидается':'așteptat',
 'Задолженность на':'Datorie la data de','курс':'curs','Склад':'Depozit','Салон':'Salon','Шоурум':'Showroom','наличные':'numerar','перевод':'transfer','Наличные':'Numerar','Терминал':'Terminal','Перевод на счёт':'Transfer bancar',
-'Духовки':'Cuptoare','Микроволновки и компакт':'Microunde și compacte','Варочные панели':'Plite','Вытяжки':'Hote','Посудомойки и стиральные':'Mașini de spălat','Холодильники':'Frigidere','Мойки':'Chiuvete','Смесители':'Baterii','Аксессуары':'Accesorii','Прочее':'Altele','Заказ поставщику':'Comandă către furnizor','Поставщик':'Furnizor','Артикул':'Cod articol','шт':'buc.'};
+'Духовки':'Cuptoare','Микроволновки и компакт':'Microunde și compacte','Варочные панели':'Plite','Вытяжки':'Hote','Посудомойки и стиральные':'Mașini de spălat','Холодильники':'Frigidere','Мойки':'Chiuvete','Смесители':'Baterii','Аксессуары':'Accesorii','Прочее':'Altele','Заказ поставщику':'Comandă către furnizor','Поставщик':'Furnizor','Артикул':'Cod articol','шт':'buc.','Предложение':'Ofertă','Цена':'Preț','Кол-во':'Cant.','Итого без скидки':'Total fără reducere','Скидка':'Reducere','К оплате':'Total de plată','Осталось оплатить':'Rest de plată','под заказ':'la comandă','срок поставки уточняется':'termenul de livrare se precizează','в наличии':'în stoc','Цены указаны в леях':'Prețurile sunt indicate în lei'};
 const MRO=['','ianuarie','februarie','martie','aprilie','mai','iunie','iulie','august','septembrie','octombrie','noiembrie','decembrie'];
 const PL=()=>ST.pl||'ru';
 const T=s=>{const r=RO[s];if(!r||PL()==='ru')return s;return PL()==='ro'?r:r+' / '+s};
@@ -1059,6 +1060,17 @@ function mk(k){
       <h2>${T('Товары')}</h2>${it.length?ptab([['Модель'],['Откуда'],['Себестоимость',1],['']],it.map(s=>`<tr><td>${esc(s.m)}</td><td>${esc(s.f)}</td><td class="n">${E(s.c,2)}</td><td>${T(s.st)}</td></tr>`),`<tr class="tot"><td colspan="2">${T('Итого себестоимость')}</td><td class="n">${E(cost,2)} ≈ ${PLe(cost)}</td><td></td></tr>`):`<p class="mu">${T('Товары по складу не найдены.')}</p>`}
       <div class="sg"><div>${T('Выдал')}</div><div>${T('Получил')}</div></div>`);
   }
+  if(kind==='kp'){const o=O[+arg],Lm=PLm;
+    let it=(o.site||[]).map(i=>({m:i.n,q:+i.q||1,p:+i.p||0,sku:i.sku,po:i.po}));
+    if(!it.length){const c={};o.items.map(s=>s.model).concat(o.sold.map(s=>s.model)).forEach(m=>c[m]=(c[m]||0)+1);it=Object.entries(c).map(([m,q])=>({m,q,p:0}))}
+    const g=it.reduce((a,i)=>a+i.p*i.q,0),tot=+o.total||g,d=g>tot?g-tot:0,img=i=>{const c=kpCat(i);return c&&KPI[c.i]?`<img src="${esc(KPI[c.i])}" alt="">`:''};
+    const rows=it.map((i,n)=>{const c=kpCat(i);return`<tr><td class="ki">${img(i)}</td><td><b>${esc(i.m)}</b>${c?`<div class="mu">${esc(T(c.cat))}</div>`:''}<div class="${i.po?'kw':'ks'}">${i.po?T('под заказ')+' · '+T('срок поставки уточняется'):T('в наличии')}</div></td><td class="n">${i.q}</td><td class="n">${i.p?Lm(i.p):''}</td><td class="n"><b>${i.p?Lm(i.p*i.q):''}</b></td></tr>`});
+    const tr=(a,b,c)=>`<tr class="${c||'kt'}"><td colspan="4">${a}</td><td class="n">${b}</td></tr>`;
+    const foot=(g&&d?tr(T('Итого без скидки'),Lm(g))+tr(T('Скидка')+' '+Math.round(d/g*1000)/10+'%','−'+Lm(d)):'')+tr(T('К оплате'),Lm(tot),'tot')+(o.paid>0?tr(T('Оплачено'),Lm(o.paid))+tr(T('Осталось оплатить'),Lm(Math.max(0,tot-o.paid))):'');
+    return{t:T('Предложение')+' '+(o.no||''),html:`<div class="pd kpd"><div class="ph"><h1><b>TEKA</b>${esc(T('Предложение'))} ${esc(o.no||'')}</h1><div class="pm">${dt(o.date)||today()}</div></div>
+      <p>${T('Клиент')}: <b>${esc(o.client||'')}</b>${o.partner?' · '+T('Мебельщик')+': '+esc(o.partner):''}</p>
+      ${ptab([[''],['Модель'],['Кол-во',1],['Цена',1],['Сумма',1]],rows,foot)}<p class="mu">${T('Цены указаны в леях')}.</p>
+      <div class="kc"><b>TEKA Moldova</b> · Chișinău, str. 31 August 1989, 79/1 · +373 68 272 702 · tekamoldova@gmail.com · teka.md</div></div>`}}
   if(kind==='po'){const p=ST.po[arg]||{it:[]};
     return pdoc(T('Заказ поставщику')+' '+(p.no||''),`<p>${T('Дата')}: ${dt(p.d)}${p.sup?' · '+T('Поставщик')+': '+esc(p.sup):''}</p>${p.note?`<p class="mu">${esc(p.note)}</p>`:''}${ptab([['№'],['Модель'],['Артикул'],['Шт',1]],[poRows(p.it,4,(i,j,n)=>`<tr><td>${n}</td><td><b>${esc(i.m)}</b></td><td>${esc(i.sku||'')}</td><td class="n">${i.q}</td></tr>`,1)],`<tr class="tot"><td colspan="3">${T('Итого')}</td><td class="n">${p.it.reduce((a,i)=>a+i.q,0)}</td></tr>`)}`)}
   if(kind==='stk'){
@@ -1089,11 +1101,17 @@ function mk(k){
       `<tr class="tot"><td colspan="3">${T('Итого')}: ${os.length} ${T('заказов')}</td><td class="n">${Lm(t)}</td><td class="n">${Lm(p)}</td><td class="n">${Lm(d)}</td><td></td></tr>`)+`<p style="margin-top:10px">${T('Задолженность на')} ${today()}: <b>${Lm(d)}</b></p><div class="sg"><div>Teka</div><div>${esc(arg)}</div></div>`);
   }
 }
+const KPI={};
+function kpCat(i){if(!CATL)return null;siteOf({name:i.m});return(i.sku&&CBY[i.sku])||CBY[zk(i.m)]||null}
+function kpPrep(id){const o=O[+id];return loadCat().then(()=>Promise.all((o.site||[]).map(i=>{const c=kpCat({m:i.n,sku:i.sku});if(!c||!c.i||KPI[c.i]!==undefined)return;
+  const t=u=>new Promise(ok=>{const im=new Image();im.onload=()=>ok(u);im.onerror=()=>ok('');im.src=u});
+  return t('assets/ro2/'+c.i).then(u=>u||t('assets/ro/'+c.i)).then(u=>{KPI[c.i]=u})})))}
+const imgsOk=r=>Promise.race([Promise.all([...r.querySelectorAll('img')].map(i=>i.complete?0:new Promise(ok=>{i.onload=i.onerror=ok}))),new Promise(ok=>setTimeout(ok,4000))]);
 function printDoc(d){
   if(MOBI())return pdfDoc(d);
   const f=document.createElement('iframe');f.style.cssText='position:fixed;right:0;bottom:0;width:0;height:0;border:0';document.body.appendChild(f);
   const w=f.contentWindow;w.document.open();w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>${esc(d.t)}</title><style>@page{size:A4 ${d.land?'landscape':'portrait'};margin:12mm}body{margin:0}${PCSS}</style></head><body>${d.html}</body></html>`);w.document.close();
-  setTimeout(()=>{w.focus();w.print();setTimeout(()=>f.remove(),2000)},300);
+  imgsOk(w.document).then(()=>setTimeout(()=>{w.focus();w.print();setTimeout(()=>f.remove(),2000)},300));
 }
 let H2P;
 function loadH2P(){return H2P||(H2P=new Promise((ok,no)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';s.onload=ok;s.onerror=()=>{H2P=null;no(new Error('нет интернета'))};document.head.appendChild(s)}))}
@@ -1105,7 +1123,7 @@ async function pdfDoc(d){
     await loadH2P();
     const W=d.land?1080:760;
     box=document.createElement('div');box.style.cssText=`position:absolute;left:-${W+2000}px;top:0;width:${W}px;background:#fff`;box.innerHTML=`<style>${PCSS}</style>${d.html}`;document.body.appendChild(box);
-    const el=box.lastElementChild,h=el.scrollHeight;
+    await imgsOk(box);const el=box.lastElementChild,h=el.scrollHeight;
     const name='Teka — '+d.t.replace(/[\\/:*?"<>|]/g,'-')+' '+today()+'.pdf';
     const sc=Math.max(1,Math.min(2,Math.floor(14e6/(W*h)*10)/10));
     const w=html2pdf().set({margin:10,filename:name,image:{type:'jpeg',quality:.95},html2canvas:{scale:MOBI()?Math.min(sc,1.6):sc,backgroundColor:'#fff',scrollX:0,scrollY:0,windowWidth:W,windowHeight:h,x:0,y:0},jsPDF:{unit:'mm',format:'a4',orientation:d.land?'landscape':'portrait'},pagebreak:{mode:['css','legacy'],avoid:'tr'}}).from(el);
@@ -1173,7 +1191,7 @@ const plSync=()=>document.querySelectorAll('[data-pl]').forEach(b=>b.classList.t
 document.querySelector('.plg').onclick=e=>{const b=e.target.closest('[data-pl]');if(!b)return;ST.pl=b.dataset.pl;save();plSync();toast({ru:'Документы печатаются на русском',ro:'Documentele se tipăresc în română',both:'Документы на двух языках: RO + RU'}[ST.pl])};
 const KI=document.getElementById('kf');KI.value=KF();KI.addEventListener('change',()=>{const v=+KI.value;if(v>=1&&v<5){ST.k=v;save();build();render();toast('Коэффициент закупки: ×'+v)}else KI.value=KF()});
 const RI=document.getElementById('rate');RI.value=ST.rate;RI.addEventListener('change',()=>{const v=+RI.value;if(v>1){ST.rate=v;save();render();toast('Курс сохранён: 1 € = '+v+' лей')}else RI.value=ST.rate});
-document.addEventListener('click',e=>{const x=e.target.closest('[data-pr]');if(!x)return;e.preventDefault();e.stopPropagation();const d=mk(x.dataset.pr);if(window.TK_ART){previewDoc(d);return}x.dataset.pm==='pdf'?pdfDoc(d):printDoc(d)},true);
+document.addEventListener('click',e=>{const x=e.target.closest('[data-pr]');if(!x)return;e.preventDefault();e.stopPropagation();if(/^kp\|/.test(x.dataset.pr)&&!x.dataset.ok){toast('Готовим предложение…');kpPrep(x.dataset.pr.slice(3)).then(()=>{x.dataset.ok=1;x.click();delete x.dataset.ok});return}const d=mk(x.dataset.pr);if(window.TK_ART){previewDoc(d);return}x.dataset.pm==='pdf'?pdfDoc(d):printDoc(d)},true);
 /* хранение на сервере: GET /api/acc → {base, st}; POST /api/acc {patch} — только изменённое */
 const API=/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?'':'https://teka-admin.teka-md.workers.dev';
 let TOK='';try{TOK=localStorage.getItem('tkAdm')||''}catch(e){}
