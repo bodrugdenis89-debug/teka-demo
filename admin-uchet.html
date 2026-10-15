@@ -431,7 +431,7 @@ tr.u.out{animation:tkOut .17s ease-in forwards}
 .pobn{font-style:normal;background:#fff;color:var(--red);border-radius:10px;padding:0 7px;margin-left:8px;font-size:14px}
 .poh{margin:6px 0 8px;font-size:18px}.pot td{vertical-align:middle}.pom{font-size:13px;display:none}.poq{display:inline-flex;gap:4px;align-items:center}.poq button{width:34px;height:34px;border:1px solid var(--line);background:#fff;border-radius:8px;font-size:18px;cursor:pointer}.poq input{width:64px!important;height:34px!important;text-align:center;padding:0 4px!important}
 .poF{gap:10px;margin:10px 0}.poF label{flex:1;display:grid;gap:4px;font-size:14px;color:var(--mute);min-width:160px}
-.poc{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 10px;display:grid;gap:6px}.pol{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:15px}
+.pocat td{background:#f3f3f3;font-weight:700;font-size:15px;padding:8px 10px!important}.polg{display:grid;gap:2px}.poc{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 10px;display:grid;gap:6px}.pol{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:15px}
 @media(max-width:700px){.pom{display:block}.pot th:nth-child(4){text-align:right}#pob .tw{margin:0!important;width:100%!important;box-sizing:border-box}#pob .pot td,#pob .pot th{padding:8px 6px!important}.poF label{min-width:0;flex:1 1 100%!important}.poq button{width:30px;height:30px}.poq input{width:44px!important}}
 .snl{display:inline-block;margin-left:10px;font-size:13px;font-weight:600;color:#B3261E;background:#FDECEA;border-radius:10px;padding:2px 9px;vertical-align:2px}
 .dl .sw{grid-column:1/-1}.dl dd.sw{margin-top:-6px;font-weight:400}.sit{border:1px solid var(--line);border-radius:10px;border-collapse:separate;border-spacing:0}.sit th{font-size:12.5px;font-weight:600;color:var(--mute);text-align:left;padding:7px 8px;background:var(--soft);border-bottom:1px solid var(--line)}.sit th.n{text-align:right}.sit td:first-child{font-weight:600}.sit td.n{font-size:14px}.sit tr.sf td{font-weight:700;background:var(--soft)}.sit tr.sf td:first-child{text-align:right;font-weight:600;color:var(--mute)}
@@ -662,6 +662,9 @@ const wayTd=x=>{const w=(poTag.W||{})[zk(x.name)];return `<td class="cn">${w?`<b
 function poTag(x){const k=zk(x.name),w=(poTag.W||{})[k],c=poCart().it.find(i=>zk(i.m)===k),sku=x.site&&x.site.sku||(x.u.find(s=>s.sku)||{}).sku||'';
   return `<span class="lnw" onclick="event.stopPropagation()"><button class="pob${c?' on':''}" onclick="poAdd(this.dataset.poa,this.dataset.sku)" data-poa="${esc(x.name)}" data-sku="${esc(sku)}" title="Добавить в заказ поставщику">${c?'в заказе '+c.q+' · +1':'+ заказать'}</button></span>`}
 function poAdd(m,sku){const C=poCart(),i=C.it.find(i=>zk(i.m)===zk(m));if(i)i.q++;else C.it.push({m,q:1,sku:sku||''});save();render();toast('В заказ поставщику: '+m+' — '+(i?i.q:1)+' шт')}
+function poCat(i){const C=CATL||[],c=C.find(c=>i.sku&&c.sku===i.sku)||C.find(c=>zk(c.m)===zk(i.m));if(c)return c.cat;const s=S.concat(OUT).find(s=>zk(s.model)===zk(i.m));return s?catOf(s):guessCat(i.m)}
+function poGroups(it){const g={};it.forEach((i,j)=>{const c=poCat(i);(g[c]=g[c]||[]).push([i,j])});return Object.keys(g).sort((a,b)=>(CATS.indexOf(a)+99)%99-(CATS.indexOf(b)+99)%99).map(c=>[c,g[c]])}
+function poRows(it,cs,fn,pr){let n=0;return poGroups(it).map(([c,L])=>{const q=L.reduce((a,[i])=>a+i.q,0);return(pr?`<tr class="cat"><td colspan="${cs}">${esc(T(c))} · ${q} ${T('шт')}</td></tr>`:`<tr class="pocat"><td colspan="${cs}">${esc(c)} · ${q} шт</td></tr>`)+L.map(([i,j])=>fn(i,j,++n)).join('')}).join('')}
 function poHave(m){const k=zk(m),L=S.filter(s=>zk(s.model)===k);return{q:L.reduce((a,s)=>a+s.qty,0),f:L.filter(s=>!s.res).reduce((a,s)=>a+s.qty,0)}}
 function poModal(){
   modal('Заказ поставщику','<div id="pob"></div>',()=>{});
@@ -672,19 +675,19 @@ function poModal(){
   function draw(){const C=poCart(),W=poWay(),A=POL().sort((a,b)=>(b.t||0)-(a.t||0)),n=C.it.reduce((a,i)=>a+i.q,0);
     const cnt=k=>A.filter(p=>!k||p.st===k).length;
     B.innerHTML=`<h4 class="poh">Черновик${C.it.length?` · ${C.it.length} мод., ${n} шт`:''}</h4>
-    ${C.it.length?`<div class="tw"><table class="pot"><thead><tr><th>Модель</th><th class="n hide-m">На складе</th><th class="n hide-m">В пути</th><th class="cn">Заказать</th><th></th></tr></thead><tbody>${C.it.map((i,j)=>{const h=poHave(i.m),w=W[zk(i.m)];return`<tr><td><b>${esc(i.m)}</b><div class="mu pom">на складе ${h.q}, свободно ${h.f}${w?' · в пути '+w.q:''}</div></td><td class="n hide-m">${h.q} <span class="mu">(своб. ${h.f})</span></td><td class="n hide-m">${w?w.q:'—'}</td><td class="cn"><span class="poq"><button data-pq="${j}" data-d="-1">−</button><input class="t" type="number" min="1" value="${i.q}" data-pi="${j}"><button data-pq="${j}" data-d="1">+</button></span></td><td><button class="lnx" data-px="${j}" title="Убрать">✕</button></td></tr>`}).join('')}</tbody></table></div>
+    ${C.it.length?`<div class="tw"><table class="pot"><thead><tr><th>Модель</th><th class="n hide-m">На складе</th><th class="n hide-m">В пути</th><th class="cn">Заказать</th><th></th></tr></thead><tbody>${poRows(C.it,5,(i,j)=>{const h=poHave(i.m),w=W[zk(i.m)];return`<tr><td><b>${esc(i.m)}</b><div class="mu pom">на складе ${h.q}, свободно ${h.f}${w?' · в пути '+w.q:''}</div></td><td class="n hide-m">${h.q} <span class="mu">(своб. ${h.f})</span></td><td class="n hide-m">${w?w.q:'—'}</td><td class="cn"><span class="poq"><button data-pq="${j}" data-d="-1">−</button><input class="t" type="number" min="1" value="${i.q}" data-pi="${j}"><button data-pq="${j}" data-d="1">+</button></span></td><td><button class="lnx" data-px="${j}" title="Убрать">✕</button></td></tr>`})}</tbody></table></div>
     <div class="row poF"><label>Поставщик<input class="t" id="pos" value="${esc(C.sup||'')}" placeholder="Teka, Küppersbusch…"></label><label style="flex:2">Комментарий<input class="t" id="pon" value="${esc(C.note||'')}" placeholder="необязательно"></label></div>
     <div class="row"><button class="btn" data-pclr>Очистить</button><span class="sp"></span><button class="btn r" data-pgo>Оформить заказ поставщику</button></div>`
     :'<p class="mu">Пусто. На складе нажмите «+ заказать» у нужной модели — она появится здесь, количество можно поменять.</p>'}
     <h4 class="poh">Оформленные заказы</h4>
     <div class="row">${[['way','В пути'],['got','Получены'],['cancel','Отменены'],['','Все']].map(([k,t])=>`<button class="chip${tab===k?' on':''}" data-pt="${k}">${t}<i>${cnt(k)}</i></button>`).join('')}</div>
     ${A.filter(p=>!tab||p.st===tab).map(p=>{const q=(p.it||[]).reduce((a,i)=>a+i.q,0);if(p.id===ed)return`<div class="poc poe"><div class="row" style="margin:0"><b>${esc(p.no)}</b><span class="mu">от ${dt(p.d)} · изменение</span></div>
-      <div class="tw"><table class="pot"><tbody>${E.it.map((i,j)=>`<tr><td><b>${esc(i.m)}</b></td><td class="cn"><span class="poq"><button data-eq="${j}" data-d="-1">−</button><input class="t" type="number" min="1" value="${i.q}" data-ei="${j}"><button data-eq="${j}" data-d="1">+</button></span></td><td><button class="lnx" data-ex="${j}" title="Убрать">✕</button></td></tr>`).join('')||'<tr><td class="mu">Нет моделей</td></tr>'}</tbody></table></div>
+      <div class="tw"><table class="pot"><tbody>${poRows(E.it,3,(i,j)=>`<tr><td><b>${esc(i.m)}</b></td><td class="cn"><span class="poq"><button data-eq="${j}" data-d="-1">−</button><input class="t" type="number" min="1" value="${i.q}" data-ei="${j}"><button data-eq="${j}" data-d="1">+</button></span></td><td><button class="lnx" data-ex="${j}" title="Убрать">✕</button></td></tr>`)||'<tr><td class="mu">Нет моделей</td></tr>'}</tbody></table></div>
       <div class="row poF"><label style="flex:2">Добавить модель<input class="t" id="pea" list="pedl" placeholder="Начните вводить модель и нажмите Enter"></label><datalist id="pedl">${[...new Set(S.map(s=>s.model).concat((CATL||[]).map(c=>c.m)))].sort().map(m=>`<option value="${esc(m)}">`).join('')}</datalist><button class="btn s" data-eadd style="align-self:end">Добавить</button></div>
       <div class="row poF"><label>Поставщик<input class="t" id="pes" value="${esc(E.sup||'')}"></label><label style="flex:2">Комментарий<input class="t" id="pen" value="${esc(E.note||'')}"></label></div>
       <div class="row" style="margin:0"><span class="sp"></span><button class="btn" data-ecx>Отмена</button><button class="btn r" data-esv>Сохранить изменения</button></div></div>`;
       return`<div class="poc"><div class="row" style="margin:0"><b>${esc(p.no)}</b><span class="mu">от ${dt(p.d)}${p.sup?' · '+esc(p.sup):''} · ${(p.it||[]).length} мод., ${q} шт</span>${p.st==='way'?'<span class="b y">в пути</span>':p.st==='got'?'<span class="b o">получен '+dt(p.gd)+'</span>':'<span class="b x">отменён</span>'}<span class="sp"></span>${pbtn('po|'+p.id)}</div>
-      ${p.note?`<div class="mu">${esc(p.note)}</div>`:''}<div class="pol">${(p.it||[]).map(i=>`<span>${esc(i.m)} — <b>${i.q} шт</b></span>`).join('')}</div>
+      ${p.note?`<div class="mu">${esc(p.note)}</div>`:''}${poGroups(p.it||[]).map(([c,L])=>`<div class="polg"><div class="mu">${esc(c)} · ${L.reduce((a,[i])=>a+i.q,0)} шт</div><div class="pol">${L.map(([i])=>`<span>${esc(i.m)} — <b>${i.q} шт</b></span>`).join('')}</div></div>`).join('')}
       ${p.st==='way'?`<div class="row" style="margin:8px 0 0"><button class="btn s" data-ped="${p.id}">✎ Изменить</button><button class="btn s" data-pgot="${p.id}">Получен — оприходовать</button><button class="btn s" data-pcx="${p.id}" style="color:var(--red)">Отменить</button></div>`:p.st==='cancel'?`<div class="row" style="margin:8px 0 0"><button class="btn s" data-pdel="${p.id}" style="color:var(--red)">Удалить</button></div>`:''}</div>`}).join('')||'<p class="mu">Нет заказов.</p>'}`}
   const C=()=>poCart(),rd=()=>{const s=B.querySelector('#pos'),n=B.querySelector('#pon');if(s){C().sup=s.value.trim();C().note=n.value.trim()}};
   const eAdd=()=>{const I=B.querySelector('#pea'),m=I.value.trim();if(!m)return;const i=E.it.find(i=>zk(i.m)===zk(m));if(i)i.q++;else{const c=(CATL||[]).find(c=>zk(c.m)===zk(m));E.it.push({m,q:1,sku:c?c.sku:''})}E.sup=B.querySelector('#pes').value.trim();E.note=B.querySelector('#pen').value.trim();draw();B.querySelector('#pea').focus()};
@@ -709,6 +712,7 @@ function poModal(){
     if(x=t.closest('[data-pcx]')){const p=ST.po[x.dataset.pcx];ask('Отменить заказ '+p.no+'? «В пути» по нему пропадёт.',()=>{p.st='cancel';fin()});return}
     if(x=t.closest('[data-pdel]')){const id=x.dataset.pdel;ask('Удалить отменённый заказ '+ST.po[id].no+'?',()=>{delete ST.po[id];fin()});return}
   };
+  poModal.re=()=>{if(document.body.contains(B))draw()};
   draw();
 }
 function skuWarn(){const m={};S.forEach(s=>{if(s.sku){const k=nm(s.model);(m[s.sku]=m[s.sku]||{})[k]=s.model}});
@@ -975,7 +979,7 @@ const RO={'Сводка':'Rezumat','Нам должны':'Ni se datorează','Д�
 'Акт сверки':'Act de verificare','дизайнер':'designer','Комиссия':'Comision','Выплата':'Plată','Выплачено':'Achitat','К выплате':'De achitat','Ожидается':'Așteptat',
 'отменён':'anulat','закрыт':'închis','долг':'datorie','не отгружен':'nelivrat','открыт':'deschis','выплачено':'achitat','к выплате':'de achitat','ожидается':'așteptat',
 'Задолженность на':'Datorie la data de','курс':'curs','Склад':'Depozit','Салон':'Salon','Шоурум':'Showroom','наличные':'numerar','перевод':'transfer','Наличные':'Numerar','Терминал':'Terminal','Перевод на счёт':'Transfer bancar',
-'Духовки':'Cuptoare','Микроволновки и компакт':'Microunde și compacte','Варочные панели':'Plite','Вытяжки':'Hote','Посудомойки и стиральные':'Mașini de spălat','Холодильники':'Frigidere','Мойки':'Chiuvete','Смесители':'Baterii','Аксессуары':'Accesorii','Прочее':'Altele'};
+'Духовки':'Cuptoare','Микроволновки и компакт':'Microunde și compacte','Варочные панели':'Plite','Вытяжки':'Hote','Посудомойки и стиральные':'Mașini de spălat','Холодильники':'Frigidere','Мойки':'Chiuvete','Смесители':'Baterii','Аксессуары':'Accesorii','Прочее':'Altele','Заказ поставщику':'Comandă către furnizor','Поставщик':'Furnizor','Артикул':'Cod articol','шт':'buc.'};
 const MRO=['','ianuarie','februarie','martie','aprilie','mai','iunie','iulie','august','septembrie','octombrie','noiembrie','decembrie'];
 const PL=()=>ST.pl||'ru';
 const T=s=>{const r=RO[s];if(!r||PL()==='ru')return s;return PL()==='ro'?r:r+' / '+s};
@@ -1016,7 +1020,7 @@ function mk(k){
       <div class="sg"><div>${T('Выдал')}</div><div>${T('Получил')}</div></div>`);
   }
   if(kind==='po'){const p=ST.po[arg]||{it:[]};
-    return pdoc(T('Заказ поставщику')+' '+(p.no||''),`<p>${T('Дата')}: ${dt(p.d)}${p.sup?' · '+T('Поставщик')+': '+esc(p.sup):''}</p>${p.note?`<p class="mu">${esc(p.note)}</p>`:''}${ptab([['№'],['Модель'],['Артикул'],['Шт',1]],p.it.map((i,j)=>`<tr><td>${j+1}</td><td><b>${esc(i.m)}</b></td><td>${esc(i.sku||'')}</td><td class="n">${i.q}</td></tr>`),`<tr class="tot"><td colspan="3">${T('Итого')}</td><td class="n">${p.it.reduce((a,i)=>a+i.q,0)}</td></tr>`)}`)}
+    return pdoc(T('Заказ поставщику')+' '+(p.no||''),`<p>${T('Дата')}: ${dt(p.d)}${p.sup?' · '+T('Поставщик')+': '+esc(p.sup):''}</p>${p.note?`<p class="mu">${esc(p.note)}</p>`:''}${ptab([['№'],['Модель'],['Артикул'],['Шт',1]],[poRows(p.it,4,(i,j,n)=>`<tr><td>${n}</td><td><b>${esc(i.m)}</b></td><td>${esc(i.sku||'')}</td><td class="n">${i.q}</td></tr>`,1)],`<tr class="tot"><td colspan="3">${T('Итого')}</td><td class="n">${p.it.reduce((a,i)=>a+i.q,0)}</td></tr>`)}`)}
   if(kind==='stk'){
     const arr=groups().filter(x=>!x.zero||F.so==='qty'||F.so==='free');let last='',rows=[];
     arr.forEach(x=>{
@@ -1167,9 +1171,10 @@ async function flush(){
   BUSY=true;const at=snap();
   try{
     const j=await api('/api/acc',{patch:p});
-    const mine=cur(),later=diff(at);setST(j.st);
+    const mine=cur(),pj=JSON.stringify(ST.po),later=diff(at);setST(j.st);
     if(later){['add','newO'].forEach(k=>{if(later[k])ST[k]=ST[k].concat(later[k])});SK.forEach(k=>{if(later[k])for(const id in later[k]){if(later[k][id]===null)delete ST[k][id];else ST[k][id]=later[k][id]}});if(later.rate)ST.rate=later.rate;if(later.k)ST.k=later.k}
     if(cur()!==mine){RI.value=ST.rate;KI.value=KF();build();render()}
+    if(JSON.stringify(ST.po)!==pj){render();poModal.re&&poModal.re()}
     BUSY=false;
     if(diff())flush();else{PEND=false;syncMark('Сохранено','ok')}
   }catch(e){
@@ -1181,7 +1186,7 @@ addEventListener('beforeunload',e=>{if(PEND){e.preventDefault();e.returnValue=''
 async function refresh(){
   if(PEND||BUSY||!SY)return;
   try{const j=await api('/api/acc');if(PEND||BUSY)return;
-    const was=cur(),bt=RAW.t;setST(j.st);if(j.base&&j.base.t!==bt)RAW=j.base;
+    const was=cur(),pj=JSON.stringify(ST.po),bt=RAW.t;setST(j.st);if(JSON.stringify(ST.po)!==pj){render();poModal.re&&poModal.re()}if(j.base&&j.base.t!==bt)RAW=j.base;
     if(cur()!==was||RAW.t!==bt){RI.value=ST.rate;KI.value=KF();build();render()}}catch(e){}
 }
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')refresh()});
