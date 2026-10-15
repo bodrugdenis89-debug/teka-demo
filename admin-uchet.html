@@ -159,7 +159,7 @@ main{padding:14px 12px 110px}
 .to td:nth-child(8) b{color:var(--red)}
 /* склад */
 .ts tr{grid-template-columns:repeat(3,minmax(0,1fr))}
-.ts td:nth-child(6){grid-column:1/-1!important}
+.ts td:nth-child(7){grid-column:1/-1!important}.ts td:nth-child(6):empty{display:none}
 .mt td.spr{white-space:normal}
 .mt td{white-space:normal}
 .ts thead{display:block;margin-bottom:10px}
@@ -167,8 +167,8 @@ main{padding:14px 12px 110px}
 .ts th{position:static;display:block;border:1px solid var(--line);border-radius:18px;background:#fff;padding:7px 12px;font-size:14px}
 .ts th.hide-m{display:none}
 .ts thead:before{content:"Сортировка:";display:block;color:var(--mute);font-size:14px;font-weight:600;margin-bottom:6px}
-.ts td:nth-child(3):before{content:"Всего"}.ts td:nth-child(4):before{content:"Свободно"}.ts td:nth-child(5):before{content:"В брони"}.ts td:nth-child(6):before{content:"Себестоимость"}
-.ts td:nth-child(6){grid-column:span 1}
+.ts td:nth-child(3):before{content:"Всего"}.ts td:nth-child(4):before{content:"Свободно"}.ts td:nth-child(5):before{content:"В брони"}.ts td:nth-child(6):before{content:"В пути"}.ts td:nth-child(7):before{content:"Себестоимость"}
+.ts td:nth-child(7){grid-column:span 1}
 .ts tr:has(td[colspan]){background:none;border:0;padding:14px 2px 4px;margin:0}
 .ts td[colspan]{background:none!important;padding:0!important;font-size:18px}
 .ts td.spr{font-size:15px}
@@ -299,7 +299,7 @@ tr.u.in{animation:tkIn .28s ease-out backwards}
 .ts tr.u td:nth-child(3){order:2}.ts tr.u td:nth-child(3):after{content:" шт"}
 .ts tr.u td:nth-child(4){display:none}
 .ts tr.u td:nth-child(5){order:3}.ts tr.u td:nth-child(5):empty{display:none}
-.ts tr.u td:nth-child(6){order:4;margin-left:auto;font-weight:700;grid-column:auto!important}
+.ts tr.u td:nth-child(6){display:none}.ts tr.u td:nth-child(7){order:4;margin-left:auto;font-weight:700;grid-column:auto!important}
 .ts tr.u td.ui{order:9;flex:1 1 100%;font-size:14.5px;color:var(--mute)}
 .ts tr.u td.ui:has(.pn0){flex:0 0 auto;order:5}
 .ts tr.u td.ui .pn0{display:none}
@@ -626,7 +626,7 @@ const siteUrl=c=>'https://teka.md/desk-product.html?f='+encodeURIComponent(c.f)+
 const CATS=['Духовки','Микроволновки и компакт','Варочные панели','Вытяжки','Посудомойки и стиральные','Холодильники','Мойки','Смесители','Аксессуары','Прочее'];
 const catOf=s=>s.cat||'Прочее';
 function guessCat(model){const w=(model||'').split(/\s+/)[0].toUpperCase(),c={};S.forEach(s=>{if(s.model.split(/\s+/)[0].toUpperCase()===w)c[catOf(s)]=(c[catOf(s)]||0)+1});const e=Object.entries(c).sort((a,b)=>b[1]-a[1])[0];return e?e[0]:'Прочее'}
-const SO={name:[(a,b)=>a.name.localeCompare(b.name),1],qty:[(a,b)=>a.qty-b.qty,-1],free:[(a,b)=>(a.qty-a.res)-(b.qty-b.res),-1],res:[(a,b)=>a.res-b.res,-1],cost:[(a,b)=>a.min-b.min,-1],avg:[(a,b)=>a.avg-b.avg,-1]};
+const SO={name:[(a,b)=>a.name.localeCompare(b.name),1],qty:[(a,b)=>a.qty-b.qty,-1],free:[(a,b)=>(a.qty-a.res)-(b.qty-b.res),-1],res:[(a,b)=>a.res-b.res,-1],cost:[(a,b)=>a.min-b.min,-1],avg:[(a,b)=>a.avg-b.avg,-1],way:[(a,b)=>a.way-b.way,-1]};
 function groups(){
   const q=F.sq.toLowerCase(),g={};
   S.filter(s=>!F.sl||(F.sl==='etc'?!LOC[s.loc]:s.loc===F.sl)).filter(s=>!F.sc||catOf(s)===F.sc).filter(s=>!q||s.model.toLowerCase().includes(q)||(s.res||'').toLowerCase().includes(q)).forEach(s=>{
@@ -637,7 +637,9 @@ function groups(){
     x.min=c.length?Math.min(...c):0;x.max=c.length?Math.max(...c):0;x.avg=x.u.reduce((a,s)=>a+s.qty*(s.cost||0),0)/x.qty;
     x.spread=c.length>1&&x.max-x.min>=1;x.locs=[...new Set(x.u.map(s=>loc(s.loc)))].join(', ');x.cat=catOf(x.u[0]);return x});
   arr.forEach(x=>x.site=siteOf(x));
+  const PW=poWay();
   if(!F.sl&&!F.sr)arr=arr.concat(zeroRows().filter(x=>(!F.sc||x.cat===F.sc)&&(!q||x.name.toLowerCase().includes(q))));
+  arr.forEach(x=>x.way=(PW[zk(x.name)]||{}).q||0);
   if(F.sr)arr=arr.filter(x=>x.res);
   if(F.nl&&CATL)arr=arr.filter(x=>!x.site);
   const [fn]=SO[F.so]||SO.name,dir=F.sd;
@@ -656,8 +658,9 @@ function zeroRows(){if(!CATL)return[];const g={},lk=new Set(),sold={};
 const poCart=()=>ST.po.cart||(ST.po.cart={it:[],sup:'',note:''});
 const POL=()=>Object.entries(ST.po).filter(([id])=>id!=='cart').map(([id,p])=>Object.assign({id},p));
 function poWay(){const w={};POL().filter(p=>p.st==='way').forEach(p=>(p.it||[]).forEach(i=>{const k=zk(i.m);(w[k]=w[k]||{q:0,L:[]}).q+=i.q;w[k].L.push(p.no+' от '+dt(p.d)+' — '+i.q+' шт')}));return w}
+const wayTd=x=>{const w=(poTag.W||{})[zk(x.name)];return `<td class="cn">${w?`<button class="pow" onclick="event.stopPropagation();poModal()" title="${esc(w.L.join('\n'))}">🚚 ${w.q}</button>`:''}</td>`};
 function poTag(x){const k=zk(x.name),w=(poTag.W||{})[k],c=poCart().it.find(i=>zk(i.m)===k),sku=x.site&&x.site.sku||(x.u.find(s=>s.sku)||{}).sku||'';
-  return `<span class="lnw" onclick="event.stopPropagation()">${w?`<button class="pow" onclick="poModal()" title="${esc(w.L.join('\n'))}">🚚 в пути ${w.q}</button>`:''}<button class="pob${c?' on':''}" onclick="poAdd(this.dataset.poa,this.dataset.sku)" data-poa="${esc(x.name)}" data-sku="${esc(sku)}" title="Добавить в заказ поставщику">${c?'в заказе '+c.q+' · +1':'+ заказать'}</button></span>`}
+  return `<span class="lnw" onclick="event.stopPropagation()"><button class="pob${c?' on':''}" onclick="poAdd(this.dataset.poa,this.dataset.sku)" data-poa="${esc(x.name)}" data-sku="${esc(sku)}" title="Добавить в заказ поставщику">${c?'в заказе '+c.q+' · +1':'+ заказать'}</button></span>`}
 function poAdd(m,sku){const C=poCart(),i=C.it.find(i=>zk(i.m)===zk(m));if(i)i.q++;else C.it.push({m,q:1,sku:sku||''});save();render();toast('В заказ поставщику: '+m+' — '+(i?i.q:1)+' шт')}
 function poHave(m){const k=zk(m),L=S.filter(s=>zk(s.model)===k);return{q:L.reduce((a,s)=>a+s.qty,0),f:L.filter(s=>!s.res).reduce((a,s)=>a+s.qty,0)}}
 function poModal(){
@@ -709,11 +712,11 @@ function vStk(){
   const th=(k,t,c='n')=>`<th class="${c}" data-so="${k}" style="cursor:pointer;user-select:none">${t}${F.so===k?(F.sd>0?' ▲':' ▼'):''}</th>`;
   let last='',rows='';
   arr.forEach(x=>{
-    if(byCat&&x.cat!==last){last=x.cat;const n=arr.filter(y=>y.cat===x.cat).reduce((a,y)=>a+y.qty,0);rows+=`<tr><td colspan="8" style="background:#f3f3f3;font-weight:700;font-size:18px;padding:14px 12px">${esc(x.cat)} <span class="mu" style="font-weight:600">· ${n} шт</span></td></tr>`}
-    if(x.zero){rows+=`<tr class="zr"><td><b>${esc(x.name)}</b>${poTag(x)}<a class="slk" href="${siteUrl(x.site)}" target="_blank" rel="noopener" title="Карточка на сайте">на сайте ↗</a><div class="zn">${x.last?'продавали · последний заказ '+esc(x.last):'на склад не приходил'} · на сайте «под заказ»</div></td><td class="hide-m mu">—</td><td class="n">0</td><td class="n">0</td><td class="cn"></td><td class="n mu">${x.min?E(x.min,2):'—'}</td><td class="n hide-m"></td><td class="n hide-m mu">${x.min?LE(x.min):''}</td></tr>`;return}
+    if(byCat&&x.cat!==last){last=x.cat;const n=arr.filter(y=>y.cat===x.cat).reduce((a,y)=>a+y.qty,0);rows+=`<tr><td colspan="9" style="background:#f3f3f3;font-weight:700;font-size:18px;padding:14px 12px">${esc(x.cat)} <span class="mu" style="font-weight:600">· ${n} шт</span></td></tr>`}
+    if(x.zero){rows+=`<tr class="zr"><td><b>${esc(x.name)}</b>${poTag(x)}<a class="slk" href="${siteUrl(x.site)}" target="_blank" rel="noopener" title="Карточка на сайте">на сайте ↗</a><div class="zn">${x.last?'продавали · последний заказ '+esc(x.last):'на склад не приходил'} · на сайте «под заказ»</div></td><td class="hide-m mu">—</td><td class="n">0</td><td class="n">0</td><td class="cn"></td>${wayTd(x)}<td class="n mu">${x.min?E(x.min,2):'—'}</td><td class="n hide-m"></td><td class="n hide-m mu">${x.min?LE(x.min):''}</td></tr>`;return}
     const k=nm(x.name),op=F.open[k];
-    rows+=`<tr class="c${op?' op':''} ${x.qty-x.res<=0?'k-off':x.res?'k-res':'k-ok'}" data-g="${esc(k)}"><td><b><span class="cv${op?' o':''}">▸</span> ${esc(x.name)}</b>${poTag(x)}${x.site&&x.site.man?`<span class="lnw" onclick="event.stopPropagation()"><a class="slk" href="${esc(x.site.man)}" target="_blank" rel="noopener">ссылка ↗</a><button class="lnx" title="Убрать ссылку" onclick="lnkDel('${zk(x.name)}')">✕</button></span>`:x.site?`<a class="slk" href="${siteUrl(x.site)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Карточка на сайте: ${esc(x.site.m)}">на сайте ↗${zk(x.site.m)!==zk(x.name)?` <span>${esc(x.site.m)}</span>`:''}</a>`:x.site===null?`<span class="snl">нет ссылки на сайт</span><span class="lnw" onclick="event.stopPropagation()"><button class="lnb" onclick="lnkAdd(this,'${zk(x.name)}')">+ вставить ссылку</button></span>`:''}${byCat?'':`<div class="mu" style="font-size:14px;font-weight:500;margin-left:18px">${esc(x.cat)}</div>`}</td><td class="hide-m mu">${x.locs}</td><td class="n">${x.qty}</td><td class="n">${x.qty-x.res}</td><td class="cn">${x.res?'<span class="b y">'+x.res+'</span>':''}</td><td class="n${x.spread?' spr':''}">${x.spread?E(x.min,2)+' – '+E(x.max,2):E(x.min,2)}</td><td class="n hide-m">${E(x.avg,2)}</td><td class="n hide-m mu">${LE(x.avg)}</td></tr>`;
-    if(op||F.sr)rows+=x.u.filter(s=>!F.sr||s.res).slice().sort((a,b)=>(a.cost||0)-(b.cost||0)).map(s=>`<tr class="c u ${s.res?'rs':''}" data-u="${s.id}" title="Нажмите, чтобы изменить"><td class="ui"><span class="pe">✎</span> ${s.ret?`<span class="b o" title="Возврат от клиента ${dt(s.ret.d)}">возврат</span> `:''}${s.res?`<a href="#" data-ro="${esc(s.res)}">${esc(s.res)}</a> ${esc(s.note)}`:s.used?`<span class="b w">б/у</span> ${esc(s.note)}`:(esc(s.note)||'<span class="mu pn0">партия</span>')}</td><td class="hide-m ploc l-${esc(s.loc)}">${loc(s.loc)}</td><td class="n">${s.qty}</td><td class="n">${s.res?0:s.qty}</td><td class="cn">${s.res?'<span class="b y">'+s.qty+'</span>':''}</td><td class="n">${E(s.cost,2)}</td><td class="n hide-m"></td><td class="n hide-m mu">${LE(s.cost)}</td></tr>`).join('');
+    rows+=`<tr class="c${op?' op':''} ${x.qty-x.res<=0?'k-off':x.res?'k-res':'k-ok'}" data-g="${esc(k)}"><td><b><span class="cv${op?' o':''}">▸</span> ${esc(x.name)}</b>${poTag(x)}${x.site&&x.site.man?`<span class="lnw" onclick="event.stopPropagation()"><a class="slk" href="${esc(x.site.man)}" target="_blank" rel="noopener">ссылка ↗</a><button class="lnx" title="Убрать ссылку" onclick="lnkDel('${zk(x.name)}')">✕</button></span>`:x.site?`<a class="slk" href="${siteUrl(x.site)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Карточка на сайте: ${esc(x.site.m)}">на сайте ↗${zk(x.site.m)!==zk(x.name)?` <span>${esc(x.site.m)}</span>`:''}</a>`:x.site===null?`<span class="snl">нет ссылки на сайт</span><span class="lnw" onclick="event.stopPropagation()"><button class="lnb" onclick="lnkAdd(this,'${zk(x.name)}')">+ вставить ссылку</button></span>`:''}${byCat?'':`<div class="mu" style="font-size:14px;font-weight:500;margin-left:18px">${esc(x.cat)}</div>`}</td><td class="hide-m mu">${x.locs}</td><td class="n">${x.qty}</td><td class="n">${x.qty-x.res}</td><td class="cn">${x.res?'<span class="b y">'+x.res+'</span>':''}</td>${wayTd(x)}<td class="n${x.spread?' spr':''}">${x.spread?E(x.min,2)+' – '+E(x.max,2):E(x.min,2)}</td><td class="n hide-m">${E(x.avg,2)}</td><td class="n hide-m mu">${LE(x.avg)}</td></tr>`;
+    if(op||F.sr)rows+=x.u.filter(s=>!F.sr||s.res).slice().sort((a,b)=>(a.cost||0)-(b.cost||0)).map(s=>`<tr class="c u ${s.res?'rs':''}" data-u="${s.id}" title="Нажмите, чтобы изменить"><td class="ui"><span class="pe">✎</span> ${s.ret?`<span class="b o" title="Возврат от клиента ${dt(s.ret.d)}">возврат</span> `:''}${s.res?`<a href="#" data-ro="${esc(s.res)}">${esc(s.res)}</a> ${esc(s.note)}`:s.used?`<span class="b w">б/у</span> ${esc(s.note)}`:(esc(s.note)||'<span class="mu pn0">партия</span>')}</td><td class="hide-m ploc l-${esc(s.loc)}">${loc(s.loc)}</td><td class="n">${s.qty}</td><td class="n">${s.res?0:s.qty}</td><td class="cn">${s.res?'<span class="b y">'+s.qty+'</span>':''}</td><td></td><td class="n">${E(s.cost,2)}</td><td class="n hide-m"></td><td class="n hide-m mu">${LE(s.cost)}</td></tr>`).join('');
   });
   const hd=`<div class="row">${[['','Все'],['dep','Склад'],['salon','Салон'],['showroom','Шоурум'],['etc','Прочее'],['out','Отгружено']].map(([k,t])=>`<button class="chip${F.sl===k?' on':''}${k==='out'?' cout':''}" data-sl="${k}">${t}<i>${k==='out'?outList().length:cnt(k)}</i></button>`).join('')}<span class="sp"></span>${pbtn('stk','Печать остатков')}<button class="btn r" id="plist">Закупки</button><button class="btn r" id="pomb">Заказ поставщику${poCart().it.length?`<i class="pobn">${poCart().it.length}</i>`:''}</button></div>`;
   if(F.sl==='out')return vOut(hd);
@@ -724,8 +727,8 @@ function vStk(){
   ${F.sq||F.sc||F.sr||F.sl||F.nl?'<button class="btn s" id="sclr">Сбросить фильтры</button>':''}
   </div>
   ${skuWarn()}
-  <div class="tw mt ts"><table><thead><tr>${th('name','Модель','')}<th class="hide-m">Где лежит</th>${th('qty','Всего')}${th('free','Свободно')}${th('res','В брони','cn')}${th('cost','Себестоимость')}${th('avg','Средняя','n hide-m')}<th class="n hide-m">В леях</th></tr></thead><tbody>
-  ${rows||'<tr><td colspan="8" class="mu" style="padding:24px">Ничего не найдено</td></tr>'}
+  <div class="tw mt ts"><table><thead><tr>${th('name','Модель','')}<th class="hide-m">Где лежит</th>${th('qty','Всего')}${th('free','Свободно')}${th('res','В брони','cn')}${th('way','В пути','cn')}${th('cost','Себестоимость')}${th('avg','Средняя','n hide-m')}<th class="n hide-m">В леях</th></tr></thead><tbody>
+  ${rows||'<tr><td colspan="9" class="mu" style="padding:24px">Ничего не найдено</td></tr>'}
   </tbody></table></div>`;
 }
 function addModal(){
