@@ -1,28 +1,31 @@
 [
  {
   "sku": "124260002",
-  "name": "G6805.1v",
-  "sub": "Mașină de spălat vase complet încorporabilă, 60 cm, cu motor Inverter, 8 programe și sistem IonClean",
+  "name": "G6570.0V",
+  "sub": "Mașină de spălat vase de 60 cm cu 8 programe, 7 funcții speciale și deschidere prin lovire",
   "price": 30000,
-  "old": null,
+  "old": 0,
   "width": 60,
   "install": "incorporabil",
   "cap": "",
   "draw": "",
   "label": "",
   "desc": [
-   "9 programe:",
-   "Program AutoClean",
-   "Program intensiv 70ºC",
-   "Program de îngrijire a sticlei 40ºC",
-   "Program automat 40ºC 65ºC",
-   "Program ECO 50ºC",
-   "Program rapid 35ºC",
-   "Program de 1 h 60º",
-   "DualCare 55 ºC 6 7 ºC",
-   "Prespălare",
-   "Funcții speciale: IonClean, sistem expres, opțiune de încărcare la jumătate, curățare intensivă,",
-   "Afișaj LED"
+   "Capacitate pentru 14 seturi de masă internaționale",
+   "8 programe",
+   "7 funcții speciale",
+   "Afișaj LED",
+   "Operare prin control tactil direct",
+   "Întârziere electronică de 24 de ore",
+   "Filtru cu autocurățare",
+   "Indicator de reumplere pentru sare și agent de clătire",
+   "Indicator de funcționare a programului Timp pe etaj",
+   "Coșuri pentru mașina de spălat vase Comfort Plus",
+   "Coș superior reglabil pe înălțime, chiar și atunci când este plin",
+   "Duze speciale pentru curățarea sticlei",
+   "Cavitate interioară din oțel inoxidabil / bază din oțel inoxidabil",
+   "Potrivit din punct de vedere tehnic pentru instalații la înălțime",
+   "Greutate admisă a frontului mobilierului 5-7 kg"
   ],
   "specs": [
    {
@@ -78,7 +81,14 @@
    "124260002-1.webp",
    "124260002-2.webp"
   ],
-  "st": "order"
+  "st": "order",
+  "b": "Teka",
+  "u": [
+   "assets/u/124260002-mvamoj9iac8.webp",
+   "assets/u/124260002-mvampl8l1g6.webp",
+   "assets/u/124260002-mvamplcx9r3.webp",
+   "assets/u/124260002-mvampli2kmb.webp"
+  ]
  },
  {
   "sku": "124270005",
