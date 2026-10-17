@@ -1,5 +1,313 @@
 [
  {
+  "sku": "111010054",
+  "n": "HSB 635 S",
+  "sub": "Cuptor multifuncţional cu sistem de curăţare HydroClean PRO, 60 cm",
+  "p": 9800,
+  "img": [],
+  "draw": "assets/u/111010054-draw-mvcd11b4oko.webp",
+  "label": "assets/u/111010054-label-mvcd11xl8nk.webp",
+  "desc": [
+   "Cuptor multifuncţional",
+   "8 funcţii de preparare:",
+   "Incalzire superioara + Incalzire inferioara",
+   "Grill",
+   "MaxiGrill",
+   "Incalzire superioara + Incalzire inferioara + Ventilator",
+   "MaxiGrill + Ventilator",
+   "Incalzire inferioara",
+   "ECO",
+   "Decongelare",
+   "Funcţie Preîncălzire Express şi HydroClean",
+   "Sistem de curăţare Teka HydroClean® PRO",
+   "Touch Control cu Display LED",
+   "Sistem de siguranţă împotriva accesului copiilor",
+   "1 sistem telescopic (5 nivele de preparare)",
+   "Sistem de deconectare automată",
+   "Uşă interioară complet din sticlă (2 straturi)",
+   "Tavă adâncă cu protecţie la răsturnare şi grătar",
+   "Sistem de venţilatie dinamică",
+   "Accesorii opţionale: tavă Multicook si tavă specială din aluminiu",
+   "Clasa energetică: A+",
+   "Capacitate, brută/netă: 71/70 l"
+  ],
+  "specs": [
+   {
+    "t": "Dimensiuni interioare",
+    "r": [
+     [
+      "Înălțimea interioară (mm)",
+      "364"
+     ],
+     [
+      "Lățimea interioară (mm)",
+      "475"
+     ],
+     [
+      "Adâncime interioară (mm)",
+      "402"
+     ],
+     [
+      "Capacitatea netă (litri)",
+      "70"
+     ],
+     [
+      "Capacitatea brută (litri)",
+      "71"
+     ]
+    ]
+   },
+   {
+    "t": "Dimensiuni exterioare",
+    "r": [
+     [
+      "Înălțimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Lățimea produsului (mm)",
+      "595"
+     ],
+     [
+      "Adâncimea produsului (mm)",
+      "537+22"
+     ],
+     [
+      "Greutatea produsului (Kgs)",
+      "28,5"
+     ]
+    ]
+   },
+   {
+    "t": "Caracteristici particulare",
+    "r": [
+     [
+      "Certificări",
+      "N / CE / CCA / CB"
+     ],
+     [
+      "Numărul de cavități",
+      "1"
+     ],
+     [
+      "Cavitatea emailată",
+      "Da"
+     ],
+     [
+      "Regulator de temperatură Min. (ºC)",
+      "50"
+     ],
+     [
+      "Regulator de temperatură Max. (ºC)",
+      "250"
+     ],
+     [
+      "Selector de funcții",
+      "10+0"
+     ],
+     [
+      "Numărul de funcții de gătit",
+      "8"
+     ],
+     [
+      "Încălzire convenţională",
+      "Da"
+     ],
+     [
+      "Funcția Grill",
+      "Da"
+     ],
+     [
+      "Funcția MaxiGrill",
+      "Da"
+     ],
+     [
+      "Convecţie",
+      "Da"
+     ],
+     [
+      "MaxiGrill + Ventilaţie",
+      "Da"
+     ],
+     [
+      "Element inferior de încălzire",
+      "Da"
+     ],
+     [
+      "Funcția ECO",
+      "Da"
+     ],
+     [
+      "Încălzire rapidă mecanică",
+      "Da"
+     ],
+     [
+      "Suporturi cromate detaşabile",
+      "Da"
+     ],
+     [
+      "Numărul ghidajelor",
+      "5"
+     ]
+    ]
+   },
+   {
+    "t": "Conexiune electrică",
+    "r": [
+     [
+      "Puterea nominală maximă (W)",
+      "2615"
+     ],
+     [
+      "Frecvență (Hz)",
+      "50/60"
+     ],
+     [
+      "Putere (V)",
+      "220/240"
+     ],
+     [
+      "Lungime cablu (cm)",
+      "150"
+     ],
+     [
+      "Conexiune",
+      "Da"
+     ],
+     [
+      "Consumul pentru lumina interioară (W)",
+      "25"
+     ]
+    ]
+   },
+   {
+    "t": "Consumul de energie",
+    "r": [
+     [
+      "Consumul de energie pe ciclu în mod convențional (kWh)",
+      "0.86"
+     ],
+     [
+      "Consumul de energie pe ciclu în modul de convecție forțată de ventilator (kWh)",
+      "0.68"
+     ],
+     [
+      "Element inferior de încălzire (W)",
+      "1150"
+     ],
+     [
+      "Grill (W)",
+      "1400"
+     ],
+     [
+      "Maxi Grill (W)",
+      "2500"
+     ],
+     [
+      "Tradițional (W)",
+      "2550"
+     ],
+     [
+      "Turbo multifuncțional (W)",
+      "22"
+     ],
+     [
+      "Cooling fan motor (W)",
+      "18"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de securitate",
+    "r": [
+     [
+      "Sistem de blocare a panoului",
+      "Da"
+     ],
+     [
+      "Protecţie Grill",
+      "Da"
+     ],
+     [
+      "Tavă cu protecţie la răsturnare",
+      "Da"
+     ],
+     [
+      "Termostat de siguranță",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Sistem de curățare",
+    "r": [
+     [
+      "Inox anti-pată",
+      "Da"
+     ],
+     [
+      "Email Crystal Clean (Slippery)",
+      "Da"
+     ],
+     [
+      "Hydroclean PRO",
+      "Da"
+     ]
+    ]
+   },
+   {
+    "t": "Accesorii",
+    "r": [
+     [
+      "Tavă adâncă (50mm)",
+      "1"
+     ],
+     [
+      "Grătare individuale",
+      "1"
+     ],
+     [
+      "Tavă adâncă (cavitate inferioară) (50 mm)",
+      "1"
+     ]
+    ]
+   },
+   {
+    "t": "Eficienta energetica",
+    "r": [
+     [
+      "Clasa de eficiență energetică",
+      "A+"
+     ],
+     [
+      "Indicele eficienței energetice (EEI)",
+      "81"
+     ]
+    ]
+   }
+  ],
+  "pdf": [
+   "https://d7rh5s3nxmpy4.cloudfront.net/CMP1219/files/17/HSB_HSBP_HCB_HCBP_UserManual_ES_PT_FR.pdf"
+  ],
+  "b": "Teka",
+  "f": [],
+  "w": "",
+  "c": "",
+  "col": "",
+  "u": [
+   "assets/u/111010054-mvcd0sj9idi.webp",
+   "assets/u/111010054-mvcd0tb3z8j.webp",
+   "assets/u/111010054-mvcd0ua9zf6.webp",
+   "assets/u/111010054-mvcd0v10civ.webp",
+   "assets/u/111010054-mvcd0vv6m5q.webp",
+   "assets/u/111010054-mvcd0wtqt1c.webp",
+   "assets/u/111010054-mvcd0xs8w6f.webp",
+   "assets/u/111010054-mvcd0yr9985.webp",
+   "assets/u/111010054-mvcd0zgkrh1.webp",
+   "assets/u/111010054-mvcd10o3j1j.webp"
+  ]
+ },
+ {
   "sku": "41560133",
   "n": "HSB 630 WHITE",
   "sub": "Cuptor multifuncțional",
