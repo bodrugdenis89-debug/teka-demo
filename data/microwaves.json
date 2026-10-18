@@ -598,7 +598,8 @@
    "122030001-5.webp",
    "122030001-6.webp"
   ],
-  "st": "order"
+  "st": "order",
+  "b": "Küppersbusch"
  },
  {
   "sku": "122050000",
@@ -663,7 +664,8 @@
   "img": [
    "122050000-1.webp"
   ],
-  "st": "order"
+  "st": "order",
+  "b": "Küppersbusch"
  },
  {
   "sku": "122050018",
@@ -728,7 +730,8 @@
   "img": [
    "122050018-1.webp"
   ],
-  "st": "order"
+  "st": "order",
+  "b": "Küppersbusch"
  },
  {
   "sku": "112030009",

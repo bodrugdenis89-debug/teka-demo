@@ -82,7 +82,7 @@
    "124260002-2.webp"
   ],
   "st": "order",
-  "b": "Teka",
+  "b": "Küppersbusch",
   "u": [
    "assets/u/124260002-mvamoj9iac8.webp",
    "assets/u/124260002-mvampl8l1g6.webp",
@@ -168,7 +168,8 @@
   "img": [
    "124270005-1.webp"
   ],
-  "st": "order"
+  "st": "order",
+  "b": "Küppersbusch"
  },
  {
   "sku": "124300000",
@@ -248,7 +249,8 @@
   "img": [
    "124300000-1.webp"
   ],
-  "st": "order"
+  "st": "order",
+  "b": "Küppersbusch"
  },
  {
   "sku": "114260027",
