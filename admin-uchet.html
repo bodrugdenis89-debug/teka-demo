@@ -64,6 +64,8 @@ tr.u.rs td{background:var(--rs)}tr.u.cl td{background:var(--cl)}tr.u.cx td{color
 td.ui{padding-left:40px}
 tr.c.u:hover td{background:#f0f0f0}
 tr.c{cursor:pointer}
+#osdel{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:25;background:#fff;color:var(--red);border:1px solid var(--red);box-shadow:0 10px 30px rgba(0,0,0,.18);margin:0;white-space:nowrap}#osdel[hidden]{display:none}
+.ck{width:1%;text-align:center}.ck input{width:20px;height:20px;cursor:pointer;accent-color:var(--red);vertical-align:middle}
 tr.c:hover td{background:#fafafa}
 tr.cl td{background:var(--cl)}
 tr.cl:hover td{background:#fbe0e0}
@@ -147,16 +149,17 @@ main{padding:14px 12px 110px}
 .mt .btn.s{height:36px}
 /* заказы */
 .to tr{--n:3}
-.to td:nth-child(1){grid-column:1;grid-row:1;font-size:17px}
-.to td:nth-child(2){grid-column:2;grid-row:1;color:var(--mute);align-self:center}
-.to td:nth-child(9){grid-column:3;grid-row:1;justify-self:end}
-.to td:nth-child(3){grid-column:1/-1;grid-row:2;color:var(--ink2)}
-.to td:nth-child(3):empty{display:none}
-.to td:nth-child(3):before{content:"Мебельщик";display:inline;margin-right:6px}
-.to td:nth-child(4){grid-column:1/-1;grid-row:3;font-weight:700}
-.to td:nth-child(6){grid-column:1;grid-row:4}.to td:nth-child(7){grid-column:2;grid-row:4}.to td:nth-child(8){grid-column:3;grid-row:4}
-.to td:nth-child(6):before{content:"Сумма"}.to td:nth-child(7):before{content:"Оплачено"}.to td:nth-child(8):before{content:"Долг"}
-.to td:nth-child(8) b{color:var(--red)}
+.to td:nth-child(2){grid-column:1;grid-row:1;font-size:17px}
+.to td:nth-child(3){grid-column:2;grid-row:1;color:var(--mute);align-self:center}
+.to td:nth-child(10){grid-column:3;grid-row:1;justify-self:end}
+.to td:nth-child(4){grid-column:1/-1;grid-row:2;color:var(--ink2)}
+.to td:nth-child(4):empty{display:none}
+.to td:nth-child(4):before{content:"Мебельщик";display:inline;margin-right:6px}
+.to td:nth-child(5){grid-column:1/3;grid-row:3;font-weight:700}
+.to td.ck{grid-column:3;grid-row:3;justify-self:end}
+.to td:nth-child(7){grid-column:1;grid-row:4}.to td:nth-child(8){grid-column:2;grid-row:4}.to td:nth-child(9){grid-column:3;grid-row:4}
+.to td:nth-child(7):before{content:"Сумма"}.to td:nth-child(8):before{content:"Оплачено"}.to td:nth-child(9):before{content:"Долг"}
+.to td:nth-child(9) b{color:var(--red)}
 /* склад */
 .ts tr{grid-template-columns:repeat(3,minmax(0,1fr))}
 .ts td:nth-child(7){grid-column:1/-1!important}.ts td:nth-child(6):empty{display:none}
@@ -202,8 +205,8 @@ h3{font-size:21px}
 .mt td.n{font-size:18px}
 .mt td:before{font-size:14.5px}
 .b{font-size:16px;padding:3px 10px}
-.to td:nth-child(1){font-size:20px}
-.to td:nth-child(4){font-size:19px}
+.to td:nth-child(2){font-size:20px}
+.to td:nth-child(5){font-size:19px}
 .ts td[colspan]{font-size:21px}
 .ts th{font-size:16px;padding:9px 14px}
 .ts td.spr{font-size:17px}
@@ -481,7 +484,7 @@ const loc=l=>LOC[l]||l;
 
 let O,S,OUT=[];
 function build(){
-  O=RAW.orders.concat(ST.newO).map((o,i)=>{const x=Object.assign({id:i},o,ST.o[i]||{});x.who=x.partner?x.partner+' & '+x.client:x.client;x.k=key(x.no);return x});
+  O=RAW.orders.concat(ST.newO).map((o,i)=>{const x=Object.assign({id:i},o,ST.o[i]||{});if(x.st==='gone')Object.assign(x,{partner:null,designer:null,client:'',total:0,paid:0,debt:0,src:null});x.who=x.partner?x.partner+' & '+x.client:x.client;x.k=x.st==='gone'?'':key(x.no);return x});
   const U=RAW.stock.concat(ST.add).map((s,i)=>{const x=Object.assign({id:i},s,ST.s[i]||{});x.inv=x.cost;x.cost=KC(x.cost);return x}).filter(s=>!s.del);
   S=U.filter(s=>!s.out);OUT=U.filter(s=>s.out);
   const RS=new Set(ST.add.filter((a,i)=>a.retOf&&!(ST.s[RAW.stock.length+i]||{}).del).map(a=>a.retOf));
@@ -497,6 +500,7 @@ const rc=o=>o.st==='closed'?'cl':o.st==='cancel'?'cx':'';
 
 const TABS=[['sum','Сводка'],['ord','Заказы'],['stk','Склад'],['des','Дизайнеры'],['par','Мебельщики']];
 let tab='sum';try{tab=localStorage.getItem(LS+'t')||'sum'}catch(e){}
+const SEL=new Set();
 const F={of:'open',om:'',o1:'',o2:'',oq:'',sl:'',sr:false,sq:'',sc:'',so:'name',sd:1,open:{},pm:''};
 const TI=(()=>{const P={
 sum:'<path d="M3 3v18h18"/><path class="ln" d="M7 15l4-4 3 3 6-7"/><path class="ln" d="M16 7h4v4"/>',
@@ -551,7 +555,7 @@ function vSum(){
 }
 
 /* ---------- Заказы ---------- */
-const OF=[['open','Открытые',o=>o.st==='open'],['debt','С долгом',o=>o.st==='open'&&o.debt>0],['ship','Не отгружены',o=>o.st==='open'&&!o.shipped],['closed','Закрытые',o=>o.st==='closed'],['cancel','Отменённые',o=>o.st==='cancel'],['all','Все',o=>true]];
+const OF=[['open','Открытые',o=>o.st==='open'],['debt','С долгом',o=>o.st==='open'&&o.debt>0],['ship','Не отгружены',o=>o.st==='open'&&!o.shipped],['closed','Закрытые',o=>o.st==='closed'],['cancel','Отменённые',o=>o.st==='cancel'],['all','Все',o=>o.st!=='gone']];
 const oMatch=(o,q)=>{if(!q)return true;if((o.no+' '+o.who+' '+(o.designer||'')+' '+(o.tel||'')).toLowerCase().includes(q))return true;const d=q.replace(/\D/g,'').replace(/^0+/,'');return d.length>2&&String(o.tel||'').replace(/\D/g,'').includes(d)};
 const PER=[['','Всё время'],['d','Сегодня'],['w','Последние 7 дней'],['m','Этот месяц'],['pm','Прошлый месяц'],['y','Этот год'],['py','Прошлый год']];
 function perR(v,a,b){if(!v)return null;const t=new Date(),I=d=>new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10),Y=t.getFullYear(),M=t.getMonth(),td=I(t);
@@ -570,17 +574,22 @@ function vOrd(){
   return `<div class="row">${OF.map(([k,t,fn])=>`<button class="chip${F.of===k?' on':''}" data-of="${k}">${t}<i>${O.filter(fn).length}</i></button>`).join('')}</div>
   <div class="row"><input class="t" id="oq" placeholder="Поиск: номер, клиент, телефон" value="${esc(F.oq)}" style="width:280px">
   ${perSel('om',F.om,months,F.o1,F.o2)}
-  <button class="btn r" id="newo">+ Новый заказ</button>${pbtn('ord','Печать списка')}<span class="sp"></span><span class="mu">${L1.length} заказов · сумма ${L(sum)} · долг ${L(db)}</span></div>
-  <div class="tw mt to"><table><thead><tr><th>№</th><th>Дата</th><th>Мебельщик</th><th>Клиент</th><th class="hide-m">Дизайнер</th><th class="n">Сумма</th><th class="n">Оплачено</th><th class="n">Долг</th><th>Статус</th></tr></thead><tbody>
-  ${L1.map(o=>`<tr class="c ${rc(o)}" data-o="${o.id}"><td><b>${esc(o.no||'—')}</b></td><td>${dt(o.date)}</td><td>${esc(o.partner||'')}</td><td>${esc(o.client)}${o.tel?`<small class="tl">${esc(o.tel)}</small>`:''}</td><td class="hide-m">${esc(o.designer||'')}</td><td class="n">${L(o.total)}</td><td class="n">${o.paid?L(o.paid):''}</td><td class="n">${o.debt>0?'<b>'+L(o.debt)+'</b>':''}</td><td>${stat(o)}</td></tr>`).join('')}
+  <button class="btn r" id="newo">+ Новый заказ</button>${pbtn('ord','Печать списка')}<button class="btn s" id="osdel"${L1.some(o=>SEL.has(o.id))?'':' hidden'}>🗑&nbsp;Удалить выбранные (${L1.filter(o=>SEL.has(o.id)).length})</button><span class="sp"></span><span class="mu">${L1.length} заказов · сумма ${L(sum)} · долг ${L(db)}</span></div>
+  <div class="tw mt to"><table><thead><tr><th class="ck"><input type="checkbox" id="osa" title="Выбрать все"${L1.length&&L1.every(o=>SEL.has(o.id))?' checked':''}></th><th>№</th><th>Дата</th><th>Мебельщик</th><th>Клиент</th><th class="hide-m">Дизайнер</th><th class="n">Сумма</th><th class="n">Оплачено</th><th class="n">Долг</th><th>Статус</th></tr></thead><tbody>
+  ${L1.map(o=>`<tr class="c ${rc(o)}" data-o="${o.id}"><td class="ck"><input type="checkbox" data-sel="${o.id}"${SEL.has(o.id)?' checked':''}></td><td><b>${esc(o.no||'—')}</b></td><td>${dt(o.date)}</td><td>${esc(o.partner||'')}</td><td>${esc(o.client)}${o.tel?`<small class="tl">${esc(o.tel)}</small>`:''}</td><td class="hide-m">${esc(o.designer||'')}</td><td class="n">${L(o.total)}</td><td class="n">${o.paid?L(o.paid):''}</td><td class="n">${o.debt>0?'<b>'+L(o.debt)+'</b>':''}</td><td>${stat(o)}</td></tr>`).join('')}
   </tbody></table></div>`;
 }
+function selUi(){const v=[...document.querySelectorAll('[data-sel]')],n=v.filter(c=>c.checked).length,b=document.getElementById('osdel'),a=document.getElementById('osa');if(b){b.hidden=!n;b.textContent='🗑\u00a0Удалить выбранные ('+n+')'}if(a)a.checked=!!v.length&&n===v.length}
+function goneMany(ids){const A=ids.map(i=>O[i]).filter(o=>o&&o.st!=='gone'),br=A.filter(o=>o.items.length),L=A.filter(o=>!o.items.length),bt=br.length?' '+br.map(o=>o.no||o.who).join(', ')+' — не удалить: в '+(br.length===1?'нём':'них')+' товар в брони, сначала снимите бронь.':'';
+  if(!L.length)return ask(bt.trim(),()=>{});
+  const nc=L.filter(o=>o.st!=='cancel'),pd=nc.reduce((a,o)=>a+(+o.paid||0),0);
+  ask('Удалить насовсем '+L.length+' '+(L.length===1?'заказ':L.length<5?'заказа':'заказов')+': '+L.map(o=>o.no||o.who).join(', ')+'?'+(nc.length?' Из них не отменены: '+nc.length+(pd?', оплачено по ним '+L_(pd):'')+'.':'')+' Вернуть будет нельзя.'+bt,()=>{L.forEach(o=>{ST.o[o.id]=Object.assign(ST.o[o.id]||{},{st:'gone'});SEL.delete(o.id)});save();build();render();toast(L.length===1?'Заказ удалён':'Удалено заказов: '+L.length)})}
 function drawer(id){
   const o=O[id];
   const ov=document.createElement('div');ov.className='ov';
   const it=o.items.map(s=>`<tr class="rs"><td>${esc(s.model)}</td><td>${loc(s.loc)}</td><td class="n">${E(s.cost,2)}<br><small class="mu">≈ ${LE(s.cost)}</small></td><td><span class="b y">бронь</span></td></tr>`).join('')+o.sold.map(s=>`<tr><td>${esc(s.model)}</td><td>${esc(loc(s.from_))}</td><td class="n">${E(s.cost,2)}<br><small class="mu">≈ ${LE(s.cost)}</small></td><td><span class="b z">выдан${s.d?' '+dt(s.d):''}</span> <button class="btn s" data-rt="${s.uid!=null?'u'+s.uid:s.sk}" title="Клиент вернул товар — вернуть на склад свободным">↩ Возврат</button>${s.uid!=null?` <button class="btn s" data-a="ret" data-u="${s.uid}" title="Ошибочно отметили выданным — вернуть в бронь этого заказа">Отменить выдачу</button>`:''}</td></tr>`).join('')+o.ret.map(s=>`<tr><td class="mu"><s>${esc(s.model)}</s>${s.qty>1?' × '+s.qty:''}</td><td class="mu">${loc(s.loc)}</td><td class="n mu">${E(s.cost,2)}</td><td><span class="b x">возврат ${dt(s.ret.d)}</span></td></tr>`).join('');
   const cost=o.items.concat(o.sold).reduce((a,s)=>a+(s.cost||0),0);
-  ov.innerHTML=`<div class="dr"><div class="row"><button class="btn k s" data-a="edit">✎ Изменить заказ</button><span class="pbx"><button class="btn s r" data-pr="kp|${id}" data-pm="pdf" title="PDF для клиента: товары, цены, скидка — без себестоимости">📄 Контракт клиенту</button><button class="btn s" data-pr="kp|${id}" data-pm="print" title="Печать контракта">🖨</button></span><span class="sp"></span><button class="btn s" data-x>Закрыть ✕</button></div>
+  ov.innerHTML=`<div class="dr"><div class="row"><button class="btn k s" data-a="edit">✎ Изменить заказ</button>${o.st==='cancel'?'<button class="btn s" data-a="gone" style="color:var(--red)">🗑 Удалить заказ</button>':''}<span class="pbx"><button class="btn s r" data-pr="kp|${id}" data-pm="pdf" title="PDF для клиента: товары, цены, скидка — без себестоимости">📄 Контракт клиенту</button><button class="btn s" data-pr="kp|${id}" data-pm="print" title="Печать контракта">🖨</button></span><span class="sp"></span><button class="btn s" data-x>Закрыть ✕</button></div>
   <h2>Заказ ${esc(o.no||'без номера')}</h2><div>${stat(o)} <span class="mu">от ${dt(o.date)}${o.close&&o.st==='closed'?' · закрыт '+dt(o.close):''}</span></div>
   <dl class="dl"><dt>Мебельщик</dt><dd>${esc(o.partner||'—')}</dd><dt>Клиент</dt><dd>${esc(o.client)}</dd><dt>Телефон</dt><dd>${o.tel?`<a href="tel:${esc(o.tel)}">${esc(o.tel)}</a> <button class="btn s" data-a="tel">✎</button>`:'<button class="btn s" data-a="tel">+ Добавить</button>'}</dd>${o.site?`<dt class="sw">${o.src?'С сайта':'Товары'} · ${o.site.reduce((a,i)=>a+(+i.q||1),0)} шт</dt><dd class="sw"><table class="pli sit"><tr><th>Товар</th><th class="n">Кол-во</th><th class="n">Цена</th><th class="n">Сумма</th></tr>${o.site.map(i=>`<tr><td>${esc(i.n)}${i.po?' <span class="b w">под заказ</span>':''}</td><td class="n">${+i.q||1}</td><td class="n">${i.p?L(i.p):'—'}</td><td class="n">${i.p?L(i.p*(+i.q||1)):'—'}</td></tr>`).join('')}${(()=>{const g=o.site.reduce((a,i)=>a+(+i.p||0)*(+i.q||1),0),d=g-(+o.total||0);return g?`<tr class="sf"><td colspan="3">Итого без скидки</td><td class="n">${L(g)}</td></tr>`+(d>0?`<tr class="sf"><td colspan="3">Скидка ${Math.round(d/g*1000)/10}%</td><td class="n" style="color:var(--red)">−${L(d)}</td></tr><tr class="sf"><td colspan="3">Со скидкой</td><td class="n">${L(o.total)}</td></tr>`:''):''})()}</table></dd>`:''}
   <dt>Дизайнер</dt><dd>${o.designer?esc(o.designer)+' · '+L(o.com):'—'}</dd>
@@ -596,6 +605,7 @@ function drawer(id){
     if(e.target===ov||e.target.closest('[data-x]')){ov.remove();return}
     const a=e.target.closest('[data-a]');if(!a)return;
     if(a.dataset.a==='edit'){ov.remove();orderModal(id);return}
+    if(a.dataset.a==='gone'){orderGone(id,()=>ov.remove());return}
     if(a.dataset.a==='addit'){addToOrder(id);return}
     if(a.dataset.a==='tel'){modal('Телефон клиента',inp('Телефон','ntl',o.tel||'','tel'),()=>{ST.o[id]=Object.assign(ST.o[id]||{},{tel:V('ntl')||null});save();build();render();ov.remove();drawer(id);toast('Телефон сохранён')});return}
     if(a.dataset.a==='ret'){const u=+a.dataset.u,x=U_(u);ask('Вернуть «'+x.model+'» на склад ('+loc(x.loc)+')? Он снова будет в брони под этот заказ.',()=>{setU(u,{out:null});save();build();render();ov.remove();drawer(id);toast('Возвращено на склад')});return}
@@ -851,9 +861,10 @@ function orderModal(id,pre){
       if(miss.length)ask('Нет на складе: '+miss.map(i=>i.m+' — '+i.q+' шт').join(', ')+'. Добавить в черновик заказа поставщику?',()=>{const C=poCart();miss.forEach(i=>{const c=C.it.find(c=>zk(c.m)===zk(i.m));if(c)c.q+=i.q;else C.it.push({m:i.m,q:i.q,sku:i.sku||''})});save();render();toast('Добавлено в заказ поставщику')})}
     else{const was=O[id].st,wsh=O[id].shipped;ST.o[id]=Object.assign(ST.o[id]||{},x);save();build();render();drawer(id);toast('Заказ сохранён');if(was==='open'&&st!=='open')orderStock(O[id],st);else if(st==='open'&&x.shipped&&!wsh)orderStock(O[id],'ship')}
   },
-  id==null?null:()=>{ask('Отметить заказ '+o.no+' как отменённый?',()=>{ST.o[id]=Object.assign(ST.o[id]||{},{st:'cancel',debt:0});save();build();render();toast('Заказ отменён');orderStock(O[id],'cancel')})});
+  id==null?null:o.st==='cancel'?()=>orderGone(id,()=>document.querySelectorAll('.md').forEach(m=>m.remove())):()=>{ask('Отметить заказ '+o.no+' как отменённый?',()=>{ST.o[id]=Object.assign(ST.o[id]||{},{st:'cancel',debt:0});save();build();render();toast('Заказ отменён');orderStock(O[id],'cancel')})});
   if(NG)ngInit();
 }
+function orderGone(id,done){const o=O[id];ask('Удалить отменённый заказ '+(o.no||o.who||'')+' насовсем? Он пропадёт из списков, вернуть будет нельзя.',()=>{ST.o[id]=Object.assign(ST.o[id]||{},{st:'gone'});save();build();render();if(done)done();toast('Заказ удалён')})}
 /* новый заказ: товары со склада и с сайта, сумма считается сама */
 let NGI=[],NGPRE=null;
 /* подборка клиенту со склада */
@@ -1202,6 +1213,8 @@ M.addEventListener('click',e=>{
   if(x=t.closest('[data-pc]')){const o=O[+x.dataset.pc];modal('Выплата дизайнеру '+esc(o.designer),`<p>Заказ <b>${esc(o.no)}</b> · ${esc(o.client)}<br>Комиссия: <b>${L(o.com)}</b></p><label>Дата выплаты<input class="t" id="pd" type="date" value="${new Date().toISOString().slice(0,10)}"></label><label>Способ<select class="t" id="pmm"><option>наличные</option><option>перевод</option></select></label>`,()=>{ST.com[o.id]={d:document.getElementById('pd').value,m:document.getElementById('pmm').value};save();build();render();toast('Выплата записана')});return}
   if(x=t.closest('[data-uc]')){const id=x.dataset.uc;ask('Отменить отметку о выплате?',()=>{delete ST.com[id];save();build();render();toast('Выплата отменена')});return}
   if(x=t.closest('[data-rn]')){renameModal(x.dataset.rn,x.dataset.nm);return}
+  if(t.closest('td.ck,th.ck')){if(x=t.closest('[data-sel]')){x.checked?SEL.add(+x.dataset.sel):SEL.delete(+x.dataset.sel)}else if(t.id==='osa')document.querySelectorAll('[data-sel]').forEach(c=>{c.checked=t.checked;t.checked?SEL.add(+c.dataset.sel):SEL.delete(+c.dataset.sel)});selUi();return}
+  if(t.closest('#osdel')){goneMany([...document.querySelectorAll('[data-sel]:checked')].map(c=>+c.dataset.sel));return}
   if(t.closest('#newo')){orderModal();return}
   if(x=t.closest('[data-u]')){unitModal(+x.dataset.u);return}
   if(x=t.closest('[data-ro]')){e.preventDefault();const o=O.find(o=>o.k===key(x.dataset.ro));o?drawer(o.id):toast('Заказ не найден в таблице');return}
@@ -1315,7 +1328,7 @@ async function boot(){
 async function fromSite(){
   const id=new URLSearchParams(location.search).get('from');if(!id)return;
   history.replaceState(null,'',location.pathname);
-  const ex=O.find(o=>o.src===id);if(ex){go('ord');drawer(ex.id);return}
+  const ex=O.find(o=>o.src===id&&o.st!=='gone');if(ex){go('ord');drawer(ex.id);return}
   let v;try{v=await api('/api/order?id='+encodeURIComponent(id))}catch(e){toast('Заказ с сайта не найден');return}
   go('ord');
   orderModal(null,{client:v.name||'',tel:v.tel||'',total:v.tot||0,src:id,site:(v.items||[]).map(i=>({n:i.n,q:i.q,p:i.p}))});
