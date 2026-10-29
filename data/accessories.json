@@ -3,7 +3,7 @@
   "sku": "set-vase-pentru-gatit",
   "name": "Set vase pentru gatit",
   "sub": "",
-  "price": 5000.0,
+  "price": 5000,
   "old": null,
   "desc": [],
   "src": "md",
@@ -63,7 +63,7 @@
   "sku": "sita-inox",
   "name": "Sită inox",
   "sub": "",
-  "price": 1800.0,
+  "price": 1800,
   "old": null,
   "desc": [],
   "src": "md",
@@ -113,7 +113,7 @@
   "sku": "122890011",
   "name": "FlexiGrill",
   "sub": "",
-  "price": 7300.0,
+  "price": 7300,
   "old": null,
   "desc": [],
   "src": "md",
@@ -128,7 +128,7 @@
   "sku": "40199260",
   "name": "MULTIGRATER ROLLING PROFI",
   "sub": "Grătar flexibil chiuvetă",
-  "price": 2600.0,
+  "price": 2600,
   "old": null,
   "desc": [
    "Grătar flexibil chiuvetă",
@@ -186,8 +186,8 @@
   "sku": "111510000",
   "name": "EliteGrill",
   "sub": "",
-  "price": 3800.0,
-  "old": 4800.0,
+  "price": 3800,
+  "old": 4800,
   "desc": [],
   "src": "md",
   "brand": "Teka",
@@ -265,7 +265,7 @@
   "sku": "115890013",
   "name": "TR 550",
   "sub": "Dispozitiv pentru colectarea şi tocarea resturilor",
-  "price": 6900.0,
+  "price": 6900,
   "old": null,
   "desc": [
    "Dispozitiv pentru colectarea şi tocarea resturilor",
@@ -317,10 +317,10 @@
  },
  {
   "sku": "41599012",
-  "name": "STEAMBOX pentru prepararea",
+  "name": "STEAMBOX",
   "sub": "Kitul SteamBox pentru prepararea la aburi în cuptor",
-  "price": 3000.0,
-  "old": null,
+  "price": 3000,
+  "old": 0,
   "desc": [
    "SteamBox",
    "Componente:",
@@ -364,13 +364,14 @@
      ]
     ]
    }
-  ]
+  ],
+  "pdf": []
  },
  {
   "sku": "tocator-de-deseuri-alimentare",
   "name": "TRS 520",
   "sub": "",
-  "price": 5900.0,
+  "price": 5900,
   "old": null,
   "desc": [],
   "src": "md",
@@ -411,7 +412,7 @@
   "sku": "115890050",
   "name": "TRS 720",
   "sub": "",
-  "price": 7500.0,
+  "price": 7500,
   "old": null,
   "desc": [],
   "src": "md",
