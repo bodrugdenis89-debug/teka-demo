@@ -3,7 +3,7 @@
   "sku": "113600011",
   "name": "RVI 20046 GBK",
   "sub": "Refrigerator de vinuri încorporabil, Touch Control, capacitate 44 sticle",
-  "price": 27900.0,
+  "price": 27900,
   "old": null,
   "install": "incorporabil",
   "bottles": 44,
@@ -199,7 +199,7 @@
   "sku": "113600008",
   "name": "RVU 20046 GBK",
   "sub": "Refrigerator de vinuri free-standing, panou de control electronic, capacitate 46 sticle",
-  "price": 26700.0,
+  "price": 26700,
   "old": null,
   "install": "independent",
   "bottles": 46,
@@ -399,7 +399,7 @@
   "sku": "113600010",
   "name": "RVI 20041 GBK",
   "sub": "Refrigerator de vinuri încorporabil, Touch Control, capacitate 41 sticle",
-  "price": 23700.0,
+  "price": 23700,
   "old": null,
   "install": "incorporabil",
   "bottles": 41,
@@ -595,7 +595,7 @@
   "sku": "113610004",
   "name": "RVU 10020 GBK",
   "sub": "Refrigerator de vinuri free-standing, capacitate de 20 de sticle",
-  "price": 15800.0,
+  "price": 15800,
   "old": null,
   "install": "independent",
   "bottles": 20,
@@ -795,7 +795,7 @@
   "sku": "113610003",
   "name": "RVU 10008 GBK",
   "sub": "Refrigerator de vinuri free-standing, cu panou de control electronic Touch Control si capacitate de 8 sticle",
-  "price": 11500.0,
+  "price": 11500,
   "old": null,
   "install": "independent",
   "bottles": 8,
@@ -989,6 +989,7 @@
    "113610003-4.webp",
    "113610003-5.webp",
    "113610003-6.webp"
-  ]
+  ],
+  "st": "order"
  }
 ]
