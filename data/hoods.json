@@ -3536,7 +3536,8 @@
   "b": "Teka",
   "col": "negru",
   "kind": "insula",
-  "w": 90
+  "w": 90,
+  "st": "order"
  },
  {
   "sku": "40487180",
